@@ -1,0 +1,7 @@
+#!/usr/bin/env pwsh
+
+# Load .env file
+$env:DATABASE_URL="prisma+postgres://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfaWQiOjEsInNlY3VyZV9rZXkiOiJza19YcV9PMWc1am4tT1NIZXdud09BdFEiLCJhcGlfa2V5IjoiMDFLR0ZIUFFBTUhONjVFQkRBTUpCWFNNODQiLCJ0ZW5hbnRfaWQiOiI2Y2Y2ODlmZGI4MzkzODViYmI0ZDI1MzNlYTg3YzBjZDFkYjU4ZTNkYmI0ZjdkNDE5MzQ1Y2VjZDBjOTMyN2U0IiwiaW50ZXJuYWxfc2VjcmV0IjoiNDVmNzI2ZjItZDQ2YS00ODNjLWIyZjgtOGYyNTk3MzVhM2I5In0.BrL8drv2Jy86crR-GPBEH5dK8X5x8NJugSRRy1kNI6g"
+
+Write-Host "🌱 Running seed script..." -ForegroundColor Green
+npx tsx prisma/seed.ts

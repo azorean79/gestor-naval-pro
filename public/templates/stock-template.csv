@@ -1,0 +1,5 @@
+nome,categoria,quantidade,quantidadeMinima,precoUnitario,fornecedor,localizacao,refOrey,refFabricante,lote,dataValidade,descricao
+Fachos de Mão,Sinalização,25,5,12.50,Fornecedor A,Armazém 1,REF-001,FAB-001,LOTE-2024-01,2026-01-15,Fachos de mão homologados
+Água Potável 500ml,Equipamento de Sobrevivência,100,20,1.50,Fornecedor B,Armazém 2,REF-002,FAB-002,LOTE-2024-02,2025-12-31,Garrafas de água potável
+Rações de Emergência,Equipamento de Sobrevivência,50,10,8.00,Fornecedor C,Armazém 1,REF-003,FAB-003,LOTE-2024-03,2027-06-30,Rações de emergência compactas
+Coletes Salva-Vidas,Equipamento de Segurança,30,8,45.00,Fornecedor D,Armazém 3,REF-004,FAB-004,LOTE-2024-04,2030-01-01,Coletes salva-vidas homologados

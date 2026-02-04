@@ -1,0 +1,4 @@
+nome,tipo,matricula,bandeira,imo,mmsi,callSign,comprimento,largura,calado,capacidade,anoConstrucao,status,dataInspecao,dataProximaInspecao,clienteId,proprietarioId,delegacao,tecnico
+Navio Cargueiro Lisboa,Cargueiro,PT-2024-001,Portugal,1234567,123456789,NC001,155,26,8.5,5500,2020,ativo,2024-01-15,2025-01-15,,,
+Navio Passageiros Europa,Passageiros,PT-2024-002,Portugal,7654321,987654321,NP001,205,32,10.2,8200,2018,ativo,2024-02-20,2025-02-20,,,
+Barco Pesca Costeira,Pesca Costeira,PT-PC-003,Portugal,1122334,445566778,PC001,24.8,7.2,3.1,150,2019,ativo,2024-03-10,2025-03-10,,,

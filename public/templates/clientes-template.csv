@@ -1,0 +1,4 @@
+nome,email,telefone,endereco,nif,delegacao,tecnico
+Cliente Exemplo 1,cliente1@exemplo.pt,+351 912345678,Rua Exemplo 123, Lisboa,123456789,Açores,Julio Correia
+Cliente Exemplo 2,cliente2@exemplo.pt,+351 987654321,Avenida Central 456, Porto,987654321,Açores,Julio Correia
+Empresa Marítima SA,contacto@maritima.pt,+351 223456789,Zona Industrial, Ponta Delgada,555666777,Açores,Julio Correia

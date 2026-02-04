@@ -1,0 +1,4 @@
+numeroSerie,marcaId,modeloId,lotacaoId,tipoPackId,tipo,dataFabricacao,dataInspecao,navioId,status,clienteId,proprietarioId,tecnico
+5017330300011,1,1,1,1,8 pessoas,2020-01-15,2024-01-15,,ativo,,,
+5017330300012,2,2,2,2,6 pessoas,2019-03-20,2024-02-20,,ativo,,,
+5017330300013,3,3,3,3,10 pessoas,2021-06-10,2024-03-10,,ativo,,,

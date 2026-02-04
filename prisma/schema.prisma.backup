@@ -1,0 +1,339 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Cliente {
+  id                String   @id @default(cuid())
+  nome              String
+  email             String?  @unique
+  telefone          String?
+  endereco          String?
+  nif               String?
+  delegacao         String   @default("Açores")
+  tecnico           String   @default("Julio Correia")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  navios            Navio[]
+  jangadas          Jangada[]
+  certificados      Certificado[]
+  faturas           Fatura[]
+  notificacoes      Notificacao[]
+  obras             Obra[]
+
+  @@map("clientes")
+}
+
+model Navio {
+  id                String   @id @default(cuid())
+  nome              String
+  tipo              String
+  matricula         String   @unique
+  comprimento       Float?
+  largura           Float?
+  calado            Float?
+  capacidade        Float?
+  anoConstrucao     Int?
+  status            String   @default("ativo") // ativo, manutencao, inativo
+  dataInspecao      DateTime?
+  dataProximaInspecao DateTime?
+  clienteId         String?
+  proprietarioId    String?
+  delegacao         String   @default("Açores")
+  tecnico           String   @default("Julio Correia")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  cliente           Cliente?         @relation(fields: [clienteId], references: [id])
+  proprietario      Proprietario?    @relation(fields: [proprietarioId], references: [id])
+  certificados      Certificado[]
+  agendamentos      Agendamento[]
+  faturas           Fatura[]
+  notificacoes      Notificacao[]
+
+  @@map("navios")
+}
+
+model Jangada {
+  id                String   @id @default(cuid())
+  numeroSerie       String   @unique
+  marca             String?
+  modelo            String?
+  tipo              String
+  capacidade        Int?     // lotacao
+  tipoPack          String?
+  itensTipoPack     String?  // JSON string or comma-separated items
+  dataFabricacao    DateTime?
+  dataInspecao      DateTime?
+  dataProximaInspecao DateTime?
+  status            String   @default("ativo") // ativo, manutencao, inativo
+  clienteId         String?
+  proprietarioId    String?
+  tecnico           String   @default("Julio Correia")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  cliente           Cliente?         @relation(fields: [clienteId], references: [id])
+  proprietario      Proprietario?    @relation(fields: [proprietarioId], references: [id])
+  certificados      Certificado[]
+  agendamentos      Agendamento[]
+  faturas           Fatura[]
+  notificacoes      Notificacao[]
+
+  @@map("jangadas")
+}
+
+model Proprietario {
+  id                String   @id @default(cuid())
+  nome              String
+  email             String?  @unique
+  telefone          String?
+  endereco          String?
+  nif               String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  navios            Navio[]
+  jangadas          Jangada[]
+
+  @@map("proprietarios")
+}
+
+model Pessoa {
+  id                String   @id @default(cuid())
+  nome              String
+  email             String?  @unique
+  telefone          String?
+  cargo             String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  agendamentos      Agendamento[]
+
+  @@map("pessoas")
+}
+
+model Certificado {
+  id                String   @id @default(cuid())
+  tipo              String
+  numero            String   @unique
+  dataEmissao       DateTime
+  dataValidade      DateTime
+  entidadeEmissora  String
+  status            String   @default("ativo") // ativo, expirado, suspenso
+  clienteId         String?
+  navioId           String?
+  jangadaId         String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  cliente           Cliente? @relation(fields: [clienteId], references: [id])
+  navio             Navio?   @relation(fields: [navioId], references: [id])
+  jangada           Jangada? @relation(fields: [jangadaId], references: [id])
+
+  @@map("certificados")
+}
+
+model Stock {
+  id                String   @id @default(cuid())
+  nome              String
+  descricao         String?
+  categoria         String
+  quantidade        Int      @default(0)
+  quantidadeMinima  Int      @default(0)
+  precoUnitario     Float?
+  fornecedor        String?
+  localizacao       String?
+  status            String   @default("ativo") // ativo, inativo
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  movimentacoes     MovimentacaoStock[]
+
+  @@map("stock")
+}
+
+model MovimentacaoStock {
+  id                String   @id @default(cuid())
+  stockId           String
+  tipo              String   // entrada, saida
+  quantidade        Int
+  motivo            String?
+  data              DateTime @default(now())
+  responsavel       String?
+
+  // Relations
+  stock             Stock    @relation(fields: [stockId], references: [id], onDelete: Cascade)
+
+  @@map("movimentacoes_stock")
+}
+
+model Cilindro {
+  id                String   @id @default(cuid())
+  numeroSerie       String   @unique
+  tipo              String
+  capacidade        Float?
+  dataFabricacao    DateTime?
+  dataTeste         DateTime?
+  dataProximoTeste  DateTime?
+  status            String   @default("ativo") // ativo, defeituoso, expirado
+  pressaoTrabalho   Float?
+  pressaoTeste      Float?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  agendamentos      Agendamento[]
+  notificacoes      Notificacao[]
+
+  @@map("cilindros")
+}
+
+model Agendamento {
+  id                String   @id @default(cuid())
+  titulo            String
+  descricao         String?
+  dataInicio        DateTime
+  dataFim           DateTime
+  tipo              String   // inspecao, manutencao, teste, reuniao
+  status            String   @default("agendado") // agendado, confirmado, realizado, cancelado
+  prioridade        String   @default("normal") // baixa, normal, alta, urgente
+  navioId           String?
+  jangadaId         String?
+  cilindroId        String?
+  pessoaId          String?
+  responsavel       String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  navio             Navio?    @relation(fields: [navioId], references: [id])
+  jangada           Jangada?  @relation(fields: [jangadaId], references: [id])
+  cilindro          Cilindro? @relation(fields: [cilindroId], references: [id])
+  pessoa            Pessoa?   @relation(fields: [pessoaId], references: [id])
+
+  @@map("agendamentos")
+}
+
+model Fatura {
+  id                String   @id @default(cuid())
+  numero            String   @unique
+  dataEmissao       DateTime
+  dataVencimento    DateTime
+  valor             Float
+  status            String   @default("pendente") // pendente, paga, atrasada, cancelada
+  descricao         String?
+  clienteId         String?
+  navioId           String?
+  jangadaId         String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  cliente           Cliente? @relation(fields: [clienteId], references: [id])
+  navio             Navio?   @relation(fields: [navioId], references: [id])
+  jangada           Jangada? @relation(fields: [jangadaId], references: [id])
+
+  @@map("faturas")
+}
+
+model Notificacao {
+  id                String   @id @default(cuid())
+  titulo            String
+  mensagem          String
+  tipo              String   @default("info") // info, warning, error, success
+  lida              Boolean  @default(false)
+  clienteId         String?
+  navioId           String?
+  jangadaId         String?
+  cilindroId        String?
+  dataEnvio         DateTime @default(now())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  cliente           Cliente?  @relation(fields: [clienteId], references: [id])
+  navio             Navio?    @relation(fields: [navioId], references: [id])
+  jangada           Jangada?  @relation(fields: [jangadaId], references: [id])
+  cilindro          Cilindro? @relation(fields: [cilindroId], references: [id])
+
+  @@map("notificacoes")
+}
+
+model Partner {
+  id                String   @id @default(cuid())
+  nome              String
+  tipo              String   // fornecedor, cliente, parceiro
+  email             String?  @unique
+  telefone          String?
+  endereco          String?
+  nif               String?
+  status            String   @default("ativo")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("partners")
+}
+
+model Obra {
+  id                String   @id @default(cuid())
+  titulo            String
+  descricao         String?
+  status            String   @default("planeada") // planeada, em_curso, concluida, cancelada
+  dataInicio        DateTime?
+  dataFim           DateTime?
+  orcamento         Float?
+  clienteId         String?
+  responsavel       String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  cliente           Cliente? @relation(fields: [clienteId], references: [id])
+
+  @@map("obras")
+}
+
+model PredictiveMaintenance {
+  id                String   @id @default(cuid())
+  equipamentoId     String
+  tipoEquipamento   String   // navio, jangada, cilindro
+  tipoManutencao    String
+  probabilidade     Float
+  severidade        String
+  dataPrevista      DateTime
+  recomendacao      String
+  status            String   @default("pendente")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("predictive_maintenance")
+}
+
+model Relatorio {
+  id                String   @id @default(cuid())
+  titulo            String
+  tipo              String   // financeiro, operacional, tecnico
+  periodoInicio     DateTime
+  periodoFim        DateTime
+  dados             String   // JSON string com dados do relatório
+  criadoPor         String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("relatorios")
+}
