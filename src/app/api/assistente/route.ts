@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { openai, ASSISTENTE_SYSTEM_PROMPT } from '@/lib/openai';
+import { geminiJulinho } from '@/lib/gemini';
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,21 +12,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Call OpenAI API
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: [
-        {
-          role: 'system',
-          content: ASSISTENTE_SYSTEM_PROMPT,
-        },
-        ...messages,
-      ],
-      temperature: 0.7,
-      max_tokens: 1000,
-    });
-
-    const responseMessage = completion.choices[0]?.message?.content || 'Desculpe, não consegui processar a sua mensagem.';
+    // Call Gemini API
+    const responseMessage = await geminiJulinho(messages);
 
     // Parse action if present
     let action = null;
@@ -57,7 +44,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       message: cleanMessage || responseMessage,
       action,
-      usage: completion.usage,
     });
   } catch (error: any) {
     console.error('Erro na API do assistente:', error);

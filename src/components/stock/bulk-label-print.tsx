@@ -272,8 +272,8 @@ export function BulkLabelPrint({ stockItems, open, onOpenChange }: BulkLabelPrin
                   </div>
                 ` : ''}
                 ${config.showImage && item.imagem ? `
-                  <div class="label-image">
-                    <img src="${item.imagem}" alt="${item.nome}" />
+                  <div class="label-image" style="text-align: center; margin: 6px 0; padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 3px;">
+                    <img src="${item.imagem}" alt="${item.nome}" style="width: 100%; max-height: 60px; object-fit: contain;" />
                   </div>
                 ` : ''}
                 <div class="label-info">

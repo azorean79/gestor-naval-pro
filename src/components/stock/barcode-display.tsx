@@ -178,10 +178,14 @@ export function StockLabel({
                 .label-image {
                   text-align: center;
                   margin: 4px 0;
+                  padding: 6px;
+                  background-color: #f9f9f9;
+                  border: 1px solid #e5e5e5;
+                  border-radius: 4px;
                 }
                 .label-image img {
-                  max-width: 60px;
-                  max-height: 40px;
+                  width: 100%;
+                  max-height: 50px;
                   object-fit: contain;
                 }
                 .label-barcode {
@@ -289,11 +293,11 @@ export function StockLabel({
 
       {/* Imagem do item */}
       {showImage && stockItem.imagem && (
-        <div className="flex justify-center mb-2">
+        <div className="flex justify-center mb-2 bg-gray-50 rounded p-2 border border-gray-200">
           <img
             src={stockItem.imagem}
             alt={stockItem.nome}
-            className="max-w-16 max-h-12 object-contain rounded"
+            className="w-full h-20 object-contain rounded"
           />
         </div>
       )}

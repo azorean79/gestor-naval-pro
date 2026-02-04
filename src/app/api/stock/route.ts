@@ -116,29 +116,6 @@ export async function POST(request: NextRequest) {
       }
     })
 
-    // Criar tabela se não existir
-    await prisma.$queryRaw`
-      CREATE TABLE IF NOT EXISTS "stock" (
-        "id" TEXT PRIMARY KEY,
-        "nome" TEXT NOT NULL,
-        "descricao" TEXT,
-        "categoria" TEXT NOT NULL,
-        "quantidade" INTEGER DEFAULT 0,
-        "quantidadeMinima" INTEGER DEFAULT 0,
-        "precoUnitario" REAL,
-        "fornecedor" TEXT,
-        "localizacao" TEXT,
-        "refOrey" TEXT,
-        "refFabricante" TEXT,
-        "lote" TEXT,
-        "dataValidade" TIMESTAMP,
-        "imagem" TEXT,
-        "status" TEXT DEFAULT 'ativo',
-        "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        "updatedAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-      )
-    `;
-
     const item = await prisma.stock.create({
       data: {
         nome: nome.trim(),

@@ -86,19 +86,18 @@ export function ImageUpload({
       />
 
       {preview ? (
-        <div className="relative group">
+        <div className="relative group border-2 border-dashed border-gray-300 rounded-lg p-2 bg-gray-50">
           <img
             src={preview}
             alt="Preview"
-            className="w-full h-32 object-cover rounded-lg border"
+            className="w-full h-40 object-contain rounded"
           />
           {!disabled && (
-            <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+            <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity rounded flex items-center justify-center gap-2">
               <Button
                 variant="destructive"
                 size="sm"
                 onClick={handleRemoveImage}
-                className="mr-2"
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -117,7 +116,7 @@ export function ImageUpload({
       ) : (
         <div
           onClick={handleClick}
-          className={`w-full h-32 border-2 border-dashed rounded-lg flex flex-col items-center justify-center cursor-pointer transition-colors ${
+          className={`w-full h-40 border-2 border-dashed rounded-lg flex flex-col items-center justify-center cursor-pointer transition-colors ${
             disabled || isUploading
               ? 'border-gray-300 bg-gray-50 cursor-not-allowed'
               : 'border-gray-300 hover:border-gray-400 hover:bg-gray-50'

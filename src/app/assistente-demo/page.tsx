@@ -129,7 +129,7 @@ export default function AssistenteDemoPage() {
             Assistente Inteligente de Gestão Naval
           </p>
           <p className="text-sm text-gray-500">
-            Powered by OpenAI GPT-4o-mini • Disponível em toda a aplicação
+            Powered by Google Gemini • Disponível em toda a aplicação
           </p>
         </div>
 

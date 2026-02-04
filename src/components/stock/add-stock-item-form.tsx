@@ -434,11 +434,11 @@ export function AddStockItemForm({ open, onOpenChange, onSuccess }: AddStockItem
               </div>
 
               {imagePreview && (
-                <div className="relative inline-block">
+                <div className="relative inline-block border-2 border-dashed border-gray-300 rounded-lg p-2 bg-gray-50">
                   <img
                     src={imagePreview}
                     alt="Preview"
-                    className="max-w-32 max-h-32 object-cover rounded border"
+                    className="w-40 h-40 object-contain rounded"
                   />
                   <Button
                     type="button"

@@ -69,24 +69,6 @@ export async function POST(request: NextRequest) {
       responsavelManutencao,
     } = body
 
-    // Ensure table exists
-    await prisma.$queryRaw`CREATE TABLE IF NOT EXISTS "inspecoes" (
-      "id" TEXT PRIMARY KEY DEFAULT gen_random_uuid(),
-      "numero" TEXT UNIQUE,
-      "tipoInspecao" TEXT,
-      "resultado" TEXT,
-      "observacoes" TEXT,
-      "tecnico" TEXT,
-      "navioId" TEXT,
-      "jangadaId" TEXT,
-      "cilindroId" TEXT,
-      "dataInspecao" TIMESTAMP,
-      "dataProxima" TIMESTAMP,
-      "status" TEXT,
-      "createdAt" TIMESTAMP DEFAULT NOW(),
-      "updatedAt" TIMESTAMP DEFAULT NOW()
-    )`;
-
     // Gerar número único
     const ultimaInspecao = await prisma.inspecao.findFirst({
       orderBy: { numero: 'desc' },

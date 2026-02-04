@@ -47,11 +47,23 @@ function DashboardPage() {
 
         if (response.ok) {
           const result = await response.json();
-          alert(`✅ Seeding concluído!\n\nDados criados:\n- ${result.dados.clientes} clientes\n- ${result.dados.navios} navios\n- ${result.dados.jangadas} jangadas\n- ${result.dados.stock} itens de stock`);
-          window.location.reload(); // Recarregar a página para mostrar os novos dados
+          const dados = result.dados || result.data;
+
+          if (!result.success && dados) {
+            alert(`ℹ️ ${result.message || 'Base de dados já contém dados.'}\n\nEstado atual:\n- ${dados.clientes ?? 0} clientes\n- ${dados.navios ?? 0} navios\n- ${dados.jangadas ?? 0} jangadas\n- ${dados.stock ?? 0} itens de stock`);
+            return;
+          }
+
+          if (dados) {
+            alert(`✅ Seeding concluído!\n\nDados criados:\n- ${dados.clientes ?? 0} clientes\n- ${dados.navios ?? 0} navios\n- ${dados.jangadas ?? 0} jangadas\n- ${dados.stock ?? 0} itens de stock`);
+            window.location.reload(); // Recarregar a página para mostrar os novos dados
+            return;
+          }
+
+          alert(`❌ Erro no seeding: resposta inesperada do servidor.`);
         } else {
           const error = await response.json();
-          alert(`❌ Erro no seeding: ${error.error}`);
+          alert(`❌ Erro no seeding: ${error.error || error.message || 'Erro desconhecido'}`);
         }
       } catch (error) {
         alert(`❌ Erro ao executar seeding: ${error instanceof Error ? error.message : 'Erro desconhecido'}`);

@@ -23,15 +23,6 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
-    // Ensure table exists
-    await prisma.$queryRaw`CREATE TABLE IF NOT EXISTS "lotacoes_jangada" (
-      "id" TEXT PRIMARY KEY DEFAULT gen_random_uuid(),
-      "capacidade" INTEGER,
-      "ativo" BOOLEAN DEFAULT true,
-      "createdAt" TIMESTAMP DEFAULT NOW(),
-      "updatedAt" TIMESTAMP DEFAULT NOW()
-    )`;
-
     const lotacao = await prisma.lotacaoJangada.create({
       data: {
         capacidade: body.capacidade,

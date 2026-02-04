@@ -65,20 +65,6 @@ export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
 
-    // Ensure table exists
-    await prisma.$queryRaw`CREATE TABLE IF NOT EXISTS "clientes" (
-      "id" TEXT PRIMARY KEY DEFAULT gen_random_uuid(),
-      "nome" TEXT,
-      "email" TEXT UNIQUE,
-      "telefone" TEXT,
-      "endereco" TEXT,
-      "nif" TEXT UNIQUE,
-      "delegacao" TEXT DEFAULT 'Açores',
-      "tecnico" TEXT DEFAULT 'Julio Correia',
-      "createdAt" TIMESTAMP DEFAULT NOW(),
-      "updatedAt" TIMESTAMP DEFAULT NOW()
-    )`;
-
     const cliente = await prisma.cliente.create({
       data: {
         nome: data.nome,
@@ -87,7 +73,7 @@ export async function POST(request: NextRequest) {
         endereco: data.endereco,
         nif: data.nif,
         delegacao: data.delegacao || 'Açores',
-        tecnico: data.tecnico,
+        tecnico: data.tecnico || 'Julio Correia',
       },
     });
 
@@ -95,6 +81,14 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Erro ao criar cliente:', error);
+    if (error && typeof error === 'object' && 'code' in error) {
+      if (error.code === 'P2002') {
+        return NextResponse.json(
+          { error: 'Já existe um cliente com este email ou NIF' },
+          { status: 400 }
+        );
+      }
+    }
     return NextResponse.json(
       { error: 'Erro ao criar cliente' },
       { status: 500 }

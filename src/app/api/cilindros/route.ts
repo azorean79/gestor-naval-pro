@@ -78,27 +78,6 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
-    // Criar tabela se não existir
-    await prisma.$queryRaw`
-      CREATE TABLE IF NOT EXISTS "cilindros" (
-        "id" TEXT PRIMARY KEY,
-        "numeroSerie" TEXT NOT NULL UNIQUE,
-        "tipo" TEXT NOT NULL,
-        "sistemaId" TEXT,
-        "tipoCilindroId" TEXT,
-        "tipoValvulaId" TEXT,
-        "capacidade" REAL,
-        "dataFabricacao" TIMESTAMP,
-        "dataTeste" TIMESTAMP,
-        "dataProximoTeste" TIMESTAMP,
-        "status" TEXT DEFAULT 'ativo',
-        "pressaoTrabalho" REAL,
-        "pressaoTeste" REAL,
-        "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        "updatedAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-      )
-    `;
-
     const cilindro = await prisma.cilindro.create({
       data: {
         numeroSerie: body.numeroSerie,

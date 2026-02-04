@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         success: false,
         message: 'Base de dados já contém dados. Seed não executado.',
-        data: { clientes: clienteCount, navios: navioCount, jangadas: jangadaCount }
+        dados: { clientes: clienteCount, navios: navioCount, jangadas: jangadaCount, stock: 0 }
       })
     }
 
@@ -222,6 +222,7 @@ export async function POST(request: NextRequest) {
 
     console.log('✅ Seeding concluído com sucesso via API!')
     const resultado = {
+      success: true,
       message: 'Seeding concluído com sucesso!',
       dados: {
         clientes: clientesCriados.length,
