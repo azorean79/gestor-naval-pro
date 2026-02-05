@@ -24,6 +24,15 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
+    // Validar input
+    const nome = body.nome?.trim();
+    if (!nome) {
+      return NextResponse.json(
+        { error: 'Nome do tipo de pack é obrigatório' },
+        { status: 400 }
+      );
+    }
+
     // Ensure table exists
     await prisma.$queryRaw`CREATE TABLE IF NOT EXISTS "tipos_pack" (
       "id" TEXT PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -34,9 +43,21 @@ export async function POST(request: NextRequest) {
       "updatedAt" TIMESTAMP DEFAULT NOW()
     )`;
 
+    // Verificar se já existe
+    const tipoPackExistente = await prisma.tipoPack.findUnique({
+      where: { nome: nome },
+    });
+
+    if (tipoPackExistente) {
+      return NextResponse.json(
+        { error: 'Já existe um tipo de pack com este nome' },
+        { status: 400 }
+      );
+    }
+
     const tipoPack = await prisma.tipoPack.create({
       data: {
-        nome: body.nome,
+        nome: nome,
         ativo: true,
       },
     });
@@ -44,8 +65,18 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(tipoPack);
   } catch (error) {
     console.error('Error creating tipo pack:', error);
+    
+    // Handle Prisma errors
+    const err = error as any;
+    if (err?.code === 'P2002') {
+      return NextResponse.json(
+        { error: 'Já existe um tipo de pack com este nome' },
+        { status: 400 }
+      );
+    }
+    
     return NextResponse.json(
-      { error: 'Failed to create tipo pack' },
+      { error: 'Falha ao criar tipo de pack' },
       { status: 500 }
     );
   }

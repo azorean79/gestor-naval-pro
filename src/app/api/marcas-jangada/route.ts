@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { rateLimit } from '@/lib/rate-limit';
 
 export async function GET() {
   try {
@@ -19,12 +20,37 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
+  // Rate limiting: máximo 5 criações por minuto por IP
+  const rateLimitResponse = rateLimit(request, 5, 60000);
+  if (rateLimitResponse) return rateLimitResponse;
+
   try {
     const body = await request.json();
 
+    // Validar input
+    const nome = body.nome?.trim();
+    if (!nome) {
+      return NextResponse.json(
+        { error: 'Nome da marca é obrigatório' },
+        { status: 400 }
+      );
+    }
+
+    // Verificar se já existe
+    const marcaExistente = await prisma.marcaJangada.findUnique({
+      where: { nome: nome },
+    });
+
+    if (marcaExistente) {
+      return NextResponse.json(
+        { error: 'Já existe uma marca com este nome' },
+        { status: 400 }
+      );
+    }
+
     const marca = await prisma.marcaJangada.create({
       data: {
-        nome: body.nome,
+        nome: nome,
         ativo: true,
       },
     });
@@ -33,18 +59,17 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Error creating marca:', error);
     
-    // Handle specific Prisma errors
-    if (error && typeof error === 'object' && 'code' in error) {
-      if (error.code === 'P2002') {
-        return NextResponse.json(
-          { error: 'Já existe uma marca com este nome' },
-          { status: 400 }
-        );
-      }
+    // Handle Prisma errors
+    const err = error as any;
+    if (err?.code === 'P2002') {
+      return NextResponse.json(
+        { error: 'Já existe uma marca com este nome' },
+        { status: 400 }
+      );
     }
     
     return NextResponse.json(
-      { error: 'Failed to create marca' },
+      { error: 'Falha ao criar marca' },
       { status: 500 }
     );
   }
