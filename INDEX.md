@@ -1,20 +1,29 @@
 # 📚 ÍNDICE COMPLETO - Gestor Naval Pro + Julinho IA
 
-## 📖 LEIA PRIMEIRO
+## 📖 COMECE AQUI 🚀
 
-### 🚀 [SUMARIO-EXECUTIVO.md](SUMARIO-EXECUTIVO.md)
-**O que você precisa saber em 2 minutos**
-- Status final ✅
-- Stats rápidas
-- O que foi entregue
-- Próximas ações
-- Custos estimados
+### ⚡ [DEPLOY-AGORA.txt](DEPLOY-AGORA.txt) - ATALHO RÁPIDO
+**Deploy em 3 passos** (Leia primeiro!)
+- Status: ✅ PRONTO PARA VERCEL
+- Execute: `python deploy-vercel.py`
+
+### 📊 [RELATORIO-DEPLOY-VERCEL.md](RELATORIO-DEPLOY-VERCEL.md)
+**Relatório final de preparação**
+- Todos os problemas resolvidos
+- Checklist de sucesso
+- Como fazer deploy
+
+### ✅ [DEPLOY-VERCEL-CHECKLIST.md](DEPLOY-VERCEL-CHECKLIST.md)
+**Checklist completo de deploy**
+- Pré-deploy local
+- Deploy no Vercel
+- Testes pós-deploy
 
 ---
 
 ## 🛠️ SETUP & DEPLOYMENT
 
-### 1️⃣ [SETUP-INICIAL.md](SETUP-INICIAL.md) ⭐ COMECE AQUI
+### 1️⃣ [SETUP-INICIAL.md](SETUP-INICIAL.md) ⭐ COMECE AQUI (Se novo)
 **Guia passo-a-passo para primeiro deploy**
 - Configurar OpenAI API key
 - Configurar Database (Vercel Postgres/Railway)
