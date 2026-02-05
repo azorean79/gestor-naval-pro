@@ -1,0 +1,413 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - link "Gestor Naval Pro" [ref=e7] [cursor=pointer]:
+            - /url: /dashboard
+          - generic [ref=e8]:
+            - link "Jangadas" [ref=e9] [cursor=pointer]:
+              - /url: /jangadas
+            - link "Stock" [ref=e10] [cursor=pointer]:
+              - /url: /stock
+            - link "Marcas" [ref=e11] [cursor=pointer]:
+              - /url: /marcas
+            - link "Modelos" [ref=e12] [cursor=pointer]:
+              - /url: /modelos
+            - link "Componentes" [ref=e13] [cursor=pointer]:
+              - /url: /componentes
+            - link "Clientes" [ref=e14] [cursor=pointer]:
+              - /url: /clientes
+            - link "Navios" [ref=e15] [cursor=pointer]:
+              - /url: /navios
+            - link "Cilindros" [ref=e16] [cursor=pointer]:
+              - /url: /cilindros
+            - link "Agenda" [ref=e17] [cursor=pointer]:
+              - /url: /gestao/agenda
+            - link "Alertas" [ref=e18] [cursor=pointer]:
+              - /url: /alertas
+            - link "Inspeções" [ref=e19] [cursor=pointer]:
+              - /url: /inspecoes
+            - link "Logística" [ref=e20] [cursor=pointer]:
+              - /url: /logistica
+            - link "Estação de Serviço" [ref=e21] [cursor=pointer]:
+              - /url: /estacao-servico
+        - generic [ref=e22]:
+          - button "Popular BD" [ref=e23]:
+            - img
+            - text: Popular BD
+          - button "Configurações" [ref=e24]:
+            - img
+            - text: Configurações
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - heading "Dashboard" [level=1] [ref=e27]
+        - paragraph [ref=e28]: Visão geral do sistema Marine Safe Station
+        - paragraph [ref=e29]: "Última atualização: 05/02/2026, 10:59"
+      - generic [ref=e31]:
+        - generic [ref=e33]: Técnico Atual
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - generic [ref=e36]: "Técnico:"
+            - generic [ref=e37]: Julio Correia
+          - generic [ref=e38]:
+            - button "Julio Correia" [ref=e39]
+            - button "Alex Santos" [ref=e40]
+          - paragraph [ref=e41]: Selecione o técnico para visualizar apenas os dados associados a ele.
+      - generic [ref=e43]:
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - generic [ref=e47]:
+              - img [ref=e49]
+              - img [ref=e52]
+            - generic [ref=e55]:
+              - generic [ref=e56]: Julinho - Assistente Inteligente
+              - generic [ref=e57]: Bom dia! Monitorando 0 jangada nos próximos 30 dias.
+          - button "Atualizar" [ref=e58]:
+            - img
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - generic [ref=e61]:
+              - generic [ref=e62]: "0"
+              - generic [ref=e63]: Agendamentos Hoje
+            - generic [ref=e64]:
+              - generic [ref=e65]: "0"
+              - generic [ref=e66]: Jangadas 30 dias
+            - generic [ref=e67]:
+              - generic [ref=e68]: "0"
+              - generic [ref=e69]: Cilindros Expirados
+            - generic [ref=e70]:
+              - generic [ref=e71]: "0"
+              - generic [ref=e72]: Obras Abertas
+          - generic [ref=e73]:
+            - heading "Alertas Críticos (1)" [level=4] [ref=e74]:
+              - img [ref=e75]
+              - text: Alertas Críticos (1)
+            - generic [ref=e79]:
+              - generic [ref=e80]:
+                - generic [ref=e81]: 📦 1 item com stock crítico
+                - generic [ref=e82]: Média
+              - paragraph [ref=e83]: DAVIT-LOWERING-SYSTEM
+          - generic [ref=e84]:
+            - heading "Sugestões do Julinho" [level=4] [ref=e85]:
+              - img [ref=e86]
+              - text: Sugestões do Julinho
+            - generic [ref=e90]:
+              - generic [ref=e91]: 🛒
+              - generic [ref=e92]:
+                - paragraph [ref=e93]: 📦 Repor 1 item de stock
+                - paragraph [ref=e94]: Stock abaixo do mínimo. Fazer encomenda aos fornecedores.
+              - button [ref=e95]:
+                - img
+      - generic [ref=e96]:
+        - generic [ref=e97]:
+          - generic [ref=e98]:
+            - img [ref=e99]
+            - text: Acesso Rápido
+          - generic [ref=e101]: Navegue rapidamente para as principais áreas do sistema
+        - generic [ref=e103]:
+          - link "Jangadas" [ref=e104] [cursor=pointer]:
+            - /url: /jangadas
+            - button "Jangadas" [ref=e105]:
+              - img
+              - generic [ref=e106]: Jangadas
+          - link "Navios" [ref=e107] [cursor=pointer]:
+            - /url: /navios
+            - button "Navios" [ref=e108]:
+              - img
+              - generic [ref=e109]: Navios
+          - link "Clientes" [ref=e110] [cursor=pointer]:
+            - /url: /clientes
+            - button "Clientes" [ref=e111]:
+              - img
+              - generic [ref=e112]: Clientes
+          - link "Stock" [ref=e113] [cursor=pointer]:
+            - /url: /stock
+            - button "Stock" [ref=e114]:
+              - img
+              - generic [ref=e115]: Stock
+          - link "Marcas" [ref=e116] [cursor=pointer]:
+            - /url: /marcas
+            - button "Marcas" [ref=e117]:
+              - img
+              - generic [ref=e118]: Marcas
+          - link "Modelos" [ref=e119] [cursor=pointer]:
+            - /url: /modelos
+            - button "Modelos" [ref=e120]:
+              - img
+              - generic [ref=e121]: Modelos
+          - link "Componentes" [ref=e122] [cursor=pointer]:
+            - /url: /componentes
+            - button "Componentes" [ref=e123]:
+              - img
+              - generic [ref=e124]: Componentes
+          - button "Upload IA" [ref=e125]:
+            - img
+            - generic [ref=e126]: Upload IA
+          - link "Cilindros" [ref=e127] [cursor=pointer]:
+            - /url: /cilindros
+            - button "Cilindros" [ref=e128]:
+              - img
+              - generic [ref=e129]: Cilindros
+          - link "Inspeções" [ref=e130] [cursor=pointer]:
+            - /url: /inspecoes
+            - button "Inspeções" [ref=e131]:
+              - img
+              - generic [ref=e132]: Inspeções
+          - link "Agenda" [ref=e133] [cursor=pointer]:
+            - /url: /gestao/agenda
+            - button "Agenda" [ref=e134]:
+              - img
+              - generic [ref=e135]: Agenda
+          - link "Alertas" [ref=e136] [cursor=pointer]:
+            - /url: /alertas
+            - button "Alertas" [ref=e137]:
+              - img
+              - generic [ref=e138]: Alertas
+          - link "Obras" [ref=e139] [cursor=pointer]:
+            - /url: /obras
+            - button "Obras" [ref=e140]:
+              - img
+              - generic [ref=e141]: Obras
+          - link "Faturas" [ref=e142] [cursor=pointer]:
+            - /url: /faturas
+            - button "Faturas" [ref=e143]:
+              - img
+              - generic [ref=e144]: Faturas
+      - button "Alertas ▶" [ref=e147]:
+        - generic [ref=e148]:
+          - img
+          - generic [ref=e149]: Alertas
+        - generic [ref=e150]: ▶
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - generic [ref=e153]:
+            - img [ref=e154]
+            - text: Notificações Inteligentes
+          - generic [ref=e157]: Alertas automáticos baseados no status dos equipamentos
+        - generic [ref=e160]:
+          - generic [ref=e161]:
+            - img [ref=e162]
+            - generic [ref=e164]:
+              - generic [ref=e165]:
+                - heading "Manutenção Urgente Necessária" [level=4] [ref=e166]
+                - generic [ref=e167]: Aviso
+              - paragraph [ref=e168]: 3 equipamento(s) vencem em até 30 dias. Planeje a manutenção.
+              - link "Ver Equipamentos" [ref=e169] [cursor=pointer]:
+                - /url: /jangadas
+          - button [ref=e170]:
+            - img
+      - generic [ref=e172]:
+        - generic [ref=e174]:
+          - img [ref=e175]
+          - text: Resumo Executivo
+        - generic [ref=e178]:
+          - generic [ref=e179]:
+            - generic [ref=e180]: Sistema estável
+            - generic [ref=e181]:
+              - img
+              - text: 0% aprovação
+          - generic [ref=e182]:
+            - generic [ref=e183]:
+              - generic [ref=e184]: Inspeções no período
+              - generic [ref=e185]: "0"
+              - generic [ref=e186]: 0 aprovadas · 0 reprovadas
+            - generic [ref=e187]:
+              - generic [ref=e188]: Custos associados
+              - generic [ref=e189]: €0
+              - generic [ref=e190]: Somatório dos custos de inspeção
+            - generic [ref=e191]:
+              - generic [ref=e192]: Pendências críticas
+              - generic [ref=e193]: "0"
+              - generic [ref=e194]: Inspeções e manutenções vencidas
+      - generic [ref=e196]:
+        - generic [ref=e197]:
+          - generic [ref=e198]:
+            - img [ref=e199]
+            - text: Timeline de Expiração
+          - generic [ref=e202]: Cronograma de vencimentos dos próximos 90 dias
+        - generic [ref=e209]:
+          - generic [ref=e210]:
+            - heading "Semana de 28/03" [level=4] [ref=e211]
+            - generic [ref=e212]: 3 items
+          - generic [ref=e213]:
+            - generic [ref=e214]:
+              - generic [ref=e215]:
+                - img [ref=e216]
+                - generic [ref=e218]: Kits de Primeiros Socorros
+                - generic [ref=e219]: componente
+              - generic [ref=e221]: 56 dias
+            - generic [ref=e223]:
+              - generic [ref=e224]:
+                - img [ref=e225]
+                - generic [ref=e227]: Foguetes com Paraquedas
+                - generic [ref=e228]: componente
+              - generic [ref=e230]: 57 dias
+            - generic [ref=e232]:
+              - generic [ref=e233]:
+                - img [ref=e234]
+                - generic [ref=e236]: Rações de Emergência
+                - generic [ref=e237]: componente
+              - generic [ref=e239]: 57 dias
+      - generic [ref=e241]:
+        - generic [ref=e242]:
+          - generic [ref=e243]:
+            - generic [ref=e244]:
+              - generic [ref=e245]:
+                - img [ref=e246]
+                - generic [ref=e250]: Crítico
+              - generic [ref=e251]: "0"
+            - generic [ref=e252]: Requer ação imediata
+          - generic [ref=e255]: Nenhum item nesta categoria
+        - generic [ref=e256]:
+          - generic [ref=e257]:
+            - generic [ref=e258]:
+              - generic [ref=e259]:
+                - img [ref=e260]
+                - generic [ref=e262]: Urgente
+              - generic [ref=e263]: "3"
+            - generic [ref=e264]: Ação necessária em breve
+          - generic [ref=e265]:
+            - generic [ref=e266]:
+              - generic [ref=e267]:
+                - generic [ref=e268]: Foguetes com Paraquedas
+                - generic [ref=e269]: 57d
+              - generic [ref=e270]:
+                - generic [ref=e271]: Kits de Primeiros Socorros
+                - generic [ref=e272]: 56d
+              - generic [ref=e273]:
+                - generic [ref=e274]: Rações de Emergência
+                - generic [ref=e275]: 57d
+            - link "Ver detalhes →" [ref=e277] [cursor=pointer]:
+              - /url: /cilindros
+        - generic [ref=e278]:
+          - generic [ref=e279]:
+            - generic [ref=e280]:
+              - generic [ref=e281]:
+                - img [ref=e282]
+                - generic [ref=e285]: Atenção
+              - generic [ref=e286]: "0"
+            - generic [ref=e287]: Monitorar de perto
+          - generic [ref=e290]: Nenhum item nesta categoria
+        - generic [ref=e291]:
+          - generic [ref=e292]:
+            - generic [ref=e293]:
+              - generic [ref=e294]:
+                - img [ref=e295]
+                - generic [ref=e298]: Normal
+              - generic [ref=e299]: "0"
+            - generic [ref=e300]: Dentro dos parâmetros
+          - generic [ref=e303]: Nenhum item nesta categoria
+      - generic [ref=e304]:
+        - link "Jangadas 10 0 ativas 0 manutenção" [ref=e305] [cursor=pointer]:
+          - /url: /jangadas
+          - generic [ref=e306]:
+            - generic [ref=e307]:
+              - generic [ref=e308]: Jangadas
+              - img [ref=e309]
+            - generic [ref=e312]:
+              - generic [ref=e313]: "10"
+              - generic [ref=e314]:
+                - generic [ref=e315]: 0 ativas
+                - generic [ref=e316]: 0 manutenção
+        - link "Navios 6 6 ativas 0 manutenção 6 expirando" [ref=e317] [cursor=pointer]:
+          - /url: /navios
+          - generic [ref=e318]:
+            - generic [ref=e319]:
+              - generic [ref=e320]: Navios
+              - img [ref=e321]
+            - generic [ref=e325]:
+              - generic [ref=e326]: "6"
+              - generic [ref=e327]:
+                - generic [ref=e328]: 6 ativas
+                - generic [ref=e329]: 0 manutenção
+                - generic [ref=e330]: 6 expirando
+        - link "Clientes 4 4 ativos +0 este mês" [ref=e331] [cursor=pointer]:
+          - /url: /clientes
+          - generic [ref=e332]:
+            - generic [ref=e333]:
+              - generic [ref=e334]: Clientes
+              - img [ref=e335]
+            - generic [ref=e340]:
+              - generic [ref=e341]: "4"
+              - generic [ref=e342]:
+                - generic [ref=e343]: 4 ativos
+                - generic [ref=e344]: +0 este mês
+        - link "Stock €1,369,440" [ref=e345] [cursor=pointer]:
+          - /url: /stock
+          - generic [ref=e346]:
+            - generic [ref=e347]:
+              - generic [ref=e348]: Stock
+              - img [ref=e349]
+            - generic [ref=e354]: €1,369,440
+        - link "Cilindros 0" [ref=e355] [cursor=pointer]:
+          - /url: /cilindros
+          - generic [ref=e356]:
+            - generic [ref=e357]:
+              - generic [ref=e358]: Cilindros
+              - img [ref=e359]
+            - generic [ref=e362]: "0"
+        - link "Agenda 0 0 esta semana 0 este mês" [ref=e363] [cursor=pointer]:
+          - /url: /gestao/agenda
+          - generic [ref=e364]:
+            - generic [ref=e365]:
+              - generic [ref=e366]: Agenda
+              - img [ref=e367]
+            - generic [ref=e369]:
+              - generic [ref=e370]: "0"
+              - generic [ref=e371]:
+                - generic [ref=e372]: 0 esta semana
+                - generic [ref=e373]: 0 este mês
+      - generic [ref=e374]:
+        - generic [ref=e375]:
+          - generic [ref=e376]:
+            - img [ref=e377]
+            - text: Alertas e Notificações
+          - generic [ref=e379]: Itens que requerem atenção imediata
+        - generic [ref=e382]:
+          - generic [ref=e383]:
+            - paragraph [ref=e384]: Sistema OK
+            - paragraph [ref=e385]: Nenhum alerta pendente no momento
+          - generic [ref=e386]: Tudo bem
+      - generic [ref=e387]:
+        - generic [ref=e388]:
+          - generic [ref=e389]: Ações Rápidas
+          - generic [ref=e390]: Acesso direto às funcionalidades mais utilizadas
+        - generic [ref=e392]:
+          - link "Nova Jangada" [ref=e393] [cursor=pointer]:
+            - /url: /jangadas/novo
+            - button "Nova Jangada" [ref=e394]:
+              - img
+              - text: Nova Jangada
+          - link "Novo Navio" [ref=e395] [cursor=pointer]:
+            - /url: /navios/novo
+            - button "Novo Navio" [ref=e396]:
+              - img
+              - text: Novo Navio
+          - link "Novo Cliente" [ref=e397] [cursor=pointer]:
+            - /url: /clientes/novo
+            - button "Novo Cliente" [ref=e398]:
+              - img
+              - text: Novo Cliente
+          - link "Ver Inspeções" [ref=e399] [cursor=pointer]:
+            - /url: /inspecoes
+            - button "Ver Inspeções" [ref=e400]:
+              - img
+              - text: Ver Inspeções
+          - link "Agendar" [ref=e401] [cursor=pointer]:
+            - /url: /gestao/agenda
+            - button "Agendar" [ref=e402]:
+              - img
+              - text: Agendar
+  - button [ref=e404]:
+    - generic [ref=e405]:
+      - img
+      - img
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e411] [cursor=pointer]:
+    - img [ref=e412]
+  - alert [ref=e415]
+```

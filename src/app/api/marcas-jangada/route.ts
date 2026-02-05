@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { rateLimit } from '@/lib/rate-limit';
+import { withErrorMonitoring } from '@/lib/monitoring';
 
 export async function GET() {
   try {
@@ -20,11 +21,12 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
-  // Rate limiting: máximo 5 criações por minuto por IP
-  const rateLimitResponse = rateLimit(request, 5, 60000);
-  if (rateLimitResponse) return rateLimitResponse;
+  return withErrorMonitoring(async (req) => {
+    // Rate limiting: máximo 5 criações por minuto por IP
+    const rateLimitResponse = rateLimit(req, 5, 60000);
+    if (rateLimitResponse) return rateLimitResponse;
 
-  try {
+    try {
     const body = await request.json();
 
     // Validar input
@@ -73,4 +75,5 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
+}, request);
 }
