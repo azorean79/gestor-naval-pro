@@ -16,8 +16,7 @@ export async function GET(request: NextRequest) {
       include: {
         marca: true,
       },
-      orderBy: { nome: 'asc' },
-      cacheStrategy: { ttl: 300 }
+      orderBy: { nome: 'asc' }
     });
 
     return NextResponse.json({ data: modelos });

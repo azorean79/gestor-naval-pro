@@ -5,8 +5,7 @@ export async function GET() {
   try {
     const tiposPack = await prisma.tipoPack.findMany({
       where: { ativo: true },
-      orderBy: { nome: 'asc' },
-      cacheStrategy: { ttl: 300 }
+      orderBy: { nome: 'asc' }
     });
 
     return NextResponse.json({

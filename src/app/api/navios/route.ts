@@ -43,8 +43,7 @@ export async function GET(request: NextRequest) {
     }
 
     const total = await prisma.navio.count({ 
-      where,
-      cacheStrategy: { ttl: 300 } // Cache por 5 minutos
+      where
     });
 
     const navios = await prisma.navio.findMany({
@@ -57,8 +56,7 @@ export async function GET(request: NextRequest) {
       include: {
         cliente: true,
         proprietario: true,
-      },
-      cacheStrategy: { ttl: 300 } // Cache por 5 minutos
+      }
     });
 
     return NextResponse.json({

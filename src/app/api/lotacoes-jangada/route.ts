@@ -5,8 +5,7 @@ export async function GET() {
   try {
     const lotacoes = await prisma.lotacaoJangada.findMany({
       where: { ativo: true },
-      orderBy: { capacidade: 'asc' },
-      cacheStrategy: { ttl: 300 }
+      orderBy: { capacidade: 'asc' }
     });
 
     return NextResponse.json({ data: lotacoes });
