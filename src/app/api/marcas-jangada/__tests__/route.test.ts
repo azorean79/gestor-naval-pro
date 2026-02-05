@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import { POST } from './route';
+import { POST } from '../route';
 
 describe('/api/marcas-jangada POST', () => {
   it('deve criar marca com sucesso', async () => {
@@ -45,5 +45,4 @@ describe('/api/marcas-jangada POST', () => {
     expect(response.status).toBe(400);
     expect(data.error).toContain('obrigatório');
   });
-});</content>
-<parameter name="filePath">c:\Users\julio\Desktop\APLICACAO MASTER\LIFERAFT1.0\gestor-naval-pro\src\app\api\marcas-jangada\__tests__\route.test.ts
+});

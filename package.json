@@ -23,8 +23,8 @@
     "db:execute-simple": "tsx scripts/execute-sql-simple.ts",
     "db:studio": "npx prisma studio",
     "barcodes:generate": "tsx scripts/gerar-codigos-barra.ts",
-    "monitor": "node scripts/monitor.js",
-    "monitor:dev": "NODE_ENV=development node scripts/monitor.js"
+    "monitor:dev": "NODE_ENV=development node scripts/monitor.js",
+    "production": "node scripts/deploy-production.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.72.1",

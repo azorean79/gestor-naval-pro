@@ -103,8 +103,8 @@ function DashboardPage() {
                 <Link href="/modelos" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                   Modelos
                 </Link>
-                <Link href="/componentes" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                  Componentes
+                <Link href="/stock" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  Stock
                 </Link>
                 <Link href="/clientes" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                   Clientes
@@ -233,14 +233,14 @@ function DashboardPage() {
                   <span className="text-sm font-medium">Modelos</span>
                 </Button>
               </Link>
-              <Link href="/componentes">
+              <Link href="/stock">
                 <Button variant="default" className="w-full h-20 flex flex-col items-center justify-center gap-2 bg-lime-600 hover:bg-lime-700">
                   <Package className="h-6 w-6" />
-                  <span className="text-sm font-medium">Componentes</span>
+                  <span className="text-sm font-medium">Stock</span>
                 </Button>
               </Link>
-              <Button 
-                variant="default" 
+              <Button
+                variant="default"
                 className="w-full h-20 flex flex-col items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700"
                 onClick={() => setShowDocumentUpload(true)}
               >
