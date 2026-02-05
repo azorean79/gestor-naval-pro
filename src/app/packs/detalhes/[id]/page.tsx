@@ -187,7 +187,7 @@ export default function PackDetailPage() {
                       <div 
                         key={comp.id} 
                         className="p-4 border border-indigo-200 rounded-lg hover:bg-indigo-50 transition-colors cursor-pointer"
-                        onClick={() => router.push(`/stock/detalhes/${comp.id}`)}
+                        onClick={() => router.push(`/componentes/${comp.id}`)}
                       >
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
@@ -323,7 +323,7 @@ export default function PackDetailPage() {
                 <Card 
                   key={comp.id}
                   className="cursor-pointer hover:shadow-lg transition-shadow"
-                  onClick={() => router.push(`/stock/detalhes/${comp.id}`)}
+                  onClick={() => router.push(`/componentes/${comp.id}`)}
                 >
                   <CardHeader className="pb-3">
                     <CardTitle className="text-base">{comp.nome}</CardTitle>
