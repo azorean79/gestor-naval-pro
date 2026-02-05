@@ -1,10 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
+import { Checkbox } from '@/components/ui/checkbox'
 import {
   Dialog,
   DialogContent,
@@ -22,6 +23,7 @@ import {
 } from '@/components/ui/select'
 import { useCreateModeloJangada, useUpdateModeloJangada } from '@/hooks/use-modelos-jangada'
 import { useMarcasJangada } from '@/hooks/use-marcas-jangada'
+import { useStock } from '@/hooks/use-stock'
 
 interface AddModeloFormProps {
   modelo?: any
@@ -36,13 +38,33 @@ export function AddModeloForm({ modelo, onClose, onSuccess }: AddModeloFormProps
     descricao: modelo?.descricao || '',
     status: modelo?.status || 'ativo',
   })
+  const [itemSearch, setItemSearch] = useState('')
+  const [selectedItems, setSelectedItems] = useState<Record<string, { quantidade: number }>>({})
 
   const createModelo = useCreateModeloJangada()
   const updateModelo = useUpdateModeloJangada()
   const { data: marcasResponse } = useMarcasJangada({ limit: 100 })
+  const { data: stockResponse, isLoading: stockLoading } = useStock({
+    search: itemSearch || undefined,
+    status: 'ativo',
+    limit: 200,
+  })
 
   const marcas = marcasResponse?.data || []
+  const stockItems = stockResponse?.data || []
   const isEditing = !!modelo
+
+  useEffect(() => {
+    if (modelo?.itensModelo && Array.isArray(modelo.itensModelo)) {
+      const initial: Record<string, { quantidade: number }> = {}
+      modelo.itensModelo.forEach((item: any) => {
+        if (item?.stockId) {
+          initial[item.stockId] = { quantidade: item.quantidade || 1 }
+        }
+      })
+      setSelectedItems(initial)
+    }
+  }, [modelo])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -53,6 +75,11 @@ export function AddModeloForm({ modelo, onClose, onSuccess }: AddModeloFormProps
     }
 
     try {
+      const itensModelo = Object.entries(selectedItems).map(([stockId, value]) => ({
+        stockId,
+        quantidade: value.quantidade || 1,
+      }))
+
       if (isEditing) {
         await updateModelo.mutateAsync({
           id: modelo.id,
@@ -61,6 +88,7 @@ export function AddModeloForm({ modelo, onClose, onSuccess }: AddModeloFormProps
             marcaId: formData.marcaId,
             descricao: formData.descricao || undefined,
             status: formData.status,
+            itensModelo,
           },
         })
       } else {
@@ -69,6 +97,7 @@ export function AddModeloForm({ modelo, onClose, onSuccess }: AddModeloFormProps
           marcaId: formData.marcaId,
           descricao: formData.descricao || undefined,
           status: formData.status,
+          itensModelo,
         })
       }
       onSuccess()
@@ -79,6 +108,27 @@ export function AddModeloForm({ modelo, onClose, onSuccess }: AddModeloFormProps
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
+  }
+
+  const handleToggleItem = (stockId: string, checked: boolean) => {
+    setSelectedItems((prev) => {
+      if (!checked) {
+        const { [stockId]: _, ...rest } = prev
+        return rest
+      }
+      return {
+        ...prev,
+        [stockId]: { quantidade: prev[stockId]?.quantidade || 1 },
+      }
+    })
+  }
+
+  const handleQuantidadeChange = (stockId: string, value: string) => {
+    const quantidade = Math.max(1, Number(value) || 1)
+    setSelectedItems((prev) => ({
+      ...prev,
+      [stockId]: { quantidade },
+    }))
   }
 
   return (
@@ -146,6 +196,54 @@ export function AddModeloForm({ modelo, onClose, onSuccess }: AddModeloFormProps
                 <SelectItem value="inativo">Inativo</SelectItem>
               </SelectContent>
             </Select>
+          </div>
+
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <Label>Componentes e Itens do Modelo</Label>
+              <span className="text-sm text-muted-foreground">
+                {Object.keys(selectedItems).length} selecionado(s)
+              </span>
+            </div>
+            <Input
+              placeholder="Buscar itens no stock..."
+              value={itemSearch}
+              onChange={(e) => setItemSearch(e.target.value)}
+            />
+
+            <div className="max-h-64 overflow-auto rounded-md border p-2">
+              {stockLoading ? (
+                <div className="text-sm text-muted-foreground">Carregando itens...</div>
+              ) : stockItems.length === 0 ? (
+                <div className="text-sm text-muted-foreground">Nenhum item encontrado</div>
+              ) : (
+                <div className="space-y-2">
+                  {stockItems.map((item: any) => {
+                    const checked = !!selectedItems[item.id]
+                    return (
+                      <div key={item.id} className="flex items-center gap-3 rounded-md px-2 py-1 hover:bg-muted">
+                        <Checkbox
+                          checked={checked}
+                          onCheckedChange={(value) => handleToggleItem(item.id, Boolean(value))}
+                        />
+                        <div className="flex-1">
+                          <div className="text-sm font-medium">{item.nome}</div>
+                          <div className="text-xs text-muted-foreground">{item.categoria}</div>
+                        </div>
+                        <Input
+                          type="number"
+                          min={1}
+                          className="w-20"
+                          value={selectedItems[item.id]?.quantidade || 1}
+                          onChange={(e) => handleQuantidadeChange(item.id, e.target.value)}
+                          disabled={!checked}
+                        />
+                      </div>
+                    )
+                  })}
+                </div>
+              )}
+            </div>
           </div>
 
           <DialogFooter>

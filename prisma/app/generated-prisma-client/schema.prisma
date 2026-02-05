@@ -121,6 +121,7 @@ model Jangada {
   faturas             Fatura[]
   notificacoes        Notificacao[]
   inspecoes           Inspecao[]
+  obras               Obra[]
   inspecaoComponentes InspecaoComponente[]
   envioItens          EnvioItem[]
 
@@ -161,15 +162,20 @@ model Pessoa {
 
 model Certificado {
   id               String   @id @default(cuid())
+  nome             String? // Nome descritivo do certificado
   tipo             String
   numero           String   @unique
   dataEmissao      DateTime
   dataValidade     DateTime
   entidadeEmissora String
   status           String   @default("ativo") // ativo, expirado, suspenso
+  filePath         String? // Caminho do arquivo do certificado
+  notas            String? // Observações adicionais
   clienteId        String?
   navioId          String?
   jangadaId        String?
+  obraId           String? // Obra relacionada
+  inspecaoId       String? // Inspeção relacionada
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
@@ -177,6 +183,8 @@ model Certificado {
   cliente    Cliente?    @relation(fields: [clienteId], references: [id])
   navio      Navio?      @relation(fields: [navioId], references: [id])
   jangada    Jangada?    @relation(fields: [jangadaId], references: [id])
+  obra       Obra?       @relation(fields: [obraId], references: [id])
+  inspecao   Inspecao?   @relation(fields: [inspecaoId], references: [id])
   envioItens EnvioItem[] // Certificados enviados
 
   @@map("certificados")
@@ -206,6 +214,7 @@ model Stock {
   movimentacoes MovimentacaoStock[]
   envioItens    EnvioItem[]
   tarefas       Tarefa[]
+  modelosItens  ModeloJangadaItem[]
 
   @@unique([nome, categoria])
   @@map("stock")
@@ -345,19 +354,27 @@ model Partner {
 
 model Obra {
   id          String    @id @default(cuid())
+  codigo      String?   @unique // Código único da obra (ex: FO10260001)
   titulo      String
   descricao   String?
+  tipo        String? // reforma, manutencao, ampliacao, modernizacao, vistoria, certificacao
   status      String    @default("planeada") // planeada, em_curso, concluida, cancelada
   dataInicio  DateTime?
   dataFim     DateTime?
   orcamento   Float?
+  filePath    String? // Caminho do arquivo da obra
   clienteId   String?
+  jangadaId   String? // Jangada relacionada
+  inspecaoId  String? // Inspeção que originou a obra
   responsavel String?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 
   // Relations
-  cliente Cliente? @relation(fields: [clienteId], references: [id])
+  cliente      Cliente?      @relation(fields: [clienteId], references: [id])
+  jangada      Jangada?      @relation(fields: [jangadaId], references: [id])
+  inspecao     Inspecao?     @relation(fields: [inspecaoId], references: [id])
+  certificados Certificado[]
 
   @@map("obras")
 }
@@ -393,25 +410,29 @@ model Relatorio {
 }
 
 model Inspecao {
-  id           String    @id @default(cuid())
-  numero       String    @unique
-  tipoInspecao String // anual, extraordinaria, inicial, final
-  dataInspecao DateTime
-  dataProxima  DateTime?
-  resultado    String // aprovada, reprovada, pendente
-  status       String    @default("pendente") // pendente, realizada, cancelada
-  tecnico      String
-  observacoes  String?
-  navioId      String?
-  jangadaId    String?
-  cilindroId   String?
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+  id                 String    @id @default(cuid())
+  numero             String    @unique
+  numeroSerieJangada String? // Número de série da jangada inspecionada
+  tipoInspecao       String // anual, extraordinaria, inicial, final, visual, mecanica, eletrica, seguranca, ambiental, geral
+  dataInspecao       DateTime
+  dataProxima        DateTime?
+  resultado          String // aprovada, reprovada, pendente, conforme, nao_conforme, nao_conforme_critico
+  status             String    @default("pendente") // pendente, realizada, cancelada, agendada, em_execucao
+  tecnico            String
+  observacoes        String?
+  filePath           String? // Caminho do arquivo do quadro de inspeção
+  navioId            String?
+  jangadaId          String?
+  cilindroId         String?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
 
   // Relations
   navio                   Navio?                   @relation(fields: [navioId], references: [id])
   jangada                 Jangada?                 @relation(fields: [jangadaId], references: [id])
   cilindro                Cilindro?                @relation(fields: [cilindroId], references: [id])
+  obras                   Obra[]
+  certificados            Certificado[]
   custos                  CustoInspecao[]
   historicos              HistoricoInspecao[]
   substituicoesComponente SubstituicaoComponente[]
@@ -518,9 +539,26 @@ model ModeloJangada {
   marca          MarcaJangada           @relation(fields: [marcaId], references: [id])
   jangadas       Jangada[]
   especificacoes EspecificacaoTecnica[]
+  itensModelo    ModeloJangadaItem[]
 
   @@unique([nome, marcaId])
   @@map("modelos_jangada")
+}
+
+model ModeloJangadaItem {
+  id         String   @id @default(cuid())
+  modeloId   String
+  stockId    String
+  quantidade Int      @default(1)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Relations
+  modelo ModeloJangada @relation(fields: [modeloId], references: [id], onDelete: Cascade)
+  stock  Stock         @relation(fields: [stockId], references: [id])
+
+  @@unique([modeloId, stockId])
+  @@map("modelos_jangada_itens")
 }
 
 model LotacaoJangada {

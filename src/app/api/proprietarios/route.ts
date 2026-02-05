@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
     const proprietarios = await prisma.proprietario.findMany({
       where,
       orderBy: { nome: 'asc' },
-      cacheStrategy: { ttl: 300 }
+
     });
 
     return NextResponse.json({ 

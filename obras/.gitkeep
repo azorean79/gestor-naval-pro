@@ -1,0 +1,18 @@
+# Pasta de Obras
+
+Esta pasta armazena documentação e informações relacionadas às obras e manutenção das embarcações.
+
+## Estrutura
+
+- `/projetos` - Projetos de obras
+- `/relatorios` - Relatórios de obras
+- `/acompanhamento` - Documentos de acompanhamento
+- `/orçamentos` - Orçamentos das obras
+- `/contratos` - Contratos e acordos
+
+## Organização
+
+Recomenda-se organizar por:
+- Embarcação/Jangada
+- Período/Ano
+- Tipo de obra

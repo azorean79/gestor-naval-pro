@@ -10,6 +10,16 @@ export interface ModelosFilters {
   limit?: number
 }
 
+export interface ModeloJangadaForm {
+  nome: string
+  marcaId: string
+  descricao?: string
+  status?: string
+  sistemaInsuflacao?: string
+  valvulasPadrao?: string
+  itensModelo?: Array<{ stockId: string; quantidade: number }>
+}
+
 export function useModelosJangada(filters: ModelosFilters = {}) {
   return useQuery({
     queryKey: ['modelos-jangada', filters],
@@ -35,7 +45,7 @@ export function useCreateModeloJangada() {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: async (data: { nome: string; marcaId: string; descricao?: string; status?: string }) => {
+    mutationFn: async (data: ModeloJangadaForm) => {
       const response = await fetch('/api/modelos-jangada', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -54,7 +64,7 @@ export function useUpdateModeloJangada() {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: async ({ id, data }: { id: string, data: Partial<{ nome: string; marcaId: string; descricao: string; status: string }> }) => {
+    mutationFn: async ({ id, data }: { id: string, data: Partial<ModeloJangadaForm> }) => {
       const response = await fetch(`/api/modelos-jangada/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Plus, Search, Edit, Trash2, Package } from 'lucide-react'
+import { Plus, Search, Edit, Package } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -75,7 +75,7 @@ export default function ModelosPage() {
             Gestão de Modelos
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
-            Controle e gestão dos modelos de jangadas
+            Controle e gestão dos modelos de jangadas com seus componentes
           </p>
         </div>
         <Button onClick={() => setShowAddForm(true)} className="bg-blue-600 hover:bg-blue-700">
@@ -212,15 +212,12 @@ export default function ModelosPage() {
                     </TableCell>
                     <TableCell>
                       <div className="flex gap-2">
-                        <Button 
-                          variant="ghost" 
+                        <Button
+                          variant="ghost"
                           size="sm"
                           onClick={() => setEditingModelo(modelo)}
                         >
                           <Edit className="h-4 w-4" />
-                        </Button>
-                        <Button variant="ghost" size="sm" className="text-red-600 hover:text-red-700">
-                          <Trash2 className="h-4 w-4" />
                         </Button>
                       </div>
                     </TableCell>
