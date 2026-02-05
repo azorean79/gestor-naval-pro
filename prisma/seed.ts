@@ -109,6 +109,86 @@ async function main() {
   // Buscar navios criados
   const naviosCriados = await prisma.navio.findMany()
 
+  // Criar marcas, modelos e lotações de jangadas
+  console.log('🏷️ Criando marcas de jangadas...')
+  const marcas = [
+    { nome: 'ZODIAC' },
+    { nome: 'VIKING' },
+    { nome: 'SURVITEC' },
+    { nome: 'RFD' },
+    { nome: 'SWITLIK' },
+    { nome: 'ARIMAR' },
+    { nome: 'EUROVINIL' },
+    { nome: 'PLASTIMO' }
+  ]
+
+  for (const marca of marcas) {
+    await prisma.marcaJangada.upsert({
+      where: { nome: marca.nome },
+      update: {},
+      create: { nome: marca.nome, ativo: true }
+    })
+  }
+
+  const marcasCriadas = await prisma.marcaJangada.findMany()
+  const zodiacId = marcasCriadas.find(m => m.nome === 'ZODIAC')?.id
+  const vikingId = marcasCriadas.find(m => m.nome === 'VIKING')?.id
+  const survitecId = marcasCriadas.find(m => m.nome === 'SURVITEC')?.id
+
+  console.log('📐 Criando modelos de jangadas...')
+  if (zodiacId) {
+    const modelosZodiac = [
+      { nome: 'COASTER', marcaId: zodiacId, sistemaInsuflacao: 'THANNER', valvulasPadrao: 'OTS65' },
+      { nome: 'PROPECHE CLV', marcaId: zodiacId, sistemaInsuflacao: 'THANNER', valvulasPadrao: 'OTS65' },
+      { nome: 'TRANSOCEAN', marcaId: zodiacId, sistemaInsuflacao: 'THANNER', valvulasPadrao: 'OTS65' }
+    ]
+    for (const modelo of modelosZodiac) {
+      await prisma.modeloJangada.upsert({
+        where: { nome_marcaId: { nome: modelo.nome, marcaId: modelo.marcaId } },
+        update: {},
+        create: modelo
+      })
+    }
+  }
+
+  if (vikingId) {
+    const modelosViking = [
+      { nome: 'RescYou', marcaId: vikingId, sistemaInsuflacao: 'Leafield', valvulasPadrao: 'A10/B10' },
+      { nome: 'Coastal', marcaId: vikingId, sistemaInsuflacao: 'Leafield', valvulasPadrao: 'A10/B10' }
+    ]
+    for (const modelo of modelosViking) {
+      await prisma.modeloJangada.upsert({
+        where: { nome_marcaId: { nome: modelo.nome, marcaId: modelo.marcaId } },
+        update: {},
+        create: modelo
+      })
+    }
+  }
+
+  if (survitecId) {
+    const modelosSurvitec = [
+      { nome: 'SeaSafe', marcaId: survitecId, sistemaInsuflacao: 'THANNER', valvulasPadrao: 'OTS65' },
+      { nome: 'Ocean', marcaId: survitecId, sistemaInsuflacao: 'THANNER', valvulasPadrao: 'OTS65' }
+    ]
+    for (const modelo of modelosSurvitec) {
+      await prisma.modeloJangada.upsert({
+        where: { nome_marcaId: { nome: modelo.nome, marcaId: modelo.marcaId } },
+        update: {},
+        create: modelo
+      })
+    }
+  }
+
+  console.log('👥 Criando lotações de jangadas...')
+  const capacidades = [4, 6, 8, 10, 12, 16, 20, 25, 30, 35, 40, 50]
+  for (const capacidade of capacidades) {
+    await prisma.lotacaoJangada.upsert({
+      where: { capacidade },
+      update: {},
+      create: { capacidade, ativo: true }
+    })
+  }
+
   // Criar jangadas usando os exemplos
   console.log('🛟 Criando jangadas...')
   for (let i = 0; i < Math.min(EXEMPLOS_JANGADAS.length, 10); i++) {
