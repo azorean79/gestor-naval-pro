@@ -215,15 +215,20 @@ exports.Prisma.PessoaScalarFieldEnum = {
 
 exports.Prisma.CertificadoScalarFieldEnum = {
   id: 'id',
+  nome: 'nome',
   tipo: 'tipo',
   numero: 'numero',
   dataEmissao: 'dataEmissao',
   dataValidade: 'dataValidade',
   entidadeEmissora: 'entidadeEmissora',
   status: 'status',
+  filePath: 'filePath',
+  notas: 'notas',
   clienteId: 'clienteId',
   navioId: 'navioId',
   jangadaId: 'jangadaId',
+  obraId: 'obraId',
+  inspecaoId: 'inspecaoId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -343,13 +348,18 @@ exports.Prisma.PartnerScalarFieldEnum = {
 
 exports.Prisma.ObraScalarFieldEnum = {
   id: 'id',
+  codigo: 'codigo',
   titulo: 'titulo',
   descricao: 'descricao',
+  tipo: 'tipo',
   status: 'status',
   dataInicio: 'dataInicio',
   dataFim: 'dataFim',
   orcamento: 'orcamento',
+  filePath: 'filePath',
   clienteId: 'clienteId',
+  jangadaId: 'jangadaId',
+  inspecaoId: 'inspecaoId',
   responsavel: 'responsavel',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -384,6 +394,7 @@ exports.Prisma.RelatorioScalarFieldEnum = {
 exports.Prisma.InspecaoScalarFieldEnum = {
   id: 'id',
   numero: 'numero',
+  numeroSerieJangada: 'numeroSerieJangada',
   tipoInspecao: 'tipoInspecao',
   dataInspecao: 'dataInspecao',
   dataProxima: 'dataProxima',
@@ -391,6 +402,7 @@ exports.Prisma.InspecaoScalarFieldEnum = {
   status: 'status',
   tecnico: 'tecnico',
   observacoes: 'observacoes',
+  filePath: 'filePath',
   navioId: 'navioId',
   jangadaId: 'jangadaId',
   cilindroId: 'cilindroId',
@@ -463,6 +475,15 @@ exports.Prisma.ModeloJangadaScalarFieldEnum = {
   sistemaInsuflacao: 'sistemaInsuflacao',
   valvulasPadrao: 'valvulasPadrao',
   ativo: 'ativo',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ModeloJangadaItemScalarFieldEnum = {
+  id: 'id',
+  modeloId: 'modeloId',
+  stockId: 'stockId',
+  quantidade: 'quantidade',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -682,6 +703,7 @@ exports.Prisma.ModelName = {
   SubstituicaoComponente: 'SubstituicaoComponente',
   MarcaJangada: 'MarcaJangada',
   ModeloJangada: 'ModeloJangada',
+  ModeloJangadaItem: 'ModeloJangadaItem',
   LotacaoJangada: 'LotacaoJangada',
   EspecificacaoTecnica: 'EspecificacaoTecnica',
   ConteudoPack: 'ConteudoPack',

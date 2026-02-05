@@ -28,8 +28,7 @@ export async function GET(request: NextRequest) {
     }
 
     const total = await prisma.cliente.count({ 
-      where,
-      cacheStrategy: { ttl: 300 } // Cache por 5 minutos
+      where
     });
 
     const clientes = await prisma.cliente.findMany({
@@ -38,8 +37,7 @@ export async function GET(request: NextRequest) {
         [sortBy]: sortOrder,
       },
       skip: (page - 1) * limit,
-      take: limit,
-      cacheStrategy: { ttl: 300 } // Cache por 5 minutos
+      take: limit
     });
 
     return NextResponse.json({

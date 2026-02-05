@@ -54,8 +54,7 @@ export async function GET(request: NextRequest) {
     }
 
     const total = await prisma.jangada.count({ 
-      where,
-      cacheStrategy: { ttl: 300 } // Cache por 5 minutos
+      where
     });
 
     const jangadas = await prisma.jangada.findMany({
@@ -71,8 +70,7 @@ export async function GET(request: NextRequest) {
         marca: true,
         modelo: true,
         lotacao: true,
-      },
-      cacheStrategy: { ttl: 300 } // Cache por 5 minutos
+      }
     });
 
     return NextResponse.json({

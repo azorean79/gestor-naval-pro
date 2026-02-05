@@ -129,6 +129,11 @@ export type MarcaJangada = $Result.DefaultSelection<Prisma.$MarcaJangadaPayload>
  */
 export type ModeloJangada = $Result.DefaultSelection<Prisma.$ModeloJangadaPayload>
 /**
+ * Model ModeloJangadaItem
+ * 
+ */
+export type ModeloJangadaItem = $Result.DefaultSelection<Prisma.$ModeloJangadaItemPayload>
+/**
  * Model LotacaoJangada
  * 
  */
@@ -530,6 +535,16 @@ export class PrismaClient<
     * ```
     */
   get modeloJangada(): Prisma.ModeloJangadaDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.modeloJangadaItem`: Exposes CRUD operations for the **ModeloJangadaItem** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ModeloJangadaItems
+    * const modeloJangadaItems = await prisma.modeloJangadaItem.findMany()
+    * ```
+    */
+  get modeloJangadaItem(): Prisma.ModeloJangadaItemDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.lotacaoJangada`: Exposes CRUD operations for the **LotacaoJangada** model.
@@ -1097,6 +1112,7 @@ export namespace Prisma {
     SubstituicaoComponente: 'SubstituicaoComponente',
     MarcaJangada: 'MarcaJangada',
     ModeloJangada: 'ModeloJangada',
+    ModeloJangadaItem: 'ModeloJangadaItem',
     LotacaoJangada: 'LotacaoJangada',
     EspecificacaoTecnica: 'EspecificacaoTecnica',
     ConteudoPack: 'ConteudoPack',
@@ -1123,7 +1139,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "cliente" | "navio" | "jangada" | "proprietario" | "pessoa" | "certificado" | "stock" | "movimentacaoStock" | "cilindro" | "agendamento" | "fatura" | "notificacao" | "partner" | "obra" | "predictiveMaintenance" | "relatorio" | "inspecao" | "custoInspecao" | "historicoInspecao" | "inspecaoComponente" | "substituicaoComponente" | "marcaJangada" | "modeloJangada" | "lotacaoJangada" | "especificacaoTecnica" | "conteudoPack" | "sistemaCilindro" | "tipoCilindro" | "tipoPack" | "tipoValvula" | "envio" | "envioItem" | "correspondencia" | "tarefa"
+      modelProps: "cliente" | "navio" | "jangada" | "proprietario" | "pessoa" | "certificado" | "stock" | "movimentacaoStock" | "cilindro" | "agendamento" | "fatura" | "notificacao" | "partner" | "obra" | "predictiveMaintenance" | "relatorio" | "inspecao" | "custoInspecao" | "historicoInspecao" | "inspecaoComponente" | "substituicaoComponente" | "marcaJangada" | "modeloJangada" | "modeloJangadaItem" | "lotacaoJangada" | "especificacaoTecnica" | "conteudoPack" | "sistemaCilindro" | "tipoCilindro" | "tipoPack" | "tipoValvula" | "envio" | "envioItem" | "correspondencia" | "tarefa"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2829,6 +2845,80 @@ export namespace Prisma {
           }
         }
       }
+      ModeloJangadaItem: {
+        payload: Prisma.$ModeloJangadaItemPayload<ExtArgs>
+        fields: Prisma.ModeloJangadaItemFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ModeloJangadaItemFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModeloJangadaItemPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ModeloJangadaItemFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModeloJangadaItemPayload>
+          }
+          findFirst: {
+            args: Prisma.ModeloJangadaItemFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModeloJangadaItemPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ModeloJangadaItemFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModeloJangadaItemPayload>
+          }
+          findMany: {
+            args: Prisma.ModeloJangadaItemFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModeloJangadaItemPayload>[]
+          }
+          create: {
+            args: Prisma.ModeloJangadaItemCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModeloJangadaItemPayload>
+          }
+          createMany: {
+            args: Prisma.ModeloJangadaItemCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ModeloJangadaItemCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModeloJangadaItemPayload>[]
+          }
+          delete: {
+            args: Prisma.ModeloJangadaItemDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModeloJangadaItemPayload>
+          }
+          update: {
+            args: Prisma.ModeloJangadaItemUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModeloJangadaItemPayload>
+          }
+          deleteMany: {
+            args: Prisma.ModeloJangadaItemDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ModeloJangadaItemUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ModeloJangadaItemUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModeloJangadaItemPayload>[]
+          }
+          upsert: {
+            args: Prisma.ModeloJangadaItemUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModeloJangadaItemPayload>
+          }
+          aggregate: {
+            args: Prisma.ModeloJangadaItemAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateModeloJangadaItem>
+          }
+          groupBy: {
+            args: Prisma.ModeloJangadaItemGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ModeloJangadaItemGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ModeloJangadaItemCountArgs<ExtArgs>
+            result: $Utils.Optional<ModeloJangadaItemCountAggregateOutputType> | number
+          }
+        }
+      }
       LotacaoJangada: {
         payload: Prisma.$LotacaoJangadaPayload<ExtArgs>
         fields: Prisma.LotacaoJangadaFieldRefs
@@ -3774,6 +3864,7 @@ export namespace Prisma {
     substituicaoComponente?: SubstituicaoComponenteOmit
     marcaJangada?: MarcaJangadaOmit
     modeloJangada?: ModeloJangadaOmit
+    modeloJangadaItem?: ModeloJangadaItemOmit
     lotacaoJangada?: LotacaoJangadaOmit
     especificacaoTecnica?: EspecificacaoTecnicaOmit
     conteudoPack?: ConteudoPackOmit
@@ -4040,6 +4131,7 @@ export namespace Prisma {
     faturas: number
     notificacoes: number
     inspecoes: number
+    obras: number
     inspecaoComponentes: number
     envioItens: number
   }
@@ -4050,6 +4142,7 @@ export namespace Prisma {
     faturas?: boolean | JangadaCountOutputTypeCountFaturasArgs
     notificacoes?: boolean | JangadaCountOutputTypeCountNotificacoesArgs
     inspecoes?: boolean | JangadaCountOutputTypeCountInspecoesArgs
+    obras?: boolean | JangadaCountOutputTypeCountObrasArgs
     inspecaoComponentes?: boolean | JangadaCountOutputTypeCountInspecaoComponentesArgs
     envioItens?: boolean | JangadaCountOutputTypeCountEnvioItensArgs
   }
@@ -4098,6 +4191,13 @@ export namespace Prisma {
    */
   export type JangadaCountOutputTypeCountInspecoesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: InspecaoWhereInput
+  }
+
+  /**
+   * JangadaCountOutputType without action
+   */
+  export type JangadaCountOutputTypeCountObrasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ObraWhereInput
   }
 
   /**
@@ -4225,12 +4325,14 @@ export namespace Prisma {
     movimentacoes: number
     envioItens: number
     tarefas: number
+    modelosItens: number
   }
 
   export type StockCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     movimentacoes?: boolean | StockCountOutputTypeCountMovimentacoesArgs
     envioItens?: boolean | StockCountOutputTypeCountEnvioItensArgs
     tarefas?: boolean | StockCountOutputTypeCountTarefasArgs
+    modelosItens?: boolean | StockCountOutputTypeCountModelosItensArgs
   }
 
   // Custom InputTypes
@@ -4263,6 +4365,13 @@ export namespace Prisma {
    */
   export type StockCountOutputTypeCountTarefasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TarefaWhereInput
+  }
+
+  /**
+   * StockCountOutputType without action
+   */
+  export type StockCountOutputTypeCountModelosItensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModeloJangadaItemWhereInput
   }
 
 
@@ -4316,16 +4425,51 @@ export namespace Prisma {
 
 
   /**
+   * Count Type ObraCountOutputType
+   */
+
+  export type ObraCountOutputType = {
+    certificados: number
+  }
+
+  export type ObraCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    certificados?: boolean | ObraCountOutputTypeCountCertificadosArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ObraCountOutputType without action
+   */
+  export type ObraCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ObraCountOutputType
+     */
+    select?: ObraCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ObraCountOutputType without action
+   */
+  export type ObraCountOutputTypeCountCertificadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CertificadoWhereInput
+  }
+
+
+  /**
    * Count Type InspecaoCountOutputType
    */
 
   export type InspecaoCountOutputType = {
+    obras: number
+    certificados: number
     custos: number
     historicos: number
     substituicoesComponente: number
   }
 
   export type InspecaoCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    obras?: boolean | InspecaoCountOutputTypeCountObrasArgs
+    certificados?: boolean | InspecaoCountOutputTypeCountCertificadosArgs
     custos?: boolean | InspecaoCountOutputTypeCountCustosArgs
     historicos?: boolean | InspecaoCountOutputTypeCountHistoricosArgs
     substituicoesComponente?: boolean | InspecaoCountOutputTypeCountSubstituicoesComponenteArgs
@@ -4340,6 +4484,20 @@ export namespace Prisma {
      * Select specific fields to fetch from the InspecaoCountOutputType
      */
     select?: InspecaoCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * InspecaoCountOutputType without action
+   */
+  export type InspecaoCountOutputTypeCountObrasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ObraWhereInput
+  }
+
+  /**
+   * InspecaoCountOutputType without action
+   */
+  export type InspecaoCountOutputTypeCountCertificadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CertificadoWhereInput
   }
 
   /**
@@ -4420,11 +4578,13 @@ export namespace Prisma {
   export type ModeloJangadaCountOutputType = {
     jangadas: number
     especificacoes: number
+    itensModelo: number
   }
 
   export type ModeloJangadaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     jangadas?: boolean | ModeloJangadaCountOutputTypeCountJangadasArgs
     especificacoes?: boolean | ModeloJangadaCountOutputTypeCountEspecificacoesArgs
+    itensModelo?: boolean | ModeloJangadaCountOutputTypeCountItensModeloArgs
   }
 
   // Custom InputTypes
@@ -4450,6 +4610,13 @@ export namespace Prisma {
    */
   export type ModeloJangadaCountOutputTypeCountEspecificacoesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: EspecificacaoTecnicaWhereInput
+  }
+
+  /**
+   * ModeloJangadaCountOutputType without action
+   */
+  export type ModeloJangadaCountOutputTypeCountItensModeloArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModeloJangadaItemWhereInput
   }
 
 
@@ -8000,6 +8167,7 @@ export namespace Prisma {
     faturas?: boolean | Jangada$faturasArgs<ExtArgs>
     notificacoes?: boolean | Jangada$notificacoesArgs<ExtArgs>
     inspecoes?: boolean | Jangada$inspecoesArgs<ExtArgs>
+    obras?: boolean | Jangada$obrasArgs<ExtArgs>
     inspecaoComponentes?: boolean | Jangada$inspecaoComponentesArgs<ExtArgs>
     envioItens?: boolean | Jangada$envioItensArgs<ExtArgs>
     _count?: boolean | JangadaCountOutputTypeDefaultArgs<ExtArgs>
@@ -8129,6 +8297,7 @@ export namespace Prisma {
     faturas?: boolean | Jangada$faturasArgs<ExtArgs>
     notificacoes?: boolean | Jangada$notificacoesArgs<ExtArgs>
     inspecoes?: boolean | Jangada$inspecoesArgs<ExtArgs>
+    obras?: boolean | Jangada$obrasArgs<ExtArgs>
     inspecaoComponentes?: boolean | Jangada$inspecaoComponentesArgs<ExtArgs>
     envioItens?: boolean | Jangada$envioItensArgs<ExtArgs>
     _count?: boolean | JangadaCountOutputTypeDefaultArgs<ExtArgs>
@@ -8167,6 +8336,7 @@ export namespace Prisma {
       faturas: Prisma.$FaturaPayload<ExtArgs>[]
       notificacoes: Prisma.$NotificacaoPayload<ExtArgs>[]
       inspecoes: Prisma.$InspecaoPayload<ExtArgs>[]
+      obras: Prisma.$ObraPayload<ExtArgs>[]
       inspecaoComponentes: Prisma.$InspecaoComponentePayload<ExtArgs>[]
       envioItens: Prisma.$EnvioItemPayload<ExtArgs>[]
     }
@@ -8606,6 +8776,7 @@ export namespace Prisma {
     faturas<T extends Jangada$faturasArgs<ExtArgs> = {}>(args?: Subset<T, Jangada$faturasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FaturaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     notificacoes<T extends Jangada$notificacoesArgs<ExtArgs> = {}>(args?: Subset<T, Jangada$notificacoesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificacaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     inspecoes<T extends Jangada$inspecoesArgs<ExtArgs> = {}>(args?: Subset<T, Jangada$inspecoesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InspecaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    obras<T extends Jangada$obrasArgs<ExtArgs> = {}>(args?: Subset<T, Jangada$obrasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ObraPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     inspecaoComponentes<T extends Jangada$inspecaoComponentesArgs<ExtArgs> = {}>(args?: Subset<T, Jangada$inspecaoComponentesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InspecaoComponentePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     envioItens<T extends Jangada$envioItensArgs<ExtArgs> = {}>(args?: Subset<T, Jangada$envioItensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EnvioItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -9312,6 +9483,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: InspecaoScalarFieldEnum | InspecaoScalarFieldEnum[]
+  }
+
+  /**
+   * Jangada.obras
+   */
+  export type Jangada$obrasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Obra
+     */
+    select?: ObraSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Obra
+     */
+    omit?: ObraOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ObraInclude<ExtArgs> | null
+    where?: ObraWhereInput
+    orderBy?: ObraOrderByWithRelationInput | ObraOrderByWithRelationInput[]
+    cursor?: ObraWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ObraScalarFieldEnum | ObraScalarFieldEnum[]
   }
 
   /**
@@ -11626,45 +11821,60 @@ export namespace Prisma {
 
   export type CertificadoMinAggregateOutputType = {
     id: string | null
+    nome: string | null
     tipo: string | null
     numero: string | null
     dataEmissao: Date | null
     dataValidade: Date | null
     entidadeEmissora: string | null
     status: string | null
+    filePath: string | null
+    notas: string | null
     clienteId: string | null
     navioId: string | null
     jangadaId: string | null
+    obraId: string | null
+    inspecaoId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type CertificadoMaxAggregateOutputType = {
     id: string | null
+    nome: string | null
     tipo: string | null
     numero: string | null
     dataEmissao: Date | null
     dataValidade: Date | null
     entidadeEmissora: string | null
     status: string | null
+    filePath: string | null
+    notas: string | null
     clienteId: string | null
     navioId: string | null
     jangadaId: string | null
+    obraId: string | null
+    inspecaoId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type CertificadoCountAggregateOutputType = {
     id: number
+    nome: number
     tipo: number
     numero: number
     dataEmissao: number
     dataValidade: number
     entidadeEmissora: number
     status: number
+    filePath: number
+    notas: number
     clienteId: number
     navioId: number
     jangadaId: number
+    obraId: number
+    inspecaoId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -11673,45 +11883,60 @@ export namespace Prisma {
 
   export type CertificadoMinAggregateInputType = {
     id?: true
+    nome?: true
     tipo?: true
     numero?: true
     dataEmissao?: true
     dataValidade?: true
     entidadeEmissora?: true
     status?: true
+    filePath?: true
+    notas?: true
     clienteId?: true
     navioId?: true
     jangadaId?: true
+    obraId?: true
+    inspecaoId?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type CertificadoMaxAggregateInputType = {
     id?: true
+    nome?: true
     tipo?: true
     numero?: true
     dataEmissao?: true
     dataValidade?: true
     entidadeEmissora?: true
     status?: true
+    filePath?: true
+    notas?: true
     clienteId?: true
     navioId?: true
     jangadaId?: true
+    obraId?: true
+    inspecaoId?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type CertificadoCountAggregateInputType = {
     id?: true
+    nome?: true
     tipo?: true
     numero?: true
     dataEmissao?: true
     dataValidade?: true
     entidadeEmissora?: true
     status?: true
+    filePath?: true
+    notas?: true
     clienteId?: true
     navioId?: true
     jangadaId?: true
+    obraId?: true
+    inspecaoId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -11791,15 +12016,20 @@ export namespace Prisma {
 
   export type CertificadoGroupByOutputType = {
     id: string
+    nome: string | null
     tipo: string
     numero: string
     dataEmissao: Date
     dataValidade: Date
     entidadeEmissora: string
     status: string
+    filePath: string | null
+    notas: string | null
     clienteId: string | null
     navioId: string | null
     jangadaId: string | null
+    obraId: string | null
+    inspecaoId: string | null
     createdAt: Date
     updatedAt: Date
     _count: CertificadoCountAggregateOutputType | null
@@ -11823,80 +12053,108 @@ export namespace Prisma {
 
   export type CertificadoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    nome?: boolean
     tipo?: boolean
     numero?: boolean
     dataEmissao?: boolean
     dataValidade?: boolean
     entidadeEmissora?: boolean
     status?: boolean
+    filePath?: boolean
+    notas?: boolean
     clienteId?: boolean
     navioId?: boolean
     jangadaId?: boolean
+    obraId?: boolean
+    inspecaoId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     cliente?: boolean | Certificado$clienteArgs<ExtArgs>
     navio?: boolean | Certificado$navioArgs<ExtArgs>
     jangada?: boolean | Certificado$jangadaArgs<ExtArgs>
+    obra?: boolean | Certificado$obraArgs<ExtArgs>
+    inspecao?: boolean | Certificado$inspecaoArgs<ExtArgs>
     envioItens?: boolean | Certificado$envioItensArgs<ExtArgs>
     _count?: boolean | CertificadoCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["certificado"]>
 
   export type CertificadoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    nome?: boolean
     tipo?: boolean
     numero?: boolean
     dataEmissao?: boolean
     dataValidade?: boolean
     entidadeEmissora?: boolean
     status?: boolean
+    filePath?: boolean
+    notas?: boolean
     clienteId?: boolean
     navioId?: boolean
     jangadaId?: boolean
+    obraId?: boolean
+    inspecaoId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     cliente?: boolean | Certificado$clienteArgs<ExtArgs>
     navio?: boolean | Certificado$navioArgs<ExtArgs>
     jangada?: boolean | Certificado$jangadaArgs<ExtArgs>
+    obra?: boolean | Certificado$obraArgs<ExtArgs>
+    inspecao?: boolean | Certificado$inspecaoArgs<ExtArgs>
   }, ExtArgs["result"]["certificado"]>
 
   export type CertificadoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    nome?: boolean
     tipo?: boolean
     numero?: boolean
     dataEmissao?: boolean
     dataValidade?: boolean
     entidadeEmissora?: boolean
     status?: boolean
+    filePath?: boolean
+    notas?: boolean
     clienteId?: boolean
     navioId?: boolean
     jangadaId?: boolean
+    obraId?: boolean
+    inspecaoId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     cliente?: boolean | Certificado$clienteArgs<ExtArgs>
     navio?: boolean | Certificado$navioArgs<ExtArgs>
     jangada?: boolean | Certificado$jangadaArgs<ExtArgs>
+    obra?: boolean | Certificado$obraArgs<ExtArgs>
+    inspecao?: boolean | Certificado$inspecaoArgs<ExtArgs>
   }, ExtArgs["result"]["certificado"]>
 
   export type CertificadoSelectScalar = {
     id?: boolean
+    nome?: boolean
     tipo?: boolean
     numero?: boolean
     dataEmissao?: boolean
     dataValidade?: boolean
     entidadeEmissora?: boolean
     status?: boolean
+    filePath?: boolean
+    notas?: boolean
     clienteId?: boolean
     navioId?: boolean
     jangadaId?: boolean
+    obraId?: boolean
+    inspecaoId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type CertificadoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipo" | "numero" | "dataEmissao" | "dataValidade" | "entidadeEmissora" | "status" | "clienteId" | "navioId" | "jangadaId" | "createdAt" | "updatedAt", ExtArgs["result"]["certificado"]>
+  export type CertificadoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "tipo" | "numero" | "dataEmissao" | "dataValidade" | "entidadeEmissora" | "status" | "filePath" | "notas" | "clienteId" | "navioId" | "jangadaId" | "obraId" | "inspecaoId" | "createdAt" | "updatedAt", ExtArgs["result"]["certificado"]>
   export type CertificadoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     cliente?: boolean | Certificado$clienteArgs<ExtArgs>
     navio?: boolean | Certificado$navioArgs<ExtArgs>
     jangada?: boolean | Certificado$jangadaArgs<ExtArgs>
+    obra?: boolean | Certificado$obraArgs<ExtArgs>
+    inspecao?: boolean | Certificado$inspecaoArgs<ExtArgs>
     envioItens?: boolean | Certificado$envioItensArgs<ExtArgs>
     _count?: boolean | CertificadoCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -11904,11 +12162,15 @@ export namespace Prisma {
     cliente?: boolean | Certificado$clienteArgs<ExtArgs>
     navio?: boolean | Certificado$navioArgs<ExtArgs>
     jangada?: boolean | Certificado$jangadaArgs<ExtArgs>
+    obra?: boolean | Certificado$obraArgs<ExtArgs>
+    inspecao?: boolean | Certificado$inspecaoArgs<ExtArgs>
   }
   export type CertificadoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     cliente?: boolean | Certificado$clienteArgs<ExtArgs>
     navio?: boolean | Certificado$navioArgs<ExtArgs>
     jangada?: boolean | Certificado$jangadaArgs<ExtArgs>
+    obra?: boolean | Certificado$obraArgs<ExtArgs>
+    inspecao?: boolean | Certificado$inspecaoArgs<ExtArgs>
   }
 
   export type $CertificadoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11917,19 +12179,26 @@ export namespace Prisma {
       cliente: Prisma.$ClientePayload<ExtArgs> | null
       navio: Prisma.$NavioPayload<ExtArgs> | null
       jangada: Prisma.$JangadaPayload<ExtArgs> | null
+      obra: Prisma.$ObraPayload<ExtArgs> | null
+      inspecao: Prisma.$InspecaoPayload<ExtArgs> | null
       envioItens: Prisma.$EnvioItemPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      nome: string | null
       tipo: string
       numero: string
       dataEmissao: Date
       dataValidade: Date
       entidadeEmissora: string
       status: string
+      filePath: string | null
+      notas: string | null
       clienteId: string | null
       navioId: string | null
       jangadaId: string | null
+      obraId: string | null
+      inspecaoId: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["certificado"]>
@@ -12329,6 +12598,8 @@ export namespace Prisma {
     cliente<T extends Certificado$clienteArgs<ExtArgs> = {}>(args?: Subset<T, Certificado$clienteArgs<ExtArgs>>): Prisma__ClienteClient<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     navio<T extends Certificado$navioArgs<ExtArgs> = {}>(args?: Subset<T, Certificado$navioArgs<ExtArgs>>): Prisma__NavioClient<$Result.GetResult<Prisma.$NavioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     jangada<T extends Certificado$jangadaArgs<ExtArgs> = {}>(args?: Subset<T, Certificado$jangadaArgs<ExtArgs>>): Prisma__JangadaClient<$Result.GetResult<Prisma.$JangadaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    obra<T extends Certificado$obraArgs<ExtArgs> = {}>(args?: Subset<T, Certificado$obraArgs<ExtArgs>>): Prisma__ObraClient<$Result.GetResult<Prisma.$ObraPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    inspecao<T extends Certificado$inspecaoArgs<ExtArgs> = {}>(args?: Subset<T, Certificado$inspecaoArgs<ExtArgs>>): Prisma__InspecaoClient<$Result.GetResult<Prisma.$InspecaoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     envioItens<T extends Certificado$envioItensArgs<ExtArgs> = {}>(args?: Subset<T, Certificado$envioItensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EnvioItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -12360,15 +12631,20 @@ export namespace Prisma {
    */
   interface CertificadoFieldRefs {
     readonly id: FieldRef<"Certificado", 'String'>
+    readonly nome: FieldRef<"Certificado", 'String'>
     readonly tipo: FieldRef<"Certificado", 'String'>
     readonly numero: FieldRef<"Certificado", 'String'>
     readonly dataEmissao: FieldRef<"Certificado", 'DateTime'>
     readonly dataValidade: FieldRef<"Certificado", 'DateTime'>
     readonly entidadeEmissora: FieldRef<"Certificado", 'String'>
     readonly status: FieldRef<"Certificado", 'String'>
+    readonly filePath: FieldRef<"Certificado", 'String'>
+    readonly notas: FieldRef<"Certificado", 'String'>
     readonly clienteId: FieldRef<"Certificado", 'String'>
     readonly navioId: FieldRef<"Certificado", 'String'>
     readonly jangadaId: FieldRef<"Certificado", 'String'>
+    readonly obraId: FieldRef<"Certificado", 'String'>
+    readonly inspecaoId: FieldRef<"Certificado", 'String'>
     readonly createdAt: FieldRef<"Certificado", 'DateTime'>
     readonly updatedAt: FieldRef<"Certificado", 'DateTime'>
   }
@@ -12824,6 +13100,44 @@ export namespace Prisma {
   }
 
   /**
+   * Certificado.obra
+   */
+  export type Certificado$obraArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Obra
+     */
+    select?: ObraSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Obra
+     */
+    omit?: ObraOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ObraInclude<ExtArgs> | null
+    where?: ObraWhereInput
+  }
+
+  /**
+   * Certificado.inspecao
+   */
+  export type Certificado$inspecaoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Inspecao
+     */
+    select?: InspecaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Inspecao
+     */
+    omit?: InspecaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InspecaoInclude<ExtArgs> | null
+    where?: InspecaoWhereInput
+  }
+
+  /**
    * Certificado.envioItens
    */
   export type Certificado$envioItensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -13179,6 +13493,7 @@ export namespace Prisma {
     movimentacoes?: boolean | Stock$movimentacoesArgs<ExtArgs>
     envioItens?: boolean | Stock$envioItensArgs<ExtArgs>
     tarefas?: boolean | Stock$tarefasArgs<ExtArgs>
+    modelosItens?: boolean | Stock$modelosItensArgs<ExtArgs>
     _count?: boolean | StockCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["stock"]>
 
@@ -13250,6 +13565,7 @@ export namespace Prisma {
     movimentacoes?: boolean | Stock$movimentacoesArgs<ExtArgs>
     envioItens?: boolean | Stock$envioItensArgs<ExtArgs>
     tarefas?: boolean | Stock$tarefasArgs<ExtArgs>
+    modelosItens?: boolean | Stock$modelosItensArgs<ExtArgs>
     _count?: boolean | StockCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type StockIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -13261,6 +13577,7 @@ export namespace Prisma {
       movimentacoes: Prisma.$MovimentacaoStockPayload<ExtArgs>[]
       envioItens: Prisma.$EnvioItemPayload<ExtArgs>[]
       tarefas: Prisma.$TarefaPayload<ExtArgs>[]
+      modelosItens: Prisma.$ModeloJangadaItemPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -13678,6 +13995,7 @@ export namespace Prisma {
     movimentacoes<T extends Stock$movimentacoesArgs<ExtArgs> = {}>(args?: Subset<T, Stock$movimentacoesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MovimentacaoStockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     envioItens<T extends Stock$envioItensArgs<ExtArgs> = {}>(args?: Subset<T, Stock$envioItensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EnvioItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tarefas<T extends Stock$tarefasArgs<ExtArgs> = {}>(args?: Subset<T, Stock$tarefasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TarefaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    modelosItens<T extends Stock$modelosItensArgs<ExtArgs> = {}>(args?: Subset<T, Stock$modelosItensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModeloJangadaItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -14182,6 +14500,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TarefaScalarFieldEnum | TarefaScalarFieldEnum[]
+  }
+
+  /**
+   * Stock.modelosItens
+   */
+  export type Stock$modelosItensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModeloJangadaItem
+     */
+    select?: ModeloJangadaItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModeloJangadaItem
+     */
+    omit?: ModeloJangadaItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModeloJangadaItemInclude<ExtArgs> | null
+    where?: ModeloJangadaItemWhereInput
+    orderBy?: ModeloJangadaItemOrderByWithRelationInput | ModeloJangadaItemOrderByWithRelationInput[]
+    cursor?: ModeloJangadaItemWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ModeloJangadaItemScalarFieldEnum | ModeloJangadaItemScalarFieldEnum[]
   }
 
   /**
@@ -21636,13 +21978,18 @@ export namespace Prisma {
 
   export type ObraMinAggregateOutputType = {
     id: string | null
+    codigo: string | null
     titulo: string | null
     descricao: string | null
+    tipo: string | null
     status: string | null
     dataInicio: Date | null
     dataFim: Date | null
     orcamento: number | null
+    filePath: string | null
     clienteId: string | null
+    jangadaId: string | null
+    inspecaoId: string | null
     responsavel: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -21650,13 +21997,18 @@ export namespace Prisma {
 
   export type ObraMaxAggregateOutputType = {
     id: string | null
+    codigo: string | null
     titulo: string | null
     descricao: string | null
+    tipo: string | null
     status: string | null
     dataInicio: Date | null
     dataFim: Date | null
     orcamento: number | null
+    filePath: string | null
     clienteId: string | null
+    jangadaId: string | null
+    inspecaoId: string | null
     responsavel: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -21664,13 +22016,18 @@ export namespace Prisma {
 
   export type ObraCountAggregateOutputType = {
     id: number
+    codigo: number
     titulo: number
     descricao: number
+    tipo: number
     status: number
     dataInicio: number
     dataFim: number
     orcamento: number
+    filePath: number
     clienteId: number
+    jangadaId: number
+    inspecaoId: number
     responsavel: number
     createdAt: number
     updatedAt: number
@@ -21688,13 +22045,18 @@ export namespace Prisma {
 
   export type ObraMinAggregateInputType = {
     id?: true
+    codigo?: true
     titulo?: true
     descricao?: true
+    tipo?: true
     status?: true
     dataInicio?: true
     dataFim?: true
     orcamento?: true
+    filePath?: true
     clienteId?: true
+    jangadaId?: true
+    inspecaoId?: true
     responsavel?: true
     createdAt?: true
     updatedAt?: true
@@ -21702,13 +22064,18 @@ export namespace Prisma {
 
   export type ObraMaxAggregateInputType = {
     id?: true
+    codigo?: true
     titulo?: true
     descricao?: true
+    tipo?: true
     status?: true
     dataInicio?: true
     dataFim?: true
     orcamento?: true
+    filePath?: true
     clienteId?: true
+    jangadaId?: true
+    inspecaoId?: true
     responsavel?: true
     createdAt?: true
     updatedAt?: true
@@ -21716,13 +22083,18 @@ export namespace Prisma {
 
   export type ObraCountAggregateInputType = {
     id?: true
+    codigo?: true
     titulo?: true
     descricao?: true
+    tipo?: true
     status?: true
     dataInicio?: true
     dataFim?: true
     orcamento?: true
+    filePath?: true
     clienteId?: true
+    jangadaId?: true
+    inspecaoId?: true
     responsavel?: true
     createdAt?: true
     updatedAt?: true
@@ -21817,13 +22189,18 @@ export namespace Prisma {
 
   export type ObraGroupByOutputType = {
     id: string
+    codigo: string | null
     titulo: string
     descricao: string | null
+    tipo: string | null
     status: string
     dataInicio: Date | null
     dataFim: Date | null
     orcamento: number | null
+    filePath: string | null
     clienteId: string | null
+    jangadaId: string | null
+    inspecaoId: string | null
     responsavel: string | null
     createdAt: Date
     updatedAt: Date
@@ -21850,88 +22227,132 @@ export namespace Prisma {
 
   export type ObraSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    codigo?: boolean
     titulo?: boolean
     descricao?: boolean
+    tipo?: boolean
     status?: boolean
     dataInicio?: boolean
     dataFim?: boolean
     orcamento?: boolean
+    filePath?: boolean
     clienteId?: boolean
+    jangadaId?: boolean
+    inspecaoId?: boolean
     responsavel?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     cliente?: boolean | Obra$clienteArgs<ExtArgs>
+    jangada?: boolean | Obra$jangadaArgs<ExtArgs>
+    inspecao?: boolean | Obra$inspecaoArgs<ExtArgs>
+    certificados?: boolean | Obra$certificadosArgs<ExtArgs>
+    _count?: boolean | ObraCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["obra"]>
 
   export type ObraSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    codigo?: boolean
     titulo?: boolean
     descricao?: boolean
+    tipo?: boolean
     status?: boolean
     dataInicio?: boolean
     dataFim?: boolean
     orcamento?: boolean
+    filePath?: boolean
     clienteId?: boolean
+    jangadaId?: boolean
+    inspecaoId?: boolean
     responsavel?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     cliente?: boolean | Obra$clienteArgs<ExtArgs>
+    jangada?: boolean | Obra$jangadaArgs<ExtArgs>
+    inspecao?: boolean | Obra$inspecaoArgs<ExtArgs>
   }, ExtArgs["result"]["obra"]>
 
   export type ObraSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    codigo?: boolean
     titulo?: boolean
     descricao?: boolean
+    tipo?: boolean
     status?: boolean
     dataInicio?: boolean
     dataFim?: boolean
     orcamento?: boolean
+    filePath?: boolean
     clienteId?: boolean
+    jangadaId?: boolean
+    inspecaoId?: boolean
     responsavel?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     cliente?: boolean | Obra$clienteArgs<ExtArgs>
+    jangada?: boolean | Obra$jangadaArgs<ExtArgs>
+    inspecao?: boolean | Obra$inspecaoArgs<ExtArgs>
   }, ExtArgs["result"]["obra"]>
 
   export type ObraSelectScalar = {
     id?: boolean
+    codigo?: boolean
     titulo?: boolean
     descricao?: boolean
+    tipo?: boolean
     status?: boolean
     dataInicio?: boolean
     dataFim?: boolean
     orcamento?: boolean
+    filePath?: boolean
     clienteId?: boolean
+    jangadaId?: boolean
+    inspecaoId?: boolean
     responsavel?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ObraOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "titulo" | "descricao" | "status" | "dataInicio" | "dataFim" | "orcamento" | "clienteId" | "responsavel" | "createdAt" | "updatedAt", ExtArgs["result"]["obra"]>
+  export type ObraOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "codigo" | "titulo" | "descricao" | "tipo" | "status" | "dataInicio" | "dataFim" | "orcamento" | "filePath" | "clienteId" | "jangadaId" | "inspecaoId" | "responsavel" | "createdAt" | "updatedAt", ExtArgs["result"]["obra"]>
   export type ObraInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     cliente?: boolean | Obra$clienteArgs<ExtArgs>
+    jangada?: boolean | Obra$jangadaArgs<ExtArgs>
+    inspecao?: boolean | Obra$inspecaoArgs<ExtArgs>
+    certificados?: boolean | Obra$certificadosArgs<ExtArgs>
+    _count?: boolean | ObraCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ObraIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     cliente?: boolean | Obra$clienteArgs<ExtArgs>
+    jangada?: boolean | Obra$jangadaArgs<ExtArgs>
+    inspecao?: boolean | Obra$inspecaoArgs<ExtArgs>
   }
   export type ObraIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     cliente?: boolean | Obra$clienteArgs<ExtArgs>
+    jangada?: boolean | Obra$jangadaArgs<ExtArgs>
+    inspecao?: boolean | Obra$inspecaoArgs<ExtArgs>
   }
 
   export type $ObraPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Obra"
     objects: {
       cliente: Prisma.$ClientePayload<ExtArgs> | null
+      jangada: Prisma.$JangadaPayload<ExtArgs> | null
+      inspecao: Prisma.$InspecaoPayload<ExtArgs> | null
+      certificados: Prisma.$CertificadoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      codigo: string | null
       titulo: string
       descricao: string | null
+      tipo: string | null
       status: string
       dataInicio: Date | null
       dataFim: Date | null
       orcamento: number | null
+      filePath: string | null
       clienteId: string | null
+      jangadaId: string | null
+      inspecaoId: string | null
       responsavel: string | null
       createdAt: Date
       updatedAt: Date
@@ -22330,6 +22751,9 @@ export namespace Prisma {
   export interface Prisma__ObraClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     cliente<T extends Obra$clienteArgs<ExtArgs> = {}>(args?: Subset<T, Obra$clienteArgs<ExtArgs>>): Prisma__ClienteClient<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    jangada<T extends Obra$jangadaArgs<ExtArgs> = {}>(args?: Subset<T, Obra$jangadaArgs<ExtArgs>>): Prisma__JangadaClient<$Result.GetResult<Prisma.$JangadaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    inspecao<T extends Obra$inspecaoArgs<ExtArgs> = {}>(args?: Subset<T, Obra$inspecaoArgs<ExtArgs>>): Prisma__InspecaoClient<$Result.GetResult<Prisma.$InspecaoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    certificados<T extends Obra$certificadosArgs<ExtArgs> = {}>(args?: Subset<T, Obra$certificadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CertificadoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -22360,13 +22784,18 @@ export namespace Prisma {
    */
   interface ObraFieldRefs {
     readonly id: FieldRef<"Obra", 'String'>
+    readonly codigo: FieldRef<"Obra", 'String'>
     readonly titulo: FieldRef<"Obra", 'String'>
     readonly descricao: FieldRef<"Obra", 'String'>
+    readonly tipo: FieldRef<"Obra", 'String'>
     readonly status: FieldRef<"Obra", 'String'>
     readonly dataInicio: FieldRef<"Obra", 'DateTime'>
     readonly dataFim: FieldRef<"Obra", 'DateTime'>
     readonly orcamento: FieldRef<"Obra", 'Float'>
+    readonly filePath: FieldRef<"Obra", 'String'>
     readonly clienteId: FieldRef<"Obra", 'String'>
+    readonly jangadaId: FieldRef<"Obra", 'String'>
+    readonly inspecaoId: FieldRef<"Obra", 'String'>
     readonly responsavel: FieldRef<"Obra", 'String'>
     readonly createdAt: FieldRef<"Obra", 'DateTime'>
     readonly updatedAt: FieldRef<"Obra", 'DateTime'>
@@ -22782,6 +23211,68 @@ export namespace Prisma {
      */
     include?: ClienteInclude<ExtArgs> | null
     where?: ClienteWhereInput
+  }
+
+  /**
+   * Obra.jangada
+   */
+  export type Obra$jangadaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jangada
+     */
+    select?: JangadaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jangada
+     */
+    omit?: JangadaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JangadaInclude<ExtArgs> | null
+    where?: JangadaWhereInput
+  }
+
+  /**
+   * Obra.inspecao
+   */
+  export type Obra$inspecaoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Inspecao
+     */
+    select?: InspecaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Inspecao
+     */
+    omit?: InspecaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InspecaoInclude<ExtArgs> | null
+    where?: InspecaoWhereInput
+  }
+
+  /**
+   * Obra.certificados
+   */
+  export type Obra$certificadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certificado
+     */
+    select?: CertificadoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certificado
+     */
+    omit?: CertificadoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificadoInclude<ExtArgs> | null
+    where?: CertificadoWhereInput
+    orderBy?: CertificadoOrderByWithRelationInput | CertificadoOrderByWithRelationInput[]
+    cursor?: CertificadoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CertificadoScalarFieldEnum | CertificadoScalarFieldEnum[]
   }
 
   /**
@@ -24970,6 +25461,7 @@ export namespace Prisma {
   export type InspecaoMinAggregateOutputType = {
     id: string | null
     numero: string | null
+    numeroSerieJangada: string | null
     tipoInspecao: string | null
     dataInspecao: Date | null
     dataProxima: Date | null
@@ -24977,6 +25469,7 @@ export namespace Prisma {
     status: string | null
     tecnico: string | null
     observacoes: string | null
+    filePath: string | null
     navioId: string | null
     jangadaId: string | null
     cilindroId: string | null
@@ -24987,6 +25480,7 @@ export namespace Prisma {
   export type InspecaoMaxAggregateOutputType = {
     id: string | null
     numero: string | null
+    numeroSerieJangada: string | null
     tipoInspecao: string | null
     dataInspecao: Date | null
     dataProxima: Date | null
@@ -24994,6 +25488,7 @@ export namespace Prisma {
     status: string | null
     tecnico: string | null
     observacoes: string | null
+    filePath: string | null
     navioId: string | null
     jangadaId: string | null
     cilindroId: string | null
@@ -25004,6 +25499,7 @@ export namespace Prisma {
   export type InspecaoCountAggregateOutputType = {
     id: number
     numero: number
+    numeroSerieJangada: number
     tipoInspecao: number
     dataInspecao: number
     dataProxima: number
@@ -25011,6 +25507,7 @@ export namespace Prisma {
     status: number
     tecnico: number
     observacoes: number
+    filePath: number
     navioId: number
     jangadaId: number
     cilindroId: number
@@ -25023,6 +25520,7 @@ export namespace Prisma {
   export type InspecaoMinAggregateInputType = {
     id?: true
     numero?: true
+    numeroSerieJangada?: true
     tipoInspecao?: true
     dataInspecao?: true
     dataProxima?: true
@@ -25030,6 +25528,7 @@ export namespace Prisma {
     status?: true
     tecnico?: true
     observacoes?: true
+    filePath?: true
     navioId?: true
     jangadaId?: true
     cilindroId?: true
@@ -25040,6 +25539,7 @@ export namespace Prisma {
   export type InspecaoMaxAggregateInputType = {
     id?: true
     numero?: true
+    numeroSerieJangada?: true
     tipoInspecao?: true
     dataInspecao?: true
     dataProxima?: true
@@ -25047,6 +25547,7 @@ export namespace Prisma {
     status?: true
     tecnico?: true
     observacoes?: true
+    filePath?: true
     navioId?: true
     jangadaId?: true
     cilindroId?: true
@@ -25057,6 +25558,7 @@ export namespace Prisma {
   export type InspecaoCountAggregateInputType = {
     id?: true
     numero?: true
+    numeroSerieJangada?: true
     tipoInspecao?: true
     dataInspecao?: true
     dataProxima?: true
@@ -25064,6 +25566,7 @@ export namespace Prisma {
     status?: true
     tecnico?: true
     observacoes?: true
+    filePath?: true
     navioId?: true
     jangadaId?: true
     cilindroId?: true
@@ -25147,6 +25650,7 @@ export namespace Prisma {
   export type InspecaoGroupByOutputType = {
     id: string
     numero: string
+    numeroSerieJangada: string | null
     tipoInspecao: string
     dataInspecao: Date
     dataProxima: Date | null
@@ -25154,6 +25658,7 @@ export namespace Prisma {
     status: string
     tecnico: string
     observacoes: string | null
+    filePath: string | null
     navioId: string | null
     jangadaId: string | null
     cilindroId: string | null
@@ -25181,6 +25686,7 @@ export namespace Prisma {
   export type InspecaoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     numero?: boolean
+    numeroSerieJangada?: boolean
     tipoInspecao?: boolean
     dataInspecao?: boolean
     dataProxima?: boolean
@@ -25188,6 +25694,7 @@ export namespace Prisma {
     status?: boolean
     tecnico?: boolean
     observacoes?: boolean
+    filePath?: boolean
     navioId?: boolean
     jangadaId?: boolean
     cilindroId?: boolean
@@ -25196,6 +25703,8 @@ export namespace Prisma {
     navio?: boolean | Inspecao$navioArgs<ExtArgs>
     jangada?: boolean | Inspecao$jangadaArgs<ExtArgs>
     cilindro?: boolean | Inspecao$cilindroArgs<ExtArgs>
+    obras?: boolean | Inspecao$obrasArgs<ExtArgs>
+    certificados?: boolean | Inspecao$certificadosArgs<ExtArgs>
     custos?: boolean | Inspecao$custosArgs<ExtArgs>
     historicos?: boolean | Inspecao$historicosArgs<ExtArgs>
     substituicoesComponente?: boolean | Inspecao$substituicoesComponenteArgs<ExtArgs>
@@ -25205,6 +25714,7 @@ export namespace Prisma {
   export type InspecaoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     numero?: boolean
+    numeroSerieJangada?: boolean
     tipoInspecao?: boolean
     dataInspecao?: boolean
     dataProxima?: boolean
@@ -25212,6 +25722,7 @@ export namespace Prisma {
     status?: boolean
     tecnico?: boolean
     observacoes?: boolean
+    filePath?: boolean
     navioId?: boolean
     jangadaId?: boolean
     cilindroId?: boolean
@@ -25225,6 +25736,7 @@ export namespace Prisma {
   export type InspecaoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     numero?: boolean
+    numeroSerieJangada?: boolean
     tipoInspecao?: boolean
     dataInspecao?: boolean
     dataProxima?: boolean
@@ -25232,6 +25744,7 @@ export namespace Prisma {
     status?: boolean
     tecnico?: boolean
     observacoes?: boolean
+    filePath?: boolean
     navioId?: boolean
     jangadaId?: boolean
     cilindroId?: boolean
@@ -25245,6 +25758,7 @@ export namespace Prisma {
   export type InspecaoSelectScalar = {
     id?: boolean
     numero?: boolean
+    numeroSerieJangada?: boolean
     tipoInspecao?: boolean
     dataInspecao?: boolean
     dataProxima?: boolean
@@ -25252,6 +25766,7 @@ export namespace Prisma {
     status?: boolean
     tecnico?: boolean
     observacoes?: boolean
+    filePath?: boolean
     navioId?: boolean
     jangadaId?: boolean
     cilindroId?: boolean
@@ -25259,11 +25774,13 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type InspecaoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "numero" | "tipoInspecao" | "dataInspecao" | "dataProxima" | "resultado" | "status" | "tecnico" | "observacoes" | "navioId" | "jangadaId" | "cilindroId" | "createdAt" | "updatedAt", ExtArgs["result"]["inspecao"]>
+  export type InspecaoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "numero" | "numeroSerieJangada" | "tipoInspecao" | "dataInspecao" | "dataProxima" | "resultado" | "status" | "tecnico" | "observacoes" | "filePath" | "navioId" | "jangadaId" | "cilindroId" | "createdAt" | "updatedAt", ExtArgs["result"]["inspecao"]>
   export type InspecaoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     navio?: boolean | Inspecao$navioArgs<ExtArgs>
     jangada?: boolean | Inspecao$jangadaArgs<ExtArgs>
     cilindro?: boolean | Inspecao$cilindroArgs<ExtArgs>
+    obras?: boolean | Inspecao$obrasArgs<ExtArgs>
+    certificados?: boolean | Inspecao$certificadosArgs<ExtArgs>
     custos?: boolean | Inspecao$custosArgs<ExtArgs>
     historicos?: boolean | Inspecao$historicosArgs<ExtArgs>
     substituicoesComponente?: boolean | Inspecao$substituicoesComponenteArgs<ExtArgs>
@@ -25286,6 +25803,8 @@ export namespace Prisma {
       navio: Prisma.$NavioPayload<ExtArgs> | null
       jangada: Prisma.$JangadaPayload<ExtArgs> | null
       cilindro: Prisma.$CilindroPayload<ExtArgs> | null
+      obras: Prisma.$ObraPayload<ExtArgs>[]
+      certificados: Prisma.$CertificadoPayload<ExtArgs>[]
       custos: Prisma.$CustoInspecaoPayload<ExtArgs>[]
       historicos: Prisma.$HistoricoInspecaoPayload<ExtArgs>[]
       substituicoesComponente: Prisma.$SubstituicaoComponentePayload<ExtArgs>[]
@@ -25293,6 +25812,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       numero: string
+      numeroSerieJangada: string | null
       tipoInspecao: string
       dataInspecao: Date
       dataProxima: Date | null
@@ -25300,6 +25820,7 @@ export namespace Prisma {
       status: string
       tecnico: string
       observacoes: string | null
+      filePath: string | null
       navioId: string | null
       jangadaId: string | null
       cilindroId: string | null
@@ -25702,6 +26223,8 @@ export namespace Prisma {
     navio<T extends Inspecao$navioArgs<ExtArgs> = {}>(args?: Subset<T, Inspecao$navioArgs<ExtArgs>>): Prisma__NavioClient<$Result.GetResult<Prisma.$NavioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     jangada<T extends Inspecao$jangadaArgs<ExtArgs> = {}>(args?: Subset<T, Inspecao$jangadaArgs<ExtArgs>>): Prisma__JangadaClient<$Result.GetResult<Prisma.$JangadaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     cilindro<T extends Inspecao$cilindroArgs<ExtArgs> = {}>(args?: Subset<T, Inspecao$cilindroArgs<ExtArgs>>): Prisma__CilindroClient<$Result.GetResult<Prisma.$CilindroPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    obras<T extends Inspecao$obrasArgs<ExtArgs> = {}>(args?: Subset<T, Inspecao$obrasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ObraPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    certificados<T extends Inspecao$certificadosArgs<ExtArgs> = {}>(args?: Subset<T, Inspecao$certificadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CertificadoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     custos<T extends Inspecao$custosArgs<ExtArgs> = {}>(args?: Subset<T, Inspecao$custosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustoInspecaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     historicos<T extends Inspecao$historicosArgs<ExtArgs> = {}>(args?: Subset<T, Inspecao$historicosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HistoricoInspecaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     substituicoesComponente<T extends Inspecao$substituicoesComponenteArgs<ExtArgs> = {}>(args?: Subset<T, Inspecao$substituicoesComponenteArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubstituicaoComponentePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -25736,6 +26259,7 @@ export namespace Prisma {
   interface InspecaoFieldRefs {
     readonly id: FieldRef<"Inspecao", 'String'>
     readonly numero: FieldRef<"Inspecao", 'String'>
+    readonly numeroSerieJangada: FieldRef<"Inspecao", 'String'>
     readonly tipoInspecao: FieldRef<"Inspecao", 'String'>
     readonly dataInspecao: FieldRef<"Inspecao", 'DateTime'>
     readonly dataProxima: FieldRef<"Inspecao", 'DateTime'>
@@ -25743,6 +26267,7 @@ export namespace Prisma {
     readonly status: FieldRef<"Inspecao", 'String'>
     readonly tecnico: FieldRef<"Inspecao", 'String'>
     readonly observacoes: FieldRef<"Inspecao", 'String'>
+    readonly filePath: FieldRef<"Inspecao", 'String'>
     readonly navioId: FieldRef<"Inspecao", 'String'>
     readonly jangadaId: FieldRef<"Inspecao", 'String'>
     readonly cilindroId: FieldRef<"Inspecao", 'String'>
@@ -26198,6 +26723,54 @@ export namespace Prisma {
      */
     include?: CilindroInclude<ExtArgs> | null
     where?: CilindroWhereInput
+  }
+
+  /**
+   * Inspecao.obras
+   */
+  export type Inspecao$obrasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Obra
+     */
+    select?: ObraSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Obra
+     */
+    omit?: ObraOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ObraInclude<ExtArgs> | null
+    where?: ObraWhereInput
+    orderBy?: ObraOrderByWithRelationInput | ObraOrderByWithRelationInput[]
+    cursor?: ObraWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ObraScalarFieldEnum | ObraScalarFieldEnum[]
+  }
+
+  /**
+   * Inspecao.certificados
+   */
+  export type Inspecao$certificadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Certificado
+     */
+    select?: CertificadoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Certificado
+     */
+    omit?: CertificadoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CertificadoInclude<ExtArgs> | null
+    where?: CertificadoWhereInput
+    orderBy?: CertificadoOrderByWithRelationInput | CertificadoOrderByWithRelationInput[]
+    cursor?: CertificadoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CertificadoScalarFieldEnum | CertificadoScalarFieldEnum[]
   }
 
   /**
@@ -32214,6 +32787,7 @@ export namespace Prisma {
     marca?: boolean | MarcaJangadaDefaultArgs<ExtArgs>
     jangadas?: boolean | ModeloJangada$jangadasArgs<ExtArgs>
     especificacoes?: boolean | ModeloJangada$especificacoesArgs<ExtArgs>
+    itensModelo?: boolean | ModeloJangada$itensModeloArgs<ExtArgs>
     _count?: boolean | ModeloJangadaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["modeloJangada"]>
 
@@ -32257,6 +32831,7 @@ export namespace Prisma {
     marca?: boolean | MarcaJangadaDefaultArgs<ExtArgs>
     jangadas?: boolean | ModeloJangada$jangadasArgs<ExtArgs>
     especificacoes?: boolean | ModeloJangada$especificacoesArgs<ExtArgs>
+    itensModelo?: boolean | ModeloJangada$itensModeloArgs<ExtArgs>
     _count?: boolean | ModeloJangadaCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ModeloJangadaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -32272,6 +32847,7 @@ export namespace Prisma {
       marca: Prisma.$MarcaJangadaPayload<ExtArgs>
       jangadas: Prisma.$JangadaPayload<ExtArgs>[]
       especificacoes: Prisma.$EspecificacaoTecnicaPayload<ExtArgs>[]
+      itensModelo: Prisma.$ModeloJangadaItemPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -32679,6 +33255,7 @@ export namespace Prisma {
     marca<T extends MarcaJangadaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MarcaJangadaDefaultArgs<ExtArgs>>): Prisma__MarcaJangadaClient<$Result.GetResult<Prisma.$MarcaJangadaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     jangadas<T extends ModeloJangada$jangadasArgs<ExtArgs> = {}>(args?: Subset<T, ModeloJangada$jangadasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JangadaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     especificacoes<T extends ModeloJangada$especificacoesArgs<ExtArgs> = {}>(args?: Subset<T, ModeloJangada$especificacoesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EspecificacaoTecnicaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    itensModelo<T extends ModeloJangada$itensModeloArgs<ExtArgs> = {}>(args?: Subset<T, ModeloJangada$itensModeloArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModeloJangadaItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -33160,6 +33737,30 @@ export namespace Prisma {
   }
 
   /**
+   * ModeloJangada.itensModelo
+   */
+  export type ModeloJangada$itensModeloArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModeloJangadaItem
+     */
+    select?: ModeloJangadaItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModeloJangadaItem
+     */
+    omit?: ModeloJangadaItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModeloJangadaItemInclude<ExtArgs> | null
+    where?: ModeloJangadaItemWhereInput
+    orderBy?: ModeloJangadaItemOrderByWithRelationInput | ModeloJangadaItemOrderByWithRelationInput[]
+    cursor?: ModeloJangadaItemWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ModeloJangadaItemScalarFieldEnum | ModeloJangadaItemScalarFieldEnum[]
+  }
+
+  /**
    * ModeloJangada without action
    */
   export type ModeloJangadaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -33175,6 +33776,1119 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: ModeloJangadaInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ModeloJangadaItem
+   */
+
+  export type AggregateModeloJangadaItem = {
+    _count: ModeloJangadaItemCountAggregateOutputType | null
+    _avg: ModeloJangadaItemAvgAggregateOutputType | null
+    _sum: ModeloJangadaItemSumAggregateOutputType | null
+    _min: ModeloJangadaItemMinAggregateOutputType | null
+    _max: ModeloJangadaItemMaxAggregateOutputType | null
+  }
+
+  export type ModeloJangadaItemAvgAggregateOutputType = {
+    quantidade: number | null
+  }
+
+  export type ModeloJangadaItemSumAggregateOutputType = {
+    quantidade: number | null
+  }
+
+  export type ModeloJangadaItemMinAggregateOutputType = {
+    id: string | null
+    modeloId: string | null
+    stockId: string | null
+    quantidade: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ModeloJangadaItemMaxAggregateOutputType = {
+    id: string | null
+    modeloId: string | null
+    stockId: string | null
+    quantidade: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ModeloJangadaItemCountAggregateOutputType = {
+    id: number
+    modeloId: number
+    stockId: number
+    quantidade: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ModeloJangadaItemAvgAggregateInputType = {
+    quantidade?: true
+  }
+
+  export type ModeloJangadaItemSumAggregateInputType = {
+    quantidade?: true
+  }
+
+  export type ModeloJangadaItemMinAggregateInputType = {
+    id?: true
+    modeloId?: true
+    stockId?: true
+    quantidade?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ModeloJangadaItemMaxAggregateInputType = {
+    id?: true
+    modeloId?: true
+    stockId?: true
+    quantidade?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ModeloJangadaItemCountAggregateInputType = {
+    id?: true
+    modeloId?: true
+    stockId?: true
+    quantidade?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ModeloJangadaItemAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ModeloJangadaItem to aggregate.
+     */
+    where?: ModeloJangadaItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ModeloJangadaItems to fetch.
+     */
+    orderBy?: ModeloJangadaItemOrderByWithRelationInput | ModeloJangadaItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ModeloJangadaItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ModeloJangadaItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ModeloJangadaItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ModeloJangadaItems
+    **/
+    _count?: true | ModeloJangadaItemCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ModeloJangadaItemAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ModeloJangadaItemSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ModeloJangadaItemMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ModeloJangadaItemMaxAggregateInputType
+  }
+
+  export type GetModeloJangadaItemAggregateType<T extends ModeloJangadaItemAggregateArgs> = {
+        [P in keyof T & keyof AggregateModeloJangadaItem]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateModeloJangadaItem[P]>
+      : GetScalarType<T[P], AggregateModeloJangadaItem[P]>
+  }
+
+
+
+
+  export type ModeloJangadaItemGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModeloJangadaItemWhereInput
+    orderBy?: ModeloJangadaItemOrderByWithAggregationInput | ModeloJangadaItemOrderByWithAggregationInput[]
+    by: ModeloJangadaItemScalarFieldEnum[] | ModeloJangadaItemScalarFieldEnum
+    having?: ModeloJangadaItemScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ModeloJangadaItemCountAggregateInputType | true
+    _avg?: ModeloJangadaItemAvgAggregateInputType
+    _sum?: ModeloJangadaItemSumAggregateInputType
+    _min?: ModeloJangadaItemMinAggregateInputType
+    _max?: ModeloJangadaItemMaxAggregateInputType
+  }
+
+  export type ModeloJangadaItemGroupByOutputType = {
+    id: string
+    modeloId: string
+    stockId: string
+    quantidade: number
+    createdAt: Date
+    updatedAt: Date
+    _count: ModeloJangadaItemCountAggregateOutputType | null
+    _avg: ModeloJangadaItemAvgAggregateOutputType | null
+    _sum: ModeloJangadaItemSumAggregateOutputType | null
+    _min: ModeloJangadaItemMinAggregateOutputType | null
+    _max: ModeloJangadaItemMaxAggregateOutputType | null
+  }
+
+  type GetModeloJangadaItemGroupByPayload<T extends ModeloJangadaItemGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ModeloJangadaItemGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ModeloJangadaItemGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ModeloJangadaItemGroupByOutputType[P]>
+            : GetScalarType<T[P], ModeloJangadaItemGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ModeloJangadaItemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    modeloId?: boolean
+    stockId?: boolean
+    quantidade?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    modelo?: boolean | ModeloJangadaDefaultArgs<ExtArgs>
+    stock?: boolean | StockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["modeloJangadaItem"]>
+
+  export type ModeloJangadaItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    modeloId?: boolean
+    stockId?: boolean
+    quantidade?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    modelo?: boolean | ModeloJangadaDefaultArgs<ExtArgs>
+    stock?: boolean | StockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["modeloJangadaItem"]>
+
+  export type ModeloJangadaItemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    modeloId?: boolean
+    stockId?: boolean
+    quantidade?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    modelo?: boolean | ModeloJangadaDefaultArgs<ExtArgs>
+    stock?: boolean | StockDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["modeloJangadaItem"]>
+
+  export type ModeloJangadaItemSelectScalar = {
+    id?: boolean
+    modeloId?: boolean
+    stockId?: boolean
+    quantidade?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ModeloJangadaItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "modeloId" | "stockId" | "quantidade" | "createdAt" | "updatedAt", ExtArgs["result"]["modeloJangadaItem"]>
+  export type ModeloJangadaItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    modelo?: boolean | ModeloJangadaDefaultArgs<ExtArgs>
+    stock?: boolean | StockDefaultArgs<ExtArgs>
+  }
+  export type ModeloJangadaItemIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    modelo?: boolean | ModeloJangadaDefaultArgs<ExtArgs>
+    stock?: boolean | StockDefaultArgs<ExtArgs>
+  }
+  export type ModeloJangadaItemIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    modelo?: boolean | ModeloJangadaDefaultArgs<ExtArgs>
+    stock?: boolean | StockDefaultArgs<ExtArgs>
+  }
+
+  export type $ModeloJangadaItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ModeloJangadaItem"
+    objects: {
+      modelo: Prisma.$ModeloJangadaPayload<ExtArgs>
+      stock: Prisma.$StockPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      modeloId: string
+      stockId: string
+      quantidade: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["modeloJangadaItem"]>
+    composites: {}
+  }
+
+  type ModeloJangadaItemGetPayload<S extends boolean | null | undefined | ModeloJangadaItemDefaultArgs> = $Result.GetResult<Prisma.$ModeloJangadaItemPayload, S>
+
+  type ModeloJangadaItemCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ModeloJangadaItemFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ModeloJangadaItemCountAggregateInputType | true
+    }
+
+  export interface ModeloJangadaItemDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ModeloJangadaItem'], meta: { name: 'ModeloJangadaItem' } }
+    /**
+     * Find zero or one ModeloJangadaItem that matches the filter.
+     * @param {ModeloJangadaItemFindUniqueArgs} args - Arguments to find a ModeloJangadaItem
+     * @example
+     * // Get one ModeloJangadaItem
+     * const modeloJangadaItem = await prisma.modeloJangadaItem.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ModeloJangadaItemFindUniqueArgs>(args: SelectSubset<T, ModeloJangadaItemFindUniqueArgs<ExtArgs>>): Prisma__ModeloJangadaItemClient<$Result.GetResult<Prisma.$ModeloJangadaItemPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ModeloJangadaItem that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ModeloJangadaItemFindUniqueOrThrowArgs} args - Arguments to find a ModeloJangadaItem
+     * @example
+     * // Get one ModeloJangadaItem
+     * const modeloJangadaItem = await prisma.modeloJangadaItem.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ModeloJangadaItemFindUniqueOrThrowArgs>(args: SelectSubset<T, ModeloJangadaItemFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ModeloJangadaItemClient<$Result.GetResult<Prisma.$ModeloJangadaItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ModeloJangadaItem that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModeloJangadaItemFindFirstArgs} args - Arguments to find a ModeloJangadaItem
+     * @example
+     * // Get one ModeloJangadaItem
+     * const modeloJangadaItem = await prisma.modeloJangadaItem.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ModeloJangadaItemFindFirstArgs>(args?: SelectSubset<T, ModeloJangadaItemFindFirstArgs<ExtArgs>>): Prisma__ModeloJangadaItemClient<$Result.GetResult<Prisma.$ModeloJangadaItemPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ModeloJangadaItem that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModeloJangadaItemFindFirstOrThrowArgs} args - Arguments to find a ModeloJangadaItem
+     * @example
+     * // Get one ModeloJangadaItem
+     * const modeloJangadaItem = await prisma.modeloJangadaItem.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ModeloJangadaItemFindFirstOrThrowArgs>(args?: SelectSubset<T, ModeloJangadaItemFindFirstOrThrowArgs<ExtArgs>>): Prisma__ModeloJangadaItemClient<$Result.GetResult<Prisma.$ModeloJangadaItemPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ModeloJangadaItems that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModeloJangadaItemFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ModeloJangadaItems
+     * const modeloJangadaItems = await prisma.modeloJangadaItem.findMany()
+     * 
+     * // Get first 10 ModeloJangadaItems
+     * const modeloJangadaItems = await prisma.modeloJangadaItem.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const modeloJangadaItemWithIdOnly = await prisma.modeloJangadaItem.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ModeloJangadaItemFindManyArgs>(args?: SelectSubset<T, ModeloJangadaItemFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModeloJangadaItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ModeloJangadaItem.
+     * @param {ModeloJangadaItemCreateArgs} args - Arguments to create a ModeloJangadaItem.
+     * @example
+     * // Create one ModeloJangadaItem
+     * const ModeloJangadaItem = await prisma.modeloJangadaItem.create({
+     *   data: {
+     *     // ... data to create a ModeloJangadaItem
+     *   }
+     * })
+     * 
+     */
+    create<T extends ModeloJangadaItemCreateArgs>(args: SelectSubset<T, ModeloJangadaItemCreateArgs<ExtArgs>>): Prisma__ModeloJangadaItemClient<$Result.GetResult<Prisma.$ModeloJangadaItemPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ModeloJangadaItems.
+     * @param {ModeloJangadaItemCreateManyArgs} args - Arguments to create many ModeloJangadaItems.
+     * @example
+     * // Create many ModeloJangadaItems
+     * const modeloJangadaItem = await prisma.modeloJangadaItem.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ModeloJangadaItemCreateManyArgs>(args?: SelectSubset<T, ModeloJangadaItemCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ModeloJangadaItems and returns the data saved in the database.
+     * @param {ModeloJangadaItemCreateManyAndReturnArgs} args - Arguments to create many ModeloJangadaItems.
+     * @example
+     * // Create many ModeloJangadaItems
+     * const modeloJangadaItem = await prisma.modeloJangadaItem.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ModeloJangadaItems and only return the `id`
+     * const modeloJangadaItemWithIdOnly = await prisma.modeloJangadaItem.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ModeloJangadaItemCreateManyAndReturnArgs>(args?: SelectSubset<T, ModeloJangadaItemCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModeloJangadaItemPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ModeloJangadaItem.
+     * @param {ModeloJangadaItemDeleteArgs} args - Arguments to delete one ModeloJangadaItem.
+     * @example
+     * // Delete one ModeloJangadaItem
+     * const ModeloJangadaItem = await prisma.modeloJangadaItem.delete({
+     *   where: {
+     *     // ... filter to delete one ModeloJangadaItem
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ModeloJangadaItemDeleteArgs>(args: SelectSubset<T, ModeloJangadaItemDeleteArgs<ExtArgs>>): Prisma__ModeloJangadaItemClient<$Result.GetResult<Prisma.$ModeloJangadaItemPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ModeloJangadaItem.
+     * @param {ModeloJangadaItemUpdateArgs} args - Arguments to update one ModeloJangadaItem.
+     * @example
+     * // Update one ModeloJangadaItem
+     * const modeloJangadaItem = await prisma.modeloJangadaItem.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ModeloJangadaItemUpdateArgs>(args: SelectSubset<T, ModeloJangadaItemUpdateArgs<ExtArgs>>): Prisma__ModeloJangadaItemClient<$Result.GetResult<Prisma.$ModeloJangadaItemPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ModeloJangadaItems.
+     * @param {ModeloJangadaItemDeleteManyArgs} args - Arguments to filter ModeloJangadaItems to delete.
+     * @example
+     * // Delete a few ModeloJangadaItems
+     * const { count } = await prisma.modeloJangadaItem.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ModeloJangadaItemDeleteManyArgs>(args?: SelectSubset<T, ModeloJangadaItemDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ModeloJangadaItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModeloJangadaItemUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ModeloJangadaItems
+     * const modeloJangadaItem = await prisma.modeloJangadaItem.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ModeloJangadaItemUpdateManyArgs>(args: SelectSubset<T, ModeloJangadaItemUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ModeloJangadaItems and returns the data updated in the database.
+     * @param {ModeloJangadaItemUpdateManyAndReturnArgs} args - Arguments to update many ModeloJangadaItems.
+     * @example
+     * // Update many ModeloJangadaItems
+     * const modeloJangadaItem = await prisma.modeloJangadaItem.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ModeloJangadaItems and only return the `id`
+     * const modeloJangadaItemWithIdOnly = await prisma.modeloJangadaItem.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ModeloJangadaItemUpdateManyAndReturnArgs>(args: SelectSubset<T, ModeloJangadaItemUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModeloJangadaItemPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ModeloJangadaItem.
+     * @param {ModeloJangadaItemUpsertArgs} args - Arguments to update or create a ModeloJangadaItem.
+     * @example
+     * // Update or create a ModeloJangadaItem
+     * const modeloJangadaItem = await prisma.modeloJangadaItem.upsert({
+     *   create: {
+     *     // ... data to create a ModeloJangadaItem
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ModeloJangadaItem we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ModeloJangadaItemUpsertArgs>(args: SelectSubset<T, ModeloJangadaItemUpsertArgs<ExtArgs>>): Prisma__ModeloJangadaItemClient<$Result.GetResult<Prisma.$ModeloJangadaItemPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ModeloJangadaItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModeloJangadaItemCountArgs} args - Arguments to filter ModeloJangadaItems to count.
+     * @example
+     * // Count the number of ModeloJangadaItems
+     * const count = await prisma.modeloJangadaItem.count({
+     *   where: {
+     *     // ... the filter for the ModeloJangadaItems we want to count
+     *   }
+     * })
+    **/
+    count<T extends ModeloJangadaItemCountArgs>(
+      args?: Subset<T, ModeloJangadaItemCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ModeloJangadaItemCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ModeloJangadaItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModeloJangadaItemAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ModeloJangadaItemAggregateArgs>(args: Subset<T, ModeloJangadaItemAggregateArgs>): Prisma.PrismaPromise<GetModeloJangadaItemAggregateType<T>>
+
+    /**
+     * Group by ModeloJangadaItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModeloJangadaItemGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ModeloJangadaItemGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ModeloJangadaItemGroupByArgs['orderBy'] }
+        : { orderBy?: ModeloJangadaItemGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ModeloJangadaItemGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetModeloJangadaItemGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ModeloJangadaItem model
+   */
+  readonly fields: ModeloJangadaItemFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ModeloJangadaItem.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ModeloJangadaItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    modelo<T extends ModeloJangadaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ModeloJangadaDefaultArgs<ExtArgs>>): Prisma__ModeloJangadaClient<$Result.GetResult<Prisma.$ModeloJangadaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    stock<T extends StockDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StockDefaultArgs<ExtArgs>>): Prisma__StockClient<$Result.GetResult<Prisma.$StockPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ModeloJangadaItem model
+   */
+  interface ModeloJangadaItemFieldRefs {
+    readonly id: FieldRef<"ModeloJangadaItem", 'String'>
+    readonly modeloId: FieldRef<"ModeloJangadaItem", 'String'>
+    readonly stockId: FieldRef<"ModeloJangadaItem", 'String'>
+    readonly quantidade: FieldRef<"ModeloJangadaItem", 'Int'>
+    readonly createdAt: FieldRef<"ModeloJangadaItem", 'DateTime'>
+    readonly updatedAt: FieldRef<"ModeloJangadaItem", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ModeloJangadaItem findUnique
+   */
+  export type ModeloJangadaItemFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModeloJangadaItem
+     */
+    select?: ModeloJangadaItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModeloJangadaItem
+     */
+    omit?: ModeloJangadaItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModeloJangadaItemInclude<ExtArgs> | null
+    /**
+     * Filter, which ModeloJangadaItem to fetch.
+     */
+    where: ModeloJangadaItemWhereUniqueInput
+  }
+
+  /**
+   * ModeloJangadaItem findUniqueOrThrow
+   */
+  export type ModeloJangadaItemFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModeloJangadaItem
+     */
+    select?: ModeloJangadaItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModeloJangadaItem
+     */
+    omit?: ModeloJangadaItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModeloJangadaItemInclude<ExtArgs> | null
+    /**
+     * Filter, which ModeloJangadaItem to fetch.
+     */
+    where: ModeloJangadaItemWhereUniqueInput
+  }
+
+  /**
+   * ModeloJangadaItem findFirst
+   */
+  export type ModeloJangadaItemFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModeloJangadaItem
+     */
+    select?: ModeloJangadaItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModeloJangadaItem
+     */
+    omit?: ModeloJangadaItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModeloJangadaItemInclude<ExtArgs> | null
+    /**
+     * Filter, which ModeloJangadaItem to fetch.
+     */
+    where?: ModeloJangadaItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ModeloJangadaItems to fetch.
+     */
+    orderBy?: ModeloJangadaItemOrderByWithRelationInput | ModeloJangadaItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ModeloJangadaItems.
+     */
+    cursor?: ModeloJangadaItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ModeloJangadaItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ModeloJangadaItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ModeloJangadaItems.
+     */
+    distinct?: ModeloJangadaItemScalarFieldEnum | ModeloJangadaItemScalarFieldEnum[]
+  }
+
+  /**
+   * ModeloJangadaItem findFirstOrThrow
+   */
+  export type ModeloJangadaItemFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModeloJangadaItem
+     */
+    select?: ModeloJangadaItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModeloJangadaItem
+     */
+    omit?: ModeloJangadaItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModeloJangadaItemInclude<ExtArgs> | null
+    /**
+     * Filter, which ModeloJangadaItem to fetch.
+     */
+    where?: ModeloJangadaItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ModeloJangadaItems to fetch.
+     */
+    orderBy?: ModeloJangadaItemOrderByWithRelationInput | ModeloJangadaItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ModeloJangadaItems.
+     */
+    cursor?: ModeloJangadaItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ModeloJangadaItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ModeloJangadaItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ModeloJangadaItems.
+     */
+    distinct?: ModeloJangadaItemScalarFieldEnum | ModeloJangadaItemScalarFieldEnum[]
+  }
+
+  /**
+   * ModeloJangadaItem findMany
+   */
+  export type ModeloJangadaItemFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModeloJangadaItem
+     */
+    select?: ModeloJangadaItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModeloJangadaItem
+     */
+    omit?: ModeloJangadaItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModeloJangadaItemInclude<ExtArgs> | null
+    /**
+     * Filter, which ModeloJangadaItems to fetch.
+     */
+    where?: ModeloJangadaItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ModeloJangadaItems to fetch.
+     */
+    orderBy?: ModeloJangadaItemOrderByWithRelationInput | ModeloJangadaItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ModeloJangadaItems.
+     */
+    cursor?: ModeloJangadaItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ModeloJangadaItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ModeloJangadaItems.
+     */
+    skip?: number
+    distinct?: ModeloJangadaItemScalarFieldEnum | ModeloJangadaItemScalarFieldEnum[]
+  }
+
+  /**
+   * ModeloJangadaItem create
+   */
+  export type ModeloJangadaItemCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModeloJangadaItem
+     */
+    select?: ModeloJangadaItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModeloJangadaItem
+     */
+    omit?: ModeloJangadaItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModeloJangadaItemInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ModeloJangadaItem.
+     */
+    data: XOR<ModeloJangadaItemCreateInput, ModeloJangadaItemUncheckedCreateInput>
+  }
+
+  /**
+   * ModeloJangadaItem createMany
+   */
+  export type ModeloJangadaItemCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ModeloJangadaItems.
+     */
+    data: ModeloJangadaItemCreateManyInput | ModeloJangadaItemCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ModeloJangadaItem createManyAndReturn
+   */
+  export type ModeloJangadaItemCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModeloJangadaItem
+     */
+    select?: ModeloJangadaItemSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModeloJangadaItem
+     */
+    omit?: ModeloJangadaItemOmit<ExtArgs> | null
+    /**
+     * The data used to create many ModeloJangadaItems.
+     */
+    data: ModeloJangadaItemCreateManyInput | ModeloJangadaItemCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModeloJangadaItemIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ModeloJangadaItem update
+   */
+  export type ModeloJangadaItemUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModeloJangadaItem
+     */
+    select?: ModeloJangadaItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModeloJangadaItem
+     */
+    omit?: ModeloJangadaItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModeloJangadaItemInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ModeloJangadaItem.
+     */
+    data: XOR<ModeloJangadaItemUpdateInput, ModeloJangadaItemUncheckedUpdateInput>
+    /**
+     * Choose, which ModeloJangadaItem to update.
+     */
+    where: ModeloJangadaItemWhereUniqueInput
+  }
+
+  /**
+   * ModeloJangadaItem updateMany
+   */
+  export type ModeloJangadaItemUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ModeloJangadaItems.
+     */
+    data: XOR<ModeloJangadaItemUpdateManyMutationInput, ModeloJangadaItemUncheckedUpdateManyInput>
+    /**
+     * Filter which ModeloJangadaItems to update
+     */
+    where?: ModeloJangadaItemWhereInput
+    /**
+     * Limit how many ModeloJangadaItems to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ModeloJangadaItem updateManyAndReturn
+   */
+  export type ModeloJangadaItemUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModeloJangadaItem
+     */
+    select?: ModeloJangadaItemSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModeloJangadaItem
+     */
+    omit?: ModeloJangadaItemOmit<ExtArgs> | null
+    /**
+     * The data used to update ModeloJangadaItems.
+     */
+    data: XOR<ModeloJangadaItemUpdateManyMutationInput, ModeloJangadaItemUncheckedUpdateManyInput>
+    /**
+     * Filter which ModeloJangadaItems to update
+     */
+    where?: ModeloJangadaItemWhereInput
+    /**
+     * Limit how many ModeloJangadaItems to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModeloJangadaItemIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ModeloJangadaItem upsert
+   */
+  export type ModeloJangadaItemUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModeloJangadaItem
+     */
+    select?: ModeloJangadaItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModeloJangadaItem
+     */
+    omit?: ModeloJangadaItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModeloJangadaItemInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ModeloJangadaItem to update in case it exists.
+     */
+    where: ModeloJangadaItemWhereUniqueInput
+    /**
+     * In case the ModeloJangadaItem found by the `where` argument doesn't exist, create a new ModeloJangadaItem with this data.
+     */
+    create: XOR<ModeloJangadaItemCreateInput, ModeloJangadaItemUncheckedCreateInput>
+    /**
+     * In case the ModeloJangadaItem was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ModeloJangadaItemUpdateInput, ModeloJangadaItemUncheckedUpdateInput>
+  }
+
+  /**
+   * ModeloJangadaItem delete
+   */
+  export type ModeloJangadaItemDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModeloJangadaItem
+     */
+    select?: ModeloJangadaItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModeloJangadaItem
+     */
+    omit?: ModeloJangadaItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModeloJangadaItemInclude<ExtArgs> | null
+    /**
+     * Filter which ModeloJangadaItem to delete.
+     */
+    where: ModeloJangadaItemWhereUniqueInput
+  }
+
+  /**
+   * ModeloJangadaItem deleteMany
+   */
+  export type ModeloJangadaItemDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ModeloJangadaItems to delete
+     */
+    where?: ModeloJangadaItemWhereInput
+    /**
+     * Limit how many ModeloJangadaItems to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ModeloJangadaItem without action
+   */
+  export type ModeloJangadaItemDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModeloJangadaItem
+     */
+    select?: ModeloJangadaItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ModeloJangadaItem
+     */
+    omit?: ModeloJangadaItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModeloJangadaItemInclude<ExtArgs> | null
   }
 
 
@@ -46682,15 +48396,20 @@ export namespace Prisma {
 
   export const CertificadoScalarFieldEnum: {
     id: 'id',
+    nome: 'nome',
     tipo: 'tipo',
     numero: 'numero',
     dataEmissao: 'dataEmissao',
     dataValidade: 'dataValidade',
     entidadeEmissora: 'entidadeEmissora',
     status: 'status',
+    filePath: 'filePath',
+    notas: 'notas',
     clienteId: 'clienteId',
     navioId: 'navioId',
     jangadaId: 'jangadaId',
+    obraId: 'obraId',
+    inspecaoId: 'inspecaoId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -46834,13 +48553,18 @@ export namespace Prisma {
 
   export const ObraScalarFieldEnum: {
     id: 'id',
+    codigo: 'codigo',
     titulo: 'titulo',
     descricao: 'descricao',
+    tipo: 'tipo',
     status: 'status',
     dataInicio: 'dataInicio',
     dataFim: 'dataFim',
     orcamento: 'orcamento',
+    filePath: 'filePath',
     clienteId: 'clienteId',
+    jangadaId: 'jangadaId',
+    inspecaoId: 'inspecaoId',
     responsavel: 'responsavel',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -46884,6 +48608,7 @@ export namespace Prisma {
   export const InspecaoScalarFieldEnum: {
     id: 'id',
     numero: 'numero',
+    numeroSerieJangada: 'numeroSerieJangada',
     tipoInspecao: 'tipoInspecao',
     dataInspecao: 'dataInspecao',
     dataProxima: 'dataProxima',
@@ -46891,6 +48616,7 @@ export namespace Prisma {
     status: 'status',
     tecnico: 'tecnico',
     observacoes: 'observacoes',
+    filePath: 'filePath',
     navioId: 'navioId',
     jangadaId: 'jangadaId',
     cilindroId: 'cilindroId',
@@ -46986,6 +48712,18 @@ export namespace Prisma {
   };
 
   export type ModeloJangadaScalarFieldEnum = (typeof ModeloJangadaScalarFieldEnum)[keyof typeof ModeloJangadaScalarFieldEnum]
+
+
+  export const ModeloJangadaItemScalarFieldEnum: {
+    id: 'id',
+    modeloId: 'modeloId',
+    stockId: 'stockId',
+    quantidade: 'quantidade',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ModeloJangadaItemScalarFieldEnum = (typeof ModeloJangadaItemScalarFieldEnum)[keyof typeof ModeloJangadaItemScalarFieldEnum]
 
 
   export const LotacaoJangadaScalarFieldEnum: {
@@ -47610,6 +49348,7 @@ export namespace Prisma {
     faturas?: FaturaListRelationFilter
     notificacoes?: NotificacaoListRelationFilter
     inspecoes?: InspecaoListRelationFilter
+    obras?: ObraListRelationFilter
     inspecaoComponentes?: InspecaoComponenteListRelationFilter
     envioItens?: EnvioItemListRelationFilter
   }
@@ -47656,6 +49395,7 @@ export namespace Prisma {
     faturas?: FaturaOrderByRelationAggregateInput
     notificacoes?: NotificacaoOrderByRelationAggregateInput
     inspecoes?: InspecaoOrderByRelationAggregateInput
+    obras?: ObraOrderByRelationAggregateInput
     inspecaoComponentes?: InspecaoComponenteOrderByRelationAggregateInput
     envioItens?: EnvioItemOrderByRelationAggregateInput
   }
@@ -47705,6 +49445,7 @@ export namespace Prisma {
     faturas?: FaturaListRelationFilter
     notificacoes?: NotificacaoListRelationFilter
     inspecoes?: InspecaoListRelationFilter
+    obras?: ObraListRelationFilter
     inspecaoComponentes?: InspecaoComponenteListRelationFilter
     envioItens?: EnvioItemListRelationFilter
   }, "id" | "numeroSerie">
@@ -47924,39 +49665,53 @@ export namespace Prisma {
     OR?: CertificadoWhereInput[]
     NOT?: CertificadoWhereInput | CertificadoWhereInput[]
     id?: StringFilter<"Certificado"> | string
+    nome?: StringNullableFilter<"Certificado"> | string | null
     tipo?: StringFilter<"Certificado"> | string
     numero?: StringFilter<"Certificado"> | string
     dataEmissao?: DateTimeFilter<"Certificado"> | Date | string
     dataValidade?: DateTimeFilter<"Certificado"> | Date | string
     entidadeEmissora?: StringFilter<"Certificado"> | string
     status?: StringFilter<"Certificado"> | string
+    filePath?: StringNullableFilter<"Certificado"> | string | null
+    notas?: StringNullableFilter<"Certificado"> | string | null
     clienteId?: StringNullableFilter<"Certificado"> | string | null
     navioId?: StringNullableFilter<"Certificado"> | string | null
     jangadaId?: StringNullableFilter<"Certificado"> | string | null
+    obraId?: StringNullableFilter<"Certificado"> | string | null
+    inspecaoId?: StringNullableFilter<"Certificado"> | string | null
     createdAt?: DateTimeFilter<"Certificado"> | Date | string
     updatedAt?: DateTimeFilter<"Certificado"> | Date | string
     cliente?: XOR<ClienteNullableScalarRelationFilter, ClienteWhereInput> | null
     navio?: XOR<NavioNullableScalarRelationFilter, NavioWhereInput> | null
     jangada?: XOR<JangadaNullableScalarRelationFilter, JangadaWhereInput> | null
+    obra?: XOR<ObraNullableScalarRelationFilter, ObraWhereInput> | null
+    inspecao?: XOR<InspecaoNullableScalarRelationFilter, InspecaoWhereInput> | null
     envioItens?: EnvioItemListRelationFilter
   }
 
   export type CertificadoOrderByWithRelationInput = {
     id?: SortOrder
+    nome?: SortOrderInput | SortOrder
     tipo?: SortOrder
     numero?: SortOrder
     dataEmissao?: SortOrder
     dataValidade?: SortOrder
     entidadeEmissora?: SortOrder
     status?: SortOrder
+    filePath?: SortOrderInput | SortOrder
+    notas?: SortOrderInput | SortOrder
     clienteId?: SortOrderInput | SortOrder
     navioId?: SortOrderInput | SortOrder
     jangadaId?: SortOrderInput | SortOrder
+    obraId?: SortOrderInput | SortOrder
+    inspecaoId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     cliente?: ClienteOrderByWithRelationInput
     navio?: NavioOrderByWithRelationInput
     jangada?: JangadaOrderByWithRelationInput
+    obra?: ObraOrderByWithRelationInput
+    inspecao?: InspecaoOrderByWithRelationInput
     envioItens?: EnvioItemOrderByRelationAggregateInput
   }
 
@@ -47966,33 +49721,45 @@ export namespace Prisma {
     AND?: CertificadoWhereInput | CertificadoWhereInput[]
     OR?: CertificadoWhereInput[]
     NOT?: CertificadoWhereInput | CertificadoWhereInput[]
+    nome?: StringNullableFilter<"Certificado"> | string | null
     tipo?: StringFilter<"Certificado"> | string
     dataEmissao?: DateTimeFilter<"Certificado"> | Date | string
     dataValidade?: DateTimeFilter<"Certificado"> | Date | string
     entidadeEmissora?: StringFilter<"Certificado"> | string
     status?: StringFilter<"Certificado"> | string
+    filePath?: StringNullableFilter<"Certificado"> | string | null
+    notas?: StringNullableFilter<"Certificado"> | string | null
     clienteId?: StringNullableFilter<"Certificado"> | string | null
     navioId?: StringNullableFilter<"Certificado"> | string | null
     jangadaId?: StringNullableFilter<"Certificado"> | string | null
+    obraId?: StringNullableFilter<"Certificado"> | string | null
+    inspecaoId?: StringNullableFilter<"Certificado"> | string | null
     createdAt?: DateTimeFilter<"Certificado"> | Date | string
     updatedAt?: DateTimeFilter<"Certificado"> | Date | string
     cliente?: XOR<ClienteNullableScalarRelationFilter, ClienteWhereInput> | null
     navio?: XOR<NavioNullableScalarRelationFilter, NavioWhereInput> | null
     jangada?: XOR<JangadaNullableScalarRelationFilter, JangadaWhereInput> | null
+    obra?: XOR<ObraNullableScalarRelationFilter, ObraWhereInput> | null
+    inspecao?: XOR<InspecaoNullableScalarRelationFilter, InspecaoWhereInput> | null
     envioItens?: EnvioItemListRelationFilter
   }, "id" | "numero">
 
   export type CertificadoOrderByWithAggregationInput = {
     id?: SortOrder
+    nome?: SortOrderInput | SortOrder
     tipo?: SortOrder
     numero?: SortOrder
     dataEmissao?: SortOrder
     dataValidade?: SortOrder
     entidadeEmissora?: SortOrder
     status?: SortOrder
+    filePath?: SortOrderInput | SortOrder
+    notas?: SortOrderInput | SortOrder
     clienteId?: SortOrderInput | SortOrder
     navioId?: SortOrderInput | SortOrder
     jangadaId?: SortOrderInput | SortOrder
+    obraId?: SortOrderInput | SortOrder
+    inspecaoId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: CertificadoCountOrderByAggregateInput
@@ -48005,15 +49772,20 @@ export namespace Prisma {
     OR?: CertificadoScalarWhereWithAggregatesInput[]
     NOT?: CertificadoScalarWhereWithAggregatesInput | CertificadoScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Certificado"> | string
+    nome?: StringNullableWithAggregatesFilter<"Certificado"> | string | null
     tipo?: StringWithAggregatesFilter<"Certificado"> | string
     numero?: StringWithAggregatesFilter<"Certificado"> | string
     dataEmissao?: DateTimeWithAggregatesFilter<"Certificado"> | Date | string
     dataValidade?: DateTimeWithAggregatesFilter<"Certificado"> | Date | string
     entidadeEmissora?: StringWithAggregatesFilter<"Certificado"> | string
     status?: StringWithAggregatesFilter<"Certificado"> | string
+    filePath?: StringNullableWithAggregatesFilter<"Certificado"> | string | null
+    notas?: StringNullableWithAggregatesFilter<"Certificado"> | string | null
     clienteId?: StringNullableWithAggregatesFilter<"Certificado"> | string | null
     navioId?: StringNullableWithAggregatesFilter<"Certificado"> | string | null
     jangadaId?: StringNullableWithAggregatesFilter<"Certificado"> | string | null
+    obraId?: StringNullableWithAggregatesFilter<"Certificado"> | string | null
+    inspecaoId?: StringNullableWithAggregatesFilter<"Certificado"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Certificado"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Certificado"> | Date | string
   }
@@ -48043,6 +49815,7 @@ export namespace Prisma {
     movimentacoes?: MovimentacaoStockListRelationFilter
     envioItens?: EnvioItemListRelationFilter
     tarefas?: TarefaListRelationFilter
+    modelosItens?: ModeloJangadaItemListRelationFilter
   }
 
   export type StockOrderByWithRelationInput = {
@@ -48067,6 +49840,7 @@ export namespace Prisma {
     movimentacoes?: MovimentacaoStockOrderByRelationAggregateInput
     envioItens?: EnvioItemOrderByRelationAggregateInput
     tarefas?: TarefaOrderByRelationAggregateInput
+    modelosItens?: ModeloJangadaItemOrderByRelationAggregateInput
   }
 
   export type StockWhereUniqueInput = Prisma.AtLeast<{
@@ -48095,6 +49869,7 @@ export namespace Prisma {
     movimentacoes?: MovimentacaoStockListRelationFilter
     envioItens?: EnvioItemListRelationFilter
     tarefas?: TarefaListRelationFilter
+    modelosItens?: ModeloJangadaItemListRelationFilter
   }, "id" | "nome_categoria">
 
   export type StockOrderByWithAggregationInput = {
@@ -48744,61 +50519,90 @@ export namespace Prisma {
     OR?: ObraWhereInput[]
     NOT?: ObraWhereInput | ObraWhereInput[]
     id?: StringFilter<"Obra"> | string
+    codigo?: StringNullableFilter<"Obra"> | string | null
     titulo?: StringFilter<"Obra"> | string
     descricao?: StringNullableFilter<"Obra"> | string | null
+    tipo?: StringNullableFilter<"Obra"> | string | null
     status?: StringFilter<"Obra"> | string
     dataInicio?: DateTimeNullableFilter<"Obra"> | Date | string | null
     dataFim?: DateTimeNullableFilter<"Obra"> | Date | string | null
     orcamento?: FloatNullableFilter<"Obra"> | number | null
+    filePath?: StringNullableFilter<"Obra"> | string | null
     clienteId?: StringNullableFilter<"Obra"> | string | null
+    jangadaId?: StringNullableFilter<"Obra"> | string | null
+    inspecaoId?: StringNullableFilter<"Obra"> | string | null
     responsavel?: StringNullableFilter<"Obra"> | string | null
     createdAt?: DateTimeFilter<"Obra"> | Date | string
     updatedAt?: DateTimeFilter<"Obra"> | Date | string
     cliente?: XOR<ClienteNullableScalarRelationFilter, ClienteWhereInput> | null
+    jangada?: XOR<JangadaNullableScalarRelationFilter, JangadaWhereInput> | null
+    inspecao?: XOR<InspecaoNullableScalarRelationFilter, InspecaoWhereInput> | null
+    certificados?: CertificadoListRelationFilter
   }
 
   export type ObraOrderByWithRelationInput = {
     id?: SortOrder
+    codigo?: SortOrderInput | SortOrder
     titulo?: SortOrder
     descricao?: SortOrderInput | SortOrder
+    tipo?: SortOrderInput | SortOrder
     status?: SortOrder
     dataInicio?: SortOrderInput | SortOrder
     dataFim?: SortOrderInput | SortOrder
     orcamento?: SortOrderInput | SortOrder
+    filePath?: SortOrderInput | SortOrder
     clienteId?: SortOrderInput | SortOrder
+    jangadaId?: SortOrderInput | SortOrder
+    inspecaoId?: SortOrderInput | SortOrder
     responsavel?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     cliente?: ClienteOrderByWithRelationInput
+    jangada?: JangadaOrderByWithRelationInput
+    inspecao?: InspecaoOrderByWithRelationInput
+    certificados?: CertificadoOrderByRelationAggregateInput
   }
 
   export type ObraWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    codigo?: string
     AND?: ObraWhereInput | ObraWhereInput[]
     OR?: ObraWhereInput[]
     NOT?: ObraWhereInput | ObraWhereInput[]
     titulo?: StringFilter<"Obra"> | string
     descricao?: StringNullableFilter<"Obra"> | string | null
+    tipo?: StringNullableFilter<"Obra"> | string | null
     status?: StringFilter<"Obra"> | string
     dataInicio?: DateTimeNullableFilter<"Obra"> | Date | string | null
     dataFim?: DateTimeNullableFilter<"Obra"> | Date | string | null
     orcamento?: FloatNullableFilter<"Obra"> | number | null
+    filePath?: StringNullableFilter<"Obra"> | string | null
     clienteId?: StringNullableFilter<"Obra"> | string | null
+    jangadaId?: StringNullableFilter<"Obra"> | string | null
+    inspecaoId?: StringNullableFilter<"Obra"> | string | null
     responsavel?: StringNullableFilter<"Obra"> | string | null
     createdAt?: DateTimeFilter<"Obra"> | Date | string
     updatedAt?: DateTimeFilter<"Obra"> | Date | string
     cliente?: XOR<ClienteNullableScalarRelationFilter, ClienteWhereInput> | null
-  }, "id">
+    jangada?: XOR<JangadaNullableScalarRelationFilter, JangadaWhereInput> | null
+    inspecao?: XOR<InspecaoNullableScalarRelationFilter, InspecaoWhereInput> | null
+    certificados?: CertificadoListRelationFilter
+  }, "id" | "codigo">
 
   export type ObraOrderByWithAggregationInput = {
     id?: SortOrder
+    codigo?: SortOrderInput | SortOrder
     titulo?: SortOrder
     descricao?: SortOrderInput | SortOrder
+    tipo?: SortOrderInput | SortOrder
     status?: SortOrder
     dataInicio?: SortOrderInput | SortOrder
     dataFim?: SortOrderInput | SortOrder
     orcamento?: SortOrderInput | SortOrder
+    filePath?: SortOrderInput | SortOrder
     clienteId?: SortOrderInput | SortOrder
+    jangadaId?: SortOrderInput | SortOrder
+    inspecaoId?: SortOrderInput | SortOrder
     responsavel?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -48814,13 +50618,18 @@ export namespace Prisma {
     OR?: ObraScalarWhereWithAggregatesInput[]
     NOT?: ObraScalarWhereWithAggregatesInput | ObraScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Obra"> | string
+    codigo?: StringNullableWithAggregatesFilter<"Obra"> | string | null
     titulo?: StringWithAggregatesFilter<"Obra"> | string
     descricao?: StringNullableWithAggregatesFilter<"Obra"> | string | null
+    tipo?: StringNullableWithAggregatesFilter<"Obra"> | string | null
     status?: StringWithAggregatesFilter<"Obra"> | string
     dataInicio?: DateTimeNullableWithAggregatesFilter<"Obra"> | Date | string | null
     dataFim?: DateTimeNullableWithAggregatesFilter<"Obra"> | Date | string | null
     orcamento?: FloatNullableWithAggregatesFilter<"Obra"> | number | null
+    filePath?: StringNullableWithAggregatesFilter<"Obra"> | string | null
     clienteId?: StringNullableWithAggregatesFilter<"Obra"> | string | null
+    jangadaId?: StringNullableWithAggregatesFilter<"Obra"> | string | null
+    inspecaoId?: StringNullableWithAggregatesFilter<"Obra"> | string | null
     responsavel?: StringNullableWithAggregatesFilter<"Obra"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Obra"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Obra"> | Date | string
@@ -48988,6 +50797,7 @@ export namespace Prisma {
     NOT?: InspecaoWhereInput | InspecaoWhereInput[]
     id?: StringFilter<"Inspecao"> | string
     numero?: StringFilter<"Inspecao"> | string
+    numeroSerieJangada?: StringNullableFilter<"Inspecao"> | string | null
     tipoInspecao?: StringFilter<"Inspecao"> | string
     dataInspecao?: DateTimeFilter<"Inspecao"> | Date | string
     dataProxima?: DateTimeNullableFilter<"Inspecao"> | Date | string | null
@@ -48995,6 +50805,7 @@ export namespace Prisma {
     status?: StringFilter<"Inspecao"> | string
     tecnico?: StringFilter<"Inspecao"> | string
     observacoes?: StringNullableFilter<"Inspecao"> | string | null
+    filePath?: StringNullableFilter<"Inspecao"> | string | null
     navioId?: StringNullableFilter<"Inspecao"> | string | null
     jangadaId?: StringNullableFilter<"Inspecao"> | string | null
     cilindroId?: StringNullableFilter<"Inspecao"> | string | null
@@ -49003,6 +50814,8 @@ export namespace Prisma {
     navio?: XOR<NavioNullableScalarRelationFilter, NavioWhereInput> | null
     jangada?: XOR<JangadaNullableScalarRelationFilter, JangadaWhereInput> | null
     cilindro?: XOR<CilindroNullableScalarRelationFilter, CilindroWhereInput> | null
+    obras?: ObraListRelationFilter
+    certificados?: CertificadoListRelationFilter
     custos?: CustoInspecaoListRelationFilter
     historicos?: HistoricoInspecaoListRelationFilter
     substituicoesComponente?: SubstituicaoComponenteListRelationFilter
@@ -49011,6 +50824,7 @@ export namespace Prisma {
   export type InspecaoOrderByWithRelationInput = {
     id?: SortOrder
     numero?: SortOrder
+    numeroSerieJangada?: SortOrderInput | SortOrder
     tipoInspecao?: SortOrder
     dataInspecao?: SortOrder
     dataProxima?: SortOrderInput | SortOrder
@@ -49018,6 +50832,7 @@ export namespace Prisma {
     status?: SortOrder
     tecnico?: SortOrder
     observacoes?: SortOrderInput | SortOrder
+    filePath?: SortOrderInput | SortOrder
     navioId?: SortOrderInput | SortOrder
     jangadaId?: SortOrderInput | SortOrder
     cilindroId?: SortOrderInput | SortOrder
@@ -49026,6 +50841,8 @@ export namespace Prisma {
     navio?: NavioOrderByWithRelationInput
     jangada?: JangadaOrderByWithRelationInput
     cilindro?: CilindroOrderByWithRelationInput
+    obras?: ObraOrderByRelationAggregateInput
+    certificados?: CertificadoOrderByRelationAggregateInput
     custos?: CustoInspecaoOrderByRelationAggregateInput
     historicos?: HistoricoInspecaoOrderByRelationAggregateInput
     substituicoesComponente?: SubstituicaoComponenteOrderByRelationAggregateInput
@@ -49037,6 +50854,7 @@ export namespace Prisma {
     AND?: InspecaoWhereInput | InspecaoWhereInput[]
     OR?: InspecaoWhereInput[]
     NOT?: InspecaoWhereInput | InspecaoWhereInput[]
+    numeroSerieJangada?: StringNullableFilter<"Inspecao"> | string | null
     tipoInspecao?: StringFilter<"Inspecao"> | string
     dataInspecao?: DateTimeFilter<"Inspecao"> | Date | string
     dataProxima?: DateTimeNullableFilter<"Inspecao"> | Date | string | null
@@ -49044,6 +50862,7 @@ export namespace Prisma {
     status?: StringFilter<"Inspecao"> | string
     tecnico?: StringFilter<"Inspecao"> | string
     observacoes?: StringNullableFilter<"Inspecao"> | string | null
+    filePath?: StringNullableFilter<"Inspecao"> | string | null
     navioId?: StringNullableFilter<"Inspecao"> | string | null
     jangadaId?: StringNullableFilter<"Inspecao"> | string | null
     cilindroId?: StringNullableFilter<"Inspecao"> | string | null
@@ -49052,6 +50871,8 @@ export namespace Prisma {
     navio?: XOR<NavioNullableScalarRelationFilter, NavioWhereInput> | null
     jangada?: XOR<JangadaNullableScalarRelationFilter, JangadaWhereInput> | null
     cilindro?: XOR<CilindroNullableScalarRelationFilter, CilindroWhereInput> | null
+    obras?: ObraListRelationFilter
+    certificados?: CertificadoListRelationFilter
     custos?: CustoInspecaoListRelationFilter
     historicos?: HistoricoInspecaoListRelationFilter
     substituicoesComponente?: SubstituicaoComponenteListRelationFilter
@@ -49060,6 +50881,7 @@ export namespace Prisma {
   export type InspecaoOrderByWithAggregationInput = {
     id?: SortOrder
     numero?: SortOrder
+    numeroSerieJangada?: SortOrderInput | SortOrder
     tipoInspecao?: SortOrder
     dataInspecao?: SortOrder
     dataProxima?: SortOrderInput | SortOrder
@@ -49067,6 +50889,7 @@ export namespace Prisma {
     status?: SortOrder
     tecnico?: SortOrder
     observacoes?: SortOrderInput | SortOrder
+    filePath?: SortOrderInput | SortOrder
     navioId?: SortOrderInput | SortOrder
     jangadaId?: SortOrderInput | SortOrder
     cilindroId?: SortOrderInput | SortOrder
@@ -49083,6 +50906,7 @@ export namespace Prisma {
     NOT?: InspecaoScalarWhereWithAggregatesInput | InspecaoScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Inspecao"> | string
     numero?: StringWithAggregatesFilter<"Inspecao"> | string
+    numeroSerieJangada?: StringNullableWithAggregatesFilter<"Inspecao"> | string | null
     tipoInspecao?: StringWithAggregatesFilter<"Inspecao"> | string
     dataInspecao?: DateTimeWithAggregatesFilter<"Inspecao"> | Date | string
     dataProxima?: DateTimeNullableWithAggregatesFilter<"Inspecao"> | Date | string | null
@@ -49090,6 +50914,7 @@ export namespace Prisma {
     status?: StringWithAggregatesFilter<"Inspecao"> | string
     tecnico?: StringWithAggregatesFilter<"Inspecao"> | string
     observacoes?: StringNullableWithAggregatesFilter<"Inspecao"> | string | null
+    filePath?: StringNullableWithAggregatesFilter<"Inspecao"> | string | null
     navioId?: StringNullableWithAggregatesFilter<"Inspecao"> | string | null
     jangadaId?: StringNullableWithAggregatesFilter<"Inspecao"> | string | null
     cilindroId?: StringNullableWithAggregatesFilter<"Inspecao"> | string | null
@@ -49491,6 +51316,7 @@ export namespace Prisma {
     marca?: XOR<MarcaJangadaScalarRelationFilter, MarcaJangadaWhereInput>
     jangadas?: JangadaListRelationFilter
     especificacoes?: EspecificacaoTecnicaListRelationFilter
+    itensModelo?: ModeloJangadaItemListRelationFilter
   }
 
   export type ModeloJangadaOrderByWithRelationInput = {
@@ -49505,6 +51331,7 @@ export namespace Prisma {
     marca?: MarcaJangadaOrderByWithRelationInput
     jangadas?: JangadaOrderByRelationAggregateInput
     especificacoes?: EspecificacaoTecnicaOrderByRelationAggregateInput
+    itensModelo?: ModeloJangadaItemOrderByRelationAggregateInput
   }
 
   export type ModeloJangadaWhereUniqueInput = Prisma.AtLeast<{
@@ -49523,6 +51350,7 @@ export namespace Prisma {
     marca?: XOR<MarcaJangadaScalarRelationFilter, MarcaJangadaWhereInput>
     jangadas?: JangadaListRelationFilter
     especificacoes?: EspecificacaoTecnicaListRelationFilter
+    itensModelo?: ModeloJangadaItemListRelationFilter
   }, "id" | "nome_marcaId">
 
   export type ModeloJangadaOrderByWithAggregationInput = {
@@ -49551,6 +51379,72 @@ export namespace Prisma {
     ativo?: BoolWithAggregatesFilter<"ModeloJangada"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"ModeloJangada"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ModeloJangada"> | Date | string
+  }
+
+  export type ModeloJangadaItemWhereInput = {
+    AND?: ModeloJangadaItemWhereInput | ModeloJangadaItemWhereInput[]
+    OR?: ModeloJangadaItemWhereInput[]
+    NOT?: ModeloJangadaItemWhereInput | ModeloJangadaItemWhereInput[]
+    id?: StringFilter<"ModeloJangadaItem"> | string
+    modeloId?: StringFilter<"ModeloJangadaItem"> | string
+    stockId?: StringFilter<"ModeloJangadaItem"> | string
+    quantidade?: IntFilter<"ModeloJangadaItem"> | number
+    createdAt?: DateTimeFilter<"ModeloJangadaItem"> | Date | string
+    updatedAt?: DateTimeFilter<"ModeloJangadaItem"> | Date | string
+    modelo?: XOR<ModeloJangadaScalarRelationFilter, ModeloJangadaWhereInput>
+    stock?: XOR<StockScalarRelationFilter, StockWhereInput>
+  }
+
+  export type ModeloJangadaItemOrderByWithRelationInput = {
+    id?: SortOrder
+    modeloId?: SortOrder
+    stockId?: SortOrder
+    quantidade?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    modelo?: ModeloJangadaOrderByWithRelationInput
+    stock?: StockOrderByWithRelationInput
+  }
+
+  export type ModeloJangadaItemWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    modeloId_stockId?: ModeloJangadaItemModeloIdStockIdCompoundUniqueInput
+    AND?: ModeloJangadaItemWhereInput | ModeloJangadaItemWhereInput[]
+    OR?: ModeloJangadaItemWhereInput[]
+    NOT?: ModeloJangadaItemWhereInput | ModeloJangadaItemWhereInput[]
+    modeloId?: StringFilter<"ModeloJangadaItem"> | string
+    stockId?: StringFilter<"ModeloJangadaItem"> | string
+    quantidade?: IntFilter<"ModeloJangadaItem"> | number
+    createdAt?: DateTimeFilter<"ModeloJangadaItem"> | Date | string
+    updatedAt?: DateTimeFilter<"ModeloJangadaItem"> | Date | string
+    modelo?: XOR<ModeloJangadaScalarRelationFilter, ModeloJangadaWhereInput>
+    stock?: XOR<StockScalarRelationFilter, StockWhereInput>
+  }, "id" | "modeloId_stockId">
+
+  export type ModeloJangadaItemOrderByWithAggregationInput = {
+    id?: SortOrder
+    modeloId?: SortOrder
+    stockId?: SortOrder
+    quantidade?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ModeloJangadaItemCountOrderByAggregateInput
+    _avg?: ModeloJangadaItemAvgOrderByAggregateInput
+    _max?: ModeloJangadaItemMaxOrderByAggregateInput
+    _min?: ModeloJangadaItemMinOrderByAggregateInput
+    _sum?: ModeloJangadaItemSumOrderByAggregateInput
+  }
+
+  export type ModeloJangadaItemScalarWhereWithAggregatesInput = {
+    AND?: ModeloJangadaItemScalarWhereWithAggregatesInput | ModeloJangadaItemScalarWhereWithAggregatesInput[]
+    OR?: ModeloJangadaItemScalarWhereWithAggregatesInput[]
+    NOT?: ModeloJangadaItemScalarWhereWithAggregatesInput | ModeloJangadaItemScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ModeloJangadaItem"> | string
+    modeloId?: StringWithAggregatesFilter<"ModeloJangadaItem"> | string
+    stockId?: StringWithAggregatesFilter<"ModeloJangadaItem"> | string
+    quantidade?: IntWithAggregatesFilter<"ModeloJangadaItem"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"ModeloJangadaItem"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ModeloJangadaItem"> | Date | string
   }
 
   export type LotacaoJangadaWhereInput = {
@@ -51005,6 +52899,7 @@ export namespace Prisma {
     faturas?: FaturaCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoCreateNestedManyWithoutJangadaInput
+    obras?: ObraCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemCreateNestedManyWithoutJangadaInput
   }
@@ -51044,6 +52939,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoUncheckedCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoUncheckedCreateNestedManyWithoutJangadaInput
+    obras?: ObraUncheckedCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutJangadaInput
   }
@@ -51083,6 +52979,7 @@ export namespace Prisma {
     faturas?: FaturaUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUpdateManyWithoutJangadaNestedInput
   }
@@ -51122,6 +53019,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUncheckedUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUncheckedUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutJangadaNestedInput
   }
@@ -51376,31 +53274,41 @@ export namespace Prisma {
 
   export type CertificadoCreateInput = {
     id?: string
+    nome?: string | null
     tipo: string
     numero: string
     dataEmissao: Date | string
     dataValidade: Date | string
     entidadeEmissora: string
     status?: string
+    filePath?: string | null
+    notas?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     cliente?: ClienteCreateNestedOneWithoutCertificadosInput
     navio?: NavioCreateNestedOneWithoutCertificadosInput
     jangada?: JangadaCreateNestedOneWithoutCertificadosInput
+    obra?: ObraCreateNestedOneWithoutCertificadosInput
+    inspecao?: InspecaoCreateNestedOneWithoutCertificadosInput
     envioItens?: EnvioItemCreateNestedManyWithoutCertificadoInput
   }
 
   export type CertificadoUncheckedCreateInput = {
     id?: string
+    nome?: string | null
     tipo: string
     numero: string
     dataEmissao: Date | string
     dataValidade: Date | string
     entidadeEmissora: string
     status?: string
+    filePath?: string | null
+    notas?: string | null
     clienteId?: string | null
     navioId?: string | null
     jangadaId?: string | null
+    obraId?: string | null
+    inspecaoId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutCertificadoInput
@@ -51408,31 +53316,41 @@ export namespace Prisma {
 
   export type CertificadoUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
     tipo?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
     dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
     entidadeEmissora?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     cliente?: ClienteUpdateOneWithoutCertificadosNestedInput
     navio?: NavioUpdateOneWithoutCertificadosNestedInput
     jangada?: JangadaUpdateOneWithoutCertificadosNestedInput
+    obra?: ObraUpdateOneWithoutCertificadosNestedInput
+    inspecao?: InspecaoUpdateOneWithoutCertificadosNestedInput
     envioItens?: EnvioItemUpdateManyWithoutCertificadoNestedInput
   }
 
   export type CertificadoUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
     tipo?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
     dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
     entidadeEmissora?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
     clienteId?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    obraId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     envioItens?: EnvioItemUncheckedUpdateManyWithoutCertificadoNestedInput
@@ -51440,42 +53358,55 @@ export namespace Prisma {
 
   export type CertificadoCreateManyInput = {
     id?: string
+    nome?: string | null
     tipo: string
     numero: string
     dataEmissao: Date | string
     dataValidade: Date | string
     entidadeEmissora: string
     status?: string
+    filePath?: string | null
+    notas?: string | null
     clienteId?: string | null
     navioId?: string | null
     jangadaId?: string | null
+    obraId?: string | null
+    inspecaoId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type CertificadoUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
     tipo?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
     dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
     entidadeEmissora?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CertificadoUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
     tipo?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
     dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
     entidadeEmissora?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
     clienteId?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    obraId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -51502,6 +53433,7 @@ export namespace Prisma {
     movimentacoes?: MovimentacaoStockCreateNestedManyWithoutStockInput
     envioItens?: EnvioItemCreateNestedManyWithoutStockInput
     tarefas?: TarefaCreateNestedManyWithoutStockInput
+    modelosItens?: ModeloJangadaItemCreateNestedManyWithoutStockInput
   }
 
   export type StockUncheckedCreateInput = {
@@ -51526,6 +53458,7 @@ export namespace Prisma {
     movimentacoes?: MovimentacaoStockUncheckedCreateNestedManyWithoutStockInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutStockInput
     tarefas?: TarefaUncheckedCreateNestedManyWithoutStockInput
+    modelosItens?: ModeloJangadaItemUncheckedCreateNestedManyWithoutStockInput
   }
 
   export type StockUpdateInput = {
@@ -51550,6 +53483,7 @@ export namespace Prisma {
     movimentacoes?: MovimentacaoStockUpdateManyWithoutStockNestedInput
     envioItens?: EnvioItemUpdateManyWithoutStockNestedInput
     tarefas?: TarefaUpdateManyWithoutStockNestedInput
+    modelosItens?: ModeloJangadaItemUpdateManyWithoutStockNestedInput
   }
 
   export type StockUncheckedUpdateInput = {
@@ -51574,6 +53508,7 @@ export namespace Prisma {
     movimentacoes?: MovimentacaoStockUncheckedUpdateManyWithoutStockNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutStockNestedInput
     tarefas?: TarefaUncheckedUpdateManyWithoutStockNestedInput
+    modelosItens?: ModeloJangadaItemUncheckedUpdateManyWithoutStockNestedInput
   }
 
   export type StockCreateManyInput = {
@@ -52282,69 +54217,98 @@ export namespace Prisma {
 
   export type ObraCreateInput = {
     id?: string
+    codigo?: string | null
     titulo: string
     descricao?: string | null
+    tipo?: string | null
     status?: string
     dataInicio?: Date | string | null
     dataFim?: Date | string | null
     orcamento?: number | null
+    filePath?: string | null
     responsavel?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     cliente?: ClienteCreateNestedOneWithoutObrasInput
+    jangada?: JangadaCreateNestedOneWithoutObrasInput
+    inspecao?: InspecaoCreateNestedOneWithoutObrasInput
+    certificados?: CertificadoCreateNestedManyWithoutObraInput
   }
 
   export type ObraUncheckedCreateInput = {
     id?: string
+    codigo?: string | null
     titulo: string
     descricao?: string | null
+    tipo?: string | null
     status?: string
     dataInicio?: Date | string | null
     dataFim?: Date | string | null
     orcamento?: number | null
+    filePath?: string | null
     clienteId?: string | null
+    jangadaId?: string | null
+    inspecaoId?: string | null
     responsavel?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    certificados?: CertificadoUncheckedCreateNestedManyWithoutObraInput
   }
 
   export type ObraUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    codigo?: NullableStringFieldUpdateOperationsInput | string | null
     titulo?: StringFieldUpdateOperationsInput | string
     descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     dataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataFim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     orcamento?: NullableFloatFieldUpdateOperationsInput | number | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     responsavel?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     cliente?: ClienteUpdateOneWithoutObrasNestedInput
+    jangada?: JangadaUpdateOneWithoutObrasNestedInput
+    inspecao?: InspecaoUpdateOneWithoutObrasNestedInput
+    certificados?: CertificadoUpdateManyWithoutObraNestedInput
   }
 
   export type ObraUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    codigo?: NullableStringFieldUpdateOperationsInput | string | null
     titulo?: StringFieldUpdateOperationsInput | string
     descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     dataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataFim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     orcamento?: NullableFloatFieldUpdateOperationsInput | number | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     clienteId?: NullableStringFieldUpdateOperationsInput | string | null
+    jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
     responsavel?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    certificados?: CertificadoUncheckedUpdateManyWithoutObraNestedInput
   }
 
   export type ObraCreateManyInput = {
     id?: string
+    codigo?: string | null
     titulo: string
     descricao?: string | null
+    tipo?: string | null
     status?: string
     dataInicio?: Date | string | null
     dataFim?: Date | string | null
     orcamento?: number | null
+    filePath?: string | null
     clienteId?: string | null
+    jangadaId?: string | null
+    inspecaoId?: string | null
     responsavel?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -52352,12 +54316,15 @@ export namespace Prisma {
 
   export type ObraUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    codigo?: NullableStringFieldUpdateOperationsInput | string | null
     titulo?: StringFieldUpdateOperationsInput | string
     descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     dataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataFim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     orcamento?: NullableFloatFieldUpdateOperationsInput | number | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     responsavel?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52365,13 +54332,18 @@ export namespace Prisma {
 
   export type ObraUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    codigo?: NullableStringFieldUpdateOperationsInput | string | null
     titulo?: StringFieldUpdateOperationsInput | string
     descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     dataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataFim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     orcamento?: NullableFloatFieldUpdateOperationsInput | number | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     clienteId?: NullableStringFieldUpdateOperationsInput | string | null
+    jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
     responsavel?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52562,6 +54534,7 @@ export namespace Prisma {
   export type InspecaoCreateInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -52569,11 +54542,14 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     navio?: NavioCreateNestedOneWithoutInspecoesInput
     jangada?: JangadaCreateNestedOneWithoutInspecoesInput
     cilindro?: CilindroCreateNestedOneWithoutInspecoesInput
+    obras?: ObraCreateNestedManyWithoutInspecaoInput
+    certificados?: CertificadoCreateNestedManyWithoutInspecaoInput
     custos?: CustoInspecaoCreateNestedManyWithoutInspecaoInput
     historicos?: HistoricoInspecaoCreateNestedManyWithoutInspecaoInput
     substituicoesComponente?: SubstituicaoComponenteCreateNestedManyWithoutInspecaoInput
@@ -52582,6 +54558,7 @@ export namespace Prisma {
   export type InspecaoUncheckedCreateInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -52589,11 +54566,14 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     navioId?: string | null
     jangadaId?: string | null
     cilindroId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    obras?: ObraUncheckedCreateNestedManyWithoutInspecaoInput
+    certificados?: CertificadoUncheckedCreateNestedManyWithoutInspecaoInput
     custos?: CustoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
     historicos?: HistoricoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
     substituicoesComponente?: SubstituicaoComponenteUncheckedCreateNestedManyWithoutInspecaoInput
@@ -52602,6 +54582,7 @@ export namespace Prisma {
   export type InspecaoUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -52609,11 +54590,14 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     navio?: NavioUpdateOneWithoutInspecoesNestedInput
     jangada?: JangadaUpdateOneWithoutInspecoesNestedInput
     cilindro?: CilindroUpdateOneWithoutInspecoesNestedInput
+    obras?: ObraUpdateManyWithoutInspecaoNestedInput
+    certificados?: CertificadoUpdateManyWithoutInspecaoNestedInput
     custos?: CustoInspecaoUpdateManyWithoutInspecaoNestedInput
     historicos?: HistoricoInspecaoUpdateManyWithoutInspecaoNestedInput
     substituicoesComponente?: SubstituicaoComponenteUpdateManyWithoutInspecaoNestedInput
@@ -52622,6 +54606,7 @@ export namespace Prisma {
   export type InspecaoUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -52629,11 +54614,14 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
     cilindroId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    obras?: ObraUncheckedUpdateManyWithoutInspecaoNestedInput
+    certificados?: CertificadoUncheckedUpdateManyWithoutInspecaoNestedInput
     custos?: CustoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
     historicos?: HistoricoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
     substituicoesComponente?: SubstituicaoComponenteUncheckedUpdateManyWithoutInspecaoNestedInput
@@ -52642,6 +54630,7 @@ export namespace Prisma {
   export type InspecaoCreateManyInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -52649,6 +54638,7 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     navioId?: string | null
     jangadaId?: string | null
     cilindroId?: string | null
@@ -52659,6 +54649,7 @@ export namespace Prisma {
   export type InspecaoUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -52666,6 +54657,7 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -52673,6 +54665,7 @@ export namespace Prisma {
   export type InspecaoUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -52680,6 +54673,7 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
     cilindroId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -53112,6 +55106,7 @@ export namespace Prisma {
     marca: MarcaJangadaCreateNestedOneWithoutModelosInput
     jangadas?: JangadaCreateNestedManyWithoutModeloInput
     especificacoes?: EspecificacaoTecnicaCreateNestedManyWithoutModeloInput
+    itensModelo?: ModeloJangadaItemCreateNestedManyWithoutModeloInput
   }
 
   export type ModeloJangadaUncheckedCreateInput = {
@@ -53125,6 +55120,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     jangadas?: JangadaUncheckedCreateNestedManyWithoutModeloInput
     especificacoes?: EspecificacaoTecnicaUncheckedCreateNestedManyWithoutModeloInput
+    itensModelo?: ModeloJangadaItemUncheckedCreateNestedManyWithoutModeloInput
   }
 
   export type ModeloJangadaUpdateInput = {
@@ -53138,6 +55134,7 @@ export namespace Prisma {
     marca?: MarcaJangadaUpdateOneRequiredWithoutModelosNestedInput
     jangadas?: JangadaUpdateManyWithoutModeloNestedInput
     especificacoes?: EspecificacaoTecnicaUpdateManyWithoutModeloNestedInput
+    itensModelo?: ModeloJangadaItemUpdateManyWithoutModeloNestedInput
   }
 
   export type ModeloJangadaUncheckedUpdateInput = {
@@ -53151,6 +55148,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     jangadas?: JangadaUncheckedUpdateManyWithoutModeloNestedInput
     especificacoes?: EspecificacaoTecnicaUncheckedUpdateManyWithoutModeloNestedInput
+    itensModelo?: ModeloJangadaItemUncheckedUpdateManyWithoutModeloNestedInput
   }
 
   export type ModeloJangadaCreateManyInput = {
@@ -53181,6 +55179,67 @@ export namespace Prisma {
     sistemaInsuflacao?: NullableStringFieldUpdateOperationsInput | string | null
     valvulasPadrao?: NullableStringFieldUpdateOperationsInput | string | null
     ativo?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModeloJangadaItemCreateInput = {
+    id?: string
+    quantidade?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    modelo: ModeloJangadaCreateNestedOneWithoutItensModeloInput
+    stock: StockCreateNestedOneWithoutModelosItensInput
+  }
+
+  export type ModeloJangadaItemUncheckedCreateInput = {
+    id?: string
+    modeloId: string
+    stockId: string
+    quantidade?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ModeloJangadaItemUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    quantidade?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    modelo?: ModeloJangadaUpdateOneRequiredWithoutItensModeloNestedInput
+    stock?: StockUpdateOneRequiredWithoutModelosItensNestedInput
+  }
+
+  export type ModeloJangadaItemUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    modeloId?: StringFieldUpdateOperationsInput | string
+    stockId?: StringFieldUpdateOperationsInput | string
+    quantidade?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModeloJangadaItemCreateManyInput = {
+    id?: string
+    modeloId: string
+    stockId: string
+    quantidade?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ModeloJangadaItemUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    quantidade?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModeloJangadaItemUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    modeloId?: StringFieldUpdateOperationsInput | string
+    stockId?: StringFieldUpdateOperationsInput | string
+    quantidade?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -55087,47 +57146,72 @@ export namespace Prisma {
     isNot?: JangadaWhereInput | null
   }
 
+  export type ObraNullableScalarRelationFilter = {
+    is?: ObraWhereInput | null
+    isNot?: ObraWhereInput | null
+  }
+
+  export type InspecaoNullableScalarRelationFilter = {
+    is?: InspecaoWhereInput | null
+    isNot?: InspecaoWhereInput | null
+  }
+
   export type CertificadoCountOrderByAggregateInput = {
     id?: SortOrder
+    nome?: SortOrder
     tipo?: SortOrder
     numero?: SortOrder
     dataEmissao?: SortOrder
     dataValidade?: SortOrder
     entidadeEmissora?: SortOrder
     status?: SortOrder
+    filePath?: SortOrder
+    notas?: SortOrder
     clienteId?: SortOrder
     navioId?: SortOrder
     jangadaId?: SortOrder
+    obraId?: SortOrder
+    inspecaoId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type CertificadoMaxOrderByAggregateInput = {
     id?: SortOrder
+    nome?: SortOrder
     tipo?: SortOrder
     numero?: SortOrder
     dataEmissao?: SortOrder
     dataValidade?: SortOrder
     entidadeEmissora?: SortOrder
     status?: SortOrder
+    filePath?: SortOrder
+    notas?: SortOrder
     clienteId?: SortOrder
     navioId?: SortOrder
     jangadaId?: SortOrder
+    obraId?: SortOrder
+    inspecaoId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type CertificadoMinOrderByAggregateInput = {
     id?: SortOrder
+    nome?: SortOrder
     tipo?: SortOrder
     numero?: SortOrder
     dataEmissao?: SortOrder
     dataValidade?: SortOrder
     entidadeEmissora?: SortOrder
     status?: SortOrder
+    filePath?: SortOrder
+    notas?: SortOrder
     clienteId?: SortOrder
     navioId?: SortOrder
     jangadaId?: SortOrder
+    obraId?: SortOrder
+    inspecaoId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -55149,7 +57233,17 @@ export namespace Prisma {
     none?: MovimentacaoStockWhereInput
   }
 
+  export type ModeloJangadaItemListRelationFilter = {
+    every?: ModeloJangadaItemWhereInput
+    some?: ModeloJangadaItemWhereInput
+    none?: ModeloJangadaItemWhereInput
+  }
+
   export type MovimentacaoStockOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ModeloJangadaItemOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -55618,13 +57712,18 @@ export namespace Prisma {
 
   export type ObraCountOrderByAggregateInput = {
     id?: SortOrder
+    codigo?: SortOrder
     titulo?: SortOrder
     descricao?: SortOrder
+    tipo?: SortOrder
     status?: SortOrder
     dataInicio?: SortOrder
     dataFim?: SortOrder
     orcamento?: SortOrder
+    filePath?: SortOrder
     clienteId?: SortOrder
+    jangadaId?: SortOrder
+    inspecaoId?: SortOrder
     responsavel?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -55636,13 +57735,18 @@ export namespace Prisma {
 
   export type ObraMaxOrderByAggregateInput = {
     id?: SortOrder
+    codigo?: SortOrder
     titulo?: SortOrder
     descricao?: SortOrder
+    tipo?: SortOrder
     status?: SortOrder
     dataInicio?: SortOrder
     dataFim?: SortOrder
     orcamento?: SortOrder
+    filePath?: SortOrder
     clienteId?: SortOrder
+    jangadaId?: SortOrder
+    inspecaoId?: SortOrder
     responsavel?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -55650,13 +57754,18 @@ export namespace Prisma {
 
   export type ObraMinOrderByAggregateInput = {
     id?: SortOrder
+    codigo?: SortOrder
     titulo?: SortOrder
     descricao?: SortOrder
+    tipo?: SortOrder
     status?: SortOrder
     dataInicio?: SortOrder
     dataFim?: SortOrder
     orcamento?: SortOrder
+    filePath?: SortOrder
     clienteId?: SortOrder
+    jangadaId?: SortOrder
+    inspecaoId?: SortOrder
     responsavel?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -55785,6 +57894,7 @@ export namespace Prisma {
   export type InspecaoCountOrderByAggregateInput = {
     id?: SortOrder
     numero?: SortOrder
+    numeroSerieJangada?: SortOrder
     tipoInspecao?: SortOrder
     dataInspecao?: SortOrder
     dataProxima?: SortOrder
@@ -55792,6 +57902,7 @@ export namespace Prisma {
     status?: SortOrder
     tecnico?: SortOrder
     observacoes?: SortOrder
+    filePath?: SortOrder
     navioId?: SortOrder
     jangadaId?: SortOrder
     cilindroId?: SortOrder
@@ -55802,6 +57913,7 @@ export namespace Prisma {
   export type InspecaoMaxOrderByAggregateInput = {
     id?: SortOrder
     numero?: SortOrder
+    numeroSerieJangada?: SortOrder
     tipoInspecao?: SortOrder
     dataInspecao?: SortOrder
     dataProxima?: SortOrder
@@ -55809,6 +57921,7 @@ export namespace Prisma {
     status?: SortOrder
     tecnico?: SortOrder
     observacoes?: SortOrder
+    filePath?: SortOrder
     navioId?: SortOrder
     jangadaId?: SortOrder
     cilindroId?: SortOrder
@@ -55819,6 +57932,7 @@ export namespace Prisma {
   export type InspecaoMinOrderByAggregateInput = {
     id?: SortOrder
     numero?: SortOrder
+    numeroSerieJangada?: SortOrder
     tipoInspecao?: SortOrder
     dataInspecao?: SortOrder
     dataProxima?: SortOrder
@@ -55826,6 +57940,7 @@ export namespace Prisma {
     status?: SortOrder
     tecnico?: SortOrder
     observacoes?: SortOrder
+    filePath?: SortOrder
     navioId?: SortOrder
     jangadaId?: SortOrder
     cilindroId?: SortOrder
@@ -56114,6 +58229,51 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
+  export type ModeloJangadaScalarRelationFilter = {
+    is?: ModeloJangadaWhereInput
+    isNot?: ModeloJangadaWhereInput
+  }
+
+  export type ModeloJangadaItemModeloIdStockIdCompoundUniqueInput = {
+    modeloId: string
+    stockId: string
+  }
+
+  export type ModeloJangadaItemCountOrderByAggregateInput = {
+    id?: SortOrder
+    modeloId?: SortOrder
+    stockId?: SortOrder
+    quantidade?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ModeloJangadaItemAvgOrderByAggregateInput = {
+    quantidade?: SortOrder
+  }
+
+  export type ModeloJangadaItemMaxOrderByAggregateInput = {
+    id?: SortOrder
+    modeloId?: SortOrder
+    stockId?: SortOrder
+    quantidade?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ModeloJangadaItemMinOrderByAggregateInput = {
+    id?: SortOrder
+    modeloId?: SortOrder
+    stockId?: SortOrder
+    quantidade?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ModeloJangadaItemSumOrderByAggregateInput = {
+    quantidade?: SortOrder
+  }
+
   export type LotacaoJangadaCountOrderByAggregateInput = {
     id?: SortOrder
     capacidade?: SortOrder
@@ -56144,11 +58304,6 @@ export namespace Prisma {
 
   export type LotacaoJangadaSumOrderByAggregateInput = {
     capacidade?: SortOrder
-  }
-
-  export type ModeloJangadaScalarRelationFilter = {
-    is?: ModeloJangadaWhereInput
-    isNot?: ModeloJangadaWhereInput
   }
 
   export type LotacaoJangadaScalarRelationFilter = {
@@ -57507,6 +59662,13 @@ export namespace Prisma {
     connect?: InspecaoWhereUniqueInput | InspecaoWhereUniqueInput[]
   }
 
+  export type ObraCreateNestedManyWithoutJangadaInput = {
+    create?: XOR<ObraCreateWithoutJangadaInput, ObraUncheckedCreateWithoutJangadaInput> | ObraCreateWithoutJangadaInput[] | ObraUncheckedCreateWithoutJangadaInput[]
+    connectOrCreate?: ObraCreateOrConnectWithoutJangadaInput | ObraCreateOrConnectWithoutJangadaInput[]
+    createMany?: ObraCreateManyJangadaInputEnvelope
+    connect?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+  }
+
   export type InspecaoComponenteCreateNestedManyWithoutJangadaInput = {
     create?: XOR<InspecaoComponenteCreateWithoutJangadaInput, InspecaoComponenteUncheckedCreateWithoutJangadaInput> | InspecaoComponenteCreateWithoutJangadaInput[] | InspecaoComponenteUncheckedCreateWithoutJangadaInput[]
     connectOrCreate?: InspecaoComponenteCreateOrConnectWithoutJangadaInput | InspecaoComponenteCreateOrConnectWithoutJangadaInput[]
@@ -57554,6 +59716,13 @@ export namespace Prisma {
     connectOrCreate?: InspecaoCreateOrConnectWithoutJangadaInput | InspecaoCreateOrConnectWithoutJangadaInput[]
     createMany?: InspecaoCreateManyJangadaInputEnvelope
     connect?: InspecaoWhereUniqueInput | InspecaoWhereUniqueInput[]
+  }
+
+  export type ObraUncheckedCreateNestedManyWithoutJangadaInput = {
+    create?: XOR<ObraCreateWithoutJangadaInput, ObraUncheckedCreateWithoutJangadaInput> | ObraCreateWithoutJangadaInput[] | ObraUncheckedCreateWithoutJangadaInput[]
+    connectOrCreate?: ObraCreateOrConnectWithoutJangadaInput | ObraCreateOrConnectWithoutJangadaInput[]
+    createMany?: ObraCreateManyJangadaInputEnvelope
+    connect?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
   }
 
   export type InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput = {
@@ -57714,6 +59883,20 @@ export namespace Prisma {
     deleteMany?: InspecaoScalarWhereInput | InspecaoScalarWhereInput[]
   }
 
+  export type ObraUpdateManyWithoutJangadaNestedInput = {
+    create?: XOR<ObraCreateWithoutJangadaInput, ObraUncheckedCreateWithoutJangadaInput> | ObraCreateWithoutJangadaInput[] | ObraUncheckedCreateWithoutJangadaInput[]
+    connectOrCreate?: ObraCreateOrConnectWithoutJangadaInput | ObraCreateOrConnectWithoutJangadaInput[]
+    upsert?: ObraUpsertWithWhereUniqueWithoutJangadaInput | ObraUpsertWithWhereUniqueWithoutJangadaInput[]
+    createMany?: ObraCreateManyJangadaInputEnvelope
+    set?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    disconnect?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    delete?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    connect?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    update?: ObraUpdateWithWhereUniqueWithoutJangadaInput | ObraUpdateWithWhereUniqueWithoutJangadaInput[]
+    updateMany?: ObraUpdateManyWithWhereWithoutJangadaInput | ObraUpdateManyWithWhereWithoutJangadaInput[]
+    deleteMany?: ObraScalarWhereInput | ObraScalarWhereInput[]
+  }
+
   export type InspecaoComponenteUpdateManyWithoutJangadaNestedInput = {
     create?: XOR<InspecaoComponenteCreateWithoutJangadaInput, InspecaoComponenteUncheckedCreateWithoutJangadaInput> | InspecaoComponenteCreateWithoutJangadaInput[] | InspecaoComponenteUncheckedCreateWithoutJangadaInput[]
     connectOrCreate?: InspecaoComponenteCreateOrConnectWithoutJangadaInput | InspecaoComponenteCreateOrConnectWithoutJangadaInput[]
@@ -57810,6 +59993,20 @@ export namespace Prisma {
     update?: InspecaoUpdateWithWhereUniqueWithoutJangadaInput | InspecaoUpdateWithWhereUniqueWithoutJangadaInput[]
     updateMany?: InspecaoUpdateManyWithWhereWithoutJangadaInput | InspecaoUpdateManyWithWhereWithoutJangadaInput[]
     deleteMany?: InspecaoScalarWhereInput | InspecaoScalarWhereInput[]
+  }
+
+  export type ObraUncheckedUpdateManyWithoutJangadaNestedInput = {
+    create?: XOR<ObraCreateWithoutJangadaInput, ObraUncheckedCreateWithoutJangadaInput> | ObraCreateWithoutJangadaInput[] | ObraUncheckedCreateWithoutJangadaInput[]
+    connectOrCreate?: ObraCreateOrConnectWithoutJangadaInput | ObraCreateOrConnectWithoutJangadaInput[]
+    upsert?: ObraUpsertWithWhereUniqueWithoutJangadaInput | ObraUpsertWithWhereUniqueWithoutJangadaInput[]
+    createMany?: ObraCreateManyJangadaInputEnvelope
+    set?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    disconnect?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    delete?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    connect?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    update?: ObraUpdateWithWhereUniqueWithoutJangadaInput | ObraUpdateWithWhereUniqueWithoutJangadaInput[]
+    updateMany?: ObraUpdateManyWithWhereWithoutJangadaInput | ObraUpdateManyWithWhereWithoutJangadaInput[]
+    deleteMany?: ObraScalarWhereInput | ObraScalarWhereInput[]
   }
 
   export type InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput = {
@@ -57984,6 +60181,18 @@ export namespace Prisma {
     connect?: JangadaWhereUniqueInput
   }
 
+  export type ObraCreateNestedOneWithoutCertificadosInput = {
+    create?: XOR<ObraCreateWithoutCertificadosInput, ObraUncheckedCreateWithoutCertificadosInput>
+    connectOrCreate?: ObraCreateOrConnectWithoutCertificadosInput
+    connect?: ObraWhereUniqueInput
+  }
+
+  export type InspecaoCreateNestedOneWithoutCertificadosInput = {
+    create?: XOR<InspecaoCreateWithoutCertificadosInput, InspecaoUncheckedCreateWithoutCertificadosInput>
+    connectOrCreate?: InspecaoCreateOrConnectWithoutCertificadosInput
+    connect?: InspecaoWhereUniqueInput
+  }
+
   export type EnvioItemCreateNestedManyWithoutCertificadoInput = {
     create?: XOR<EnvioItemCreateWithoutCertificadoInput, EnvioItemUncheckedCreateWithoutCertificadoInput> | EnvioItemCreateWithoutCertificadoInput[] | EnvioItemUncheckedCreateWithoutCertificadoInput[]
     connectOrCreate?: EnvioItemCreateOrConnectWithoutCertificadoInput | EnvioItemCreateOrConnectWithoutCertificadoInput[]
@@ -58026,6 +60235,26 @@ export namespace Prisma {
     delete?: JangadaWhereInput | boolean
     connect?: JangadaWhereUniqueInput
     update?: XOR<XOR<JangadaUpdateToOneWithWhereWithoutCertificadosInput, JangadaUpdateWithoutCertificadosInput>, JangadaUncheckedUpdateWithoutCertificadosInput>
+  }
+
+  export type ObraUpdateOneWithoutCertificadosNestedInput = {
+    create?: XOR<ObraCreateWithoutCertificadosInput, ObraUncheckedCreateWithoutCertificadosInput>
+    connectOrCreate?: ObraCreateOrConnectWithoutCertificadosInput
+    upsert?: ObraUpsertWithoutCertificadosInput
+    disconnect?: ObraWhereInput | boolean
+    delete?: ObraWhereInput | boolean
+    connect?: ObraWhereUniqueInput
+    update?: XOR<XOR<ObraUpdateToOneWithWhereWithoutCertificadosInput, ObraUpdateWithoutCertificadosInput>, ObraUncheckedUpdateWithoutCertificadosInput>
+  }
+
+  export type InspecaoUpdateOneWithoutCertificadosNestedInput = {
+    create?: XOR<InspecaoCreateWithoutCertificadosInput, InspecaoUncheckedCreateWithoutCertificadosInput>
+    connectOrCreate?: InspecaoCreateOrConnectWithoutCertificadosInput
+    upsert?: InspecaoUpsertWithoutCertificadosInput
+    disconnect?: InspecaoWhereInput | boolean
+    delete?: InspecaoWhereInput | boolean
+    connect?: InspecaoWhereUniqueInput
+    update?: XOR<XOR<InspecaoUpdateToOneWithWhereWithoutCertificadosInput, InspecaoUpdateWithoutCertificadosInput>, InspecaoUncheckedUpdateWithoutCertificadosInput>
   }
 
   export type EnvioItemUpdateManyWithoutCertificadoNestedInput = {
@@ -58077,6 +60306,13 @@ export namespace Prisma {
     connect?: TarefaWhereUniqueInput | TarefaWhereUniqueInput[]
   }
 
+  export type ModeloJangadaItemCreateNestedManyWithoutStockInput = {
+    create?: XOR<ModeloJangadaItemCreateWithoutStockInput, ModeloJangadaItemUncheckedCreateWithoutStockInput> | ModeloJangadaItemCreateWithoutStockInput[] | ModeloJangadaItemUncheckedCreateWithoutStockInput[]
+    connectOrCreate?: ModeloJangadaItemCreateOrConnectWithoutStockInput | ModeloJangadaItemCreateOrConnectWithoutStockInput[]
+    createMany?: ModeloJangadaItemCreateManyStockInputEnvelope
+    connect?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+  }
+
   export type MovimentacaoStockUncheckedCreateNestedManyWithoutStockInput = {
     create?: XOR<MovimentacaoStockCreateWithoutStockInput, MovimentacaoStockUncheckedCreateWithoutStockInput> | MovimentacaoStockCreateWithoutStockInput[] | MovimentacaoStockUncheckedCreateWithoutStockInput[]
     connectOrCreate?: MovimentacaoStockCreateOrConnectWithoutStockInput | MovimentacaoStockCreateOrConnectWithoutStockInput[]
@@ -58096,6 +60332,13 @@ export namespace Prisma {
     connectOrCreate?: TarefaCreateOrConnectWithoutStockInput | TarefaCreateOrConnectWithoutStockInput[]
     createMany?: TarefaCreateManyStockInputEnvelope
     connect?: TarefaWhereUniqueInput | TarefaWhereUniqueInput[]
+  }
+
+  export type ModeloJangadaItemUncheckedCreateNestedManyWithoutStockInput = {
+    create?: XOR<ModeloJangadaItemCreateWithoutStockInput, ModeloJangadaItemUncheckedCreateWithoutStockInput> | ModeloJangadaItemCreateWithoutStockInput[] | ModeloJangadaItemUncheckedCreateWithoutStockInput[]
+    connectOrCreate?: ModeloJangadaItemCreateOrConnectWithoutStockInput | ModeloJangadaItemCreateOrConnectWithoutStockInput[]
+    createMany?: ModeloJangadaItemCreateManyStockInputEnvelope
+    connect?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -58148,6 +60391,20 @@ export namespace Prisma {
     deleteMany?: TarefaScalarWhereInput | TarefaScalarWhereInput[]
   }
 
+  export type ModeloJangadaItemUpdateManyWithoutStockNestedInput = {
+    create?: XOR<ModeloJangadaItemCreateWithoutStockInput, ModeloJangadaItemUncheckedCreateWithoutStockInput> | ModeloJangadaItemCreateWithoutStockInput[] | ModeloJangadaItemUncheckedCreateWithoutStockInput[]
+    connectOrCreate?: ModeloJangadaItemCreateOrConnectWithoutStockInput | ModeloJangadaItemCreateOrConnectWithoutStockInput[]
+    upsert?: ModeloJangadaItemUpsertWithWhereUniqueWithoutStockInput | ModeloJangadaItemUpsertWithWhereUniqueWithoutStockInput[]
+    createMany?: ModeloJangadaItemCreateManyStockInputEnvelope
+    set?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    disconnect?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    delete?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    connect?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    update?: ModeloJangadaItemUpdateWithWhereUniqueWithoutStockInput | ModeloJangadaItemUpdateWithWhereUniqueWithoutStockInput[]
+    updateMany?: ModeloJangadaItemUpdateManyWithWhereWithoutStockInput | ModeloJangadaItemUpdateManyWithWhereWithoutStockInput[]
+    deleteMany?: ModeloJangadaItemScalarWhereInput | ModeloJangadaItemScalarWhereInput[]
+  }
+
   export type MovimentacaoStockUncheckedUpdateManyWithoutStockNestedInput = {
     create?: XOR<MovimentacaoStockCreateWithoutStockInput, MovimentacaoStockUncheckedCreateWithoutStockInput> | MovimentacaoStockCreateWithoutStockInput[] | MovimentacaoStockUncheckedCreateWithoutStockInput[]
     connectOrCreate?: MovimentacaoStockCreateOrConnectWithoutStockInput | MovimentacaoStockCreateOrConnectWithoutStockInput[]
@@ -58188,6 +60445,20 @@ export namespace Prisma {
     update?: TarefaUpdateWithWhereUniqueWithoutStockInput | TarefaUpdateWithWhereUniqueWithoutStockInput[]
     updateMany?: TarefaUpdateManyWithWhereWithoutStockInput | TarefaUpdateManyWithWhereWithoutStockInput[]
     deleteMany?: TarefaScalarWhereInput | TarefaScalarWhereInput[]
+  }
+
+  export type ModeloJangadaItemUncheckedUpdateManyWithoutStockNestedInput = {
+    create?: XOR<ModeloJangadaItemCreateWithoutStockInput, ModeloJangadaItemUncheckedCreateWithoutStockInput> | ModeloJangadaItemCreateWithoutStockInput[] | ModeloJangadaItemUncheckedCreateWithoutStockInput[]
+    connectOrCreate?: ModeloJangadaItemCreateOrConnectWithoutStockInput | ModeloJangadaItemCreateOrConnectWithoutStockInput[]
+    upsert?: ModeloJangadaItemUpsertWithWhereUniqueWithoutStockInput | ModeloJangadaItemUpsertWithWhereUniqueWithoutStockInput[]
+    createMany?: ModeloJangadaItemCreateManyStockInputEnvelope
+    set?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    disconnect?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    delete?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    connect?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    update?: ModeloJangadaItemUpdateWithWhereUniqueWithoutStockInput | ModeloJangadaItemUpdateWithWhereUniqueWithoutStockInput[]
+    updateMany?: ModeloJangadaItemUpdateManyWithWhereWithoutStockInput | ModeloJangadaItemUpdateManyWithWhereWithoutStockInput[]
+    deleteMany?: ModeloJangadaItemScalarWhereInput | ModeloJangadaItemScalarWhereInput[]
   }
 
   export type StockCreateNestedOneWithoutMovimentacoesInput = {
@@ -58568,6 +60839,32 @@ export namespace Prisma {
     connect?: ClienteWhereUniqueInput
   }
 
+  export type JangadaCreateNestedOneWithoutObrasInput = {
+    create?: XOR<JangadaCreateWithoutObrasInput, JangadaUncheckedCreateWithoutObrasInput>
+    connectOrCreate?: JangadaCreateOrConnectWithoutObrasInput
+    connect?: JangadaWhereUniqueInput
+  }
+
+  export type InspecaoCreateNestedOneWithoutObrasInput = {
+    create?: XOR<InspecaoCreateWithoutObrasInput, InspecaoUncheckedCreateWithoutObrasInput>
+    connectOrCreate?: InspecaoCreateOrConnectWithoutObrasInput
+    connect?: InspecaoWhereUniqueInput
+  }
+
+  export type CertificadoCreateNestedManyWithoutObraInput = {
+    create?: XOR<CertificadoCreateWithoutObraInput, CertificadoUncheckedCreateWithoutObraInput> | CertificadoCreateWithoutObraInput[] | CertificadoUncheckedCreateWithoutObraInput[]
+    connectOrCreate?: CertificadoCreateOrConnectWithoutObraInput | CertificadoCreateOrConnectWithoutObraInput[]
+    createMany?: CertificadoCreateManyObraInputEnvelope
+    connect?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+  }
+
+  export type CertificadoUncheckedCreateNestedManyWithoutObraInput = {
+    create?: XOR<CertificadoCreateWithoutObraInput, CertificadoUncheckedCreateWithoutObraInput> | CertificadoCreateWithoutObraInput[] | CertificadoUncheckedCreateWithoutObraInput[]
+    connectOrCreate?: CertificadoCreateOrConnectWithoutObraInput | CertificadoCreateOrConnectWithoutObraInput[]
+    createMany?: CertificadoCreateManyObraInputEnvelope
+    connect?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+  }
+
   export type ClienteUpdateOneWithoutObrasNestedInput = {
     create?: XOR<ClienteCreateWithoutObrasInput, ClienteUncheckedCreateWithoutObrasInput>
     connectOrCreate?: ClienteCreateOrConnectWithoutObrasInput
@@ -58576,6 +60873,54 @@ export namespace Prisma {
     delete?: ClienteWhereInput | boolean
     connect?: ClienteWhereUniqueInput
     update?: XOR<XOR<ClienteUpdateToOneWithWhereWithoutObrasInput, ClienteUpdateWithoutObrasInput>, ClienteUncheckedUpdateWithoutObrasInput>
+  }
+
+  export type JangadaUpdateOneWithoutObrasNestedInput = {
+    create?: XOR<JangadaCreateWithoutObrasInput, JangadaUncheckedCreateWithoutObrasInput>
+    connectOrCreate?: JangadaCreateOrConnectWithoutObrasInput
+    upsert?: JangadaUpsertWithoutObrasInput
+    disconnect?: JangadaWhereInput | boolean
+    delete?: JangadaWhereInput | boolean
+    connect?: JangadaWhereUniqueInput
+    update?: XOR<XOR<JangadaUpdateToOneWithWhereWithoutObrasInput, JangadaUpdateWithoutObrasInput>, JangadaUncheckedUpdateWithoutObrasInput>
+  }
+
+  export type InspecaoUpdateOneWithoutObrasNestedInput = {
+    create?: XOR<InspecaoCreateWithoutObrasInput, InspecaoUncheckedCreateWithoutObrasInput>
+    connectOrCreate?: InspecaoCreateOrConnectWithoutObrasInput
+    upsert?: InspecaoUpsertWithoutObrasInput
+    disconnect?: InspecaoWhereInput | boolean
+    delete?: InspecaoWhereInput | boolean
+    connect?: InspecaoWhereUniqueInput
+    update?: XOR<XOR<InspecaoUpdateToOneWithWhereWithoutObrasInput, InspecaoUpdateWithoutObrasInput>, InspecaoUncheckedUpdateWithoutObrasInput>
+  }
+
+  export type CertificadoUpdateManyWithoutObraNestedInput = {
+    create?: XOR<CertificadoCreateWithoutObraInput, CertificadoUncheckedCreateWithoutObraInput> | CertificadoCreateWithoutObraInput[] | CertificadoUncheckedCreateWithoutObraInput[]
+    connectOrCreate?: CertificadoCreateOrConnectWithoutObraInput | CertificadoCreateOrConnectWithoutObraInput[]
+    upsert?: CertificadoUpsertWithWhereUniqueWithoutObraInput | CertificadoUpsertWithWhereUniqueWithoutObraInput[]
+    createMany?: CertificadoCreateManyObraInputEnvelope
+    set?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    disconnect?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    delete?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    connect?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    update?: CertificadoUpdateWithWhereUniqueWithoutObraInput | CertificadoUpdateWithWhereUniqueWithoutObraInput[]
+    updateMany?: CertificadoUpdateManyWithWhereWithoutObraInput | CertificadoUpdateManyWithWhereWithoutObraInput[]
+    deleteMany?: CertificadoScalarWhereInput | CertificadoScalarWhereInput[]
+  }
+
+  export type CertificadoUncheckedUpdateManyWithoutObraNestedInput = {
+    create?: XOR<CertificadoCreateWithoutObraInput, CertificadoUncheckedCreateWithoutObraInput> | CertificadoCreateWithoutObraInput[] | CertificadoUncheckedCreateWithoutObraInput[]
+    connectOrCreate?: CertificadoCreateOrConnectWithoutObraInput | CertificadoCreateOrConnectWithoutObraInput[]
+    upsert?: CertificadoUpsertWithWhereUniqueWithoutObraInput | CertificadoUpsertWithWhereUniqueWithoutObraInput[]
+    createMany?: CertificadoCreateManyObraInputEnvelope
+    set?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    disconnect?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    delete?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    connect?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    update?: CertificadoUpdateWithWhereUniqueWithoutObraInput | CertificadoUpdateWithWhereUniqueWithoutObraInput[]
+    updateMany?: CertificadoUpdateManyWithWhereWithoutObraInput | CertificadoUpdateManyWithWhereWithoutObraInput[]
+    deleteMany?: CertificadoScalarWhereInput | CertificadoScalarWhereInput[]
   }
 
   export type NavioCreateNestedOneWithoutInspecoesInput = {
@@ -58594,6 +60939,20 @@ export namespace Prisma {
     create?: XOR<CilindroCreateWithoutInspecoesInput, CilindroUncheckedCreateWithoutInspecoesInput>
     connectOrCreate?: CilindroCreateOrConnectWithoutInspecoesInput
     connect?: CilindroWhereUniqueInput
+  }
+
+  export type ObraCreateNestedManyWithoutInspecaoInput = {
+    create?: XOR<ObraCreateWithoutInspecaoInput, ObraUncheckedCreateWithoutInspecaoInput> | ObraCreateWithoutInspecaoInput[] | ObraUncheckedCreateWithoutInspecaoInput[]
+    connectOrCreate?: ObraCreateOrConnectWithoutInspecaoInput | ObraCreateOrConnectWithoutInspecaoInput[]
+    createMany?: ObraCreateManyInspecaoInputEnvelope
+    connect?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+  }
+
+  export type CertificadoCreateNestedManyWithoutInspecaoInput = {
+    create?: XOR<CertificadoCreateWithoutInspecaoInput, CertificadoUncheckedCreateWithoutInspecaoInput> | CertificadoCreateWithoutInspecaoInput[] | CertificadoUncheckedCreateWithoutInspecaoInput[]
+    connectOrCreate?: CertificadoCreateOrConnectWithoutInspecaoInput | CertificadoCreateOrConnectWithoutInspecaoInput[]
+    createMany?: CertificadoCreateManyInspecaoInputEnvelope
+    connect?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
   }
 
   export type CustoInspecaoCreateNestedManyWithoutInspecaoInput = {
@@ -58615,6 +60974,20 @@ export namespace Prisma {
     connectOrCreate?: SubstituicaoComponenteCreateOrConnectWithoutInspecaoInput | SubstituicaoComponenteCreateOrConnectWithoutInspecaoInput[]
     createMany?: SubstituicaoComponenteCreateManyInspecaoInputEnvelope
     connect?: SubstituicaoComponenteWhereUniqueInput | SubstituicaoComponenteWhereUniqueInput[]
+  }
+
+  export type ObraUncheckedCreateNestedManyWithoutInspecaoInput = {
+    create?: XOR<ObraCreateWithoutInspecaoInput, ObraUncheckedCreateWithoutInspecaoInput> | ObraCreateWithoutInspecaoInput[] | ObraUncheckedCreateWithoutInspecaoInput[]
+    connectOrCreate?: ObraCreateOrConnectWithoutInspecaoInput | ObraCreateOrConnectWithoutInspecaoInput[]
+    createMany?: ObraCreateManyInspecaoInputEnvelope
+    connect?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+  }
+
+  export type CertificadoUncheckedCreateNestedManyWithoutInspecaoInput = {
+    create?: XOR<CertificadoCreateWithoutInspecaoInput, CertificadoUncheckedCreateWithoutInspecaoInput> | CertificadoCreateWithoutInspecaoInput[] | CertificadoUncheckedCreateWithoutInspecaoInput[]
+    connectOrCreate?: CertificadoCreateOrConnectWithoutInspecaoInput | CertificadoCreateOrConnectWithoutInspecaoInput[]
+    createMany?: CertificadoCreateManyInspecaoInputEnvelope
+    connect?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
   }
 
   export type CustoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput = {
@@ -58668,6 +61041,34 @@ export namespace Prisma {
     update?: XOR<XOR<CilindroUpdateToOneWithWhereWithoutInspecoesInput, CilindroUpdateWithoutInspecoesInput>, CilindroUncheckedUpdateWithoutInspecoesInput>
   }
 
+  export type ObraUpdateManyWithoutInspecaoNestedInput = {
+    create?: XOR<ObraCreateWithoutInspecaoInput, ObraUncheckedCreateWithoutInspecaoInput> | ObraCreateWithoutInspecaoInput[] | ObraUncheckedCreateWithoutInspecaoInput[]
+    connectOrCreate?: ObraCreateOrConnectWithoutInspecaoInput | ObraCreateOrConnectWithoutInspecaoInput[]
+    upsert?: ObraUpsertWithWhereUniqueWithoutInspecaoInput | ObraUpsertWithWhereUniqueWithoutInspecaoInput[]
+    createMany?: ObraCreateManyInspecaoInputEnvelope
+    set?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    disconnect?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    delete?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    connect?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    update?: ObraUpdateWithWhereUniqueWithoutInspecaoInput | ObraUpdateWithWhereUniqueWithoutInspecaoInput[]
+    updateMany?: ObraUpdateManyWithWhereWithoutInspecaoInput | ObraUpdateManyWithWhereWithoutInspecaoInput[]
+    deleteMany?: ObraScalarWhereInput | ObraScalarWhereInput[]
+  }
+
+  export type CertificadoUpdateManyWithoutInspecaoNestedInput = {
+    create?: XOR<CertificadoCreateWithoutInspecaoInput, CertificadoUncheckedCreateWithoutInspecaoInput> | CertificadoCreateWithoutInspecaoInput[] | CertificadoUncheckedCreateWithoutInspecaoInput[]
+    connectOrCreate?: CertificadoCreateOrConnectWithoutInspecaoInput | CertificadoCreateOrConnectWithoutInspecaoInput[]
+    upsert?: CertificadoUpsertWithWhereUniqueWithoutInspecaoInput | CertificadoUpsertWithWhereUniqueWithoutInspecaoInput[]
+    createMany?: CertificadoCreateManyInspecaoInputEnvelope
+    set?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    disconnect?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    delete?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    connect?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    update?: CertificadoUpdateWithWhereUniqueWithoutInspecaoInput | CertificadoUpdateWithWhereUniqueWithoutInspecaoInput[]
+    updateMany?: CertificadoUpdateManyWithWhereWithoutInspecaoInput | CertificadoUpdateManyWithWhereWithoutInspecaoInput[]
+    deleteMany?: CertificadoScalarWhereInput | CertificadoScalarWhereInput[]
+  }
+
   export type CustoInspecaoUpdateManyWithoutInspecaoNestedInput = {
     create?: XOR<CustoInspecaoCreateWithoutInspecaoInput, CustoInspecaoUncheckedCreateWithoutInspecaoInput> | CustoInspecaoCreateWithoutInspecaoInput[] | CustoInspecaoUncheckedCreateWithoutInspecaoInput[]
     connectOrCreate?: CustoInspecaoCreateOrConnectWithoutInspecaoInput | CustoInspecaoCreateOrConnectWithoutInspecaoInput[]
@@ -58708,6 +61109,34 @@ export namespace Prisma {
     update?: SubstituicaoComponenteUpdateWithWhereUniqueWithoutInspecaoInput | SubstituicaoComponenteUpdateWithWhereUniqueWithoutInspecaoInput[]
     updateMany?: SubstituicaoComponenteUpdateManyWithWhereWithoutInspecaoInput | SubstituicaoComponenteUpdateManyWithWhereWithoutInspecaoInput[]
     deleteMany?: SubstituicaoComponenteScalarWhereInput | SubstituicaoComponenteScalarWhereInput[]
+  }
+
+  export type ObraUncheckedUpdateManyWithoutInspecaoNestedInput = {
+    create?: XOR<ObraCreateWithoutInspecaoInput, ObraUncheckedCreateWithoutInspecaoInput> | ObraCreateWithoutInspecaoInput[] | ObraUncheckedCreateWithoutInspecaoInput[]
+    connectOrCreate?: ObraCreateOrConnectWithoutInspecaoInput | ObraCreateOrConnectWithoutInspecaoInput[]
+    upsert?: ObraUpsertWithWhereUniqueWithoutInspecaoInput | ObraUpsertWithWhereUniqueWithoutInspecaoInput[]
+    createMany?: ObraCreateManyInspecaoInputEnvelope
+    set?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    disconnect?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    delete?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    connect?: ObraWhereUniqueInput | ObraWhereUniqueInput[]
+    update?: ObraUpdateWithWhereUniqueWithoutInspecaoInput | ObraUpdateWithWhereUniqueWithoutInspecaoInput[]
+    updateMany?: ObraUpdateManyWithWhereWithoutInspecaoInput | ObraUpdateManyWithWhereWithoutInspecaoInput[]
+    deleteMany?: ObraScalarWhereInput | ObraScalarWhereInput[]
+  }
+
+  export type CertificadoUncheckedUpdateManyWithoutInspecaoNestedInput = {
+    create?: XOR<CertificadoCreateWithoutInspecaoInput, CertificadoUncheckedCreateWithoutInspecaoInput> | CertificadoCreateWithoutInspecaoInput[] | CertificadoUncheckedCreateWithoutInspecaoInput[]
+    connectOrCreate?: CertificadoCreateOrConnectWithoutInspecaoInput | CertificadoCreateOrConnectWithoutInspecaoInput[]
+    upsert?: CertificadoUpsertWithWhereUniqueWithoutInspecaoInput | CertificadoUpsertWithWhereUniqueWithoutInspecaoInput[]
+    createMany?: CertificadoCreateManyInspecaoInputEnvelope
+    set?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    disconnect?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    delete?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    connect?: CertificadoWhereUniqueInput | CertificadoWhereUniqueInput[]
+    update?: CertificadoUpdateWithWhereUniqueWithoutInspecaoInput | CertificadoUpdateWithWhereUniqueWithoutInspecaoInput[]
+    updateMany?: CertificadoUpdateManyWithWhereWithoutInspecaoInput | CertificadoUpdateManyWithWhereWithoutInspecaoInput[]
+    deleteMany?: CertificadoScalarWhereInput | CertificadoScalarWhereInput[]
   }
 
   export type CustoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput = {
@@ -58954,6 +61383,13 @@ export namespace Prisma {
     connect?: EspecificacaoTecnicaWhereUniqueInput | EspecificacaoTecnicaWhereUniqueInput[]
   }
 
+  export type ModeloJangadaItemCreateNestedManyWithoutModeloInput = {
+    create?: XOR<ModeloJangadaItemCreateWithoutModeloInput, ModeloJangadaItemUncheckedCreateWithoutModeloInput> | ModeloJangadaItemCreateWithoutModeloInput[] | ModeloJangadaItemUncheckedCreateWithoutModeloInput[]
+    connectOrCreate?: ModeloJangadaItemCreateOrConnectWithoutModeloInput | ModeloJangadaItemCreateOrConnectWithoutModeloInput[]
+    createMany?: ModeloJangadaItemCreateManyModeloInputEnvelope
+    connect?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+  }
+
   export type JangadaUncheckedCreateNestedManyWithoutModeloInput = {
     create?: XOR<JangadaCreateWithoutModeloInput, JangadaUncheckedCreateWithoutModeloInput> | JangadaCreateWithoutModeloInput[] | JangadaUncheckedCreateWithoutModeloInput[]
     connectOrCreate?: JangadaCreateOrConnectWithoutModeloInput | JangadaCreateOrConnectWithoutModeloInput[]
@@ -58966,6 +61402,13 @@ export namespace Prisma {
     connectOrCreate?: EspecificacaoTecnicaCreateOrConnectWithoutModeloInput | EspecificacaoTecnicaCreateOrConnectWithoutModeloInput[]
     createMany?: EspecificacaoTecnicaCreateManyModeloInputEnvelope
     connect?: EspecificacaoTecnicaWhereUniqueInput | EspecificacaoTecnicaWhereUniqueInput[]
+  }
+
+  export type ModeloJangadaItemUncheckedCreateNestedManyWithoutModeloInput = {
+    create?: XOR<ModeloJangadaItemCreateWithoutModeloInput, ModeloJangadaItemUncheckedCreateWithoutModeloInput> | ModeloJangadaItemCreateWithoutModeloInput[] | ModeloJangadaItemUncheckedCreateWithoutModeloInput[]
+    connectOrCreate?: ModeloJangadaItemCreateOrConnectWithoutModeloInput | ModeloJangadaItemCreateOrConnectWithoutModeloInput[]
+    createMany?: ModeloJangadaItemCreateManyModeloInputEnvelope
+    connect?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
   }
 
   export type MarcaJangadaUpdateOneRequiredWithoutModelosNestedInput = {
@@ -59004,6 +61447,20 @@ export namespace Prisma {
     deleteMany?: EspecificacaoTecnicaScalarWhereInput | EspecificacaoTecnicaScalarWhereInput[]
   }
 
+  export type ModeloJangadaItemUpdateManyWithoutModeloNestedInput = {
+    create?: XOR<ModeloJangadaItemCreateWithoutModeloInput, ModeloJangadaItemUncheckedCreateWithoutModeloInput> | ModeloJangadaItemCreateWithoutModeloInput[] | ModeloJangadaItemUncheckedCreateWithoutModeloInput[]
+    connectOrCreate?: ModeloJangadaItemCreateOrConnectWithoutModeloInput | ModeloJangadaItemCreateOrConnectWithoutModeloInput[]
+    upsert?: ModeloJangadaItemUpsertWithWhereUniqueWithoutModeloInput | ModeloJangadaItemUpsertWithWhereUniqueWithoutModeloInput[]
+    createMany?: ModeloJangadaItemCreateManyModeloInputEnvelope
+    set?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    disconnect?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    delete?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    connect?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    update?: ModeloJangadaItemUpdateWithWhereUniqueWithoutModeloInput | ModeloJangadaItemUpdateWithWhereUniqueWithoutModeloInput[]
+    updateMany?: ModeloJangadaItemUpdateManyWithWhereWithoutModeloInput | ModeloJangadaItemUpdateManyWithWhereWithoutModeloInput[]
+    deleteMany?: ModeloJangadaItemScalarWhereInput | ModeloJangadaItemScalarWhereInput[]
+  }
+
   export type JangadaUncheckedUpdateManyWithoutModeloNestedInput = {
     create?: XOR<JangadaCreateWithoutModeloInput, JangadaUncheckedCreateWithoutModeloInput> | JangadaCreateWithoutModeloInput[] | JangadaUncheckedCreateWithoutModeloInput[]
     connectOrCreate?: JangadaCreateOrConnectWithoutModeloInput | JangadaCreateOrConnectWithoutModeloInput[]
@@ -59030,6 +61487,48 @@ export namespace Prisma {
     update?: EspecificacaoTecnicaUpdateWithWhereUniqueWithoutModeloInput | EspecificacaoTecnicaUpdateWithWhereUniqueWithoutModeloInput[]
     updateMany?: EspecificacaoTecnicaUpdateManyWithWhereWithoutModeloInput | EspecificacaoTecnicaUpdateManyWithWhereWithoutModeloInput[]
     deleteMany?: EspecificacaoTecnicaScalarWhereInput | EspecificacaoTecnicaScalarWhereInput[]
+  }
+
+  export type ModeloJangadaItemUncheckedUpdateManyWithoutModeloNestedInput = {
+    create?: XOR<ModeloJangadaItemCreateWithoutModeloInput, ModeloJangadaItemUncheckedCreateWithoutModeloInput> | ModeloJangadaItemCreateWithoutModeloInput[] | ModeloJangadaItemUncheckedCreateWithoutModeloInput[]
+    connectOrCreate?: ModeloJangadaItemCreateOrConnectWithoutModeloInput | ModeloJangadaItemCreateOrConnectWithoutModeloInput[]
+    upsert?: ModeloJangadaItemUpsertWithWhereUniqueWithoutModeloInput | ModeloJangadaItemUpsertWithWhereUniqueWithoutModeloInput[]
+    createMany?: ModeloJangadaItemCreateManyModeloInputEnvelope
+    set?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    disconnect?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    delete?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    connect?: ModeloJangadaItemWhereUniqueInput | ModeloJangadaItemWhereUniqueInput[]
+    update?: ModeloJangadaItemUpdateWithWhereUniqueWithoutModeloInput | ModeloJangadaItemUpdateWithWhereUniqueWithoutModeloInput[]
+    updateMany?: ModeloJangadaItemUpdateManyWithWhereWithoutModeloInput | ModeloJangadaItemUpdateManyWithWhereWithoutModeloInput[]
+    deleteMany?: ModeloJangadaItemScalarWhereInput | ModeloJangadaItemScalarWhereInput[]
+  }
+
+  export type ModeloJangadaCreateNestedOneWithoutItensModeloInput = {
+    create?: XOR<ModeloJangadaCreateWithoutItensModeloInput, ModeloJangadaUncheckedCreateWithoutItensModeloInput>
+    connectOrCreate?: ModeloJangadaCreateOrConnectWithoutItensModeloInput
+    connect?: ModeloJangadaWhereUniqueInput
+  }
+
+  export type StockCreateNestedOneWithoutModelosItensInput = {
+    create?: XOR<StockCreateWithoutModelosItensInput, StockUncheckedCreateWithoutModelosItensInput>
+    connectOrCreate?: StockCreateOrConnectWithoutModelosItensInput
+    connect?: StockWhereUniqueInput
+  }
+
+  export type ModeloJangadaUpdateOneRequiredWithoutItensModeloNestedInput = {
+    create?: XOR<ModeloJangadaCreateWithoutItensModeloInput, ModeloJangadaUncheckedCreateWithoutItensModeloInput>
+    connectOrCreate?: ModeloJangadaCreateOrConnectWithoutItensModeloInput
+    upsert?: ModeloJangadaUpsertWithoutItensModeloInput
+    connect?: ModeloJangadaWhereUniqueInput
+    update?: XOR<XOR<ModeloJangadaUpdateToOneWithWhereWithoutItensModeloInput, ModeloJangadaUpdateWithoutItensModeloInput>, ModeloJangadaUncheckedUpdateWithoutItensModeloInput>
+  }
+
+  export type StockUpdateOneRequiredWithoutModelosItensNestedInput = {
+    create?: XOR<StockCreateWithoutModelosItensInput, StockUncheckedCreateWithoutModelosItensInput>
+    connectOrCreate?: StockCreateOrConnectWithoutModelosItensInput
+    upsert?: StockUpsertWithoutModelosItensInput
+    connect?: StockWhereUniqueInput
+    update?: XOR<XOR<StockUpdateToOneWithWhereWithoutModelosItensInput, StockUpdateWithoutModelosItensInput>, StockUncheckedUpdateWithoutModelosItensInput>
   }
 
   export type JangadaCreateNestedManyWithoutLotacaoInput = {
@@ -59931,6 +62430,7 @@ export namespace Prisma {
     faturas?: FaturaCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoCreateNestedManyWithoutJangadaInput
+    obras?: ObraCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemCreateNestedManyWithoutJangadaInput
   }
@@ -59969,6 +62469,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoUncheckedCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoUncheckedCreateNestedManyWithoutJangadaInput
+    obras?: ObraUncheckedCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutJangadaInput
   }
@@ -59985,29 +62486,39 @@ export namespace Prisma {
 
   export type CertificadoCreateWithoutClienteInput = {
     id?: string
+    nome?: string | null
     tipo: string
     numero: string
     dataEmissao: Date | string
     dataValidade: Date | string
     entidadeEmissora: string
     status?: string
+    filePath?: string | null
+    notas?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     navio?: NavioCreateNestedOneWithoutCertificadosInput
     jangada?: JangadaCreateNestedOneWithoutCertificadosInput
+    obra?: ObraCreateNestedOneWithoutCertificadosInput
+    inspecao?: InspecaoCreateNestedOneWithoutCertificadosInput
     envioItens?: EnvioItemCreateNestedManyWithoutCertificadoInput
   }
 
   export type CertificadoUncheckedCreateWithoutClienteInput = {
     id?: string
+    nome?: string | null
     tipo: string
     numero: string
     dataEmissao: Date | string
     dataValidade: Date | string
     entidadeEmissora: string
     status?: string
+    filePath?: string | null
+    notas?: string | null
     navioId?: string | null
     jangadaId?: string | null
+    obraId?: string | null
+    inspecaoId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutCertificadoInput
@@ -60101,28 +62612,40 @@ export namespace Prisma {
 
   export type ObraCreateWithoutClienteInput = {
     id?: string
+    codigo?: string | null
     titulo: string
     descricao?: string | null
+    tipo?: string | null
     status?: string
     dataInicio?: Date | string | null
     dataFim?: Date | string | null
     orcamento?: number | null
+    filePath?: string | null
     responsavel?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    jangada?: JangadaCreateNestedOneWithoutObrasInput
+    inspecao?: InspecaoCreateNestedOneWithoutObrasInput
+    certificados?: CertificadoCreateNestedManyWithoutObraInput
   }
 
   export type ObraUncheckedCreateWithoutClienteInput = {
     id?: string
+    codigo?: string | null
     titulo: string
     descricao?: string | null
+    tipo?: string | null
     status?: string
     dataInicio?: Date | string | null
     dataFim?: Date | string | null
     orcamento?: number | null
+    filePath?: string | null
+    jangadaId?: string | null
+    inspecaoId?: string | null
     responsavel?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    certificados?: CertificadoUncheckedCreateNestedManyWithoutObraInput
   }
 
   export type ObraCreateOrConnectWithoutClienteInput = {
@@ -60360,15 +62883,20 @@ export namespace Prisma {
     OR?: CertificadoScalarWhereInput[]
     NOT?: CertificadoScalarWhereInput | CertificadoScalarWhereInput[]
     id?: StringFilter<"Certificado"> | string
+    nome?: StringNullableFilter<"Certificado"> | string | null
     tipo?: StringFilter<"Certificado"> | string
     numero?: StringFilter<"Certificado"> | string
     dataEmissao?: DateTimeFilter<"Certificado"> | Date | string
     dataValidade?: DateTimeFilter<"Certificado"> | Date | string
     entidadeEmissora?: StringFilter<"Certificado"> | string
     status?: StringFilter<"Certificado"> | string
+    filePath?: StringNullableFilter<"Certificado"> | string | null
+    notas?: StringNullableFilter<"Certificado"> | string | null
     clienteId?: StringNullableFilter<"Certificado"> | string | null
     navioId?: StringNullableFilter<"Certificado"> | string | null
     jangadaId?: StringNullableFilter<"Certificado"> | string | null
+    obraId?: StringNullableFilter<"Certificado"> | string | null
+    inspecaoId?: StringNullableFilter<"Certificado"> | string | null
     createdAt?: DateTimeFilter<"Certificado"> | Date | string
     updatedAt?: DateTimeFilter<"Certificado"> | Date | string
   }
@@ -60462,13 +62990,18 @@ export namespace Prisma {
     OR?: ObraScalarWhereInput[]
     NOT?: ObraScalarWhereInput | ObraScalarWhereInput[]
     id?: StringFilter<"Obra"> | string
+    codigo?: StringNullableFilter<"Obra"> | string | null
     titulo?: StringFilter<"Obra"> | string
     descricao?: StringNullableFilter<"Obra"> | string | null
+    tipo?: StringNullableFilter<"Obra"> | string | null
     status?: StringFilter<"Obra"> | string
     dataInicio?: DateTimeNullableFilter<"Obra"> | Date | string | null
     dataFim?: DateTimeNullableFilter<"Obra"> | Date | string | null
     orcamento?: FloatNullableFilter<"Obra"> | number | null
+    filePath?: StringNullableFilter<"Obra"> | string | null
     clienteId?: StringNullableFilter<"Obra"> | string | null
+    jangadaId?: StringNullableFilter<"Obra"> | string | null
+    inspecaoId?: StringNullableFilter<"Obra"> | string | null
     responsavel?: StringNullableFilter<"Obra"> | string | null
     createdAt?: DateTimeFilter<"Obra"> | Date | string
     updatedAt?: DateTimeFilter<"Obra"> | Date | string
@@ -60635,29 +63168,39 @@ export namespace Prisma {
 
   export type CertificadoCreateWithoutNavioInput = {
     id?: string
+    nome?: string | null
     tipo: string
     numero: string
     dataEmissao: Date | string
     dataValidade: Date | string
     entidadeEmissora: string
     status?: string
+    filePath?: string | null
+    notas?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     cliente?: ClienteCreateNestedOneWithoutCertificadosInput
     jangada?: JangadaCreateNestedOneWithoutCertificadosInput
+    obra?: ObraCreateNestedOneWithoutCertificadosInput
+    inspecao?: InspecaoCreateNestedOneWithoutCertificadosInput
     envioItens?: EnvioItemCreateNestedManyWithoutCertificadoInput
   }
 
   export type CertificadoUncheckedCreateWithoutNavioInput = {
     id?: string
+    nome?: string | null
     tipo: string
     numero: string
     dataEmissao: Date | string
     dataValidade: Date | string
     entidadeEmissora: string
     status?: string
+    filePath?: string | null
+    notas?: string | null
     clienteId?: string | null
     jangadaId?: string | null
+    obraId?: string | null
+    inspecaoId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutCertificadoInput
@@ -60796,6 +63339,7 @@ export namespace Prisma {
   export type InspecaoCreateWithoutNavioInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -60803,10 +63347,13 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     jangada?: JangadaCreateNestedOneWithoutInspecoesInput
     cilindro?: CilindroCreateNestedOneWithoutInspecoesInput
+    obras?: ObraCreateNestedManyWithoutInspecaoInput
+    certificados?: CertificadoCreateNestedManyWithoutInspecaoInput
     custos?: CustoInspecaoCreateNestedManyWithoutInspecaoInput
     historicos?: HistoricoInspecaoCreateNestedManyWithoutInspecaoInput
     substituicoesComponente?: SubstituicaoComponenteCreateNestedManyWithoutInspecaoInput
@@ -60815,6 +63362,7 @@ export namespace Prisma {
   export type InspecaoUncheckedCreateWithoutNavioInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -60822,10 +63370,13 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     jangadaId?: string | null
     cilindroId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    obras?: ObraUncheckedCreateNestedManyWithoutInspecaoInput
+    certificados?: CertificadoUncheckedCreateNestedManyWithoutInspecaoInput
     custos?: CustoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
     historicos?: HistoricoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
     substituicoesComponente?: SubstituicaoComponenteUncheckedCreateNestedManyWithoutInspecaoInput
@@ -60875,6 +63426,7 @@ export namespace Prisma {
     faturas?: FaturaCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoCreateNestedManyWithoutJangadaInput
+    obras?: ObraCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemCreateNestedManyWithoutJangadaInput
   }
@@ -60913,6 +63465,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoUncheckedCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoUncheckedCreateNestedManyWithoutJangadaInput
+    obras?: ObraUncheckedCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutJangadaInput
   }
@@ -61122,6 +63675,7 @@ export namespace Prisma {
     NOT?: InspecaoScalarWhereInput | InspecaoScalarWhereInput[]
     id?: StringFilter<"Inspecao"> | string
     numero?: StringFilter<"Inspecao"> | string
+    numeroSerieJangada?: StringNullableFilter<"Inspecao"> | string | null
     tipoInspecao?: StringFilter<"Inspecao"> | string
     dataInspecao?: DateTimeFilter<"Inspecao"> | Date | string
     dataProxima?: DateTimeNullableFilter<"Inspecao"> | Date | string | null
@@ -61129,6 +63683,7 @@ export namespace Prisma {
     status?: StringFilter<"Inspecao"> | string
     tecnico?: StringFilter<"Inspecao"> | string
     observacoes?: StringNullableFilter<"Inspecao"> | string | null
+    filePath?: StringNullableFilter<"Inspecao"> | string | null
     navioId?: StringNullableFilter<"Inspecao"> | string | null
     jangadaId?: StringNullableFilter<"Inspecao"> | string | null
     cilindroId?: StringNullableFilter<"Inspecao"> | string | null
@@ -61330,6 +63885,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     marca: MarcaJangadaCreateNestedOneWithoutModelosInput
     especificacoes?: EspecificacaoTecnicaCreateNestedManyWithoutModeloInput
+    itensModelo?: ModeloJangadaItemCreateNestedManyWithoutModeloInput
   }
 
   export type ModeloJangadaUncheckedCreateWithoutJangadasInput = {
@@ -61342,6 +63898,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     especificacoes?: EspecificacaoTecnicaUncheckedCreateNestedManyWithoutModeloInput
+    itensModelo?: ModeloJangadaItemUncheckedCreateNestedManyWithoutModeloInput
   }
 
   export type ModeloJangadaCreateOrConnectWithoutJangadasInput = {
@@ -61401,29 +63958,39 @@ export namespace Prisma {
 
   export type CertificadoCreateWithoutJangadaInput = {
     id?: string
+    nome?: string | null
     tipo: string
     numero: string
     dataEmissao: Date | string
     dataValidade: Date | string
     entidadeEmissora: string
     status?: string
+    filePath?: string | null
+    notas?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     cliente?: ClienteCreateNestedOneWithoutCertificadosInput
     navio?: NavioCreateNestedOneWithoutCertificadosInput
+    obra?: ObraCreateNestedOneWithoutCertificadosInput
+    inspecao?: InspecaoCreateNestedOneWithoutCertificadosInput
     envioItens?: EnvioItemCreateNestedManyWithoutCertificadoInput
   }
 
   export type CertificadoUncheckedCreateWithoutJangadaInput = {
     id?: string
+    nome?: string | null
     tipo: string
     numero: string
     dataEmissao: Date | string
     dataValidade: Date | string
     entidadeEmissora: string
     status?: string
+    filePath?: string | null
+    notas?: string | null
     clienteId?: string | null
     navioId?: string | null
+    obraId?: string | null
+    inspecaoId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutCertificadoInput
@@ -61562,6 +64129,7 @@ export namespace Prisma {
   export type InspecaoCreateWithoutJangadaInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -61569,10 +64137,13 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     navio?: NavioCreateNestedOneWithoutInspecoesInput
     cilindro?: CilindroCreateNestedOneWithoutInspecoesInput
+    obras?: ObraCreateNestedManyWithoutInspecaoInput
+    certificados?: CertificadoCreateNestedManyWithoutInspecaoInput
     custos?: CustoInspecaoCreateNestedManyWithoutInspecaoInput
     historicos?: HistoricoInspecaoCreateNestedManyWithoutInspecaoInput
     substituicoesComponente?: SubstituicaoComponenteCreateNestedManyWithoutInspecaoInput
@@ -61581,6 +64152,7 @@ export namespace Prisma {
   export type InspecaoUncheckedCreateWithoutJangadaInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -61588,10 +64160,13 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     navioId?: string | null
     cilindroId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    obras?: ObraUncheckedCreateNestedManyWithoutInspecaoInput
+    certificados?: CertificadoUncheckedCreateNestedManyWithoutInspecaoInput
     custos?: CustoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
     historicos?: HistoricoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
     substituicoesComponente?: SubstituicaoComponenteUncheckedCreateNestedManyWithoutInspecaoInput
@@ -61604,6 +64179,54 @@ export namespace Prisma {
 
   export type InspecaoCreateManyJangadaInputEnvelope = {
     data: InspecaoCreateManyJangadaInput | InspecaoCreateManyJangadaInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ObraCreateWithoutJangadaInput = {
+    id?: string
+    codigo?: string | null
+    titulo: string
+    descricao?: string | null
+    tipo?: string | null
+    status?: string
+    dataInicio?: Date | string | null
+    dataFim?: Date | string | null
+    orcamento?: number | null
+    filePath?: string | null
+    responsavel?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cliente?: ClienteCreateNestedOneWithoutObrasInput
+    inspecao?: InspecaoCreateNestedOneWithoutObrasInput
+    certificados?: CertificadoCreateNestedManyWithoutObraInput
+  }
+
+  export type ObraUncheckedCreateWithoutJangadaInput = {
+    id?: string
+    codigo?: string | null
+    titulo: string
+    descricao?: string | null
+    tipo?: string | null
+    status?: string
+    dataInicio?: Date | string | null
+    dataFim?: Date | string | null
+    orcamento?: number | null
+    filePath?: string | null
+    clienteId?: string | null
+    inspecaoId?: string | null
+    responsavel?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    certificados?: CertificadoUncheckedCreateNestedManyWithoutObraInput
+  }
+
+  export type ObraCreateOrConnectWithoutJangadaInput = {
+    where: ObraWhereUniqueInput
+    create: XOR<ObraCreateWithoutJangadaInput, ObraUncheckedCreateWithoutJangadaInput>
+  }
+
+  export type ObraCreateManyJangadaInputEnvelope = {
+    data: ObraCreateManyJangadaInput | ObraCreateManyJangadaInput[]
     skipDuplicates?: boolean
   }
 
@@ -61886,6 +64509,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     marca?: MarcaJangadaUpdateOneRequiredWithoutModelosNestedInput
     especificacoes?: EspecificacaoTecnicaUpdateManyWithoutModeloNestedInput
+    itensModelo?: ModeloJangadaItemUpdateManyWithoutModeloNestedInput
   }
 
   export type ModeloJangadaUncheckedUpdateWithoutJangadasInput = {
@@ -61898,6 +64522,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     especificacoes?: EspecificacaoTecnicaUncheckedUpdateManyWithoutModeloNestedInput
+    itensModelo?: ModeloJangadaItemUncheckedUpdateManyWithoutModeloNestedInput
   }
 
   export type LotacaoJangadaUpsertWithoutJangadasInput = {
@@ -62040,6 +64665,22 @@ export namespace Prisma {
   export type InspecaoUpdateManyWithWhereWithoutJangadaInput = {
     where: InspecaoScalarWhereInput
     data: XOR<InspecaoUpdateManyMutationInput, InspecaoUncheckedUpdateManyWithoutJangadaInput>
+  }
+
+  export type ObraUpsertWithWhereUniqueWithoutJangadaInput = {
+    where: ObraWhereUniqueInput
+    update: XOR<ObraUpdateWithoutJangadaInput, ObraUncheckedUpdateWithoutJangadaInput>
+    create: XOR<ObraCreateWithoutJangadaInput, ObraUncheckedCreateWithoutJangadaInput>
+  }
+
+  export type ObraUpdateWithWhereUniqueWithoutJangadaInput = {
+    where: ObraWhereUniqueInput
+    data: XOR<ObraUpdateWithoutJangadaInput, ObraUncheckedUpdateWithoutJangadaInput>
+  }
+
+  export type ObraUpdateManyWithWhereWithoutJangadaInput = {
+    where: ObraScalarWhereInput
+    data: XOR<ObraUpdateManyMutationInput, ObraUncheckedUpdateManyWithoutJangadaInput>
   }
 
   export type InspecaoComponenteUpsertWithWhereUniqueWithoutJangadaInput = {
@@ -62211,6 +64852,7 @@ export namespace Prisma {
     faturas?: FaturaCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoCreateNestedManyWithoutJangadaInput
+    obras?: ObraCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemCreateNestedManyWithoutJangadaInput
   }
@@ -62249,6 +64891,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoUncheckedCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoUncheckedCreateNestedManyWithoutJangadaInput
+    obras?: ObraUncheckedCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutJangadaInput
   }
@@ -62503,6 +65146,7 @@ export namespace Prisma {
     faturas?: FaturaCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoCreateNestedManyWithoutJangadaInput
+    obras?: ObraCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemCreateNestedManyWithoutJangadaInput
   }
@@ -62541,6 +65185,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoUncheckedCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoUncheckedCreateNestedManyWithoutJangadaInput
+    obras?: ObraUncheckedCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutJangadaInput
   }
@@ -62548,6 +65193,100 @@ export namespace Prisma {
   export type JangadaCreateOrConnectWithoutCertificadosInput = {
     where: JangadaWhereUniqueInput
     create: XOR<JangadaCreateWithoutCertificadosInput, JangadaUncheckedCreateWithoutCertificadosInput>
+  }
+
+  export type ObraCreateWithoutCertificadosInput = {
+    id?: string
+    codigo?: string | null
+    titulo: string
+    descricao?: string | null
+    tipo?: string | null
+    status?: string
+    dataInicio?: Date | string | null
+    dataFim?: Date | string | null
+    orcamento?: number | null
+    filePath?: string | null
+    responsavel?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cliente?: ClienteCreateNestedOneWithoutObrasInput
+    jangada?: JangadaCreateNestedOneWithoutObrasInput
+    inspecao?: InspecaoCreateNestedOneWithoutObrasInput
+  }
+
+  export type ObraUncheckedCreateWithoutCertificadosInput = {
+    id?: string
+    codigo?: string | null
+    titulo: string
+    descricao?: string | null
+    tipo?: string | null
+    status?: string
+    dataInicio?: Date | string | null
+    dataFim?: Date | string | null
+    orcamento?: number | null
+    filePath?: string | null
+    clienteId?: string | null
+    jangadaId?: string | null
+    inspecaoId?: string | null
+    responsavel?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ObraCreateOrConnectWithoutCertificadosInput = {
+    where: ObraWhereUniqueInput
+    create: XOR<ObraCreateWithoutCertificadosInput, ObraUncheckedCreateWithoutCertificadosInput>
+  }
+
+  export type InspecaoCreateWithoutCertificadosInput = {
+    id?: string
+    numero: string
+    numeroSerieJangada?: string | null
+    tipoInspecao: string
+    dataInspecao: Date | string
+    dataProxima?: Date | string | null
+    resultado: string
+    status?: string
+    tecnico: string
+    observacoes?: string | null
+    filePath?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    navio?: NavioCreateNestedOneWithoutInspecoesInput
+    jangada?: JangadaCreateNestedOneWithoutInspecoesInput
+    cilindro?: CilindroCreateNestedOneWithoutInspecoesInput
+    obras?: ObraCreateNestedManyWithoutInspecaoInput
+    custos?: CustoInspecaoCreateNestedManyWithoutInspecaoInput
+    historicos?: HistoricoInspecaoCreateNestedManyWithoutInspecaoInput
+    substituicoesComponente?: SubstituicaoComponenteCreateNestedManyWithoutInspecaoInput
+  }
+
+  export type InspecaoUncheckedCreateWithoutCertificadosInput = {
+    id?: string
+    numero: string
+    numeroSerieJangada?: string | null
+    tipoInspecao: string
+    dataInspecao: Date | string
+    dataProxima?: Date | string | null
+    resultado: string
+    status?: string
+    tecnico: string
+    observacoes?: string | null
+    filePath?: string | null
+    navioId?: string | null
+    jangadaId?: string | null
+    cilindroId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    obras?: ObraUncheckedCreateNestedManyWithoutInspecaoInput
+    custos?: CustoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
+    historicos?: HistoricoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
+    substituicoesComponente?: SubstituicaoComponenteUncheckedCreateNestedManyWithoutInspecaoInput
+  }
+
+  export type InspecaoCreateOrConnectWithoutCertificadosInput = {
+    where: InspecaoWhereUniqueInput
+    create: XOR<InspecaoCreateWithoutCertificadosInput, InspecaoUncheckedCreateWithoutCertificadosInput>
   }
 
   export type EnvioItemCreateWithoutCertificadoInput = {
@@ -62753,6 +65492,7 @@ export namespace Prisma {
     faturas?: FaturaUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUpdateManyWithoutJangadaNestedInput
   }
@@ -62791,8 +65531,115 @@ export namespace Prisma {
     faturas?: FaturaUncheckedUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUncheckedUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUncheckedUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutJangadaNestedInput
+  }
+
+  export type ObraUpsertWithoutCertificadosInput = {
+    update: XOR<ObraUpdateWithoutCertificadosInput, ObraUncheckedUpdateWithoutCertificadosInput>
+    create: XOR<ObraCreateWithoutCertificadosInput, ObraUncheckedCreateWithoutCertificadosInput>
+    where?: ObraWhereInput
+  }
+
+  export type ObraUpdateToOneWithWhereWithoutCertificadosInput = {
+    where?: ObraWhereInput
+    data: XOR<ObraUpdateWithoutCertificadosInput, ObraUncheckedUpdateWithoutCertificadosInput>
+  }
+
+  export type ObraUpdateWithoutCertificadosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    codigo?: NullableStringFieldUpdateOperationsInput | string | null
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    dataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataFim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    orcamento?: NullableFloatFieldUpdateOperationsInput | number | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    responsavel?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cliente?: ClienteUpdateOneWithoutObrasNestedInput
+    jangada?: JangadaUpdateOneWithoutObrasNestedInput
+    inspecao?: InspecaoUpdateOneWithoutObrasNestedInput
+  }
+
+  export type ObraUncheckedUpdateWithoutCertificadosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    codigo?: NullableStringFieldUpdateOperationsInput | string | null
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    dataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataFim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    orcamento?: NullableFloatFieldUpdateOperationsInput | number | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    clienteId?: NullableStringFieldUpdateOperationsInput | string | null
+    jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
+    responsavel?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InspecaoUpsertWithoutCertificadosInput = {
+    update: XOR<InspecaoUpdateWithoutCertificadosInput, InspecaoUncheckedUpdateWithoutCertificadosInput>
+    create: XOR<InspecaoCreateWithoutCertificadosInput, InspecaoUncheckedCreateWithoutCertificadosInput>
+    where?: InspecaoWhereInput
+  }
+
+  export type InspecaoUpdateToOneWithWhereWithoutCertificadosInput = {
+    where?: InspecaoWhereInput
+    data: XOR<InspecaoUpdateWithoutCertificadosInput, InspecaoUncheckedUpdateWithoutCertificadosInput>
+  }
+
+  export type InspecaoUpdateWithoutCertificadosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
+    tipoInspecao?: StringFieldUpdateOperationsInput | string
+    dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resultado?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    tecnico?: StringFieldUpdateOperationsInput | string
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    navio?: NavioUpdateOneWithoutInspecoesNestedInput
+    jangada?: JangadaUpdateOneWithoutInspecoesNestedInput
+    cilindro?: CilindroUpdateOneWithoutInspecoesNestedInput
+    obras?: ObraUpdateManyWithoutInspecaoNestedInput
+    custos?: CustoInspecaoUpdateManyWithoutInspecaoNestedInput
+    historicos?: HistoricoInspecaoUpdateManyWithoutInspecaoNestedInput
+    substituicoesComponente?: SubstituicaoComponenteUpdateManyWithoutInspecaoNestedInput
+  }
+
+  export type InspecaoUncheckedUpdateWithoutCertificadosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
+    tipoInspecao?: StringFieldUpdateOperationsInput | string
+    dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resultado?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    tecnico?: StringFieldUpdateOperationsInput | string
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    navioId?: NullableStringFieldUpdateOperationsInput | string | null
+    jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    cilindroId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    obras?: ObraUncheckedUpdateManyWithoutInspecaoNestedInput
+    custos?: CustoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
+    historicos?: HistoricoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
+    substituicoesComponente?: SubstituicaoComponenteUncheckedUpdateManyWithoutInspecaoNestedInput
   }
 
   export type EnvioItemUpsertWithWhereUniqueWithoutCertificadoInput = {
@@ -62923,6 +65770,32 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type ModeloJangadaItemCreateWithoutStockInput = {
+    id?: string
+    quantidade?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    modelo: ModeloJangadaCreateNestedOneWithoutItensModeloInput
+  }
+
+  export type ModeloJangadaItemUncheckedCreateWithoutStockInput = {
+    id?: string
+    modeloId: string
+    quantidade?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ModeloJangadaItemCreateOrConnectWithoutStockInput = {
+    where: ModeloJangadaItemWhereUniqueInput
+    create: XOR<ModeloJangadaItemCreateWithoutStockInput, ModeloJangadaItemUncheckedCreateWithoutStockInput>
+  }
+
+  export type ModeloJangadaItemCreateManyStockInputEnvelope = {
+    data: ModeloJangadaItemCreateManyStockInput | ModeloJangadaItemCreateManyStockInput[]
+    skipDuplicates?: boolean
+  }
+
   export type MovimentacaoStockUpsertWithWhereUniqueWithoutStockInput = {
     where: MovimentacaoStockWhereUniqueInput
     update: XOR<MovimentacaoStockUpdateWithoutStockInput, MovimentacaoStockUncheckedUpdateWithoutStockInput>
@@ -62984,6 +65857,34 @@ export namespace Prisma {
     data: XOR<TarefaUpdateManyMutationInput, TarefaUncheckedUpdateManyWithoutStockInput>
   }
 
+  export type ModeloJangadaItemUpsertWithWhereUniqueWithoutStockInput = {
+    where: ModeloJangadaItemWhereUniqueInput
+    update: XOR<ModeloJangadaItemUpdateWithoutStockInput, ModeloJangadaItemUncheckedUpdateWithoutStockInput>
+    create: XOR<ModeloJangadaItemCreateWithoutStockInput, ModeloJangadaItemUncheckedCreateWithoutStockInput>
+  }
+
+  export type ModeloJangadaItemUpdateWithWhereUniqueWithoutStockInput = {
+    where: ModeloJangadaItemWhereUniqueInput
+    data: XOR<ModeloJangadaItemUpdateWithoutStockInput, ModeloJangadaItemUncheckedUpdateWithoutStockInput>
+  }
+
+  export type ModeloJangadaItemUpdateManyWithWhereWithoutStockInput = {
+    where: ModeloJangadaItemScalarWhereInput
+    data: XOR<ModeloJangadaItemUpdateManyMutationInput, ModeloJangadaItemUncheckedUpdateManyWithoutStockInput>
+  }
+
+  export type ModeloJangadaItemScalarWhereInput = {
+    AND?: ModeloJangadaItemScalarWhereInput | ModeloJangadaItemScalarWhereInput[]
+    OR?: ModeloJangadaItemScalarWhereInput[]
+    NOT?: ModeloJangadaItemScalarWhereInput | ModeloJangadaItemScalarWhereInput[]
+    id?: StringFilter<"ModeloJangadaItem"> | string
+    modeloId?: StringFilter<"ModeloJangadaItem"> | string
+    stockId?: StringFilter<"ModeloJangadaItem"> | string
+    quantidade?: IntFilter<"ModeloJangadaItem"> | number
+    createdAt?: DateTimeFilter<"ModeloJangadaItem"> | Date | string
+    updatedAt?: DateTimeFilter<"ModeloJangadaItem"> | Date | string
+  }
+
   export type StockCreateWithoutMovimentacoesInput = {
     id?: string
     nome: string
@@ -63005,6 +65906,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     envioItens?: EnvioItemCreateNestedManyWithoutStockInput
     tarefas?: TarefaCreateNestedManyWithoutStockInput
+    modelosItens?: ModeloJangadaItemCreateNestedManyWithoutStockInput
   }
 
   export type StockUncheckedCreateWithoutMovimentacoesInput = {
@@ -63028,6 +65930,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutStockInput
     tarefas?: TarefaUncheckedCreateNestedManyWithoutStockInput
+    modelosItens?: ModeloJangadaItemUncheckedCreateNestedManyWithoutStockInput
   }
 
   export type StockCreateOrConnectWithoutMovimentacoesInput = {
@@ -63067,6 +65970,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     envioItens?: EnvioItemUpdateManyWithoutStockNestedInput
     tarefas?: TarefaUpdateManyWithoutStockNestedInput
+    modelosItens?: ModeloJangadaItemUpdateManyWithoutStockNestedInput
   }
 
   export type StockUncheckedUpdateWithoutMovimentacoesInput = {
@@ -63090,6 +65994,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     envioItens?: EnvioItemUncheckedUpdateManyWithoutStockNestedInput
     tarefas?: TarefaUncheckedUpdateManyWithoutStockNestedInput
+    modelosItens?: ModeloJangadaItemUncheckedUpdateManyWithoutStockNestedInput
   }
 
   export type SistemaCilindroCreateWithoutCilindrosInput = {
@@ -63246,6 +66151,7 @@ export namespace Prisma {
   export type InspecaoCreateWithoutCilindroInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -63253,10 +66159,13 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     navio?: NavioCreateNestedOneWithoutInspecoesInput
     jangada?: JangadaCreateNestedOneWithoutInspecoesInput
+    obras?: ObraCreateNestedManyWithoutInspecaoInput
+    certificados?: CertificadoCreateNestedManyWithoutInspecaoInput
     custos?: CustoInspecaoCreateNestedManyWithoutInspecaoInput
     historicos?: HistoricoInspecaoCreateNestedManyWithoutInspecaoInput
     substituicoesComponente?: SubstituicaoComponenteCreateNestedManyWithoutInspecaoInput
@@ -63265,6 +66174,7 @@ export namespace Prisma {
   export type InspecaoUncheckedCreateWithoutCilindroInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -63272,10 +66182,13 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     navioId?: string | null
     jangadaId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    obras?: ObraUncheckedCreateNestedManyWithoutInspecaoInput
+    certificados?: CertificadoUncheckedCreateNestedManyWithoutInspecaoInput
     custos?: CustoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
     historicos?: HistoricoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
     substituicoesComponente?: SubstituicaoComponenteUncheckedCreateNestedManyWithoutInspecaoInput
@@ -63527,6 +66440,7 @@ export namespace Prisma {
     faturas?: FaturaCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoCreateNestedManyWithoutJangadaInput
+    obras?: ObraCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemCreateNestedManyWithoutJangadaInput
   }
@@ -63565,6 +66479,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoUncheckedCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoUncheckedCreateNestedManyWithoutJangadaInput
+    obras?: ObraUncheckedCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutJangadaInput
   }
@@ -63768,6 +66683,7 @@ export namespace Prisma {
     faturas?: FaturaUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUpdateManyWithoutJangadaNestedInput
   }
@@ -63806,6 +66722,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUncheckedUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUncheckedUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutJangadaNestedInput
   }
@@ -64046,6 +66963,7 @@ export namespace Prisma {
     agendamentos?: AgendamentoCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoCreateNestedManyWithoutJangadaInput
+    obras?: ObraCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemCreateNestedManyWithoutJangadaInput
   }
@@ -64084,6 +67002,7 @@ export namespace Prisma {
     agendamentos?: AgendamentoUncheckedCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoUncheckedCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoUncheckedCreateNestedManyWithoutJangadaInput
+    obras?: ObraUncheckedCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutJangadaInput
   }
@@ -64264,6 +67183,7 @@ export namespace Prisma {
     agendamentos?: AgendamentoUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUpdateManyWithoutJangadaNestedInput
   }
@@ -64302,6 +67222,7 @@ export namespace Prisma {
     agendamentos?: AgendamentoUncheckedUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUncheckedUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUncheckedUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutJangadaNestedInput
   }
@@ -64454,6 +67375,7 @@ export namespace Prisma {
     agendamentos?: AgendamentoCreateNestedManyWithoutJangadaInput
     faturas?: FaturaCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoCreateNestedManyWithoutJangadaInput
+    obras?: ObraCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemCreateNestedManyWithoutJangadaInput
   }
@@ -64492,6 +67414,7 @@ export namespace Prisma {
     agendamentos?: AgendamentoUncheckedCreateNestedManyWithoutJangadaInput
     faturas?: FaturaUncheckedCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoUncheckedCreateNestedManyWithoutJangadaInput
+    obras?: ObraUncheckedCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutJangadaInput
   }
@@ -64723,6 +67646,7 @@ export namespace Prisma {
     agendamentos?: AgendamentoUpdateManyWithoutJangadaNestedInput
     faturas?: FaturaUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUpdateManyWithoutJangadaNestedInput
   }
@@ -64761,6 +67685,7 @@ export namespace Prisma {
     agendamentos?: AgendamentoUncheckedUpdateManyWithoutJangadaNestedInput
     faturas?: FaturaUncheckedUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUncheckedUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUncheckedUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutJangadaNestedInput
   }
@@ -64869,6 +67794,190 @@ export namespace Prisma {
     create: XOR<ClienteCreateWithoutObrasInput, ClienteUncheckedCreateWithoutObrasInput>
   }
 
+  export type JangadaCreateWithoutObrasInput = {
+    id?: string
+    numeroSerie: string
+    tipo: string
+    tipoPack?: string | null
+    itensTipoPack?: string | null
+    dataFabricacao?: Date | string | null
+    dataInspecao?: Date | string | null
+    dataProximaInspecao?: Date | string | null
+    capacidade?: number | null
+    peso?: number | null
+    dimensoes?: string | null
+    numeroAprovacao?: string | null
+    status?: string
+    estado?: string
+    tecnico?: string
+    hruAplicavel?: boolean
+    hruNumeroSerie?: string | null
+    hruModelo?: string | null
+    hruDataInstalacao?: Date | string | null
+    hruDataValidade?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cliente?: ClienteCreateNestedOneWithoutJangadasInput
+    proprietario?: ProprietarioCreateNestedOneWithoutJangadasInput
+    navio?: NavioCreateNestedOneWithoutJangadasInput
+    marca?: MarcaJangadaCreateNestedOneWithoutJangadasInput
+    modelo?: ModeloJangadaCreateNestedOneWithoutJangadasInput
+    lotacao?: LotacaoJangadaCreateNestedOneWithoutJangadasInput
+    tipoPackRef?: TipoPackCreateNestedOneWithoutJangadasInput
+    certificados?: CertificadoCreateNestedManyWithoutJangadaInput
+    agendamentos?: AgendamentoCreateNestedManyWithoutJangadaInput
+    faturas?: FaturaCreateNestedManyWithoutJangadaInput
+    notificacoes?: NotificacaoCreateNestedManyWithoutJangadaInput
+    inspecoes?: InspecaoCreateNestedManyWithoutJangadaInput
+    inspecaoComponentes?: InspecaoComponenteCreateNestedManyWithoutJangadaInput
+    envioItens?: EnvioItemCreateNestedManyWithoutJangadaInput
+  }
+
+  export type JangadaUncheckedCreateWithoutObrasInput = {
+    id?: string
+    numeroSerie: string
+    marcaId?: string | null
+    modeloId?: string | null
+    lotacaoId?: string | null
+    tipoPackId?: string | null
+    tipo: string
+    tipoPack?: string | null
+    itensTipoPack?: string | null
+    dataFabricacao?: Date | string | null
+    dataInspecao?: Date | string | null
+    dataProximaInspecao?: Date | string | null
+    capacidade?: number | null
+    peso?: number | null
+    dimensoes?: string | null
+    numeroAprovacao?: string | null
+    status?: string
+    estado?: string
+    clienteId?: string | null
+    proprietarioId?: string | null
+    navioId?: string | null
+    tecnico?: string
+    hruAplicavel?: boolean
+    hruNumeroSerie?: string | null
+    hruModelo?: string | null
+    hruDataInstalacao?: Date | string | null
+    hruDataValidade?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    certificados?: CertificadoUncheckedCreateNestedManyWithoutJangadaInput
+    agendamentos?: AgendamentoUncheckedCreateNestedManyWithoutJangadaInput
+    faturas?: FaturaUncheckedCreateNestedManyWithoutJangadaInput
+    notificacoes?: NotificacaoUncheckedCreateNestedManyWithoutJangadaInput
+    inspecoes?: InspecaoUncheckedCreateNestedManyWithoutJangadaInput
+    inspecaoComponentes?: InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput
+    envioItens?: EnvioItemUncheckedCreateNestedManyWithoutJangadaInput
+  }
+
+  export type JangadaCreateOrConnectWithoutObrasInput = {
+    where: JangadaWhereUniqueInput
+    create: XOR<JangadaCreateWithoutObrasInput, JangadaUncheckedCreateWithoutObrasInput>
+  }
+
+  export type InspecaoCreateWithoutObrasInput = {
+    id?: string
+    numero: string
+    numeroSerieJangada?: string | null
+    tipoInspecao: string
+    dataInspecao: Date | string
+    dataProxima?: Date | string | null
+    resultado: string
+    status?: string
+    tecnico: string
+    observacoes?: string | null
+    filePath?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    navio?: NavioCreateNestedOneWithoutInspecoesInput
+    jangada?: JangadaCreateNestedOneWithoutInspecoesInput
+    cilindro?: CilindroCreateNestedOneWithoutInspecoesInput
+    certificados?: CertificadoCreateNestedManyWithoutInspecaoInput
+    custos?: CustoInspecaoCreateNestedManyWithoutInspecaoInput
+    historicos?: HistoricoInspecaoCreateNestedManyWithoutInspecaoInput
+    substituicoesComponente?: SubstituicaoComponenteCreateNestedManyWithoutInspecaoInput
+  }
+
+  export type InspecaoUncheckedCreateWithoutObrasInput = {
+    id?: string
+    numero: string
+    numeroSerieJangada?: string | null
+    tipoInspecao: string
+    dataInspecao: Date | string
+    dataProxima?: Date | string | null
+    resultado: string
+    status?: string
+    tecnico: string
+    observacoes?: string | null
+    filePath?: string | null
+    navioId?: string | null
+    jangadaId?: string | null
+    cilindroId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    certificados?: CertificadoUncheckedCreateNestedManyWithoutInspecaoInput
+    custos?: CustoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
+    historicos?: HistoricoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
+    substituicoesComponente?: SubstituicaoComponenteUncheckedCreateNestedManyWithoutInspecaoInput
+  }
+
+  export type InspecaoCreateOrConnectWithoutObrasInput = {
+    where: InspecaoWhereUniqueInput
+    create: XOR<InspecaoCreateWithoutObrasInput, InspecaoUncheckedCreateWithoutObrasInput>
+  }
+
+  export type CertificadoCreateWithoutObraInput = {
+    id?: string
+    nome?: string | null
+    tipo: string
+    numero: string
+    dataEmissao: Date | string
+    dataValidade: Date | string
+    entidadeEmissora: string
+    status?: string
+    filePath?: string | null
+    notas?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cliente?: ClienteCreateNestedOneWithoutCertificadosInput
+    navio?: NavioCreateNestedOneWithoutCertificadosInput
+    jangada?: JangadaCreateNestedOneWithoutCertificadosInput
+    inspecao?: InspecaoCreateNestedOneWithoutCertificadosInput
+    envioItens?: EnvioItemCreateNestedManyWithoutCertificadoInput
+  }
+
+  export type CertificadoUncheckedCreateWithoutObraInput = {
+    id?: string
+    nome?: string | null
+    tipo: string
+    numero: string
+    dataEmissao: Date | string
+    dataValidade: Date | string
+    entidadeEmissora: string
+    status?: string
+    filePath?: string | null
+    notas?: string | null
+    clienteId?: string | null
+    navioId?: string | null
+    jangadaId?: string | null
+    inspecaoId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    envioItens?: EnvioItemUncheckedCreateNestedManyWithoutCertificadoInput
+  }
+
+  export type CertificadoCreateOrConnectWithoutObraInput = {
+    where: CertificadoWhereUniqueInput
+    create: XOR<CertificadoCreateWithoutObraInput, CertificadoUncheckedCreateWithoutObraInput>
+  }
+
+  export type CertificadoCreateManyObraInputEnvelope = {
+    data: CertificadoCreateManyObraInput | CertificadoCreateManyObraInput[]
+    skipDuplicates?: boolean
+  }
+
   export type ClienteUpsertWithoutObrasInput = {
     update: XOR<ClienteUpdateWithoutObrasInput, ClienteUncheckedUpdateWithoutObrasInput>
     create: XOR<ClienteCreateWithoutObrasInput, ClienteUncheckedCreateWithoutObrasInput>
@@ -64920,6 +68029,168 @@ export namespace Prisma {
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutClienteNestedInput
     tarefas?: TarefaUncheckedUpdateManyWithoutClienteNestedInput
     envios?: EnvioUncheckedUpdateManyWithoutClienteNestedInput
+  }
+
+  export type JangadaUpsertWithoutObrasInput = {
+    update: XOR<JangadaUpdateWithoutObrasInput, JangadaUncheckedUpdateWithoutObrasInput>
+    create: XOR<JangadaCreateWithoutObrasInput, JangadaUncheckedCreateWithoutObrasInput>
+    where?: JangadaWhereInput
+  }
+
+  export type JangadaUpdateToOneWithWhereWithoutObrasInput = {
+    where?: JangadaWhereInput
+    data: XOR<JangadaUpdateWithoutObrasInput, JangadaUncheckedUpdateWithoutObrasInput>
+  }
+
+  export type JangadaUpdateWithoutObrasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    numeroSerie?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    tipoPack?: NullableStringFieldUpdateOperationsInput | string | null
+    itensTipoPack?: NullableStringFieldUpdateOperationsInput | string | null
+    dataFabricacao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataInspecao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataProximaInspecao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    capacidade?: NullableIntFieldUpdateOperationsInput | number | null
+    peso?: NullableFloatFieldUpdateOperationsInput | number | null
+    dimensoes?: NullableStringFieldUpdateOperationsInput | string | null
+    numeroAprovacao?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    estado?: StringFieldUpdateOperationsInput | string
+    tecnico?: StringFieldUpdateOperationsInput | string
+    hruAplicavel?: BoolFieldUpdateOperationsInput | boolean
+    hruNumeroSerie?: NullableStringFieldUpdateOperationsInput | string | null
+    hruModelo?: NullableStringFieldUpdateOperationsInput | string | null
+    hruDataInstalacao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    hruDataValidade?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cliente?: ClienteUpdateOneWithoutJangadasNestedInput
+    proprietario?: ProprietarioUpdateOneWithoutJangadasNestedInput
+    navio?: NavioUpdateOneWithoutJangadasNestedInput
+    marca?: MarcaJangadaUpdateOneWithoutJangadasNestedInput
+    modelo?: ModeloJangadaUpdateOneWithoutJangadasNestedInput
+    lotacao?: LotacaoJangadaUpdateOneWithoutJangadasNestedInput
+    tipoPackRef?: TipoPackUpdateOneWithoutJangadasNestedInput
+    certificados?: CertificadoUpdateManyWithoutJangadaNestedInput
+    agendamentos?: AgendamentoUpdateManyWithoutJangadaNestedInput
+    faturas?: FaturaUpdateManyWithoutJangadaNestedInput
+    notificacoes?: NotificacaoUpdateManyWithoutJangadaNestedInput
+    inspecoes?: InspecaoUpdateManyWithoutJangadaNestedInput
+    inspecaoComponentes?: InspecaoComponenteUpdateManyWithoutJangadaNestedInput
+    envioItens?: EnvioItemUpdateManyWithoutJangadaNestedInput
+  }
+
+  export type JangadaUncheckedUpdateWithoutObrasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    numeroSerie?: StringFieldUpdateOperationsInput | string
+    marcaId?: NullableStringFieldUpdateOperationsInput | string | null
+    modeloId?: NullableStringFieldUpdateOperationsInput | string | null
+    lotacaoId?: NullableStringFieldUpdateOperationsInput | string | null
+    tipoPackId?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: StringFieldUpdateOperationsInput | string
+    tipoPack?: NullableStringFieldUpdateOperationsInput | string | null
+    itensTipoPack?: NullableStringFieldUpdateOperationsInput | string | null
+    dataFabricacao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataInspecao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataProximaInspecao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    capacidade?: NullableIntFieldUpdateOperationsInput | number | null
+    peso?: NullableFloatFieldUpdateOperationsInput | number | null
+    dimensoes?: NullableStringFieldUpdateOperationsInput | string | null
+    numeroAprovacao?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    estado?: StringFieldUpdateOperationsInput | string
+    clienteId?: NullableStringFieldUpdateOperationsInput | string | null
+    proprietarioId?: NullableStringFieldUpdateOperationsInput | string | null
+    navioId?: NullableStringFieldUpdateOperationsInput | string | null
+    tecnico?: StringFieldUpdateOperationsInput | string
+    hruAplicavel?: BoolFieldUpdateOperationsInput | boolean
+    hruNumeroSerie?: NullableStringFieldUpdateOperationsInput | string | null
+    hruModelo?: NullableStringFieldUpdateOperationsInput | string | null
+    hruDataInstalacao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    hruDataValidade?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    certificados?: CertificadoUncheckedUpdateManyWithoutJangadaNestedInput
+    agendamentos?: AgendamentoUncheckedUpdateManyWithoutJangadaNestedInput
+    faturas?: FaturaUncheckedUpdateManyWithoutJangadaNestedInput
+    notificacoes?: NotificacaoUncheckedUpdateManyWithoutJangadaNestedInput
+    inspecoes?: InspecaoUncheckedUpdateManyWithoutJangadaNestedInput
+    inspecaoComponentes?: InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput
+    envioItens?: EnvioItemUncheckedUpdateManyWithoutJangadaNestedInput
+  }
+
+  export type InspecaoUpsertWithoutObrasInput = {
+    update: XOR<InspecaoUpdateWithoutObrasInput, InspecaoUncheckedUpdateWithoutObrasInput>
+    create: XOR<InspecaoCreateWithoutObrasInput, InspecaoUncheckedCreateWithoutObrasInput>
+    where?: InspecaoWhereInput
+  }
+
+  export type InspecaoUpdateToOneWithWhereWithoutObrasInput = {
+    where?: InspecaoWhereInput
+    data: XOR<InspecaoUpdateWithoutObrasInput, InspecaoUncheckedUpdateWithoutObrasInput>
+  }
+
+  export type InspecaoUpdateWithoutObrasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
+    tipoInspecao?: StringFieldUpdateOperationsInput | string
+    dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resultado?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    tecnico?: StringFieldUpdateOperationsInput | string
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    navio?: NavioUpdateOneWithoutInspecoesNestedInput
+    jangada?: JangadaUpdateOneWithoutInspecoesNestedInput
+    cilindro?: CilindroUpdateOneWithoutInspecoesNestedInput
+    certificados?: CertificadoUpdateManyWithoutInspecaoNestedInput
+    custos?: CustoInspecaoUpdateManyWithoutInspecaoNestedInput
+    historicos?: HistoricoInspecaoUpdateManyWithoutInspecaoNestedInput
+    substituicoesComponente?: SubstituicaoComponenteUpdateManyWithoutInspecaoNestedInput
+  }
+
+  export type InspecaoUncheckedUpdateWithoutObrasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
+    tipoInspecao?: StringFieldUpdateOperationsInput | string
+    dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    resultado?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    tecnico?: StringFieldUpdateOperationsInput | string
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    navioId?: NullableStringFieldUpdateOperationsInput | string | null
+    jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    cilindroId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    certificados?: CertificadoUncheckedUpdateManyWithoutInspecaoNestedInput
+    custos?: CustoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
+    historicos?: HistoricoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
+    substituicoesComponente?: SubstituicaoComponenteUncheckedUpdateManyWithoutInspecaoNestedInput
+  }
+
+  export type CertificadoUpsertWithWhereUniqueWithoutObraInput = {
+    where: CertificadoWhereUniqueInput
+    update: XOR<CertificadoUpdateWithoutObraInput, CertificadoUncheckedUpdateWithoutObraInput>
+    create: XOR<CertificadoCreateWithoutObraInput, CertificadoUncheckedCreateWithoutObraInput>
+  }
+
+  export type CertificadoUpdateWithWhereUniqueWithoutObraInput = {
+    where: CertificadoWhereUniqueInput
+    data: XOR<CertificadoUpdateWithoutObraInput, CertificadoUncheckedUpdateWithoutObraInput>
+  }
+
+  export type CertificadoUpdateManyWithWhereWithoutObraInput = {
+    where: CertificadoScalarWhereInput
+    data: XOR<CertificadoUpdateManyMutationInput, CertificadoUncheckedUpdateManyWithoutObraInput>
   }
 
   export type NavioCreateWithoutInspecoesInput = {
@@ -65023,6 +68294,7 @@ export namespace Prisma {
     agendamentos?: AgendamentoCreateNestedManyWithoutJangadaInput
     faturas?: FaturaCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoCreateNestedManyWithoutJangadaInput
+    obras?: ObraCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemCreateNestedManyWithoutJangadaInput
   }
@@ -65061,6 +68333,7 @@ export namespace Prisma {
     agendamentos?: AgendamentoUncheckedCreateNestedManyWithoutJangadaInput
     faturas?: FaturaUncheckedCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoUncheckedCreateNestedManyWithoutJangadaInput
+    obras?: ObraUncheckedCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutJangadaInput
   }
@@ -65119,6 +68392,104 @@ export namespace Prisma {
   export type CilindroCreateOrConnectWithoutInspecoesInput = {
     where: CilindroWhereUniqueInput
     create: XOR<CilindroCreateWithoutInspecoesInput, CilindroUncheckedCreateWithoutInspecoesInput>
+  }
+
+  export type ObraCreateWithoutInspecaoInput = {
+    id?: string
+    codigo?: string | null
+    titulo: string
+    descricao?: string | null
+    tipo?: string | null
+    status?: string
+    dataInicio?: Date | string | null
+    dataFim?: Date | string | null
+    orcamento?: number | null
+    filePath?: string | null
+    responsavel?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cliente?: ClienteCreateNestedOneWithoutObrasInput
+    jangada?: JangadaCreateNestedOneWithoutObrasInput
+    certificados?: CertificadoCreateNestedManyWithoutObraInput
+  }
+
+  export type ObraUncheckedCreateWithoutInspecaoInput = {
+    id?: string
+    codigo?: string | null
+    titulo: string
+    descricao?: string | null
+    tipo?: string | null
+    status?: string
+    dataInicio?: Date | string | null
+    dataFim?: Date | string | null
+    orcamento?: number | null
+    filePath?: string | null
+    clienteId?: string | null
+    jangadaId?: string | null
+    responsavel?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    certificados?: CertificadoUncheckedCreateNestedManyWithoutObraInput
+  }
+
+  export type ObraCreateOrConnectWithoutInspecaoInput = {
+    where: ObraWhereUniqueInput
+    create: XOR<ObraCreateWithoutInspecaoInput, ObraUncheckedCreateWithoutInspecaoInput>
+  }
+
+  export type ObraCreateManyInspecaoInputEnvelope = {
+    data: ObraCreateManyInspecaoInput | ObraCreateManyInspecaoInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CertificadoCreateWithoutInspecaoInput = {
+    id?: string
+    nome?: string | null
+    tipo: string
+    numero: string
+    dataEmissao: Date | string
+    dataValidade: Date | string
+    entidadeEmissora: string
+    status?: string
+    filePath?: string | null
+    notas?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cliente?: ClienteCreateNestedOneWithoutCertificadosInput
+    navio?: NavioCreateNestedOneWithoutCertificadosInput
+    jangada?: JangadaCreateNestedOneWithoutCertificadosInput
+    obra?: ObraCreateNestedOneWithoutCertificadosInput
+    envioItens?: EnvioItemCreateNestedManyWithoutCertificadoInput
+  }
+
+  export type CertificadoUncheckedCreateWithoutInspecaoInput = {
+    id?: string
+    nome?: string | null
+    tipo: string
+    numero: string
+    dataEmissao: Date | string
+    dataValidade: Date | string
+    entidadeEmissora: string
+    status?: string
+    filePath?: string | null
+    notas?: string | null
+    clienteId?: string | null
+    navioId?: string | null
+    jangadaId?: string | null
+    obraId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    envioItens?: EnvioItemUncheckedCreateNestedManyWithoutCertificadoInput
+  }
+
+  export type CertificadoCreateOrConnectWithoutInspecaoInput = {
+    where: CertificadoWhereUniqueInput
+    create: XOR<CertificadoCreateWithoutInspecaoInput, CertificadoUncheckedCreateWithoutInspecaoInput>
+  }
+
+  export type CertificadoCreateManyInspecaoInputEnvelope = {
+    data: CertificadoCreateManyInspecaoInput | CertificadoCreateManyInspecaoInput[]
+    skipDuplicates?: boolean
   }
 
   export type CustoInspecaoCreateWithoutInspecaoInput = {
@@ -65337,6 +68708,7 @@ export namespace Prisma {
     agendamentos?: AgendamentoUpdateManyWithoutJangadaNestedInput
     faturas?: FaturaUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUpdateManyWithoutJangadaNestedInput
   }
@@ -65375,6 +68747,7 @@ export namespace Prisma {
     agendamentos?: AgendamentoUncheckedUpdateManyWithoutJangadaNestedInput
     faturas?: FaturaUncheckedUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUncheckedUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutJangadaNestedInput
   }
@@ -65434,6 +68807,38 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     agendamentos?: AgendamentoUncheckedUpdateManyWithoutCilindroNestedInput
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutCilindroNestedInput
+  }
+
+  export type ObraUpsertWithWhereUniqueWithoutInspecaoInput = {
+    where: ObraWhereUniqueInput
+    update: XOR<ObraUpdateWithoutInspecaoInput, ObraUncheckedUpdateWithoutInspecaoInput>
+    create: XOR<ObraCreateWithoutInspecaoInput, ObraUncheckedCreateWithoutInspecaoInput>
+  }
+
+  export type ObraUpdateWithWhereUniqueWithoutInspecaoInput = {
+    where: ObraWhereUniqueInput
+    data: XOR<ObraUpdateWithoutInspecaoInput, ObraUncheckedUpdateWithoutInspecaoInput>
+  }
+
+  export type ObraUpdateManyWithWhereWithoutInspecaoInput = {
+    where: ObraScalarWhereInput
+    data: XOR<ObraUpdateManyMutationInput, ObraUncheckedUpdateManyWithoutInspecaoInput>
+  }
+
+  export type CertificadoUpsertWithWhereUniqueWithoutInspecaoInput = {
+    where: CertificadoWhereUniqueInput
+    update: XOR<CertificadoUpdateWithoutInspecaoInput, CertificadoUncheckedUpdateWithoutInspecaoInput>
+    create: XOR<CertificadoCreateWithoutInspecaoInput, CertificadoUncheckedCreateWithoutInspecaoInput>
+  }
+
+  export type CertificadoUpdateWithWhereUniqueWithoutInspecaoInput = {
+    where: CertificadoWhereUniqueInput
+    data: XOR<CertificadoUpdateWithoutInspecaoInput, CertificadoUncheckedUpdateWithoutInspecaoInput>
+  }
+
+  export type CertificadoUpdateManyWithWhereWithoutInspecaoInput = {
+    where: CertificadoScalarWhereInput
+    data: XOR<CertificadoUpdateManyMutationInput, CertificadoUncheckedUpdateManyWithoutInspecaoInput>
   }
 
   export type CustoInspecaoUpsertWithWhereUniqueWithoutInspecaoInput = {
@@ -65533,6 +68938,7 @@ export namespace Prisma {
   export type InspecaoCreateWithoutCustosInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -65540,11 +68946,14 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     navio?: NavioCreateNestedOneWithoutInspecoesInput
     jangada?: JangadaCreateNestedOneWithoutInspecoesInput
     cilindro?: CilindroCreateNestedOneWithoutInspecoesInput
+    obras?: ObraCreateNestedManyWithoutInspecaoInput
+    certificados?: CertificadoCreateNestedManyWithoutInspecaoInput
     historicos?: HistoricoInspecaoCreateNestedManyWithoutInspecaoInput
     substituicoesComponente?: SubstituicaoComponenteCreateNestedManyWithoutInspecaoInput
   }
@@ -65552,6 +68961,7 @@ export namespace Prisma {
   export type InspecaoUncheckedCreateWithoutCustosInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -65559,11 +68969,14 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     navioId?: string | null
     jangadaId?: string | null
     cilindroId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    obras?: ObraUncheckedCreateNestedManyWithoutInspecaoInput
+    certificados?: CertificadoUncheckedCreateNestedManyWithoutInspecaoInput
     historicos?: HistoricoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
     substituicoesComponente?: SubstituicaoComponenteUncheckedCreateNestedManyWithoutInspecaoInput
   }
@@ -65587,6 +69000,7 @@ export namespace Prisma {
   export type InspecaoUpdateWithoutCustosInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -65594,11 +69008,14 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     navio?: NavioUpdateOneWithoutInspecoesNestedInput
     jangada?: JangadaUpdateOneWithoutInspecoesNestedInput
     cilindro?: CilindroUpdateOneWithoutInspecoesNestedInput
+    obras?: ObraUpdateManyWithoutInspecaoNestedInput
+    certificados?: CertificadoUpdateManyWithoutInspecaoNestedInput
     historicos?: HistoricoInspecaoUpdateManyWithoutInspecaoNestedInput
     substituicoesComponente?: SubstituicaoComponenteUpdateManyWithoutInspecaoNestedInput
   }
@@ -65606,6 +69023,7 @@ export namespace Prisma {
   export type InspecaoUncheckedUpdateWithoutCustosInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -65613,11 +69031,14 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
     cilindroId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    obras?: ObraUncheckedUpdateManyWithoutInspecaoNestedInput
+    certificados?: CertificadoUncheckedUpdateManyWithoutInspecaoNestedInput
     historicos?: HistoricoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
     substituicoesComponente?: SubstituicaoComponenteUncheckedUpdateManyWithoutInspecaoNestedInput
   }
@@ -65625,6 +69046,7 @@ export namespace Prisma {
   export type InspecaoCreateWithoutHistoricosInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -65632,11 +69054,14 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     navio?: NavioCreateNestedOneWithoutInspecoesInput
     jangada?: JangadaCreateNestedOneWithoutInspecoesInput
     cilindro?: CilindroCreateNestedOneWithoutInspecoesInput
+    obras?: ObraCreateNestedManyWithoutInspecaoInput
+    certificados?: CertificadoCreateNestedManyWithoutInspecaoInput
     custos?: CustoInspecaoCreateNestedManyWithoutInspecaoInput
     substituicoesComponente?: SubstituicaoComponenteCreateNestedManyWithoutInspecaoInput
   }
@@ -65644,6 +69069,7 @@ export namespace Prisma {
   export type InspecaoUncheckedCreateWithoutHistoricosInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -65651,11 +69077,14 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     navioId?: string | null
     jangadaId?: string | null
     cilindroId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    obras?: ObraUncheckedCreateNestedManyWithoutInspecaoInput
+    certificados?: CertificadoUncheckedCreateNestedManyWithoutInspecaoInput
     custos?: CustoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
     substituicoesComponente?: SubstituicaoComponenteUncheckedCreateNestedManyWithoutInspecaoInput
   }
@@ -65679,6 +69108,7 @@ export namespace Prisma {
   export type InspecaoUpdateWithoutHistoricosInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -65686,11 +69116,14 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     navio?: NavioUpdateOneWithoutInspecoesNestedInput
     jangada?: JangadaUpdateOneWithoutInspecoesNestedInput
     cilindro?: CilindroUpdateOneWithoutInspecoesNestedInput
+    obras?: ObraUpdateManyWithoutInspecaoNestedInput
+    certificados?: CertificadoUpdateManyWithoutInspecaoNestedInput
     custos?: CustoInspecaoUpdateManyWithoutInspecaoNestedInput
     substituicoesComponente?: SubstituicaoComponenteUpdateManyWithoutInspecaoNestedInput
   }
@@ -65698,6 +69131,7 @@ export namespace Prisma {
   export type InspecaoUncheckedUpdateWithoutHistoricosInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -65705,11 +69139,14 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
     cilindroId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    obras?: ObraUncheckedUpdateManyWithoutInspecaoNestedInput
+    certificados?: CertificadoUncheckedUpdateManyWithoutInspecaoNestedInput
     custos?: CustoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
     substituicoesComponente?: SubstituicaoComponenteUncheckedUpdateManyWithoutInspecaoNestedInput
   }
@@ -65749,6 +69186,7 @@ export namespace Prisma {
     faturas?: FaturaCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoCreateNestedManyWithoutJangadaInput
+    obras?: ObraCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemCreateNestedManyWithoutJangadaInput
   }
 
@@ -65787,6 +69225,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoUncheckedCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoUncheckedCreateNestedManyWithoutJangadaInput
+    obras?: ObraUncheckedCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutJangadaInput
   }
 
@@ -65841,6 +69280,7 @@ export namespace Prisma {
     faturas?: FaturaUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUpdateManyWithoutJangadaNestedInput
   }
 
@@ -65879,12 +69319,14 @@ export namespace Prisma {
     faturas?: FaturaUncheckedUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUncheckedUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUncheckedUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutJangadaNestedInput
   }
 
   export type InspecaoCreateWithoutSubstituicoesComponenteInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -65892,11 +69334,14 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     navio?: NavioCreateNestedOneWithoutInspecoesInput
     jangada?: JangadaCreateNestedOneWithoutInspecoesInput
     cilindro?: CilindroCreateNestedOneWithoutInspecoesInput
+    obras?: ObraCreateNestedManyWithoutInspecaoInput
+    certificados?: CertificadoCreateNestedManyWithoutInspecaoInput
     custos?: CustoInspecaoCreateNestedManyWithoutInspecaoInput
     historicos?: HistoricoInspecaoCreateNestedManyWithoutInspecaoInput
   }
@@ -65904,6 +69349,7 @@ export namespace Prisma {
   export type InspecaoUncheckedCreateWithoutSubstituicoesComponenteInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -65911,11 +69357,14 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     navioId?: string | null
     jangadaId?: string | null
     cilindroId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    obras?: ObraUncheckedCreateNestedManyWithoutInspecaoInput
+    certificados?: CertificadoUncheckedCreateNestedManyWithoutInspecaoInput
     custos?: CustoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
     historicos?: HistoricoInspecaoUncheckedCreateNestedManyWithoutInspecaoInput
   }
@@ -65939,6 +69388,7 @@ export namespace Prisma {
   export type InspecaoUpdateWithoutSubstituicoesComponenteInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -65946,11 +69396,14 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     navio?: NavioUpdateOneWithoutInspecoesNestedInput
     jangada?: JangadaUpdateOneWithoutInspecoesNestedInput
     cilindro?: CilindroUpdateOneWithoutInspecoesNestedInput
+    obras?: ObraUpdateManyWithoutInspecaoNestedInput
+    certificados?: CertificadoUpdateManyWithoutInspecaoNestedInput
     custos?: CustoInspecaoUpdateManyWithoutInspecaoNestedInput
     historicos?: HistoricoInspecaoUpdateManyWithoutInspecaoNestedInput
   }
@@ -65958,6 +69411,7 @@ export namespace Prisma {
   export type InspecaoUncheckedUpdateWithoutSubstituicoesComponenteInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -65965,11 +69419,14 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
     cilindroId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    obras?: ObraUncheckedUpdateManyWithoutInspecaoNestedInput
+    certificados?: CertificadoUncheckedUpdateManyWithoutInspecaoNestedInput
     custos?: CustoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
     historicos?: HistoricoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
   }
@@ -65984,6 +69441,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     jangadas?: JangadaCreateNestedManyWithoutModeloInput
     especificacoes?: EspecificacaoTecnicaCreateNestedManyWithoutModeloInput
+    itensModelo?: ModeloJangadaItemCreateNestedManyWithoutModeloInput
   }
 
   export type ModeloJangadaUncheckedCreateWithoutMarcaInput = {
@@ -65996,6 +69454,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     jangadas?: JangadaUncheckedCreateNestedManyWithoutModeloInput
     especificacoes?: EspecificacaoTecnicaUncheckedCreateNestedManyWithoutModeloInput
+    itensModelo?: ModeloJangadaItemUncheckedCreateNestedManyWithoutModeloInput
   }
 
   export type ModeloJangadaCreateOrConnectWithoutMarcaInput = {
@@ -66042,6 +69501,7 @@ export namespace Prisma {
     faturas?: FaturaCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoCreateNestedManyWithoutJangadaInput
+    obras?: ObraCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemCreateNestedManyWithoutJangadaInput
   }
@@ -66080,6 +69540,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoUncheckedCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoUncheckedCreateNestedManyWithoutJangadaInput
+    obras?: ObraUncheckedCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutJangadaInput
   }
@@ -66274,6 +69735,7 @@ export namespace Prisma {
     faturas?: FaturaCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoCreateNestedManyWithoutJangadaInput
+    obras?: ObraCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemCreateNestedManyWithoutJangadaInput
   }
@@ -66312,6 +69774,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoUncheckedCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoUncheckedCreateNestedManyWithoutJangadaInput
+    obras?: ObraUncheckedCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutJangadaInput
   }
@@ -66363,6 +69826,32 @@ export namespace Prisma {
 
   export type EspecificacaoTecnicaCreateManyModeloInputEnvelope = {
     data: EspecificacaoTecnicaCreateManyModeloInput | EspecificacaoTecnicaCreateManyModeloInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ModeloJangadaItemCreateWithoutModeloInput = {
+    id?: string
+    quantidade?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    stock: StockCreateNestedOneWithoutModelosItensInput
+  }
+
+  export type ModeloJangadaItemUncheckedCreateWithoutModeloInput = {
+    id?: string
+    stockId: string
+    quantidade?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ModeloJangadaItemCreateOrConnectWithoutModeloInput = {
+    where: ModeloJangadaItemWhereUniqueInput
+    create: XOR<ModeloJangadaItemCreateWithoutModeloInput, ModeloJangadaItemUncheckedCreateWithoutModeloInput>
+  }
+
+  export type ModeloJangadaItemCreateManyModeloInputEnvelope = {
+    data: ModeloJangadaItemCreateManyModeloInput | ModeloJangadaItemCreateManyModeloInput[]
     skipDuplicates?: boolean
   }
 
@@ -66429,6 +69918,202 @@ export namespace Prisma {
     data: XOR<EspecificacaoTecnicaUpdateManyMutationInput, EspecificacaoTecnicaUncheckedUpdateManyWithoutModeloInput>
   }
 
+  export type ModeloJangadaItemUpsertWithWhereUniqueWithoutModeloInput = {
+    where: ModeloJangadaItemWhereUniqueInput
+    update: XOR<ModeloJangadaItemUpdateWithoutModeloInput, ModeloJangadaItemUncheckedUpdateWithoutModeloInput>
+    create: XOR<ModeloJangadaItemCreateWithoutModeloInput, ModeloJangadaItemUncheckedCreateWithoutModeloInput>
+  }
+
+  export type ModeloJangadaItemUpdateWithWhereUniqueWithoutModeloInput = {
+    where: ModeloJangadaItemWhereUniqueInput
+    data: XOR<ModeloJangadaItemUpdateWithoutModeloInput, ModeloJangadaItemUncheckedUpdateWithoutModeloInput>
+  }
+
+  export type ModeloJangadaItemUpdateManyWithWhereWithoutModeloInput = {
+    where: ModeloJangadaItemScalarWhereInput
+    data: XOR<ModeloJangadaItemUpdateManyMutationInput, ModeloJangadaItemUncheckedUpdateManyWithoutModeloInput>
+  }
+
+  export type ModeloJangadaCreateWithoutItensModeloInput = {
+    id?: string
+    nome: string
+    sistemaInsuflacao?: string | null
+    valvulasPadrao?: string | null
+    ativo?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    marca: MarcaJangadaCreateNestedOneWithoutModelosInput
+    jangadas?: JangadaCreateNestedManyWithoutModeloInput
+    especificacoes?: EspecificacaoTecnicaCreateNestedManyWithoutModeloInput
+  }
+
+  export type ModeloJangadaUncheckedCreateWithoutItensModeloInput = {
+    id?: string
+    nome: string
+    marcaId: string
+    sistemaInsuflacao?: string | null
+    valvulasPadrao?: string | null
+    ativo?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    jangadas?: JangadaUncheckedCreateNestedManyWithoutModeloInput
+    especificacoes?: EspecificacaoTecnicaUncheckedCreateNestedManyWithoutModeloInput
+  }
+
+  export type ModeloJangadaCreateOrConnectWithoutItensModeloInput = {
+    where: ModeloJangadaWhereUniqueInput
+    create: XOR<ModeloJangadaCreateWithoutItensModeloInput, ModeloJangadaUncheckedCreateWithoutItensModeloInput>
+  }
+
+  export type StockCreateWithoutModelosItensInput = {
+    id?: string
+    nome: string
+    descricao?: string | null
+    categoria: string
+    quantidade?: number
+    quantidadeMinima?: number
+    precoUnitario?: number | null
+    fornecedor?: string | null
+    localizacao?: string | null
+    refOrey?: string | null
+    refFabricante?: string | null
+    lote?: string | null
+    codigoBarra?: string | null
+    dataValidade?: Date | string | null
+    imagem?: string | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    movimentacoes?: MovimentacaoStockCreateNestedManyWithoutStockInput
+    envioItens?: EnvioItemCreateNestedManyWithoutStockInput
+    tarefas?: TarefaCreateNestedManyWithoutStockInput
+  }
+
+  export type StockUncheckedCreateWithoutModelosItensInput = {
+    id?: string
+    nome: string
+    descricao?: string | null
+    categoria: string
+    quantidade?: number
+    quantidadeMinima?: number
+    precoUnitario?: number | null
+    fornecedor?: string | null
+    localizacao?: string | null
+    refOrey?: string | null
+    refFabricante?: string | null
+    lote?: string | null
+    codigoBarra?: string | null
+    dataValidade?: Date | string | null
+    imagem?: string | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    movimentacoes?: MovimentacaoStockUncheckedCreateNestedManyWithoutStockInput
+    envioItens?: EnvioItemUncheckedCreateNestedManyWithoutStockInput
+    tarefas?: TarefaUncheckedCreateNestedManyWithoutStockInput
+  }
+
+  export type StockCreateOrConnectWithoutModelosItensInput = {
+    where: StockWhereUniqueInput
+    create: XOR<StockCreateWithoutModelosItensInput, StockUncheckedCreateWithoutModelosItensInput>
+  }
+
+  export type ModeloJangadaUpsertWithoutItensModeloInput = {
+    update: XOR<ModeloJangadaUpdateWithoutItensModeloInput, ModeloJangadaUncheckedUpdateWithoutItensModeloInput>
+    create: XOR<ModeloJangadaCreateWithoutItensModeloInput, ModeloJangadaUncheckedCreateWithoutItensModeloInput>
+    where?: ModeloJangadaWhereInput
+  }
+
+  export type ModeloJangadaUpdateToOneWithWhereWithoutItensModeloInput = {
+    where?: ModeloJangadaWhereInput
+    data: XOR<ModeloJangadaUpdateWithoutItensModeloInput, ModeloJangadaUncheckedUpdateWithoutItensModeloInput>
+  }
+
+  export type ModeloJangadaUpdateWithoutItensModeloInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    sistemaInsuflacao?: NullableStringFieldUpdateOperationsInput | string | null
+    valvulasPadrao?: NullableStringFieldUpdateOperationsInput | string | null
+    ativo?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    marca?: MarcaJangadaUpdateOneRequiredWithoutModelosNestedInput
+    jangadas?: JangadaUpdateManyWithoutModeloNestedInput
+    especificacoes?: EspecificacaoTecnicaUpdateManyWithoutModeloNestedInput
+  }
+
+  export type ModeloJangadaUncheckedUpdateWithoutItensModeloInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    marcaId?: StringFieldUpdateOperationsInput | string
+    sistemaInsuflacao?: NullableStringFieldUpdateOperationsInput | string | null
+    valvulasPadrao?: NullableStringFieldUpdateOperationsInput | string | null
+    ativo?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    jangadas?: JangadaUncheckedUpdateManyWithoutModeloNestedInput
+    especificacoes?: EspecificacaoTecnicaUncheckedUpdateManyWithoutModeloNestedInput
+  }
+
+  export type StockUpsertWithoutModelosItensInput = {
+    update: XOR<StockUpdateWithoutModelosItensInput, StockUncheckedUpdateWithoutModelosItensInput>
+    create: XOR<StockCreateWithoutModelosItensInput, StockUncheckedCreateWithoutModelosItensInput>
+    where?: StockWhereInput
+  }
+
+  export type StockUpdateToOneWithWhereWithoutModelosItensInput = {
+    where?: StockWhereInput
+    data: XOR<StockUpdateWithoutModelosItensInput, StockUncheckedUpdateWithoutModelosItensInput>
+  }
+
+  export type StockUpdateWithoutModelosItensInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    categoria?: StringFieldUpdateOperationsInput | string
+    quantidade?: IntFieldUpdateOperationsInput | number
+    quantidadeMinima?: IntFieldUpdateOperationsInput | number
+    precoUnitario?: NullableFloatFieldUpdateOperationsInput | number | null
+    fornecedor?: NullableStringFieldUpdateOperationsInput | string | null
+    localizacao?: NullableStringFieldUpdateOperationsInput | string | null
+    refOrey?: NullableStringFieldUpdateOperationsInput | string | null
+    refFabricante?: NullableStringFieldUpdateOperationsInput | string | null
+    lote?: NullableStringFieldUpdateOperationsInput | string | null
+    codigoBarra?: NullableStringFieldUpdateOperationsInput | string | null
+    dataValidade?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    imagem?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    movimentacoes?: MovimentacaoStockUpdateManyWithoutStockNestedInput
+    envioItens?: EnvioItemUpdateManyWithoutStockNestedInput
+    tarefas?: TarefaUpdateManyWithoutStockNestedInput
+  }
+
+  export type StockUncheckedUpdateWithoutModelosItensInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    categoria?: StringFieldUpdateOperationsInput | string
+    quantidade?: IntFieldUpdateOperationsInput | number
+    quantidadeMinima?: IntFieldUpdateOperationsInput | number
+    precoUnitario?: NullableFloatFieldUpdateOperationsInput | number | null
+    fornecedor?: NullableStringFieldUpdateOperationsInput | string | null
+    localizacao?: NullableStringFieldUpdateOperationsInput | string | null
+    refOrey?: NullableStringFieldUpdateOperationsInput | string | null
+    refFabricante?: NullableStringFieldUpdateOperationsInput | string | null
+    lote?: NullableStringFieldUpdateOperationsInput | string | null
+    codigoBarra?: NullableStringFieldUpdateOperationsInput | string | null
+    dataValidade?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    imagem?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    movimentacoes?: MovimentacaoStockUncheckedUpdateManyWithoutStockNestedInput
+    envioItens?: EnvioItemUncheckedUpdateManyWithoutStockNestedInput
+    tarefas?: TarefaUncheckedUpdateManyWithoutStockNestedInput
+  }
+
   export type JangadaCreateWithoutLotacaoInput = {
     id?: string
     numeroSerie: string
@@ -66463,6 +70148,7 @@ export namespace Prisma {
     faturas?: FaturaCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoCreateNestedManyWithoutJangadaInput
+    obras?: ObraCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemCreateNestedManyWithoutJangadaInput
   }
@@ -66501,6 +70187,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoUncheckedCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoUncheckedCreateNestedManyWithoutJangadaInput
+    obras?: ObraUncheckedCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutJangadaInput
   }
@@ -66622,6 +70309,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     marca: MarcaJangadaCreateNestedOneWithoutModelosInput
     jangadas?: JangadaCreateNestedManyWithoutModeloInput
+    itensModelo?: ModeloJangadaItemCreateNestedManyWithoutModeloInput
   }
 
   export type ModeloJangadaUncheckedCreateWithoutEspecificacoesInput = {
@@ -66634,6 +70322,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     jangadas?: JangadaUncheckedCreateNestedManyWithoutModeloInput
+    itensModelo?: ModeloJangadaItemUncheckedCreateNestedManyWithoutModeloInput
   }
 
   export type ModeloJangadaCreateOrConnectWithoutEspecificacoesInput = {
@@ -66716,6 +70405,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     marca?: MarcaJangadaUpdateOneRequiredWithoutModelosNestedInput
     jangadas?: JangadaUpdateManyWithoutModeloNestedInput
+    itensModelo?: ModeloJangadaItemUpdateManyWithoutModeloNestedInput
   }
 
   export type ModeloJangadaUncheckedUpdateWithoutEspecificacoesInput = {
@@ -66728,6 +70418,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     jangadas?: JangadaUncheckedUpdateManyWithoutModeloNestedInput
+    itensModelo?: ModeloJangadaItemUncheckedUpdateManyWithoutModeloNestedInput
   }
 
   export type LotacaoJangadaUpsertWithoutEspecificacoesInput = {
@@ -67021,6 +70712,7 @@ export namespace Prisma {
     faturas?: FaturaCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoCreateNestedManyWithoutJangadaInput
+    obras?: ObraCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemCreateNestedManyWithoutJangadaInput
   }
@@ -67059,6 +70751,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoUncheckedCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoUncheckedCreateNestedManyWithoutJangadaInput
+    obras?: ObraUncheckedCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutJangadaInput
   }
@@ -67507,6 +71200,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     movimentacoes?: MovimentacaoStockCreateNestedManyWithoutStockInput
     tarefas?: TarefaCreateNestedManyWithoutStockInput
+    modelosItens?: ModeloJangadaItemCreateNestedManyWithoutStockInput
   }
 
   export type StockUncheckedCreateWithoutEnvioItensInput = {
@@ -67530,6 +71224,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     movimentacoes?: MovimentacaoStockUncheckedCreateNestedManyWithoutStockInput
     tarefas?: TarefaUncheckedCreateNestedManyWithoutStockInput
+    modelosItens?: ModeloJangadaItemUncheckedCreateNestedManyWithoutStockInput
   }
 
   export type StockCreateOrConnectWithoutEnvioItensInput = {
@@ -67572,6 +71267,7 @@ export namespace Prisma {
     faturas?: FaturaCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoCreateNestedManyWithoutJangadaInput
+    obras?: ObraCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteCreateNestedManyWithoutJangadaInput
   }
 
@@ -67610,6 +71306,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedCreateNestedManyWithoutJangadaInput
     notificacoes?: NotificacaoUncheckedCreateNestedManyWithoutJangadaInput
     inspecoes?: InspecaoUncheckedCreateNestedManyWithoutJangadaInput
+    obras?: ObraUncheckedCreateNestedManyWithoutJangadaInput
     inspecaoComponentes?: InspecaoComponenteUncheckedCreateNestedManyWithoutJangadaInput
   }
 
@@ -67620,30 +71317,40 @@ export namespace Prisma {
 
   export type CertificadoCreateWithoutEnvioItensInput = {
     id?: string
+    nome?: string | null
     tipo: string
     numero: string
     dataEmissao: Date | string
     dataValidade: Date | string
     entidadeEmissora: string
     status?: string
+    filePath?: string | null
+    notas?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     cliente?: ClienteCreateNestedOneWithoutCertificadosInput
     navio?: NavioCreateNestedOneWithoutCertificadosInput
     jangada?: JangadaCreateNestedOneWithoutCertificadosInput
+    obra?: ObraCreateNestedOneWithoutCertificadosInput
+    inspecao?: InspecaoCreateNestedOneWithoutCertificadosInput
   }
 
   export type CertificadoUncheckedCreateWithoutEnvioItensInput = {
     id?: string
+    nome?: string | null
     tipo: string
     numero: string
     dataEmissao: Date | string
     dataValidade: Date | string
     entidadeEmissora: string
     status?: string
+    filePath?: string | null
+    notas?: string | null
     clienteId?: string | null
     navioId?: string | null
     jangadaId?: string | null
+    obraId?: string | null
+    inspecaoId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -67795,6 +71502,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     movimentacoes?: MovimentacaoStockUpdateManyWithoutStockNestedInput
     tarefas?: TarefaUpdateManyWithoutStockNestedInput
+    modelosItens?: ModeloJangadaItemUpdateManyWithoutStockNestedInput
   }
 
   export type StockUncheckedUpdateWithoutEnvioItensInput = {
@@ -67818,6 +71526,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     movimentacoes?: MovimentacaoStockUncheckedUpdateManyWithoutStockNestedInput
     tarefas?: TarefaUncheckedUpdateManyWithoutStockNestedInput
+    modelosItens?: ModeloJangadaItemUncheckedUpdateManyWithoutStockNestedInput
   }
 
   export type JangadaUpsertWithoutEnvioItensInput = {
@@ -67866,6 +71575,7 @@ export namespace Prisma {
     faturas?: FaturaUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUpdateManyWithoutJangadaNestedInput
   }
 
@@ -67904,6 +71614,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUncheckedUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUncheckedUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput
   }
 
@@ -67920,30 +71631,40 @@ export namespace Prisma {
 
   export type CertificadoUpdateWithoutEnvioItensInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
     tipo?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
     dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
     entidadeEmissora?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     cliente?: ClienteUpdateOneWithoutCertificadosNestedInput
     navio?: NavioUpdateOneWithoutCertificadosNestedInput
     jangada?: JangadaUpdateOneWithoutCertificadosNestedInput
+    obra?: ObraUpdateOneWithoutCertificadosNestedInput
+    inspecao?: InspecaoUpdateOneWithoutCertificadosNestedInput
   }
 
   export type CertificadoUncheckedUpdateWithoutEnvioItensInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
     tipo?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
     dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
     entidadeEmissora?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
     clienteId?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    obraId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -68076,6 +71797,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     movimentacoes?: MovimentacaoStockCreateNestedManyWithoutStockInput
     envioItens?: EnvioItemCreateNestedManyWithoutStockInput
+    modelosItens?: ModeloJangadaItemCreateNestedManyWithoutStockInput
   }
 
   export type StockUncheckedCreateWithoutTarefasInput = {
@@ -68099,6 +71821,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     movimentacoes?: MovimentacaoStockUncheckedCreateNestedManyWithoutStockInput
     envioItens?: EnvioItemUncheckedCreateNestedManyWithoutStockInput
+    modelosItens?: ModeloJangadaItemUncheckedCreateNestedManyWithoutStockInput
   }
 
   export type StockCreateOrConnectWithoutTarefasInput = {
@@ -68185,6 +71908,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     movimentacoes?: MovimentacaoStockUpdateManyWithoutStockNestedInput
     envioItens?: EnvioItemUpdateManyWithoutStockNestedInput
+    modelosItens?: ModeloJangadaItemUpdateManyWithoutStockNestedInput
   }
 
   export type StockUncheckedUpdateWithoutTarefasInput = {
@@ -68208,6 +71932,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     movimentacoes?: MovimentacaoStockUncheckedUpdateManyWithoutStockNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutStockNestedInput
+    modelosItens?: ModeloJangadaItemUncheckedUpdateManyWithoutStockNestedInput
   }
 
   export type ClienteUpsertWithoutTarefasInput = {
@@ -68321,14 +72046,19 @@ export namespace Prisma {
 
   export type CertificadoCreateManyClienteInput = {
     id?: string
+    nome?: string | null
     tipo: string
     numero: string
     dataEmissao: Date | string
     dataValidade: Date | string
     entidadeEmissora: string
     status?: string
+    filePath?: string | null
+    notas?: string | null
     navioId?: string | null
     jangadaId?: string | null
+    obraId?: string | null
+    inspecaoId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -68363,12 +72093,17 @@ export namespace Prisma {
 
   export type ObraCreateManyClienteInput = {
     id?: string
+    codigo?: string | null
     titulo: string
     descricao?: string | null
+    tipo?: string | null
     status?: string
     dataInicio?: Date | string | null
     dataFim?: Date | string | null
     orcamento?: number | null
+    filePath?: string | null
+    jangadaId?: string | null
+    inspecaoId?: string | null
     responsavel?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -68538,6 +72273,7 @@ export namespace Prisma {
     faturas?: FaturaUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUpdateManyWithoutJangadaNestedInput
   }
@@ -68576,6 +72312,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUncheckedUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUncheckedUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutJangadaNestedInput
   }
@@ -68613,29 +72350,39 @@ export namespace Prisma {
 
   export type CertificadoUpdateWithoutClienteInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
     tipo?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
     dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
     entidadeEmissora?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     navio?: NavioUpdateOneWithoutCertificadosNestedInput
     jangada?: JangadaUpdateOneWithoutCertificadosNestedInput
+    obra?: ObraUpdateOneWithoutCertificadosNestedInput
+    inspecao?: InspecaoUpdateOneWithoutCertificadosNestedInput
     envioItens?: EnvioItemUpdateManyWithoutCertificadoNestedInput
   }
 
   export type CertificadoUncheckedUpdateWithoutClienteInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
     tipo?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
     dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
     entidadeEmissora?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    obraId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     envioItens?: EnvioItemUncheckedUpdateManyWithoutCertificadoNestedInput
@@ -68643,14 +72390,19 @@ export namespace Prisma {
 
   export type CertificadoUncheckedUpdateManyWithoutClienteInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
     tipo?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
     dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
     entidadeEmissora?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    obraId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -68741,38 +72493,55 @@ export namespace Prisma {
 
   export type ObraUpdateWithoutClienteInput = {
     id?: StringFieldUpdateOperationsInput | string
+    codigo?: NullableStringFieldUpdateOperationsInput | string | null
     titulo?: StringFieldUpdateOperationsInput | string
     descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     dataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataFim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     orcamento?: NullableFloatFieldUpdateOperationsInput | number | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     responsavel?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    jangada?: JangadaUpdateOneWithoutObrasNestedInput
+    inspecao?: InspecaoUpdateOneWithoutObrasNestedInput
+    certificados?: CertificadoUpdateManyWithoutObraNestedInput
   }
 
   export type ObraUncheckedUpdateWithoutClienteInput = {
     id?: StringFieldUpdateOperationsInput | string
+    codigo?: NullableStringFieldUpdateOperationsInput | string | null
     titulo?: StringFieldUpdateOperationsInput | string
     descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     dataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataFim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     orcamento?: NullableFloatFieldUpdateOperationsInput | number | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
     responsavel?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    certificados?: CertificadoUncheckedUpdateManyWithoutObraNestedInput
   }
 
   export type ObraUncheckedUpdateManyWithoutClienteInput = {
     id?: StringFieldUpdateOperationsInput | string
+    codigo?: NullableStringFieldUpdateOperationsInput | string | null
     titulo?: StringFieldUpdateOperationsInput | string
     descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     dataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataFim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     orcamento?: NullableFloatFieldUpdateOperationsInput | number | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
     responsavel?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -68911,14 +72680,19 @@ export namespace Prisma {
 
   export type CertificadoCreateManyNavioInput = {
     id?: string
+    nome?: string | null
     tipo: string
     numero: string
     dataEmissao: Date | string
     dataValidade: Date | string
     entidadeEmissora: string
     status?: string
+    filePath?: string | null
+    notas?: string | null
     clienteId?: string | null
     jangadaId?: string | null
+    obraId?: string | null
+    inspecaoId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -68971,6 +72745,7 @@ export namespace Prisma {
   export type InspecaoCreateManyNavioInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -68978,6 +72753,7 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     jangadaId?: string | null
     cilindroId?: string | null
     createdAt?: Date | string
@@ -69017,29 +72793,39 @@ export namespace Prisma {
 
   export type CertificadoUpdateWithoutNavioInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
     tipo?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
     dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
     entidadeEmissora?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     cliente?: ClienteUpdateOneWithoutCertificadosNestedInput
     jangada?: JangadaUpdateOneWithoutCertificadosNestedInput
+    obra?: ObraUpdateOneWithoutCertificadosNestedInput
+    inspecao?: InspecaoUpdateOneWithoutCertificadosNestedInput
     envioItens?: EnvioItemUpdateManyWithoutCertificadoNestedInput
   }
 
   export type CertificadoUncheckedUpdateWithoutNavioInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
     tipo?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
     dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
     entidadeEmissora?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
     clienteId?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    obraId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     envioItens?: EnvioItemUncheckedUpdateManyWithoutCertificadoNestedInput
@@ -69047,14 +72833,19 @@ export namespace Prisma {
 
   export type CertificadoUncheckedUpdateManyWithoutNavioInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
     tipo?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
     dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
     entidadeEmissora?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
     clienteId?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    obraId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -69197,6 +72988,7 @@ export namespace Prisma {
   export type InspecaoUpdateWithoutNavioInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -69204,10 +72996,13 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     jangada?: JangadaUpdateOneWithoutInspecoesNestedInput
     cilindro?: CilindroUpdateOneWithoutInspecoesNestedInput
+    obras?: ObraUpdateManyWithoutInspecaoNestedInput
+    certificados?: CertificadoUpdateManyWithoutInspecaoNestedInput
     custos?: CustoInspecaoUpdateManyWithoutInspecaoNestedInput
     historicos?: HistoricoInspecaoUpdateManyWithoutInspecaoNestedInput
     substituicoesComponente?: SubstituicaoComponenteUpdateManyWithoutInspecaoNestedInput
@@ -69216,6 +73011,7 @@ export namespace Prisma {
   export type InspecaoUncheckedUpdateWithoutNavioInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -69223,10 +73019,13 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
     cilindroId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    obras?: ObraUncheckedUpdateManyWithoutInspecaoNestedInput
+    certificados?: CertificadoUncheckedUpdateManyWithoutInspecaoNestedInput
     custos?: CustoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
     historicos?: HistoricoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
     substituicoesComponente?: SubstituicaoComponenteUncheckedUpdateManyWithoutInspecaoNestedInput
@@ -69235,6 +73034,7 @@ export namespace Prisma {
   export type InspecaoUncheckedUpdateManyWithoutNavioInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -69242,6 +73042,7 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
     cilindroId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -69282,6 +73083,7 @@ export namespace Prisma {
     faturas?: FaturaUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUpdateManyWithoutJangadaNestedInput
   }
@@ -69320,6 +73122,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUncheckedUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUncheckedUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutJangadaNestedInput
   }
@@ -69357,14 +73160,19 @@ export namespace Prisma {
 
   export type CertificadoCreateManyJangadaInput = {
     id?: string
+    nome?: string | null
     tipo: string
     numero: string
     dataEmissao: Date | string
     dataValidade: Date | string
     entidadeEmissora: string
     status?: string
+    filePath?: string | null
+    notas?: string | null
     clienteId?: string | null
     navioId?: string | null
+    obraId?: string | null
+    inspecaoId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -69417,6 +73225,7 @@ export namespace Prisma {
   export type InspecaoCreateManyJangadaInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -69424,8 +73233,27 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     navioId?: string | null
     cilindroId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ObraCreateManyJangadaInput = {
+    id?: string
+    codigo?: string | null
+    titulo: string
+    descricao?: string | null
+    tipo?: string | null
+    status?: string
+    dataInicio?: Date | string | null
+    dataFim?: Date | string | null
+    orcamento?: number | null
+    filePath?: string | null
+    clienteId?: string | null
+    inspecaoId?: string | null
+    responsavel?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -69455,29 +73283,39 @@ export namespace Prisma {
 
   export type CertificadoUpdateWithoutJangadaInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
     tipo?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
     dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
     entidadeEmissora?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     cliente?: ClienteUpdateOneWithoutCertificadosNestedInput
     navio?: NavioUpdateOneWithoutCertificadosNestedInput
+    obra?: ObraUpdateOneWithoutCertificadosNestedInput
+    inspecao?: InspecaoUpdateOneWithoutCertificadosNestedInput
     envioItens?: EnvioItemUpdateManyWithoutCertificadoNestedInput
   }
 
   export type CertificadoUncheckedUpdateWithoutJangadaInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
     tipo?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
     dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
     entidadeEmissora?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
     clienteId?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
+    obraId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     envioItens?: EnvioItemUncheckedUpdateManyWithoutCertificadoNestedInput
@@ -69485,14 +73323,19 @@ export namespace Prisma {
 
   export type CertificadoUncheckedUpdateManyWithoutJangadaInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
     tipo?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
     dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
     entidadeEmissora?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
     clienteId?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
+    obraId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -69635,6 +73478,7 @@ export namespace Prisma {
   export type InspecaoUpdateWithoutJangadaInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -69642,10 +73486,13 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     navio?: NavioUpdateOneWithoutInspecoesNestedInput
     cilindro?: CilindroUpdateOneWithoutInspecoesNestedInput
+    obras?: ObraUpdateManyWithoutInspecaoNestedInput
+    certificados?: CertificadoUpdateManyWithoutInspecaoNestedInput
     custos?: CustoInspecaoUpdateManyWithoutInspecaoNestedInput
     historicos?: HistoricoInspecaoUpdateManyWithoutInspecaoNestedInput
     substituicoesComponente?: SubstituicaoComponenteUpdateManyWithoutInspecaoNestedInput
@@ -69654,6 +73501,7 @@ export namespace Prisma {
   export type InspecaoUncheckedUpdateWithoutJangadaInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -69661,10 +73509,13 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
     cilindroId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    obras?: ObraUncheckedUpdateManyWithoutInspecaoNestedInput
+    certificados?: CertificadoUncheckedUpdateManyWithoutInspecaoNestedInput
     custos?: CustoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
     historicos?: HistoricoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
     substituicoesComponente?: SubstituicaoComponenteUncheckedUpdateManyWithoutInspecaoNestedInput
@@ -69673,6 +73524,7 @@ export namespace Prisma {
   export type InspecaoUncheckedUpdateManyWithoutJangadaInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -69680,8 +73532,65 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
     cilindroId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ObraUpdateWithoutJangadaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    codigo?: NullableStringFieldUpdateOperationsInput | string | null
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    dataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataFim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    orcamento?: NullableFloatFieldUpdateOperationsInput | number | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    responsavel?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cliente?: ClienteUpdateOneWithoutObrasNestedInput
+    inspecao?: InspecaoUpdateOneWithoutObrasNestedInput
+    certificados?: CertificadoUpdateManyWithoutObraNestedInput
+  }
+
+  export type ObraUncheckedUpdateWithoutJangadaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    codigo?: NullableStringFieldUpdateOperationsInput | string | null
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    dataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataFim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    orcamento?: NullableFloatFieldUpdateOperationsInput | number | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    clienteId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
+    responsavel?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    certificados?: CertificadoUncheckedUpdateManyWithoutObraNestedInput
+  }
+
+  export type ObraUncheckedUpdateManyWithoutJangadaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    codigo?: NullableStringFieldUpdateOperationsInput | string | null
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    dataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataFim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    orcamento?: NullableFloatFieldUpdateOperationsInput | number | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    clienteId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
+    responsavel?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -69932,6 +73841,7 @@ export namespace Prisma {
     faturas?: FaturaUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUpdateManyWithoutJangadaNestedInput
   }
@@ -69970,6 +73880,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUncheckedUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUncheckedUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutJangadaNestedInput
   }
@@ -70158,6 +74069,14 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
+  export type ModeloJangadaItemCreateManyStockInput = {
+    id?: string
+    modeloId: string
+    quantidade?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type MovimentacaoStockUpdateWithoutStockInput = {
     id?: StringFieldUpdateOperationsInput | string
     tipo?: StringFieldUpdateOperationsInput | string
@@ -70281,6 +74200,30 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type ModeloJangadaItemUpdateWithoutStockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    quantidade?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    modelo?: ModeloJangadaUpdateOneRequiredWithoutItensModeloNestedInput
+  }
+
+  export type ModeloJangadaItemUncheckedUpdateWithoutStockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    modeloId?: StringFieldUpdateOperationsInput | string
+    quantidade?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModeloJangadaItemUncheckedUpdateManyWithoutStockInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    modeloId?: StringFieldUpdateOperationsInput | string
+    quantidade?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type AgendamentoCreateManyCilindroInput = {
     id?: string
     titulo: string
@@ -70315,6 +74258,7 @@ export namespace Prisma {
   export type InspecaoCreateManyCilindroInput = {
     id?: string
     numero: string
+    numeroSerieJangada?: string | null
     tipoInspecao: string
     dataInspecao: Date | string
     dataProxima?: Date | string | null
@@ -70322,6 +74266,7 @@ export namespace Prisma {
     status?: string
     tecnico: string
     observacoes?: string | null
+    filePath?: string | null
     navioId?: string | null
     jangadaId?: string | null
     createdAt?: Date | string
@@ -70424,6 +74369,7 @@ export namespace Prisma {
   export type InspecaoUpdateWithoutCilindroInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -70431,10 +74377,13 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     navio?: NavioUpdateOneWithoutInspecoesNestedInput
     jangada?: JangadaUpdateOneWithoutInspecoesNestedInput
+    obras?: ObraUpdateManyWithoutInspecaoNestedInput
+    certificados?: CertificadoUpdateManyWithoutInspecaoNestedInput
     custos?: CustoInspecaoUpdateManyWithoutInspecaoNestedInput
     historicos?: HistoricoInspecaoUpdateManyWithoutInspecaoNestedInput
     substituicoesComponente?: SubstituicaoComponenteUpdateManyWithoutInspecaoNestedInput
@@ -70443,6 +74392,7 @@ export namespace Prisma {
   export type InspecaoUncheckedUpdateWithoutCilindroInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -70450,10 +74400,13 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    obras?: ObraUncheckedUpdateManyWithoutInspecaoNestedInput
+    certificados?: CertificadoUncheckedUpdateManyWithoutInspecaoNestedInput
     custos?: CustoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
     historicos?: HistoricoInspecaoUncheckedUpdateManyWithoutInspecaoNestedInput
     substituicoesComponente?: SubstituicaoComponenteUncheckedUpdateManyWithoutInspecaoNestedInput
@@ -70462,6 +74415,7 @@ export namespace Prisma {
   export type InspecaoUncheckedUpdateManyWithoutCilindroInput = {
     id?: StringFieldUpdateOperationsInput | string
     numero?: StringFieldUpdateOperationsInput | string
+    numeroSerieJangada?: NullableStringFieldUpdateOperationsInput | string | null
     tipoInspecao?: StringFieldUpdateOperationsInput | string
     dataInspecao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataProxima?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -70469,10 +74423,126 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
     tecnico?: StringFieldUpdateOperationsInput | string
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
     navioId?: NullableStringFieldUpdateOperationsInput | string | null
     jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CertificadoCreateManyObraInput = {
+    id?: string
+    nome?: string | null
+    tipo: string
+    numero: string
+    dataEmissao: Date | string
+    dataValidade: Date | string
+    entidadeEmissora: string
+    status?: string
+    filePath?: string | null
+    notas?: string | null
+    clienteId?: string | null
+    navioId?: string | null
+    jangadaId?: string | null
+    inspecaoId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CertificadoUpdateWithoutObraInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+    dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
+    entidadeEmissora?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cliente?: ClienteUpdateOneWithoutCertificadosNestedInput
+    navio?: NavioUpdateOneWithoutCertificadosNestedInput
+    jangada?: JangadaUpdateOneWithoutCertificadosNestedInput
+    inspecao?: InspecaoUpdateOneWithoutCertificadosNestedInput
+    envioItens?: EnvioItemUpdateManyWithoutCertificadoNestedInput
+  }
+
+  export type CertificadoUncheckedUpdateWithoutObraInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+    dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
+    entidadeEmissora?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    clienteId?: NullableStringFieldUpdateOperationsInput | string | null
+    navioId?: NullableStringFieldUpdateOperationsInput | string | null
+    jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    envioItens?: EnvioItemUncheckedUpdateManyWithoutCertificadoNestedInput
+  }
+
+  export type CertificadoUncheckedUpdateManyWithoutObraInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+    dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
+    entidadeEmissora?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    clienteId?: NullableStringFieldUpdateOperationsInput | string | null
+    navioId?: NullableStringFieldUpdateOperationsInput | string | null
+    jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    inspecaoId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ObraCreateManyInspecaoInput = {
+    id?: string
+    codigo?: string | null
+    titulo: string
+    descricao?: string | null
+    tipo?: string | null
+    status?: string
+    dataInicio?: Date | string | null
+    dataFim?: Date | string | null
+    orcamento?: number | null
+    filePath?: string | null
+    clienteId?: string | null
+    jangadaId?: string | null
+    responsavel?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CertificadoCreateManyInspecaoInput = {
+    id?: string
+    nome?: string | null
+    tipo: string
+    numero: string
+    dataEmissao: Date | string
+    dataValidade: Date | string
+    entidadeEmissora: string
+    status?: string
+    filePath?: string | null
+    notas?: string | null
+    clienteId?: string | null
+    navioId?: string | null
+    jangadaId?: string | null
+    obraId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CustoInspecaoCreateManyInspecaoInput = {
@@ -70507,6 +74577,121 @@ export namespace Prisma {
     dataSubstituicao: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type ObraUpdateWithoutInspecaoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    codigo?: NullableStringFieldUpdateOperationsInput | string | null
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    dataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataFim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    orcamento?: NullableFloatFieldUpdateOperationsInput | number | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    responsavel?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cliente?: ClienteUpdateOneWithoutObrasNestedInput
+    jangada?: JangadaUpdateOneWithoutObrasNestedInput
+    certificados?: CertificadoUpdateManyWithoutObraNestedInput
+  }
+
+  export type ObraUncheckedUpdateWithoutInspecaoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    codigo?: NullableStringFieldUpdateOperationsInput | string | null
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    dataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataFim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    orcamento?: NullableFloatFieldUpdateOperationsInput | number | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    clienteId?: NullableStringFieldUpdateOperationsInput | string | null
+    jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    responsavel?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    certificados?: CertificadoUncheckedUpdateManyWithoutObraNestedInput
+  }
+
+  export type ObraUncheckedUpdateManyWithoutInspecaoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    codigo?: NullableStringFieldUpdateOperationsInput | string | null
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    dataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataFim?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    orcamento?: NullableFloatFieldUpdateOperationsInput | number | null
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    clienteId?: NullableStringFieldUpdateOperationsInput | string | null
+    jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    responsavel?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CertificadoUpdateWithoutInspecaoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+    dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
+    entidadeEmissora?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cliente?: ClienteUpdateOneWithoutCertificadosNestedInput
+    navio?: NavioUpdateOneWithoutCertificadosNestedInput
+    jangada?: JangadaUpdateOneWithoutCertificadosNestedInput
+    obra?: ObraUpdateOneWithoutCertificadosNestedInput
+    envioItens?: EnvioItemUpdateManyWithoutCertificadoNestedInput
+  }
+
+  export type CertificadoUncheckedUpdateWithoutInspecaoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+    dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
+    entidadeEmissora?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    clienteId?: NullableStringFieldUpdateOperationsInput | string | null
+    navioId?: NullableStringFieldUpdateOperationsInput | string | null
+    jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    obraId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    envioItens?: EnvioItemUncheckedUpdateManyWithoutCertificadoNestedInput
+  }
+
+  export type CertificadoUncheckedUpdateManyWithoutInspecaoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: NullableStringFieldUpdateOperationsInput | string | null
+    tipo?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+    dataEmissao?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataValidade?: DateTimeFieldUpdateOperationsInput | Date | string
+    entidadeEmissora?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    filePath?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    clienteId?: NullableStringFieldUpdateOperationsInput | string | null
+    navioId?: NullableStringFieldUpdateOperationsInput | string | null
+    jangadaId?: NullableStringFieldUpdateOperationsInput | string | null
+    obraId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CustoInspecaoUpdateWithoutInspecaoInput = {
@@ -70677,6 +74862,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     jangadas?: JangadaUpdateManyWithoutModeloNestedInput
     especificacoes?: EspecificacaoTecnicaUpdateManyWithoutModeloNestedInput
+    itensModelo?: ModeloJangadaItemUpdateManyWithoutModeloNestedInput
   }
 
   export type ModeloJangadaUncheckedUpdateWithoutMarcaInput = {
@@ -70689,6 +74875,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     jangadas?: JangadaUncheckedUpdateManyWithoutModeloNestedInput
     especificacoes?: EspecificacaoTecnicaUncheckedUpdateManyWithoutModeloNestedInput
+    itensModelo?: ModeloJangadaItemUncheckedUpdateManyWithoutModeloNestedInput
   }
 
   export type ModeloJangadaUncheckedUpdateManyWithoutMarcaInput = {
@@ -70735,6 +74922,7 @@ export namespace Prisma {
     faturas?: FaturaUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUpdateManyWithoutJangadaNestedInput
   }
@@ -70773,6 +74961,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUncheckedUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUncheckedUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutJangadaNestedInput
   }
@@ -70899,6 +75088,14 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
+  export type ModeloJangadaItemCreateManyModeloInput = {
+    id?: string
+    stockId: string
+    quantidade?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type JangadaUpdateWithoutModeloInput = {
     id?: StringFieldUpdateOperationsInput | string
     numeroSerie?: StringFieldUpdateOperationsInput | string
@@ -70933,6 +75130,7 @@ export namespace Prisma {
     faturas?: FaturaUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUpdateManyWithoutJangadaNestedInput
   }
@@ -70971,6 +75169,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUncheckedUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUncheckedUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutJangadaNestedInput
   }
@@ -71047,6 +75246,30 @@ export namespace Prisma {
     referenciaCilindro?: NullableStringFieldUpdateOperationsInput | string | null
     sistemaInsuflacao?: NullableStringFieldUpdateOperationsInput | string | null
     tiposValvulas?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModeloJangadaItemUpdateWithoutModeloInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    quantidade?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stock?: StockUpdateOneRequiredWithoutModelosItensNestedInput
+  }
+
+  export type ModeloJangadaItemUncheckedUpdateWithoutModeloInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    stockId?: StringFieldUpdateOperationsInput | string
+    quantidade?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModeloJangadaItemUncheckedUpdateManyWithoutModeloInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    stockId?: StringFieldUpdateOperationsInput | string
+    quantidade?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -71131,6 +75354,7 @@ export namespace Prisma {
     faturas?: FaturaUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUpdateManyWithoutJangadaNestedInput
   }
@@ -71169,6 +75393,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUncheckedUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUncheckedUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutJangadaNestedInput
   }
@@ -71518,6 +75743,7 @@ export namespace Prisma {
     faturas?: FaturaUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUpdateManyWithoutJangadaNestedInput
   }
@@ -71556,6 +75782,7 @@ export namespace Prisma {
     faturas?: FaturaUncheckedUpdateManyWithoutJangadaNestedInput
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutJangadaNestedInput
     inspecoes?: InspecaoUncheckedUpdateManyWithoutJangadaNestedInput
+    obras?: ObraUncheckedUpdateManyWithoutJangadaNestedInput
     inspecaoComponentes?: InspecaoComponenteUncheckedUpdateManyWithoutJangadaNestedInput
     envioItens?: EnvioItemUncheckedUpdateManyWithoutJangadaNestedInput
   }
