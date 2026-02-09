@@ -1,0 +1,3700 @@
+{
+  "manual": "MK IV",
+  "total_paraginas": 680,
+  "total_imagens": 680,
+  "spares": [
+    {
+      "descricao": "inserted",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "1137 N-Series H-Pack bag sizes inserted",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "1137 N-Series heat-shrink sleeve P/Ns inserted",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "1137 N-Series Xtrem H-Pack sizes inserted",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "1138 Note amended",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "1185 Blank page inserted",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "1186-96 N-Series Low Profile container labels",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "1197-1198.8 N-Series Xtrem container labels inserted",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "1198.13-15 Foam protection pads broken out",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "1198.14 N-Series foam protection pads inserted",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Appendix 10 A10 1-2 Appendix 10 for Post operational packing",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "vacuum test record inserted",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "RECORD THE INCORPORATION OF THIS REVISION ON THE REVISION RECORD.",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Title Page M269-00 Page 4",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "RETAIN THIS LETTER OF TRANSMITTAL, FILE IT BEHIND THE REVISION RECORD.",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Sep/16",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "============================================================",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 23",
+      "secao": 1,
+      "fonte": "texto"
+    },
+    {
+      "descricao": ", NON-OPERATIONAL LIFERAFTS AND THE MED",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "• Service bulletin 03/01",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "• Service bulletin DSB_5_2009",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "• Service bulletin 62/10 (EV)",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "• Service bulletin 60/11 (SSPI)",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "• Service bulletin 42/13 (Elliot Crewsaver)",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "The above service bulletins are published by :-",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Survitec Group Limited",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Kingsway, Dunmurry",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Belfast, BT17 9AF",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Tel: +44 (0)28 9030 1531, Fax: +44 (0)28 9062 1765",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Email: publications@survitecgroup.com",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Associated Pubs M269–00 Page 1",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Apr/16",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 44",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MARINE MKIV",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "SERVICE MANUAL",
+      "secao": 2,
+      "fonte": "texto"
+    },
+    {
+      "descricao": ".......................8",
+      "secao": 3,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "and the ‘MED’",
+      "secao": 3,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Introduction M269–00 Page 1",
+      "secao": 3,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Jan/17",
+      "secao": 3,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 48",
+      "secao": 3,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "BLANK PAGE",
+      "secao": 3,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Introduction M269–00 Page 2",
+      "secao": 3,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 49",
+      "secao": 3,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "1. General",
+      "secao": 3,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "and the ‘MED’.",
+      "secao": 4,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "6.5.1 The special tools and equipment listed in Chapter 10 or in associated",
+      "secao": 4,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "publications may not be substituted except by the explicit permission of",
+      "secao": 4,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Survitec Group.",
+      "secao": 4,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "6.5.2 No",
+      "secao": 4,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "or materials other than those of Survitec Group",
+      "secao": 5,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "supply or approval may be used in the servicing of Survitec Group",
+      "secao": 5,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "products.",
+      "secao": 5,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "are listed in Chapter 11, materials in",
+      "secao": 6,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 10 or in current service bulletins.",
+      "secao": 6,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "6.5.3 Liferafts that are labelled – ‘wheel-marked’ – indicating compliance with",
+      "secao": 6,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "the Marine Equipment Directive of the European Union (‘the MED’) shall",
+      "secao": 6,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "contain items which are themselves wheel-marked; these are:",
+      "secao": 6,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(a) Position indicating lamps",
+      "secao": 6,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(b) Retro-reflective material",
+      "secao": 6,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(c) Thermal Protective Aids",
+      "secao": 6,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(d) Pyrotechnics (hand flares, rocket parachutes flares and buoyant",
+      "secao": 6,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "smoke signals).",
+      "secao": 6,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "NOTE: MED compliant items must be accompanied by an MED",
+      "secao": 6,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "‘declaration of conformity’.",
+      "secao": 6,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Introduction M269–00 Page 8",
+      "secao": 6,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 55",
+      "secao": 6,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "10 8 Immediate action leaflet",
+      "secao": 7,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "9 Rescue signal table",
+      "secao": 7,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "10 Whistle",
+      "secao": 7,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "11 8 11 Top-up bellows",
+      "secao": 7,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "12 Repair kit",
+      "secao": 7,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "12 13 Bailer, (jug) PVC (1 pint)",
+      "secao": 7,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "14 Heliograph",
+      "secao": 7,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "15 Drinking vessel",
+      "secao": 7,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "14 16 Leak stoppers",
+      "secao": 7,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "17 Thermal protection aid",
+      "secao": 7,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "18 Tin opener",
+      "secao": 7,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "16 18 19 Fishing kit",
+      "secao": 7,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "20 Drogue (spare sea anchor)",
+      "secao": 7,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "21 Buoyant knife",
+      "secao": 7,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "22 Food rations",
+      "secao": 7,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "06973009 1 1 1 1 1 1 1 1",
+      "secao": 8,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Torch c/w",
+      "secao": 8,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "07966009 1 1 1 1 1 1 1 1",
+      "secao": 9,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Whistle 05090005 1 1 1 1 1 1 1 1",
+      "secao": 9,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Valise (800 mm) 20993031 1 1 1 1 1 1 1 1",
+      "secao": 9,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Valise, MK 14 (1050 mm) 20993051 — — — 1 1 — — —",
+      "secao": 9,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "*1 These items are attached to the liferaft *3 Denotes this item as listed in Service",
+      "secao": 9,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "interior and are not packed in an bulletin - Approved",
+      "secao": 9,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "emergency E-pack. Non-operational liferafts and the MED.",
+      "secao": 10,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "*2 Denotes this item is country dependant (see associated publications for details).",
+      "secao": 10,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "so part numbers will vary. Please refer to *",
+      "secao": 10,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "the relevant appendix. Default",
+      "secao": 10,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "equipment is listed in TABLE 704.",
+      "secao": 10,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 701",
+      "secao": 10,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Emergency equipment for SOLAS A-pack 1",
+      "secao": 10,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(Mk 10, Mk 14 and all Flat-Pack containers)",
+      "secao": 10,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 7 M269–00 Page 703",
+      "secao": 10,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Aug/21",
+      "secao": 10,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 174",
+      "secao": 10,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 7 M269–00 Page 704",
+      "secao": 10,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Non-operational liferafts and the MED.",
+      "secao": 11,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(see associated publications for details).",
+      "secao": 11,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 702B",
+      "secao": 11,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Emergency Equipment for SOLAS A Pack 2,3 & 4",
+      "secao": 11,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(Mk 16 and Mk 18 Flat-Pack containers)",
+      "secao": 11,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 7 M269–00 Page 705",
+      "secao": 11,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 176",
+      "secao": 11,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "12 TO 16 TO 20TO 25TO",
+      "secao": 11,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Liferaft size (persons) Part number 4TO 6TO 8TO 10TO",
+      "secao": 11,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "& DL & DL & DL & DL",
+      "secao": 11,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Anti-seasickness tablets *1*2 1 1 1 1 2 2 2 3",
+      "secao": 11,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Bag, seasickness, poly",
+      "secao": 11,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "11105001 4 6 8 10 12 16 20 25",
+      "secao": 11,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "06973009",
+      "secao": 12,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "1 1 1 1 1 1 1 1",
+      "secao": 12,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "*4Torch c/w",
+      "secao": 12,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "07966009",
+      "secao": 13,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "so part numbers will vary. Please refer to",
+      "secao": 14,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 703",
+      "secao": 14,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Emergency equipment for SOLAS B-pack 1",
+      "secao": 14,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(Mk 10, Mk 14, and all Flat-Pack containers)",
+      "secao": 14,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 7 M269–00 Page 706",
+      "secao": 14,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 177",
+      "secao": 14,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Liferaft size (persons)",
+      "secao": 14,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Item Part number 4 TO 6 TO 8 TO 10 TO 12 TO 16 TO 20 TO",
+      "secao": 14,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Anti-seasickness tablets *1*2 1 1 1 1 2 2 2",
+      "secao": 14,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "06973009 1 1 1 1 1 1 1",
+      "secao": 15,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "07966009 1 1 1 1 1 1 1",
+      "secao": 16,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Two-piece paddles 11944009 2 2 2 2 2 2 2",
+      "secao": 16,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Whistle 05090005 1 1 1 1 1 1 1",
+      "secao": 16,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Valise (800 mm) 20993031 1 1 1*4 — — — —",
+      "secao": 16,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Valise (1050 mm) 20993051 — — 1 1 1 1 1",
+      "secao": 16,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "*1 These items are attached to the liferaft interior *3 Denotes this item as listed in Service bulletin -",
+      "secao": 16,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Approved",
+      "secao": 16,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "and are not packed in an emergency E-pack.",
+      "secao": 17,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "*2 Denotes this item is country dependant so part",
+      "secao": 17,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "numbers will vary. Please refer to",
+      "secao": 17,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "the relevant appendix. Default equipment is listed",
+      "secao": 17,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "in TABLE 704. *4 Xtrem container only.",
+      "secao": 17,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 703B",
+      "secao": 17,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Emergency equipment for SOLAS A-Pack, Pack 1",
+      "secao": 17,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(N-Series Low Profile containers)",
+      "secao": 17,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 7 M269–00 Page 707",
+      "secao": 17,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 178",
+      "secao": 17,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Valise (1247 mm) 53641001 2 2 2 2 2 2 2",
+      "secao": 19,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 703BB",
+      "secao": 20,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(N-Series Xtrem containers)",
+      "secao": 20,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 7 M269–00 Page 708",
+      "secao": 20,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 179",
+      "secao": 20,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Liferaft capacity 4TO 6TO 8TO 10TO 12TO 16TO 20TO",
+      "secao": 20,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 703C",
+      "secao": 21,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Contents of Pack 2: food and water",
+      "secao": 21,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Liferaft capacity 6TO 8TO 10TO 12TO 16TO",
+      "secao": 21,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Part number",
+      "secao": 21,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "N-Series Xtrem N137H N138H N139H N139H N140H",
+      "secao": 21,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Water sachet (500 ml) *1 18 24 30 36 48",
+      "secao": 21,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Food rations (500 g) *1 6 8 10 12 16",
+      "secao": 21,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Valise (1247 mm) 53641001 2 2 2 2 2",
+      "secao": 21,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "*1 Denotes this item as listed in Service bulletin - Approved",
+      "secao": 21,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 703D",
+      "secao": 22,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Contents of Pack 2: food and water A-Pack",
+      "secao": 22,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 7 M269–00 Page 709",
+      "secao": 22,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 180",
+      "secao": 22,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Item Part number 4TO 6TO 8TO 10TO 12 TO 16 TO 20TO",
+      "secao": 22,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "11105001 4 6 8 10 12 16 20",
+      "secao": 22,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(229 × 366 mm)",
+      "secao": 22,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Bailer, jug PVC (1 pint) 05720107 1 1 1 1 1 2 2",
+      "secao": 22,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Valise (800 mm) 20993031 1 1 1 1 1 1 1",
+      "secao": 24,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 703E",
+      "secao": 25,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Emergency equipment for SOLAS B-Pack, Pack 1",
+      "secao": 25,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 7 M269–00 Page 710",
+      "secao": 25,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 181",
+      "secao": 25,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Valise (1247 mm) 53641001 1 1 1 1 1 1 1",
+      "secao": 27,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 703EE",
+      "secao": 28,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 7 M269–00 Page 711",
+      "secao": 28,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 182",
+      "secao": 28,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Default equipment",
+      "secao": 28,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Item Part number",
+      "secao": 28,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Anti-seasickness tablets (60×) 12864009",
+      "secao": 28,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "...........................................................1105",
+      "secao": 29,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.2.2 Liferaft specific",
+      "secao": 29,
+      "fonte": "texto"
+    },
+    {
+      "descricao": ".................................................1110",
+      "secao": 30,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.3 GRP Container Assembly",
+      "secao": 30,
+      "fonte": "texto"
+    },
+    {
+      "descricao": ".........................................1115",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.3.1 New strap/sleeve assemblies ......................................1116",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.3.2 Existing strap/sleeve assemblies .................................1116",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.3.3 Strap and sleeve assemblies used ..............................1116",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(a) 4N Throwover GRP containers .............................1118",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(b) MK 10 Throwover standard-weight and",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "heavy-weight GRP containers ..............................1119",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(c) MK 10 EV Silver Series.........................................1122",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(d) Mk 14 Throwover GRP containers ........................1123",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(e) Mk 16 Throwover GRP Flat-Pack containers ........1125",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(f) Mk 18 Throwover (TO) GRP Flat-Pack containers ..1126",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(g) G21 GRP Flat-Pack container (B-pack) ................1127",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(h) Mk 10 Davit-launch (DL) GRP containers .............1128",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(i) Mk 14 Davit-launch (DL) GRP containers .............1130",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(j) Mk 20 GRP Flat-Pack containers ..........................1132",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(k) N-Series Low Profile containers............................1133",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(l) N-Series Xtrem containers ....................................1134",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(m) Containers: universal",
+      "secao": 31,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "................................1135",
+      "secao": 32,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(n) Containers: liferaft-specific",
+      "secao": 32,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "........................1138",
+      "secao": 33,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(o) Container label identification and position ............1138",
+      "secao": 33,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 11 M269–00 Page 1101",
+      "secao": 33,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 438",
+      "secao": 33,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.4 Inflation equipment: universal",
+      "secao": 33,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "................................1198.9",
+      "secao": 34,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.5 Foam protection pads ......................................................1198.13",
+      "secao": 34,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.5.1 Operating head and inflation system ......................1198.13",
+      "secao": 34,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.5.2 N-Series operating head and inflation system ........1198.14",
+      "secao": 34,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.5.3 Containers ...............................................................1198.15",
+      "secao": 34,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 11 M269–00 Page 1102",
+      "secao": 34,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 439",
+      "secao": 34,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "1. GENERAL",
+      "secao": 34,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "1.1 The parts list has been prepared for the sole purpose of identifying and/or",
+      "secao": 34,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "ordering",
+      "secao": 34,
+      "fonte": "texto"
+    },
+    {
+      "descricao": ", it should not be used for any other purpose.",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "NOTE: Drawings are not to scale; dimensions, where given, are in",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "millimetres (mm) and inches (″).",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "NOTE: For information on Emergency Pack types, contents and",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "part numbers, refer to Chapter 7, EMERGENCY PACKS",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "AND EQUIPMENT.",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "NOTE: The ‘Wheelmark’ symbol",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "indicates an MED-compliant item.",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2. SUB-CHAPTERS",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.1 Marine MkIV liferaft",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "FIGURE 1101",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Typical Marine",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK IV Throwover liferaft",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "FIGURE 1102",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK IV Davit-launch liferaft",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 11 M269–00 Page 1103",
+      "secao": 35,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "in two sub-sections:",
+      "secao": 36,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.2.1 All-liferaft",
+      "secao": 36,
+      "fonte": "texto"
+    },
+    {
+      "descricao": ": items (including valves and fabrics) which are",
+      "secao": 37,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "universal to all liferaft sizes.",
+      "secao": 37,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "form an integral part of, or are attached to, the core",
+      "secao": 38,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "liferaft before specific customer and individual authority requirements",
+      "secao": 38,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "are applied.",
+      "secao": 38,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.2.2 Liferaft-specific",
+      "secao": 38,
+      "fonte": "texto"
+    },
+    {
+      "descricao": ": items which differ depending on liferaft size.",
+      "secao": 39,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Each sub-section gives the description, part number(s) and application of each spare",
+      "secao": 40,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "NOTE: When ordering",
+      "secao": 40,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "for a DSB liferaft prefix the",
+      "secao": 41,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "part number with an ‘R’ unless the DSB part number has",
+      "secao": 41,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "been given. DSB part numbers are prefixed with ‘DSB’.",
+      "secao": 41,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 11 M269–00 Page 1104",
+      "secao": 41,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 441",
+      "secao": 41,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.2.1 All liferaft",
+      "secao": 41,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Description: Internal lamp unit (RL5)",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Found on: Bottom centreline of archtube",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "RFD P/N: 12869009",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Part number: DSB P/N: 12869009",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "EV P/N: 12869009",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Description: External lamp unit (RL5)",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Found on: Top of canopy",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "RFD P/N: 12870009",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Part number: DSB P/N: 12870009",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "EV P/N: 12870009",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Description: Internal lamp unit (RL6)",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Bottom centreline of archtube",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Found on:",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "or canopy interior",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "RFD P/N: 12866009",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "DSB P/N: 12866009",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "DBC P/N: 12866009",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Part number:",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "EV P/N: 12866009",
+      "secao": 42,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Hauling-in ladder stretching line",
+      "secao": 43,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Liferaft size Maximum length",
+      "secao": 43,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(persons) (metres) (feet)",
+      "secao": 43,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "6 3.30 10.8 DSB20697092",
+      "secao": 43,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "10 3.10 10.2 DSB21097091",
+      "secao": 43,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "12 3.60 11.8 DSB21297091",
+      "secao": 43,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "16 4.30 14.1 DSB21697091",
+      "secao": 43,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "20 5.25 17.2 DSB22097091",
+      "secao": 43,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "25 5.75 18.9 DSB22597091",
+      "secao": 43,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Additional items (hauling-in ladder stretching line)",
+      "secao": 43,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Item Description — Part number",
+      "secao": 43,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Rubber band — 08442009",
+      "secao": 43,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 1101",
+      "secao": 43,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Drogue retaining line",
+      "secao": 43,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Maximum length",
+      "secao": 43,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "The following sub-sections cover part numbers for the ordering of container",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "assemblies in the form of complete containers or, sub-assemblies, that is,",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "individual container halves (top or bottom) and the specific type and required",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "quantities of strap and crimp assembly for each individual container.",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "NOTE: The part numbers contained in this section are for",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "WHITE GRP containers. Equivalent GREY containers are",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "available on request.",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "The container requirement is determined in this section by one, or all, of the",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "following criteria:",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(i) Launch method, that is, Throwover or Davit-launch.",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(ii) Drop height, which determines the ‘weight’ of container. A",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "drop height of up to, but not exceeding 18 metres, (lightweight",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "container) or a drop height of up to, but not exceeding,",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "36 metres (standard container).",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(iii) E-pack option(s) used.",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(iv) Liferaft size.",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(v) Customer preference (container MK number).",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "The following sub-sections group the relevant part numbers for containers as",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "follows:",
+      "secao": 44,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.5 Inflation equipment: universal",
+      "secao": 45,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.6 Foam protection pads",
+      "secao": 47,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Container label identification and",
+      "secao": 47,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "position",
+      "secao": 47,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 11 M269–00 Page 1115",
+      "secao": 47,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 452",
+      "secao": 47,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.3.1 New strap/sleeve assemblies",
+      "secao": 47,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(a) When you order any of the strap/sleeve assemblies given in",
+      "secao": 47,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 1108, you will receive the new, black design.",
+      "secao": 47,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(b) The part numbers and brand details of the new strap/sleeve",
+      "secao": 47,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "assemblies have not changed.",
+      "secao": 47,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2.3.2 Existing strap/sleeve assemblies",
+      "secao": 47,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(a) You can continue to use your stock of coloured strap/sleeve",
+      "secao": 47,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "assemblies.",
+      "secao": 47,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Size 3",
+      "secao": 48,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Size 4",
+      "secao": 48,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Size 6",
+      "secao": 48,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Size 7",
+      "secao": 48,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Size 9",
+      "secao": 48,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "FIGURE 1105",
+      "secao": 48,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 10 Throwover GRP containers",
+      "secao": 48,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 11 M269–00 Page 1119",
+      "secao": 48,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 456",
+      "secao": 48,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 10 Throwover containers",
+      "secao": 48,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Standard-weight",
+      "secao": 48,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Strap and crimp",
+      "secao": 48,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(up to 18 metres stowed height)",
+      "secao": 48,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Silver Series Flat-Pack Containers",
+      "secao": 49,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "A-Pack B-Pack Strap and crimps",
+      "secao": 49,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Capacity E-pack E-pack",
+      "secao": 49,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Complete Complete Part number Qty",
+      "secao": 49,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "option option",
+      "secao": 49,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "6 E99991577 A E99991578 B 4",
+      "secao": 49,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "8 E99991576 A E99991578 B 4",
+      "secao": 49,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "D508 (2.1m)",
+      "secao": 49,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Refer to TABLE 1108",
+      "secao": 49,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "10 E99991574 A E99991575 B 4",
+      "secao": 49,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "12 E99991574 A E99991575 B 4",
+      "secao": 49,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 1112",
+      "secao": 49,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 10 Silver Series Flatpack Containers Throwover GRP container information",
+      "secao": 49,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 11 M269–00 Page 1122",
+      "secao": 49,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 459",
+      "secao": 49,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Size 14",
+      "secao": 50,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Size 17",
+      "secao": 50,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "FIGURE 1106",
+      "secao": 50,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 14 Throwover GRP containers",
+      "secao": 50,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 11 M269–00 Page 1123",
+      "secao": 50,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 460",
+      "secao": 50,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 14 Throwover containers",
+      "secao": 50,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Standard weight",
+      "secao": 50,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Container (up to 18 metres stowed height)",
+      "secao": 50,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Liferaft",
+      "secao": 50,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "size Part numbers E-pack Part number and",
+      "secao": 50,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "FIGURE 1107",
+      "secao": 51,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 16 Throwover GRP container",
+      "secao": 51,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 16 Throwover containers",
+      "secao": 51,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Part numbers",
+      "secao": 51,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Container Liferaft",
+      "secao": 51,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "size size E-pack",
+      "secao": 51,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "option Part number and",
+      "secao": 51,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Complete Upper Lower Qty",
+      "secao": 51,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Description",
+      "secao": 51,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "D508 (2.1 m)",
+      "secao": 51,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "2 12 42301001 42301011 42301021 A 4",
+      "secao": 51,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Refer to TABLE 1109",
+      "secao": 51,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 1114",
+      "secao": 51,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 16 Throwover GRP container information",
+      "secao": 51,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 11 M269–00 Page 1125",
+      "secao": 51,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Size 1",
+      "secao": 52,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "FIGURE 1108",
+      "secao": 52,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 18 Throwover (TO) GRP container",
+      "secao": 52,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 18 Throwover containers",
+      "secao": 52,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(up to 36 metres stowed height)",
+      "secao": 52,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "1 43042002 43042101 43042202 2",
+      "secao": 52,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "D508 (2.8 m)",
+      "secao": 52,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "FIGURE 1109",
+      "secao": 53,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "G21 GRP container",
+      "secao": 53,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "G21 Throwover container",
+      "secao": 53,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(up to 18 metres stowed height) Strap and crimps",
+      "secao": 53,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "size size E-pack Part",
+      "secao": 53,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Complete Upper Lower Cover Qty",
+      "secao": 53,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "option number",
+      "secao": 53,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "17 12 08547009 — — — B Refer to 4",
+      "secao": 53,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 1108",
+      "secao": 53,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "G21 Container",
+      "secao": 53,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Item Description Part number",
+      "secao": 53,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Seal strip Container seal 06475009",
+      "secao": 53,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 1116",
+      "secao": 53,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "G21 container information",
+      "secao": 53,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 11 M269–00 Page 1127",
+      "secao": 53,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "FIGURE 1110",
+      "secao": 54,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 10 Davit-launch (DL) GRP containers with davit ring cover",
+      "secao": 54,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 10 Davit-launch containers",
+      "secao": 54,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "E-pack",
+      "secao": 54,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "size size Complete Upper Lower Cover",
+      "secao": 54,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "option",
+      "secao": 54,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "4 12 50948041 50948141 50948241 50948341 B",
+      "secao": 54,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "6 50948061 50948161 50948261 50948361",
+      "secao": 54,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "7 20 50948071 50948171 50948271 50948371 B",
+      "secao": 54,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "9 50948091 50948191 50948291 50948391",
+      "secao": 54,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "FIGURE 1111",
+      "secao": 55,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 14 Davit-launch (DL) GRP container",
+      "secao": 55,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 14 Davit-launch containers",
+      "secao": 55,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "14 50973001 50973021 50973011 50973031",
+      "secao": 55,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "16 50915042 50915141 509152424 50915061 A",
+      "secao": 55,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "25 50915042 50915051 50915034 50915061 A and B",
+      "secao": 55,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 1119 (i)",
+      "secao": 55,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 14 Davit-launch (DL) GRP container information",
+      "secao": 55,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(including DSB LR07 KLAPPE method)",
+      "secao": 55,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "FIGURE 1112",
+      "secao": 56,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 20 GRP container",
+      "secao": 56,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 20 Davit-launch container",
+      "secao": 56,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(up to 36 metres stowed height) Strap and crimps",
+      "secao": 56,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "D508 (2.5m)",
+      "secao": 56,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "7 25 45290003 45290013 45290023 — A/B Refer to 8",
+      "secao": 56,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Mk 20 Container",
+      "secao": 56,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Rubber strip 50 × 6 × 90 cm 07996009",
+      "secao": 56,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Adhesive — 02868009",
+      "secao": 56,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 1121",
+      "secao": 56,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "MK 20 container information",
+      "secao": 56,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Container Liferaft Complete Upper Lower E-Pack Part Number",
+      "secao": 57,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "size Capacity Part Number Part Number Part Number Option and description",
+      "secao": 57,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "N133 52886003 52886031 52886032",
+      "secao": 57,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "N134 8 52886004 52886041 52886042 B",
+      "secao": 57,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Refer to",
+      "secao": 57,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "N135 10 52887001 52887011 52887012 A",
+      "secao": 57,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "N136 16 52888001 52888011 52888012 B",
+      "secao": 57,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "N136H 52888002 52888021 52888022",
+      "secao": 57,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "20 A/B",
+      "secao": 57,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Quantity",
+      "secao": 58,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "N137 6 52904001 52904011 52904012 B 2",
+      "secao": 58,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "N137H 6 52905001 52905011 52905012 A 2",
+      "secao": 58,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "N138 8 52906001 52906011 52906012 B 2",
+      "secao": 58,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "N138H 8 52907001 52907011 52907012 A TABLE 1108 2",
+      "secao": 58,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "and the notes",
+      "secao": 58,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "10 below Table",
+      "secao": 58,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "N139 52908001 52908011 52908012 B 1108 regarding 4",
+      "secao": 58,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "the N-Series",
+      "secao": 58,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "10 Xtrem",
+      "secao": 58,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "N139H 52909001 52909011 52909012 A 4",
+      "secao": 58,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "N140 16 52910001 52910011 52910012 B 4",
+      "secao": 58,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "The following sub-section details the container",
+      "secao": 59,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "universal to all",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "liferaft sizes:",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Description Block, Painter Retaining",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Application: 4N containers only",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Part number R50369001",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Description Painter retaining block",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Found on: All liferafts",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Part number 20883001",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Description Painter sachet assembly",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Application: Refer to TABLE 1122",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Description Strap and Crimp",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Application: Refer to TABLE 1108",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Description Release hand loops",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "— Application: DL liferaft ONLY",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Part number DSB80303360",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Chapter 11 M269–00 Page 1135",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "PÁGINA 472",
+      "secao": 60,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "which are specific to",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "liferaft sizes.",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Maximum installation height (metres)",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Liferaft launch type",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "18 25 36 56",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Throwover",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "15323111 15323121 15323131 21204051",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "NOTE: TABLE 1122 above quotes maximum installation height. It",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "should be understood that actual painter cord length is 10",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "metres longer than the maximum installation height.",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "For instance, a container at 36 metres installation height",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "has an actual painter cord length of 46 metres.",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "TABLE 1122",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Painter sachet assembly - applications",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(o) Container label identification and position",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "This sub-section gives the container label identification and position for the",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "most commonly used container types:",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "NOTE: Please refer to Pages 1178-1184 for DSB container",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "labelling.",
+      "secao": 62,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "This sub-section lists the hoses and protection pads, associated with the",
+      "secao": 63,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "cylinders, which are universal across the entire range of liferafts regardless of",
+      "secao": 63,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "size or type.",
+      "secao": 63,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Hose assembly",
+      "secao": 63,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(800 mm)",
+      "secao": 63,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Found on: Leafield GIST inflation system",
+      "secao": 63,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Part number 08255009",
+      "secao": 63,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(Double bayonet) (800 mm)",
+      "secao": 63,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Leafield GIST inflation system",
+      "secao": 63,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "(SB51/09)",
+      "secao": 63,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Part number 08718009",
+      "secao": 63,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Description Union nut with O-ring",
+      "secao": 63,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "Hose assembly (Double",
+      "secao": 63,
+      "fonte": "texto"
+    },
+    {
+      "descricao": "bayonet) (bottom buoyancy)",
+      "secao": 63,
+      "fonte": "texto"
+    }
+  ],
+  "referencias": [
+    "08431009",
+    "added",
+    "s",
+    "erence",
+    "Part",
+    "kg",
+    "er",
+    "04929009.",
+    "BT17",
+    "LR07",
+    "M269",
+    "SB03",
+    "A10"
+  ],
+  "componentes_numerados": [
+    {
+      "numero": 1,
+      "nome": "General",
+      "tipo": "componente",
+      "imagem": "page_001.png",
+      "pagina": 1
+    },
+    {
+      "numero": 2,
+      "nome": "Manual breakdown",
+      "tipo": "componente",
+      "imagem": "page_001.png",
+      "pagina": 1
+    },
+    {
+      "numero": 3,
+      "nome": "WARNINGS, CAUTIONS and NOTE",
+      "tipo": "componente",
+      "imagem": "page_001.png",
+      "pagina": 1
+    },
+    {
+      "numero": 4,
+      "nome": "Health and safety",
+      "tipo": "componente",
+      "imagem": "page_001.png",
+      "pagina": 1
+    },
+    {
+      "numero": 5,
+      "nome": "List of abbreviations",
+      "tipo": "componente",
+      "imagem": "page_001.png",
+      "pagina": 1
+    },
+    {
+      "numero": 6,
+      "nome": "Service provision",
+      "tipo": "componente",
+      "imagem": "page_002.png",
+      "pagina": 2
+    },
+    {
+      "numero": 1,
+      "nome": "Description and Data",
+      "tipo": "componente",
+      "imagem": "page_002.png",
+      "pagina": 2
+    },
+    {
+      "numero": 2,
+      "nome": "Liferaft nominal dimensions:",
+      "tipo": "componente",
+      "imagem": "page_002.png",
+      "pagina": 2
+    },
+    {
+      "numero": 3,
+      "nome": "Inflation system and Gas charges:",
+      "tipo": "componente",
+      "imagem": "page_002.png",
+      "pagina": 2
+    },
+    {
+      "numero": 4,
+      "nome": "Period to overhaul",
+      "tipo": "componente",
+      "imagem": "page_002.png",
+      "pagina": 2
+    },
+    {
+      "numero": 5,
+      "nome": "Torque wrench settings:",
+      "tipo": "componente",
+      "imagem": "page_003.png",
+      "pagina": 3
+    },
+    {
+      "numero": 6,
+      "nome": "Battery activation cord lengths:",
+      "tipo": "componente",
+      "imagem": "page_003.png",
+      "pagina": 3
+    },
+    {
+      "numero": 7,
+      "nome": "Installation notes:",
+      "tipo": "componente",
+      "imagem": "page_003.png",
+      "pagina": 3
+    },
+    {
+      "numero": 1,
+      "nome": "Safety procedures",
+      "tipo": "componente",
+      "imagem": "page_003.png",
+      "pagina": 3
+    },
+    {
+      "numero": 2,
+      "nome": "Removal/Date of Manufacture",
+      "tipo": "componente",
+      "imagem": "page_003.png",
+      "pagina": 3
+    },
+    {
+      "numero": 3,
+      "nome": "Unpacking procedure",
+      "tipo": "componente",
+      "imagem": "page_004.png",
+      "pagina": 4
+    },
+    {
+      "numero": 4,
+      "nome": "Unpacking procedure for Xtrem containers",
+      "tipo": "componente",
+      "imagem": "page_004.png",
+      "pagina": 4
+    },
+    {
+      "numero": 1,
+      "nome": "General",
+      "tipo": "componente",
+      "imagem": "page_004.png",
+      "pagina": 4
+    },
+    {
+      "numero": 2,
+      "nome": "Procedure",
+      "tipo": "componente",
+      "imagem": "page_004.png",
+      "pagina": 4
+    },
+    {
+      "numero": 1,
+      "nome": "General",
+      "tipo": "componente",
+      "imagem": "page_004.png",
+      "pagina": 4
+    },
+    {
+      "numero": 2,
+      "nome": "Detail",
+      "tipo": "componente",
+      "imagem": "page_005.png",
+      "pagina": 5
+    },
+    {
+      "numero": 3,
+      "nome": "E-pack (lifed items)",
+      "tipo": "componente",
+      "imagem": "page_005.png",
+      "pagina": 5
+    },
+    {
+      "numero": 4,
+      "nome": "Zip pullers",
+      "tipo": "componente",
+      "imagem": "page_005.png",
+      "pagina": 5
+    },
+    {
+      "numero": 5,
+      "nome": "Rigid glass-reinforced plastic container",
+      "tipo": "componente",
+      "imagem": "page_005.png",
+      "pagina": 5
+    },
+    {
+      "numero": 1,
+      "nome": "General",
+      "tipo": "componente",
+      "imagem": "page_005.png",
+      "pagina": 5
+    },
+    {
+      "numero": 2,
+      "nome": "Preparation",
+      "tipo": "componente",
+      "imagem": "page_006.png",
+      "pagina": 6
+    },
+    {
+      "numero": 3,
+      "nome": "Test procedures",
+      "tipo": "componente",
+      "imagem": "page_006.png",
+      "pagina": 6
+    },
+    {
+      "numero": 4,
+      "nome": "Troubleshooting",
+      "tipo": "componente",
+      "imagem": "page_006.png",
+      "pagina": 6
+    },
+    {
+      "numero": 1,
+      "nome": "General",
+      "tipo": "componente",
+      "imagem": "page_006.png",
+      "pagina": 6
+    },
+    {
+      "numero": 2,
+      "nome": "Adhesive",
+      "tipo": "componente",
+      "imagem": "page_006.png",
+      "pagina": 6
+    },
+    {
+      "numero": 3,
+      "nome": "Preparation of coated surfaces.",
+      "tipo": "componente",
+      "imagem": "page_007.png",
+      "pagina": 7
+    },
+    {
+      "numero": 4,
+      "nome": "Application of adhesive. Bostik 486 or Alpha S 5001 adhesive:",
+      "tipo": "componente",
+      "imagem": "page_007.png",
+      "pagina": 7
+    },
+    {
+      "numero": 5,
+      "nome": "Repair damaged areas",
+      "tipo": "componente",
+      "imagem": "page_007.png",
+      "pagina": 7
+    },
+    {
+      "numero": 6,
+      "nome": "Component repair",
+      "tipo": "componente",
+      "imagem": "page_007.png",
+      "pagina": 7
+    },
+    {
+      "numero": 7,
+      "nome": "Rigid containers",
+      "tipo": "componente",
+      "imagem": "page_007.png",
+      "pagina": 7
+    },
+    {
+      "numero": 1,
+      "nome": "E-packs",
+      "tipo": "componente",
+      "imagem": "page_008.png",
+      "pagina": 8
+    },
+    {
+      "numero": 2,
+      "nome": "Additional wrapping / preparation",
+      "tipo": "componente",
+      "imagem": "page_008.png",
+      "pagina": 8
+    },
+    {
+      "numero": 3,
+      "nome": "Packing the valise",
+      "tipo": "componente",
+      "imagem": "page_008.png",
+      "pagina": 8
+    },
+    {
+      "numero": 4,
+      "nome": "Sealing the valise (FIGURE 733)",
+      "tipo": "componente",
+      "imagem": "page_008.png",
+      "pagina": 8
+    },
+    {
+      "numero": 5,
+      "nome": "Extra protective foam - Drop height 18 metres - 36 metres",
+      "tipo": "componente",
+      "imagem": "page_008.png",
+      "pagina": 8
+    },
+    {
+      "numero": 1,
+      "nome": "General",
+      "tipo": "componente",
+      "imagem": "page_009.png",
+      "pagina": 9
+    },
+    {
+      "numero": 2,
+      "nome": "Preparation of the liferaft",
+      "tipo": "componente",
+      "imagem": "page_009.png",
+      "pagina": 9
+    },
+    {
+      "numero": 3,
+      "nome": "Inflation system preparation",
+      "tipo": "componente",
+      "imagem": "page_009.png",
+      "pagina": 9
+    },
+    {
+      "numero": 1,
+      "nome": "Protective",
+      "tipo": "componente",
+      "imagem": "page_009.png",
+      "pagina": 9
+    },
+    {
+      "numero": 2,
+      "nome": "Inflation",
+      "tipo": "componente",
+      "imagem": "page_009.png",
+      "pagina": 9
+    },
+    {
+      "numero": 3,
+      "nome": "FIGURE 816",
+      "tipo": "componente",
+      "imagem": "page_010.png",
+      "pagina": 10
+    },
+    {
+      "numero": 4,
+      "nome": "Container preparation",
+      "tipo": "componente",
+      "imagem": "page_010.png",
+      "pagina": 10
+    },
+    {
+      "numero": 5,
+      "nome": "Packing a Davit-launch (DL) liferaft into a container",
+      "tipo": "componente",
+      "imagem": "page_010.png",
+      "pagina": 10
+    },
+    {
+      "numero": 6,
+      "nome": "Packing a Throwover liferaft into a container",
+      "tipo": "componente",
+      "imagem": "page_010.png",
+      "pagina": 10
+    },
+    {
+      "numero": 7,
+      "nome": "Heat shrink sleeve. Refer to FIGURE 862.",
+      "tipo": "componente",
+      "imagem": "page_010.png",
+      "pagina": 10
+    },
+    {
+      "numero": 8,
+      "nome": "Pack a Throwover liferaft into a N-Series Low Profile container:",
+      "tipo": "componente",
+      "imagem": "page_011.png",
+      "pagina": 11
+    },
+    {
+      "numero": 9,
+      "nome": "Pack a Throwover liferaft into a N-Series Xtrem container:",
+      "tipo": "componente",
+      "imagem": "page_011.png",
+      "pagina": 11
+    },
+    {
+      "numero": 10,
+      "nome": "Container labelling",
+      "tipo": "componente",
+      "imagem": "page_011.png",
+      "pagina": 11
+    },
+    {
+      "numero": 1,
+      "nome": "General",
+      "tipo": "componente",
+      "imagem": "page_011.png",
+      "pagina": 11
+    },
+    {
+      "numero": 2,
+      "nome": "Liferafts that have not been operationally packed",
+      "tipo": "componente",
+      "imagem": "page_011.png",
+      "pagina": 11
+    },
+    {
+      "numero": 3,
+      "nome": "Storage limiting period",
+      "tipo": "componente",
+      "imagem": "page_012.png",
+      "pagina": 12
+    },
+    {
+      "numero": 4,
+      "nome": "Storage of batteries",
+      "tipo": "componente",
+      "imagem": "page_012.png",
+      "pagina": 12
+    },
+    {
+      "numero": 1,
+      "nome": "Special tools Part No.",
+      "tipo": "componente",
+      "imagem": "page_012.png",
+      "pagina": 12
+    },
+    {
+      "numero": 1,
+      "nome": "Steel hand roller . . . . . . . . . . . . . . . . . . . . . 05290024",
+      "tipo": "componente",
+      "imagem": "page_012.png",
+      "pagina": 12
+    },
+    {
+      "numero": 2,
+      "nome": "Spatula (125 × 25 × 3 mm) (5″ × 1″ × 1⁄ ″) . . . . . . . . . . . 05290055",
+      "tipo": "componente",
+      "imagem": "page_012.png",
+      "pagina": 12
+    },
+    {
+      "numero": 3,
+      "nome": "Solution brush:",
+      "tipo": "componente",
+      "imagem": "page_013.png",
+      "pagina": 13
+    },
+    {
+      "numero": 5,
+      "nome": "Spanner - Open end (3/ ” BSP hose connector) . . . . . . . . . . . . ––",
+      "tipo": "componente",
+      "imagem": "page_013.png",
+      "pagina": 13
+    },
+    {
+      "numero": 6,
+      "nome": "Packing machine (painter/operating line) . . . . . . . . . . . 15389001",
+      "tipo": "componente",
+      "imagem": "page_013.png",
+      "pagina": 13
+    },
+    {
+      "numero": 7,
+      "nome": "Ratchet strap . . . . . . . . . . . . . . . . . . . . . . 05654009",
+      "tipo": "componente",
+      "imagem": "page_013.png",
+      "pagina": 13
+    },
+    {
+      "numero": 8,
+      "nome": "Tensioning tool - Container straps . . . . . . . . . . . . . . 04876009",
+      "tipo": "componente",
+      "imagem": "page_013.png",
+      "pagina": 13
+    },
+    {
+      "numero": 12,
+      "nome": "Spanner, inlet valve, Leafield . . . . . . . . . . . . . . . . 08200009",
+      "tipo": "componente",
+      "imagem": "page_014.png",
+      "pagina": 14
+    },
+    {
+      "numero": 13,
+      "nome": "Grease, Aero Shell 14 . . . . . . . . . . . . . . . . . . 07968009",
+      "tipo": "componente",
+      "imagem": "page_014.png",
+      "pagina": 14
+    },
+    {
+      "numero": 14,
+      "nome": "Silicone grease, 4 Compound . . . . . . . . . . . . . . . 09050003",
+      "tipo": "componente",
+      "imagem": "page_014.png",
+      "pagina": 14
+    },
+    {
+      "numero": 15,
+      "nome": "Filling bung, Leafield . . . . . . . . . . . . . . . . . . . 08252009",
+      "tipo": "componente",
+      "imagem": "page_014.png",
+      "pagina": 14
+    },
+    {
+      "numero": 16,
+      "nome": "Cylinder valve filling tool, Leafield . . . . . . . . . . . . . 08253009",
+      "tipo": "componente",
+      "imagem": "page_014.png",
+      "pagina": 14
+    },
+    {
+      "numero": 19,
+      "nome": "Deflation adaptor tool . . . . . . . . . . . . . . . . . DSB80733040",
+      "tipo": "componente",
+      "imagem": "page_015.png",
+      "pagina": 15
+    },
+    {
+      "numero": 20,
+      "nome": "Test socket tool . . . . . . . . . . . . . . . . . . . DSB80733050",
+      "tipo": "componente",
+      "imagem": "page_015.png",
+      "pagina": 15
+    },
+    {
+      "numero": 21,
+      "nome": "Vent plug tool . . . . . . . . . . . . . . . . . . . . DSB00801800",
+      "tipo": "componente",
+      "imagem": "page_015.png",
+      "pagina": 15
+    },
+    {
+      "numero": 24,
+      "nome": "Fid . . . . . . . . . . . . . . . . . . . . . . . . . . 08457009",
+      "tipo": "componente",
+      "imagem": "page_015.png",
+      "pagina": 15
+    },
+    {
+      "numero": 25,
+      "nome": "Heat gun, 230 V (heat shrink sleeve) . . . . . . . . . . . . . 08244009",
+      "tipo": "componente",
+      "imagem": "page_015.png",
+      "pagina": 15
+    },
+    {
+      "numero": 26,
+      "nome": "Heat gun, 110 V (heat shrink sleeve) . . . . . . . . . . . . . 08245009",
+      "tipo": "componente",
+      "imagem": "page_016.png",
+      "pagina": 16
+    },
+    {
+      "numero": 32,
+      "nome": "Vacuum valve plug tool . . . . . . . . . . . . . . . . . . 50292005",
+      "tipo": "componente",
+      "imagem": "page_016.png",
+      "pagina": 16
+    },
+    {
+      "numero": 33,
+      "nome": "Heat sealing tool 15 cm (110 V) . . . . . . . . . . . . . . . 08179009",
+      "tipo": "componente",
+      "imagem": "page_016.png",
+      "pagina": 16
+    },
+    {
+      "numero": 34,
+      "nome": "Heat sealing tool 15 cm (240 V) . . . . . . . . . . . . . . . 07981009",
+      "tipo": "componente",
+      "imagem": "page_016.png",
+      "pagina": 16
+    },
+    {
+      "numero": 35,
+      "nome": "Standard airline “A8” adaptor . . . . . . . . . . . . . . . . 20944001",
+      "tipo": "componente",
+      "imagem": "page_016.png",
+      "pagina": 16
+    },
+    {
+      "numero": 2,
+      "nome": "Equipment Part No.",
+      "tipo": "componente",
+      "imagem": "page_017.png",
+      "pagina": 17
+    },
+    {
+      "numero": 1,
+      "nome": "Vacuum cleaner with hose . . . . . . . . . . . . . . . . . . . . —",
+      "tipo": "componente",
+      "imagem": "page_017.png",
+      "pagina": 17
+    },
+    {
+      "numero": 2,
+      "nome": "Digital manometer (0-2000 mb) . . . . . . . . . . . . . . . 06295009",
+      "tipo": "componente",
+      "imagem": "page_017.png",
+      "pagina": 17
+    },
+    {
+      "numero": 3,
+      "nome": "Thermometer (hang-on thermometer) . . . . . . . . . . . . . . . —",
+      "tipo": "componente",
+      "imagem": "page_017.png",
+      "pagina": 17
+    },
+    {
+      "numero": 4,
+      "nome": "Rubber tubing, (manometer connection) . . . . . . . . . . . . . . —",
+      "tipo": "componente",
+      "imagem": "page_017.png",
+      "pagina": 17
+    },
+    {
+      "numero": 5,
+      "nome": "Air supply, dry and oil-free, for inflation . . . . . . . . . . . . . . . —",
+      "tipo": "componente",
+      "imagem": "page_018.png",
+      "pagina": 18
+    },
+    {
+      "numero": 3,
+      "nome": "Materials Part No.",
+      "tipo": "componente",
+      "imagem": "page_018.png",
+      "pagina": 18
+    },
+    {
+      "numero": 1,
+      "nome": "Solution of non-detergent soap and water . . . . . . . . . . . . . . —",
+      "tipo": "componente",
+      "imagem": "page_018.png",
+      "pagina": 18
+    },
+    {
+      "numero": 2,
+      "nome": "Lint-free cloth, clean and dry . . . . . . . . . . . . . . . . . . . —",
+      "tipo": "componente",
+      "imagem": "page_018.png",
+      "pagina": 18
+    },
+    {
+      "numero": 3,
+      "nome": "Adhesive, Bostik 486 / Alpha S5001",
+      "tipo": "componente",
+      "imagem": "page_018.png",
+      "pagina": 18
+    },
+    {
+      "numero": 4,
+      "nome": "Methyl Ethyl Ketone (MEK) . . . . . . . . . . . . . . . . 04528009",
+      "tipo": "componente",
+      "imagem": "page_019.png",
+      "pagina": 19
+    },
+    {
+      "numero": 5,
+      "nome": "Self-adhesive waterproof tape",
+      "tipo": "componente",
+      "imagem": "page_019.png",
+      "pagina": 19
+    },
+    {
+      "numero": 6,
+      "nome": "Tape, double sided, 25 mm (1″) wide . . . . . . . . . . . . . 08485009",
+      "tipo": "componente",
+      "imagem": "page_019.png",
+      "pagina": 19
+    },
+    {
+      "numero": 7,
+      "nome": "Tape, double sided, 25 mm (1″) wide . . . . . . . . . . . . . . TA175",
+      "tipo": "componente",
+      "imagem": "page_019.png",
+      "pagina": 19
+    },
+    {
+      "numero": 8,
+      "nome": "Fabric, main structure and buoyancies",
+      "tipo": "componente",
+      "imagem": "page_019.png",
+      "pagina": 19
+    },
+    {
+      "numero": 9,
+      "nome": "Fabric, outer canopy",
+      "tipo": "componente",
+      "imagem": "page_020.png",
+      "pagina": 20
+    },
+    {
+      "numero": 10,
+      "nome": "Fabric, inner canopy, nylon, single-ply . . . . . . . . . . . . 06315009",
+      "tipo": "componente",
+      "imagem": "page_020.png",
+      "pagina": 20
+    },
+    {
+      "numero": 11,
+      "nome": "Toluene solvent (500 ml) . . . . . . . . . . . . . . . . . 41445001",
+      "tipo": "componente",
+      "imagem": "page_020.png",
+      "pagina": 20
+    },
+    {
+      "numero": 12,
+      "nome": "Layflat tubing, polyethylene, 50 mm (2″) . . . . . . . . . . . 03224012",
+      "tipo": "componente",
+      "imagem": "page_020.png",
+      "pagina": 20
+    },
+    {
+      "numero": 13,
+      "nome": "Layflat tubing, polyethylene, 100 mm (4″) . . . . . . . . . . . 05815009",
+      "tipo": "componente",
+      "imagem": "page_020.png",
+      "pagina": 20
+    },
+    {
+      "numero": 14,
+      "nome": "Cord, terylene, 22.5 kgf (50 lbf) . . . . . . . . . . . . . . . 02236006",
+      "tipo": "componente",
+      "imagem": "page_021.png",
+      "pagina": 21
+    },
+    {
+      "numero": 15,
+      "nome": "Cord, nylon, 238 kgf (525 lbf) . . . . . . . . . . . . . . . . 00933009",
+      "tipo": "componente",
+      "imagem": "page_021.png",
+      "pagina": 21
+    },
+    {
+      "numero": 16,
+      "nome": "Thread, nylon, 4 kgf (9 lbf) . . . . . . . . . . . . . . . . . 02426001",
+      "tipo": "componente",
+      "imagem": "page_021.png",
+      "pagina": 21
+    },
+    {
+      "numero": 17,
+      "nome": "Thread, Linen, Breaking, 3.2 kgf (7 lbf) . . . . . . . . . . . . 02414006",
+      "tipo": "componente",
+      "imagem": "page_021.png",
+      "pagina": 21
+    },
+    {
+      "numero": 18,
+      "nome": "Thread, cotton, scarlet . . . . . . . . . . . . . . . . . . 02403001",
+      "tipo": "componente",
+      "imagem": "page_021.png",
+      "pagina": 21
+    },
+    {
+      "numero": 19,
+      "nome": "Seal, self-adhesive, Mk 10 / Mk 14 container (10 × 19 mm) . . . . 05606009",
+      "tipo": "componente",
+      "imagem": "page_022.png",
+      "pagina": 22
+    },
+    {
+      "numero": 20,
+      "nome": "Seal, self-adhesive, Mk 16 / Mk 18 container (10 × 38 mm) . . . . 06475009",
+      "tipo": "componente",
+      "imagem": "page_022.png",
+      "pagina": 22
+    },
+    {
+      "numero": 21,
+      "nome": "Polystyrene (50 × 100 × 1000 mm) . . . . . . . . . . . . . 04884009",
+      "tipo": "componente",
+      "imagem": "page_022.png",
+      "pagina": 22
+    },
+    {
+      "numero": 22,
+      "nome": "Tape, self-adhesive, “DO NOT CUT” . . . . . . . . . . . . . 15384002",
+      "tipo": "componente",
+      "imagem": "page_022.png",
+      "pagina": 22
+    },
+    {
+      "numero": 23,
+      "nome": "Water ballast bag . . . . . . . . . . . . . . . . . . . . 07757020",
+      "tipo": "componente",
+      "imagem": "page_022.png",
+      "pagina": 22
+    },
+    {
+      "numero": 24,
+      "nome": "Cylinder paint repair kit . . . . . . . . . . . . . . . . . . 08866009",
+      "tipo": "componente",
+      "imagem": "page_023.png",
+      "pagina": 23
+    },
+    {
+      "numero": 25,
+      "nome": "Leak detection kit . . . . . . . . . . . . . . . . . . . . 45435001",
+      "tipo": "componente",
+      "imagem": "page_023.png",
+      "pagina": 23
+    },
+    {
+      "numero": 1,
+      "nome": "GENERAL",
+      "tipo": "componente",
+      "imagem": "page_023.png",
+      "pagina": 23
+    },
+    {
+      "numero": 2,
+      "nome": "SUB-CHAPTERS",
+      "tipo": "componente",
+      "imagem": "page_023.png",
+      "pagina": 23
+    },
+    {
+      "numero": 1,
+      "nome": "Emergency packs (Chapter 7)",
+      "tipo": "componente",
+      "imagem": "page_023.png",
+      "pagina": 23
+    },
+    {
+      "numero": 1,
+      "nome": "General",
+      "tipo": "componente",
+      "imagem": "page_024.png",
+      "pagina": 24
+    },
+    {
+      "numero": 2,
+      "nome": "Emergency pack (Chapter 7)",
+      "tipo": "componente",
+      "imagem": "page_024.png",
+      "pagina": 24
+    },
+    {
+      "numero": 3,
+      "nome": "Gas cylinder assemblies",
+      "tipo": "componente",
+      "imagem": "page_024.png",
+      "pagina": 24
+    },
+    {
+      "numero": 4,
+      "nome": "Detail (Please refer to Chapter 4, INSPECTION AND CHECKING)",
+      "tipo": "componente",
+      "imagem": "page_024.png",
+      "pagina": 24
+    },
+    {
+      "numero": 5,
+      "nome": "Torch",
+      "tipo": "componente",
+      "imagem": "page_024.png",
+      "pagina": 24
+    },
+    {
+      "numero": 1,
+      "nome": "General",
+      "tipo": "componente",
+      "imagem": "page_025.png",
+      "pagina": 25
+    },
+    {
+      "numero": 2,
+      "nome": "E-pack (Chapter 7)",
+      "tipo": "componente",
+      "imagem": "page_025.png",
+      "pagina": 25
+    },
+    {
+      "numero": 1,
+      "nome": "General",
+      "tipo": "componente",
+      "imagem": "page_025.png",
+      "pagina": 25
+    },
+    {
+      "numero": 2,
+      "nome": "Drop height 36 m - 46 m (6 - 25 TO and 16 - 25 DL liferafts only)",
+      "tipo": "componente",
+      "imagem": "page_025.png",
+      "pagina": 25
+    },
+    {
+      "numero": 1,
+      "nome": "Description and Data",
+      "tipo": "componente",
+      "imagem": "page_025.png",
+      "pagina": 25
+    },
+    {
+      "numero": 2,
+      "nome": "Removal and unpacking",
+      "tipo": "componente",
+      "imagem": "page_026.png",
+      "pagina": 26
+    },
+    {
+      "numero": 3,
+      "nome": "Cleaning",
+      "tipo": "componente",
+      "imagem": "page_026.png",
+      "pagina": 26
+    },
+    {
+      "numero": 4,
+      "nome": "Inspection and checking",
+      "tipo": "componente",
+      "imagem": "page_026.png",
+      "pagina": 26
+    },
+    {
+      "numero": 5,
+      "nome": "Testing and trouble shooting",
+      "tipo": "componente",
+      "imagem": "page_026.png",
+      "pagina": 26
+    },
+    {
+      "numero": 6,
+      "nome": "Repair",
+      "tipo": "componente",
+      "imagem": "page_026.png",
+      "pagina": 26
+    },
+    {
+      "numero": 7,
+      "nome": "Emergency packs",
+      "tipo": "componente",
+      "imagem": "page_027.png",
+      "pagina": 27
+    },
+    {
+      "numero": 8,
+      "nome": "Assembly and repacking",
+      "tipo": "componente",
+      "imagem": "page_027.png",
+      "pagina": 27
+    },
+    {
+      "numero": 9,
+      "nome": "Storage conditions and instructions",
+      "tipo": "componente",
+      "imagem": "page_027.png",
+      "pagina": 27
+    },
+    {
+      "numero": 1,
+      "nome": "Container preparation ......................................................................3",
+      "tipo": "componente",
+      "imagem": "page_027.png",
+      "pagina": 27
+    },
+    {
+      "numero": 2,
+      "nome": "Packing a Throwover liferaft into a Flat-Pack container ...................7",
+      "tipo": "componente",
+      "imagem": "page_027.png",
+      "pagina": 27
+    },
+    {
+      "numero": 3,
+      "nome": "Test procedures .............................................................................26",
+      "tipo": "componente",
+      "imagem": "page_028.png",
+      "pagina": 28
+    },
+    {
+      "numero": 4,
+      "nome": "Container labelling .........................................................................29",
+      "tipo": "componente",
+      "imagem": "page_028.png",
+      "pagina": 28
+    },
+    {
+      "numero": 1,
+      "nome": "Container preparation",
+      "tipo": "componente",
+      "imagem": "page_028.png",
+      "pagina": 28
+    },
+    {
+      "numero": 2,
+      "nome": "Packing a Throwover liferaft into a Flat-Pack container",
+      "tipo": "componente",
+      "imagem": "page_028.png",
+      "pagina": 28
+    },
+    {
+      "numero": 3,
+      "nome": "Test procedures",
+      "tipo": "componente",
+      "imagem": "page_028.png",
+      "pagina": 28
+    },
+    {
+      "numero": 4,
+      "nome": "Container labelling",
+      "tipo": "componente",
+      "imagem": "page_029.png",
+      "pagina": 29
+    },
+    {
+      "numero": 5,
+      "nome": "Records of post operational vacuum test",
+      "tipo": "componente",
+      "imagem": "page_029.png",
+      "pagina": 29
+    },
+    {
+      "numero": 1,
+      "nome": "General ............................................................................................3",
+      "tipo": "componente",
+      "imagem": "page_029.png",
+      "pagina": 29
+    },
+    {
+      "numero": 2,
+      "nome": "Embodiment date .............................................................................3",
+      "tipo": "componente",
+      "imagem": "page_029.png",
+      "pagina": 29
+    },
+    {
+      "numero": 3,
+      "nome": "Equipment affected ..........................................................................3",
+      "tipo": "componente",
+      "imagem": "page_029.png",
+      "pagina": 29
+    },
+    {
+      "numero": 4,
+      "nome": "Parts required ..................................................................................3",
+      "tipo": "componente",
+      "imagem": "page_030.png",
+      "pagina": 30
+    },
+    {
+      "numero": 5,
+      "nome": "Equipment / Tools required ..............................................................3",
+      "tipo": "componente",
+      "imagem": "page_030.png",
+      "pagina": 30
+    },
+    {
+      "numero": 6,
+      "nome": "Action ...............................................................................................3",
+      "tipo": "componente",
+      "imagem": "page_030.png",
+      "pagina": 30
+    },
+    {
+      "numero": 1,
+      "nome": "General",
+      "tipo": "componente",
+      "imagem": "page_030.png",
+      "pagina": 30
+    },
+    {
+      "numero": 2,
+      "nome": "Embodiment date",
+      "tipo": "componente",
+      "imagem": "page_030.png",
+      "pagina": 30
+    },
+    {
+      "numero": 3,
+      "nome": "Equipment affected",
+      "tipo": "componente",
+      "imagem": "page_031.png",
+      "pagina": 31
+    },
+    {
+      "numero": 4,
+      "nome": "Parts required",
+      "tipo": "componente",
+      "imagem": "page_031.png",
+      "pagina": 31
+    },
+    {
+      "numero": 5,
+      "nome": "Equipment / Tools required",
+      "tipo": "componente",
+      "imagem": "page_031.png",
+      "pagina": 31
+    },
+    {
+      "numero": 6,
+      "nome": "Action",
+      "tipo": "componente",
+      "imagem": "page_031.png",
+      "pagina": 31
+    },
+    {
+      "numero": 1,
+      "nome": "Container preparation",
+      "tipo": "componente",
+      "imagem": "page_031.png",
+      "pagina": 31
+    },
+    {
+      "numero": 2,
+      "nome": "Packing a standard DSB LR07 Davit-launch liferaft into a container",
+      "tipo": "componente",
+      "imagem": "page_032.png",
+      "pagina": 32
+    },
+    {
+      "numero": 3,
+      "nome": "Container labelling",
+      "tipo": "componente",
+      "imagem": "page_032.png",
+      "pagina": 32
+    },
+    {
+      "numero": 1,
+      "nome": "Introduction",
+      "tipo": "componente",
+      "imagem": "page_032.png",
+      "pagina": 32
+    },
+    {
+      "numero": 2,
+      "nome": "Equipment and vessels affected",
+      "tipo": "componente",
+      "imagem": "page_032.png",
+      "pagina": 32
+    },
+    {
+      "numero": 3,
+      "nome": "Necessary parts",
+      "tipo": "componente",
+      "imagem": "page_032.png",
+      "pagina": 32
+    },
+    {
+      "numero": 4,
+      "nome": "Necessary equipment and tools",
+      "tipo": "componente",
+      "imagem": "page_033.png",
+      "pagina": 33
+    },
+    {
+      "numero": 5,
+      "nome": "Tasks",
+      "tipo": "componente",
+      "imagem": "page_033.png",
+      "pagina": 33
+    },
+    {
+      "numero": 6,
+      "nome": "Recording",
+      "tipo": "componente",
+      "imagem": "page_033.png",
+      "pagina": 33
+    },
+    {
+      "numero": 1,
+      "nome": "Introduction",
+      "tipo": "componente",
+      "imagem": "page_033.png",
+      "pagina": 33
+    },
+    {
+      "numero": 2,
+      "nome": "Tasks",
+      "tipo": "componente",
+      "imagem": "page_033.png",
+      "pagina": 33
+    },
+    {
+      "numero": 1,
+      "nome": "Introduction",
+      "tipo": "componente",
+      "imagem": "page_034.png",
+      "pagina": 34
+    },
+    {
+      "numero": 2,
+      "nome": "Equipment affected",
+      "tipo": "componente",
+      "imagem": "page_034.png",
+      "pagina": 34
+    },
+    {
+      "numero": 3,
+      "nome": "Necessary parts",
+      "tipo": "componente",
+      "imagem": "page_034.png",
+      "pagina": 34
+    },
+    {
+      "numero": 4,
+      "nome": "Tasks",
+      "tipo": "componente",
+      "imagem": "page_034.png",
+      "pagina": 34
+    },
+    {
+      "numero": 5,
+      "nome": "Recording",
+      "tipo": "componente",
+      "imagem": "page_034.png",
+      "pagina": 34
+    }
+  ],
+  "imagens_total": 680
+}

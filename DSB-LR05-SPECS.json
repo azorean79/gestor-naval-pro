@@ -1,0 +1,387 @@
+{
+  "modelo": "LR05",
+  "marca": "DSB",
+  "tipo": "Jangada Salva-vidas SOLAS",
+  "manual": {
+    "partNumber": "08196009",
+    "totalPaginas": 296,
+    "dataExtracao": "2026-02-06"
+  },
+  "sistemaInsuflacao": {
+    "sistemas": ["THANNER", "LEAFIELD"],
+    "pressaoTrabalho": {
+      "psi": 2.8,
+      "inWG": 77.5,
+      "mmWG": 1970
+    }
+  },
+  "material": {
+    "tecido": "Nylon revestido com poliuretano",
+    "adesivoFabrico": "Bostic 1520 (Poliuretano)",
+    "adesivoReparacao": "Bostic 486 (Policloropreno)"
+  },
+  "manutencao": {
+    "periodoMeses": 12,
+    "conformidade": "MED (Marine Equipment Directive)",
+    "paisesAbrangidos": ["UE", "Noruega"]
+  },
+  "capacidades": {
+    "throwOver": [6, 8, 10, 12, 16, 20, 25],
+    "davitLaunch": [12, 16, 20, 25]
+  },
+  "especificacoesTecnicas": [
+    {
+      "capacidade": 6,
+      "tipo": "TO",
+      "dimensoes": { "diametro": 2400, "altura": 1120 },
+      "gas": { "co2Kg": 2.5, "n2Kg": 0.16 },
+      "cilindros": 1,
+      "containers": [
+        { "tipo": "4N", "dimensoes": [1050, 610, 580], "pesoAPackKg": 61 },
+        { "tipo": "6/8F", "dimensoes": [1244, 650, 580], "pesoAPackKg": 85 },
+        { "tipo": "MK10", "dimensoes": [1260, 485], "pesoAPackKg": 74 }
+      ]
+    },
+    {
+      "capacidade": 8,
+      "tipo": "TO",
+      "dimensoes": { "diametro": 2740, "altura": 1230 },
+      "gas": { "co2Kg": 3.51, "n2Kg": 0.23 },
+      "cilindros": 1,
+      "containers": [
+        { "tipo": "4N", "dimensoes": [1050, 610, 580], "pesoAPackKg": 62 },
+        { "tipo": "6/8F", "dimensoes": [1244, 650, 580], "pesoAPackKg": 90 },
+        { "tipo": "MK10", "dimensoes": [1260, 485], "pesoAPackKg": 79 }
+      ]
+    },
+    {
+      "capacidade": 10,
+      "tipo": "TO",
+      "dimensoes": { "diametro": 2900, "altura": 1460 },
+      "gas": { "co2Kg": 5.94, "n2Kg": 0.18 },
+      "cilindros": 1,
+      "containers": [
+        { "tipo": "6/8F", "dimensoes": [1244, 650, 580], "pesoAPackKg": 95 },
+        { "tipo": "10/12F", "dimensoes": [1304, 680, 610], "pesoAPackKg": 115.3 },
+        { "tipo": "MK10", "dimensoes": [1260, 485], "pesoAPackKg": 84 }
+      ]
+    },
+    {
+      "capacidade": 12,
+      "tipo": "TO",
+      "dimensoes": { "diametro": 2900, "altura": 1460 },
+      "gas": { "co2Kg": 5.94, "n2Kg": 0.18 },
+      "cilindros": 1,
+      "containers": [
+        { "tipo": "6/8F", "dimensoes": [1244, 650, 580], "pesoAPackKg": 95 },
+        { "tipo": "10/12F", "dimensoes": [1304, 680, 610], "pesoAPackKg": 119.3, "pesoBPackKg": 124.3 },
+        { "tipo": "MK10", "dimensoes": [1260, 485], "pesoAPackKg": 84 }
+      ]
+    },
+    {
+      "capacidade": 12,
+      "tipo": "DL",
+      "dimensoes": { "diametro": 2900, "altura": 1460, "clearance": 1900 },
+      "gas": { "co2Kg": 5.94, "n2Kg": 0.18 },
+      "cilindros": 1,
+      "containers": [
+        { "tipo": "10/12F", "dimensoes": [1304, 680, 610], "pesoBPackKg": 103.2 }
+      ]
+    },
+    {
+      "capacidade": 16,
+      "tipo": "TO",
+      "dimensoes": { "diametro": 3310, "altura": 1600 },
+      "gas": { "co2Kg": 8.44, "n2Kg": 0.37 },
+      "cilindros": 1,
+      "containers": [
+        { "tipo": "10/12F", "dimensoes": [1304, 680, 610], "pesoAPackKg": 112.3, "pesoBPackKg": 118.3 },
+        { "tipo": "16/20F", "dimensoes": [1354, 710, 640], "pesoAPackKg": 147.4, "pesoBPackKg": 151.9 },
+        { "tipo": "MK14", "dimensoes": [1156, 584], "pesoAPackKg": 137 }
+      ]
+    },
+    {
+      "capacidade": 16,
+      "tipo": "DL",
+      "dimensoes": { "diametro": 3310, "altura": 1600, "clearance": 1950 },
+      "gas": { "co2Kg": 8.44, "n2Kg": 0.37 },
+      "cilindros": 1,
+      "containers": [
+        { "tipo": "MK14", "dimensoes": [1273, 685], "pesoAPackKg": 141 }
+      ]
+    },
+    {
+      "capacidade": 20,
+      "tipo": "TO",
+      "dimensoes": { "diametro": 3710, "altura": 1680 },
+      "gas": { "co2Kg": 8.44, "n2Kg": 0.37 },
+      "cilindros": 1,
+      "containers": [
+        { "tipo": "10/12F", "dimensoes": [1304, 680, 610], "pesoAPackKg": 119.3 },
+        { "tipo": "16/20F", "dimensoes": [1354, 710, 640], "pesoBPackKg": 144.9 },
+        { "tipo": "MK14", "dimensoes": [1273, 685], "pesoAPackKg": 161 }
+      ]
+    },
+    {
+      "capacidade": 20,
+      "tipo": "DL",
+      "dimensoes": { "diametro": 4100, "altura": 1900, "clearance": 2470 },
+      "gas": { "co2Kg": 11.26, "n2Kg": 0.36 },
+      "cilindros": 1,
+      "containers": [
+        { "tipo": "MK14", "dimensoes": [1273, 685], "pesoAPackKg": 174, "pesoBPackKg": 134 }
+      ]
+    },
+    {
+      "capacidade": 25,
+      "tipo": "TO",
+      "dimensoes": { "diametro": 4110, "altura": 1900 },
+      "gas": { "co2Kg": 11.26, "n2Kg": 0.36 },
+      "cilindros": 1,
+      "containers": [
+        { "tipo": "16/20F", "dimensoes": [1354, 710, 640], "pesoAPackKg": 137.9, "pesoBPackKg": 144.9 },
+        { "tipo": "25G", "dimensoes": [1400, 780, 710], "pesoAPackKg": 161.4, "pesoBPackKg": 174.4 },
+        { "tipo": "MK14", "dimensoes": [1273, 685], "pesoAPackKg": 177, "pesoBPackKg": 127 }
+      ]
+    },
+    {
+      "capacidade": 25,
+      "tipo": "DL",
+      "dimensoes": { "diametro": 4100, "altura": 1900, "clearance": 2470 },
+      "gas": { "co2Kg": 11.26, "n2Kg": 0.36 },
+      "cilindros": 1,
+      "containers": [
+        { "tipo": "25G", "dimensoes": [1400, 780, 710], "pesoAPackKg": 177.4, "pesoBPackKg": 184.4 },
+        { "tipo": "16/20F", "dimensoes": [1354, 710, 640], "pesoBPackKg": 134 },
+        { "tipo": "MK14", "dimensoes": [1273, 685], "pesoAPackKg": 184, "pesoBPackKg": 134 }
+      ]
+    }
+  ],
+  "valvulas": [
+    {
+      "nome": "Topping-up A8",
+      "torqueNm": 16,
+      "torqueLbFt": 11.8,
+      "ferramentaEspecial": false
+    },
+    {
+      "nome": "Thanner OTS65 (pressure relief)",
+      "torqueNm": 27,
+      "torqueLbFt": 19.9,
+      "ferramentaEspecial": true
+    },
+    {
+      "nome": "Inflação MKIII",
+      "torqueNm": 30,
+      "torqueLbFt": 22.1,
+      "ferramentaEspecial": false
+    },
+    {
+      "nome": "LEAFIELD M24 (inlet check valve)",
+      "torqueNm": 30,
+      "torqueLbFt": 22.1,
+      "ferramentaEspecial": true
+    },
+    {
+      "nome": "LEAFIELD M16 (inlet check valve connector)",
+      "torqueNm": 9,
+      "torqueLbFt": 6.6,
+      "ferramentaEspecial": false
+    },
+    {
+      "nome": "LEAFIELD A10 (pressure relief inner)",
+      "torqueNm": 27,
+      "torqueLbFt": 19.8,
+      "ferramentaEspecial": true
+    },
+    {
+      "nome": "Cilindro válvula/gás",
+      "torqueNm": 200,
+      "torqueLbFt": 147.5,
+      "ferramentaEspecial": false
+    },
+    {
+      "nome": "Cilindro válvula/mangueira",
+      "torqueNm": 12.2,
+      "torqueLbFt": 9,
+      "ferramentaEspecial": false
+    }
+  ],
+  "packsSOLAS": {
+    "APack": {
+      "descricao": "Pack completo com água, rações e equipamento total",
+      "agua": {
+        "tipo": "Sachets 500ml",
+        "partNumber": "R05163009",
+        "quantidades": {
+          "6p": 18,
+          "8p": 24,
+          "10p": 30,
+          "12p": 36,
+          "16p": 67,
+          "20p": 68,
+          "25p": 75
+        }
+      },
+      "racoes": {
+        "tipo": "Blocos 500g",
+        "partNumber": "R04776009",
+        "quantidades": {
+          "6p": 6,
+          "8p": 8,
+          "10p": 10,
+          "12p": 12,
+          "16p": 16,
+          "20p": 20,
+          "25p": 25
+        }
+      },
+      "equipamento": {
+        "pirotecnicos": {
+          "fachosManual": { "partNumber": "R08374009", "quantidade": 6 },
+          "foguetesParaquedas": { "partNumber": "R08375009", "quantidade": 4 },
+          "sinaisFumo": { "partNumber": "R08376009", "quantidade": 2 }
+        },
+        "sobrevivencia": {
+          "kitPrimeirosocorros": { "quantidade": 1 },
+          "kitPesca": { "partNumber": "R05720099", "quantidade": 1 },
+          "protecaoTermica": { "partNumber": "00940200", "quantidades": { "6p-12p": 2, "16p-20p": 3, "25p": 3 } },
+          "lanterna": { "partNumber": "07966009", "quantidade": 1, "tipo": "Longa duração c/ peças" },
+          "refletorRadar": { "quantidade": 1, "comMastro": true },
+          "kitReparacao": { "partNumber": "R50387001", "quantidade": 1 },
+          "ancoraSobressalente": { "partNumber": "00940470", "quantidade": 1 }
+        },
+        "ferramentas": {
+          "facaFlutuante": { "partNumber": "00904040", "quantidades": { "6p-10p": 0, "12p+": 1 } },
+          "balde": { "partNumber": "00904210", "quantidades": { "6p-12p": 1, "16p+": 2 } },
+          "fole": { "partNumber": "R45201001", "quantidade": 1 },
+          "tesoura": { "partNumber": "00725220", "quantidade": 1 },
+          "abreLatas": { "partNumber": "00904200", "quantidade": 3 },
+          "apito": { "partNumber": "00904130", "quantidade": 1 }
+        },
+        "reparacao": {
+          "batoque1": { "partNumber": "R40318001", "quantidade": 1 },
+          "batoque3": { "partNumber": "R05720019", "quantidade": 1 },
+          "batoque5": { "partNumber": "R05720023", "quantidade": 1 },
+          "tampasThanner": { "partNumber": "R06742009", "quantidade": 2 }
+        },
+        "outros": {
+          "heliografo": { "quantidade": 1 },
+          "tabelaSinaisResgate": { "partNumber": "R02176011", "quantidade": 1 },
+          "folhetoAcao": { "quantidade": 1 },
+          "sacosPoliester": { "partNumber": "00804400", "quantidadeVaria": true }
+        }
+      }
+    },
+    "BPack": {
+      "descricao": "Pack reduzido sem água/rações, menos pirotécnicos",
+      "agua": {
+        "incluido": false,
+        "nota": "Fornecido separadamente se necessário"
+      },
+      "racoes": {
+        "incluido": false,
+        "nota": "Fornecido separadamente se necessário"
+      },
+      "equipamento": {
+        "pirotecnicos": {
+          "fachosManual": { "partNumber": "R08374009", "quantidade": 3 },
+          "foguetesParaquedas": { "partNumber": "R08375009", "quantidade": 2 },
+          "sinaisFumo": { "partNumber": "R08376009", "quantidade": 1 }
+        },
+        "sobrevivencia": {
+          "kitPrimeirosocorros": { "quantidade": 1 },
+          "kitPesca": { "incluido": false },
+          "protecaoTermica": { "partNumber": "00940200", "quantidades": { "6p-20p": 2, "25p": 3 } },
+          "lanterna": { "partNumber": "07966009", "quantidade": 1, "tipo": "c/ peças sobressalentes" },
+          "refletorRadar": { "quantidade": 1, "comMastro": true },
+          "kitReparacao": { "partNumber": "R50387001", "quantidade": 1 },
+          "ancoraSobressalente": { "partNumber": "00940470", "quantidade": 1 }
+        },
+        "ferramentas": {
+          "facaFlutuante": { "partNumber": "00904040", "quantidades": { "6p-10p": 0, "12p+": 1 } },
+          "balde": { "partNumber": "00904210", "quantidades": { "6p-12p": 1, "16p+": 2 } },
+          "fole": { "partNumber": "R45201001", "quantidade": 1 },
+          "tesoura": { "partNumber": "00725220", "quantidade": 1 },
+          "abreLatas": { "incluido": false },
+          "apito": { "partNumber": "00904130", "quantidade": 1 }
+        },
+        "reparacao": {
+          "batoque1": { "partNumber": "R40318001", "quantidade": 1 },
+          "batoque3": { "partNumber": "R05720019", "quantidade": 1 },
+          "batoque5": { "partNumber": "R05720023", "quantidade": 1 },
+          "tampasThanner": { "partNumber": "R06742009", "quantidade": 2 }
+        },
+        "outros": {
+          "heliografo": { "quantidade": 1 },
+          "tabelaSinaisResgate": { "incluido": false },
+          "folhetoAcao": { "quantidade": 1 },
+          "sacosPoliester": { "partNumber": "00804400", "quantidadeVaria": true },
+          "comprimidosAntiEnjo": { "quantidades": { "6p-10p": 1, "12p-20p": 2, "25p": 3 } }
+        }
+      }
+    },
+    "equipamentoOpcional": {
+      "SART": {
+        "partNumber": "R08111009",
+        "quantidade": 1,
+        "modelo": "S4",
+        "nota": "Quando incluído, elimina necessidade de refletor de radar"
+      }
+    }
+  },
+  "cordasAtivacao": {
+    "6pTO": { "cutLengthMm": 450, "tieLengthMm": 250 },
+    "8pTO": { "cutLengthMm": 450, "tieLengthMm": 250 },
+    "10pTO": { "cutLengthMm": 900, "tieLengthMm": 700 },
+    "12pTO": { "cutLengthMm": 900, "tieLengthMm": 700 },
+    "16pTO": { "cutLengthMm": 1000, "tieLengthMm": 800 },
+    "20pTO": { "cutLengthMm": 1200, "tieLengthMm": 1000 },
+    "25pTODL": { "cutLengthMm": 1300, "tieLengthMm": 1100 }
+  },
+  "instalacao": {
+    "distanciaHelices": "Mínimo 9 metros à frente",
+    "comprimentoPainter": "Mínimo 10m + altura de instalação",
+    "weakLinkForce": { "min": 1.8, "max": 2.6, "unidade": "kN" },
+    "dragemContainer": "Abertura na parte inferior"
+  },
+  "limpezaMateriais": [
+    {
+      "item": "Tolueno / Solvente petrolífero",
+      "aplicacao": "Limpeza de tecidos revestidos"
+    },
+    {
+      "item": "Sabão duro (NÃO detergente)",
+      "aplicacao": "Lavagem geral da jangada"
+    },
+    {
+      "item": "Hipoclorito de Sódio (25 partes água : 1 parte solução 14-15%)",
+      "aplicacao": "Tratamento anti-mofo do container"
+    }
+  ],
+  "componentesPrincipais": [
+    "Dois tubos de flutuabilidade (configuração dupla)",
+    "Piso suspenso isolado",
+    "Tenda de dupla camada auto-erigível",
+    "Tubo de arco inflável",
+    "Bolsas de água para estabilidade",
+    "Luzes internas e externas automáticas",
+    "Linhas de salvamento (interior e exterior)",
+    "Escada de inversão",
+    "Rampa/escada de embarque",
+    "Sistema de recolha de água da chuva",
+    "Bridle de elevação (apenas Davit Launch)"
+  ],
+  "cores": {
+    "camaras": "Pretas",
+    "tenda": "Alta visibilidade"
+  },
+  "notasImportantes": [
+    "Apenas peças DSB aprovadas podem ser usadas",
+    "Adesivo de reparação OBRIGATÓRIO: Bostic 486 (Policloropreno)",
+    "Todos os pirotécnicos devem ter marcação MED",
+    "Painter deve estar sempre amarrado a ponto forte",
+    "Container deve ter drenagem na parte inferior desobstruída",
+    "Considerar efeito magnético no compasso do navio"
+  ]
+}

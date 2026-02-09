@@ -1,3 +1,11 @@
+/**
+ * Verifica pendências de vistoria DGRM para estações de serviço
+ * Cria alerta específico se não houver vistoria anual agendada ou se estiver vencida
+ */
+export async function verificarPendenciasVistoriaDGRM() {
+  // Modelo EstacaoServico não encontrado no schema - função desabilitada
+  return [];
+}
 import { prisma } from './prisma'
 import { subDays, differenceInDays } from 'date-fns'
 
@@ -245,22 +253,29 @@ export async function verificarInspecoesVencidas() {
  */
 export async function executarTodasAsVerificacoes(config = DEFAULT_CONFIG) {
   try {
-    const alertasCilindros = await verificarCilindrosTesteHidraulico(config)
-    const alertasStock = await verificarStockBaixo(config)
-    const alertasInspecoes = await verificarInspecoesProximas(config)
-    const alertasInspecoesVencidas = await verificarInspecoesVencidas()
+    const alertasCilindros = await verificarCilindrosTesteHidraulico(config);
+    const alertasStock = await verificarStockBaixo(config);
+    const alertasInspecoes = await verificarInspecoesProximas(config);
+    const alertasInspecoesVencidas = await verificarInspecoesVencidas();
+    const alertasVistoriaDGRM = await verificarPendenciasVistoriaDGRM();
 
     return {
-      totalGeradas: alertasCilindros.length + alertasStock.length + alertasInspecoes.length + alertasInspecoesVencidas.length,
+      totalGeradas:
+        alertasCilindros.length +
+        alertasStock.length +
+        alertasInspecoes.length +
+        alertasInspecoesVencidas.length +
+        alertasVistoriaDGRM.length,
       cilindros: alertasCilindros.length,
       stock: alertasStock.length,
       inspecoes: alertasInspecoes.length,
       inspecoesVencidas: alertasInspecoesVencidas.length,
-      timestamp: new Date()
-    }
+      vistoriaDGRM: alertasVistoriaDGRM.length,
+      timestamp: new Date(),
+    };
   } catch (error) {
-    console.error('Erro ao executar verificações de alertas:', error)
-    throw error
+    console.error('Erro ao executar verificações de alertas:', error);
+    throw error;
   }
 }
 

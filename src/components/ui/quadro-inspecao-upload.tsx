@@ -6,8 +6,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Upload, CheckCircle, AlertCircle, Loader, X, FileText } from 'lucide-react';
+import { Upload, CheckCircle, AlertCircle, Loader, X, FileText, Edit, Save } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useQueryClient } from '@tanstack/react-query';
+import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useMarcasJangada } from '@/hooks/use-marcas-jangada';
+import { useModelosJangada } from '@/hooks/use-modelos-jangada';
+import { useLotacoesJangada } from '@/hooks/use-lotacoes-jangada';
 
 interface QuadroImportResult {
   success: boolean;
@@ -33,12 +39,37 @@ interface QuadroImportResult {
   };
 }
 
+interface EditedData {
+  numeroSerie: string;
+  marcaId: string;
+  modeloId: string;
+  lotacaoId: string;
+  dataFabricacao: string;
+  certificadoNumero: string;
+  certificadoTipo: string;
+  certificadoDataEmissao: string;
+  certificadoDataValidade: string;
+  cilindros: any[];
+}
+
 export function QuadroInspecaoUploadDialog() {
   const [isDragging, setIsDragging] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<QuadroImportResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedData, setEditedData] = useState<EditedData | null>(null);
+  const queryClient = useQueryClient();
+
+  // Hooks para dados de referência
+  const { data: marcasResponse } = useMarcasJangada();
+  const { data: modelosResponse } = useModelosJangada();
+  const { data: lotacoesResponse } = useLotacoesJangada();
+
+  const marcas = marcasResponse?.data || [];
+  const modelos = modelosResponse?.data || [];
+  const lotacoes = lotacoesResponse?.data || [];
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
@@ -71,6 +102,20 @@ export function QuadroInspecaoUploadDialog() {
     setIsLoading(true);
 
     try {
+      // Validate file type
+      if (!file.name.toLowerCase().endsWith('.xlsx') && !file.name.toLowerCase().endsWith('.xls')) {
+        setError('Apenas arquivos Excel (.xlsx ou .xls) são suportados');
+        setIsLoading(false);
+        return;
+      }
+
+      // Validate file size (max 10MB)
+      if (file.size > 10 * 1024 * 1024) {
+        setError('Arquivo muito grande. Tamanho máximo: 10MB');
+        setIsLoading(false);
+        return;
+      }
+
       const formData = new FormData();
       formData.append('file', file);
 
@@ -82,13 +127,32 @@ export function QuadroInspecaoUploadDialog() {
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.error || 'Erro ao processar ficheiro');
+        const errorMessage = data.error || 'Erro ao processar ficheiro';
+        const details = data.details ? ` - ${data.details}` : '';
+        const suggestion = data.suggestion ? `\n\n${data.suggestion}` : '';
+        setError(`${errorMessage}${details}${suggestion}`);
         return;
       }
 
       setResult(data);
       if (!data.success) {
         setError('Erro ao processar: ' + data.errors.join(', '));
+      } else {
+        // Initialize edited data with the extracted data
+        setEditedData({
+          numeroSerie: data.jangada?.numeroSerie || '',
+          marcaId: data.jangada?.marca?.id || '',
+          modeloId: data.jangada?.modelo?.id || '',
+          lotacaoId: data.jangada?.lotacao?.id || '',
+          dataFabricacao: data.jangada?.dataFabricacao ? new Date(data.jangada.dataFabricacao).getFullYear().toString() : '',
+          certificadoNumero: data.certificado?.numero || '',
+          certificadoTipo: data.certificado?.tipo || 'CERTIFICADO_INSPECAO',
+          certificadoDataEmissao: data.certificado?.dataEmissao ? new Date(data.certificado.dataEmissao).toISOString().split('T')[0] : '',
+          certificadoDataValidade: data.certificado?.dataValidade ? new Date(data.certificado.dataValidade).toISOString().split('T')[0] : '',
+          cilindros: data.cilindros || []
+        });
+        // Invalidate jangadas cache to refresh the list
+        queryClient.invalidateQueries({ queryKey: ['jangadas'] });
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Erro desconhecido');
@@ -100,6 +164,75 @@ export function QuadroInspecaoUploadDialog() {
   const resetForm = () => {
     setResult(null);
     setError(null);
+    setIsEditing(false);
+    setEditedData(null);
+  };
+
+  const handleSaveEditedData = async () => {
+    if (!editedData || !result) return;
+
+    setIsLoading(true);
+    try {
+      // Update jangada
+      const jangadaData: any = {
+        numeroSerie: editedData.numeroSerie || result.jangada?.numeroSerie,
+        tipo: result.jangada?.tipo || 'Jangada',
+        status: result.jangada?.status || 'ativo',
+        estado: result.jangada?.estado || 'instalada',
+      };
+
+      if (editedData.marcaId) jangadaData.marcaId = editedData.marcaId;
+      if (editedData.modeloId) jangadaData.modeloId = editedData.modeloId;
+      if (editedData.lotacaoId) jangadaData.lotacaoId = editedData.lotacaoId;
+      if (editedData.dataFabricacao) {
+        jangadaData.dataFabricacao = new Date(parseInt(editedData.dataFabricacao), 0, 1);
+      }
+
+      // Prepare certificado data if provided
+      let certificadoData: any = null;
+      if (editedData.certificadoNumero) {
+        certificadoData = {
+          numero: editedData.certificadoNumero,
+          tipo: editedData.certificadoTipo || 'CERTIFICADO_INSPECAO',
+          entidadeEmissora: 'OREY',
+          jangada: { connect: { numeroSerie: jangadaData.numeroSerie } }
+        };
+
+        if (editedData.certificadoDataEmissao) {
+          certificadoData.dataEmissao = new Date(editedData.certificadoDataEmissao);
+        }
+
+        if (editedData.certificadoDataValidade) {
+          certificadoData.dataValidade = new Date(editedData.certificadoDataValidade);
+        }
+      }
+
+      // Save via API
+      const response = await fetch('/api/quadro/save', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          jangadaData,
+          certificadoData
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erro ao salvar dados');
+      }
+
+      // Refresh data
+      queryClient.invalidateQueries({ queryKey: ['jangadas'] });
+      setIsEditing(false);
+      setEditedData(null);
+    } catch (error: any) {
+      setError(`Erro ao salvar dados editados: ${error.message}`);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -229,28 +362,332 @@ export function QuadroInspecaoUploadDialog() {
                     Jangada Importada
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-2">
-                  <div className="grid grid-cols-2 gap-2">
+                <CardContent className="space-y-3">
+                  <div className="grid grid-cols-2 gap-3">
                     <div>
                       <p className="text-sm text-gray-500">Número de Série</p>
                       <p className="font-mono font-semibold">{result.jangada.numeroSerie}</p>
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">Marca</p>
-                      <p className="font-semibold">{result.jangada.tipo}</p>
+                      <p className="font-semibold">{result.jangada.marca?.nome || result.jangada.tipo}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Modelo</p>
+                      <p className="font-semibold">{result.jangada.modelo?.nome || 'N/A'}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Lotação</p>
+                      <p className="font-semibold">{result.jangada.lotacao?.capacidade ? `${result.jangada.lotacao.capacidade} pessoas` : 'N/A'}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Data de Fabricação</p>
+                      <p className="font-semibold">{result.jangada.dataFabricacao ? new Date(result.jangada.dataFabricacao).getFullYear() : 'N/A'}</p>
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">Status</p>
                       <Badge variant="outline">{result.jangada.status}</Badge>
                     </div>
-                    <div>
-                      <p className="text-sm text-gray-500">Última Atualização</p>
-                      <p className="text-sm">{new Date(result.jangada.updatedAt).toLocaleDateString('pt-PT')}</p>
-                    </div>
+                  </div>
+                  <div className="pt-2 border-t">
+                    <p className="text-sm text-gray-600">
+                      ✅ A jangada foi salva no sistema e aparecerá na lista de jangadas
+                    </p>
                   </div>
                 </CardContent>
               </Card>
             )}
+
+            {/* Dados Extraídos Resumo */}
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center justify-between">
+                  Dados Extraídos do Documento
+                  <div className="flex gap-2">
+                    {!isEditing ? (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setIsEditing(true)}
+                        className="gap-2"
+                      >
+                        <Edit className="w-4 h-4" />
+                        Editar
+                      </Button>
+                    ) : (
+                      <>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setIsEditing(false)}
+                        >
+                          Cancelar
+                        </Button>
+                        <Button
+                          size="sm"
+                          onClick={handleSaveEditedData}
+                          className="gap-2"
+                        >
+                          <Save className="w-4 h-4" />
+                          Salvar
+                        </Button>
+                      </>
+                    )}
+                  </div>
+                </CardTitle>
+                <CardDescription>
+                  {isEditing
+                    ? "Edite os dados extraídos antes de salvar"
+                    : "Informações identificadas automaticamente pelo sistema de IA"
+                  }
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-3">
+                      <h4 className="font-semibold text-sm text-gray-700">Jangada</h4>
+                      <div className="space-y-2">
+                        <div>
+                          <label className="text-xs text-gray-500">Número de Série</label>
+                          {isEditing ? (
+                            <Input
+                              value={editedData?.numeroSerie || ''}
+                              onChange={(e) => setEditedData((prev: EditedData | null) => ({ ...prev!, numeroSerie: e.target.value }))}
+                              placeholder="Número de série"
+                            />
+                          ) : (
+                            <p className="font-mono text-sm">{result.jangada?.numeroSerie || 'Não identificado'}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="text-xs text-gray-500">Marca</label>
+                          {isEditing ? (
+                            <Select
+                              value={editedData?.marcaId || ''}
+                              onValueChange={(value) => {
+                                setEditedData((prev: EditedData | null) => ({
+                                  ...prev!,
+                                  marcaId: value,
+                                  modeloId: '' // Reset modelo when marca changes
+                                }));
+                              }}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Selecione a marca" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {marcas.map((marca: any) => (
+                                  <SelectItem key={marca.id} value={marca.id}>
+                                    {marca.nome}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          ) : (
+                            <p className="text-sm">{result.jangada?.marca?.nome || 'Não identificado'}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="text-xs text-gray-500">Modelo</label>
+                          {isEditing ? (
+                            <Select
+                              value={editedData?.modeloId || ''}
+                              onValueChange={(value) => setEditedData((prev: EditedData | null) => ({ ...prev!, modeloId: value }))}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Selecione o modelo" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {modelos
+                                  .filter((modelo: any) => !editedData?.marcaId || modelo.marcaId === editedData.marcaId)
+                                  .map((modelo: any) => (
+                                    <SelectItem key={modelo.id} value={modelo.id}>
+                                      {modelo.nome}
+                                    </SelectItem>
+                                  ))}
+                              </SelectContent>
+                            </Select>
+                          ) : (
+                            <p className="text-sm">{result.jangada?.modelo?.nome || 'Não identificado'}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="text-xs text-gray-500">Lotação</label>
+                          {isEditing ? (
+                            <Select
+                              value={editedData?.lotacaoId || ''}
+                              onValueChange={(value) => setEditedData((prev: EditedData | null) => ({ ...prev!, lotacaoId: value }))}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Selecione a lotação" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {lotacoes.map((lotacao: any) => (
+                                  <SelectItem key={lotacao.id} value={lotacao.id}>
+                                    {lotacao.capacidade} pessoas
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          ) : (
+                            <p className="text-sm">{result.jangada?.lotacao?.capacidade ? `${result.jangada.lotacao.capacidade} pessoas` : 'Não identificado'}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="text-xs text-gray-500">Ano de Fabricação</label>
+                          {isEditing ? (
+                            <Input
+                              value={editedData?.dataFabricacao || ''}
+                              onChange={(e) => setEditedData((prev: EditedData | null) => ({ ...prev!, dataFabricacao: e.target.value }))}
+                              placeholder="Ano de fabricação"
+                            />
+                          ) : (
+                            <p className="text-sm">{result.jangada?.dataFabricacao ? new Date(result.jangada.dataFabricacao).getFullYear() : 'Não identificado'}</p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <h4 className="font-semibold text-sm text-gray-700">Cilindro CO2</h4>
+                      <div className="space-y-2">
+                        {isEditing ? (
+                          editedData?.cilindros && editedData.cilindros.length > 0 ? (
+                            editedData.cilindros.map((cil: any, idx: number) => (
+                              <div key={idx} className="border-l-2 border-blue-200 pl-3 space-y-2">
+                                <div>
+                                  <label className="text-xs text-gray-500">Número</label>
+                                  <Input
+                                    value={cil.numero || ''}
+                                    onChange={(e) => {
+                                      const newCilindros = [...editedData.cilindros];
+                                      newCilindros[idx] = { ...newCilindros[idx], numero: e.target.value };
+                                      setEditedData((prev: EditedData | null) => ({ ...prev!, cilindros: newCilindros }));
+                                    }}
+                                    placeholder="Número do cilindro"
+                                  />
+                                </div>
+                                <div>
+                                  <label className="text-xs text-gray-500">Tipo</label>
+                                  <Input
+                                    value={cil.tipo || ''}
+                                    onChange={(e) => {
+                                      const newCilindros = [...editedData.cilindros];
+                                      newCilindros[idx] = { ...newCilindros[idx], tipo: e.target.value };
+                                      setEditedData((prev: EditedData | null) => ({ ...prev!, cilindros: newCilindros }));
+                                    }}
+                                    placeholder="Tipo do cilindro"
+                                  />
+                                </div>
+                                <div>
+                                  <label className="text-xs text-gray-500">Pressão (bar)</label>
+                                  <Input
+                                    value={cil.pressao || ''}
+                                    onChange={(e) => {
+                                      const newCilindros = [...editedData.cilindros];
+                                      newCilindros[idx] = { ...newCilindros[idx], pressao: e.target.value };
+                                      setEditedData((prev: EditedData | null) => ({ ...prev!, cilindros: newCilindros }));
+                                    }}
+                                    placeholder="Pressão em bar"
+                                  />
+                                </div>
+                                <div>
+                                  <label className="text-xs text-gray-500">Validade</label>
+                                  <Input
+                                    value={cil.validade || ''}
+                                    onChange={(e) => {
+                                      const newCilindros = [...editedData.cilindros];
+                                      newCilindros[idx] = { ...newCilindros[idx], validade: e.target.value };
+                                      setEditedData((prev: EditedData | null) => ({ ...prev!, cilindros: newCilindros }));
+                                    }}
+                                    placeholder="Data de validade"
+                                  />
+                                </div>
+                              </div>
+                            ))
+                          ) : (
+                            <p className="text-gray-500 text-sm">Nenhum cilindro identificado</p>
+                          )
+                        ) : (
+                          result.cilindros && result.cilindros.length > 0 ? (
+                            result.cilindros.map((cil: any, idx: number) => (
+                              <div key={idx} className="border-l-2 border-blue-200 pl-3">
+                                <p><span className="font-medium">Número:</span> {cil.numero || 'N/A'}</p>
+                                <p><span className="font-medium">Tipo:</span> {cil.tipo || 'N/A'}</p>
+                                <p><span className="font-medium">Pressão:</span> {cil.pressao ? `${cil.pressao} bar` : 'N/A'}</p>
+                                <p><span className="font-medium">Validade:</span> {cil.validade || 'N/A'}</p>
+                              </div>
+                            ))
+                          ) : (
+                            <p className="text-gray-500 text-sm">Nenhum cilindro identificado</p>
+                          )
+                        )}
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <h4 className="font-semibold text-sm text-gray-700">Certificado</h4>
+                      <div className="space-y-2">
+                        <div>
+                          <label className="text-xs text-gray-500">Número do Certificado</label>
+                          {isEditing ? (
+                            <Input
+                              value={editedData?.certificadoNumero || ''}
+                              onChange={(e) => setEditedData((prev: EditedData | null) => ({ ...prev!, certificadoNumero: e.target.value }))}
+                              placeholder="Número do certificado"
+                            />
+                          ) : (
+                            <p className="text-sm">{result.certificado?.numero || 'Não identificado'}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="text-xs text-gray-500">Tipo</label>
+                          {isEditing ? (
+                            <Select
+                              value={editedData?.certificadoTipo || ''}
+                              onValueChange={(value) => setEditedData((prev: EditedData | null) => ({ ...prev!, certificadoTipo: value }))}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Selecione o tipo" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="CERTIFICADO_INSPECAO">Certificado de Inspeção</SelectItem>
+                                <SelectItem value="CERTIFICADO_APROVACAO">Certificado de Aprovação</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          ) : (
+                            <p className="text-sm">{result.certificado?.tipo || 'Não identificado'}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="text-xs text-gray-500">Data de Emissão</label>
+                          {isEditing ? (
+                            <Input
+                              type="date"
+                              value={editedData?.certificadoDataEmissao || ''}
+                              onChange={(e) => setEditedData((prev: EditedData | null) => ({ ...prev!, certificadoDataEmissao: e.target.value }))}
+                            />
+                          ) : (
+                            <p className="text-sm">{result.certificado?.dataEmissao ? new Date(result.certificado.dataEmissao).toLocaleDateString('pt-PT') : 'Não identificado'}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="text-xs text-gray-500">Data de Validade</label>
+                          {isEditing ? (
+                            <Input
+                              type="date"
+                              value={editedData?.certificadoDataValidade || ''}
+                              onChange={(e) => setEditedData((prev: EditedData | null) => ({ ...prev!, certificadoDataValidade: e.target.value }))}
+                            />
+                          ) : (
+                            <p className="text-sm">{result.certificado?.dataValidade ? new Date(result.certificado.dataValidade).toLocaleDateString('pt-PT') : 'Não identificado'}</p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
             {/* Componentes Resumo */}
             <Card>
@@ -261,15 +698,15 @@ export function QuadroInspecaoUploadDialog() {
                 <div className="grid grid-cols-3 gap-3">
                   <div className="p-3 rounded border bg-slate-50">
                     <p className="text-xs text-slate-500">Interiores</p>
-                    <p className="text-2xl font-bold">{result.componentes.interiores.length}</p>
+                    <p className="text-2xl font-bold">{result.componentes?.interiores?.length || 0}</p>
                   </div>
                   <div className="p-3 rounded border bg-slate-50">
                     <p className="text-xs text-slate-500">Exteriores</p>
-                    <p className="text-2xl font-bold">{result.componentes.exteriores.length}</p>
+                    <p className="text-2xl font-bold">{result.componentes?.exteriores?.length || 0}</p>
                   </div>
                   <div className="p-3 rounded border bg-slate-50">
                     <p className="text-xs text-slate-500">Pack</p>
-                    <p className="text-2xl font-bold">{result.componentes.pack.length}</p>
+                    <p className="text-2xl font-bold">{result.componentes?.pack?.length || 0}</p>
                   </div>
                 </div>
               </CardContent>

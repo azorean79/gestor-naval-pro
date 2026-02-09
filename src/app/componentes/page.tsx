@@ -28,6 +28,8 @@ type ComponenteItem = {
   fornecedor?: string
   localizacao?: string
   status?: string
+  codigoFabricante?: string
+  referenciaOrey?: string
   createdAt?: string
 }
 
@@ -42,7 +44,7 @@ export default function ComponentesPage() {
     search: searchTerm || undefined,
     status: statusFilter !== 'todos' ? statusFilter : undefined,
     categoria: categoriaFilter !== 'todos' ? categoriaFilter : undefined,
-    limit: 100
+    limit: 9999
   })
 
   const componentes: ComponenteItem[] = componentesResponse?.data || []
@@ -95,10 +97,10 @@ export default function ComponentesPage() {
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-            Gestão de Componentes
+            Stock & Componentes de Jangadas
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
-            Controle e gestão dos componentes de jangadas
+            Gestão de inventário e componentes do sistema
           </p>
         </div>
         <Button onClick={() => setShowAddForm(true)} className="bg-blue-600 hover:bg-blue-700">
@@ -214,56 +216,70 @@ export default function ComponentesPage() {
               </Button>
             </div>
           ) : (
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Nome</TableHead>
-                  <TableHead>Categoria</TableHead>
-                  <TableHead>Quantidade</TableHead>
-                  <TableHead>Preço Unitário</TableHead>
-                  <TableHead>Fornecedor</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead className="w-24">Ações</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {filteredComponentes.map((componente) => (
-                  <TableRow key={componente.id}>
-                    <TableCell className="font-medium">{componente.nome}</TableCell>
-                    <TableCell>
-                      <Badge variant="outline">{componente.categoria}</Badge>
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex items-center gap-2">
-                        <span>{componente.quantidade}</span>
-                        {getStockStatus(componente.quantidade || 0, componente.quantidadeMinima || 0)}
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      {componente.precoUnitario ? `€${componente.precoUnitario.toLocaleString('pt-PT')}` : '-'}
-                    </TableCell>
-                    <TableCell>{componente.fornecedor || '-'}</TableCell>
-                    <TableCell>
-                      {getStatusBadge(componente.status || '')}
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex gap-2">
-                        <Button 
-                          variant="ghost" 
-                          size="sm"
-                          onClick={() => setEditingComponente(componente)}
-                        >
-                          <Edit className="h-4 w-4" />
-                        </Button>
-                        <Button variant="ghost" size="sm" className="text-red-600 hover:text-red-700">
-                          <Trash2 className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Nome</TableHead>
+                    <TableHead>Código Fabricante</TableHead>
+                    <TableHead>Referência OREY</TableHead>
+                    <TableHead>Categoria</TableHead>
+                    <TableHead>Quantidade</TableHead>
+                    <TableHead>Preço Unitário</TableHead>
+                    <TableHead>Fornecedor</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead className="w-24">Ações</TableHead>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                </TableHeader>
+                <TableBody>
+                  {filteredComponentes.map((componente) => (
+                    <TableRow key={componente.id}>
+                      <TableCell className="font-medium">{componente.nome}</TableCell>
+                      <TableCell>
+                        <code className="text-xs bg-gray-100 px-2 py-1 rounded">
+                          {componente.codigoFabricante || '-'}
+                        </code>
+                      </TableCell>
+                      <TableCell>
+                        <code className="text-xs bg-gray-100 px-2 py-1 rounded">
+                          {componente.referenciaOrey || '-'}
+                        </code>
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant="outline">{componente.categoria}</Badge>
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex items-center gap-2">
+                          <span>{componente.quantidade}</span>
+                          {getStockStatus(componente.quantidade || 0, componente.quantidadeMinima || 0)}
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        {componente.precoUnitario ? `€${componente.precoUnitario.toLocaleString('pt-PT')}` : '-'}
+                      </TableCell>
+                      <TableCell>{componente.fornecedor || '-'}</TableCell>
+                      <TableCell>
+                        {getStatusBadge(componente.status || '')}
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex gap-2">
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => setEditingComponente(componente)}
+                          >
+                            <Edit className="h-4 w-4" />
+                          </Button>
+                          <Button variant="ghost" size="sm" className="text-red-600 hover:text-red-700">
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
           )}
         </CardContent>
       </Card>

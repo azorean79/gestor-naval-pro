@@ -51,6 +51,9 @@ export type PredictiveMaintenance = Prisma.PredictiveMaintenanceGetPayload<Recor
 export type Inspecao = Prisma.InspecaoGetPayload<Record<string, unknown>>;
 export type CustoInspecao = Prisma.CustoInspecaoGetPayload<Record<string, unknown>>;
 export type HistoricoInspecao = Prisma.HistoricoInspecaoGetPayload<Record<string, unknown>>;
+// ...existing code...
+  // boletinsAplicados property removed
+// End of type/interface
 export type MarcaJangada = Prisma.MarcaJangadaGetPayload<Record<string, unknown>>;
 export type ModeloJangada = Prisma.ModeloJangadaGetPayload<Record<string, unknown>>;
 export type LotacaoJangada = Prisma.LotacaoJangadaGetPayload<Record<string, unknown>>;
@@ -160,6 +163,7 @@ export interface StockForm {
   localizacao?: string;
   foto?: string;
   status: string;
+  descontinuado?: boolean; // Indica se o item foi descontinuado por boletim
 }
 
 export interface CilindroForm {

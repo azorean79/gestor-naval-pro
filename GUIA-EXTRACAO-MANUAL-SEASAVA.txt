@@ -1,0 +1,90 @@
+
+GUIA DE EXTRAÇÃO MANUAL - SEASAVA PLUS e SEASAVA PLUS X/E/R
+============================================================
+
+PASSO 1 - Localize as Tabelas de Especificações
+───────────────────────────────────────────────
+Abra os PDFs e procure por:
+  ✓ Tabela de "Capacidades" (4P, 6P, 8P, 10P, 12P, 16P, 20P, 25P)
+  ✓ "Sistema de Insuflação" (Thanner ou Leafield)
+  ✓ "Válvulas Principais" (OTS65, A10, B10, etc.)
+  ✓ Tabela de "Cilindros CO2"
+  ✓ "Pressão de Trabalho" (PSI)
+  ✓ "Weak Link Specifications" (kN, lbf)
+  ✓ "Davit Launch Capacities"
+
+PASSO 2 - Informações a Extrair
+───────────────────────────────
+Para CADA MODELO (SEASAVA PLUS e SEASAVA X/E/R):
+
+A) Sistema Básico
+   - Nome exato do modelo
+   - Sistema de insuflação
+   - Válvulas padrão
+
+B) Para CADA CAPACIDADE (4P até 25P, se disponível):
+   - Quantidade de cilindros CO2
+   - Peso de CO2 (kg)
+   - Peso de N2 (kg) - se aplicável
+   - Referência do cilindro
+
+C) Pressões (se encontrar):
+   - PSI
+   - mmWG (milímetros de coluna de água)
+   - inH2O (polegadas de coluna de água)
+   - milibares
+
+D) Weak Link (resistência):
+   - Valor em kN (Kilonewtons)
+   - Valor em lbf (libras-força)
+
+E) Davit Launch (lançamento por guindaste):
+   - Capacidades disponíveis (12P, 16P, 20P, 25P, etc.)
+
+PASSO 3 - Preenchimento do JSON
+────────────────────────────────
+Use o arquivo: SEASAVA-TEMPLATE-SPECS.json
+Estruture como:
+{
+  "seasava_plus": {
+    "modelo": "SEASAVA PLUS",
+    "sistema": "Thanner",
+    "valvulas": ["OTS65", "A10", "B10"],
+    "especificacoes": {
+      "4p": {
+        "cilindros_co2": 1,
+        "peso_co2_kg": X.XX,
+        "peso_n2_kg": X.XX,
+        "referencia": "XXXXX"
+      },
+      ...
+    },
+    "pressoes": {
+      "psi": X.X,
+      "mmwg": XXX.XX,
+      "inh2o": XX.XX,
+      "milibares": XXX
+    },
+    "weak_link": {
+      "kn": X.X,
+      "lbf": XXX.X
+    }
+  }
+}
+
+PASSO 4 - Validação
+───────────────────
+python -m json.tool SEASAVA-TEMPLATE-SPECS.json
+
+PASSO 5 - Criação de Scripts
+────────────────────────────
+Após preencher JSON, avisarei para criar scripts:
+- add-rfd-seasava-plus.ts
+- add-rfd-seasava-rx.ts
+
+E adicionar:
+- Pressões de trabalho
+- Testes (WP, NAP, B)
+- Torques
+- Specs de Davit Launch
+    

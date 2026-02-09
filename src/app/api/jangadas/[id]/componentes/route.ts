@@ -69,12 +69,11 @@ export async function GET(
             refOrey: true,
             refFabricante: true,
             lote: true,
-            dataValidade: true,
             fornecedor: true,
             localizacao: true
           },
           orderBy: {
-            dataValidade: 'asc' // Itens com validade mais próxima primeiro
+            createdAt: 'asc' // Itens mais antigos primeiro
           }
         })
 

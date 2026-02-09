@@ -82,7 +82,7 @@ export function useRealTimeValidation(fields: ValidationField[]) {
     });
 
     setValidationResults(results);
-  }, [fields, validateField]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [fields]);
 
   const isFormValid = Object.values(validationResults).every(result => result.isValid);
 

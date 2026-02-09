@@ -387,6 +387,25 @@ export function JangadaInspecaoForm({ onSuccess }: { onSuccess?: () => void }) {
                     </>
                   )}
                 </Button>
+                <Button
+                  type="button"
+                  variant="secondary"
+                  className="gap-2"
+                  onClick={async () => {
+                    // Chama endpoint para download do Word
+                    const numeroSerie = form.getValues('numeroSerie');
+                    const res = await fetch(`/api/inspecoes/baixar-iva?numeroSerie=${numeroSerie}`);
+                    const blob = await res.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `declaracao-iva-${numeroSerie}.docx`;
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                  }}
+                >
+                  Baixar Declaração de IVA
+                </Button>
               </div>
             </form>
           </Form>

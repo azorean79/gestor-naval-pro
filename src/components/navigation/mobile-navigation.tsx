@@ -14,7 +14,8 @@ import {
   AlertTriangle,
   Settings,
   Menu,
-  X
+  X,
+  Zap
 } from 'lucide-react'
 import { useDeviceType } from '@/hooks/use-device'
 import { cn } from '@/lib/utils'
@@ -30,6 +31,7 @@ const navigationItems = [
   { href: '/clientes', label: 'Clientes', icon: Users },
   { href: '/stock', label: 'Stock', icon: Package },
   { href: '/inspecoes', label: 'Inspeções', icon: Calendar },
+  { href: '/configuracoes', label: 'Configurações', icon: Zap },
   { href: '/alertas', label: 'Alertas', icon: AlertTriangle },
   { href: '/settings', label: 'Config', icon: Settings },
 ]

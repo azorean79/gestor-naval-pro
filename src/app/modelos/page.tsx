@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Plus, Search, Edit, Trash2, Package } from 'lucide-react'
+import { Plus, Search, Edit, Trash2, Package, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -38,10 +38,10 @@ export default function ModelosPage() {
     search: searchTerm || undefined,
     status: statusFilter !== 'todos' ? statusFilter : undefined,
     marcaId: marcaFilter !== 'todos' ? marcaFilter : undefined,
-    limit: 100
+    limit: 9999
   })
 
-  const { data: marcasResponse } = useMarcasJangada({ limit: 100 })
+  const { data: marcasResponse } = useMarcasJangada({ limit: 9999 })
 
   const modelos: ModeloItem[] = modelosResponse?.data || []
   const marcas = marcasResponse?.data || []
@@ -78,10 +78,15 @@ export default function ModelosPage() {
             Controle e gestão dos modelos de jangadas
           </p>
         </div>
-        <Button onClick={() => setShowAddForm(true)} className="bg-blue-600 hover:bg-blue-700">
-          <Plus className="h-4 w-4 mr-2" />
-          Novo Modelo
-        </Button>
+        <div className="flex gap-2">
+          <Button onClick={() => window.location.href = '/configuracoes'} variant="outline">
+            Ver Configurações Integradas
+          </Button>
+          <Button onClick={() => setShowAddForm(true)} className="bg-blue-600 hover:bg-blue-700">
+            <Plus className="h-4 w-4 mr-2" />
+            Novo Modelo
+          </Button>
+        </div>
       </div>
 
       {/* Stats Cards */}

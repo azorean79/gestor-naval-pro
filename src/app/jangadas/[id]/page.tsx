@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { useQuery } from '@tanstack/react-query'
@@ -28,11 +28,10 @@ import { Cliente, Navio } from '@/lib/types'
 import { MARCAS_JANGADA, MODELOS_JANGADA, TIPOS_PACK, COMPONENTES_POR_PACK } from '@/lib/jangada-options'
 import { format } from 'date-fns'
 import { pt } from 'date-fns/locale'
-import { ArrowLeft, Save, Edit, Lightbulb, Sparkles, HelpCircle, Package } from 'lucide-react'
+import { ArrowLeft, Save, Edit, Lightbulb, Sparkles, Package } from 'lucide-react'
 import { ValidationIndicator } from '@/components/ui/validation-indicator'
 import { useRealTimeValidation } from '@/hooks/use-real-time-validation'
 import { useAutoFillSuggestions } from '@/hooks/use-auto-fill'
-import { AssistantGuide } from '@/components/assistant-guide'
 
 interface ComponentesJangadaSectionProps {
   jangadaId: string
@@ -380,8 +379,6 @@ export default function JangadaDetailPage() {
   const proprietarios = proprietariosResponse?.data || []
 
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [showAssistant, setShowAssistant] = useState(false)
-  const [assistantStep, setAssistantStep] = useState(0)
 
   const form = useForm<JangadaForm>({
     resolver: zodResolver(jangadaSchema),
@@ -409,7 +406,7 @@ export default function JangadaDetailPage() {
   const autoFillSuggestions = useAutoFillSuggestions('', '')
 
   // Real-time validation fields
-  const validationFields = [
+  const validationFields = useMemo(() => [
     {
       name: 'numeroSerie',
       value: watchedNumeroSerie,
@@ -446,7 +443,7 @@ export default function JangadaDetailPage() {
         { type: 'required' as const, message: 'Navio é obrigatório' }
       ]
     }
-  ]
+  ], [watchedNumeroSerie, watchedMarcaId, watchedModeloId, watchedTipo, watchedNavioId])
 
   const { validationResults, isFormValid } = useRealTimeValidation(validationFields)
   const safeValidationResults = validationResults || {}
@@ -555,15 +552,6 @@ export default function JangadaDetailPage() {
 
   return (
     <div className="w-full min-h-screen bg-background">
-      {showAssistant && (
-        <AssistantGuide
-          currentStep={assistantStep}
-          onStepComplete={(step) => setAssistantStep(step)}
-          onClose={() => setShowAssistant(false)}
-          className="mb-4"
-        />
-      )}
-
       {/* AutoSave Status Bar */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-950 dark:to-emerald-950 border-b-2 border-green-200 dark:border-green-800 shadow-lg">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -584,22 +572,25 @@ export default function JangadaDetailPage() {
               <ArrowLeft className="h-4 w-4 mr-2" />
               Voltar
             </Button>
-            <div>
-              <h1 className="text-2xl font-bold">Jangada {jangada.numeroSerie}</h1>
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-3">
+                <h1 className="text-2xl font-bold">Jangada {jangada.numeroSerie}</h1>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={async () => {
+                    // Chamada para API/rota que gera a ficha DGRM para esta jangada
+                    await fetch(`/api/jangadas/${jangada.id}/gerar-ficha-dgrm`, { method: 'POST' })
+                    alert('Ficha DGRM gerada (ver pasta DGRM).');
+                  }}
+                >
+                  Gerar Ficha DGRM
+                </Button>
+              </div>
               <p className="text-muted-foreground">
                 {jangada.marca} {jangada.modelo} - {jangada.tipo}
               </p>
             </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setShowAssistant(!showAssistant)}
-            >
-              <HelpCircle className="h-4 w-4 mr-2" />
-              Assistente
-            </Button>
           </div>
         </div>
 

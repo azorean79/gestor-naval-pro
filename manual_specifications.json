@@ -1,0 +1,1134 @@
+{
+  "EUROVINIL_Leisure Syntesy": {
+    "marca": "EUROVINIL",
+    "modelo": "Leisure Syntesy",
+    "manual": "Eurovinil Leisure Syntesy Liferafts & Crewsaver ISO Type1(2) Mk 2 Mariner Mk 2_1",
+    "especificacoes": {
+      "solas_certificado": true,
+      "componentes": [
+        {
+          "numero": "1",
+          "nome": "INTRODUCTION TO THE SERVICE MANUAL 1.1 to 1.4"
+        },
+        {
+          "numero": "2",
+          "nome": "CONSTRUCTION DETAILS 2.1 to 2.10"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING 3.1 to 3.56"
+        },
+        {
+          "numero": "4",
+          "nome": "PACKING 4.1 to 4.46"
+        },
+        {
+          "numero": "5",
+          "nome": "SPARE PARTS LIST 5.1 to 5.28"
+        },
+        {
+          "numero": "6",
+          "nome": "SERVICING ACTIVITIES 6.1 to 6.2"
+        },
+        {
+          "numero": "1",
+          "nome": "INTRODUCTION TO THE SERVICE MANUAL"
+        },
+        {
+          "numero": "1",
+          "nome": "INTRODUCTION SERVICE MANUAL Page 1.1"
+        },
+        {
+          "numero": "1",
+          "nome": "INTRODUCTION SERVICE MANUAL Page 1.2"
+        },
+        {
+          "numero": "1",
+          "nome": "INTRODUCTION SERVICE MANUAL Page 1.3"
+        },
+        {
+          "numero": "1",
+          "nome": "INTRODUCTION SERVICE MANUAL Page 1.4"
+        },
+        {
+          "numero": "2",
+          "nome": "CONSTRUCTION DETAILS"
+        },
+        {
+          "numero": "2",
+          "nome": "CONSTRUCTION DETAILS SERVICE MANUAL Page 2.1"
+        },
+        {
+          "numero": "2",
+          "nome": "CONSTRUCTION DETAILS SERVICE MANUAL Page 2.2"
+        },
+        {
+          "numero": "2",
+          "nome": "CONSTRUCTION DETAILS SERVICE MANUAL Page 2.3"
+        },
+        {
+          "numero": "2",
+          "nome": "CONSTRUCTION DETAILS SERVICE MANUAL Page 2.4"
+        },
+        {
+          "numero": "2",
+          "nome": "CONSTRUCTION DETAILS SERVICE MANUAL Page 2.5"
+        },
+        {
+          "numero": "2",
+          "nome": "CONSTRUCTION DETAILS SERVICE MANUAL Page 2.6"
+        },
+        {
+          "numero": "2",
+          "nome": "CONSTRUCTION DETAILS SERVICE MANUAL Page 2.7"
+        },
+        {
+          "numero": "2",
+          "nome": "CONSTRUCTION DETAILS SERVICE MANUAL Page 2.8"
+        },
+        {
+          "numero": "2",
+          "nome": "CONSTRUCTION DETAILS SERVICE MANUAL Page 2.9"
+        },
+        {
+          "numero": "2",
+          "nome": "CONSTRUCTION DETAILS SERVICE MANUAL Page 2.10"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.1"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.2"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.3"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.4"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.5"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.6"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.7"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.8"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.9"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.10"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.11"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.12"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.13"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.14"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.15"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.16"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.17"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.18"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.19"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.20"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.21"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.22"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.23"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.24"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.25"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.26"
+        },
+        {
+          "numero": "3",
+          "nome": "SERVICING SERVICE MANUAL Page 3.27"
+        }
+      ]
+    },
+    "total_paginas": 152,
+    "total_tabelas": 88,
+    "keywords_count": {
+      "especificação": 0,
+      "composição": 0,
+      "spare": 49,
+      "component": 4,
+      "material": 15,
+      "capacity": 10,
+      "weight": 21,
+      "dimension": 16
+    }
+  },
+  "DSB_LR05": {
+    "marca": "DSB",
+    "modelo": "LR05",
+    "manual": "LR05",
+    "especificacoes": {
+      "solas_certificado": true,
+      "componentes": [
+        {
+          "numero": "2",
+          "nome": "LIFERAFT: Nominal Dimensions (mm):"
+        },
+        {
+          "numero": "3",
+          "nome": "CYLINDRICAL CONTAINERS:"
+        },
+        {
+          "numero": "4",
+          "nome": "Inflation system and Gas charges :"
+        },
+        {
+          "numero": "5",
+          "nome": "Period to Overhaul"
+        },
+        {
+          "numero": "6",
+          "nome": "Torque wrench settings:"
+        },
+        {
+          "numero": "7",
+          "nome": "Installation notes:"
+        },
+        {
+          "numero": "1",
+          "nome": "With restraint strap and senhouse slip only"
+        },
+        {
+          "numero": "2",
+          "nome": "With restraint strap and hydrostatic release unit,"
+        },
+        {
+          "numero": "6",
+          "nome": "Carry out a re-test of the buoyancy tubes again."
+        },
+        {
+          "numero": "1",
+          "nome": "The damage does not enter a seam."
+        },
+        {
+          "numero": "2",
+          "nome": "The damage does not pass under a major anchorage point,"
+        },
+        {
+          "numero": "3",
+          "nome": "The maximum area of the patch is not more than one eighth"
+        },
+        {
+          "numero": "1",
+          "nome": "The inflation valves have different jet bores, as stated below. The size of"
+        },
+        {
+          "numero": "2",
+          "nome": "There is only one size of cross head bolt for this valve."
+        },
+        {
+          "numero": "3",
+          "nome": "The assembly requires an aperture of 22 mm diameter in the buoyancy"
+        },
+        {
+          "numero": "1",
+          "nome": "The inflation valves have different jet bores, as stated below. The size of"
+        },
+        {
+          "numero": "2",
+          "nome": "There is only one size of hose for this valve."
+        },
+        {
+          "numero": "3",
+          "nome": "The assembly requires an aperture of 24 mm diameter in the buoyancy"
+        },
+        {
+          "numero": "1",
+          "nome": "Holes or penetrating damage (i.e. through the glass fibre mat)"
+        },
+        {
+          "numero": "1",
+          "nome": "EMERGENCY PACKS"
+        },
+        {
+          "numero": "2",
+          "nome": "ITEM PREPARATION"
+        },
+        {
+          "numero": "1",
+          "nome": "Fold a length of 50 mm wide adhesive tape over the top opening of the valise"
+        },
+        {
+          "numero": "2",
+          "nome": "Insert a vacuum line and remove the air from the valise."
+        },
+        {
+          "numero": "3",
+          "nome": "Withdraw the line and quickly seal the open part with tape."
+        },
+        {
+          "numero": "4",
+          "nome": "Fold the ‘ears’ at the top of the valise inwards and down. Secure these with"
+        },
+        {
+          "numero": "5",
+          "nome": "Roll down the excess valise tightly."
+        },
+        {
+          "numero": "6",
+          "nome": "Attach the buckle straps together (FIGURE 714). Tie the flying ends together"
+        },
+        {
+          "numero": "5",
+          "nome": "Packing Davit Launch liferaft into a container............................. 835"
+        },
+        {
+          "numero": "6",
+          "nome": "Packing a Throw Over liferaft into a container............................ 854"
+        },
+        {
+          "numero": "7",
+          "nome": "Container Labelling..................................................................... 866"
+        },
+        {
+          "numero": "2",
+          "nome": "Preparation of the Liferaft"
+        },
+        {
+          "numero": "1",
+          "nome": "Top patch with slits"
+        },
+        {
+          "numero": "2",
+          "nome": "Top patch with velcro fasteners"
+        },
+        {
+          "numero": "1",
+          "nome": "Remove the protective cup and disc from the external lamp connector ."
+        },
+        {
+          "numero": "2",
+          "nome": "For 4-8 person liferafts attach the switch activator as shown in"
+        },
+        {
+          "numero": "3",
+          "nome": "Locate the Internal lamp retaining patch located on the bottom"
+        },
+        {
+          "numero": "4",
+          "nome": "Place the internal lighting unit in the patch and secure, (FIGURE 810a )"
+        },
+        {
+          "numero": "5",
+          "nome": "Attach the connector for the External lamp unit, (FIGURE 810b)."
+        },
+        {
+          "numero": "6",
+          "nome": "Locate the appropriate Battery activation line (please refer to Chapter 1,"
+        },
+        {
+          "numero": "7",
+          "nome": "Tie one end to the Switch activator using a Bowline knot, tape flying"
+        },
+        {
+          "numero": "8",
+          "nome": "Tie the other end to the tying locations a Bowline knot, tape flying end."
+        },
+        {
+          "numero": "3",
+          "nome": "Inflation system preparation"
+        },
+        {
+          "numero": "4",
+          "nome": "Container preparation (F&G Range)"
+        },
+        {
+          "numero": "1",
+          "nome": "Drill two, 6 mm holes in the top half of the container, in the positions"
+        },
+        {
+          "numero": "2",
+          "nome": "Drill one, 6 mm hole in the bottom half of the container, in the position"
+        },
+        {
+          "numero": "3",
+          "nome": "Cut a length of 525 Lb cord, 1 meter long. Fold the cord in half and"
+        },
+        {
+          "numero": "4",
+          "nome": "Insert the doubled cord through the drilled hole in the container top half,"
+        },
+        {
+          "numero": "5",
+          "nome": "Form a loop as shown in (FIGURE 820A)."
+        },
+        {
+          "numero": "6",
+          "nome": "Using 500 mm of 4 kg breaking thread, secure the Dutch lacing,"
+        },
+        {
+          "numero": "7",
+          "nome": "Tape the required polystyrene blocks, to the inside of the container lid"
+        }
+      ]
+    },
+    "total_paginas": 296,
+    "total_tabelas": 366,
+    "keywords_count": {
+      "especificação": 0,
+      "composição": 0,
+      "spare": 24,
+      "component": 38,
+      "material": 29,
+      "capacity": 2,
+      "weight": 24,
+      "dimension": 14
+    }
+  },
+  "DSB_LR97": {
+    "marca": "DSB",
+    "modelo": "LR97",
+    "manual": "LR97",
+    "especificacoes": {
+      "solas_certificado": true,
+      "componentes": [
+        {
+          "numero": "1",
+          "nome": "Service Station is approved by the national administration"
+        },
+        {
+          "numero": "2",
+          "nome": "Service personnel have participated in a DSB service course"
+        },
+        {
+          "numero": "3",
+          "nome": "DSB-Certificate of reinspection to be issued for each service"
+        },
+        {
+          "numero": "1",
+          "nome": "Description"
+        },
+        {
+          "numero": "2",
+          "nome": "Technical Data"
+        },
+        {
+          "numero": "3",
+          "nome": "Major inspection"
+        },
+        {
+          "numero": "4",
+          "nome": "Folding and packing of the liferaft"
+        },
+        {
+          "numero": "5",
+          "nome": "Cradle and hydrostatic release unit"
+        },
+        {
+          "numero": "1",
+          "nome": "1983 Amendments to the International Convention for the"
+        },
+        {
+          "numero": "2",
+          "nome": "Testing and Evaluation of LIVE-SAVING APPLIANCES"
+        },
+        {
+          "numero": "3",
+          "nome": "Scheme for the Reciprocal Recognition of Tests and"
+        },
+        {
+          "numero": "2",
+          "nome": "Technical Data"
+        },
+        {
+          "numero": "1",
+          "nome": "Connection of canopy fabric to the upper buoyancy tube"
+        },
+        {
+          "numero": "2",
+          "nome": "Knotting of lines to the lifting patches (securing of lines inclusive)"
+        },
+        {
+          "numero": "3",
+          "nome": "Condition of lines, especially in the crossing point (lifting shackle)"
+        },
+        {
+          "numero": "4",
+          "nome": "Condition and connection of lifting patches to the buoyancy tubes"
+        },
+        {
+          "numero": "5",
+          "nome": "Seams on both buoyancy tubes"
+        },
+        {
+          "numero": "6",
+          "nome": "Connection of the upper and lower tube"
+        },
+        {
+          "numero": "7",
+          "nome": "Connection of lower tube to raft floor."
+        },
+        {
+          "numero": "8",
+          "nome": "Each valve and the high-pressure hoses with distributor"
+        },
+        {
+          "numero": "9",
+          "nome": "Outer and inner lighting, their batteries and connection plugs"
+        },
+        {
+          "numero": "10",
+          "nome": "All prescribed pressure tests have to be carried out"
+        },
+        {
+          "numero": "1",
+          "nome": "Unroll new closing strip from the roll"
+        },
+        {
+          "numero": "2",
+          "nome": "Place adhesive strip - sticky side showing upwards -"
+        },
+        {
+          "numero": "3",
+          "nome": "Place the packed emergency pack bag in a lower position"
+        },
+        {
+          "numero": "4",
+          "nome": "Lay together the extended cover parts (1 and 2) of the bag"
+        },
+        {
+          "numero": "5",
+          "nome": "Glue part 2 up to half - and midmost - of the strip."
+        },
+        {
+          "numero": "6",
+          "nome": "Cut closing strip on both ends according to sketch 1"
+        },
+        {
+          "numero": "7",
+          "nome": "Bend the 2nd overlapping half of the strip and glue it"
+        },
+        {
+          "numero": "8",
+          "nome": "Bend the lashes overlapping on the edges and glue them"
+        },
+        {
+          "numero": "9",
+          "nome": "Suck off the bag on the deflation valve until the fabric"
+        },
+        {
+          "numero": "10",
+          "nome": "Offer sucking off close the valve and roll up the"
+        },
+        {
+          "numero": "11",
+          "nome": "Knot the cord of the signal whistle to the slider of"
+        },
+        {
+          "numero": "12",
+          "nome": "Place the signal whistle on the rolled up cover parts and"
+        },
+        {
+          "numero": "4",
+          "nome": "Folding and packing of the liferaft"
+        },
+        {
+          "numero": "1",
+          "nome": "closing strap complete, with hand loop"
+        },
+        {
+          "numero": "2",
+          "nome": "Ripping up loop, complete"
+        },
+        {
+          "numero": "5",
+          "nome": "Cradle and hydrostatic release unit"
+        },
+        {
+          "numero": "1",
+          "nome": "Put in STATION ADDRESS 1 by rubber stamp."
+        },
+        {
+          "numero": "2",
+          "nome": "Punch MONTH and YEAR for next service 2"
+        },
+        {
+          "numero": "3",
+          "nome": "Maker and makers station number (already punched) 3"
+        },
+        {
+          "numero": "4",
+          "nome": "Cut the label into two halves 4"
+        },
+        {
+          "numero": "5",
+          "nome": "Blue label half stick on position 5"
+        },
+        {
+          "numero": "6",
+          "nome": "Black label half stick on position 6"
+        },
+        {
+          "numero": "1",
+          "nome": "The HRU and the weak link must be serviced in intervals of at least"
+        },
+        {
+          "numero": "2",
+          "nome": "If the HRU does not release at the described pressure it must be detached"
+        },
+        {
+          "numero": "3",
+          "nome": "If the test is still not satisfying the membrane must be checked for any damages."
+        },
+        {
+          "numero": "4",
+          "nome": "Carry out a final test in the test tank."
+        },
+        {
+          "numero": "5",
+          "nome": "a) „Thanner DK 84“"
+        },
+        {
+          "numero": "6",
+          "nome": "After inspection of the HRU the date of inspection and the number of the"
+        }
+      ]
+    },
+    "total_paginas": 202,
+    "total_tabelas": 220,
+    "keywords_count": {
+      "especificação": 0,
+      "composição": 0,
+      "spare": 28,
+      "component": 2,
+      "material": 10,
+      "capacity": 1,
+      "weight": 9,
+      "dimension": 4
+    }
+  },
+  "SURVIVA_MK IV": {
+    "marca": "SURVIVA",
+    "modelo": "MK IV",
+    "manual": "MK IV",
+    "especificacoes": {
+      "capacidade_minima": 4,
+      "capacidade_maxima": 6,
+      "solas_certificado": true,
+      "componentes": [
+        {
+          "numero": "2",
+          "nome": "Manual breakdown"
+        },
+        {
+          "numero": "3",
+          "nome": "WARNINGS, CAUTIONS and NOTE"
+        },
+        {
+          "numero": "4",
+          "nome": "Health and safety"
+        },
+        {
+          "numero": "5",
+          "nome": "List of abbreviations"
+        },
+        {
+          "numero": "6",
+          "nome": "Service provision"
+        },
+        {
+          "numero": "1",
+          "nome": "Description and Data"
+        },
+        {
+          "numero": "2",
+          "nome": "Liferaft nominal dimensions:"
+        },
+        {
+          "numero": "3",
+          "nome": "Inflation system and Gas charges:"
+        },
+        {
+          "numero": "4",
+          "nome": "Period to overhaul"
+        },
+        {
+          "numero": "5",
+          "nome": "Torque wrench settings:"
+        },
+        {
+          "numero": "6",
+          "nome": "Battery activation cord lengths:"
+        },
+        {
+          "numero": "7",
+          "nome": "Installation notes:"
+        },
+        {
+          "numero": "1",
+          "nome": "Safety procedures"
+        },
+        {
+          "numero": "2",
+          "nome": "Removal/Date of Manufacture"
+        },
+        {
+          "numero": "3",
+          "nome": "Unpacking procedure"
+        },
+        {
+          "numero": "4",
+          "nome": "Unpacking procedure for Xtrem containers"
+        },
+        {
+          "numero": "2",
+          "nome": "Procedure"
+        },
+        {
+          "numero": "3",
+          "nome": "E-pack (lifed items)"
+        },
+        {
+          "numero": "4",
+          "nome": "Zip pullers"
+        },
+        {
+          "numero": "5",
+          "nome": "Rigid glass-reinforced plastic container"
+        },
+        {
+          "numero": "2",
+          "nome": "Preparation"
+        },
+        {
+          "numero": "3",
+          "nome": "Test procedures"
+        },
+        {
+          "numero": "4",
+          "nome": "Troubleshooting"
+        },
+        {
+          "numero": "2",
+          "nome": "Adhesive"
+        },
+        {
+          "numero": "3",
+          "nome": "Preparation of coated surfaces."
+        },
+        {
+          "numero": "4",
+          "nome": "Application of adhesive. Bostik 486 or Alpha S 5001 adhesive:"
+        },
+        {
+          "numero": "5",
+          "nome": "Repair damaged areas"
+        },
+        {
+          "numero": "6",
+          "nome": "Component repair"
+        },
+        {
+          "numero": "7",
+          "nome": "Rigid containers"
+        },
+        {
+          "numero": "2",
+          "nome": "Additional wrapping / preparation"
+        },
+        {
+          "numero": "3",
+          "nome": "Packing the valise"
+        },
+        {
+          "numero": "4",
+          "nome": "Sealing the valise (FIGURE 733)"
+        },
+        {
+          "numero": "5",
+          "nome": "Extra protective foam - Drop height 18 metres - 36 metres"
+        },
+        {
+          "numero": "2",
+          "nome": "Preparation of the liferaft"
+        },
+        {
+          "numero": "3",
+          "nome": "Inflation system preparation"
+        },
+        {
+          "numero": "4",
+          "nome": "Container preparation"
+        },
+        {
+          "numero": "5",
+          "nome": "Packing a Davit-launch (DL) liferaft into a container"
+        },
+        {
+          "numero": "6",
+          "nome": "Packing a Throwover liferaft into a container"
+        },
+        {
+          "numero": "7",
+          "nome": "Heat shrink sleeve. Refer to FIGURE 862."
+        },
+        {
+          "numero": "8",
+          "nome": "Pack a Throwover liferaft into a N-Series Low Profile container:"
+        },
+        {
+          "numero": "9",
+          "nome": "Pack a Throwover liferaft into a N-Series Xtrem container:"
+        },
+        {
+          "numero": "10",
+          "nome": "Container labelling"
+        },
+        {
+          "numero": "2",
+          "nome": "Liferafts that have not been operationally packed"
+        },
+        {
+          "numero": "3",
+          "nome": "Storage limiting period"
+        },
+        {
+          "numero": "4",
+          "nome": "Storage of batteries"
+        },
+        {
+          "numero": "1",
+          "nome": "Special tools Part No."
+        },
+        {
+          "numero": "1",
+          "nome": "Steel hand roller . . . . . . . . . . . . . . . . . . . . . 05290024"
+        },
+        {
+          "numero": "2",
+          "nome": "Spatula (125 × 25 × 3 mm) (5″ × 1″ × 1⁄ ″) . . . . . . . . . . . 05290055"
+        },
+        {
+          "numero": "3",
+          "nome": "Solution brush:"
+        },
+        {
+          "numero": "4",
+          "nome": "‘Instantair’ couplings:"
+        }
+      ]
+    },
+    "total_paginas": 680,
+    "total_tabelas": 396,
+    "keywords_count": {
+      "especificação": 0,
+      "composição": 0,
+      "spare": 75,
+      "component": 36,
+      "material": 46,
+      "capacity": 50,
+      "weight": 57,
+      "dimension": 29
+    }
+  },
+  "SURVIVA_MkIII": {
+    "marca": "SURVIVA",
+    "modelo": "MkIII",
+    "manual": "MkIII",
+    "especificacoes": {
+      "solas_certificado": true,
+      "componentes": [
+        {
+          "numero": "1",
+          "nome": "SOLAS 74 as amended by Regulation III/4, 34, 35, 36 and MSC/Circ 809 as"
+        },
+        {
+          "numero": "2",
+          "nome": "LSA Code, regulations I/1.2, IV/4.1 and 4.2."
+        },
+        {
+          "numero": "3",
+          "nome": "IMO resolution MSC 81(70) Part 1."
+        },
+        {
+          "numero": "2",
+          "nome": "Liferaft Nominal Dimensions :"
+        },
+        {
+          "numero": "3",
+          "nome": "Period to overhaul"
+        },
+        {
+          "numero": "4",
+          "nome": "Inflation system and Gas charges"
+        },
+        {
+          "numero": "5",
+          "nome": "Torque wrench settings:"
+        },
+        {
+          "numero": "6",
+          "nome": "Powerunit activation cord lengths:"
+        },
+        {
+          "numero": "7",
+          "nome": "Installation notes:"
+        },
+        {
+          "numero": "6",
+          "nome": "Carry out a re-test of the buoyancy tubes again."
+        },
+        {
+          "numero": "1",
+          "nome": "The damage does not enter a seam."
+        },
+        {
+          "numero": "2",
+          "nome": "The damage does not pass under a major anchorage point,"
+        },
+        {
+          "numero": "3",
+          "nome": "The maximum area of the patch is not more than one eighth of"
+        },
+        {
+          "numero": "1",
+          "nome": "Inflate the liferaft to working pressure."
+        },
+        {
+          "numero": "2",
+          "nome": "Using a ½” square drive ratchet and the appropriate adaptor tool (refer to"
+        },
+        {
+          "numero": "3",
+          "nome": "Deflate the upper and lower buoyancies."
+        },
+        {
+          "numero": "4",
+          "nome": "Holding the PRV nut through the buoyancy fabric, unscrew the valve"
+        },
+        {
+          "numero": "5",
+          "nome": "Discard all parts of the faulty PRV; Do not reuse any of them."
+        },
+        {
+          "numero": "1",
+          "nome": "Assemble the valve body as shown in, (FIGURE 603)."
+        },
+        {
+          "numero": "2",
+          "nome": "Push the nut into the hole from which the faulty one was removed."
+        },
+        {
+          "numero": "3",
+          "nome": "Holding the nut in place, through the buoyancy fabric, hand-tighten the"
+        },
+        {
+          "numero": "4",
+          "nome": "Slowly inflate the liferaft buoyancy. Using a calibrated ½” square drive torque"
+        },
+        {
+          "numero": "5",
+          "nome": "Complete and record an air-holding test as described in Chapter 5."
+        },
+        {
+          "numero": "1",
+          "nome": "EMERGENCY PACKS"
+        },
+        {
+          "numero": "2",
+          "nome": "PYROTECHNICS WRAPPING"
+        },
+        {
+          "numero": "1",
+          "nome": "Put the pack 2, containing food and water into the container first. The"
+        },
+        {
+          "numero": "2",
+          "nome": "Tie the valise straps together."
+        },
+        {
+          "numero": "3",
+          "nome": "Using a bowline knot, tie the pack 2 to the inner lifeline using the flying"
+        },
+        {
+          "numero": "4",
+          "nome": "Pack 1, the plan view and section view AA, shows the position and layout"
+        },
+        {
+          "numero": "5",
+          "nome": "Tie the valise straps together."
+        },
+        {
+          "numero": "6",
+          "nome": "Using a bowline knot, tie the pack 1 to the inner lifeline using the flying"
+        },
+        {
+          "numero": "1",
+          "nome": "Work the raft into the container and into the corners to utilise all space of"
+        },
+        {
+          "numero": "2",
+          "nome": "Place the items into the valise as shown in (FIGURE 708)."
+        },
+        {
+          "numero": "3",
+          "nome": "Pack 1, the plan view and section view AA, shows the position and layout"
+        },
+        {
+          "numero": "5",
+          "nome": "Using a bowline knot, tie the E-pack to the inner lifeline using the flying"
+        },
+        {
+          "numero": "1",
+          "nome": "Fold a length of 50 mm wide adhesive tape over the top opening of the valise"
+        },
+        {
+          "numero": "2",
+          "nome": "Insert a vacuum line and remove the air from the valise."
+        },
+        {
+          "numero": "3",
+          "nome": "Withdraw the line and quickly seal the open part with tape."
+        },
+        {
+          "numero": "4",
+          "nome": "Fold the ‘ears’ at the top of the valise inwards and down. Secure these with"
+        },
+        {
+          "numero": "5",
+          "nome": "Roll down the excess valise tightly."
+        },
+        {
+          "numero": "6",
+          "nome": "Attach the buckle straps together (FIGURE 710). Tie the flying ends together"
+        },
+        {
+          "numero": "5",
+          "nome": "Packing Davit Launch liferaft into a container............................... 822"
+        },
+        {
+          "numero": "6",
+          "nome": "Packing a Throw Over liferaft into a container.............................. 840"
+        },
+        {
+          "numero": "7",
+          "nome": "Container crimps heat seal option ............................................... 855"
+        },
+        {
+          "numero": "8",
+          "nome": "Container labelling ...................................................................... 856"
+        },
+        {
+          "numero": "2",
+          "nome": "Preparation of the Liferaft"
+        },
+        {
+          "numero": "1",
+          "nome": "This operation is best performed with the arch-tube deflated."
+        },
+        {
+          "numero": "2",
+          "nome": "From outside the liferaft, pass the connector and all of the cable from the"
+        },
+        {
+          "numero": "3",
+          "nome": "Slide the External lamp unit into half the patch (FIGURE 805a)."
+        },
+        {
+          "numero": "4",
+          "nome": "Secure the remaining half of the External lamp unit into the patch (FIGURE"
+        }
+      ]
+    },
+    "total_paginas": 300,
+    "total_tabelas": 81,
+    "keywords_count": {
+      "especificação": 0,
+      "composição": 0,
+      "spare": 32,
+      "component": 39,
+      "material": 35,
+      "capacity": 19,
+      "weight": 39,
+      "dimension": 15
+    }
+  },
+  "SEASAVA_Plus": {
+    "marca": "SEASAVA",
+    "modelo": "Plus",
+    "manual": "Seasava Plus",
+    "especificacoes": {
+      "componentes": []
+    },
+    "total_paginas": 254,
+    "total_tabelas": 0,
+    "keywords_count": {
+      "especificação": 0,
+      "composição": 0,
+      "spare": 0,
+      "component": 0,
+      "material": 0,
+      "capacity": 0,
+      "weight": 0,
+      "dimension": 0
+    }
+  }
+}

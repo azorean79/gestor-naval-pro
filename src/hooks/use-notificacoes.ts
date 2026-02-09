@@ -31,7 +31,7 @@ export function useNotificacoes(options: {
   skip?: number
   enabled?: boolean
 } = {}) {
-  return useQuery<Notificacao[]>({
+  return useQuery<{ data: Notificacao[], total: number, page: number, limit: number, totalPages: number }>({
     queryKey: ['notificacoes', options],
     queryFn: async () => {
       const params = new URLSearchParams()

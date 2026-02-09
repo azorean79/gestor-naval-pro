@@ -167,6 +167,7 @@ exports.Prisma.JangadaScalarFieldEnum = {
   modeloId: 'modeloId',
   lotacaoId: 'lotacaoId',
   tipoPackId: 'tipoPackId',
+  cilindroId: 'cilindroId',
   tipo: 'tipo',
   tipoPack: 'tipoPack',
   itensTipoPack: 'itensTipoPack',
@@ -179,15 +180,30 @@ exports.Prisma.JangadaScalarFieldEnum = {
   numeroAprovacao: 'numeroAprovacao',
   status: 'status',
   estado: 'estado',
+  dataEntradaEstacao: 'dataEntradaEstacao',
+  dataPrevistaEntrega: 'dataPrevistaEntrega',
   clienteId: 'clienteId',
   proprietarioId: 'proprietarioId',
   navioId: 'navioId',
   tecnico: 'tecnico',
-  hruAplicavel: 'hruAplicavel',
   hruNumeroSerie: 'hruNumeroSerie',
-  hruModelo: 'hruModelo',
   hruDataInstalacao: 'hruDataInstalacao',
   hruDataValidade: 'hruDataValidade',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CamaraJangadaScalarFieldEnum = {
+  id: 'id',
+  jangadaId: 'jangadaId',
+  tipo: 'tipo',
+  valvulaId: 'valvulaId',
+  nomeValvula: 'nomeValvula',
+  sistemaSufacao: 'sistemaSufacao',
+  dataInstalacao: 'dataInstalacao',
+  proximoTeste: 'proximoTeste',
+  estado: 'estado',
+  observacoes: 'observacoes',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -224,6 +240,7 @@ exports.Prisma.CertificadoScalarFieldEnum = {
   clienteId: 'clienteId',
   navioId: 'navioId',
   jangadaId: 'jangadaId',
+  agendamentoId: 'agendamentoId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -242,7 +259,6 @@ exports.Prisma.StockScalarFieldEnum = {
   refFabricante: 'refFabricante',
   lote: 'lote',
   codigoBarra: 'codigoBarra',
-  dataValidade: 'dataValidade',
   imagem: 'imagem',
   status: 'status',
   createdAt: 'createdAt',
@@ -350,6 +366,7 @@ exports.Prisma.ObraScalarFieldEnum = {
   dataFim: 'dataFim',
   orcamento: 'orcamento',
   clienteId: 'clienteId',
+  navioId: 'navioId',
   responsavel: 'responsavel',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -391,9 +408,11 @@ exports.Prisma.InspecaoScalarFieldEnum = {
   status: 'status',
   tecnico: 'tecnico',
   observacoes: 'observacoes',
+  obraId: 'obraId',
   navioId: 'navioId',
   jangadaId: 'jangadaId',
   cilindroId: 'cilindroId',
+  agendamentoId: 'agendamentoId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -433,6 +452,25 @@ exports.Prisma.InspecaoComponenteScalarFieldEnum = {
   validade: 'validade',
   tipo: 'tipo',
   notas: 'notas',
+  codigoFabricante: 'codigoFabricante',
+  referenciaOrey: 'referenciaOrey',
+  agendamentoId: 'agendamentoId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ComponentePackScalarFieldEnum = {
+  id: 'id',
+  jangadaId: 'jangadaId',
+  nome: 'nome',
+  descricao: 'descricao',
+  quantidade: 'quantidade',
+  estado: 'estado',
+  dataValidade: 'dataValidade',
+  dataInstalacao: 'dataInstalacao',
+  proximaInspecao: 'proximaInspecao',
+  observacoes: 'observacoes',
+  agendamentoId: 'agendamentoId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -444,6 +482,20 @@ exports.Prisma.SubstituicaoComponenteScalarFieldEnum = {
   motivoSubstituicao: 'motivoSubstituicao',
   dataSubstituicao: 'dataSubstituicao',
   inspecaoId: 'inspecaoId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ComponenteStockScalarFieldEnum = {
+  id: 'id',
+  stockId: 'stockId',
+  inspecaoComponenteId: 'inspecaoComponenteId',
+  componentePackId: 'componentePackId',
+  inspecaoId: 'inspecaoId',
+  certificadoId: 'certificadoId',
+  quantidade: 'quantidade',
+  estado: 'estado',
+  notas: 'notas',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -642,6 +694,51 @@ exports.Prisma.TarefaScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.ChecklistInspecaoScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  descricao: 'descricao',
+  categoria: 'categoria',
+  frequencia: 'frequencia',
+  ferramentaNecessaria: 'ferramentaNecessaria',
+  criterioAprovacao: 'criterioAprovacao',
+  referenciaManual: 'referenciaManual',
+  aplicavelMarcaId: 'aplicavelMarcaId',
+  aplicavelModeloId: 'aplicavelModeloId',
+  aplicavelLotacaoId: 'aplicavelLotacaoId',
+  ordem: 'ordem',
+  ativo: 'ativo',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.VerificacaoChecklistInspecaoScalarFieldEnum = {
+  id: 'id',
+  checklistItemId: 'checklistItemId',
+  inspecaoId: 'inspecaoId',
+  verificado: 'verificado',
+  aprovado: 'aprovado',
+  valor: 'valor',
+  observacoes: 'observacoes',
+  responsavel: 'responsavel',
+  dataVerificacao: 'dataVerificacao',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.FeriadoScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  data: 'data',
+  tipo: 'tipo',
+  regiao: 'regiao',
+  descricao: 'descricao',
+  ativo: 'ativo',
+  recorrente: 'recorrente',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -662,6 +759,7 @@ exports.Prisma.ModelName = {
   Cliente: 'Cliente',
   Navio: 'Navio',
   Jangada: 'Jangada',
+  CamaraJangada: 'CamaraJangada',
   Proprietario: 'Proprietario',
   Pessoa: 'Pessoa',
   Certificado: 'Certificado',
@@ -679,7 +777,9 @@ exports.Prisma.ModelName = {
   CustoInspecao: 'CustoInspecao',
   HistoricoInspecao: 'HistoricoInspecao',
   InspecaoComponente: 'InspecaoComponente',
+  ComponentePack: 'ComponentePack',
   SubstituicaoComponente: 'SubstituicaoComponente',
+  ComponenteStock: 'ComponenteStock',
   MarcaJangada: 'MarcaJangada',
   ModeloJangada: 'ModeloJangada',
   LotacaoJangada: 'LotacaoJangada',
@@ -692,7 +792,10 @@ exports.Prisma.ModelName = {
   Envio: 'Envio',
   EnvioItem: 'EnvioItem',
   Correspondencia: 'Correspondencia',
-  Tarefa: 'Tarefa'
+  Tarefa: 'Tarefa',
+  ChecklistInspecao: 'ChecklistInspecao',
+  VerificacaoChecklistInspecao: 'VerificacaoChecklistInspecao',
+  Feriado: 'Feriado'
 };
 
 /**

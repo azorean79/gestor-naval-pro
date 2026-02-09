@@ -36,9 +36,8 @@ async function main() {
     try {
       // Componentes que serão TODOS substituídos
       const componentesSubstituidos = [
-        { nome: 'Coletes de Salvação', quantidade: jangada.capacidade, motivoSubstituicao: 'Desgaste por uso prolongado' },
-        { nome: 'EPIRB', quantidade: 1, motivoSubstituicao: 'Validade expirada' },
-        { nome: 'Cilindro CO2', quantidade: 2, motivoSubstituicao: 'Pressão abaixo do recomendado' },
+     
+        { nome: 'Cilindro CO2', quantidade: 2, motivoSubstituicao: 'Peso abaixo do recomendado' },
         { nome: 'Sinalizador Luminoso', quantidade: 3, motivoSubstituicao: 'Bateria vencida' },
         { nome: 'Foguetes de Sinalização', quantidade: 6, motivoSubstituicao: 'Validade expirada' },
         { nome: 'Fumígenos Flutuantes', quantidade: 2, motivoSubstituicao: 'Validade expirada' },
@@ -46,8 +45,7 @@ async function main() {
         { nome: 'Corneta de Sinais', quantidade: 1, motivoSubstituicao: 'Sem pressão' },
         { nome: 'Kit de Primeiros Socorros', quantidade: 1, motivoSubstituicao: 'Medicamentos vencidos' },
         { nome: 'Kit Enjoo Mar', quantidade: 1, motivoSubstituicao: 'Validade expirada' },
-        { nome: 'Bussola', quantidade: 1, motivoSubstituicao: 'Bolha no líquido' },
-        { nome: 'Lanterna Estanque', quantidade: 1, motivoSubstituicao: 'Não funciona' },
+       { nome: 'Lanterna Estanque', quantidade: 1, motivoSubstituicao: 'Não funciona' },
         { nome: 'Kit de Pesca', quantidade: 1, motivoSubstituicao: 'Anzóis enferrujados' },
         { nome: 'Copo Graduado', quantidade: 1, motivoSubstituicao: 'Trincado' },
         { nome: 'Bomba Manual', quantidade: 1, motivoSubstituicao: 'Válvulas desgastadas' },
@@ -59,7 +57,8 @@ async function main() {
         { nome: 'Âncora Flutuante', quantidade: 1, motivoSubstituicao: 'Cabo desgastado' },
         { nome: 'Cabo de Segurança', quantidade: 1, motivoSubstituicao: 'Fibras rompidas' },
         { nome: 'Válvula de Pressão', quantidade: 2, motivoSubstituicao: 'Vedação comprometida' },
-        { nome: 'Manual de Instruções', quantidade: 1, motivoSubstituicao: 'Ilegível por umidade' },
+        { nome: 'Manual de Instruções', quantidade: 1, motivoSubstituicao: 'Ilegível por umidade' }
+       ,
       ]
 
       // Criar inspeção

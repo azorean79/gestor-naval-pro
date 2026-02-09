@@ -48,13 +48,18 @@ export interface QuadroInspecaoExtraction {
 }
 
 // Convert Excel to text preserving structure
-async function excelToStructuredText(buffer: Buffer): Promise<string> {
+async function excelToStructuredText(buffer: Buffer, sheetIndex: number = 1): Promise<string> {
   try {
     const workbook = XLSX.read(buffer, { type: 'buffer' });
-    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    const sheet = workbook.Sheets[workbook.SheetNames[sheetIndex]];
+    
+    if (!sheet) {
+      throw new Error(`Sheet at index ${sheetIndex} not found. Available sheets: ${workbook.SheetNames.join(', ')}`);
+    }
+    
+    const range = XLSX.utils.decode_range(sheet['!ref'] || 'A1:Z100');
     
     let text = '';
-    const range = XLSX.utils.decode_range(sheet['!ref'] || 'A1');
     
     // Extract all cells with their values in order
     for (let row = range.s.r; row <= range.e.r; row++) {
@@ -79,8 +84,8 @@ async function excelToStructuredText(buffer: Buffer): Promise<string> {
 // Specialized analyzer for "Quadro de Inspeção da Jangada"
 export async function analyzeQuadroInspecao(buffer: Buffer, filename: string): Promise<QuadroInspecaoExtraction> {
   try {
-    // Convert Excel to structured text
-    const documentText = await excelToStructuredText(buffer);
+    // Convert Excel to structured text - use second sheet (index 1)
+    const documentText = await excelToStructuredText(buffer, 1);
     
     const prompt = `You are a maritime inspection expert analyzing a "Quadro de Inspeção da Jangada" (Liferaft Inspection Schedule) document.
 

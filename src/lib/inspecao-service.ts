@@ -49,12 +49,30 @@ export async function criarInspecao(data: InspecaoData) {
     : '000001'
   const numero = `INS-${proximoNumero}`
 
+  // Observação automática de boletins aplicados
+  let observacaoBoletins = '';
+  if (data.jangadaId) {
+    // Boletins aplicados foram removidos do schema
+    // const jangada = await prisma.jangada.findUnique({
+    //   where: { id: data.jangadaId },
+    //   include: { marca: true, modelo: true },
+    // });
+    // const boletinsMarca = jangada?.marca?.boletinsAplicados || [];
+    // const boletinsModelo = jangada?.modelo?.boletinsAplicados || [];
+    // const boletins = [...boletinsMarca, ...boletinsModelo];
+    // if (boletins.length > 0) {
+    //   observacaoBoletins = `Boletins de serviço aplicados: ${boletins.join(', ')}. Verificar aplicação e registrar durante a inspeção.`;
+    // }
+  }
+
+  const observacoesFinal = [data.observacoes, observacaoBoletins].filter(Boolean).join('\n');
+
   return prisma.inspecao.create({
     data: {
       numero,
       tipoInspecao: data.tipoInspecao,
       resultado: data.resultado || 'aprovada',
-      observacoes: data.observacoes,
+      observacoes: observacoesFinal,
       tecnico: data.tecnico,
       navioId: data.navioId,
       jangadaId: data.jangadaId,

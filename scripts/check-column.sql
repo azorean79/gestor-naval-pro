@@ -1,0 +1,1 @@
+SELECT id, "numeroSerie" FROM jangadas LIMIT 1;

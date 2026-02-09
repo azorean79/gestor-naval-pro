@@ -2,58 +2,183 @@
 
 import { useParams, useRouter } from 'next/navigation'
 import { useState } from 'react'
-import { ArrowLeft, Edit, Trash2, LifeBuoy, AlertCircle, Calendar, CheckCircle, Plus } from 'lucide-react'
+import { ArrowLeft, Edit, Trash2, LifeBuoy, AlertCircle, Calendar, CheckCircle, Plus, Save } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useMutation } from '@tanstack/react-query'
 import { format } from 'date-fns'
 import { pt } from 'date-fns/locale'
 import { toast } from 'sonner'
 import { Skeleton } from '@/components/ui/skeleton'
 import { EditJangadaForm } from '@/components/jangadas/edit-jangada-form'
+import { Input } from '@/components/ui/input'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+  // Fetch componentes associados à jangada
+  const { data: componentes = [] } = useQuery({
+    queryKey: ['componentes', 'jangada', id],
+    queryFn: async () => {
+      const res = await fetch(`/api/inspecao-componente?jangadaId=${id}`)
+      if (!res.ok) throw new Error('Erro ao buscar componentes')
+      return res.json()
+    },
+    enabled: !!id,
+  })
+
+  // Inline edit mutation
+  const mutation = useMutation({
+    mutationFn: async ({ componenteId, validade, estado }: { componenteId: string, validade?: string, estado?: string }) => {
+      const res = await fetch(`/api/inspecao-componente/${componenteId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ validade, estado }),
+      })
+      if (!res.ok) throw new Error('Erro ao atualizar componente')
+      return res.json()
+    },
+  })
+  // Estado local para edição inline
+  const [editComponent, setEditComponent] = useState<{ [id: string]: { validade?: string, estado?: string } }>({})
+  // Estados possíveis para componentes
+  const estados = [
+    { value: 'ok', label: '✓ OK' },
+    { value: 'aviso', label: '⚠ Aviso' },
+    { value: 'reparo', label: '🔧 Precisa Reparo' },
+    { value: 'substituir', label: '❌ Substituir' },
+  ]
+        {/* Componentes Table with Inline Editing */}
+        <div className="mb-8">
+          <Card className="bg-white shadow-lg">
+            <CardHeader>
+              <CardTitle>Componentes Associados</CardTitle>
+              <CardDescription>{(componentes as any)?.length || 0} componente(s) associado(s)</CardDescription>
+            </CardHeader>
+            <CardContent>
+              {!(componentes as any) || (componentes as any).length === 0 ? (
+                <p className="text-center text-gray-500 py-8">Nenhum componente associado a esta jangada</p>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Nome</TableHead>
+                      <TableHead>Validade</TableHead>
+                      <TableHead>Estado</TableHead>
+                      <TableHead>Ações</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {(componentes as any).map((c: any) => {
+                      const edit = editComponent[c.id] || {}
+                      // Validação de status
+                      let status = 'OK';
+                      let dias = null;
+                      if (c.validade) {
+                        dias = Math.ceil((new Date(c.validade) - new Date()) / (1000 * 60 * 60 * 24));
+                        if (dias < 0) status = 'EXPIRADO';
+                        else if (dias < 365) status = 'ALERTA';
+                      }
+                      return (
+                        <TableRow key={c.id}>
+                          <TableCell>{c.nome || '-'}</TableCell>
+                          <TableCell>
+                            <Input
+                              type="date"
+                              value={edit.validade ?? (c.validade ? new Date(c.validade).toISOString().slice(0, 10) : '')}
+                              onChange={e => setEditComponent(prev => ({ ...prev, [c.id]: { ...prev[c.id], validade: e.target.value } }))}
+                              className="w-36"
+                            />
+                            {status === 'EXPIRADO' && <Badge variant="destructive" className="ml-2">Expirado</Badge>}
+                            {status === 'ALERTA' && <Badge variant="warning" className="ml-2">Alerta</Badge>}
+                          </TableCell>
+                          <TableCell>
+                            <Select
+                              onValueChange={value => setEditComponent(prev => ({ ...prev, [c.id]: { ...prev[c.id], estado: value } }))}
+                              value={edit.estado ?? c.estado ?? ''}
+                            >
+                              <SelectTrigger className="w-36">
+                                <SelectValue placeholder="Selecione" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {estados.map(e => (
+                                  <SelectItem key={e.value} value={e.value}>{e.label}</SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </TableCell>
+                          <TableCell>
+                            <Button
+                              size="sm"
+                              onClick={async () => {
+                                try {
+                                  await mutation.mutateAsync({
+                                    componenteId: c.id,
+                                    validade: editComponent[c.id]?.validade,
+                                    estado: editComponent[c.id]?.estado,
+                                  })
+                                  toast.success('Componente atualizado!')
+                                  setEditComponent(prev => ({ ...prev, [c.id]: {} }))
+                                  refetch()
+                                } catch (err) {
+                                  toast.error('Erro ao atualizar componente')
+                                }
+                              }}
+                              disabled={mutation.isLoading}
+                            >
+                              <Save className="mr-2 h-4 w-4" />
+                              Salvar
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                      )
+                    })}
+                  </TableBody>
+                </Table>
+              )}
+            </CardContent>
+          </Card>
+        </div>
 
 export default function JangadaDetailPage() {
   const params = useParams()
   const router = useRouter()
-  const id = params.id as string
+  const numeroSerie = params.id as string
   const [editOpen, setEditOpen] = useState(false)
 
   const { data, isLoading, error, refetch } = useQuery({
-    queryKey: ['jangada', id],
+    queryKey: ['jangada', numeroSerie],
     queryFn: async () => {
-      const res = await fetch(`/api/jangadas/${id}`)
+      const res = await fetch(`/api/jangadas/${numeroSerie}`)
       if (!res.ok) throw new Error('Erro ao buscar jangada')
       return res.json()
     },
   })
 
   const { data: cilindros = [] } = useQuery({
-    queryKey: ['cilindros', 'jangada', id],
+    queryKey: ['cilindros', 'jangada', numeroSerie],
     queryFn: async () => {
-      const res = await fetch(`/api/cilindros?jangadaId=${id}`)
+      const res = await fetch(`/api/cilindros?jangadaId=${numeroSerie}`)
       if (!res.ok) throw new Error('Erro ao buscar cilindros')
       return res.json()
     },
-    enabled: !!id,
+    enabled: !!numeroSerie,
   })
 
   const { data: inspecoes = [] } = useQuery({
-    queryKey: ['inspecoes', 'jangada', id],
+    queryKey: ['inspecoes', 'jangada', numeroSerie],
     queryFn: async () => {
-      const res = await fetch(`/api/inspecoes?jangadaId=${id}`)
+      const res = await fetch(`/api/inspecoes?jangadaId=${numeroSerie}`)
       if (!res.ok) throw new Error('Erro ao buscar inspeções')
       return res.json()
     },
-    enabled: !!id,
+    enabled: !!numeroSerie,
   })
 
   const handleDelete = async () => {
     if (!confirm('Tem a certeza que deseja eliminar esta jangada?')) return
     try {
-      const response = await fetch(`/api/jangadas/${id}`, { method: 'DELETE' })
+      const response = await fetch(`/api/jangadas/${numeroSerie}`, { method: 'DELETE' })
       if (!response.ok) throw new Error('Erro ao eliminar jangada')
       toast.success('Jangada eliminada com sucesso!')
       router.push('/jangadas')

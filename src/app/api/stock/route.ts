@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
     const sortBy = searchParams.get('sortBy') || 'createdAt';
     const sortOrder = searchParams.get('sortOrder') || 'desc';
     const page = parseInt(searchParams.get('page') || '1');
-    const limit = parseInt(searchParams.get('limit') || '10');
+    const limit = parseInt(searchParams.get('limit') || '300');
 
     const where: any = {};
 
@@ -129,7 +129,6 @@ export async function POST(request: NextRequest) {
         refOrey: referenciaOrey?.trim(),
         refFabricante: referenciaFabricante?.trim(),
         lote: lote?.trim(),
-        dataValidade: validade ? new Date(validade) : null,
         imagem: imagem?.trim()
       }
     })

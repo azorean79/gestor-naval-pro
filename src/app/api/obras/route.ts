@@ -85,11 +85,32 @@ export async function POST(request: NextRequest) {
       },
       include: {
         cliente: {
-          select: { id: true, nome: true, nif: true },
+          select: { id: true, nome: true, nif: true, endereco: true },
+        },
+        navio: {
+          include: {
+            cliente: true,
+          },
         },
       },
     });
 
+    // Geração automática da declaração de isenção de IVA
+    try {
+      const { gerarDeclaracaoIVA } = await import('@/lib/gerarDeclaracaoIVA');
+      await gerarDeclaracaoIVA({
+        cliente: obra.cliente?.nome || '',
+        nif: obra.cliente?.nif || '',
+        morada: obra.cliente?.endereco || '',
+        navio: obra.navio?.nome || '',
+        matricula: obra.navio?.matricula || '',
+        portoRegisto: obra.navio?.bandeira || '',
+        numeroSerie: '',
+        data: new Date(),
+      });
+    } catch (err) {
+      console.error('Erro ao gerar declaração de IVA:', err);
+    }
     return NextResponse.json(obra, { status: 201 });
 
   } catch (error) {

@@ -1,9 +1,8 @@
+
+import { analyzeWithGeminiPython } from './gemini-python-bridge';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const apiKey = process.env.GEMINI_API_KEY;
-
-// Initialize only if API key is available (allows build without key)
-const genAI = apiKey ? new GoogleGenerativeAI(apiKey) : null;
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
 
 export interface DocumentAnalysis {
   type: string;
@@ -24,45 +23,14 @@ export async function analyzeDocument(
   fileName: string,
   mimeType: string
 ): Promise<DocumentAnalysis> {
-  if (!genAI) {
-    throw new Error('GEMINI_API_KEY environment variable is not set');
-  }
-  
+  // Convert buffer to base64
+  const base64Data = fileBuffer.toString('base64');
+
+  // Portuguese prompt for document analysis
+  const prompt = `Analise este documento (base64, tipo: ${mimeType}, nome: ${fileName}) e identifique o tipo. Responda APENAS com um JSON no seguinte formato:\n{\n  \"type\": \"tipo_do_documento\",\n  \"confidence\": 0.95,\n  \"data\": { campos_extraídos }\n}\n\nTipos possíveis:\n- \"certificado_inspecao\" - Certificado de inspeção de jangada salva-vidas\n- \"relatorio_acidente\" - Relatório de acidente ou ocorrência\n- \"quadro_inspecao\" - Quadro de inspeção com testes e componentes\n- \"fatura\" - Fatura ou documento financeiro\n- \"outros\"\n\nExtraia os dados relevantes no campo \"data\" baseado no tipo identificado.\n\nArquivo (base64):\n${base64Data}`;
+
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
-
-    // Convert buffer to base64
-    const base64Data = fileBuffer.toString('base64');
-
-    const prompt = `Analise este documento e identifique o tipo. Responda APENAS com um JSON no seguinte formato:
-{
-  "type": "tipo_do_documento",
-  "confidence": 0.95,
-  "data": { campos_extraídos }
-}
-
-Tipos possíveis:
-- "certificado_inspecao" - Certificado de inspeção de jangada salva-vidas
-- "relatorio_acidente" - Relatório de acidente ou ocorrência
-- "quadro_inspecao" - Quadro de inspeção com testes e componentes
-- "fatura" - Fatura ou documento financeiro
-- "outros"
-
-Extraia os dados relevantes no campo "data" baseado no tipo identificado.`;
-
-    const result = await model.generateContent([
-      {
-        inlineData: {
-          mimeType,
-          data: base64Data
-        }
-      },
-      prompt
-    ]);
-
-    const response = await result.response;
-    const text = response.text();
-
+    const text = await analyzeWithGeminiPython(prompt);
     // Try to parse JSON from response
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (jsonMatch) {
@@ -74,7 +42,6 @@ Extraia os dados relevantes no campo "data" baseado no tipo identificado.`;
         raw_analysis: text
       };
     }
-
     return {
       type: 'unknown',
       confidence: 0,
@@ -119,7 +86,7 @@ export async function analyzeQuadroInspecao(
   }
   
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.0-pro' });
 
     const base64Data = fileBuffer.toString('base64');
 
@@ -133,6 +100,13 @@ ESTRUTURA ESPERADA:
     "modelo": "string",
     "lotacao": number,
     "ano_fabrico": number
+  },
+  "certificado": {
+    "numero": "string",
+    "tipo": "CERTIFICADO_INSPECAO|CERTIFICADO_APROVACAO",
+    "data_emissao": "YYYY-MM-DD",
+    "data_validade": "YYYY-MM-DD",
+    "entidade_emissora": "string"
   },
   "cilindro": {
     "numero_serie": "string",

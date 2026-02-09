@@ -94,10 +94,8 @@ async function main() {
 
         // Criar componentes de inspeção (itens padrão de uma jangada)
         const componentesPadrao = [
-          { nome: 'Coletes de Salvação', tipo: 'coletes', quantidade: lotacao?.capacidade || 5 },
-          { nome: 'EPIRB (Emergency Position Indicating Radio Beacon)', tipo: 'epirb', quantidade: 1 },
-          { nome: 'Cilindro de CO2', tipo: 'cilindro', quantidade: 1 },
-          { nome: 'Cilindro de N2', tipo: 'cilindro', quantidade: 1 },
+          
+          { nome: 'Cilindro de CO2+n2', tipo: 'cilindro', quantidade: 1 },
           { nome: 'Kit Primeiros Socorros', tipo: 'kit', quantidade: 1 },
           { nome: 'Sinalizadores de Fumo', tipo: 'sinalizador', quantidade: 4 },
           { nome: 'Sinalizadores Luminosos', tipo: 'sinalizador', quantidade: 2 },

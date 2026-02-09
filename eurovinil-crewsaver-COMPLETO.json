@@ -1,0 +1,562 @@
+{
+  "fonte": "Manual Eurovinil + Tabela 3.3 extraída",
+  "data_extracao": "2026-02-06",
+  
+  "marcas": [
+    {
+      "nome": "EUROVINIL",
+      "modelos": [
+        {
+          "nome": "LEISURE",
+          "descricao": "Jangada de lazer não-ISO",
+          "sistema_insuflacao": "VTE/87-PED",
+          "sistema_alternativo": "VTE/99-ISO",
+          "capacidades": {
+            "4p": {
+              "cilindros": 1,
+              "co2_kg": 1.90,
+              "n2_kg": 0.13,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "pressure_mmwg": 2814,
+              "pressure_inh2o": 110.8,
+              "pressure_mbar": 276,
+              "thread": "17E",
+              "cylinder_pn": "10394046",
+              "valve_pn": "10388044",
+              "weak_link_kn": 1.5,
+              "davit_launch": false,
+              "container": {
+                "vtr": {"pn": "99991560", "dimensoes": "74x42x29 cm"},
+                "valise": {"pn": "10362203", "dimensoes": "68x37x19 cm"},
+                "abs": {"pn": "99991023", "dimensoes": "69x39x28 cm"}
+              }
+            },
+            "6p": {
+              "cilindros": 1,
+              "co2_kg": 2.20,
+              "n2_kg": 0.13,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "pressure_mmwg": 2814,
+              "pressure_inh2o": 110.8,
+              "pressure_mbar": 276,
+              "thread": "17E",
+              "cylinder_pn": "10394046",
+              "valve_pn": "10388044",
+              "weak_link_kn": 1.5,
+              "davit_launch": false,
+              "container": {
+                "vtr": {"pn": "99991563", "dimensoes": "74x52x29 cm"},
+                "valise": {"pn": "10362213", "dimensoes": "68x40x23 cm"},
+                "abs": {"pn": "99991024", "dimensoes": "69x40x29 cm"}
+              }
+            },
+            "8p": {
+              "cilindros": 1,
+              "co2_kg": 3.50,
+              "n2_kg": 0.20,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "pressure_mmwg": 2814,
+              "pressure_inh2o": 110.8,
+              "pressure_mbar": 276,
+              "thread": "17E",
+              "cylinder_pn": "10394046",
+              "valve_pn": "10388044",
+              "weak_link_kn": 1.8,
+              "davit_launch": false,
+              "container": {
+                "vtr": {"pn": "99991563", "dimensoes": "74x52x29 cm"},
+                "valise": {"pn": "10362153", "dimensoes": "70x41x26 cm"},
+                "abs": {"pn": "99991025", "dimensoes": "71x49x29 cm"}
+              }
+            },
+            "10p": {
+              "cilindros": 1,
+              "co2_kg": 3.80,
+              "n2_kg": 0.22,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "pressure_mmwg": 2814,
+              "pressure_inh2o": 110.8,
+              "pressure_mbar": 276,
+              "thread": "25E",
+              "cylinder_pn": "10394085",
+              "valve_pn": "10388044",
+              "weak_link_kn": 1.8,
+              "davit_launch": false,
+              "container": {
+                "vtr": {"pn": "99991563", "dimensoes": "74x52x29 cm"},
+                "valise": {"pn": "10362153", "dimensoes": "70x41x26 cm"},
+                "abs": {"pn": "99991025", "dimensoes": "71x49x29 cm"}
+              }
+            },
+            "12p": {
+              "cilindros": 1,
+              "co2_kg": 4.25,
+              "n2_kg": 0.27,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "pressure_mmwg": 2814,
+              "pressure_inh2o": 110.8,
+              "pressure_mbar": 276,
+              "thread": "25E",
+              "cylinder_pn": "10394086",
+              "valve_pn": "10388044",
+              "weak_link_kn": 2.0,
+              "davit_launch": false,
+              "container": {
+                "vtr": {"pn": "99991561", "dimensoes": "82x54x29 cm"},
+                "valise": {"pn": "10362173", "dimensoes": "79x50x28 cm"},
+                "abs": {"pn": "99991050", "dimensoes": "80x49x31 cm"}
+              }
+            }
+          },
+          "valvulas": [
+            {"nome": "SUPERNOVA", "pn": "10399310", "torque_nm": 25},
+            {"nome": "BRAVO 2005", "pn": "99101109", "torque_nm": 25},
+            {"nome": "PRV VA70", "pn": "10359166", "torque_nm": 25}
+          ]
+        },
+        {
+          "nome": "SYNTESY 9650-1",
+          "descricao": "Jangada ISO Type 1 ISO9650-1:2005",
+          "sistema_insuflacao": "VTE/99-ISO/V1",
+          "sistema_alternativo": "VTE/99-ISO/V1W",
+          "capacidades": {
+            "4p": {
+              "cilindros": 1,
+              "co2_kg": 1.90,
+              "n2_kg": 0.13,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "pressure_mmwg": 2814,
+              "pressure_inh2o": 110.8,
+              "pressure_mbar": 276,
+              "thread": "1 NGT",
+              "cylinder_pn": "10394046",
+              "valve_pn": "10388044",
+              "weak_link_kn": 1.5,
+              "davit_launch": false,
+              "container": {
+                "vtr": {"pn": "99991563", "dimensoes": "74x52x29 cm"},
+                "valise": {"pn": "10362153", "dimensoes": "70x41x26 cm"},
+                "abs": {"pn": "99991024", "dimensoes": "70x41x26 cm"}
+              }
+            },
+            "6p": {
+              "cilindros": 1,
+              "co2_kg": 3.10,
+              "n2_kg": 0.20,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "pressure_mmwg": 2814,
+              "pressure_inh2o": 110.8,
+              "pressure_mbar": 276,
+              "thread": "1 NGT",
+              "cylinder_pn": "10394046",
+              "valve_pn": "10388044",
+              "weak_link_kn": 1.5,
+              "davit_launch": false,
+              "container": {
+                "vtr": {"pn": "99991561", "dimensoes": "82x54x29 cm"},
+                "valise": {"pn": "10362163", "dimensoes": "70x50x28 cm"},
+                "abs": {"pn": "99991025", "dimensoes": "71x49x29 cm"}
+              }
+            },
+            "8p": {
+              "cilindros": 1,
+              "co2_kg": 3.50,
+              "n2_kg": 0.20,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "pressure_mmwg": 2814,
+              "pressure_inh2o": 110.8,
+              "pressure_mbar": 276,
+              "thread": "1 NGT",
+              "cylinder_pn": "10394046",
+              "valve_pn": "10388044",
+              "weak_link_kn": 1.8,
+              "davit_launch": false,
+              "container": {
+                "vtr": {"pn": "99991562", "dimensoes": "82x54x31 cm"},
+                "valise": {"pn": "10362173", "dimensoes": "79x50x28 cm"},
+                "abs": {"pn": "99991050", "dimensoes": "80x49x31 cm"}
+              }
+            },
+            "10p": {
+              "cilindros": 1,
+              "co2_kg": 4.25,
+              "n2_kg": 0.27,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "pressure_mmwg": 2814,
+              "pressure_inh2o": 110.8,
+              "pressure_mbar": 276,
+              "thread": "25E",
+              "cylinder_pn": "10394085",
+              "valve_pn": "10388045",
+              "weak_link_kn": 1.8,
+              "davit_launch": false,
+              "container": {
+                "vtr": {"pn": "99991564", "dimensoes": "82x64x31 cm"},
+                "valise": {"pn": "10362173", "dimensoes": "79x50x28 cm"},
+                "abs": {"pn": "99991050", "dimensoes": "80x49x31 cm"}
+              }
+            },
+            "12p": {
+              "cilindros": 1,
+              "co2_kg": 4.25,
+              "n2_kg": 0.27,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "pressure_mmwg": 2814,
+              "pressure_inh2o": 110.8,
+              "pressure_mbar": 276,
+              "thread": "25E",
+              "cylinder_pn": "10382074",
+              "valve_pn": "10388045",
+              "weak_link_kn": 2.0,
+              "davit_launch": false,
+              "container": {
+                "vtr": {"pn": "99991565", "dimensoes": "82x64x35 cm"},
+                "valise": {"pn": "10362173", "dimensoes": "79x50x28 cm"},
+                "abs": {"pn": "99991027", "dimensoes": "90x56x35 cm"}
+              }
+            }
+          },
+          "valvulas": [
+            {"nome": "SUPERNOVA", "pn": "10399310", "torque_nm": 25},
+            {"nome": "PRV VA70", "pn": "10359166", "torque_nm": 25}
+          ]
+        },
+        {
+          "nome": "SYNTESY 9650-2",
+          "descricao": "Jangada ISO Type 2 ISO9650-2:2005",
+          "sistema_insuflacao": "VTE/99-ISO",
+          "capacidades": {
+            "4p": {
+              "cilindros": 1,
+              "co2_kg": 1.90,
+              "n2_kg": 0.13,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "pressure_mmwg": 2814,
+              "pressure_inh2o": 110.8,
+              "pressure_mbar": 276,
+              "thread": "1 NGT",
+              "cylinder_pn": "10394046",
+              "valve_pn": "10388044",
+              "weak_link_kn": 1.5,
+              "davit_launch": false,
+              "container": {
+                "vtr": {"pn": "99991560", "dimensoes": "74x42x29 cm"},
+                "valise": {"pn": "10362213", "dimensoes": "68x40x23 cm"},
+                "abs": {"pn": "99991023", "dimensoes": "69x39x28 cm"}
+              }
+            },
+            "6p": {
+              "cilindros": 1,
+              "co2_kg": 3.10,
+              "n2_kg": 0.20,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "pressure_mmwg": 2814,
+              "pressure_inh2o": 110.8,
+              "pressure_mbar": 276,
+              "thread": "1 NGT",
+              "cylinder_pn": "10394046",
+              "valve_pn": "10388044",
+              "weak_link_kn": 1.5,
+              "davit_launch": false,
+              "container": {
+                "vtr": {"pn": "99991572", "dimensoes": "74x52x26 cm"},
+                "valise": null,
+                "abs": {"pn": "99991024", "dimensoes": "69x40x29 cm"}
+              }
+            },
+            "8p": {
+              "cilindros": 1,
+              "co2_kg": 3.50,
+              "n2_kg": 0.20,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "pressure_mmwg": 2814,
+              "pressure_inh2o": 110.8,
+              "pressure_mbar": 276,
+              "thread": "1 NGT",
+              "cylinder_pn": "10394046",
+              "valve_pn": "10388044",
+              "weak_link_kn": 1.8,
+              "davit_launch": false,
+              "container": {
+                "vtr": {"pn": "99991563", "dimensoes": "74x52x29 cm"},
+                "valise": {"pn": "10362163", "dimensoes": "70x50x28 cm"},
+                "abs": {"pn": "99991025", "dimensoes": "71x49x29 cm"}
+              }
+            },
+            "10p": {
+              "cilindros": 1,
+              "co2_kg": 4.25,
+              "n2_kg": 0.27,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "pressure_mmwg": 2814,
+              "pressure_inh2o": 110.8,
+              "pressure_mbar": 276,
+              "thread": "25E",
+              "cylinder_pn": "10394085",
+              "valve_pn": "10388045",
+              "weak_link_kn": 1.8,
+              "davit_launch": false,
+              "container": {
+                "vtr": null,
+                "valise": null,
+                "abs": null
+              }
+            }
+          },
+          "valvulas": [
+            {"nome": "SUPERNOVA", "pn": "10399310", "torque_nm": 25},
+            {"nome": "PRV VA70", "pn": "10359166", "torque_nm": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "CREWSAVER",
+      "modelos": [
+        {
+          "nome": "ISO TYPE 1 SYNTESY",
+          "descricao": "Jangada ISO Type 1 marca Crewsaver fabricada por Eurovinil",
+          "sistema_insuflacao": "VTE/99-ISO/V1",
+          "fabricante": "Eurovinil S.p.A.",
+          "capacidades": {
+            "4p": {
+              "cilindros": 1,
+              "co2_kg": 1.90,
+              "n2_kg": 0.13,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "pressure_mmwg": 2814,
+              "pressure_inh2o": 110.8,
+              "pressure_mbar": 276,
+              "thread": "1 NGT",
+              "cylinder_pn": "10394046",
+              "valve_pn": "10388044",
+              "weak_link_kn": 1.5,
+              "weak_link_lbf": 337,
+              "davit_launch": false,
+              "strap_pn": "9R41423003",
+              "container": {
+                "vtr": {"pn": "99991563", "dimensoes": "74x52x29 cm"},
+                "valise": {"pn": "10362153", "dimensoes": "70x41x26 cm"},
+                "abs": {"pn": "99991024", "dimensoes": "70x41x26 cm"}
+              }
+            },
+            "6p": {
+              "cilindros": 1,
+              "co2_kg": 3.10,
+              "n2_kg": 0.20,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "weak_link_kn": 1.5,
+              "weak_link_lbf": 337,
+              "davit_launch": false,
+              "strap_pn": "9R41423003",
+              "container": {
+                "vtr": {"pn": "99991561", "dimensoes": "82x54x29 cm"},
+                "valise": {"pn": "10362163", "dimensoes": "70x50x28 cm"},
+                "abs": {"pn": "99991025", "dimensoes": "71x49x29 cm"}
+              }
+            },
+            "8p": {
+              "cilindros": 1,
+              "co2_kg": 3.50,
+              "n2_kg": 0.20,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "weak_link_kn": 1.8,
+              "weak_link_lbf": 405,
+              "davit_launch": false,
+              "strap_pn": "9R41423003",
+              "container": {
+                "vtr": {"pn": "99991562", "dimensoes": "82x54x31 cm"},
+                "valise": {"pn": "10362173", "dimensoes": "79x50x28 cm"},
+                "abs": {"pn": "99991050", "dimensoes": "80x49x31 cm"}
+              }
+            },
+            "10p": {
+              "cilindros": 1,
+              "co2_kg": 4.25,
+              "n2_kg": 0.27,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "weak_link_kn": 1.8,
+              "weak_link_lbf": 405,
+              "davit_launch": false,
+              "strap_pn": "9R41423003",
+              "container": {
+                "vtr": {"pn": "99991564", "dimensoes": "82x64x31 cm"},
+                "valise": {"pn": "10362173", "dimensoes": "79x50x28 cm"},
+                "abs": {"pn": "99991050", "dimensoes": "80x49x31 cm"}
+              }
+            },
+            "12p": {
+              "cilindros": 1,
+              "co2_kg": 4.25,
+              "n2_kg": 0.27,
+              "pressure_psi": 4.0,
+              "pressure_bar": 0.276,
+              "weak_link_kn": 2.0,
+              "weak_link_lbf": 450,
+              "davit_launch": false,
+              "strap_pn": "9R41423003",
+              "container": {
+                "vtr": {"pn": "99991565", "dimensoes": "82x64x35 cm"},
+                "valise": {"pn": "10362173", "dimensoes": "79x50x28 cm"},
+                "abs": {"pn": "99991027", "dimensoes": "90x56x35 cm"}
+              }
+            }
+          },
+          "valvulas": [
+            {"nome": "SUPERNOVA", "pn": "10399310", "torque_nm": 25},
+            {"nome": "PRV VA70", "pn": "10359166", "torque_nm": 25}
+          ]
+        },
+        {
+          "nome": "ISO TYPE 2 SYNTESY",
+          "descricao": "Jangada ISO Type 2 marca Crewsaver fabricada por Eurovinil",
+          "sistema_insuflacao": "VTE/99-ISO",
+          "fabricante": "Eurovinil S.p.A.",
+          "capacidades": {
+            "4p": {
+              "cilindros": 1,
+              "co2_kg": 1.90,
+              "n2_kg": 0.13,
+              "pressure_psi": 4.0,
+              "weak_link_kn": 1.5,
+              "davit_launch": false,
+              "strap_pn": "9R41423003"
+            },
+            "6p": {
+              "cilindros": 1,
+              "co2_kg": 3.10,
+              "n2_kg": 0.20,
+              "pressure_psi": 4.0,
+              "weak_link_kn": 1.5,
+              "davit_launch": false,
+              "strap_pn": "9R41423003"
+            },
+            "8p": {
+              "cilindros": 1,
+              "co2_kg": 3.50,
+              "n2_kg": 0.20,
+              "pressure_psi": 4.0,
+              "weak_link_kn": 1.8,
+              "davit_launch": false,
+              "strap_pn": "9R41423003"
+            },
+            "10p": {
+              "cilindros": 1,
+              "co2_kg": 4.25,
+              "n2_kg": 0.27,
+              "pressure_psi": 4.0,
+              "weak_link_kn": 1.8,
+              "davit_launch": false,
+              "strap_pn": "9R41423003"
+            }
+          },
+          "valvulas": [
+            {"nome": "SUPERNOVA", "pn": "10399310", "torque_nm": 25},
+            {"nome": "PRV VA70", "pn": "10359166", "torque_nm": 25}
+          ]
+        },
+        {
+          "nome": "MARINER MK 2",
+          "descricao": "Jangada não-ISO marca Crewsaver fabricada por Eurovinil",
+          "sistema_insuflacao": "VTE/87-PED",
+          "sistema_alternativo": "VTE/99-ISO",
+          "fabricante": "Eurovinil S.p.A.",
+          "capacidades": {
+            "4p": {
+              "cilindros": 1,
+              "co2_kg": 1.90,
+              "n2_kg": 0.13,
+              "pressure_psi": 4.0,
+              "weak_link_kn": 1.5,
+              "davit_launch": false,
+              "strap_pn": "9R41423003",
+              "container": {
+                "vtr": {"pn": "99991560", "dimensoes": "74x42x29 cm"},
+                "valise": {"pn": "10362203", "dimensoes": "68x37x19 cm"},
+                "abs": {"pn": "99991023", "dimensoes": "69x39x28 cm"}
+              }
+            },
+            "6p": {
+              "cilindros": 1,
+              "co2_kg": 2.20,
+              "n2_kg": 0.13,
+              "pressure_psi": 4.0,
+              "weak_link_kn": 1.5,
+              "davit_launch": false,
+              "strap_pn": "9R41423003",
+              "container": {
+                "vtr": {"pn": "99991563", "dimensoes": "74x52x29 cm"},
+                "valise": {"pn": "10362213", "dimensoes": "68x40x23 cm"},
+                "abs": {"pn": "99991024", "dimensoes": "69x40x29 cm"}
+              }
+            },
+            "8p": {
+              "cilindros": 1,
+              "co2_kg": 3.50,
+              "n2_kg": 0.20,
+              "pressure_psi": 4.0,
+              "weak_link_kn": 1.8,
+              "davit_launch": false,
+              "strap_pn": "9R41423003",
+              "container": {
+                "vtr": {"pn": "99991563", "dimensoes": "74x52x29 cm"},
+                "valise": null,
+                "abs": {"pn": "99991024", "dimensoes": "69x40x29 cm"}
+              }
+            },
+            "10p": {
+              "cilindros": 1,
+              "co2_kg": 3.80,
+              "n2_kg": 0.22,
+              "pressure_psi": 4.0,
+              "weak_link_kn": 1.8,
+              "davit_launch": false,
+              "strap_pn": "9R41423003",
+              "container": {
+                "vtr": {"pn": "99991563", "dimensoes": "74x52x29 cm"},
+                "valise": {"pn": "10362153", "dimensoes": "70x41x26 cm"},
+                "abs": {"pn": "99991025", "dimensoes": "71x49x29 cm"}
+              }
+            },
+            "12p": {
+              "cilindros": 1,
+              "co2_kg": 4.25,
+              "n2_kg": 0.27,
+              "pressure_psi": 4.0,
+              "weak_link_kn": 2.0,
+              "davit_launch": false,
+              "strap_pn": "9R41423003",
+              "container": {
+                "vtr": {"pn": "99991561", "dimensoes": "82x54x29 cm"},
+                "valise": {"pn": "10362173", "dimensoes": "79x50x28 cm"},
+                "abs": {"pn": "99991050", "dimensoes": "80x49x31 cm"}
+              }
+            }
+          },
+          "valvulas": [
+            {"nome": "SUPERNOVA", "pn": "10399310", "torque_nm": 25},
+            {"nome": "PRV VA70", "pn": "10359166", "torque_nm": 25}
+          ]
+        }
+      ]
+    }
+  ]
+}

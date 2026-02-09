@@ -154,7 +154,7 @@ export default function NavioDetailPage() {
           </h1>
           <p className="text-muted-foreground">Detalhes do navio</p>
         </div>
-        <Button>
+        <Button onClick={() => setOpenEdit(true)}>
           <Edit className="h-4 w-4 mr-2" />
           Editar
         </Button>

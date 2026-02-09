@@ -1,0 +1,154 @@
+{
+  "marcas": [
+    {
+      "nome": "EUROVINIL",
+      "modelos": [
+        {
+          "nome": "LEISURE",
+          "sistema": null,
+          "valvulas": [],
+          "capacidades": {},
+          "pressoes": {
+            "psi": null,
+            "mmwg": null,
+            "inh2o": null,
+            "milibares": null
+          },
+          "weak_link": {
+            "throw_over_kn": null,
+            "throw_over_lbf": null,
+            "davit_kn": null,
+            "davit_lbf": null
+          },
+          "contentor": {
+            "tipo": null,
+            "sistema_abertura": null,
+            "peso_kg": null
+          },
+          "cintas": {
+            "material": null,
+            "resistencia_kn": null,
+            "quantidade": null
+          }
+        },
+        {
+          "nome": "SYNTESY",
+          "sistema": null,
+          "valvulas": [],
+          "capacidades": {},
+          "pressoes": {
+            "psi": null,
+            "mmwg": null,
+            "inh2o": null,
+            "milibares": null
+          },
+          "weak_link": {
+            "throw_over_kn": null,
+            "throw_over_lbf": null,
+            "davit_kn": null,
+            "davit_lbf": null
+          },
+          "contentor": {
+            "tipo": null,
+            "sistema_abertura": null,
+            "peso_kg": null
+          },
+          "cintas": {
+            "material": null,
+            "resistencia_kn": null,
+            "quantidade": null
+          }
+        }
+      ]
+    },
+    {
+      "nome": "CREWSAVER",
+      "modelos": [
+        {
+          "nome": "ISO TYPE 1",
+          "sistema": null,
+          "valvulas": [],
+          "capacidades": {},
+          "pressoes": {
+            "psi": null,
+            "mmwg": null,
+            "inh2o": null,
+            "milibares": null
+          },
+          "weak_link": {
+            "throw_over_kn": null,
+            "throw_over_lbf": null,
+            "davit_kn": null,
+            "davit_lbf": null
+          },
+          "contentor": {
+            "tipo": null,
+            "sistema_abertura": null,
+            "peso_kg": null
+          },
+          "cintas": {
+            "material": null,
+            "resistencia_kn": null,
+            "quantidade": null
+          }
+        },
+        {
+          "nome": "ISO TYPE 2",
+          "sistema": null,
+          "valvulas": [],
+          "capacidades": {},
+          "pressoes": {
+            "psi": null,
+            "mmwg": null,
+            "inh2o": null,
+            "milibares": null
+          },
+          "weak_link": {
+            "throw_over_kn": null,
+            "throw_over_lbf": null,
+            "davit_kn": null,
+            "davit_lbf": null
+          },
+          "contentor": {
+            "tipo": null,
+            "sistema_abertura": null,
+            "peso_kg": null
+          },
+          "cintas": {
+            "material": null,
+            "resistencia_kn": null,
+            "quantidade": null
+          }
+        },
+        {
+          "nome": "MARINER MK 2",
+          "sistema": null,
+          "valvulas": [],
+          "capacidades": {},
+          "pressoes": {
+            "psi": null,
+            "mmwg": null,
+            "inh2o": null,
+            "milibares": null
+          },
+          "weak_link": {
+            "throw_over_kn": null,
+            "throw_over_lbf": null,
+            "davit_kn": null,
+            "davit_lbf": null
+          },
+          "contentor": {
+            "tipo": null,
+            "sistema_abertura": null,
+            "peso_kg": null
+          },
+          "cintas": {
+            "material": null,
+            "resistencia_kn": null,
+            "quantidade": null
+          }
+        }
+      ]
+    }
+  ]
+}

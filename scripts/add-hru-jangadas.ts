@@ -1,8 +1,4 @@
-import { PrismaClient } from '../prisma/app/generated-prisma-client'
-
-const prisma = new PrismaClient({
-  accelerateUrl: process.env.PRISMA_DATABASE_URL,
-})
+const { prisma } = require('../src/lib/prisma');
 
 async function main() {
   console.log('🔧 Adicionando HRU HAMMAR H20 às jangadas...\n')
@@ -44,9 +40,7 @@ async function main() {
       await prisma.jangada.update({
         where: { id: jangada.id },
         data: {
-          hruAplicavel: true,
           hruNumeroSerie,
-          hruModelo: 'HAMMAR H20',
           hruDataInstalacao,
           hruDataValidade,
         },

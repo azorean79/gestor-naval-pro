@@ -44,7 +44,7 @@ async function gerarCertificado() {
   console.log('📄 Gerando certificado de inspeção (XLSX)...');
 
   const jangada = await prisma.jangada.findFirst({
-    where: { numeroSerie: { contains: 'RFD-MKIV-ESP' } },
+    where: { numeroSerie: { contains: 'SV-12P-2024-012' } },
     include: {
       navio: { include: { cliente: true } },
       marca: true,

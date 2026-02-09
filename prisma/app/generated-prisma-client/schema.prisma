@@ -70,6 +70,7 @@ model Navio {
   notificacoes Notificacao[]
   inspecoes    Inspecao[]
   jangadas     Jangada[]
+  obras        Obra[]
 
   @@map("navios")
 }
@@ -81,6 +82,7 @@ model Jangada {
   modeloId            String?
   lotacaoId           String?
   tipoPackId          String?
+  cilindroId          String?
   tipo                String
   tipoPack            String?
   itensTipoPack       String? // JSON string or comma-separated items
@@ -92,16 +94,21 @@ model Jangada {
   dimensoes           String? // Dimensões (ex: "50x30x25 cm")
   numeroAprovacao     String? // Número de aprovação/certificação
   status              String    @default("ativo") // ativo, manutencao, inativo
-  estado              String    @default("instalada") // instalada, removida, etc.
-  clienteId           String?
-  proprietarioId      String?
-  navioId             String?
-  tecnico             String    @default("Julio Correia")
+  estado              String    @default("instalada") // instalada, removida, em_estacao, etc.
+
+  // Controle de estação de serviço
+  dataEntradaEstacao  DateTime? // Data que chegou na estação
+  dataPrevistaEntrega DateTime? // Data prevista para devolução ao cliente
+
+  clienteId      String?
+  proprietarioId String?
+  navioId        String?
+  tecnico        String  @default("Julio Correia")
 
   // HRU (Hydrostatic Release Unit) - HAMMAR H20
-  hruAplicavel      Boolean   @default(true) // Se aplica HRU a esta jangada
+  // hruAplicavel removido: não existe na base
+  // hruModelo removido: não existe na base
   hruNumeroSerie    String? // Número de série do HAMMAR H20
-  hruModelo         String?   @default("HAMMAR H20") // Modelo do HRU
   hruDataInstalacao DateTime? // Data de instalação do HRU
   hruDataValidade   DateTime? // Validade do HRU (2 anos após instalação)
 
@@ -116,15 +123,40 @@ model Jangada {
   modelo              ModeloJangada?       @relation(fields: [modeloId], references: [id])
   lotacao             LotacaoJangada?      @relation(fields: [lotacaoId], references: [id])
   tipoPackRef         TipoPack?            @relation(fields: [tipoPackId], references: [id])
+  cilindro            Cilindro?            @relation(fields: [cilindroId], references: [id])
   certificados        Certificado[]
   agendamentos        Agendamento[]
   faturas             Fatura[]
   notificacoes        Notificacao[]
   inspecoes           Inspecao[]
   inspecaoComponentes InspecaoComponente[]
+  componentesPack     ComponentePack[]
+  camaras             CamaraJangada[]
   envioItens          EnvioItem[]
 
   @@map("jangadas")
+}
+
+model CamaraJangada {
+  id             String    @id @default(cuid())
+  jangadaId      String
+  tipo           String // "inferior" ou "superior"
+  valvulaId      String? // Referência ao tipo de válvula
+  nomeValvula    String // A10, B10, OTS65, SUPERNOVA, etc
+  sistemaSufacao String? // LEAFIELD, THANNER, VTE99, etc
+  dataInstalacao DateTime?
+  proximoTeste   DateTime?
+  estado         String    @default("ok") // ok, desgastada, com_problema, precisa_manutencao
+  observacoes    String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  // Relations
+  jangada     Jangada      @relation(fields: [jangadaId], references: [id], onDelete: Cascade)
+  tipoValvula TipoValvula? @relation(fields: [valvulaId], references: [id])
+
+  @@unique([jangadaId, tipo])
+  @@map("camaras_jangada")
 }
 
 model Proprietario {
@@ -170,25 +202,28 @@ model Certificado {
   clienteId        String?
   navioId          String?
   jangadaId        String?
+  agendamentoId    String?
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
   // Relations
-  cliente    Cliente?    @relation(fields: [clienteId], references: [id])
-  navio      Navio?      @relation(fields: [navioId], references: [id])
-  jangada    Jangada?    @relation(fields: [jangadaId], references: [id])
-  envioItens EnvioItem[] // Certificados enviados
+  cliente          Cliente?          @relation(fields: [clienteId], references: [id])
+  navio            Navio?            @relation(fields: [navioId], references: [id])
+  jangada          Jangada?          @relation(fields: [jangadaId], references: [id])
+  agendamento      Agendamento?      @relation(fields: [agendamentoId], references: [id])
+  envioItens       EnvioItem[] // Certificados enviados
+  componentesStock ComponenteStock[]
 
   @@map("certificados")
 }
 
 model Stock {
-  id               String    @id @default(cuid())
+  id               String   @id @default(cuid())
   nome             String
   descricao        String?
   categoria        String
-  quantidade       Int       @default(0)
-  quantidadeMinima Int       @default(0)
+  quantidade       Int      @default(0)
+  quantidadeMinima Int      @default(0)
   precoUnitario    Float?
   fornecedor       String?
   localizacao      String?
@@ -196,16 +231,16 @@ model Stock {
   refFabricante    String? // Referência do fabricante
   lote             String? // Lote/Batch do fornecedor
   codigoBarra      String? // Código de barras único (EAN-13)
-  dataValidade     DateTime? // Data de validade do material
   imagem           String? // Caminho/URL da imagem do item
-  status           String    @default("ativo") // ativo, inativo
-  createdAt        DateTime  @default(now())
-  updatedAt        DateTime  @updatedAt
+  status           String   @default("ativo") // ativo, inativo
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 
   // Relations
-  movimentacoes MovimentacaoStock[]
-  envioItens    EnvioItem[]
-  tarefas       Tarefa[]
+  movimentacoes    MovimentacaoStock[]
+  envioItens       EnvioItem[]
+  tarefas          Tarefa[]
+  componentesStock ComponenteStock[]
 
   @@unique([nome, categoria])
   @@map("stock")
@@ -233,12 +268,12 @@ model Cilindro {
   sistemaId        String?
   tipoCilindroId   String?
   tipoValvulaId    String?
-  capacidade       Float? // Capacidade em kg (ex: 8,8 para CO2)
+  capacidade       Float? // Capacidade de CO2 em kg (ex: 8,8)
   capacidadeN2     Float? // Capacidade de N2 em kg (ex: 0,44)
   tara             Float? // Peso vazio do cilindro em kg
   pesoBruto        Float? // Peso total com gases em kg
   dataFabricacao   DateTime?
-  dataTeste        DateTime?
+  dataTeste        DateTime? // Data do último teste hidráulico
   dataProximoTeste DateTime?
   status           String    @default("ativo") // ativo, defeituoso, expirado
   pressaoTrabalho  Float?
@@ -250,6 +285,7 @@ model Cilindro {
   sistema      SistemaCilindro? @relation(fields: [sistemaId], references: [id])
   tipoCilindro TipoCilindro?    @relation(fields: [tipoCilindroId], references: [id])
   tipoValvula  TipoValvula?     @relation(fields: [tipoValvulaId], references: [id])
+  jangadas     Jangada[]
   agendamentos Agendamento[]
   notificacoes Notificacao[]
   inspecoes    Inspecao[]
@@ -275,10 +311,14 @@ model Agendamento {
   updatedAt   DateTime @updatedAt
 
   // Relations
-  navio    Navio?    @relation(fields: [navioId], references: [id])
-  jangada  Jangada?  @relation(fields: [jangadaId], references: [id])
-  cilindro Cilindro? @relation(fields: [cilindroId], references: [id])
-  pessoa   Pessoa?   @relation(fields: [pessoaId], references: [id])
+  navio               Navio?               @relation(fields: [navioId], references: [id])
+  jangada             Jangada?             @relation(fields: [jangadaId], references: [id])
+  cilindro            Cilindro?            @relation(fields: [cilindroId], references: [id])
+  pessoa              Pessoa?              @relation(fields: [pessoaId], references: [id])
+  certificados        Certificado[]
+  inspecoes           Inspecao[]
+  componentesInspecao InspecaoComponente[]
+  componentesPack     ComponentePack[]
 
   @@map("agendamentos")
 }
@@ -352,12 +392,15 @@ model Obra {
   dataFim     DateTime?
   orcamento   Float?
   clienteId   String?
+  navioId     String?
   responsavel String?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 
   // Relations
-  cliente Cliente? @relation(fields: [clienteId], references: [id])
+  cliente   Cliente?   @relation(fields: [clienteId], references: [id])
+  navio     Navio?     @relation(fields: [navioId], references: [id])
+  inspecoes Inspecao[]
 
   @@map("obras")
 }
@@ -393,28 +436,34 @@ model Relatorio {
 }
 
 model Inspecao {
-  id           String    @id @default(cuid())
-  numero       String    @unique
-  tipoInspecao String // anual, extraordinaria, inicial, final
-  dataInspecao DateTime
-  dataProxima  DateTime?
-  resultado    String // aprovada, reprovada, pendente
-  status       String    @default("pendente") // pendente, realizada, cancelada
-  tecnico      String
-  observacoes  String?
-  navioId      String?
-  jangadaId    String?
-  cilindroId   String?
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+  id            String    @id @default(cuid())
+  numero        String    @unique
+  tipoInspecao  String // anual, extraordinaria, inicial, final
+  dataInspecao  DateTime
+  dataProxima   DateTime?
+  resultado     String // aprovada, reprovada, pendente
+  status        String    @default("pendente") // pendente, realizada, cancelada
+  tecnico       String
+  observacoes   String?
+  obraId        String?
+  navioId       String?
+  jangadaId     String?
+  cilindroId    String?
+  agendamentoId String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 
   // Relations
-  navio                   Navio?                   @relation(fields: [navioId], references: [id])
-  jangada                 Jangada?                 @relation(fields: [jangadaId], references: [id])
-  cilindro                Cilindro?                @relation(fields: [cilindroId], references: [id])
+  obra                    Obra?                          @relation(fields: [obraId], references: [id])
+  navio                   Navio?                         @relation(fields: [navioId], references: [id])
+  jangada                 Jangada?                       @relation(fields: [jangadaId], references: [id])
+  cilindro                Cilindro?                      @relation(fields: [cilindroId], references: [id])
+  agendamento             Agendamento?                   @relation(fields: [agendamentoId], references: [id])
   custos                  CustoInspecao[]
   historicos              HistoricoInspecao[]
   substituicoesComponente SubstituicaoComponente[]
+  verificacoesChecklist   VerificacaoChecklistInspecao[]
+  componentesStock        ComponenteStock[]
 
   @@map("inspecoes")
 }
@@ -456,21 +505,50 @@ model HistoricoInspecao {
 }
 
 model InspecaoComponente {
-  id         String    @id @default(cuid())
-  jangadaId  String
-  nome       String // Nome do componente (Coletes, EPIRB, Cilindro, etc)
-  quantidade Int       @default(1)
-  estado     String? // OK, Aviso, Reparo, Substituir
-  validade   DateTime? // Data de validade/próxima inspeção
-  tipo       String? // cilindro, valvula, pack, coletes, epirb, etc.
-  notas      String? // Anotações da inspeção
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
+  id               String    @id @default(cuid())
+  jangadaId        String
+  nome             String // Nome do componente (Coletes, EPIRB, Cilindro, etc)
+  quantidade       Int       @default(1)
+  estado           String? // OK, Aviso, Reparo, Substituir
+  validade         DateTime? // Data de validade/próxima inspeção
+  tipo             String? // cilindro, valvula, pack, coletes, epirb, etc.
+  notas            String? // Anotações da inspeção
+  codigoFabricante String? // Código do fabricante
+  referenciaOrey   String? // Referência OREY
+  agendamentoId    String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
 
   // Relations
-  jangada Jangada @relation(fields: [jangadaId], references: [id])
+  jangada          Jangada           @relation(fields: [jangadaId], references: [id], onDelete: Cascade)
+  agendamento      Agendamento?      @relation(fields: [agendamentoId], references: [id])
+  componentesStock ComponenteStock[]
 
   @@map("inspecao_componentes")
+}
+
+// Rastreamento de componentes do pack de cada jangada com validades
+model ComponentePack {
+  id              String    @id @default(cuid())
+  jangadaId       String
+  nome            String // Nome do componente (Foguetes, Fachos, Água, etc)
+  descricao       String?
+  quantidade      Int       @default(1)
+  estado          String    @default("ok") // ok, proximo_vencer, expirado
+  dataValidade    DateTime // Data de validade/expiração
+  dataInstalacao  DateTime? // Quando foi instalado/adicionado
+  proximaInspecao DateTime? // Data da próxima inspeção necessária
+  observacoes     String?
+  agendamentoId   String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  // Relations
+  jangada          Jangada           @relation(fields: [jangadaId], references: [id], onDelete: Cascade)
+  agendamento      Agendamento?      @relation(fields: [agendamentoId], references: [id])
+  componentesStock ComponenteStock[]
+
+  @@map("componentes_pack")
 }
 
 model SubstituicaoComponente {
@@ -489,6 +567,30 @@ model SubstituicaoComponente {
   @@map("substituicao_componentes")
 }
 
+// Modelo de ligação entre Stock, InspecaoComponente, ComponentePack, Inspecao e Certificado
+model ComponenteStock {
+  id                   String   @id @default(cuid())
+  stockId              String
+  inspecaoComponenteId String? // Relaciona com componente de inspeção
+  componentePackId     String? // Relaciona com componente do pack
+  inspecaoId           String? // Relaciona com inspeção
+  certificadoId        String? // Relaciona com certificado
+  quantidade           Int      @default(1)
+  estado               String? // Estado do componente (ok, substituido, expirado, etc)
+  notas                String?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  // Relations
+  stock              Stock               @relation(fields: [stockId], references: [id], onDelete: Cascade)
+  inspecaoComponente InspecaoComponente? @relation(fields: [inspecaoComponenteId], references: [id])
+  componentePack     ComponentePack?     @relation(fields: [componentePackId], references: [id])
+  inspecao           Inspecao?           @relation(fields: [inspecaoId], references: [id])
+  certificado        Certificado?        @relation(fields: [certificadoId], references: [id])
+
+  @@map("componentes_stock")
+}
+
 model MarcaJangada {
   id        String   @id @default(cuid())
   nome      String   @unique
@@ -500,6 +602,7 @@ model MarcaJangada {
   modelos        ModeloJangada[]
   jangadas       Jangada[]
   especificacoes EspecificacaoTecnica[]
+  checklistItems ChecklistInspecao[]
 
   @@map("marcas_jangada")
 }
@@ -518,6 +621,7 @@ model ModeloJangada {
   marca          MarcaJangada           @relation(fields: [marcaId], references: [id])
   jangadas       Jangada[]
   especificacoes EspecificacaoTecnica[]
+  checklistItems ChecklistInspecao[]
 
   @@unique([nome, marcaId])
   @@map("modelos_jangada")
@@ -533,6 +637,7 @@ model LotacaoJangada {
   // Relations
   jangadas       Jangada[]
   especificacoes EspecificacaoTecnica[]
+  checklistItems ChecklistInspecao[]
 
   @@map("lotacoes_jangada")
 }
@@ -674,6 +779,7 @@ model TipoValvula {
 
   // Relations
   cilindros Cilindro[]
+  camaras   CamaraJangada[]
 
   @@map("tipos_valvula")
 }
@@ -813,4 +919,69 @@ model Tarefa {
   cliente Cliente? @relation(fields: [clienteId], references: [id])
 
   @@map("tarefas")
+}
+
+// Checklist de inspeção baseado em manual técnico
+model ChecklistInspecao {
+  id                   String   @id @default(cuid())
+  nome                 String // Nome do item de checklist
+  descricao            String? // Descrição detalhada
+  categoria            String // Categoria (Pressão e Inflação, Torques, Painter, etc)
+  frequencia           String // Frequência de verificação (anual, bienal, trimestral, etc)
+  ferramentaNecessaria String? // Ferramenta necessária para verificação
+  criterioAprovacao    String? // Critério de aprovação
+  referenciaManual     String? // Referência ao manual (página, seção)
+  aplicavelMarcaId     String? // Se aplicável apenas a uma marca específica
+  aplicavelModeloId    String? // Se aplicável apenas a um modelo específico
+  aplicavelLotacaoId   String? // Se aplicável apenas a uma lotação específica
+  ordem                Int      @default(0) // Ordem de apresentação no checklist
+  ativo                Boolean  @default(true)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  // Relations
+  marca        MarcaJangada?                  @relation(fields: [aplicavelMarcaId], references: [id])
+  modelo       ModeloJangada?                 @relation(fields: [aplicavelModeloId], references: [id])
+  lotacao      LotacaoJangada?                @relation(fields: [aplicavelLotacaoId], references: [id])
+  verificacoes VerificacaoChecklistInspecao[]
+
+  @@map("checklist_inspecao")
+}
+
+// Verificação de item de checklist em uma inspeção específica
+model VerificacaoChecklistInspecao {
+  id              String   @id @default(cuid())
+  checklistItemId String
+  inspecaoId      String
+  verificado      Boolean  @default(false)
+  aprovado        Boolean? // null = não aplicável, true = aprovado, false = reprovado
+  valor           String? // Valor medido/verificado (se aplicável)
+  observacoes     String?
+  responsavel     String?
+  dataVerificacao DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  checklistItem ChecklistInspecao @relation(fields: [checklistItemId], references: [id])
+  inspecao      Inspecao          @relation(fields: [inspecaoId], references: [id])
+
+  @@unique([checklistItemId, inspecaoId])
+  @@map("verificacao_checklist_inspecao")
+}
+
+model Feriado {
+  id         String   @id @default(cuid())
+  nome       String
+  data       DateTime // Data do feriado
+  tipo       String   @default("nacional") // nacional, regional, local
+  regiao     String? // Região específica (Açores, Madeira, etc.)
+  descricao  String?
+  ativo      Boolean  @default(true)
+  recorrente Boolean  @default(true) // Se é feriado recorrente todo ano
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([nome, data])
+  @@map("feriados")
 }

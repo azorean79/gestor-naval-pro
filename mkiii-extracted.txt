@@ -1,0 +1,1589 @@
+
+
+================================================================================
+=== PÁGINA 1 ===
+================================================================================
+,
+RFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland.
+Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765
+Email: marine@rfdbeaufort.com
+SERVICE MANUAL
+for
+RFD SURVIVA MK III
+BEAUFORT SEAFARER
+SOLAS STYLE LIFERAFTS
+THROW OVERBOARD & DAVIT LAUNCH TYPES
+Ver. 3
+Copyright © 2004
+This manual: Part number 08133009
+TITLE PAGE 251 Page 1
+SERVICE MANUAL
+Feb/12
+
+================================================================================
+=== PÁGINA 2 ===
+================================================================================
+RFD SURVIVA MK III
+BEAUFORT SEAFARER
+BLANK PAGE
+TITLE PAGE 251 Page 2
+SERVICE MANUAL
+Dec/04
+
+================================================================================
+=== PÁGINA 3 ===
+================================================================================
+STATEMENT OF CERTIFICATION
+(for 6 Persons and larger Liferafts)
+The equipment described in this manual has been accepted by the United Kingdom
+Department of Transport, and refers to inflatable liferafts which comply with the
+following international conventions and regulations:
+1. SOLAS 74 as amended by Regulation III/4, 34, 35, 36 and MSC/Circ 809 as
+amended.
+2. LSA Code, regulations I/1.2, IV/4.1 and 4.2.
+3. IMO resolution MSC 81(70) Part 1.
+and has been type approved in compliance with the Marine Equipment Directive,
+(Council Directive 96/98/EC and amendments up to and including CD 2002/84/
+EC).
+.
+The technical accuracy of this manual has been verified and is certified as correct.
+Signed: Date:
+Tommy Scott
+Design Manager Marine
+RFD Beaufort Limited
+CERTIFICATION PAGE 251 Page 1
+SERVICE MANUAL
+○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○
+17/12/2004
+DEC 04
+
+================================================================================
+=== PÁGINA 4 ===
+================================================================================
+STATEMENT OF CERTIFICATION
+(for 4 Persons Liferaft)
+The equipment described in this manual has been accepted by the United Kingdom
+Department of Transport,
+The technical accuracy of this manual has been verified and is certified as correct.
+Signed: Date:
+Tommy Scott
+Design Manager Marine
+RFD Beaufort Limited
+CERTIFICATION PAGE 251 Page 2
+SERVICE MANUAL
+○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○
+17/12/2004
+DEC 04
+
+================================================================================
+=== PÁGINA 5 ===
+================================================================================
+Important Notice
+This publication is for reference purposes and its use restricted to trained service
+technicians in lawful possession of a current marine liferaft servicing certificate
+granted by RFD Beaufort Ltd (‘entitlement’). It is not a stand-alone text embodying
+the basic techniques or skills appropriate to liferaft servicing.
+RFD Beaufort Ltd accepts no responsibility for loss, injury or death resulting from
+the partial, improper or unlawful application of the instructions herein.
+If the requirements within this publication are believed to be contrary to legislated
+national or international requirements RFD Beaufort Ltd must be consulted prior to
+release into service of affected product.
+This publication may be subject to amendment by RFD Beaufort Ltd and for that
+purpose allocation has been recorded. It may not be distributed or reproduced by
+any means, wholly or in part, without the express written permission of RFD
+Beaufort Ltd (permission shall not be withheld unreasonably but any permission so
+granted will be on an exceptional basis - no general approval to reproduce shall be
+implied or inferred).
+If no longer required or if entitlement ceases, RFD Beaufort Ltd must be contacted
+to arrange for the disposal of this publication.
+Communications regarding this publication should be addressed to the Technical
+Services Department or the Technical Publications Department at RFD Beaufort
+Ltd.
+CERTIFICATION PAGE 251 Page 3
+SERVICE MANUAL
+DEC 04
+
+================================================================================
+=== PÁGINA 6 ===
+================================================================================
+BLANK PAGE
+CERTIFICATION PAGE 251 Page 4
+SERVICE MANUAL
+DEC 04
+
+================================================================================
+=== PÁGINA 8 ===
+================================================================================
+BLANK PAGE
+RECORD THE INCORPORATION OF THIS REVISION ON THE REVISION RECORD.
+RETAIN THIS LETTER OF TRANSMITTAL, FILE IT BEHIND THE REVISION RECORD.
+
+================================================================================
+=== PÁGINA 10 ===
+================================================================================
+BLANK PAGE
+RECORD THE INCORPORATION OF THIS REVISION ON THE REVISION RECORD.
+RETAIN THIS LETTER OF TRANSMITTAL, FILE IT BEHIND THE REVISION RECORD.
+
+================================================================================
+=== PÁGINA 12 ===
+================================================================================
+BLANK PAGE
+RECORD THE INCORPORATION OF THIS REVISION ON THE REVISION RECORD.
+RETAIN THIS LETTER OF TRANSMITTAL, FILE IT BEHIND THE REVISION RECORD.
+
+================================================================================
+=== PÁGINA 13 ===
+================================================================================
+PAGE TITLE PAGE No. DATE PAGE TITLE PAGE No. DATE
+TITLE PAGE 1 Dec/09 111 Aug/08
+2 Dec/04
+112 Aug/08
+113 Aug/08
+CERTIFICATION 1 Dec/04
+114 Aug/08
+PAGE 2 Dec/04
+3 Dec/04
+4 Dec/04 CHAPTER 2 201 Aug/08
+202 Dec/04
+REVISION 1 Feb/12 203 Dec/04
+RECORD 2 Dec/09 204 Aug/08
+205 Aug/08
+SERVICE 1 Dec/09 206 Aug/08
+BULLETINS 2 Dec/09
+CHAPTER 3 301 Aug/08
+EFFECTIVE 1 Dec/09 302 Dec/04
+PAGES 2 Dec/09 303 Aug/08
+3 Dec/09 304 Dec/04
+4 Feb/12
+CHAPTER 4 401 Aug/08
+ASSOCIATED 1 Aug/08 402 Dec/04
+PAGES 2 Aug/08
+403 Dec/09
+404 Dec/09
+CONTENTS 1 Dec/09 405 Aug/08
+2 Dec/04
+406 Dec/09
+407 Dec/09
+INTRODUCTION 1 Dec/04 408 Dec/09
+2 Dec/04
+409 Aug/08
+3 Dec/09
+410 Aug/08
+4 Dec/09
+411 Aug/08
+5 Dec/09
+412 Aug/08
+6 Dec/09
+413 Aug/08
+7 Dec/09
+414 Aug/08
+8 Dec/09
+CHAPTER 5 501 Aug/08
+CHAPTER 1 101 Aug/08 502 Dec/09
+102 Dec/04 503 Aug/08
+103 Aug/08 504 Dec/04
+104 Dec/04 505 Aug/08
+105 Dec/04 506 Aug/08
+106 Aug/08 507 Aug/08
+107 Aug/08 508 Aug/08
+108 Dec/09
+509 Dec/04
+109 Aug/08
+510 Aug/08
+110 Dec/09
+511 Aug/08
+512 Dec/09
+EFFECTIVE PAGES SERVICE MANUAL 251 Page 1
+Dec/09
+
+================================================================================
+=== PÁGINA 14 ===
+================================================================================
+PAGE TITLE PAGE No. DATE PAGE TITLE PAGE No. DATE
+513 Aug/08 CHAPTER 7 701 Aug/08
+514 Aug/08 702 Aug/08
+515 Aug/08 703 Dec/09
+516 Dec/09 704 Dec/09
+517 Dec/09 705 Dec/09
+518 Dec/09 706 Dec/09
+519 Dec/09 707 Aug/08
+520 Dec/09 708 Aug/08
+521 Dec/09 709 Aug/08
+522 Dec/09 710 Aug/08
+711 Aug/08
+523 Dec/09
+712 Aug/08
+524 Dec/09
+713 Aug/08
+714 Aug/08
+CHAPTER 6 601 Dec/09 715 Aug/08
+602 Aug/08
+716 Aug/08
+603 Dec/04
+717 Aug/08
+604 Dec/09
+718 Dec/09
+605 Dec/09
+719 Dec/09
+606 Dec/09
+720 Dec/09
+607 Dec/09
+721 Dec/09
+608 Dec/09
+722 Aug/08
+609 Dec/09
+610 Dec/09
+611 Dec/09 CHAPTER 8 801 Aug/08
+802 Aug/08
+612 Dec/09
+803 Aug/08
+613 Dec/09
+804 Dec/09
+614 Dec/09
+805 Aug/08
+615 Dec/09
+806 Aug/08
+616 Dec/09
+807 Aug/08
+617 Dec/09
+808 Aug/08
+618 Dec/09
+809 Aug/08
+619 Dec/09
+810 Aug/08
+620 Dec/09
+811 Aug/08
+621 Dec/09
+812 Aug/08
+622 Dec/09
+813 Dec/09
+623 Dec/09
+814 Dec/09
+624 Dec/09
+815 Aug/08
+625 Dec/09
+816 Aug/08
+626 Dec/09
+817 Aug/08
+818 Dec/09
+819 Dec/09
+820 Dec/09
+821 Dec/09
+822 Aug/08
+EFFECTIVE PAGES SERVICE MANUAL 251 Page 2
+Dec/09
+
+================================================================================
+=== PÁGINA 15 ===
+================================================================================
+PAGE TITLE PAGE No. DATE PAGE TITLE PAGE No. DATE
+823 Aug/08 CHAPTER 10 1001 Aug/08
+824 Dec/09 1002 Dec/04
+825 Aug/08 1003 Aug/08
+826 Aug/08 1004 Dec/09
+827 Aug/08 1005 Aug/08
+828 Dec/09 1006 Dec/09
+829 Dec/09
+830 Dec/09 CHAPTER 11 1101 Dec/04
+831 Dec/09 1102 Aug/08
+832 Aug/08 1103 Aug/08
+833 Dec/09 1104 Aug/08
+834 Aug/08 1105 Aug/08
+835 Dec/09 1106 Aug/08
+836 Aug/08 1107 Aug/08
+837 Dec/09 1108 Aug/08
+838 Dec/09 1109 Aug/08
+839 Dec/09 1110 Dec/09
+840 Dec/09 1111 Dec/09
+841 Dec/09 1112 Aug/08
+842 Dec/09 1113 Aug/08
+843 Dec/09 1114 Aug/08
+844 Dec/09 1115 Aug/08
+845 Dec/09 1116 Aug/08
+846 Dec/09 1117 Aug/08
+847 Dec/09 1118 Dec/09
+848 Dec/09 1119 Aug/08
+849 Dec/09 1120 Aug/08
+850 Dec/09 1121 Aug/08
+851 Dec/09 1112 Dec/09
+852 Dec/09 1123 Dec/09
+853 Dec/09 1124 Aug/08
+854 Dec/09 1125 Dec/09
+855 Dec/09 1126 Aug/08
+856 Dec/09 1127 Aug/08
+1128 Dec/09
+CHAPTER 9 901 Dec/04 1129 Aug/08
+902 Dec/04 1130 Dec/09
+903 Aug/08 1131 Aug/08
+904 Dec/04 1132 Dec/09
+905 Aug/08 1133 Dec/09
+906 Dec/04 1134 Aug/08
+1135 Aug/08
+1136 Aug/08
+1137 Aug/08
+1138 Dec/09
+EFFECTIVE PAGES SERVICE MANUAL 251 Page 3
+Dec/09
+
+================================================================================
+=== PÁGINA 16 ===
+================================================================================
+PAGE TITLE PAGE No. DATE PAGE TITLE PAGE No. DATE
+1139 Aug/08 APPENDIX A7 01 Feb/12
+1140 Aug/08 02 Feb/12
+03 Feb/12
+1141 Aug/08
+04 Feb/12
+1142 Aug/08
+05 Feb/12
+06 Feb/12
+APPENDIX A1 01 Dec/04 07 Feb/12
+02 Dec/04 08 Feb/12
+03 Dec/04 09 Feb/12
+04 Dec/04 10 Feb/12
+11 Feb/12
+APPENDIX A2 01 Dec/09 12 Feb/12
+02 Dec/09 13 Feb/12
+03 Dec/09 14 Feb/12
+04 Dec/09 15 Feb/12
+05 Dec/09 16 Feb/12
+06 Dec/09 17 Feb/12
+07 Dec/09 18 Feb/12
+08 Dec/09
+09 Dec/09
+10 Dec/09
+APPENDIX A3 01 Dec/09
+02 Dec/04
+03 Dec/04
+04 Dec/04
+APPENDIX A4 01 Dec/04
+02 Dec/04
+APPENDIX A5 01 Aug/08
+02 Aug/08
+03 Dec/09
+04 Dec/09
+05 Aug/08
+06 Dec/09
+07 Aug/08
+08 Aug/08
+APPENDIX A6 01 Dec/09
+02 Dec/09
+EFFECTIVE PAGES SERVICE MANUAL 251 Page 4
+Feb/12
+
+================================================================================
+=== PÁGINA 17 ===
+================================================================================
+RECORD OF REVISIONS
+REVISION ISSUE DATE INSERTED
+NUMBER DATE INSERTED BY:
+INITIAL Dec/04 RFD Beaufort
+ISSUE
+1 Aug/08
+2 Dec/09
+3 Feb/12
+REVISION RECORD 251 Page 1
+SERVICE MANUAL
+Feb/12
+
+================================================================================
+=== PÁGINA 18 ===
+================================================================================
+BLANK PAGE
+REVISION RECORD 251 Page 2
+SERVICE MANUAL
+Feb/12
+
+================================================================================
+=== PÁGINA 19 ===
+================================================================================
+SERVICE BULLETIN LIST
+SERVICE Manual SERVICE Manual
+Date Date
+BULLETIN Revision BULLETIN Revision
+Incorporated Incorporated
+No. No. No. No.
+0909 Rev 2 Dec /09
+1309 Rev 2 Dec /09
+2609 Rev 2 Dec /09
+2709 Rev 2 Dec /09
+4509 Rev 2 Dec /09
+4609 Rev 2 Dec /09
+5209 Rev 2 Dec /09
+SERVICE BULLETINS 251 Page 1
+SERVICE MANUAL
+Dec/09
+
+================================================================================
+=== PÁGINA 20 ===
+================================================================================
+SERVICE BULLETIN LIST
+BLANK PAGE
+SERVICE BULLETINS 251 Page 2
+SERVICE MANUAL
+Dec/09
+
+================================================================================
+=== PÁGINA 21 ===
+================================================================================
+LIST OF ASSOCIATED PUBLICATIONS
+INFLATION EQUIPMENT
+QA Doc. 2017 Instruction Manual for Thanner Operating Head DK94 and
+cylinder adaptor CV DK94 and CV DK 99 system.
+QA Doc. 0050 Installation Manual - Thanner Mk III Inflation Valve.
+QA Doc. 2045 Instruction Manual for Thanner Operating Head DK99.
+The above manuals are published by the manufacturer:-
+Thanner & Co. A/S, Randersvej 8-10,
+DK-6700, Esbjerg, Denmark.
+Tel.: (45) 7513 0066
+Fax: (45) 7545 2993
+E-mail: admin@thanner.dk
+Web site: www.thanner.dk
+M-07-IS-GIVT Gas Inflation System (Torsional) inlet valve installation instructions
+M-07-UM-GIST General user manual for gas inflation system (Torsional)
+The above manuals (latest versions) are published by the manufacturer:-
+Leafield Marine Limited
+Leafield Way, Corsham, Wiltshire, SN13 9SS
+Tel: +44 (0)12 2581 0771, Fax: +44 (0)12 2581 2057
+E-mail: lml@leafield.co.uk
+ASSOCIATED 251 Page 1
+SERVICE MANUAL
+PUBLICATIONS Aug/08
+
+================================================================================
+=== PÁGINA 22 ===
+================================================================================
+Service bulletin 03/01 Approved spare parts, Non-operational liferafts and the Marine
+Equipment Directive.
+The above service bulletin is published by :-
+RFD Beaufort Limited
+Kingsway,
+Dunmurry
+Belfast
+Tel: +44 (0)28 9030 1531, Fax: +44 (0)28 9062 1765
+E-mail: marine@rfdbeaufort.com
+MISCELLANEOUS
+User Guide (Issue 5) SART S4 Search And Rescue Transponder
+The above manual is published by the manufacturer:-
+Daniamant Ltd
+Unit 3, The Admiral Park
+Airport Service Road
+Portsmouth
+Hampshire
+PO3 5RQ
+United Kingdom
+ASSOCIATED 251 Page 2
+SERVICE MANUAL
+PUBLICATIONS Aug/08
+
+================================================================================
+=== PÁGINA 23 ===
+================================================================================
+TABLE OF CONTENTS
+Chapter Title Page
+1 Description and Data....................................................... 101
+2 Removal and Unpacking................................................. 201
+3 Cleaning.......................................................................... 301
+4 Inspection and Checking................................................. 401
+5 Testing and Trouble Shooting ......................................... 501
+6 Repair ........................................................................... 601
+7 Emergency Packs and Equipment .................................. 701
+8 Assembly and Repacking................................................ 801
+9 Storage Conditions and Instructions................................ 901
+10 Special Tools, Equipment and Materials......................... 1001
+11 Illustrated Parts List ......................................................... 1101
+Appendices Title
+A 1 Marine Equipment Directive Variations
+A 2 USA options
+A 3 Canada options
+A 4 Russia options
+A 5 Over capacity variant
+A 6 Cylinder chemical leak form
+TABLE OF CONTENTS 251 Page 1
+SERVICE MANUAL
+Dec/09
+
+================================================================================
+=== PÁGINA 24 ===
+================================================================================
+BLANK PAGE
+TABLE OF CONTENTS 251 Page 2
+SERVICE MANUAL
+Dec/04
+
+================================================================================
+=== PÁGINA 25 ===
+================================================================================
+INTRODUCTION TO THE MANUAL
+Section Page
+1 General .............................................................................. 3
+2 Manual Breakdown............................................................. 3
+A Chapter and Page Numbers.................................... 3
+B List of Effective Pages............................................ 4
+C Record of Revisions ............................................... 4
+D Associated Publications ......................................... 5
+3 WARNINGS, CAUTIONS and NOTES................................. 5
+4 Health and Safety ............................................................... 5
+5 List of Abbreviations ........................................................... 5
+6 Service Provision ............................................................... 6
+A Provision Service................................................... 6
+B Servicing work ....................................................... 6
+C Tasks to be carried out........................................... 6
+D Installation and Removal ........................................ 7
+E Special Tools, Equipment, Replacement Parts ....... 7
+and the ‘MED’
+INTRODUCTION 251 Page 1
+SERVICE MANUAL
+Dec/04
+
+================================================================================
+=== PÁGINA 26 ===
+================================================================================
+BLANK PAGE
+INTRODUCTION 251 Page 2
+SERVICE MANUAL
+Dec/04
+
+================================================================================
+=== PÁGINA 27 ===
+================================================================================
+INTRODUCTION TO THE MANUAL
+1 General
+A This manual is intended for use by the people who will do the regular servicing
+work on the equipment. They will normally be employees of the Manufacturer or
+of Service Stations appointed by the Manufacturer. The manual describes the
+procedures used to disassemble, inspect, repair and reassemble the
+equipment. These procedures must be strictly obeyed.
+B RFD Beaufort Limited is the Design Authority for the equipment. The company
+has invested much effort to create the equipment and its servicing procedures,
+so that the equipment will be capable of reliable use, regardless of climate,
+weather conditions or circumstances.
+While comments intended to improve the efficiency of servicing procedures are
+always welcome, you must not make any changes to the servicing procedures
+without the permission of RFD Beaufort Ltd. Unauthorised changes may cause
+the equipment to malfunction. They may also void the approval of the
+equipment.
+C. This manual covers the RFD SURVIVA MK III family including BEAUFORT
+SEAFARER liferafts.
+D. Wheel-mark instruction - European Council Directive 96/98/EC (Marine
+Equipment) mark of conformity, is known as the ‘Wheelmark’.
+An inflatable liferaft which bears the Wheelmark, embodies wheel-marked
+components (pyrotechnics, TPA’s, position indicating lights, retro reflective tape
+and HRU). Items not wheel-marked may be subject to approval by the
+administration of the flag State.
+2 Manual Breakdown
+A Chapters and Page Numbers
+(1) The Chapter and Page Number blocks are as follows:
+Chapter Page Nos. Title
+- 1 - 99 Introduction
+1 101 - 199 Description and Data
+2 201 - 299 Removal and Unpacking
+3 301 - 399 Cleaning
+4 401 - 499 Inspection and Checking
+5 501 - 599 Testing and Trouble Shooting
+6 601 - 699 Repair
+continued: PTO
+INTRODUCTION 251 Page 3
+SERVICE MANUAL
+Dec/09
+
+================================================================================
+=== PÁGINA 28 ===
+================================================================================
+7 701 - 799 Emergency Packs and Equipment
+8 801 - 899 Assembly and Repacking
+9 901 - 999 Storage Conditions and Instructions
+10 1001 - 1099 Tools, Equipment and Materials
+11 1101 - 1199 Illustrated Parts List
+Appendices - List of Appendices covering variations to basic
+(UK) provisions for various national Authorities.
+B List of Effective pages
+(1) The List of Effective Pages details all the pages that are contained in the
+manual and indicates the issue dates of those pages allowing the manual
+content to be checked for completeness and latest update. This list is
+included in the introductory pages of the manual.
+C Record of revisions
+(1) Modifications to the equipment will be embodied in compliance with the
+MED. When required, the pages of this manual will be amended,
+approved and reissued as a revision.
+(2) A revision to the manual consists of a transmittal letter, a revised List of
+Effective Pages, and new or revised text and illustrations. Revised
+contents lists are issued when necessary.
+(3) The transmittal letter carries at its head the certification statement which
+authorises the revision. It describes, in general terms, the contents of the
+revision in the manual. All pages that are required to be removed without
+replacements are listed. All other out of date pages are to be removed
+when superseding pages of the same number are inserted. All additional
+pages to be inserted are also listed where applicable.
+(4) The transmittal letters are to be filed behind the Record of Revisions page
+at the front of the manual.
+INTRODUCTION 251 Page 4
+SERVICE MANUAL
+Dec/09
+
+================================================================================
+=== PÁGINA 29 ===
+================================================================================
+D Associated publications
+(1) The list of Associated Publications containing details of the manuals
+published by the manufacturer of a component fitted to, or used in
+conjunction with, the equipment described in this manual. This list, where
+applicable, is located at the front of the manual.
+3 WARNINGS, CAUTIONS and NOTES
+Certain areas of the manual require particular attention. These are classified as
+follows;
+WARNING: A WARNING CALLS ATTENTION TO A PROCEDURE WHICH IF
+INCORRECTLY PERFORMED IS LIABLE TO CAUSE INJURY OR
+DEATH TO PERSONNEL.
+CAUTION: A CAUTION CALLS ATTENTION TO A PROCEDURE WHICH
+IF INCORRECTLY PERFORMED IS LIABLE TO CAUSE
+DAMAGE TO THE EQUIPMENT OR ITS COMPONENTS.
+NOTE: A NOTE calls attention to methods which make the job
+easier.
+4 Health and safety
+A RFD Beaufort Limited shall not be deemed by virtue of any of these instructions
+to have assumed any of the responsibilities of the service agent or operator
+under the HEALTH AND SAFETY AT WORK ACT or any such enactment.
+5 List of abbreviations
+The following list of abbreviations are used throughout the manual;
+AR - As required
+assy. - Assembly
+C - Celsius
+cc - Cubic Centimetre(s)
+cm - centimetre(s)
+c/w - Complete With
+dia. - Diameter
+INTRODUCTION 251 Page 5
+SERVICE MANUAL
+Dec/09
+
+================================================================================
+=== PÁGINA 30 ===
+================================================================================
+g - Gramme
+g/cm2 - Grammes per square centimetre
+iaw - In accordance with
+i/d - Inside Diameter
+instl. - Installation
+in. - Inch
+kg - Kilogramme
+kgf - Kilogramme force
+Lbs - Pounds
+L.H. - Left Hand
+R.H. - Right Hand
+m - metre(s)
+mm - millimetre(s)
+mm WG - millimetres of Water Gauge
+max. - Maximum
+min. - Minimum
+Mod. - Modification
+Nm - Newton Metre(s)
+o/d - Outside Diameter
+Spec. - Specification
+P/N - Part Number
+PU - Polyurethane
+PVC - Polyvinylchloride
+RF - Reference
+S/A - Self Adhesive
+6 Service provision
+A The provision of service on liferafts, at the intervals required by governing
+legislation or by the Design Authority, is detailed in Chapters 2 to 8 of this
+manual.
+B Servicing work must not be done to RFD Beaufort Ltd products except by or
+under the direct supervision of RFD Beaufort certificated service technicians
+employed by and working in the approved premises of RFD Beaufort
+accredited service agents.
+C In brief, the following tasks shall be carried out:
+(1) The servicing record chart on reverse of the liferaft Identification label is to
+be completed at each servicing including;
+The stamp of the Certified operator who serviced the liferaft in the place
+designated.
+The number of the annual Certificate is to be written in the space provided.
+The Service station Manager or Chief Inspector is to sign this card in the
+space provided.
+INTRODUCTION 251 Page 6
+SERVICE MANUAL
+Aug/08
+
+================================================================================
+=== PÁGINA 31 ===
+================================================================================
+(2) Liferafts shall be unpacked in accordance with Chapter 2.
+(3) Liferafts and constituent items shall be cleaned and inspected in
+accordance with Chapters 3 and 4.
+(4) Testing appropriate to the age of the liferaft (refer to Chapter 5, Paragraph
+C.1. onward) shall be carried out according to Chapter 5.
+(5) Required repairs shall be carried out according to Chapter 6 provided the
+appropriate techniques are described there. In all other cases procedural
+advice shall be obtained from RFD Beaufort . Technical Services.
+(6) Sub-assembly processes and repacking of the liferaft shall be in
+accordance with Chapters 7 and 8.
+D Installation and Removal (See also Chapter 1).
+(1) Satisfactory installation of liferafts on board is the responsibility of the
+vessel's master and operator. In relation to servicing however, RFD
+Beaufort servicing agents must ensure that the responsibility for
+reinstallation, following servicing, is identified within their contractual
+agreement with the operator . Also when the RFD Beaufort agent reinstalls
+liferafts, the resulting installation is according to RFD Beaufort
+recommendations and is in all respects satisfactory.
+E Special tools, Equipment, Replacement parts and the ‘MED’.
+(1) The special tools and equipment listed in Chapter 10 or in associated
+publications may not be substituted except by the explicit permission of
+RFD Beaufort.
+(2) No replacement parts or materials other than those of RFD Beaufort
+supply or approval may be used in the servicing of RFD Beaufort
+products. Replacement parts are listed in Chapter 11, materials in
+Chapter 10 or in current service bulletins.
+INTRODUCTION 251 Page 7
+SERVICE MANUAL
+Dec/09
+
+================================================================================
+=== PÁGINA 32 ===
+================================================================================
+(3) Liferafts that are labelled – ‘wheel-marked’ – indicating compliance with
+the Marine Equipment Directive of the European Union (‘the MED’) shall
+contain items which are themselves wheel-marked; these are:
+(a) Position indicating lights
+(b) Retro-reflective material
+(c) Thermal Protective Aids
+(d) Pyrotechnics (hand flares, rocket parachutes flares and buoyant
+smoke signals)
+Note that MED compliant items must be accompanied by an MED
+‘declaration of conformity’.
+Locally obtained substitutes may be used only upon approval by RFD
+Beaufort and only if they are MED compliant. Application to RFD
+Beaufort, must make it perfectly clear that they are wheel-marked and
+quote the complete technical specification.
+At present the MED governs the following countries:
+Nations of the European Union
+Norway
+Some emergency equipment items (for example, first aid kits) may be
+subject to explicit approval by the relevant administration of the flag state.
+NOTE: Australia are not governed by the MED, but do recognise
+it.
+INTRODUCTION 251 Page 8
+SERVICE MANUAL
+Dec/09
+
+================================================================================
+=== PÁGINA 33 ===
+================================================================================
+CHAPTER 1
+DESCRIPTION AND DATA
+Section Page
+1 Description and Data .................................................................. 103
+2 Nominal dimensions and Approximate Operational weights......... 106
+3 Period to overhaul....................................................................... 108
+4 Inflation System and Gas charges................................................ 109
+5 Torque settings........................................................................... 110
+6 Powerunit activation cord lengths ................................................ 111
+7 Installation notes.......................................................................... 111
+Stowage positions ............................................................. 111
+Protection of stowed liferafts............................................... 112
+Fixed magnetic material ..................................................... 112
+Secure the painters............................................................. 112
+Height of stowage above the waterline................................ 113
+Installation and removal of liferafts....................................... 113
+Stowage of liferafts in rigid containers................................. 113
+Attachment of stowed liferafts ............................................. 113
+Ramp stowage ................................................................... 114
+Float-free attachment.......................................................... 114
+CHAPTER 1 251 Page 101
+SERVICE MANUAL
+Aug/08
+
+================================================================================
+=== PÁGINA 34 ===
+================================================================================
+SOLAS style Throw Over liferaft
+FIGURE 101
+CHAPTER 1 251 Page 102
+SERVICE MANUAL
+Dec/04
+
+================================================================================
+=== PÁGINA 35 ===
+================================================================================
+CHAPTER 1
+DESCRIPTION AND DATA
+1 Description
+A The Surviva MK III SoLaS style range of Throw Overboard liferafts are high
+capacity liferafts rated for 4, 6, 8, 10, 12, 16, 20 or 25 persons (FIGURE 101).
+The range is complemented by Davit Launch versions sized 12, 16, 20 or 25
+persons, (FIGURE 102).
+B The design consists of two buoyancy chambers forming a high freeboard, an
+insulated floor and an automatically erected canopy for all-weather protection
+that incorporates doors, vents and rainwater catchment systems. The canopy is
+double skinned for insulation purposes and is supported by an arch tube which
+is inflated via the upper buoyancy chamber.
+C Polyurethane adhesive (BOSTIK 1520), is used during manufacture.
+Polychloroprene adhesive (BOSTIK 486) must be used for service repairs.
+D The liferaft is made from the following parts, (FIGURE 101 or FIGURE 102):
+(1) Two buoyancy tubes: one installed on top of the other with a floor
+suspended below them. This gives a high freeboard.
+(2) A canopy, which is erected automatically by an inflated arch tube.
+(3) Water pockets, which are installed on the base, make the liferaft stable
+and control the drift subsequent to the launch.
+(4) The liferaft is made from polyurethane-proofed Nylon fabric. The buoyancy
+chambers of the liferaft are black and the canopy is a high visibility colour.
+CHAPTER 1 251 Page 103
+SERVICE MANUAL
+Aug/08
+
+================================================================================
+=== PÁGINA 36 ===
+================================================================================
+E The liferaft has the internal and external equipment as follows, (FIGURE 101 or
+FIGURE 102).
+(1) Lifelines which are attached around the interior and exterior of the
+buoyancy tubes.
+(2) A rescue line and quoit which are located inside the liferaft.
+(3) Automatically deployed internal and external lights.
+(4) Drogue (sea anchor).
+(Automatically deployed on Throw Over liferafts).
+(Manually deployed on Davit Launch liferafts).
+(5) Survival equipment, which is contained in emergency pack valise(s), are
+stowed inside the liferaft.
+(6) A righting ladder on the base used to right an upturned Liferaft.
+(7) Boarding means by ladder or ramp.
+(8) Rainwater catchment device on canopy exterior.
+(9) Illustrations are given, (where possible), on the liferaft to show operation of
+the equipment.
+(10) Immediate action leaflets are provided in English and appropriate foreign
+language.
+(11) Lifting bridle. (Only on Davit Launch liferafts).
+CHAPTER 1 251 Page 104
+SERVICE MANUAL
+Dec/04
+
+================================================================================
+=== PÁGINA 37 ===
+================================================================================
+SOLAS Style Davit Launch liferaft
+FIGURE 102
+CHAPTER 1 251 Page 105
+SERVICE MANUAL
+Dec/04
+
+================================================================================
+=== PÁGINA 38 ===
+================================================================================
+2. Liferaft Nominal Dimensions :
+Diameter Height Diameter Height Clearance
+4 2010 (79.1) 1080 (42.5)
+6 2400 (94.5) 1120 (44.0)
+8 2740 (108.0) 1230 (48.0)
+10 2900 (114.0) 1460 (57.5)
+12 2900 (114.0) 1460 (57.5) 2900 (114.0) 1460 (57.5) 1900 (75.0)
+16 3310 (130.0) 1600 (63.0) 3310 (130.0) 1600 (63.0) 1950 (77.0)
+20 3710 (146.0) 1680 (66.0) 4110 (162.0) 1900 (75.0) 2470 (97.0)
+25 4110 (162.0) 1900 (75.0) 4110 (162.0) 1900 (75.0) 2470 (97.0)
+CHAPTER 1 251 Page 106
+SERVICE MANUAL
+Aug/08
+DETAR
+YTICAPAC
+LIFERAFT DIMENSIONS
+THROW OVER DAVIT LAUNCH
+Nominal Dimensions Nominal Dimensions
+mm (in) mm (in)
+
+================================================================================
+=== PÁGINA 39 ===
+================================================================================
+Nominal Dimensions for TO and DL in CYLINDRICAL CONTAINERS
+CHAPTER 1 251 Page 107
+SERVICE MANUAL
+Aug/08
+.xorppA
+)ni(
+mm
+)ni(
+mm
+lanoitarepO
+retemaiD
+htgneL
+)bl(
+gK
+thgieW
+retemaiD
+htgneL
+retemaiD
+htgneL
+retemaiD
+htgneL
+-
+-
+-
+-
+-
+-
+)8.501(
+84
+)71(
+534
+)7.54(
+0611
+)5.321(
+65
+)71(
+534
+)7.54(
+0611
+4
+)3.121(
+55
+-
+-
+)1.361(
+47
+)22(
+655
+)0.24(
+6601
+)1.121(
+55
+)71(
+534
+)7.54(
+0611
+)2.361(
+47
+)91(
+584
+)6.94(
+0621
+6
+)5.321(
+65
+-
+-
+)2.471(
+97
+)22(
+655
+)0.24(
+6601
+)9.721(
+85
+)71(
+534
+)7.54(
+0611
+)6.871(
+18
+)91(
+584
+)6.94(
+0621
+8
+)2.581(
+48
+-
+-
+)3.922(
+401
+)22(
+655
+)0.24(
+6601
+)2.581(
+48
+)91(
+584
+)6.94(
+0621
+)3.922(
+401
+)12(
+535
+)7.45(
+0931
+01
+)2.581(
+48
+-
+-
+)1.832(
+801
+)32(
+485
+)5.54(
+6511
+)2.581(
+48
+)91(
+584
+)6.94(
+0621
+)3.922(
+401
+)12(
+535
+)7.45(
+0931
+21
+)7.222(
+101
+-
+-
+)2.392(
+331
+)32(
+485
+)5.54(
+6511
+)1.722(
+301
+)12(
+535
+)7.45(
+0931
+)2.392(
+331
+)12(
+535
+)6.06(
+0451
+61
+)5.242(
+011
+)32(
+485
+)5.54(
+6511
+)5.053(
+951
+)72(
+586
+)2.05(
+3721
+)5.242(
+011
+)12(
+535
+)6.06(
+0451
+)5.053(
+951
+)32(
+585
+)4.46(
+5361
+02
+)6.572(
+521
+-
+-
+)8.583(
+571
+)72(
+586
+)2.05(
+3721
+)2.282(
+821
+)12(
+535
+)6.06(
+0451
+)4.293(
+871
+)32(
+585
+)4.46(
+5361
+52
+)2.691(
+98
+-
+-
+)1.942(
+311
+-
+-
+)2.691(
+98
+)91(
+584
+)6.94(
+0621
+)0.942(
+311
+)12(
+535
+)7.45(
+0931
+21
+)9.532(
+701
+-
+-
+)4.603(
+931
+-
+-
+)9.532(
+701
+)12(
+535
+)7.45(
+0931
+)4.603(
+931
+)12(
+535
+)6.06(
+0451
+61
+)0.192(
+231
+-
+-
+)2.973(
+271
+-
+-
+)6.792(
+531
+)12(
+535
+)6.06(
+0451
+)9.704(
+581
+)32(
+585
+)4.46(
+5361
+02
+)0.192(
+231
+-
+-
+)2.104(
+281
+)72(
+586
+)2.05(
+3721
+)6.792(
+531
+)12(
+535
+)6.06(
+0451
+)9.704(
+581
+)32(
+585
+)4.46(
+5361
+52
+YTICAPAC
+DETAR
+STFAR
+REVO
+WORHT
+-
+SNOISNEMID
+RENIATNOC
+41
+KM
+41
+KM
+01
+KM
+01
+KM
+RENIATNOC
+RENIATNOC
+RENIATNOC
+RENIATNOC
+kcap
+B
+SALOS
+kcap
+A
+SALOS
+kcap
+B
+SALOS
+kcap
+A
+SALOS
+.xorppA
+.xorppA
+.xorppA
+)ni(
+mm
+)ni(
+mm
+lanoitarepO
+lanoitarepO
+lanoitarepO
+)bl(
+gK
+thgieW
+)bl(
+gK
+thgieW
+)bl(
+gK
+thgieW
+STFAR
+HCNUAL
+TIVAD
+-
+SNOISNEMID
+RENIATNOC
+
+================================================================================
+=== PÁGINA 40 ===
+================================================================================
+Nominal Dimensions for Flat Pack CONTAINERS
+Kg (lb) Kg (lb)
+Length Width Height Weight Length Width Height Weight
+10 - TBA
+12 1190 (46.8) 650 (25.6) 315 (12.4) TBA TBA
+Length Width Height Weight Length Width Height Weight
+4 900 (35.4) 646 (25.3) 310 (12.2) 53 (116.8) 900 (35.4) 646 (25.4) 310 (12.2) 45 (99.2)
+6 985 (38.8) 670 (26.4) 435 (12.2) 71 (156.5) 985 (38.8) 670 (26.4) 435 (12.1) 57 (125.7)
+8 985 (38.8) 670 (26.4) 435 (12.2) 79 (174.2) 985 (38.8) 670 (26.4) 435 (12.1) 63 (138.9)
+Length Width Height Weight Length Width Height Weight
+25 1525 (60.1) 820 (32.3) 505 (19.9) 180 (396.8) 1525 (60.1) 820 (32.3) 505 (19.9) 130 (286.6)
+3. Period to overhaul
+Liferafts12 months
+Inflation System...................................See Associated Publications
+at the front of this manual
+CHAPTER 1 251 Page 108
+SERVICE MANUAL
+Dec/09
+DETAR
+YTICAPAC
+FLATPACK CONTAINERS
+1190 650 315
+(46.8) (25.6) (12.4)
+DETAR
+YTICAPAC MK 16 CONTAINER (Sz2) MK 16 CONTAINER (Sz2)
+SOLAS A pack SOLAS B pack
+mm (in) mm (in)
+DETAR
+YTICAPAC
+MK 18 CONTAINER MK 18 CONTAINER
+SOLAS A pack SOLAS B pack
+mm (in) Kg (lb) mm (in) Kg (lb)
+MK 20 CONTAINER MK 20 CONTAINER
+SOLAS A pack SOLAS B pack
+mm (in) Kg (lb) mm (in) Kg (lb)
+
+================================================================================
+=== PÁGINA 41 ===
+================================================================================
+4. Inflation system and Gas charges
+Liferaft Working Pressure ..............................................2.8 Psi
+..............................................77.5 in WG
+..............................................1970mm WG
+EUROPEAN Cylinders
+DAVIT LAUNCH RAFTS
+4 1.98 4.37 0.06 0.13
+6 2.50 5.51 0.16 0.35
+8 3.51 7.74 0.23 0.51
+10 5.94 13.10 0.18 0.40
+12 5.94 13.10 0.18 0.40 12 5.94 13.10 0.18 0.40
+16 8.44 18.61 0.37 0.82 16 8.44 18.61 0.37 0.82
+20 8.44 18.61 0.37 0.82 20 11.26 24.82 0.36 0.79
+25 11.26 24.82 0.36 0.79 25 11.26 24.82 0.36 0.79
+CHAPTER 1 251 Page 109
+SERVICE MANUAL
+Aug/08
+DETAR
+YTICAPAC
+and GAS CHARGES
+DETAR
+YTICAPAC
+THROW OVER RAFTS
+INFLATION SYSTEM INFLATION SYSTEM
+and GAS CHARGES
+Cylinder CO Cylinder N Cylinder CO Cylinder N
+2 2 2 2
+Kg Lb Kg Lb Kg Lb Kg Lb
+4 1.454 3.20 0.177 0.39
+6 3.171 6.99 0.386 0.85
+8 3.171 6.99 0.386 0.85
+10 4.362 9.62 0.532 1.39
+12 4.362 9.62 0.532 1.39 12 4.362 9.62 0.532 1.17
+16 6.343 13.98 0.773 1.70 16 6.343 13.98 0.773 1.70
+20 6.343 13.98 0.773 1.70 20 8.722 19.23 1.063 2.34
+25 9.410 20.75 0.750 1.65 25 8.722 19.23 1.063 2.34
+DETAR
+YTICAPAC
+DETAR
+YTICAPAC
+USA & CANADA Cylinders
+THROW OVER RAFTS DAVIT LAUNCH RAFTS
+INFLATION SYSTEM INFLATION SYSTEM
+and GAS CHARGES and GAS CHARGES
+Cylinder CO 2 Cylinder N 2 Cylinder CO 2 Cylinder N 2
+Kg Lb Kg Lb Kg Lb Kg Lb
+
+================================================================================
+=== PÁGINA 42 ===
+================================================================================
+5. Torque wrench settings:
+VALUE Special tool
+THANNER INFLATION SYSTEM
+Nm (Ft/Lbs) required
+Valve, Topping-up, A8 16 11.8 No
+Hose, Inflation (cylinders to raft) 20.3 14.97 No
+Banjo bolt, inflation 23 16.96 No
+Valve nut, inflation valve MKIII 30 22.13 No
+Vave pressure relief, Thanner OTS65 27 19.91 Yes
+160 118
+Cylinder valve (to gas cylinder) Yes
+(+/-10 N/m) (+/-8 f/lbs)
+Head, operating, DK99 (to cylinder valve) 50 36.88 No
+Special tool
+LEAFIELD INFLATION SYSTEM Nm (Ft/Lbs)
+required
+M24 nut (inlet check valve) 30 22.17 Yes
+M16 connector (inlet check valve) 9 6.6 No
+Cylinder valve/gas cylinder: 200 147.51 No
+Cylinder valve/hose 12.2 9 No
+Break stem seal assy./valve body 40 29.5 Yes
+Torque drive assy./valve body 4 2.95 Yes
+Operating head/cylinder valve (3mm Hex) 1.12 0.83 No
+A10 pressure relief valve (inner) 27 19.91 Yes
+Torque settings
+TABLE 101
+CHAPTER 1 251 Page 110
+SERVICE MANUAL
+Dec/09
+
+================================================================================
+=== PÁGINA 43 ===
+================================================================================
+6. Powerunit activation cord lengths:
+RL1/RL4/RB2 RL5
+Lighting system Lighting system
+RATED Cut length Cut length
+CAPACITY mm inch mm inch
+4 TO 450 18 600 23.5
+6 TO 450 18 650 25.5
+8 TO 450 18 750 29.5
+10 TO 900 35.5 1100 43
+12 TO 900 35.5 1100 43
+12 DL 900 35.5 1100 43
+16 TO 900 35.5 1350 53
+16 DL 900 35.5 1350 53
+20 TO 1000 39.5 1400 55
+20 DL 1000 39.5 1500 59
+25 TO 1300 51 1500 59
+25 DL 1300 51 1500 59
+Power unit activation cord lengths
+TABLE 102
+7. Installation notes:
+USE ONLY GENUINE RFD-BEAUFORT PARTS FOR INSTALLATIONS.
+A When more detailed instructions are necessary, refer to RFD Beaufort
+Customer Service Department.
+(1) Stowage positions
+(a) Stow the liferafts in a position which will make sure they will be
+serviceable when necessary. Make sure they can be easily
+launched (manually) or can float-free from a sinking ship .
+NOTE: The liferafts must be stowed away from the propellers,
+side thrust apertures and stabilisers. The stow position
+must not prevent the operation of a survival craft or rescue
+boat at any other launching station.
+In cases where Davit Launch liferafts are to be fitted they should be
+positioned at least 9m forward of the ships propellers.
+CHAPTER 1 251 Page 111
+SERVICE MANUAL
+Aug/08
+
+================================================================================
+=== PÁGINA 44 ===
+================================================================================
+(2) Protection of stowed liferafts
+(a) Stow the liferafts in a position which will give the maximum possible
+protection from fire, smoke, vibration, funnel deposits, sparks, oil,
+heat, explosion, flooding and weather.
+(b) In conditions when ice is present, stow the liferafts in protected
+positions (adjacent to casings) so that they will not be frozen over.
+(c) Do not stow the liferafts in a positions where they can be in a pool of
+water.
+(d) Do not let the liferafts touch any material that has copper or copper
+compounds.
+(e) When using a power hose to wash the ship’s deck and liferaft
+installation, do not point the hose directly at the liferaft container.
+(3) Magnetic deviation
+In deciding on the stowage position of the liferafts, particularly in small
+vessels, consideration should be given to the possible effect on the ship’s
+compass of any ferrous metal in the liferaft or its stowage arrangements.
+Under these conditions, liferafts and their stowage should, if necessary, be
+regarded as fixed magnetic material.
+(4) Secure the painters
+The end of the painter on every liferaft should be secured to a suitable
+strong point, so that on being launched the liferaft is held to the vessel.
+The securing arrangement for the painter will normally include a float free
+arrangement, such as a hydrostatic release unit, (HRU). Where a HRU is
+fitted the painter line should be attached only to the HRU weak link.
+WARNING: IT SHOULD BE IMPRESSED UPON ALL MEMBERS OF THE
+CREW THAT, IF FOR ANY REASON A LIFERAFT PAINTER HAS
+TO BE UNFASTENED BEFORE A LIFERAFT IS LAUNCHED,
+THEN IT SHOULD BE MADE FAST AGAIN TO SOME OTHER
+SUITABLE STRONG POINT BEFORE LAUNCHING TAKES
+PLACE.
+CHAPTER 1 251 Page 112
+SERVICE MANUAL
+Aug/08
+
+================================================================================
+=== PÁGINA 45 ===
+================================================================================
+(5) Height of stowage above the waterline
+(a) The liferafts should be stowed as close to the waterline as is safe
+and practical.
+NOTE: The painter line of the liferaft is at minimum10 metres
+more than the installation height as listed on the exterior
+of the container.
+(b) Make sure the liferaft is approved to be dropped from the height of
+its stowage point.
+(6) Installation and removal of liferafts
+(a) Be very careful when installing or removing the liferafts at their
+stowage positions. The glass-reinforced plastic (the container) can
+be damaged and subsequently, the liferaft. They must not be rolled
+or dropped during removal/installation.
+(7) Stowage of liferafts in rigid containers
+NOTE: Liferafts are usually packed in rigid containers with no
+other protection.
+(a) Install the container the correct way up with the drainage apertures at
+the bottom. Keep the drainage apertures clear of obstructions such
+as the launching cradle support structure.
+NOTE: Each cradle must be of the correct dimensions for the
+type of container installed. The rack must be attached to
+the ship’s structure.
+(8) Attachment of stowed liferafts
+(a) Make sure the liferaft can be released easily when a manual launch
+is necessary or for float-free operation (refer to Step 10).
+(b) Make sure the mechanism which holds the liferaft on the rack can be
+removed easily in an emergency:
+A slip-link (Senhouse slip) or other release mechanism which can be
+operated by a single swift action should be provided.
+CHAPTER 1 251 Page 113
+SERVICE MANUAL
+Aug/08
+
+================================================================================
+=== PÁGINA 46 ===
+================================================================================
+(9) Ramp Stowage
+(a) On passenger ships which have a large number of inflatable liferafts
+installed, the liferafts must be stowed away from the lifeboat
+positions along the ship’s side.
+(b) The liferafts should be installed on vertical racks or racks that slope
+outboard to the sea. If the liferafts are installed in this way, make
+sure each liferaft can be released independently and that the float-
+free attachment is satisfactory (refer to Step 10).
+(10) Float-free attachment (hydrostatic release)
+(a) A float-free launch is operated by a mechanism which inflates and
+releases the liferaft automatically from a ship that is sinking.
+NOTE: The hydrostatic release must be installed as per
+manufacturer’s instructions.
+NOTE: If the hydrostatic release is a type which requires
+servicing, it must be serviced by an approved servicing
+station. The service station must record the date of
+servicing on the data plate attached to the unit.
+NOTE: If the hydrostatic release is a type that must be discarded
+(lifed item) it must be identified with the date of expiry and
+must be replaced by that date. They usually have an
+operational life which does not include a servicing period.
+(b) A weak-link must be installed in the hydrostatic system to make sure
+a liferaft is not pulled under the water by a sinking ship.
+The weak-link in the system must have a breaking strength of 1.8 -
+2.6 kN (404.66-584.5 lbf) to pull the painter from the liferaft container
+and activate its inflation system.
+(c) If it is necessary to launch the liferaft manually, make sure the painter
+line is attached to a strong point on the ship. The strong point must
+be sufficient to support the pull of the painter line to operate the
+inflation system.
+(d) A slip link, lashed to the holding down straps, should be provided
+between the hydrostatic release and the straps. This will enable
+manual quick release for the liferaft.
+CHAPTER 1 251 Page 114
+SERVICE MANUAL
+Aug/08
+
+================================================================================
+=== PÁGINA 47 ===
+================================================================================
+CHAPTER 2
+REMOVAL AND UNPACKING
+Section Page
+1 Safety procedures....................................................................... 203
+2 Removal/Date of Manufacture.................................................... 204
+3 Unpacking procedure................................................................. 204
+CHAPTER 2 251 Page 201
+SERVICE MANUAL
+Aug/08
+
+================================================================================
+=== PÁGINA 48 ===
+================================================================================
+Safety procedure
+FIGURE 201
+CHAPTER 2 251 Page 202
+SERVICE MANUAL
+Dec/04
+
+================================================================================
+=== PÁGINA 49 ===
+================================================================================
+CHAPTER 2
+REMOVAL AND UNPACKING
+1 Safety procedures
+A Make sure the work area is clean and the lighting is sufficient.
+B Use the following procedure if cutting container straps:
+WARNING: PUT ON FACE PROTECTION EQUIPMENT SUCH AS GOGGLES
+OR A FACE SHIELD AND GLOVES WHEN CUTTING THE STRAP
+AROUND THE CONTAINER. THE STRAP CAN CAUSE INJURY
+TO FACE AND HANDS WHEN CUTTING IT.
+(1) Make sure personnel are at a safe distance from the container when
+cutting the strap.
+(2) Stand to one side of each strap when cutting it.
+(3) Hold the strap against the container before cutting it.
+(4) Cut each strap between the seal and the position where the strap is held,
+(FIGURE 202).
+Container and liferaft
+FIGURE 202
+CHAPTER 2 251 Page 203
+SERVICE MANUAL
+Dec/04
+
+================================================================================
+=== PÁGINA 50 ===
+================================================================================
+2 Removal/Date of Manufacture
+A Remove the liferaft containers from the ship, 12 months from the date of
+manufacture and subsequently at 12 month periods. Send them to an approved
+service station for inspection, testing and repair (if necessary).
+B Check the date of manufacture and servicing period of the gas inflation system.
+Refer to Chapter 5 for the test procedure. If a test is not necessary, continue this
+procedure at Step 3.
+3 Unpacking procedure
+A Container and liferaft (FIGURE 202).
+(1) Put the container onto a suitable trolley or cradle. Make sure it is held
+securely with the top uppermost. Position the trolley so that the container
+is next to the packing table.
+WARNING: OBEY THE SAFETY PROCEDURES IN STEP 1.
+(2) Cut the straps which hold each half of the container together as given in
+the safety procedure (Refer Step 1 & FIGURE 202).
+(3) Cut the straps of the container at the end grooves first and then the centre
+grooves, (FIGURE 202).
+(4) Carefully lift the top part of the container, (FIGURE 202).
+Gas inflation system
+FIGURE 203
+CHAPTER 2 251 Page 204
+SERVICE MANUAL
+Aug/08

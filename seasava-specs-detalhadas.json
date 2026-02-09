@@ -1,0 +1,26 @@
+[
+  {
+    "modelo": "SEASAVA Plus",
+    "fabricante": "SEASAVA",
+    "sistema_insuflacao": "",
+    "valvulas_padrao": [],
+    "capacidades": {},
+    "pressao_trabalho": {},
+    "davit_launch": {},
+    "weak_link": {},
+    "torques": {},
+    "caracteristicas_especiais": []
+  },
+  {
+    "modelo": "SEASAVA Plus X/E/R",
+    "fabricante": "SEASAVA",
+    "sistema_insuflacao": "",
+    "valvulas_padrao": [],
+    "capacidades": {},
+    "pressao_trabalho": {},
+    "davit_launch": {},
+    "weak_link": {},
+    "torques": {},
+    "caracteristicas_especiais": []
+  }
+]

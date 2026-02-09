@@ -1,0 +1,13 @@
+{
+  "dataGeracao": "2026-02-07T10:32:20.295Z",
+  "totalNotificacoes": 0,
+  "totalDivergencias": 0,
+  "totalVencidos": 0,
+  "totalProximos": 0,
+  "detalhes": {
+    "notificacoes": [],
+    "divergencias": [],
+    "vencidos": [],
+    "proximos": []
+  }
+}

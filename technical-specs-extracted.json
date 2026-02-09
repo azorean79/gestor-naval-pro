@@ -1,0 +1,65 @@
+[
+  {
+    "modelo": "RFD SURVIVA MKIII",
+    "arquivo": "c:\\Users\\julio\\Desktop\\APLICACAO MASTER\\LIFERAFT1.0\\gestor-naval-pro\\MARCAS\\SURVIVA MKIII\\MkIII.pdf",
+    "pressaoTrabalho": {
+      "mmWG": 1970.0
+    },
+    "davit": {
+      "bridle_weight": null,
+      "weak_link": null,
+      "capacity_specs": {}
+    },
+    "total_paginas": 300,
+    "paginas_processadas": 97,
+    "paginas_com_pressao": 4
+  },
+  {
+    "modelo": "DSB LR05",
+    "arquivo": "c:\\Users\\julio\\Desktop\\APLICACAO MASTER\\LIFERAFT1.0\\gestor-naval-pro\\MARCAS\\LR05.pdf",
+    "pressaoTrabalho": {
+      "mmWG": 1970.0
+    },
+    "davit": {
+      "bridle_weight": null,
+      "weak_link": null,
+      "capacity_specs": {}
+    },
+    "total_paginas": 296,
+    "paginas_processadas": 96,
+    "paginas_com_pressao": 4
+  },
+  {
+    "modelo": "RFD SURVIVA MKIV",
+    "arquivo": "c:\\Users\\julio\\Desktop\\APLICACAO MASTER\\LIFERAFT1.0\\gestor-naval-pro\\MARCAS\\SURVIVA MKIV\\MK IV.pdf",
+    "pressaoTrabalho": {
+      "milibares": 193.0,
+      "psi": 2.8,
+      "mmWG": 1970.0
+    },
+    "davit": {
+      "bridle_weight": null,
+      "weak_link": null,
+      "capacity_specs": {}
+    },
+    "total_paginas": 680,
+    "paginas_processadas": 97,
+    "paginas_com_pressao": 2
+  },
+  {
+    "modelo": "DSB LR97",
+    "arquivo": "c:\\Users\\julio\\Desktop\\APLICACAO MASTER\\LIFERAFT1.0\\gestor-naval-pro\\MARCAS\\LR97.pdf",
+    "pressaoTrabalho": {
+      "milibares": 15.0,
+      "bar": 230.0
+    },
+    "davit": {
+      "bridle_weight": null,
+      "weak_link": null,
+      "capacity_specs": {}
+    },
+    "total_paginas": 202,
+    "paginas_processadas": 100,
+    "paginas_com_pressao": 3
+  }
+]

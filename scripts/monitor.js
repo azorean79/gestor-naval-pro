@@ -1,147 +1,76 @@
-#!/usr/bin/env node
+// Script para monitorar o status do servidor Node.js (Next.js)
 
-/**
- * Script de Monitoramento Contínuo
- * Executa verificações periódicas de saúde da aplicação
- */
 
-const https = require('https');
-const { sendAlert } = require('../src/lib/monitoring');
+const http = require('http');
+const { exec } = require('child_process');
 
-const CONFIG = {
-  baseUrl: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
-  interval: 5 * 60 * 1000, // 5 minutos
-  endpoints: [
-    '/api/health',
-    '/api/marcas-jangada',
-    '/api/dashboard/resumo',
-    '/api/clientes',
-    '/api/jangadas'
-  ],
-  alerts: {
-    consecutiveFailures: 3,
-    responseTimeThreshold: 5000, // 5 segundos
-  }
+// Permite configurar host e porta por variáveis de ambiente ou argumentos
+const args = process.argv.slice(2);
+const HOST = process.env.MONITOR_HOST || args[0] || 'localhost';
+const PORT = parseInt(process.env.MONITOR_PORT || args[1] || '3000', 10);
+
+const options = {
+	hostname: HOST,
+	port: PORT,
+	path: '/',
+	method: 'GET',
+	timeout: 5000
 };
 
-class HealthMonitor {
-  constructor() {
-    this.failureCounts = new Map();
-    this.lastCheck = null;
-  }
 
-  async checkEndpoint(endpoint) {
-    const url = `${CONFIG.baseUrl}${endpoint}`;
-    const startTime = Date.now();
-
-    try {
-      const response = await this.makeRequest(url);
-      const responseTime = Date.now() - startTime;
-
-      if (response.statusCode === 200) {
-        // Reset failure count on success
-        this.failureCounts.set(endpoint, 0);
-
-        // Check response time
-        if (responseTime > CONFIG.alerts.responseTimeThreshold) {
-          await sendAlert('warning', `Endpoint lento: ${endpoint} (${responseTime}ms)`);
-        }
-
-        return { success: true, responseTime, statusCode: response.statusCode };
-      } else {
-        await this.handleFailure(endpoint, `Status ${response.statusCode}`, responseTime);
-        return { success: false, responseTime, statusCode: response.statusCode };
-      }
-    } catch (error) {
-      await this.handleFailure(endpoint, error.message, Date.now() - startTime);
-      return { success: false, error: error.message };
-    }
-  }
-
-  async handleFailure(endpoint, reason, responseTime) {
-    const currentFailures = this.failureCounts.get(endpoint) || 0;
-    const newFailureCount = currentFailures + 1;
-
-    this.failureCounts.set(endpoint, newFailureCount);
-
-    console.log(`❌ ${endpoint}: ${reason} (${newFailureCount}/${CONFIG.alerts.consecutiveFailures})`);
-
-    if (newFailureCount >= CONFIG.alerts.consecutiveFailures) {
-      await sendAlert('error',
-        `Endpoint crítico falhando: ${endpoint}`,
-        {
-          reason,
-          responseTime,
-          consecutiveFailures: newFailureCount,
-          lastCheck: this.lastCheck
-        }
-      );
-    }
-  }
-
-  makeRequest(url) {
-    return new Promise((resolve, reject) => {
-      const req = https.get(url, (res) => {
-        resolve(res);
-      });
-
-      req.on('error', reject);
-      req.setTimeout(10000, () => {
-        req.destroy();
-        reject(new Error('Request timeout'));
-      });
-    });
-  }
-
-  async runHealthCheck() {
-    console.log(`🔍 Iniciando verificação de saúde - ${new Date().toISOString()}`);
-
-    const results = [];
-    for (const endpoint of CONFIG.endpoints) {
-      const result = await this.checkEndpoint(endpoint);
-      results.push({ endpoint, ...result });
-    }
-
-    this.lastCheck = new Date().toISOString();
-
-    const healthy = results.filter(r => r.success).length;
-    const total = results.length;
-
-    console.log(`✅ ${healthy}/${total} endpoints saudáveis`);
-
-    // Alert if less than 80% healthy
-    if (healthy / total < 0.8) {
-      await sendAlert('error', `Múltiplos endpoints com problema: ${healthy}/${total} saudáveis`);
-    }
-
-    return results;
-  }
-
-  start() {
-    console.log('🚀 Iniciando monitoramento contínuo...');
-    console.log(`📊 Intervalo: ${CONFIG.interval / 1000}s`);
-    console.log(`🌐 Base URL: ${CONFIG.baseUrl}`);
-
-    // Executar imediatamente
-    this.runHealthCheck();
-
-    // Agendar verificações periódicas
-    setInterval(() => {
-      this.runHealthCheck();
-    }, CONFIG.interval);
-  }
+function playAlert() {
+	// Windows: beep usando PowerShell
+	exec('powershell -c "[console]::beep(1000,500)"');
 }
 
-// Executar se chamado diretamente
-if (require.main === module) {
-  const monitor = new HealthMonitor();
-  monitor.start();
-
-  // Graceful shutdown
-  process.on('SIGINT', () => {
-    console.log('🛑 Encerrando monitoramento...');
-    process.exit(0);
-  });
+function restartServer() {
+	// Comando para reiniciar servidor Node.js (ajuste conforme seu ambiente)
+	// Exemplo: npm run dev
+	console.log(`[${new Date().toISOString()}] Tentando reiniciar o servidor...`);
+	exec('npm run dev', (error, stdout, stderr) => {
+		if (error) {
+			console.error(`[${new Date().toISOString()}] Falha ao reiniciar:`, error.message);
+		} else {
+			console.log(`[${new Date().toISOString()}] Comando de reinício executado.`);
+		}
+	});
 }
 
-module.exports = { HealthMonitor };
+let consecutiveFails = 0;
+
+function checkServer() {
+	const req = http.request(options, res => {
+		if (res.statusCode === 200) {
+			console.log(`[${new Date().toISOString()}] Servidor online (${HOST}:${PORT}) (status 200)`);
+			consecutiveFails = 0;
+		} else {
+			console.error(`[${new Date().toISOString()}] Servidor respondeu com status: ${res.statusCode} (${HOST}:${PORT})`);
+			consecutiveFails++;
+			playAlert();
+			if (consecutiveFails === 2) restartServer();
+		}
+	});
+
+	req.on('error', error => {
+		console.error(`[${new Date().toISOString()}] Erro ao conectar (${HOST}:${PORT}):`, error.message);
+		consecutiveFails++;
+		playAlert();
+		if (consecutiveFails === 2) restartServer();
+	});
+
+	req.on('timeout', () => {
+		req.abort();
+		console.error(`[${new Date().toISOString()}] Timeout ao tentar conectar ao servidor (${HOST}:${PORT}).`);
+		consecutiveFails++;
+		playAlert();
+		if (consecutiveFails === 2) restartServer();
+	});
+
+	req.end();
+}
+
+// Checa a cada 30 segundos
+setInterval(checkServer, 30000);
+
+// Checa imediatamente ao iniciar
+checkServer();

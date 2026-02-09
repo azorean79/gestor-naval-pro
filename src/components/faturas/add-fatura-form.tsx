@@ -229,6 +229,26 @@ export function AddFaturaForm({ onClose, onSuccess }: AddFaturaFormProps) {
             />
           </div>
 
+          <Button
+            type="button"
+            variant="secondary"
+            className="gap-2"
+            onClick={async () => {
+              // Chama endpoint para download do Word
+              const numero = formData.numero;
+              const res = await fetch(`/api/faturas/baixar-iva?numero=${numero}`);
+              const blob = await res.blob();
+              const url = window.URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = `declaracao-iva-fatura-${numero}.docx`;
+              a.click();
+              window.URL.revokeObjectURL(url);
+            }}
+          >
+            Baixar Declaração de IVA
+          </Button>
+
           <DialogFooter>
             <Button type="button" variant="outline" onClick={onClose}>
               Cancelar

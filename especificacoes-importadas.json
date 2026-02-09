@@ -1,0 +1,268 @@
+{
+  "Desconhecida::Desconhecido": {
+    "marca": "Desconhecida",
+    "modelo": "Desconhecido",
+    "capacidade": null,
+    "tipoPack": "Pack SOLAS A",
+    "componentes": {}
+  },
+  "RFD::SURVIVA MKIV": {
+    "marca": "RFD",
+    "modelo": "SURVIVA MKIV",
+    "capacidade": 6,
+    "tipoPack": null,
+    "componentes": {}
+  },
+  "DSB::LR07": {
+    "marca": "DSB",
+    "modelo": "LR07",
+    "capacidade": 6,
+    "tipoPack": null,
+    "componentes": {}
+  },
+  "RFD::SURVIVA MKIII": {
+    "marca": "RFD",
+    "modelo": "SURVIVA MKIII",
+    "capacidade": 6,
+    "tipoPack": null,
+    "componentes": {}
+  },
+  "DSB::LR05": {
+    "marca": "DSB",
+    "modelo": "LR05",
+    "capacidade": 6,
+    "tipoPack": null,
+    "componentes": {}
+  },
+  "RFD::SEASAVA PLUS": {
+    "marca": "RFD",
+    "modelo": "SEASAVA PLUS",
+    "capacidade": 6,
+    "tipoPack": null,
+    "componentes": {}
+  },
+  "RFD::SEASAVA X E R": {
+    "marca": "RFD",
+    "modelo": "SEASAVA X E R",
+    "capacidade": 6,
+    "tipoPack": null,
+    "componentes": {}
+  },
+  "EUROVINIL::LEISURE": {
+    "marca": "EUROVINIL",
+    "modelo": "LEISURE",
+    "capacidade": 6,
+    "tipoPack": null,
+    "componentes": {}
+  },
+  "EUROVINIL::SYNTESY 9650-1": {
+    "marca": "EUROVINIL",
+    "modelo": "SYNTESY 9650-1",
+    "capacidade": 6,
+    "tipoPack": null,
+    "componentes": {}
+  },
+  "EUROVINIL::SYNTESY 9650-2": {
+    "marca": "EUROVINIL",
+    "modelo": "SYNTESY 9650-2",
+    "capacidade": 6,
+    "tipoPack": null,
+    "componentes": {}
+  },
+  "CREWSAVER::ISO TYPE 1 SYNTESY": {
+    "marca": "CREWSAVER",
+    "modelo": "ISO TYPE 1 SYNTESY",
+    "capacidade": 6,
+    "tipoPack": null,
+    "componentes": {}
+  },
+  "CREWSAVER::ISO TYPE 2 SYNTESY": {
+    "marca": "CREWSAVER",
+    "modelo": "ISO TYPE 2 SYNTESY",
+    "capacidade": 6,
+    "tipoPack": null,
+    "componentes": {}
+  },
+  "CREWSAVER::MARINER MK 2": {
+    "marca": "CREWSAVER",
+    "modelo": "MARINER MK 2",
+    "capacidade": 6,
+    "tipoPack": null,
+    "componentes": {}
+  },
+  "RFD::RFD SURVIVA MKIV": {
+    "marca": "RFD",
+    "modelo": "RFD SURVIVA MKIV",
+    "capacidade": 20,
+    "tipoPack": "SOLAS B",
+    "componentes": {}
+  },
+  "RFD::RFD SEASAVA": {
+    "marca": "RFD",
+    "modelo": "RFD SEASAVA",
+    "capacidade": 8,
+    "tipoPack": "MIN",
+    "componentes": {}
+  },
+  "ZODIAC::ZODIAC COASTAL PT": {
+    "marca": "ZODIAC",
+    "modelo": "ZODIAC COASTAL PT",
+    "capacidade": 6,
+    "tipoPack": "COASTAL",
+    "componentes": {}
+  },
+  "RFD::RFD SEASAVA PLUS R": {
+    "marca": "RFD",
+    "modelo": "RFD SEASAVA PLUS R",
+    "capacidade": 8,
+    "tipoPack": "R",
+    "componentes": {}
+  },
+  "EUROVINIL::EUROVINIL ISO 9650-2": {
+    "marca": "EUROVINIL",
+    "modelo": "EUROVINIL ISO 9650-2",
+    "capacidade": 10,
+    "tipoPack": "< 24H",
+    "componentes": {}
+  },
+  "PLASTIMO::PLASTIMO": {
+    "marca": "PLASTIMO",
+    "modelo": "PLASTIMO",
+    "capacidade": 8,
+    "tipoPack": "STD",
+    "componentes": {}
+  },
+  "PLASTIO::PLASTIO CRUISER": {
+    "marca": "PLASTIO",
+    "modelo": "PLASTIO CRUISER",
+    "capacidade": 8,
+    "tipoPack": "MIN",
+    "componentes": {}
+  },
+  "DSB::DSB LR07": {
+    "marca": "DSB",
+    "modelo": "DSB LR07",
+    "capacidade": 12,
+    "tipoPack": "SOLAS B",
+    "componentes": {}
+  },
+  "SEA-SAFE::SEA-SAFE": {
+    "marca": "SEA-SAFE",
+    "modelo": "SEA-SAFE",
+    "capacidade": 12,
+    "tipoPack": "< 24H",
+    "componentes": {}
+  },
+  "ARIMAR::ARIMAR": {
+    "marca": "ARIMAR",
+    "modelo": "ARIMAR",
+    "capacidade": 10,
+    "tipoPack": "STD",
+    "componentes": {}
+  },
+  "HERO::HERO": {
+    "marca": "HERO",
+    "modelo": "HERO",
+    "capacidade": 8,
+    "tipoPack": "*- 24H",
+    "componentes": {}
+  },
+  "RFD::RFD SURVIVA MKIII": {
+    "marca": "RFD",
+    "modelo": "RFD SURVIVA MKIII",
+    "capacidade": 12,
+    "tipoPack": "SOLAS B",
+    "componentes": {}
+  },
+  "RFD::RFD SEASAVA PLUS": {
+    "marca": "RFD",
+    "modelo": "RFD SEASAVA PLUS",
+    "capacidade": 8,
+    "tipoPack": "MIN",
+    "componentes": {}
+  },
+  "EUROVINIL::EUROVINIL": {
+    "marca": "EUROVINIL",
+    "modelo": "EUROVINIL",
+    "capacidade": 6,
+    "tipoPack": "STD",
+    "componentes": {}
+  },
+  "DSB::DSB LR97": {
+    "marca": "DSB",
+    "modelo": "DSB LR97",
+    "capacidade": 16,
+    "tipoPack": "SOLAS B",
+    "componentes": {}
+  },
+  "ALMAR::ALMAR": {
+    "marca": "ALMAR",
+    "modelo": "ALMAR",
+    "capacidade": 10,
+    "tipoPack": "STD",
+    "componentes": {}
+  },
+  "ARIMAR::ARIMAR COASTAL LIGHT": {
+    "marca": "ARIMAR",
+    "modelo": "ARIMAR COASTAL LIGHT",
+    "capacidade": 6,
+    "tipoPack": "STD",
+    "componentes": {}
+  },
+  "RFD::RFD SESAVA": {
+    "marca": "RFD",
+    "modelo": "RFD SESAVA",
+    "capacidade": 6,
+    "tipoPack": "SIMP RED",
+    "componentes": {}
+  },
+  "ZODIAC::ZODIAC": {
+    "marca": "ZODIAC",
+    "modelo": "ZODIAC",
+    "capacidade": 6,
+    "tipoPack": "MIN",
+    "componentes": {}
+  },
+  "ZODIAC::ZODIAC COASTAL": {
+    "marca": "ZODIAC",
+    "modelo": "ZODIAC COASTAL",
+    "capacidade": 6,
+    "tipoPack": "SIM",
+    "componentes": {}
+  },
+  "DSB::DSB      LR 97": {
+    "marca": "DSB",
+    "modelo": "DSB      LR 97",
+    "capacidade": 6,
+    "tipoPack": "SOLAS \"B\"",
+    "componentes": {}
+  },
+  "EUROVINIL::EUROVINIL ISO 9650": {
+    "marca": "EUROVINIL",
+    "modelo": "EUROVINIL ISO 9650",
+    "capacidade": 8,
+    "tipoPack": "<24H",
+    "componentes": {}
+  },
+  "RFD::RFD SURVIVA MK IV": {
+    "marca": "RFD",
+    "modelo": "RFD SURVIVA MK IV",
+    "capacidade": 8,
+    "tipoPack": "SOLAS B",
+    "componentes": {}
+  },
+  "LALIZAS::LALIZAS OCEANO": {
+    "marca": "LALIZAS",
+    "modelo": "LALIZAS OCEANO",
+    "capacidade": 12,
+    "tipoPack": "SOLAS B",
+    "componentes": {}
+  },
+  "ALMAR::ALMAR COASTAL": {
+    "marca": "ALMAR",
+    "modelo": "ALMAR COASTAL",
+    "capacidade": 6,
+    "tipoPack": "STD",
+    "componentes": {}
+  }
+}

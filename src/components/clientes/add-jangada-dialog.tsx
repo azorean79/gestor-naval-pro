@@ -315,7 +315,7 @@ export function AddJangadaDialog({ open, onOpenChange, clienteId, onSuccess }: A
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="">Nenhum</SelectItem>
+                          {/* Nenhum option removed to fix SelectItem value error */}
                           {modelos.map((modelo: any) => (
                             <SelectItem key={modelo.id} value={modelo.id}>
                               {modelo.nome}
@@ -343,7 +343,7 @@ export function AddJangadaDialog({ open, onOpenChange, clienteId, onSuccess }: A
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="">Nenhuma</SelectItem>
+                          {/* Nenhuma option removed to fix SelectItem value error */}
                           {capacidades.map((cap: any) => (
                             <SelectItem key={cap.id} value={cap.id}>
                               {cap.capacidade} pessoas

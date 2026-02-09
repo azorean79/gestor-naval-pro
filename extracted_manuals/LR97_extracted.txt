@@ -1,0 +1,3870 @@
+
+============================================================
+PÁGINA 1
+============================================================
+SERVICE MANUAL
+for SOLAS 74/88 – Liferafts and their equipment
+Throw-over-board liferafts type LR 97 for 6 to 25 persons
+Davit launchable liferafts type LR 97 L for 12 to 25 persons
+Issue: 10/97
+Art.-No.: 8.09.57.11.0
+DSB DEUTSCHE SCHLAUCHBOOT
+GMBH & CO. KG
+Angerweg 5, 37632 Eschershausen
+Telefon : ++5534/3010
+Telefax : ++5534/301200
+e-mail: info@deutsche-schlauchboot.de
+Copyright for this Manual by DSB. The Manual has be treated confidential and may only be used
+for its intended purpose. It s not allowed to copy this Manual without written permission by DSB.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Introduction - page I
+GmbH & CO KG LR 97 (L) 6 to 25 persons issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 2
+============================================================
+Limitation of use
+A precondition for use of this Manual is:
+1. Service Station is approved by the national administration
+in accordance with S.O.L.A.S., IMO and existing national
+regulations.
+The service station must hold a DSB service station number
+and be in possession of a valid DSB authorisation certificate.
+2. Service personnel have participated in a DSB service course
+on this liferaft type and are in posession of a valid DSB LR-service
+diploma.
+3. DSB-Certificate of reinspection to be issued for each service
+on DSB-liferafts.
+Raft and container to be marked with DSB-inspection labels
+with punched station number.
+DSB will not be responsible if the conditions shown above are
+not followed.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Introduction - page II
+GmbH & CO KG LR 97 (L) 6 to 25 persons issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 3
+============================================================
+Arrangement of the Service Manual
+This Manual is made up in loose-leaf form. This form allows modifications and supplements
+to be added to the Manual by replacing or adding pages and consequently keeping the
+Manual always up-to-date.
+Modifications, Supplements, Delivery
+As occasion demands we shall send you a „modification notice“ with a list of the pages to be
+exchanged or added together with the new pages.
+The cancelled pages have to be returned to DSB together with the acknowledgement of
+receipt of the new pages. It is absolutely necessary to file modifications at once and to
+inform all servicing personnel without delay.
+The number of the modification notice, chapter/page no., issue old/new,
+the date of filling and the name of the person who exchanged or added the page(s)
+have to be recorded in the schedule below.
+Modification Chapter / ISSUE Filling Date Filled by
+No. page no. old new (Signature)
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Introduction - page III
+GmbH & CO KG LR 97 (L) 6 to 25 persons issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 4
+============================================================
+Modification Chapter / ISSUE Filling Date Filled by
+No. page no. old new (Signature)
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Introduction - page IV
+GmbH & CO KG LR 97 (L) 6 to 25 persons issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 5
+============================================================
+Table of contents
+Chapter 1
+1. Description
+1.1 General
+1.2 Constructional features
+1.2.1 Raft and canopy material
+1.2.2 Shape of liferafts
+1.2.3 Buoyancy tubes
+1.2.4 Arch tube
+1.2.5 Canopy
+1.2.6 Floor
+1.2.7 Inflation system
+1.2.8 Boarding systems
+1.2.9 Other equipment
+1.2.10 Container
+1.2.11 Break-down torques
+Chapter 2
+2. Technical Data
+Chapter 3
+3. Major inspection
+3.1 Preparations
+3.2 Unpacking of raft
+3.2.1 Container
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Introduction - page V
+GmbH & CO KG LR 97 (L) 6 to 25 persons issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 6
+============================================================
+3.3. Visual examination of the whole raft
+3.3.1 Liferaft material
+3.3.2 Belts and cords
+3.3.3 Connection canopy fabric with upper buoyancy-tube
+3.3.4 Patches
+3.3.5 Seams
+3.3.6 Bonded joints buoyancy tube / buoyancy tube / floor
+3.3.7 Davit launchable liferafts
+3.3.8 Valves and high pressure hoses
+3.3.9 All loose liferaft accessories
+3.3.10 Lighting
+3.4 Checking of inflation system
+3.4.1 Checking of C0 -cylinder
+2
+3.4.2 Disconnection of the C0 -cylinder with operating head
+2
+3.4.3 Operating head: type Thanner DK 94 - checking and mounting
+3.4.4 Mounting operating head type Thanner DK 94 on cylinder valve
+Thanner type Compact
+3.4.5 Check C0 -cylinder weight
+2
+3.4.6 Test and inspection of the cylinder valve
+3.4.7 Leakage testing of C0 -cylinder
+2
+3.4.8 Exchange of cylinder valve and filling of cylinder
+3.5 Checking of the inflation valves and high pressure hoses
+3.6 Checking of raft buoyancy tubes for air-tightness
+3.7 Checking of raft floor for air-tightness
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Introduction - page VI
+GmbH & CO KG LR 97 (L) 6 to 25 persons issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 7
+============================================================
+3.8 Checking of lighting system
+3.8.1 Structure of the lighting system
+3.8.2 Revision and maintenance
+3.8.3 Light system at raft packing
+3.9 Testing of the pressure relief valves
+3.10 Load test - davit launchable liferafts
+3.11 Testing of detachable raft accessories
+3.11.1 Checking of the emergency pack
+3.11.2 Checking of bellows bag, repair bag and paddles
+3.11.3 Checking of painter line
+3.11.4 Checking of radar reflector
+(only for rafts approved by German Shipping Authority)
+3.12 Documentation
+3.13 Hydrostatic release unit
+3.13.1 type „Hammar H 20“
+3.13.2 type „Thanner DK 84“
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Introduction - page VII
+GmbH & CO KG LR 97 (L) 6 to 25 persons issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 8
+============================================================
+Chapter 4
+4. Folding and packing of the liferaft
+4.1 Completing the raft
+4.1.1 General
+4.1.2 Raft equipment of raft and preparation for packing
+4.1.3 Final check before deflation
+4.1.4 Preparation of exterior of raft
+4.2 Rolling up of raft
+4.2.1 with emergency pack type A (SOLAS-A-Pack)
+4.2.1.1 LR 97 for 6 and 8 persons
+4.2.1.2 LR 97 for 10, 12, 15, 16, 20 and 25 persons
+4.2.1.3. LR 97 L for 12, 16, 20, and 25 persons
+4.2.2 with emergency pack type B (SOLAS-B-Pack)
+4.2.2.1 LR 97 for 6 and 8 persons
+4.2.2.2 LR 97 for 10, 12, 15 16, 20 and 25 persons
+4.2.2.3 LR 97 L for 12, 16, 20, and 25 persons
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Introduction - page VIII
+GmbH & CO KG LR 97 (L) 6 to 25 persons issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 9
+============================================================
+4.3 Packing of raft in container
+4.3.1 Container - coordination and measurement
+4.3.2 Container equipment
+4.3.3 Packing of liferaft into the container / Attaching painter line to the
+operating head
+4.3.4 Closing of container
+Chapter 5
+5. Cradle and hydrostatic release unit
+5.1 Coordination: container - cradle - lashing
+5.2 Mounting of container
+5.2.1 with lashing and line strop
+5.2.2 with lashing and hydrostatic release unit
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Introduction - page IX
+GmbH & CO KG LR 97 (L) 6 to 25 persons issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 10
+============================================================
+ANNEXES
+Annex 1 - Placing of painter line
+Annex 2 - Identification label on raft
+Annex 3 - Contents of emergency pack
+Annex 4.1 - Certificate of re-inspection (Art.-No. 0.09.05.65.0)
+Annex 4.2 - Label: Inspection Approval (Art.-No. 0.09.05.65.0)
+Annex 5 - Log book / Log card
+Annex 6 - Container labels „Service“
+Annex 7 - Directions for the Repair of Rubber Dinghies
+Art.-No.: 0.09.05.32.0
+Annex 8 - Service hydrostatic release unit type „Thanner DK 84“
+Annex 9 - Tests according to IMO A 761/18
+Annex 10 - Break-down torques
+Annex 11 - Comparison of old topping up and deflation valve
+with new topping up and deflation valve,
+with went plug and deflation adapter
+Annex 12 - Safety instructions - mounting of straps
+Annex 13 - Liferaft marking with the name and the port of registry of the ship
+(IMO Res. A 759 (18))
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Introduction - page X
+GmbH & CO KG LR 97 (L) 6 to 25 persons issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 11
+============================================================
+1 Description
+1.1 General
+The LR 97-liferafts are made for 6, 8, 10, 12, 15, 16, 20 and
+25 persons and meet the following requirements referring for
+construction and equipment: :
+1. 1983 Amendments to the International Convention for the
+Safety of Life at Sea 1974, Chapter III, with amendments
+and are tested according to:
+2. Testing and Evaluation of LIVE-SAVING APPLIANCES
+1992 Edition, IMO Resolution A.689(17) and amendments
+3. Scheme for the Reciprocal Recognition of Tests and
+Inspections carried out on Ships Equipment -
+- Common Requirements for Inflatable Liferafts
+1.2 Constructional features
+1.2.1 Raft and canopy material
+All liferafts are made of one layer of polyamide fabric coated with
+rubber proofing on both sides.
+1.2.2 Shape of Liferafts
+for 6 and 8 persons rectangular
+for 10, 12 and 16 persons hexagonal
+for 20 and 25 persons octagonal
+1.2.3 Buoyancy tubes
+Two adjacent buoyancy tubes are each provided with a C0 non-return valve,
+2
+an outboard mounted pressure relief valve and an inboard mounted inflate /
+deflate valve. The buoyancy tubes have a carrying capacity of
+96 litres of air per person.
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 1 page : 1
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen/Germany Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 12
+============================================================
+1.2.4 Arch tube
+All liferafts are equipped with inflatable arch tube(s). The arch tube(s) is/are
+inflated from the upper buoyancy tube via non-return valve(s). These non-
+return valves prevent the arch(es) from deflating should the upper tube be
+damaged. The arch(es) is/are also equipped with a topping up and deflation
+valve.
+1.2.5 Canopy
+The canopy consists of a blue fabric inside and a luminous-orange fabric on
+the outside.
+The rectangular liferafts have one boarding entrance each while the hexagonal
+and octagonal liferafts are provided with two boarding entrances.
+A catchment gutter on the canopy collects rain water and conducts the water
+through a hose into the raft.
+1.2.6 Floor
+The two-layer floor is attached to the lower side of the lower buoyancy tube.
+The floor is inflated by means of an inflate/deflate valve and bellows.
+After inflation the floor shows a stitched structure and provides insulation
+against the water underneath. The floor area measures 0.372 square metre
+for each person the liferaft can accommodate.
+The underside of the floor is fitted with water pockets to provide stability and
+reduce drift. They fill automatically when the raft is deployed.
+The underside of the floor is also provided with an arrangement for righting
+the liferaft in case of inflation in an inverted position.
+1.2.7 Inflation arrangement
+All liferafts have a pressure gas cylinder with a screw in type valve and
+operating head.
+The filling gas is C02/ N2 . When activated the gas passes through a
+high-pressure hose with a Y-distributor and then through two other
+high-pressure hoses separately into the upper and lower buoyancy tubes.
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 1 page : 2
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen/Germany Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 13
+============================================================
+1.2.8 Boarding systems
+At least one entrance is equipped with a semi-rigid boarding system.
+The different non-inflatable boarding-systems are shown below:
+1.2.8.1 SOLAS - inflatable liferafts
+1.2.8.2 EFTA - inflatable liferafts
+1.2.8.3 SBG - inflatable liferafts
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 1 page : 3
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen/Germany Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 14
+============================================================
+1.2.9 Other equipment
+a) A grab line is mounted around the inner and outer circumference of
+the liferaft.
+b) A safety knife is located on the upper buoyancy tube, on the right
+hand side of the entrance adjacent to the painter line.
+c) Two independent lamps, one located on the outside of the canopy,
+the other attached to the arch inside the raft, are powered by dry
+lithium cells which are also located on the arch inside the raft.
+The cells are automatically activated during inflation.
+d) A rescue quoit with line is located in a bag attached to the inner canopy.
+On Danish approved liferafts the rescue quoit is attached to the upper
+buoancy tube.
+e) A sea anchor is attached to a patch on the lower buoyancy tube,
+at right angles to the boarding entrances.
+f) Liferafts manufactured in accordance with German and Norwegian
+approvals are equipped with a self draining system.
+g) The emergency equipment is stowed in a valise, which is fastened to the
+inner floor of the liferaft.
+h) Bellows, bailer, repair bag and rainwater collecting bags are stowed in a bag
+attached to the internal lifeline.
+i) Liferafts approved by the German Shipping Authority are provided with two
+textile radar reflectors mounted on the outer canopy. In all other liferafts one
+radar reflector is stowed in the emergency pack, provided this is required by
+the relevant national authority.
+Additional equipment for davit-launched liferafts:
+j) A bowsing line is fitted to the upper buoyancy tube each side of the boarding
+entrance above the gas cylinder, for securing the raft to the liferaft embarkation
+point.
+k) An outer suspension arrangement comprising rope spliced onto lifting
+patches which are in turn attached to the outer sides of the upper and
+lower buoyancy tubes and to the outer floor of the liferaft.
+l) An inner suspension arrangement comprises rope spliced onto lifting
+patches which are attached to the inner floor of the liferaft.
+m) Lowering shackles for
+LR 97 L - 12, 16, 20 and 25 persons - Safe Working Load 7500 kp
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 1 page : 4
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen/Germany Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 15
+============================================================
+1.2.10 Container
+The liferaft is packed in a glassfibre reinforced plastic container.
+1.2.11 Break-down torques
+The break-down torques for the different screwed connections are
+listed in Annex 10.
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 1 page : 5
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen/Germany Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 16
+============================================================
+2. Technical Data
+LR 97 - LR 97 - LR 97 - LR 97 - LR 97 L- LR 97 - LR 97 L- LR 97 - LR 97 L- LR 97 - LR 97 L-
+6 persons 8 persons 10 pers. 10/12 p. 12 pers. 16 pers. 16 pers. 20 pers. 20 pers. 25 pers. 25 pers.
+Liferaft shape
+Dimensions: L (m) 2,29 2,72 - - - - - - - - -
+B (m) 1,70 1,85 - - - - - - - - -
+S (m) - - 2,66 2,86 2,86 3,27 3,27 3,67 3,67 4,07 4,07
+H (m) 1,14 1,16 1,515 1,565 1,565 1,74 1,74 1,755 1,755 1,96 1,96
+Diameter
+buoyancy tubes (cm) 22,80 24,70 27,50 28,80 28,80 31,10 31,10 33,50 33,50 35,40 35,40
+Vol. buoyancy tubes 576 777 977 1156 1156 1544 1544 1946 1946 2418 2418
+without arch (dm³)
+Floor (m²) 2,27 2,98 3,82 4,48 4,48 5,97 5,97 7,45 7,45 9,32 9,32
+C0 -cylinder type 4 kg 4 kg 6 kg 6 kg 6 kg 8 kg 10 kg 10 kg 12 kg 12 kg 14 kg
+2
+charging: C0 (kg) 3,59 kg 3,59 kg 5,38 kg 5,38 kg 5,38 kg 7,18 kg 8,80 kg 8,80 kg 10,77 kg 10,77 kg 12,57 kg
+2
+5 % N (kg) 0,18 kg 0,18 kg 0,27 kg 0,27 kg 0,27 kg 0,36 kg 0,44 kg 0,44 kg 0,54 kg 0,54 kg 0,63 kg
+2
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 2 page : 1
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 17
+============================================================
+3 Major Inspection
+These instructions are valid for all DSB LR 97 and LR 97 L liferafts complying
+with SOLAS 74/88, packed in containers.
+Attention! If not already carried out by manufacturer or a service station, each
+DSB liferat (types:DSL; LR 86(L) and LR 97(L))must be equipped with an ID-
+container containing an ID card according to ANNEX 13.
+Container with cradle and hydrostatic release unit
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 1
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 18
+============================================================
+The major inspection should only be made by authorized maintenance
+personnel. Unauthorized persons are not allowed to do this kind of work.
+Violation will be prosecuted!
+3.1 Preparations
+The liferaft must be serviced in a facility meeting the requirements of IMO Resolution
+A.761(18) and approved by DSB and the relevant national authority.
+3.1.1 Take the container from the cradle.
+Loosen the bottle screw of the lashing strap and slip the hook. The rope strop may
+be knotted if a hydrostatic release unit is not mounted. If an HRU is fitted loosen
+the screw of the shackle securing the weak link, painter and HRU. Safeguard the
+shackle and screw until the end of the servicing.
+3.2 Unpacking of raft
+3.2.1 Container
+3.2.1.1 First inspect the container of the raft. Examine any damage, whether
+splinters or the like protrude into the container, which, when unpacking,
+could cause more damage to the raft. Remove these foreign bodies, if
+possible, before unpacking.
+3.2.1.2 Cut the black plastic closing strap
+Attention ! Davit launchable liferafts: Do not damage the black tear strip
+which will be re-used when packing
+the raft.
+3.2.1.3 On container it is necessary to remove the moulded rubber painter seal from the
+top half of the container, in order to prevent the painter line being pulled as the
+top is lifted off.
+3.2.1.4 Lift off the top half of container.
+3.2.1.5 Carefully open the packing foil.
+3.2.1.6 Carefully untie the firing line from the operating head release wire.
+(Take care to avoid pulling the wire to avoid firing)
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 2
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 19
+============================================================
+3.2.1.7 Detach painter line from the thimble of the towing bridle.
+3.2.1.8 Remove the raft from the lower half of the container.
+3.2.1.9 Throw-over board liferafts: Cut through the flax webbing.
+Davit-launchable liferafts : Unbuckle the 40 mm wide fabric tape.
+The tape will be re-used for packing.
+3.2.1.10 Unfold and spread out the raft (with canopy on top).
+A check should be made to ensure that liferaft and container are dry.
+3.2.1.11 Carry out tests according to IMO-Resolution A.761 (18). (See Annex 9)
+3.2.1.12 Position and method of attaching equipment bags should be precisely
+marked (make notes and mark position with coloured chinagraphs).
+The equipment bags are fastened at different places according to the
+type of raft and method of packing.
+3.3 Visual examination of the whole raft
+(Obvious damage to be marked with chinagraph and noted down)
+3.3.1 Examine raft material for wear by ageing and abrasion. The raft
+material has to be smooth and must not show any fractures.
+3.3.2 Examine webbings and cords for mildew.
+3.3.3 Check the connection of the canopy fabric to the upper buoyancy tube
+and the liferaft floor to the lower buoyancy tube.
+The floor seam strength test should be carried out in accordance
+with IMO-Resolution A.761 (see Annex 9).
+3.3.4 Examine all vulcanized patches.
+3.3.5 Seams of both buoyancy tubes
+3.3.6 Connection op upper buoyancy tube to lower buoyancy tube.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 3
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 20
+============================================================
+3.3.7 Suspension arrangement for davit-launchable liferafts
+Drawing: liferaft shown without canopy
+detail 1: detail 2:
+detail 3:
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 4
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 21
+============================================================
+to
+3.3.7 Carefully examine the following details of the suspension arrangement to
+ensure it is in faultless condition.
+3.3.7.1 Knotting of lines to the lifting patches (inclusive securing of lines)
+3.3.7.2 Condition of lines, especially in the crossing point at the lowering shackle.
+3.3.7.3 Condition and connection of patches at the buoyancy tubes and at the floor.
+3.3.7.4 Lowering shackle screw must be secured either by a split pin or by use of
+Loctite, type 243.
+3.3.8 Examine all valves, high pressure hoses and „Y“ distributor, particularly
+for external damage.
+3.3.9 Remove all loose accessories from the raft, such as the emergency pack,
+bellows bag, repair bag, knife, rescue quoit, sea anchor.
+3.3.10 Inspect exterior and interior lighting systems, including batteries and connecting
+plugs.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 5
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 22
+============================================================
+3.4 Inspection of inflation system
+These instructions apply to the inflation system incorporating the Thanner-valve
+and Thanner operating head, type DK 94 (Compact system).
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 6
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 23
+============================================================
+3.4.1 Checking of C02-cylinder
+All work has to be done with utmost care to avoid injuries by unexpected
+escape of carbon dioxide.
+Be sure to wear goggles !
+3.4.1.1 Required test instruments
+a) A standard, commercial weighing device with an
+accuracy of +/- 25 g
+b) Testing and closing plug (aluminium)
+for Thanner cylinder valve „Compact system“
+DSB-Art.-No.: 0.09.13.82.0
+c) Three-square pin spanner (figure stamp 14)
+for penetration membrane.
+DSB-Art.-No.: 0.11.06.77.0
+d) Special filling head, compl. (figure stamp 22)
+for Thanner cylinder valve „Compact system“
+DSB-Art.-No.: 0.07.24.17.0
+e) Resetting tool for DK 94 operating head
+DSB-Art.-No.: 0.07.24.15.0
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 7
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 24
+============================================================
+3.4.2 Disconnecting the CO2-cylinder with operating head
+Ensure that all personnel are made aware of the following safeguards
+when handling compressed gas cylinders !
+a) Observe official rules concerning compressed gas!
+b) Do not use any compressed gas cylinders the contents of which are
+not well known and/or which:
+- are not provided with an official inspection mark
+- show signs of corrosion or traces of burning and / or
+any other severe damage (such as deformation,
+incision or unauthorised modifications);
+- are furnished with distorted or otherwise damaged valves
+- give rise to objections in any other way.
+Such cylinders must be discharged*, withdrawn from use and the
+empty cylinders sent to DSB for further examination.
+(*) Note: Cylinders, the contents of which are unknown, should
+be discharged only by an acknowledged expert with due
+consideration for the necessary precautions !
+c) Compressed gas cylinders with incomplete and not clearly readable
+marking must not be used.
+d) Do not store more cylinders in the working room than will be required
+as a maximum for one shift. Cylinders not required should be securely
+stored in suitable racking to guard against shock or movement, in a
+separate room.
+e) Full or empty cylinders kept in the working room should be securely
+stored in suitable racking to guard against shock or movement.
+f) Cylinders kept in the working room and not destined for immediate
+use should be stored in such a way that in the event of a valve rupture,
+the risk to persons by flying components and / or he recoil of the cylinder
+is reduced to a minimum.
+g) Cylinders charged with compressed gas should never be left uncon-
+trolled and/or be placed in the vicinity of doors, gangways and emer-
+gency excapes.
+h) Filled cylinders should be protected from heat.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 8
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 25
+============================================================
+i) The following recommendations should be observed when examining
+cylinders charged with compressed gas and when assembling or
+adjusting their valves:
+- wear full protection goggles,
+- never direct assembly axis (i.e. possible „line of fire“
+in case of valve rupture) and/or valve discharge opening
+towards oneself or other persons. (This applies also to
+transport and mounting of cylinders in the raft).
+j) In case of distorted valves diverging from the cylinder axis:
+Do not operate, do not perform any assembly work. Unscrew
+operating head cautiously without strong effort and discharge
+cylinder - see item 3.4.8. Send cylinder to DSB for examination
+and repair.
+k) When mounting or dismounting cylinders charges with compressed
+gas, or during testing or assembly procedures, no persons should be
+allowed to stay in front of the valve or behind the cylinder bottom.
+l) Leakages around the valve fittings of C0 -cylinders:
+2
+Don’t tighten valve connection !
+Further handling see point 3.4.7.1.
+m) Cylinders that have been rejected, or those with valves that have
+been rejected, should only be shipped in discharged condition.
+n) For test inflation of liferafts:
+Safety range for observers = at least twice the maximum diameter
+of the raft, standing behind the operating line.
+On smooth floor the raft should, if necessary, be secured by ropes
+to prevent it dragging.
+o) Always keep in mind:
+Compressed gas cylinders are completely harmless if correctly
+handled, but are highly dangerous and uncontrollable if wrongly
+handled!
+3.4.2.1 Lift one side of the raft and put it on two stools so that the gas
+cylinder is easily to hand.
+3.4.2.2 Untie and put aside the valve-protective cap.
+3.4.2.3 Unscrew the high pressure hose from the cylinder valve using an open
+spanner (size 19 or 22)
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 9
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 26
+============================================================
+3.4.2.4 Untie the line on the cylinder pocket.
+3.4.2.5 Pull the C0 -cylinder out of the pocket (if the cylinder is firmly seated reduce
+2
+the pressure of the lower buoyancy tube) and place it in a vice for inspection.
+3.4.2.6 Remove the operating head type „DK 94“, using a 27-wrench
+(right hand thread), holding the valve with a 36-wrench against torsion.
+3.4.2.7 After removing the operating head protect the thread of the cylinder valve
+by fitting an aluminium test cap (DSB-Art.-No.: 0.09.13.82.0).
+3.4.3 Operating head: type Thanner DK 94 - checking and mounting
+3.4.3.1 General
+The function of the DK 94 - and also the DK 88 - is based on a pre-loaded spring
+which is activated by pulling out the release wire.
+When the operating head is activated the two lashes are broken on the red
+protecting cap.
+Important ! After activation the red protection cap must be replaced
+by an original protection cap (DSB-Art.-No.: 0.07.24.85.0)
+To exchange the protection cap see the following
+instructions.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 10
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 27
+============================================================
+For checking and re-assembly the following special tools are required:
+Resetting tool, DSB-Art.-No.: 0.07.24.87.0
+Flat pliers (commercial)
+3.4.3.2 Visual inspection of the operating head
+a) general condition of the operating head
+b) check the identification label for damage and legilibity
+c) check knife edge and replace if blunt or damaged
+d) Exchange the red protection cap at each service in
+accordance with point 3.4.3.3
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 11
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 28
+============================================================
+3.4.3.3 Exchange of the red protection cap
+Hold the operating head in your hand and and remove the
+protection cap with the flat pliers.
+Check the new protection cap for damage (cracks and existence
+of both lashes)
+Pass the release wire through the new protection cap and then
+press down the protection cap until it rests in the groove of
+the casing.
+3.4.3.4 Disassembly, inspection and re-assembly of operating head
+Important ! If the operating head was released in water or
+a wet environment, then it must be serviced
+as follows:
+3.4.3.4.1 Disassembly
+3.4.3.4.1.1 Remove the red protection cap with flat pliers and activate
+the operating head.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 12
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 29
+============================================================
+3.4.3.4.1.2
+Place the operating head in a vice and protect the release knife
+with a wooden block or a bored metal block.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 13
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 30
+============================================================
+3.4.3.4.1.3
+Remove the bursting ring using flat pliers.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 14
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 31
+============================================================
+3.4.3.4.1.4
+Open the vice slowly and disassemble the operating head.
+3.4.3.4.2 Inspection
+All parts must be undamaged and free of water ot other contamination.
+If necessary clean with compressed air and then grease the „O“-rings,
+the rubbing surfaces of the knife and casing with commercial grease
+(Aeroshell 14).
+3.4.3.4.3 Assembly
+3.4.3.4.3.1
+Assemble all parts and vice together with the the wood block.
+Compress until the lock ring can be located into its recess, all the
+way round.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 15
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 32
+============================================================
+3.4.3.4.3.2
+Mounting spring ring with flat pliers.
+3.4.3.5 Tighten the operating head
+3.4.3.5.1
+Vice the clamping tool, DSB-Art.-No. 0.07.24.15.0, into the operating
+head up to the stop.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 16
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 33
+============================================================
+3.4.3.5.2
+Compress both the levers of the clamping tool.
+Check the release wire visually and if necessary replace
+it as follows:
+Insert the release wire until it is in position, i.e. the plastic
+cone is in level with the top surface and the small „O“ring
+is compressed.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 17
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 34
+============================================================
+3.4.3.5.3
+Mount the red protection cap as described in point
+3.4.3.3 and unscrew the clamping tool.
+The end of the knife must lie level with the edge of the casing.
+Visually check the operating head once more.
+Note: The release wire must be mounted correctly and
+and must hold the knife in its starting position.
+Don’t assemble the release wire, before the
+clamping procedure is finished.
+The „O“ring ( 27,1 x 1,6) must be greased and checked
+for damages.
+3.4.3.6 Storing the operating head
+Provide the thread connections with plastic caps
+outer thread 3/8“ = protecting cap no. 30, red,
+DSB-Art.-No.: 0.08.01.76.0
+inner thread = protecting cap no. 27-M, yellow,
+M 30 x 1,5 DSB-Art.-No.: 0.08.01.75.0
+and store on a place with normal atmospheric humidity.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 18
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 35
+============================================================
+3.4.4 Mounting operating head type DK 94 on the cylinder valve
+- screw the head on to the valve manually
+- screw the head tightly (60 N) using the fork spanner
+and torque spanner
+3.4.5 Check C0 -cylinder weight
+2
+The unit for weighing consists of:
+a) C0 -cylinder, filled, with bottle adhesive label (filling and total weight)
+2
+b) Cylinder valve with penetration membrane, but without testing- and
+protection caps and without release head
+3.4.5.1 The cylinder must be free of dirt of any kind.
+Small damages to the painting must principally be eradicated before
+weighing.
+3.4.5.2 In case of a weight loss of more than 60 g, the cylinder has to be refilled
+or replaced
+- Differences in weight of +/- 14 g are to be ignored
+since that is the accuracy required of the weighing
+device.
+- record losses of weights from 15 to 59 g on logcard
+- in case of weight losses of more than 60 g cylinder
+hase to be refilled or replaced
+- in case of any doubt replace the gas cylinder.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 19
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 36
+============================================================
+3.4.5.3 Tabular review of CO / 5 % N mixed filling
+2 2
+mixed filling
+liferaft type and - size cylinder type used number 5 %
+kg litre kg C0 2 kg N 2 kg total Kommentar [HD1]:
+LR 97 - 6 persons 4 5,36 1 3,59 0,18 3,77
+LR 97 - 8 persons 4 5,36 1 3,59 0,18 3,77
+LR 97 - 10 persons 6 8,04 1 5,38 0,27 5,65
+LR 97 - 10/12 persons 6 8,04 1 5,38 0,27 5,65
+LR 97 - 16 persons 8 10,72 1 7,18 0,36 7,54
+LR 97 - 20 persons 10 13,40 1 8,80 0,44 9,24
+LR 97 - 25 persons 12 16,08 1 10,77 0,54 11,31
+LR 97 L - 12 persons 6 8,04 1 5,38 0,27 5,65
+LR 97 L - 16 persons 10 13,40 1 8,80 0,44 9,24
+LR 97 L - 20 persons 12 16,08 1 10,77 0,54 11,31
+LR 97 L - 25 persons 14 18,76 1 12,57 0,63 13,20
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 20
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 37
+============================================================
+3.4.6 Test and inspection of the cylinder valve type THANNER COMPACT
+Clean the inside of the valve by blowing out with compressed air.
+Check for corrosion and dirt and clean it if necessary.
+Attention ! Don’t damage the membrane
+Check the penetration membrane for damage. It must not have any
+kind of corrosion or damage (indentation from the blade tip).
+Any cylinder with a damaged valve and / or membrane has to be replaced
+in accordance with point 3.4.8 and must be refilled.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 21
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 38
+============================================================
+3.4.7 Leakage testing of CO -cylinder
+2
+Screw off the aluminium testing- and protection cap.
+The screwed connections have to be checked as following:
+cylinder valve / cylinder: spray leak finder spray onto the screw connection
+cylinder valve / membrane: fill in some alcohol or cleaning gasoline inside the
+valve.
+Any leakages of the valve system will be indicated by air bubbles.
+3.4.7.1 Leakages of the screw connection cylinder valve / cylinder
+The cylinder must be replaced by a seasoned and tested new one
+The defective cylinder has to be handled according to 3.4.8.
+3.4.7.2 Leakages of the screw connection cylinder valve / membrane
+Screw off the filling head and tighten the membrane with 40 Nm only once.
+Check the screw connection once more for tightness with alcohol or
+cleaning gasoline.
+If there are further air bubbles, the membrane must be replaced by
+a new one, handling according to 3.4.8.
+3.4.7.3 The exterior of the cylinder and valve has to be dried thorough.
+Screw on the protection cap and until the purpose of reinsertion
+deposit the cylinder in a safe place.
+Conditions for depository:
+a) maximum ambient temperature 25 ° C
+b) maximum atmospheric humidity 60 %
+c) no acrid fumes
+- filled C0 -cylinders are only be handled and stored with metal
+2
+(aluminium) protection caps - not with plastic protection caps !
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 22
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 39
+============================================================
+3.4.8 Exchange of cylinder valve and filling of cylinder
+All work must be carried out by trained personnel of an authorized
+service station.
+Attention! Execute all work with particular care in order
+to avoid injuries by escaping carbonic acid.
+Wear safety goggles !!!
+Exhausted C0 -cylinders have to be „TÜV-approved“ after ten years
+2
+before refilling (see date at the cylinder neck - e.g. „5/97 - 07“)
+Explanation: 5/97 = month and year of last approval
+07 = date of required (next) approval
+TÜV = Technischer Überwachungsverein
+3.4.8.1 Vice the cylinder in tension clamp or bench so that the valve opening
+(discharge nipple) points to a direction without danger.
+3.4.8.2 Exhausting of C0 -cylinders
+2
+a) Check special filling head for all o-rings are existing.
+Subsequently screw on manual the filling head on the
+valve housing. The triangular mortise screw must
+rest in the penetration membrane correctly.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 23
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 40
+============================================================
+to
+3.4.8.2
+b) The filling head is to be further screwed onto the valve housing
+with a fixed spanner (SW 50) and tightened.
+c) By turning the pin spanner to the left (anticlockwise) with
+the fixed spanner (SW 12) the penetration membrane is
+to be loosened and turned to such an extent that an elastic
+resistance is detectable. (The o-ring closes in a sealing
+manner onto the filling head)
+- cylinder empties itself -
+The special filling head with the three-square pin spanner
+to be left in this position.
+3.4.8.3 After exhausting unscrew the the filling head from the valve.
+3.4.8.4 Clean the threads in the cylinder neck completely and remove leak proofing
+material if existing.
+Pay attention that no dust or other foreign objects penetrate into
+the interior of the cylinder as they are able to block valves and
+supply lines.
+3.4.8.5 Turn the C0 -cylinder upside down and remove remains of leak proofing
+2
+material or other foreign substances if existing at all by beating out.
+Blow out the cylinder with compressed air.
+3.4.8.6 Replace the ascending pipe if there are visible damages or if the ball bearing
+is not moveable. The ascending pipe screw into the valve without leak proofing
+tape (starting torque 15 Nm).
+3.4.8.7 Control the intact (tested) cylinder valve with ascending pipe and with
+with TEFLON-leak proofing tape by means of a torque spanner (torque 220 Nm)
+3.4.8.8 Before every refilling of the cylinder, the penetration membrane must be
+fundamentally renewed irrespective of whether it is penetrated or not.
+New penetration membranes are to be checked for perfect condition
+and markings (test pressure = 250 and year of make e.g. 97).
+Place the penetration membrane onto the three-square spanner, guide
+it into the valve housing and without force, screw it onto the valve seat.
+Fit cylinder valve with aluminium sealing plug and send it for refilling to the
+C0 -filling station. Special filling head and triangular mortise screw must be
+2
+made available to the filling station.
+CAUTION! Newly filled cylinders may only be fitted to a liferaft
+after a storage period of at least 4 weeks and a
+further careful inspection.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 24
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 41
+============================================================
+3.5 Checking of the filling valves and pressure hoses
+3.5.1 Filling valve
+3.5.1.1 Connect a separate C0 -test cylinder with hand wheel valve to the main
+2
+hose line.
+3.5.1.2 Inflate the raft body for a short time with C0 and pay attention that no gas
+2
+escapes. If necessary, re-tighten screws on valves. (22 mm spanner for
+the main hose lines; right hand thread), (19 mm box wrench for the head
+screw on the filling valves; left hand thread !!!). Both valves must respond,
+which can firstly be observed accoustically and secondly by an equal
+slight formation of ice on the valves.
+3.5.1.3 Remove test cylinder and wait until the outer icing is thawed off.
+Close hose end of the main hose line with moistened thumb. No
+remarkable return current of filling gas out of the raft may occur.
+Otherwise the cap screws (cross hole pieces) of the filling valves
+have to be removed (left hand thread), the filling valves (mouthpieces)
+have to be unscrewed (left hand thread) and the interior of the valves
+(non-return diaphragm and spring) has to be examined for faults.
+An exchange of a complete filling valve is only to be performed
+in the factory.
+3.5.2 High-pressure hoses
+3.5.2.1 High-pressure hoses are to be marked with date (month and year)
+of installation in the new liferaft or in case of an exchange.
+3.5.2.2 In case of breaks or cracks an immediate inspection must be
+performed.
+3.5.2.3 High-pressure hoses at an age of 3 years have to undergo a pressure
+test, repeated at least every 2 years even if no breaks or cracks are found.
+3.5.2.4 Subjected to the test is the hose system from the connection of the
+pressure gas cylinder up to the connection of the buoyancy tube.
+3.5.2.5 The test procedure will be executed by means of a liquid high-pressure
+pump with pressure gauge at a normal temperature of + 20° C.
+For a time of 60 seconds the hose system is checked at the test
+pressure as declared by the manufacturer. Leakages are not allowed
+anywhere in the hose system.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 25
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 42
+============================================================
+3.6 Checking raft buoyancy tubes for airtightness
+(It is advisable before first inflation of raft to fill some talc through
+the valve openings into all raft compartments)
+Important ! Pressure relief valve plugs must have been removed
+from the valves.
+Attention ! Identify the type of topping up and deflation valve before
+inflation, testing und deflation of buoyancy tubes and
+floor. Select the appropriate test socket accordingly
+(see Annex 11).
+3.6.1 Inflate the raft using a compressed air line or compressed air cylinder with a
+handwheel valve, until the pressure relief valves blow off. Should the pressure
+relief valves not blow off, exercise care as there is a danger the raft will be
+over-inflated.
+Attach the pressure manometer, using the test socket, and ensure the maximum
+pressure of 360 mbar (270 mm hg) has not been exceeded.
+3.6.2 Working pressure test (WP)
+Commence 30 minutes after the pressure relief valves have closed.
+Reseat pressures: LR 97 throw-over-board types must be greater than 200 mbar;
+LR 97 L davit launch types must be greater than 250 mbar)
+The pressure drop must not exceed more than 5 % after one hour.
+3.6.2.1 If the raft should fail the working pressure test, the leak may be found by mixing
+3 - 5 % soap suds in luke warm water and applying it on the tubes with a cloth,
+sponge or flat brush. Checks should be made in the following order - all valves,
+seams, raft body. Any leak will be visible immediately by the formation of small
+bubbles. It is also possible to so-called „cauliflower“, an agglomeration of tiny
+bubbles, will form on porous raft material.
+3.6.2.2 Large leaks must be repaired properly, whereas small leaks are
+covered with DSB cold vulcanising material or with the post impreg-
+nating agent E 3003 after having cleaned the spot to be repaired with
+toluene. (For repairs please refer to the „Instructions for Repair of
+Pneumatic Boat Skins“) - Annex 7 -
+3.6.3 Inspection of arch tube
+a) deflate upper tube
+b) pressure of arch tube must be > 150 mbar
+c) after one hour pressure holding the pressure drop
+willnot exceed more than 15 % .
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 26
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 43
+============================================================
+3.7 Checking of raft floor for airtightness
+(this checking can only be made when raft is inflated)
+3.7.1 Inflate raft floor by compressor (between 10 and 15 mbar).
+Close valve firmly.
+3.7.2 Check after 1-2 hours if there is an acceptable remaining air cushion.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 27
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 44
+============================================================
+3.8 Checking of lighting system
+3.8.1 Structure of the lighting system
+3.8.1.1 Exterior lighting
+3.8.1.2 Exterior and interior lighting
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 28
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 45
+============================================================
+3.8.2 Revision and maintenance
+3.8.2.1 Check carefully when inflating the raft for maintenance that the activating
+pins are pulled out of the batteries. This is achieved by a line connecting
+the pins to the floor of the raft. If the pins are not pulled out, the procedure
+should be repeated after shortening the line.
+The removal of the activating pins from the batteries must be ensured.
+After the pins have been removed the exterior lighting should have a flashing
+light and the interior a constant light.
+After having checked the functioning of the lights the interior and exterior
+light have to be switched off with the on/off switching pin.
+(See item 3.8.1.1 and 3.8.1.2, pos. 5)
+3.8.2.2 Make a visual inspection of the battery / cell. Distortion of the housing indicates
+it is electrolysed and the battery / cell must be replaced.
+3.8.2.3 Each battery has an expiry dat of five years from the date of manufacture.
+If this date should occur with in six months of the date of service of the raft,
+the battery should be replaced. Old batteries must e disposed of in accordance
+with national requirements.
+3.8.2.4 All metal parts are to be visually inspected for corrosion and oxidation.
+Affected parts must be cleaned.
+3.8.2.5 After revision and maintenance join firmly caps and couplings.
+3.8.3 Light system at raft packing
+After deflation of the raft and before packing, the switching pins in the batteries
+must be replaced by the activating pins.
+During folding of the raft, care must be taken that the activating pin is not pulled
+out of the battery.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 29
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 46
+============================================================
+3.9 Testing of the pressure relief valves (safety valves)
+Product pressure relief valve: Thanner DK OTS
+(Before starting the test, make sure the caps of the pressure
+relief valves are removed!)
+3.9.1 Connect the manometer / test pressure gauge to the tube being tested
+- pay attention to ANNEX 11 - (first test of lower buoyancy tube)
+Inflate raft by means of a compressor or pressed air test cylinder until the
+relief valves open. Check the pressure at which the relief valve opened.
+Allow the valve to reseat and check the pressure again. The opening and
+closing pressures should be within the following scope:
+type opening pressure closing pressure
+(colour code)
+OTS 65  0,230 bar minimum 0,200 bar
+(yellow)
+OTS 65  0,300 bar minimum 0,250 bar
+(red)
+If the opening and closing pressures should not meet the requirements
+as stated above, repeat the inflation test several times. If the valve still
+does not work properly the valve upper part must be replaced according
+to item 3.9.3. The complete valve can only be replaced at the works.
+Checking the relief valve caps
+After completing the above test, adjust the pressure in each compartment
+to the minimum closing pressure. Close the relief valves with the cap and
+check for airtightness with soap suds.
+If the valve screw connection should be leaking, it can be tightened using
+the special socket wrench (figure stamp 20, DSB-Art.-No.: 0.11.06.62.0,
+starting torque 35 Nm).
+3.9.2. Remove caps after having completed the above check
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 30
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 47
+============================================================
+3.9.3 Exchanging the valve upper part / cap
+of the Thanner pressure relief valve OTS 65.
+Before exchange first prepare the new parts (pay attention to the
+colour code):
+- valve upper part OTS 65, colour code yellow, DSB-Art.-No.: 0.08.11.14.0
+- valve upper part OTS 65, colour code red, DSB-Art.-No.: 0.08.11.15.0
+- cap with sealing flange, DSB-Art.-No.: 0.08.10.08.0
+The buoyancy tube is inflated. Loosen the upper part of the valve using the
+special socket wrench (figure stamp 20). Then deflate the buoyancy tube.
+When deflated unscrew the upper part from the lower part. Now undertake
+the exchange.
+(pay attention to the succession shown in the sketch above)
+The grooves of the sealing flange must press the buoyancy tube material
+Inflate the buoyancy tube when valve upper part is manual screwed.
+Then tighten it with special socket wrench (figure stamp 20) with 35 Nm.
+A leakage and function test must be carried out after completion of the above.
+3.10 Loading test - davit launchable liferafts
+Each davit launchable raft must be loaded with 1,1x G every two years.
+Use the following cases (to fill with water) for ballast:
+a) ballast case for inside:
+LR 86 L and LR 97 L - 12 and 16 persons, DSB-Art.-No.: 8.11.06.83.0
+LR 86 L and LR 97 L - 20 and 25 persons, DSB-Art.-No.: 8.11.06.80.0
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 31
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 48
+============================================================
+b) ballast case for outside:
+LR 86 L and LR 97 L - 12 persons, DSB-Art.-No.: 8.11.06.85.0
+LR 86 L and LR 97 L - 16 persons, DSB-Art.-No.: 8.11.06.84.0
+LR 86 L and LR 97 L - 20 persons, DSB-Art.-No.: 8.11.06.81.0
+LR 86 L and LR 97 L - 25 persons, DSB-Art.-No.: 8.11.06.82.0
+Fixed coupling on the case (water supply): DN 50 mm (2“), d = 66 mm
+Size: G 2“
+Type: Storz C-2“ Al
+The load test must be recorded on the raft log card and on the raft label
+„Loading test carried out on....“
+If the raft label is not available it can be obtained from DSB,
+DSB-Art.-No.: 0.09.53.51.0. It should be glued on the canopy on the raft being
+tested.
+Loading: 75 kg/pers.
+LR 97 L 12 pers. x 75 kg/pers. x 1,1 = 1000 kg
+LR 97 L 16 pers. x 75 kg/pers. x 1,1 = 1325 kg
+LR 97 L 20 pers. x 75 kg/pers. x 1,1 = 1650 kg
+LR 97 L 25 pers. x 75 kg/pers. x 1,1 = 2075 kg
+Test after loading:
+1. Connection of canopy fabric to the upper buoyancy tube
+2. Knotting of lines to the lifting patches (securing of lines inclusive)
+3. Condition of lines, especially in the crossing point (lifting shackle)
+4. Condition and connection of lifting patches to the buoyancy tubes
+and to the floor
+5. Seams on both buoyancy tubes
+6. Connection of the upper and lower tube
+7. Connection of lower tube to raft floor.
+8. Each valve and the high-pressure hoses with distributor
+for outer damages
+9. Outer and inner lighting, their batteries and connection plugs
+10. All prescribed pressure tests have to be carried out
+according to Annex 9, page 1
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 32
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 49
+============================================================
+Test arrangement for load test
+Inspection of davit launchable liferafts
+Make sure that the load ballast is equally distributed inside the raft
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 33
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 50
+============================================================
+3.11 Checking of detachable raft accessories
+All raft accessories detachable by hand, e.g. emergency pack,
+bellows bag with repair kit included, paddles, safety knife, rescue quoit
+with ring, sea anchor and painter line with bag, must be removed
+from the raft and inspected.
+3.11.1 Checking of the emergency pack
+When performing the inspection of a LR 97 (L)-liferaft, the emergency
+pack is to be controlled as follows:
+3.11.1.1 Opening of packing case
+3.11.1.1.1 Sewn packing case
+Open the packing case at zip fastener.
+Take out the polyethylene bag with contents.
+3.11.1.1.2 Welded packing case
+Open packing case by removing adhesive closing strip.
+In case of welded packing cases contents are not packed
+in polyethylene bags. Take contents out of case.
+3.11.1.2 Visually inspect the pack valise for damage or mildew
+3.11.1.2.1 Damages - sewn packing case
+Fissures or smaller tears may be repaired by sewing but
+larger damages must be patched with the same or similar
+fabric.
+3.11.1.2.2 Damages - welded packing case
+Small damages may be repaired by gluing an adhesive strip
+over the damage. In case of larger damages the packing case
+should be replaced.
+3.11.1.2.3 Mildew
+A small amount of mildew is acceptable and can be removed
+after drying. Very mouldy packing cases are to be replaced.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 34
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 51
+============================================================
+3.11.1.3 Opening and control of polyethylene bag
+(only in case of sewn acking cases)
+The welded polyethylene bag must be opened by cutting close
+to the welded seam and visually inspected for damages.
+Damaged bags are to be exchanged. Undamaged bags having
+been cut are large enough to render possible a new seal by
+welding.
+3.11.1.4 Checking of contents of the emergency pack
+Unpack all the contents of the polyethylen bags and compare with
+the table of contents inside the packing case to ensure that all are
+present.
+Generally six different groups are contained:
+group 1: drinking water
+group 2: emergency ration
+group 3: pyrotechnics
+(handflares, parachute distress
+signals, smoke signals)
+group 4: signal lamps, spare batteries
+and bulb
+group 5: First aid kit
+group 6: Sundries:
+sea anchor with line
+bailer
+sponge
+buoyant knife
+tin opener
+signalling mirror
+whistles
+fishing set, complete
+drinking vessel
+seasickness bag
+anti seasickness tablets
+table of life saving signals
+instructions on how to survive
+instructions for immediate actions
+thermal protective aids
+drinking straw
+radar reflector (if required by relevant
+national authority)
+scissors (only in case of Danish rafts)
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 35
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 52
+============================================================
+For inspection of the 6 above mentioned groups pay attention as a
+matter of principle to the following:
+a) Check quantity of the contents, following the table of
+contents
+b) check the date in case any of the contents is life expired
+and must be exchanged.
+c) check that nothing is damaged, corroded, gone mouldy
+or rotted.
+3.11.1.4.1 Control of the groups
+3.11.1.4.1.1 Group 1: drinking water - Art.-No. 0.09.04.35.0
+raft size number of bags water bags total
+persons à 0,1 litre + total = weight
+kg kg kg
+6 90 9 + 0,27 = 9,27
+8 120 12 + 0,36 = 12,36
+10 150 15 + 0,45 = 15,45
+12 180 18 + 0,54 = 18,54
+15 225 22,5 + 0,675 = 23,175
+16 240 24 + 0,72 = 24,72
+20 300 30 + 0,90 = 30,90
+25 375 37,5 + 1,125 = 38,625
+Period of consumption - drinking water
+The drinking water bags should be replaced 4 years from the date of manufacture
+printed on them. The expiry date should not be exceeded by more than six months.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 36
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 53
+============================================================
+drinking water rations - this only applies to liferafts with Danish approval
+raft size n u m b e r of bags water bags total
+persons à 0,1 litre + total = weight
+kg kg kg
+4 61 6 + 0,18 = 6,18
+6 92 9,2 + 0,27 = 9,47
+8 123 12,3 + 0,36 = 12,66
+10 153 15,3 + 0,45 = 15,75
+12 184 18,4 + 0,54 = 18,94
+15 230 23,0 + 0,675 = 23,675
+16 245 24,50 + 0,72 = 25,22
+20 306 30,60 + 0,90 = 31,50
+25 383 38,30 + 1,1,25 = 39,425
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 37
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 54
+============================================================
+3.11.1.4.1.2 Group 2 - emergency ration
+1/2 kg packing
+1 kg packing
+Basically:
+Open every cardboard box when inspecting and check the
+vacuum packing of the emergency ration. Packs with have
+lost vaccuum must be replaced.
+Time limit for consumption:
+All emergency rations must be replaced after four or five years
+(depending on the manufacturer). The expiry date must not be
+exceeded by more than six months.
+3.11.1.4.1.3 Group 3 - Pyrotechnics
+handflares order no. 0.09.04.07.0
+parachute distress
+signals order no. 0.09.04.06.0
+smoke signals order no. 0.09.04.25.0
+Basically:
+Generally the handflares, the parachute distress signals and
+smoke signals must be visually checked for damage every
+12 months, especially for corrosion in the watertight package
+or for other defects. Substandard pyrotechnics have to be
+replaced.
+Time limit use:
+Generally the pyrotechnics have to be replaced after expiration
+of the date printed on them. The old exchanged parachute distress
+signals, handflares and smoke signals must be disposed of in
+accordance to the national requirements.
+The time limit is not allowed to be exceeded by more than 6 months.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 38
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 55
+============================================================
+3.11.1.4.1.4 Group 4: - signal lamp with spare battery and bulb
+a) Signal lamps
+Check the signal lamps every 12 months for safe working
+and for corrosion on the metal parts.
+At the same time control the spare bulbs together with the
+signal lamps. Watch particularly that the thread of the
+spare bulbs fits into the signal lamps
+b) Batteries
+Generally exchange the batteries of the signal lamps
+(torches) and the spare batteries every 12 months.
+The exchanged old batteries must be disposed of in
+accordance to the national requirements.
+3.11.1.4.1.5 Group 5: - first-aid kit
+a) damaged first-aid kits must be replaced
+without regard to its expiry date.
+b) first-aid kit for liferafts approved by SBG:
+Check or replacement of the first-aid kit must be
+carried out every 12 months.
+c) first-aid kit for liferafts approved by all the other authorities:
+Check or replacement must be carried out according to
+the printed expiry date. The expiry date must not be exceeded
+by more than 6 months.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 39
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 56
+============================================================
+3.11.1.4.1.6 Group 6: - Sundries
+Inspect the remaining contents of the emergency pack for
+quantity and quality. Exchange substandard parts.
+Sundries:
+sea anchor with line
+bailer (rafts more than 15 persons)
+sponge
+buoyant knife (on top of the emergency pack)
+seasickness bag
+signalling mirror
+whistle (fitted on outside of bag)
+fishing set
+drinking vessel
+tin opener
+anti-seasickness tablets - if existing -
+(check date of expiry - must not exceeded by more than six months)
+table of life saving signals, instructions on how to survive
+and instructions for immediate actions
+emergency bag / thermal protective aids
+drinking straw
+scissors (only Danish rafts)
+radar reflector (if required by relevant national authority)
+3.11.1.5 Packing of the emergency pack
+3.11.1.5.1 Emergency pack bag, sewn
+Step 1:
+every part of the contents has to be checked so that no sharp
+edge of tins or other cornered or pointed object protrude through
+the package, to avoid damage to the covering polyethylene bag.
+Step 2:
+after inspection the fundamental packings have to be completed
+- as described in table on the following page - and to be packed
+again. Take care of a proper closure and the presence of the
+opening notch on the polybags.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 40
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 57
+============================================================
+to 3.11.1.5.1
+Additional fundamental and/or collective packing
+additionally packed in:
+serial no. A r t i c l e (dimensions in mm) remarks
+1 parachute distress PB 85 x 350 x 0,1
+signal
+2 handflare PB 70 x 250 x 0,1
+3 smoke signal PB 310 x 200 x 0,1
+4 signal lamp / torch PB 130 x 300 x 0,05 ) together in
+)
+5 torch bulb (spare) Sch 50 x 300 x 3 ) polybag
+) 110 x 400 x 0,1
+6 torch batteries(spare) PB 100 x 180 x 0,1 )
+(2 pcs together)
+7 signalling mirror PB 110 x 140 x 0,1
+8 fishing set PB 100 x 200 x 0,1
+in original cardboard box
+9 emergency ration -
+10 seasickness bag PB 150 x 220 x 0,5
+2 pieces
+(6 to 25 pcs )
+11 first-aid kit PB 305 x 450 x 0,15
+12 drinking water bag PB 200 x 500 x 0,1
+à 0,1 litre
+(15 pcs together)
+13 tin opener Sch 130 x 180 x 0,3
+(3 pcs. together)
+wrapped up
+14 anti-seasickness- PB 110 x 150 x 0,1 depending on type
+tabl.(36 to 150 pcs ) of raft
+in holder with screw
+on lid
+15 Table of life saving PB 200 x 300 x 0,1 ) together
+signals and instruc- )
+tions )
+) in original PE-bag
+16 thermal protect.aids - )
+17 radar reflector - in original PE-bag
+explanation of symbols: PB = Flat-floored polyethylene bag
+SCH = Smooth foam
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 41
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 58
+============================================================
+to
+3.11.1.5.1 Step 3:
+Lay in the polyethylene bag (dimensions 900 x 900 x 0,15 mm)
+Pack up drinking water, emergency rations, first aid kit,
+pyrotechnics and all the other items (except signal whistle)
+according to the packing scheme on next pages.
+Step 4:
+Bring together the edges of the polybag, shut them with the
+fingers and suck off the air content of the bag by means of a
+vacuum cleaner. Then weld the bag together approx. 25 mm
+from the edges.
+Step 5:
+Cut in a ripping slot of about 20 mm in form of a „V“ in the
+middle of the bag.
+Step 6:
+Fold in free parts and fix them with self-sealing tape.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 42
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 59
+============================================================
+Packing scheme - SOLAS A Pack (sketches not according to scale)
+LR 97 for 6 persons - with ½ kg food ration
+1 First aid kit
+1.1 First aid equipment (only NL) 15 not applicable
+2 Thermal protective aids 16 Anti-seasickness tablets
+3 Sponge 17 Set of fishing tackle
+4 Buoyant smoke signals 18 Seasickness bag
+5 Rocket parachute flares 19 not applicable
+6 Table of life saving signals 19a Food ration (1/2 kg)
+7 Instructions on how to survive 20 Fresh water
+8 Daylight signalling mirror 21 not applicable
+9 Piercing straw 22 Drinking vessel
+10 Rain water collecting bag 23 Sea anchor
+11 Handflares 23a Bag for sea anchor line
+12 Torch (signalling) 24 Foam rubber padding
+13 Battery and bulb (spare) 25 Radar reflector
+14 Tin opener 26 Mast for radar reflector
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 43
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 60
+============================================================
+Packing scheme - SOLAS A Pack (sketches not according to scale)
+LR 97 for 8 persons - with ½ kg food ration
+1 First aid kit
+1.1 First aid equipment (only NL) 15 not applicable
+2 Thermal protective aids 16 Anti-seasickness tablets
+3 Sponge 17 Set of fishing tackle
+4 Buoyant smoke signals 18 Seasickness bag
+5 Rocket parachute flares 19 not applicable
+6 Table of life saving signals 19a Food ration (1/2 kg)
+7 Instructions on how to survive 20 Fresh water
+8 Daylight signalling mirror 21 not applicable
+9 Piercing straw 22 Drinking vessel
+10 Rain water collecting bag 23 Sea anchor
+11 Handflares 23a Bag for sea anchor line
+12 Torch (signalling) 24 Foam rubber padding
+13 Battery and bulb(spare) 25 Radar reflector
+14 Tin opener 26 Mast for radar reflector
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 44
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 61
+============================================================
+Packing scheme - SOLAS A Pack (sketches not according to scale)
+LR 97 for 10 persons - with ½ kg food ration
+1 First aid kit
+1.1 First aid equipment (only NL) 15 not applicable
+2 Thermal protective aids 16 Anti-seasickness tablets
+3 Sponge 17 Set of fishing tackle
+4 Buoyant smoke signals 18 Seasickness bag
+5 Rocket parachute flares 19 not applicable
+6 Table of life saving signals 19a Food ration (1/2 kg)
+7 Instructions on how to survive 20 Fresh water
+8 Daylight signalling mirror 21 not applicable
+9 Piercing straw 22 Drinking vessel
+10 Rain water collecting bag 23 Sea anchor
+11 Handflares 23a Bag for sea anchor line
+12 Torch (signalling) 24 Foam rubber padding
+13 Battery and bulb (spare) 25 Radar reflector
+14 Tin opener 26 Mast for radar reflector
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 45
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 62
+============================================================
+Packing scheme - SOLAS A Pack (sketches not according to scale)
+LR 97 for 12 persons and
+LR 97 L for 12 persons - with ½ kg food ration
+1 First aid kit
+1.1 First aid equipment (only NL) 15 not applicable
+2 Thermal protective aids 16 Anti-seasickness tablets
+3 Sponge 17 Set of fishing tackle
+4 Buoyant smoke signals 18 Seasickness bag
+5 Rocket parachute flares 19 not applicable
+6 Table of life saving signals 19a Food ration (1/2 kg)
+7 Instructions on how to survive 20 Fresh water
+8 Daylight signalling mirror 21 not applicable
+9 Piercing straw 22 Drinking vessel
+10 Rain water collecting bag 23 Sea anchor
+11 Handflares 23a Bag for sea anchor line
+12 Torch (signalling) 24 Foam rubber padding
+13 Battery and bulb (spare) 25 Radar reflector
+14 Tin opener 26 Mast for radar reflector
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 46
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 63
+============================================================
+Packing scheme - SOLAS A Pack (sketches not according to scale)
+LR 97 for 15 and 16 persons and
+LR 97 L for 15 and 16 persons - with ½ kg food ration
+1 First aid kit
+1.1 First aid equipment (only NL) 15 not applicable
+2 Thermal protective aids 16 Anti-seasickness tablets
+3 Sponge 17 Set of fishing tackle
+4 Buoyant smoke signals 18 Seasickness bag
+5 Rocket parachute flares 19 not applicable
+6 Table of life saving signals 19a Food ration (1/2 kg)
+7 Instructions on how to survive 20 Fresh water
+8 Daylight signalling mirror 21 Bailer
+9 Piercing straw 22 Drinking vessel
+10 Rain water collecting bag 23 Sea anchor
+11 Handflares 23a Bag for sea anchor line
+12 Torch (signalling) 24 Foam rubber padding
+13 Battery and bulb(spare) 25 Radar reflector
+14 Tin opener 26 Mast for radar reflector
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 47
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 64
+============================================================
+Packing scheme - SOLAS A Pack (sketches not according to scale)
+LR 97 for 20 persons and
+LR 97 L for 20 persons - with ½ kg food ration
+1 First aid kit
+1.1 First aid equipment (only NL) 15 not applicable
+2 Thermal protective aids 16 Anti-seasickness tablets
+3 Sponge 17 Set of fishing tackle
+4 Buoyant smoke signals 18 Seasickness bag
+5 Rocket parachute flares 19 not applicable
+6 Table of life saving signals 19a Food ration (1/2 kg)
+7 Instructions on how to survive 20 Fresh water
+8 Daylight signalling mirror 21 Bailer
+9 Piercing straw 22 Drinking vessel
+10 Rain water collecting bag 23 Sea anchor
+11 Handflares 23a Bag for sea anchor line
+12 Torch (signalling) 24 Foam rubber padding
+13 Battery and bulb (spare) 25 Radar reflector
+14 Tin opener 26 Mast for radar reflector
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 48
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 65
+============================================================
+Packing scheme - SOLAS A Pack (sketches not according to scale)
+LR 97 for 25 persons and
+LR 97 L for 25 persons - with ½ kg food ration
+1 First aid kit
+1.1 First aid equipment (only NL) 15 not applicable
+2 Thermal protective aids 16 Anti-seasickness tablets
+3 Sponge 17 Set of fishing tackle
+4 Buoyant smoke signals 18 Seasickness bag
+5 Rocket parachute flares 19 not applicable
+6 Table of life saving signals 19a Food ration (1/2 kg)
+7 Instructions on how to survive 20 Fresh water
+8 Daylight signalling mirror 21 Bailer
+9 Piercing straw 22 Drinking vessel
+10 Rain water collecting bag 23 Sea anchor
+11 Handflares 23a Bag for sea anchor line
+12 Torch (signalling) 24 Foam rubber padding
+13 Battery and bulb (spare) 25 Radar reflector
+14 Tin opener 26 Mast for radar reflector
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 49
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 66
+============================================================
+Packing scheme - SOLAS A Pack - DK (sketches not according to scale)
+LR 97 for 4 persons - DK - with ½ kg food ration
+1 First aid kit 13 Battery and bulb (spare)
+2 Thermal protective aids 14 Tin opener
+3 Sponge 15 Scissors
+4 Buoyant smoke signals 16 Anti-seasickness tablets
+5 Rocket parachute flares 17 Set of fishing tackle
+6 Table of life saving signals 18 Seasickness bag
+19 not applicable
+7 Instructions on how to survive 19a Food ration (1/2 kg)
+8 Daylight signalling mirror 20 Fresh water
+9 Piercing straw 21 not applicable
+10 Rain water collecting bag 22 Drinking vessel
+11 Handflares 23 Sea anchor
+12 Torch (signalling) 23a Bag for sea anchor line
+24 Foam rubber padding
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 50
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 67
+============================================================
+Packing scheme - SOLAS A Pack - DK (sketches not according to scale)
+LR 97 for 6 persons - DK - with ½ kg food ration
+1 First aid kit 13 Battery and bulb (spare)
+2 Thermal protective aids 14 Tin opener
+3 Sponge 15 Scissors
+4 Buoyant smoke signals 16 Anti-seasickness tablets
+5 Rocket parachute flares 17 Set of fishing tackle
+6 Table of life saving signals 18 Seasickness bag
+19 not applicable
+7 Instructions on how to survive 19a Food ration (1/2 kg)
+8 Daylight signalling mirror 20 Fresh water
+9 Piercing straw 21 not applicable
+10 Rain water collecting bag 22 Drinking vessel
+11 Handflares 23 Sea anchor
+12 Torch (signalling) 23a Bag for sea anchor line
+24 Foam rubber padding
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 51
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 68
+============================================================
+Packing scheme - SOLAS A Pack - DK (sketches not according to scale)
+LR 97 for 8 persons - DK - with ½ kg food ration
+1 First aid kit 13 Battery and bulb (spare)
+2 Thermal protective aids 14 Tin opener
+3 Sponge 15 Scissors
+4 Buoyant smoke signals 16 Anti-seasickness tablets
+5 Rocket parachute flares 17 Set of fishing tackle
+6 Table of life saving signals 18 Seasickness bag
+19 not applicable
+7 Instructions on how to survive 19a Food ration (1/2 kg)
+8 Daylight signalling mirror 20 Fresh water
+9 Piercing straw 21 not applicable
+10 Rain water collecting bag 22 Drinking vessel
+11 Handflares 23 Sea anchor
+12 Torch (signalling) 23a Bag for sea anchor line
+24 Foam rubber padding
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 52
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 69
+============================================================
+Packing scheme - SOLAS A Pack - DK (sketches not according to scale)
+LR 97 for 10 persons - DK - with ½ kg food ration
+1 First aid kit 13 Battery and bulb (spare)
+2 Thermal protective aids 14 Tin opener
+3 Sponge 15 Scissors
+4 Buoyant smoke signals 16 Anti-seasickness tablets
+5 Rocket parachute flares 17 Set of fishing tackle
+6 Table of life saving signals 18 Seasickness bag
+19 not applicable
+7 Instructions on how to survive 19a Food ration (1/2 kg)
+8 Daylight signalling mirror 20 Fresh water
+9 Piercing straw 21 not applicable
+10 Rain water collecting bag 22 Drinking vessel
+11 Handflares 23 Sea anchor
+12 Torch (signalling) 24 Foam rubber padding
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 53
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 70
+============================================================
+Packing scheme - SOLAS A Pack - DK (sketches not according to scale)
+LR 97 for 12 persons - DK
+LR 97 L for 12 persons - DK - with ½ kg food ration
+1 First aid kit 13 Battery and bulb (spare)
+2 Thermal protective aids 14 Tin opener
+3 Sponge 15 Scissors
+4 Buoyant smoke signals 16 Anti-seasickness tablets
+5 Rocket parachute flares 17 Set of fishing tackle
+6 Table of life saving signals 18 Seasickness bag
+7 Instructions on how to survive 19 not applicable
+8 Daylight signalling mirror 19a Food ration (1/2 kg)
+9 Piercing straw 20 Fresh water
+10 Rain water collecting bag 21 not applicable
+11 Handflares 22 Drinking vessel
+12 Torch (signalling) 23 Sea anchor
+23a Bag for sea anchor line
+24 Foam rubber padding
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 54
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 71
+============================================================
+Packing scheme - SOLAS A Pack - DK (sketches not according to scale)
+LR 97 for 16 persons - DK and
+LR 97 L for 16 persons - DK - with ½ kg food ration
+1 First aid kit 13 Battery and bulb (spare)
+2 Thermal protective aids 14 Tin opener
+3 Sponge 15 Scissors
+4 Buoyant smoke signals 16 Anti-seasickness tablets
+5 Rocket parachute flares 17 Set of fishing tackle
+6 Table of life saving signals 18 Seasickness bag
+7 Instructions on how to survive 19 not applicable
+8 Daylight signalling mirror 19a Food ration (1/2 kg)
+9 Piercing straw 20 Fresh water
+10 Rain water collecting bag 21 Bailer
+11 Handflares 22 Drinking vessel
+12 Torch (signalling) 23 Sea anchor
+23a Bag for sea anchor line
+24 Foam rubber padding
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 55
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 72
+============================================================
+Packing scheme - SOLAS A Pack - DK (sketches not according to scale)
+LR 97 for 20 persons - DK and
+LR 97 L for 20 persons - DK - with ½ kg food ration
+1 First aid kit 13 Battery and bulb (spare)
+2 Thermal protective aids 14 Tin opener
+3 Sponge 15 Scissors
+4 Buoyant smoke signals 16 Anti-seasickness tablets
+5 Rocket parachute flares 17 Set of fishing tackle
+6 Table of life saving signals 18 Seasickness bag
+7 Instructions on how to survive 19 not applicable
+8 Daylight signalling mirror 19a Food ration (1/2 kg)
+9 Piercing straw 20 Fresh water
+10 Rain water collecting bag 21 Bailer
+11 Handflares 22 Drinking vessel
+12 Torch (signalling) 23 Sea anchor
+23a Bag for sea anchor line
+24 Foam rubber padding
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 56
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 73
+============================================================
+Packing scheme - SOLAS A Pack - DK (sketches not according to scale)
+LR 97 for 25 persons - DK and
+LR 97 L for 25 persons - DK - with ½ kg food ration
+1 First aid kit 13 Battery and bulb (spare)
+2 Thermal protective aids 14 Tin opener
+3 Sponge 15 Scissors
+4 Buoyant smoke signals 16 Anti-seasickness tablets
+5 Rocket parachute flares 17 Set of fishing tackle
+6 Table of life saving signals 18 Seasickness bag
+7 Instructions on how to survive 19 not applicable
+8 Daylight signalling mirror 19a Food ration (1/2 kg)
+9 Piercing straw 20 Fresh water
+10 Rain water collecting bag 21 Bailer
+11 Handflares 22 Drinking vessel
+12 Torch (signalling) 23 Sea anchor
+23a Bag for sea anchor line
+24 Foam rubber padding
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 57
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 74
+============================================================
+Packing scheme - SOLAS A Pack - DK (sketches not according to scale)
+LR 97 for 16 persons - DK and
+LR 97 L for 16 persons - DK - with 1 kg food ration
+1 First aid kit 13 Battery and bulb (spare)
+2 Thermal protective aids 14 Tin opener
+3 Sponge 15 Scissors
+4 Buoyant smoke signals 16 Anti-seasickness tablets
+5 Rocket parachute flares 17 Set of fishing tackle
+6 Table of life saving signals 18 Seasickness bag
+7 Instructions on how to survive 19 Food ration (1 kg)
+8 Daylight signalling mirror 20 Fresh water
+9 Piercing straw 21 Bailer
+10 Rain water collecting bag 22 Drinking vessel
+11 Handflares 23 Sea anchor
+12 Torch (signalling) 23a Bag for sea anchor line
+24 Foam rubber padding
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 58
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 75
+============================================================
+Packing scheme - SOLAS A Pack - DK (sketches not according to scale)
+LR 97 for 20 persons - DK and
+LR 97 L for 20 persons - DK - with 1 kg food ration
+1 First aid kit 13 Battery and bulb (spare)
+2 Thermal protective aids 14 Tin opener
+3 Sponge 15 Scissors
+4 Buoyant smoke signals 16 Anti-seasickness tablets
+5 Rocket parachute flares 17 Set of fishing tackle
+6 Table of life saving signals 18 Seasickness bag
+7 Instructions on how to survive 19 Food ration (1 kg)
+8 Daylight signalling mirror 20 Fresh water
+9 Piercing straw 21 Bailer
+10 Rain water collecting bag 22 Drinking vessel
+11 Handflares 23 Sea anchor
+12 Torch (signalling) 23a Bag for sea anchor line
+24 Foam rubber padding
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 59
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 76
+============================================================
+Packing scheme - SOLAS A Pack - DK (sketches not according to scale)
+LR 97 for 25 persons - DK and
+LR 97 L for 25 persons - DK - with 1 kg food ration
+1 First aid kit 13 Battery and bulb (spare)
+2 Thermal protective aids 14 Tin opener
+3 Sponge 15 Scissors
+4 Buoyant smoke signals 16 Anti-seasickness tablets
+5 Rocket parachute flares 17 Set of fishing tackle
+6 Table of life saving signals 18 Seasickness bag
+7 Instructions on how to survive 19 Food ration (1 kg)
+8 Daylight signalling mirror 20 Fresh water
+9 Piercing straw 21 Bailer
+10 Rain water collecting bag 22 Drinking vessel
+11 Handflares 23 Sea anchor
+23a Bag for sea anchor line
+24 Foam rubber padding
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 60
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 77
+============================================================
+3.11.1.5.2 Welded emergency pack bag
+- emergency equipment for Danish rafts -
+Prior to packing proceed according to item 3.11.1.5.1
+step 1 and 2.
+Step 3:
+Drinking water, food rations, first aid kit, pyrotechnic and
+all other parts should be packed according to packing
+scheme illustrated on the preceding pages.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 61
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 78
+============================================================
+Step 4:
+Closing the welded emergency pack bag
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 62
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 79
+============================================================
+1. Unroll new closing strip from the roll
+(total length = length of emergency pack bag + 100 mm)
+2. Place adhesive strip - sticky side showing upwards -
+on a table (max. 10 cm away from the edge).
+Fix the strip to the table top in some places with double sided
+adhesive tape. (Sketch 2).
+3. Place the packed emergency pack bag in a lower position
+in front of the table according to sketch 2.
+4. Lay together the extended cover parts (1 and 2) of the bag
+so that the outer edges are more or less even.
+5. Glue part 2 up to half - and midmost - of the strip.
+6. Cut closing strip on both ends according to sketch 1
+30 x 35 mm.
+7. Bend the 2nd overlapping half of the strip and glue it
+on part 1.
+8. Bend the lashes overlapping on the edges and glue them
+according to sketch 3.
+When gluing the strip make sure that it is glued smooth
+and without wrinkles and that it is pressed firmly.
+9. Suck off the bag on the deflation valve until the fabric
+shows sharp wrinkles.
+10. Offer sucking off close the valve and roll up the
+cover parts 1 and 2 (sketch 3).
+11. Knot the cord of the signal whistle to the slider of
+the zip-fastener.
+12. Place the signal whistle on the rolled up cover parts and
+close the bag with the zip-fastener.
+If after some time the bag does not show any sharp wrinkles
+it is no longer watertight.
+To dertermine if a bag is leaking it can be inflated through the
+deflation valve. Use soap suds to establish the location of the leaks.
+Tiny leaks on the surface can be sealed by covering them with
+adhesive strip.
+In case of leakages on the closing seam the bag should be
+re-sealed according to above points 1 to 8.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 63
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 80
+============================================================
+3.11.1.5.3 Emergency pack SOLAS B PACK
+- Valise sewed -
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 64
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 81
+============================================================
+Packing scheme - SOLAS B PACK -
+(sketches not according to scale)
+LR 97 and LR 97 L for 6 to 25 persons
+CUT A - A CUT B - B
+1 Bailer * 8 Handflares
+2 Instructions on how to survive/ 9 Thermal protective aids
+table of life saving signals 10 Rocket parachute flares
+3 Torch (signalling) 11 Buoyant smoke signals
+4 Battery and bulb (spare) 12 Daylight signalling mirror
+5 First aid kit 13 Sponge
+6 Seasickness bag 14 Anti-seasickness tablets
+7 Rain water collecting bag
+* LR 97 and LR 97 L for 6 to 12 persons: no bailer
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 65
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 82
+============================================================
+Packing scheme - SOLAS B Pack - DK
+(sketches not according to scale)
+LR 97 and LR 97 L for 6 to 25 persons DK
+1 Bailer * 10 Handflares
+2 Table of life saving signals 11 Thermal protective aids
+3 Instructions on how to survive 12 Torch (signalling)
+4 Seasickness bag 13 Fresh water
+5 Daylight signalling mirror 14 Battery and bulb (spare)
+6 First aid kit 15 Anti-seasickness tablets
+7 Sponge 16 Rain water collecting bag
+8 Rocket parachute flares 17 Sea anchor
+9 Buoyant smoke signals 18 Bag for sea anchor line
+* LR 97 and LR 97 L for 6 to 12 persons: no bailer
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 66
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 83
+============================================================
+3.11.2 Check bellows bag, repair bag and paddles
+3.11.2.1 Bellows bag
+Unpack the bag and check the contents.
+3.11.2.2 Unpack the repair bag and check the contents.
+3.11.2.2.1 Only for liferafts approved by German See-Berufsgenossenschaft
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 67
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 84
+============================================================
+3.11.2.2.2 All other liferafts
+3.11.2.3. Paddles
+Paddles are to be checked to ensure they are complete
+and undamaged. Damaged paddles are to be replaced.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 68
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 85
+============================================================
+3.11.3 Checking of painter line
+Check the painter line is properly stowed in its bag and that the thin weak links
+keeping the bag closed are undamaged. Should the painter line be fully or
+partially removed from its bag, it must be repacked in accordance with the
+instructions described in Annex 1.
+effective length of line at a drop height of:
+max. 25 m = 50 m
+max. 18 m = 25 m ) in accordance with regulations of German
+max. 25 m = 36 m ) and Dutch Shipping Authorities.
+3.11.4 Checking of radar-reflector
+(only applies to liferafts from year of construction 1988 approved
+by German Shipping Authority)
+Among other things functioning depends on a tight full unfolding
+and the mounting angle of 45°- 65 ° on the inflated raft.
+Both can be adjusted by the fastening straps.
+In case of larger damages on the reflective fabric the complete
+reflector has to be replaced.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 69
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 86
+============================================================
+3.12 Documentation
+The following labels and documents must be filled in after every
+inspection of raft:
+3.12.1 Label on the raft (Annex 2)
+The date of servicing and name
+of service station has to be filled in.
+3.12.2 Table of contents of the (Annex 3)
+emergency pack
+The date of servicing and name
+of service station has to be filled in.
+3.12.3 Certificate of service and (Annex 4.1 and 4.2)
+testing of an inflatable liferaft
+(Inspection certificate and
+label: Inspection approval)
+3.12.4 Log book or log card (Annex 5)
+3.12.5 Label „Service“ on the container (Annex 6)
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 70
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 87
+============================================================
+3.13 Hydrostatic release unit
+The hydrostatic release unit replaces the manually operated slip-hook
+for the automatic release of the lashing belt. It automatically opens the
+lashing in 1,5 to 4 m depth of water and thus releases the packed liferaft
+from the sinking vessel.
+3.13.1 Type"Hammar H 20"
+This hydrostatic release unit does not have to be serviced.
+After a period of 2 years it has to be exchanged by a new one.
+The time limit of two years starts counting from the month of mounting
+the release unit on board. The data tape (in several languages) glued
+to the hydrostatic release unit consists of 12 spaces for the month entry
+and 3 spaces for the year entry. This tape must be marked with 2 year
+time limit prior to mounting hydrostatic release unit on board.
+The relevant month and year have to be scratched out.
+Should hydrostatic release units be found on board of vessels without
+any marking or not clearly marked they have to be replaced by new
+ones immediately.
+The serial-number of the newly installed hydrostatic release unit has to be
+recorded on the log card of the liferaft.
+The hydrostatic release unit packed in its original packing can be
+obtained from DSB. DSB-Art.-No.: 0.07.09.31.
+A mounting picture and working instructions are printed on the
+packing carton. The packing carton also contains instructions for
+installation intended for display on board.
+3.13.2 Type"Thanner DK 84" and „Thanner DK 84.1“
+Service should be carried out according to Annex 8.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 3 page : 71
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 88
+============================================================
+4. Folding and packing of the liferaft
+Only completely dry rafts are allowed to be packed.
+Special attention should be paid to ropes and belt straps.
+4.1 Completing the liferaft
+4.1.1 General
+Use a suction pump or decompressor to deflate the air compartments
+after carrying out the „final check before deflation“ - see item 4.1.3.
+Effective deflation is a prerequisite for proper packing of the raft into
+container.
+The buoyancy tubes, arch tube and the floor are deflated through the
+inflate/deflate valves provided inside the raft. For deflation, the deflation
+adaptor - with green cap, Art.-No. 8.07.33.04.0 - should be inserted into
+the valve.
+Deflation can be regarded as complete when the rubberized fabric
+can be folded sharply and spread out on the top of each other.
+Then, with the decompressor still running, the deflation adaptor should be
+removed quickly from the valve and the valve cap closed
+immediately.
+Use of the valve cap will ensure the compartments will not reinflate
+and further ensure there will be no leakage during gas inflation using
+the rafts own C0 cylinder.
+2
+4.1.2 Equipment of raft and preparation for packing
+4.1.2.1 Plug valve of the rainwater collecting device.
+4.1.2.2 Packing of repair bag
+Cut off a length of 230 mm from the polyhose (200mm wide, on roll -
+order no.: 0.08.04.09.0) and weld one side watertightly.
+Pack up the component parts according to item 3.11.2.2.1 in the
+polybag and weld watertightly. Cut in one end of the bag with
+scissors, short to the welded seam. This will serve as ripping slot.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 1
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 89
+============================================================
+4.1.2.3 Pack bellows, bailer, repair bag and rainwater collecting bags into the
+bellows bag and lace up. Fasten the bag to the same place as found,
+when unpacking the raft for inspection, with laces by loops or slip knot
+with additional two half hitches.
+4.1.2.4 Sea anchor
+4.1.2.4.1 SOLAS - construction
+Knot the sea anchor line
+and bowsing line acc. to
+the sketch on the next pages.
+4.1.2.4.2 SBG - / EFTA - construction
+Knot the sea anchor line
+at the sea anchor patch
+acc. to item 4.3.5.2
+In the case of throw-over-board liferafts for automatic launch, the sea anchor
+must be packed as shown under 4.2.1.1.2.5.
+In the case of davit-launchable rafts, the sea anchor must be stowed inside
+the raft next to the entrance.
+In the case of liferafts approved to British regulations (MCA), the sea anchor
+must be stowed inside the raft next to the entrance of ALL liferafts.
+4.1.2.5 Loose raft accessories, strap ladders and painter line
+Repack buoyant knife, emergency pack, rescue quoit etc to the same
+place as before.
+Knot firmly the tension line of strap ladder to the patches on top of the
+upper buoyancy tube on 6 and 8 person rafts. Attach and stretch the
+strap ladder with tension line by toggle.
+On rafts for 10 to 25 persons tie together firmly the strap ladder with
+stretched tension line and toggle (see next pages).
+4.1.2.6 Clean thoroughly the inside of raft and sprinkle with talc.
+No tools or sharp pointed objects should be left inside the raft.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 2
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 90
+============================================================
+to
+4.1.2.5 Stretching of the strap ladder(s)
+Placing of the Emergency Pack
+LR 97 for 6 and 8 persons
+1 = bag for bellows and repair kit
+2 = emergency pack (EP)
+3 = paddle
+4 = boarding ladder
+5 = stretching line with toggle
+6 = bailing system (only for rafts according to German
+and Norwegian regulations)
+7 = boarding system
+8 = grab line, inside
+9 = sea anchor patch
+10 = SOLAS - sea anchor
+10.1 = bowsing line (yellow)
+10.2 = sea anchor line (white)
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 3
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 91
+============================================================
+to
+4.1.2.5 LR 97 (L) for 10, 12 and 16 persons
+1 = bag for bellows and repair kit
+2 = emergency pack (EP)
+3 = paddle
+4 = boarding ladder
+5 = stretching line with toggle
+6 = bailing system (only for rafts according to German
+and Norwegian regulations)
+7 = boarding system
+8 = grab line, inside
+9 = sea anchor patch
+10 = SOLAS - sea anchor
+10.1 = bowsing line (yellow)
+10.2 = sea anchor line (white)
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 4
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 92
+============================================================
+to
+4.1.2.5 LR 97 (L) for 20 and 25 persons
+1 = bag for bellows and repair kit
+2 = emergency pack (EP)
+3 = paddle
+4 = boarding ladder
+5 = stretching line with toggle
+6 = bailing system (only for rafts according to German
+and Norwegian regulations)
+7 = boarding system
+8 = grab line, inside
+9 = sea anchor patch
+10 = SOLAS - sea anchor
+10.1 = bowsing line (yellow)
+10.2 = sea anchor line (white)
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 5
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 93
+============================================================
+4.1.3 Final check before deflation
+a) Entrances open, entrance closures rolled and tied together with seizings.
+The grabline loops knotted to the push handle of the zipper are
+located in the rolled up entrance closures.
+Lookouts closed with seizings.
+Boarding ladder correctly connected and stretched .
+b) Sea anchor properly folded, sea anchor line stored inside the
+pocket. Rope(s) firmly knotted.
+c) Bellows bag with repair bag tied up at the proper place
+(see sketch on page before)
+d) Loose raft accessories such as rescue quoit, buoyancy knife
+etc stored neatly on the raft.
+e) Emergency pack (EP) placed according to drawing and tied to
+the patches on the floor and on the lower buoyancy tube.
+f) Interior of raft clean and sprinkled with talcum.
+g) Are the batteries for interior and exterior lighting in the holder
+and are they connected ?
+h) No pointed and sharp edged objects inside the raft
+(especially don’t forget tools such as knives, scissors,
+screw drivers).
+i) C0 -cylinders properly slipped into cylinder pocket, pressure hose
+2
+tightly connected and all other screw connections of C0 -fittings and
+2
+lines tight. Fibre washers fitted and in good condition (note break-
+down torques).
+The raft has to be deflated as described under item 4.1.1
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 6
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 94
+============================================================
+4.1.4 Preparation of exterior of raft
+4.1.4.1 The switching pins on the exterior and interior lights must be removed
+and replaced by the activating pins, which must in turn be connected
+to the floor using the short line provided.
+When folding and rolling up the liferaft care must be taken that
+the activating pin is not pulled out of the battery (see also 3.8.3)
+4.1.4.2 Righting strap
+Lift up the flat lying raft at the cylinder side and check whether
+the righting strap is properly running over cylinder bag to the
+elastic rope.
+4.1.4.3 Carefully examine the lacing of the C0 -cylinder to the cylinder bag.
+2
+4.1.4.4 Check whether protective caps on C0 -filling valves are
+2
+fitted properly.
+4.1.4.5 Check whether all protective coverings are in their proper position.
+4.1.4.6 Check whether the fastening line for the painter line bag is attached
+to the cylinder bag.
+4.1.4.7 Check on davit launchable rafts that the suspension lines are running
+over the bolt of the lowering shackle freely and without loops.
+Also check the bolt is securely locked.
+4.2 Rolling up of raft
+Raft is spread completely flat on the floor with canopy pointing upwards.
+All directions, mentioned in the following, are as seen from a position in
+front of the pressure gas cylinder.
+Radar-reflector fitted to the canopy
+Prior to packing the rods of the radar reflectors mounted on the canopy
+have to be bundled by hand and placed down parallel to the C0 -cylinder.
+2
+When packing make sure that the radar reflectors are evenly distributed.
+By shifting the canopy of the deflated raft the position of the radar reflector
+can be corrected.
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 7
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 95
+============================================================
+4.2.1 With emergency pack type A (SOLAS A Pack)
+4.2.1.1 LR 97 for 6 and 8 persons
+Note: The boarding systems have to be
+arranged as follows after fold 1.
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 8
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 96
+============================================================
+4.2.1.1.1 Folding scheme
+Before Fold 1, pull the emergency pack inside the raft over the
+C0 -cylinder, as shown in the sketch below
+2
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 9
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 97
+============================================================
+4.2.1.1.2 Folding operation with pictures, here: „LR 97 - 6 persons“
+4.2.1.1.2.1 picture 1
+The auxiliary belts must laid down corresponding to picture 1 and 2.
+4.2.1.1.2.2 picture 2
+The emergency pack on the cylinder side is to be found by
+touch through the canopy.
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 10
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 98
+============================================================
+4.2.1.1.2.3 picture 3
+Pull the emergency pack - inside the raft - over the C0 -cylinder
+2
+and lay down as shown in the sketch.
+Next attach the painter line.
+4.2.1.1.2.4 First folding = Fold 1
+picture 4
+Fold the left side of the raft towards the middle. Ensure the rigid ladder
+rungs are placed parallel to the cylinder.
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 11
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 99
+============================================================
+4.2.1.1.2.5 Second folding = Fold 2
+picture 5
+Fold the right side of the raft towards the middle. Check both 1st and 2nd
+folds are straight. Use an auxiliary belt around the emergency pack to
+secure the pack length during the following stages.
+4.2.1.1.2.6 Third folding = Fold 3
+picture 6
+Starting from the end opposite the cylinder, make a fold towards the
+middle of the raft.
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 12
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 100
+============================================================
+4.2.1.1.2.7 Fourth folding = Fold 4
+picture 7
+Fold the raft pack once more up to the emergency pack.
+4.2.1.1.2.8 Fifth folding = Fold 5
+picture 8
+Roll and lift 4th fold on to the top of the emergency pack.
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 13
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 101
+============================================================
+4.2.1.1.2.9 picture 9
+Place two auxiliary belts around the folded raft as shown, to
+retain the pack shape.
+Remove the belt that was transversly positioned around the
+emergency pack
+4.2.1.1.2.10 picture 10
+Place the 3rd auxiliary belt around the middle of the raft pack and pull
+together as described under 4.2.1.1.2.9
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 14
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 102
+============================================================
+4.2.1.1.2.11 picture 11
+Tighten the 3 auxiliary belts alternately.
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 15
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 103
+============================================================
+4.2.1.2 LR 97 for 10, 12, 15, 16, 20 and 25 persons
+Note ! The non-inflatable boarding systems
+have to be folded as follows:
+Non-inflatable boarding ramp for SOLAS liferafts
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 16
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 104
+============================================================
+to 4.2.1.2
+Non-inflatable boarding ramp for SBG liferafts
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 17
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 105
+============================================================
+4.2.1.2.1 Folding scheme
+LR 97 for 10 and 12 persons
+LR 97 for 15 and 16 persons
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 18
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 106
+============================================================
+to
+4.2.1.2.1
+LR 97 for 20 and 25 persons
+Deutsche Schlauchbootfabrik Service Manual SOLAS 74/88 Chapter : 4 page : 19
+Hans Scheibert GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 107
+============================================================
+4.2.1.2.2 Folding operation with pictures, here: „LR 97 - 16 persons“
+4.2.1.2.2.1 picture 1
+Before folding the raft pull out the towing bridle (Hahnepot),
+located to the left side of the entrance (seen from the cylinder side)
+and put it down.
+4.2.1.2.2.2 picture 2
+Pull the emergency pack - together with the raft - over the C0 -
+2
+cylinder and lay down on the side.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 20
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 108
+============================================================
+4.2.1.2.2.3 picture 3
+Liferaft spread out after pulling the emergency pack over the
+C0 -cylinder.
+2
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 21
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 109
+============================================================
+4.2.1.2.2.4 First folding = Fold 1
+picture 4
+Fold the left side of the raft towards the middle.
+If necessary make a further fold as described under 4.2.1.2.1
+(LR 97 for 15 and 16 persons)
+4.2.1.2.2.5 Second folding = Fold 2
+picture 5
+Fold the right side of the raft towards the middle. To ensure the
+pack length, place an auxiliary belt around the emergency pack.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 22
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 110
+============================================================
+4.2.1.2.2.6 Third folding
+picture 6
+Starting from the end opposite the cylinder, make a fold towards the
+cylinder. For folding of the non-inflatable boarding ramp see item 4.2.1.2.
+4.2.1.2.2.7 Fourth folding = Fold 4
+picture 7
+Fold the raft pack once again in the direction of the cylinder.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 23
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 111
+============================================================
+4.2.1.2.2.8 Fifth folding = Fold 5
+picture 8
+Fold the raft once more in the direction of the cylinder,
+so that it is 50 - 60 mm short of the emergency pack.
+4.2.1.2.2.9 Sixth folding = Fold 6
+picture 9
+Roll and lift the 5th fold on to the top of the emergency pack
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 24
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 112
+============================================================
+4.2.1.2.2.10 picture 10
+.
+Cast two auxiliary belts around the raft pack and pull together
+so that the shape of this pack is retained.
+Remove the belt that was positioned transversly around
+the emergency pack !
+Place this belt around the middle of the raft pack and pull together.
+Tighten the 3 auxiliary belts alternetely.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 25
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 113
+============================================================
+4.2.1.3. LR 97 L for 12, 16, 20, and 25
+4.2.1.3.1 Folding scheme
+Sketch 1
+non-inflatable
+boarding system
+(see also item 1.2.8)
+Sketch 2 Fold 6 and Fold 4
+do not apply to LR 97 L
+for 12 and 16 persons
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 26
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 114
+============================================================
+to 4.2.1.3.1 Sketch 3
+Note: The non-inflatable boarding systems have to be folded
+according point 4.2.1.2.1 after fold 7 and/or fold 7.1
+4.2.1.3.2. Folding operationwith picture, here „LR 97 l - 25 persons“
+4.2.1.3.2.1 picture 1
+The towing bridle (Hahnepot) and the two bowsing lines are laid
+outside the raft.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 27
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 115
+============================================================
+4.2.1.3.2.1.1 (Applicable only for LR 97 L - 20 and 25 persons with SBG-approval)
+Tighten the launching lines 1 to 4 in direction to the shackle before first
+and second folding.
+Fixing of the launching lines to point a - d, with 15 mm width adhesive tape
+(1 winding) outside of the fastening band of the radar reflector.
+4.2.1.3.2.2 First and second folding = Fold 1 and 2
+picture 2
+Pull the auxiliary belt through the lowering shackle.
+With 3 persons take hold of the raft lying on the floor.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 28
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 116
+============================================================
+4.2.1.3.2.3 picture 3
+Pull the shackle over the emergency pack and the C0 -cylinder
+2
+4.2.1.3.2.4 picture 4
+Auxiliary fold (not taken into consideration in the
+folding scheme). Fold is necessary to straighten raft
+and remove creases.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 29
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 117
+============================================================
+4.2.1.3.2.5 picture 5
+Finally throw back the auxiliary fold.
+4.2.1.3.2.6 Third folding = Fold 3
+picture 6
+Fold the left side of the raft over, up to the emergency pack.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 30
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 118
+============================================================
+4.2.1.3.2.7 Fourth folding = Fold 4
+picture 7
+Fold 4 is made by folding back from the middle. The bowsing line
+must now be laid out transversely over the folded left side.
+4.2.1.3.2.8 Fifth and sixth folding = Fold 5 und 6
+picture 8
+The right side of the raft is folded in the same way as the left.
+The towing bridle (Hahnepot) together with the heart shaped
+thimble is taken out to the left.
+Finally an auxiliary belt is placed longitudinally around the emergency
+pack above the raft pack and lashed tightly.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 31
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 119
+============================================================
+4.2.1.3.2.9 seventh folding = Fold 7
+picture 9
+Starting from the end opposite the C0 -cylinder, make a fold in the
+2
+direction of the cylinder. For folding the non-inflatable boarding ladder
+and boarding ramp see item 4.2.1.2.
+4.2.1.3.2.10 Eighth folding = Fold 8
+picture 10
+The 8th fold is effected once again in the direction of the
+cylinder up to just short of the emergency pack.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 32
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 120
+============================================================
+4.2.1.3.2.11 Ninth folding = Fold 9
+picture 11
+Roll and lift up the 9th fold on to the top of the
+emergency pack.
+4.2.1.3.2.12 picture 12
+Place two auxiliary belts around the folded raft as shown, to retain
+the pack shape.
+Remove the belt that was positioned transversely around the
+emergency pack.
+Place the belt around the middle of the raft pack and pull together.
+Tighten the three auxiliary belts alternately.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 33
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 121
+============================================================
+4.2.1.3.2.13 picture 13
+direction - auxiliary belt:
+for securing lead the auxiliary belts around the liferaft and tighten.
+Art.-No. Usage length over all
+8.03.03.10.0 LR 97 L - 12, 16,20 and 2730 mm
+25 persons
+The buckles of the auxiliary belts must be near the C0 -cylinder.
+2
+Remove the 3 auxiliary belts !
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 34
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 122
+============================================================
+4.2.2 With emergency pack type B (SOLAS B-Pack)
+4.2.2.1 LR 97 for 6 and 8 persons
+4.2.2.1.1 Folding scheme
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 35
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 123
+============================================================
+4.2.2.1.2 Folding procedure illustrated in pictures, here: LR 97 - 6 persons“
+4.2.2.1.2.1 picture 1
+Raft equipped and deflated
+4.2.2.1.2.2 First folding = Fold 1
+picture 2
+Fold left side of the raft towards the middle. Ensure the rigid ladder rungs
+are placed parallel to the C0 -cylinder.
+2
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 36
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 124
+============================================================
+4.2.2.1.2.3 Second folding = Fold 2
+picture 3
+Fold the right side of the raft towards the middle.
+Check both 1st and 2nd folds are straight.
+4.2.2.1.2.4 Third folding = Fold 3
+picture 4
+Fold emergency pack with the C0 -cylinder
+2
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 37
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 125
+============================================================
+4.2.2.1.2.5 picture 5
+Because of the short C0 -cylinder, the firing line sewn to the painter
+2
+should be tied to the release wire of the operating head and the
+painter line should be tied to the towing bridle (Hahnepot)
+see item 4.4.3.3.
+All work should now be carried out very carefully to avoid
+activating the C0 inflation system
+2
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 38
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 126
+============================================================
+4.2.2.1.2.6 picture 6
+picture 7
+Starting from opposite the C0 -cylinder, tightly roll the raft
+2
+towards the C0 -cylinder.
+2
+Ensure the ladder and rigid rods are parallel with the roll.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 39
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 127
+============================================================
+4.2.2.1.2.7 picture 8
+Slightly lift the rolled up raft pack and place it on the pack
+with C0 -cylinder and emergency pack.
+2
+Put 2 auxiliary belts around the complete pack and pull together.
+4.2.2.1.2.8 picture 9
+Secure the raft pack with 2 packing bands
+(flax webbing - Art.-No.: 0.03.01.05.0)
+Remove the 2 auxiliary belts !
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 40
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 128
+============================================================
+4.2.2.2 LR 97 for 10, 12, 15, 16, 20 and 25 persons
+4.2.2.2.1 Folding scheme
+LR 97 for 10, 12 and 16 persons
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 41
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 129
+============================================================
+LR 97 for 20 and 25 persons
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 42
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 130
+============================================================
+4.2.2.2.2 Folding procedure illustrated in pictures, here: „LR 97 - 16 persons“
+4.2.2.2.2.1 picture 1
+raft equipped and deflated
+4.2.2.2.2.2. First and second folding = Fold 1 and 2
+picture 2
+The raft must be folded so it is the same width as the emergency pack.
+Fold the left side in to make fold 1. Half of this fold must be turned back
+to make fold 2. Place the sea anchor in a convenient position.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 43
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 131
+============================================================
+4.2.2.2.2.3 Third folding = Fold 3
+picture 3
+Fold the right side in as shown in the photograph.
+4.2.2.2.2.4 Fourth folding = Fold 4
+picture 4
+Half of fold 3 must be turned back to make fold 4.
+Lay the radar reflectors parallel to the rolling direction.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 44
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 132
+============================================================
+4.2.2.2.2.5 picture 5
+To secure the raft pack place an auxiliary belt around it
+near the emergency pack.
+4.2.2.2.2.6 Fifth folding = Fold 5
+picture 6
+Fold the emergency pack with the C0 -cylinder.
+2
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 45
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 133
+============================================================
+4.2.2.2.2.7 .picture 7
+Because of the short C0 -cylinder, the firing line sewn to the painter
+2
+should be tied to the release wire on the operating head and the
+painter line tied to the towing bridle (Hahnepot), see item 4.4.3.3.
+All work should now be carried out very carefully to avoid
+activating the C0 - inflation system.
+2
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 46
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 134
+============================================================
+4.2.2.2.2.8 Make a small fold at the end opposite the C0 -cylinder and fold the
+2
+boarding arrangement outline in the sketches under item 4.2.1.2.
+Ensure the rigid rods are parallel to the rolling direction.
+picture 8
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 47
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 135
+============================================================
+4.2.2.2.2.8 picture 9
+Firmly roll the raft pack towards C0 -cylinder.
+2
+4.2.2.2.2.10 picture 10
+Slightly lift the rolled raft pack and place it on the pack with C0 -cylinder
+2
+and emergency pack. Lead 2 auxiliary belts around the complete raft pack
+and pull together
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 48
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 136
+============================================================
+4.2.2.2.2.11 picture 11
+Secure the raft pack with 3 packing bands (flax webbing -
+Art.-No. 0.03.01.05.0)
+Remove the 3 auxiliary belts !
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 49
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 137
+============================================================
+4.2.2.3 LR 97 L for 12, 16, 20, and 25 persons
+4.2.2.3.1 LR 97 L for 12, 16, 20 and 25 persons
+(will be submitted later)
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 50
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 138
+============================================================
+4.3 Packing of the liferaft in container
+4.3.1 Container - coordination and measurements - max. height of dropping: 25 m -
+The LR 97 liferaft series have no differences in the construction of a
+container for throw-over board liferaft or davit-launchable liferaft.
+Container-type SOLAS Container-type SOLAS
+L i f e r a f t A - Pack B - Pack
+LR 97 for 6 und 8 persons 6 / 8 F 4 N + 20 mm Styropor
+LR 97 for 10 und 12 persons 10/12 F 6/8 F
+LR 97 for 15 und 16 persons 16/20 F 10/12 F + 20 mm Styropor
+LR 97 for 20 persons 25 F 10/12 F
+LR 97 for 25 persons 25 F 16/20 F
+LR 97 L for 12 persons 10/12 F 10/12 F
+LR 97 L for 16 persons 16/20 F 10/12 F
+LR 97 L for 20 persons 25 F 16/20 F
+LR 97 L for 25 persons 25 F 16/20 F
+measurement (mm) measusrement (mm) measurement (mm)
+Container - type A B C
+4 N 1080 610 580
+6/ 8 F 1244 650 580
+10/12 F 1304 680 610
+16/20 F 1354 710 640
+25 F 1400 780 710
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 51
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 139
+============================================================
+4.3.2 Container - Coating with Styropor
+4.3.2.1 The inside of upper and lower case of the container
+4 N for LR 97 - 6 and 8 persons with SOLAS-B-Pack
+and 10/12 F for LR 97 -15 and 16 persons with SOLAS-B-Pack
+is coated with 20 mm Styropor.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 52
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 140
+============================================================
+4.3.2.2 Lower case for davit-launchable liferafts
+- view into lower case -
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 53
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 141
+============================================================
+4.3.3 Packing of liferaft into the container
+4.3.3.1 For trial purposes put the liferaft into the proper container lower case
+- throw-over-board liferaft -
+- davit-launchable liferaft -
+The shackle must be reached easily.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 54
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 142
+============================================================
+Put on the upper half of the container and make the following checks:
+1) The upper half of the container must be resting on the raft body
+2) The edges of the upper and lower halves of the container must
+meet at least halfway.
+If the edges of the container do not meet properly the raft roll is too loose
+and the raft will have to be tightened further using the auxiliary belts.
+If the upper half does not rest on the raft body even though it has the
+correct pack length, loosen the auxiliary belts slightly until the container
+does rest on the raft body.
+The centre of gravity of the container can be found in table 4.3.3.4.6
+The raft may now be rolled out of the lower half of the container.
+If not done previously, place the pack belts, flax webbing,
+Art. no. 0.03.01.05.0, alongside the auxiliary belts around the raft
+and securely tie them using double knots.
+Remove the auxiliary belts !
+4.3.3.2 Check of container
+Re-examine each container half to make sure that the inside is free of foreign
+bodies, that they are dry und clean, that the water drain holes in the lower half
+are open and that the rubber sealing profile is not damaged.
+Slightly damaged GFK containers may be repaired in a suitable workshop.
+In case of serious damage to a container, it must be replaced. Damaged,
+brittle or cracked rubber sealing profiles must be replaced using adhesive 2444.
+Styropor foam linings that are damaged or crushed must be replaced using
+adhesive 2397.
+Replace labels as necessary.
+The self adhesive service label has only one line. Existing information must be
+removed and new information inserted. This information must include the date
+of service, the date of next service and the name of the station carrying out the
+service.
+We recommend the use of DYMO Electronic Labelmaker 4500, black printed
+tape or similar.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 55
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 143
+============================================================
+4.3.3.3 Fastening of the firing line
+a) painter line
+Take the unimpregnated end of the painter line and splice around the
+thimble of the towing bridle (Hahnepot). Secure the splice with a
+half hitch knot and fasten the end with self adhesive tape as pictured
+below.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 56
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 144
+============================================================
+b) firing line
+Lead the 50 cm long end of the firing line, which is sewn to the
+painter, to the release wire on the operating head.
+Connect it using a sheetbend knot and secure the knot with
+self adhesive tape.
+Attention ! Handle with care to avoid firing the cylinder.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 57
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 145
+============================================================
+c) Fastening the painter line bag
+Tie the bag to the cylinder pocket using the 3 mm line provided
+to ensure the bag will not move when the painter line is pulled.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 58
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 146
+============================================================
+4.3.3.4 Packing of raft in container
+4.3.3.4.1 Lay out the container lower case with undamaged PVC-foil
+- 2 m width - ( Art.-No. 0.10.11.60 ).
+Container size necessary length of
+PVC-foil
+4 N and 6 / 8 F 2,30 m
+10 / 12 F and 16 / 20 F 2,50 m
+25 F 2,70 m
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 59
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 147
+============================================================
+4.3.3.4.2 Rolling the raft pack into container lower case
+- pay attention to centre of gravity -
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 60
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 148
+============================================================
+4.3.3.4.3 Davit launchable liferafts only
+If not already done, make a small cut in each flax pack belt above
+the C0 -cylinder (not more than half the width of the flax).
+2
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 61
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 149
+============================================================
+4.3.3.4.4 Closing of packing PVC-foil
+Lead the painter line to the end of the container.
+Davit launchable liferafts:
+a) Cut the PVC-foil in the area of the lifting shackle
+and lay the shackle outside the foil.
+b) Lead the bowsing lines to each end of the raft and
+stuff into the bags located on the inside of the lower
+half of the container.
+(See „Stuffing painter line“ in Annex 1).
+The free end of the line must protrude out of the bag.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 62
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 150
+============================================================
+4.3.3.4.5 If necessary, pull the painter seal onto the painter line and
+secure teh thimble.
+Note: The painter seal of the old „E“ container
+and the new „F“ container are of different
+construction.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 63
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 151
+============================================================
+4.3.3.4.6 To check the centre of gravity close the container.
+The correct position is found when the measurements
+H and H are in accordance with the table shown on page 65.
+1 2
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 64
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 152
+============================================================
+to
+4.3.3.4.6
+throw-over- A-Pack Container H H
+1 2
+board liferafts Size
+6 x 6/8 F 18 cm 39 cm
+8 x 6/8 F 18 cm
+10/12 x 10/12 F 18 cm
+16 x 16/20 F 24 cm 37 cm
+20 x 25 24 cm
+25 x 25 F 24 cm
+davit- A-Pack Container H H
+1 2
+launchable Size
+liferafts
+12 x 10/12 F 49 cm
+16 x 16/20 F 49 cm
+20 x 25 49 cm
+25 x 25 F 49 cm 19,5 cm
+throw-over- B-Pack Container H H
+1 2
+board liferafts Size
+6 x 4 N 32 cm 22 cm
+8 x 4 N 32 cm
+10/12 x 6/8 F 32 cm
+16 x 10/12 F 32 cm 22 cm
+20 x 10/12 F 32 cm
+25 x 16/20 F 32 cm
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 65
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 153
+============================================================
+It is possible to correct the position of centre of gravity
+by turning the raft pack in the container.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 66
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 154
+============================================================
+4.3.4 Closing the container
+First the painter seal must be glued in place using adhesive „Terokal 2444“,
+then close the container.
+4.3.4.1 Fastening of container closing straps
+Use new closing straps (PP-strap) on each service.
+Attention ! Only use original DSB closing straps.
+Order only by DSB with article-no.
+(see pages 68 and 69)
+4.3.4.1.1 number and arrangement of closing straps
+Note: Please stock up sufficient pieces of closing straps.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 67
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 155
+============================================================
+a) Closing straps (2,50 m length) for throw-over board liferafts
+in container
+proper for container required number on each
+container
+4 N and 6/8 F 6 pieces
+10/12 F, 16/20 F, 25 F 8 pieces
+The straps, packed by 50 pieces (part.-no. 0.03.03.17.0),
+and packed by 100 pieces (part-no. 0.03.03.18.0), to be
+ordered on DSB.
+b) Closing straps for davit-launched liferafts in container
+1. closing strap complete, with hand loop
+proper for container required number on each
+container
+10/12 F, 16/20 F, 25 F 8 pieces
+The straps, packed by 50 pieces, part.-no. 0.03.03.16.0,
+to be ordered on DSB.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 68
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 156
+============================================================
+2. Ripping up loop, complete
+The complete ripping up loop, packed by 10 pieces
+(part-no: 8.03.03.36.0) to be ordered on DSB.
+4.3.4.1.2 Mounting of closing straps
+The closing straps must be mounted as demonstrated
+in the sketch below.
+The following tools are needed for mounting:
+1 ST-D Tensioner DSB-art.-no.: 0.11.06.00.0
+1 sealing tool DSB-art.-no.: 0.11.06.01.0
+For spare, each ST-D Tensioner:
+2 feedwheels DSB-art.-no.: 0.11.06.02.0
+Fastening of straps according to Annex 12.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter : 4 page : 69
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 157
+============================================================
+5. Cradle and hydrostatic release unit
+5.1 Coordination: Container - Cradle - Lashing
+Cradle Cradle Dimensions Lashing
+Container Type Art.-No. A B C Art.-No.
+4 N 6/8 8.07.25.29.0 660 340 285 8.03.03.84.0
+6/8 F 6/8 8.07.25.29.0 660 340 285 8.03.03.85.0
+10/12 F 10/12 8.07.25.30.0 690 345 290 8.03.03.85.0
+16/20 F 16/20 8.07.25.31.0 720 362 305 8.03.03.85.0
+25 F 25 8.07.25.32.0 798 395 335 8.03.03.85.0
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 5 page 1
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 158
+============================================================
+5.2. Mounting of container
+5.2.1 With lashing and line strop
+5.2.1.1 Put the container into the proper cradle, place the lashing strap over the
+container and open the hook of the tensioning screw as far as possible.
+Place the hook of the tensioning screw into the hole on the cradle,
+than fasten the slip hook on the cradle.
+Thighten the tensioning screw to ensure a firm lashing on
+the container.
+5.2.1.2 Attach the eye (thimble) of the painter line to the shackle of the cradle.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 5 page 2
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 159
+============================================================
+5.2.2 With lashing and hydrostatic release unit
+Put the container with lashing and hydrostatic release unit into the
+proper cradle. Place the lashing strap over the container and open the hooks
+of tensioning screw as far as possible. Place one hook of the tensioning
+screw into the holee on the cradle and the other hook into the D-ring of
+the lashing strap. Lead the slip hook through the eye of the hydrostatic
+release unit and fasten, then tighten tensioning screw until the container is
+firmly lashed.
+Connect the thimble of the painter line and the red weak link with a shackle.
+Then attach the shackle to the rope eye on the hydrostatic release unit.
+(See also installation instructions for hydrostatic release unit „Hammar H 20“)
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Chapter: 5 page 3
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue : 10/97
+D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0
+
+============================================================
+PÁGINA 160
+============================================================
+Annex 1
+Stuffing painter line into the bag
+Stuffing of the painter line must be carried out with utmost care.
+If entanglements and/or knots should occur when pulling the line,
+the firing of the inflating device is endangered.
+Clamp the bag into a vice. Get hold of the painter line to be stuffed as
+shown on picture about 2 m from the line end where the ripping line is
+sewn to and stuff the long end of line into the bag forming loops.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 1, page 1
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 161
+============================================================
+ANNEX 1 continued
+This stuffing procedure has to be continued until about 1.50 m of the red
+impregnated end of line remain.
+After that the bag has to be closed on the 3 holes with thread which has been
+knotted 2 x 1/2 turns.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 1, page 2
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 162
+============================================================
+ANNEX 2
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 2 page 1
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 163
+============================================================
+ANNEX 3
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 3 page 1
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 164
+============================================================
+ANNEX 4.1
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 4 page 1
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 165
+============================================================
+ANNEX 4.2
+New label: INSPECTION APPROVAL
+for DSB - / TVB- and AFG-Inflatable Liferafts
+- DIRECTIONS FOR USE -
+1. Put in STATION ADDRESS 1 by rubber stamp.
+2. Punch MONTH and YEAR for next service 2
+3. Maker and makers station number (already punched) 3
+4. Cut the label into two halves 4
+5. Blue label half stick on position 5
+6. Black label half stick on position 6
+Note 5. and 6.: Before sticking on label:
+Position on container and liferaft must be cleaned.
+Press on self-sealing label firmly
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 4 page 2
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 166
+============================================================
+ANNEX 5.1
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 5 page 1
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 01/03
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 167
+============================================================
+ANNEX 5.2
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 5 page 2
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 01/03
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 168
+============================================================
+ANNEX 6
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 6 page 1
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 169
+============================================================
+ANNEX 7
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 7 page 1
+GmbH & Co KG LR 97 (L) 6 to 25 persons
+Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 170
+============================================================
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 7 page 2
+GmbH & Co KG LR 97 (L) 6 to 25 persons
+Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 171
+============================================================
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 7 page 3
+GmbH & Co KG LR 97 (L) 6 to 25 persons
+Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 172
+============================================================
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 7 page 4
+GmbH & Co KG LR 97 (L) 6 to 25 persons
+Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 173
+============================================================
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 7 page 5
+GmbH & Co KG LR 97 (L) 6 to 25 persons
+Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 174
+============================================================
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 7 page 6
+GmbH & Co KG LR 97 (L) 6 to 25 persons
+Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 175
+============================================================
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 7 page 7
+GmbH & Co KG LR 97 (L) 6 to 25 persons
+Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 176
+============================================================
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 7 page 8
+GmbH & Co KG LR 97 (L) 6 to 25 persons
+Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 177
+============================================================
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 7 page 9
+GmbH & Co KG LR 97 (L) 6 to 25 persons
+Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 178
+============================================================
+ANNEX 8
+Service instructions for hydrostatic release unit (HRU)
+„Thanner DK 84“ and „Thanner DK 84.1“
+1. The HRU and the weak link must be serviced in intervals of at least
+12 months by an authorized service station.
+Visual inspection
+When a HRU is received for service a visual inspection must be
+carried out:
+a) Possible coats of paint must be removed and it is
+important to ensure that the water entering holes on
+the reverse side of the membrane flange are clean.
+4 entering holes (production-no. 110111-127798)
+3 entering holes ( " " 127799-)
+b) After this the correct release pressure must be tested
+in the test tank (see item 7 for instructions for test tank).
+c) For the test the HRU is pre-tensioned with a force of
+100 N by operating the load lever.
+d) The release pressure must not reach 4000 mm water
+column (approx. 157 inches / o,4 bar).
+2. If the HRU does not release at the described pressure it must be detached
+from the test tank and activated manually as follows:
+a) Press down the release mechanism (PUSH TO RELEASE)
+with a pin and open the locking catch.
+b) Close the locking catch again and turn the index-bolt to
+position "I". A clear „click“ indicates that the locking catch
+has rested and that the HRU is functioning again.
+c) Carry out another test in the test tank.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 8 page 1
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 179
+============================================================
+ANNEX 8 continued
+3. If the test is still not satisfying the membrane must be checked for any damages.
+If necessary it must be replaced as follows:
+a) Remove screws (10 pcs.) from membrane casing and take out
+spring as well as membrane.
+b) Fix the new membrane to pos. 1 with index-screw-bolt to ensure
+correct compression in the membrane casing.
+c) Then mount the spring and membrane casing.
+d) Insert the screws of the membrane casing again and tighten
+diagonally (starting torque: 3 Nm) .
+4. Carry out a final test in the test tank.
+5. a) „Thanner DK 84“
+Visually check the weak link and the clamp for damages and corrosion.
+If there are any doubts as far as the strength of the weak link is concerned
+it should be replaced.
+Only use original Thanner Weak links !!
+Thanner DK 84 weak link - Art.-No. 300-696 (DSB-Art.-No. 0.07.10.29.0)
+b) „Thanner DK 84.1“
+The line must be replaced on each service !
+Thanner DK 84.1 weak link - Art.-No. 10-057 (DSB-Art.-No. 0.07.10.31.0)
+6. After inspection of the HRU the date of inspection and the number of the
+authorized service station must be recorded on the enclosed log card
+(inspection card)
+Note: The release mechanism cannot be replaced.
+In this case the HRU must be exchanged.
+Cleaning
+It can be happen that the surface of the HRU made of stainless steel shows
+a dull cover.
+This cover should be removed with a brass brush.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 8 page 2
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 180
+============================================================
+ANNEX 8 continued
+7. Operating instructions for test tank of HRU type „Thanner DK 84“
+and „Thanner DK 84.1“
+a) The test tank is connected to a compressed air filling device.
+Remove the lid from the tank and insert the HRU into the
+relevant slots.
+b) Adjust the distance between the split pins until the HRU with
+the locking catch fits.
+c) Close the test tank and tightly close the lid.
+d) Being pressure on the test tank while the valves are slightly
+opened. With one eye watch the pressure gauge.
+The HRU must release before the needle has reached the
+0,4 bar mark (approx. 157 inches/4000 mm water column)
+Then loosen the compressed air divice.
+e) Carefully open the test tank and dismantle the HRU.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 8 page 3
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 181
+============================================================
+ANNEX 8 continued
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 8 page 4
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 182
+============================================================
+ANNEX 9
+TEST METHODES ON INFLATABLE LIFERAFTS
+-according to IMO A.761(18) and frequency of tests-
+for DSB-; TVB- and AFG-Inflatable Liferafts follow table below
+davit launched only
+Service GI* NAP WP FS FS OL
+(manufacturer) x x x x
+1.service x
+2.service x x
+3.service x
+4.service x x
+5.service x**
+6.service x x
+7.service x
+8.service x x
+9.service x
+10.service x x x x
+11.service x x x
+12.service x x x
+13.service x x x
+14.service x x x
+15.service x x x x
+16.service x x x
+17.service x x x
+18.service x x x
+19.service x x x
+20.service x x x x
+21.service x x x
+22.service x x x
+23.service x x x
+24.service x x x
+25.service x x x x
+GI = gas inflation test (fitted gas - removed containers)
+NAP = necessary additional pressure test, compressed air 2,0 times
+the working pressure (=0,5 bar) for 5 minutes without defects.
+WP = working pressure test over one hour, not exceed 5 % drop
+(= reset pressure of relief valves).
+FS = floor seam strength test - 75 kg around the perimeter/circumference.
+OL = overload test (on davit launched liferafts) hanging with 1.1 times load
+for 5 minutes.
+* = See-BG allow C0 from workshop
+2
+DOT (UK) allow use of cylinder other than that from liferaft
+** = NSI, Icelandic Register of Shipping & Russian Register of Shipping
+do not require until Year 10
+ANNEX 9 continued
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 9 page 1
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 183
+============================================================
+1. GAS INFLATION TEST (GI)
+A gas inflation (GI) test should be carried out at 5-year intervals, and when under-
+taking a gas inflation test, special attention should be paid to the effectiveness of
+the relief valves. The folded liferaft should be removed from its container before
+activating the fitted gas inflation system. After gas inflation has been initiated,
+sufficient time should be allowed to enable the pressure in the buoyancy tubes
+to become stabilized and the solid particles of C02 to evaporate. After this period
+the buoyancy tubes should, if necessary, be topped up with air, and the liferaft
+subjected to a pressure holding test over a period of not less than one hour during
+which the pressure drop will not exceed 5 % of the working pressure
+(reseat pressure relief valve).
+2. NAP - TEST
+Each liferaft should be subjected to the necessary additional pressure (NAP) test
+at yearly intervals after the tenth year of the liferaft’s life unless earlier servicing is
+deemed necessary as a result of visual inspection. After allowing sufficient time for
+the liferaft to regain fabric tension at working pressure, the liferaft should be sub-
+jected to a pressure holding test over a period of not less than one hour during
+which the pressure drop will not exceed 5 % of the working pressure.
+2.1 Procedure
+2.1.1 Plug the relief valves.
+2.1.2 Gradually raise the pressure of 2.0 times the working pressure = 0,500 bar.
+The test pressure should be 0,500 bar because the maximum pressures
+calculated in the below table are higher.
+Size of Diameter Tensile strenght buoyancy Tensile strength buoyancy
+Liferaft (cm) fabric NK 200 fabric NK 205/2
+(persons) 250 dN/5 cm 275 dN/5 cm
+6 23 0,869* 0,956*
+8 24,7 0,810* 0,890*
+10 27,5 0,727* 0,800*
+12 28,9 0,692* 0,761*
+16 32 0,625* 0,688*
+20 33,4 0,599* 0,659*
+25 35,4 0,565* 0,621*
+* maximum permissible pressure with factor of safety of 5
+2.1.3 After 5 minutes, there should be no seam slippage, cracking, or other defects,
+or significant pressure drop. If cracking in the buoyancy tubes is audible, the
+liferaft should be condemned. If no cracking is heard, the pressure in all buoyancy
+chambers should be reduced simultaneously by removing the plugs from the relief
+valves.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 9 page 2
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 184
+============================================================
+ANNEX 9 continued
+3. WORKING PRESSURE TEST (WP)
+see instructions under item 3.6.2, chapter 3
+4. FLOOR SEAM STRENGTH TEST (FS)
+With the buoyancy tube supported at a suitable height above the service floor
+a person weighing not less than 75 kg should walk/crawl around the perimeter
+of the floor for the entire circumference and the floor seams should be checked
+again.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 9 page 3
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 185
+============================================================
+ANNEX 9 continued
+5. OVERLOAD TEST (OL)
+The overload test has to be carried out as described under item 3.10.
+6. RECORDS
+6.1 A record of servicing should be maintained for at least 5 years after the
+date of service.
+6.2 Statistical records should be prepared on all liferafts serviced, indicating, in
+particular, defects found, repairs carried out and units condemned and
+withdrawn from service. Such statistics should be available to the
+administration.
+6.3 All tests (NAP/WP/GI/FS) carried out have to be recorded into the log card
+and into the certificate of re-inspection.
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 9 page 4
+GmbH & CO KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 186
+============================================================
+ANNEX 10
+BREAK-DOWN TORQUES
+N m
+topping up and deflation valve, green 15
+relief valve - OTS (Thanner) 35
+C0 -valve 22,5
+2
+cross-hole connection 25
+high-pressure hose / y-distributor 25
+high-pressure hose / cylinder valve 40
+operating head DK 94 / cylinder valve 50
+cylinder / cylinder valve 220
+ascending pipe / cylinder valve Compact 15
+membrane / cylinder valve Compact 40
+triangular mortise screw
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 10 page 1
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 9/98
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 187
+============================================================
+ANNEX 11
+TOPPING UP AND DEFLATION VALVE
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 11 page 1
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 188
+============================================================
+ANNEX 12
+Annex 12, continued
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 12, page 1
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 189
+============================================================
+Annex 12, continued
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 12, page 2
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 190
+============================================================
+Annex 12, continued
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 12, page 3
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 191
+============================================================
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 12, page 4
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 192
+============================================================
+Annex 12, continued
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 12, page 5
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 193
+============================================================
+Annex 12, continued
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 12, page 6
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 194
+============================================================
+Annex 12, continued
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 12, page 7
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 195
+============================================================
+Annex 12, continued
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 12, page 8
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 196
+============================================================
+Annex 12, continued
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 12, page 9
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 197
+============================================================
+Annex 12, continued
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 12, page 10
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 10/97
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 198
+============================================================
+ANNEX 13
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 13 page 1
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 9/98
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 199
+============================================================
+Annex 13, continued
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 13 page 2
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 9/98
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 200
+============================================================
+Annex 13, continued
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 13 page 3
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 9/98
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 201
+============================================================
+Annex 13, continued
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 13 page 4
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 9/98
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0
+
+============================================================
+PÁGINA 202
+============================================================
+Annex 13, continued
+DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Annex 13 page 5
+GmbH & Co KG LR 97 (L) 6 to 25 persons Issue: 9/98
+D-37632 Eschershausen Art.-No.: 8.09.57.11.0

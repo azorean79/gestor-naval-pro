@@ -22,7 +22,7 @@ async function calcularTestesJangada() {
     // 1. OBTER JANGADA
     console.log('1️⃣ Carregando jangada...');
     const jangada = await prisma.jangada.findFirst({
-      where: { numeroSerie: { contains: 'RFD-MKIV-ESP' } },
+      where: { numeroSerie: { contains: 'SV-12P-2024-012' } },
       orderBy: { createdAt: 'desc' }
     });
 
@@ -32,8 +32,8 @@ async function calcularTestesJangada() {
     }
 
     console.log(`✅ Jangada: ${jangada.numeroSerie}`);
-    console.log(`   Modelo: RFD SURVIVA MKIV`);
-    console.log(`   Capacidade: ${jangada.capacidade} pessoas`);
+    console.log(`   Modelo: ${jangada.modelo || 'Não especificado'}`);
+    console.log(`   Capacidade: ${jangada.capacidade || 'Não especificada'} pessoas`);
 
     // 2. CALCULAR IDADE DA JANGADA
     const dataFabricacao = jangada.dataFabricacao;

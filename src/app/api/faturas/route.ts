@@ -41,10 +41,10 @@ export async function GET(request: NextRequest) {
       take: limit,
       include: {
         cliente: {
-          select: { id: true, nome: true, nif: true },
+          select: { id: true, nome: true, nif: true, endereco: true },
         },
         navio: {
-          select: { id: true, nome: true, matricula: true },
+          select: { id: true, nome: true, matricula: true, bandeira: true },
         },
         jangada: {
           select: { id: true, numeroSerie: true, tipo: true },
@@ -87,10 +87,10 @@ export async function POST(request: NextRequest) {
       },
       include: {
         cliente: {
-          select: { id: true, nome: true, nif: true },
+          select: { id: true, nome: true, nif: true, endereco: true },
         },
         navio: {
-          select: { id: true, nome: true, matricula: true },
+          select: { id: true, nome: true, matricula: true, bandeira: true },
         },
         jangada: {
           select: { id: true, numeroSerie: true, tipo: true },
@@ -98,6 +98,22 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    // Geração automática da declaração de isenção de IVA
+    try {
+      const { gerarDeclaracaoIVA } = await import('@/lib/gerarDeclaracaoIVA');
+      await gerarDeclaracaoIVA({
+        cliente: fatura.cliente?.nome || '',
+        nif: fatura.cliente?.nif || '',
+        morada: fatura.cliente?.endereco || '',
+        navio: fatura.navio?.nome || '',
+        matricula: fatura.navio?.matricula || '',
+        portoRegisto: fatura.navio?.bandeira || '',
+        numeroSerie: fatura.jangada?.numeroSerie || '',
+        data: new Date(),
+      });
+    } catch (err) {
+      console.error('Erro ao gerar declaração de IVA:', err);
+    }
     return NextResponse.json(fatura, { status: 201 });
 
   } catch (error) {

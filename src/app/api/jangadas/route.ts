@@ -17,8 +17,9 @@ export async function GET(request: NextRequest) {
     const navioId = searchParams.get('navioId');
     const sortBy = searchParams.get('sortBy') || 'createdAt';
     const sortOrder = searchParams.get('sortOrder') || 'desc';
-    const page = parseInt(searchParams.get('page') || '1');
-    const limit = parseInt(searchParams.get('limit') || '10');
+    // Buscar todas as jangadas sem limite/paginação
+    // const page = parseInt(searchParams.get('page') || '1');
+    // const limit = parseInt(searchParams.get('limit') || '10');
     const tecnico = searchParams.get('tecnico');
 
     const where: any = {};
@@ -53,17 +54,11 @@ export async function GET(request: NextRequest) {
       where.navioId = navioId;
     }
 
-    const total = await prisma.jangada.count({ 
-      where
-    });
-
     const jangadas = await prisma.jangada.findMany({
       where,
       orderBy: {
         [sortBy]: sortOrder,
       },
-      skip: (page - 1) * limit,
-      take: limit,
       include: {
         cliente: true,
         proprietario: true,
@@ -75,10 +70,10 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({
       data: jangadas,
-      total,
-      page,
-      limit,
-      totalPages: Math.ceil(total / limit),
+      total: jangadas.length,
+      page: 1,
+      limit: jangadas.length,
+      totalPages: 1,
     });
 
   } catch (error) {

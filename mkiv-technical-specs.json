@@ -1,0 +1,622 @@
+{
+  "metadata": {
+    "source": "MARINE MK IV SERVICE MANUAL M269-00",
+    "extraction_date": "2026-02-06",
+    "document_version": "Version 8, Aug/21"
+  },
+  "working_pressure": {
+    "throwover": {
+      "psi": 2.8,
+      "mm_wg": 1970,
+      "mbar": 193
+    },
+    "davit_launch": {
+      "psi": 3.5,
+      "mm_wg": 460,
+      "mbar": 241
+    }
+  },
+  "capacities": {
+    "4p": {
+      "launch_type": "throwover_only",
+      "contentores": {
+        "mk10_size3": {
+          "pack": "A/B",
+          "pack_a": {
+            "dimensoes_mm": "1160 x 435",
+            "peso_kg": 56,
+            "cintas_quantidade": 4,
+            "part_number": "42271031"
+          },
+          "pack_b": {
+            "dimensoes_mm": "1160 x 435",
+            "peso_kg": 48,
+            "cintas_quantidade": 4,
+            "part_number": "42271031"
+          }
+        },
+        "mk18_size1": {
+          "pack": "A/B",
+          "dimensoes_mm": "not specified in tables",
+          "peso_kg": "not specified",
+          "cintas_quantidade": 2,
+          "note": "Up to 36m stowed height"
+        }
+      },
+      "cilindros": {
+        "throwover": {
+          "co2_kg": 1.98,
+          "n2_kg": 0.06,
+          "pressao_bar": "as per TPED",
+          "observacao": "Throwover only for 4p"
+        }
+      },
+      "cintas_fecho": {
+        "material": "Metal strap with crimp",
+        "torque_nm": "Not specified - crimping tool used",
+        "observacoes": "Quantity varies by container type: 2-4 straps"
+      }
+    },
+    "6p": {
+      "launch_type": "both",
+      "contentores": {
+        "mk10_size3_throwover": {
+          "pack": "A",
+          "pack_a": {
+            "dimensoes_mm": "1260 x 485",
+            "peso_kg": 76,
+            "cintas_quantidade": 4
+          }
+        },
+        "mk10_size3_throwover_bpack": {
+          "pack": "B",
+          "pack_b": {
+            "dimensoes_mm": "1160 x 435",
+            "peso_kg": 57,
+            "cintas_quantidade": 4
+          }
+        },
+        "mk14_size14_throwover": {
+          "pack": "A/B",
+          "pack_a": {
+            "dimensoes_mm": "1066 x 556",
+            "peso_kg": 76,
+            "cintas_quantidade": 4
+          },
+          "pack_b": {
+            "dimensoes_mm": "not specified",
+            "peso_kg": 57,
+            "cintas_quantidade": 4
+          }
+        },
+        "mk18_size1": {
+          "pack": "B",
+          "dimensoes_mm": "not specified",
+          "cintas_quantidade": 2,
+          "note": "Up to 36m height"
+        },
+        "4n_size_throwover": {
+          "pack": "B",
+          "dimensoes_mm": "1050 x 610",
+          "peso_kg": 63,
+          "cintas_quantidade": 8,
+          "note": "Flatpack design"
+        }
+      },
+      "cilindros": {
+        "throwover": {
+          "co2_kg": 3.38,
+          "n2_kg": 0.14,
+          "pressao_bar": "as per TPED"
+        }
+      },
+      "cintas_fecho": {
+        "material": "Stainless steel metal strap with crimp",
+        "quantidade_variavel": "2-8 depending on container type",
+        "torque_nm": "Crimping tool - not torque specified"
+      }
+    },
+    "8p": {
+      "launch_type": "throwover_only",
+      "contentores": {
+        "mk10_size3": {
+          "pack": "B",
+          "dimensoes_mm": "1160 x 435",
+          "peso_kg": 57,
+          "cintas_quantidade": 4
+        },
+        "mk10_size4": {
+          "pack": "A",
+          "dimensoes_mm": "1260 x 485",
+          "peso_kg": 80,
+          "cintas_quantidade": 4
+        },
+        "mk14_size14": {
+          "pack": "A/B",
+          "dimensoes_mm": "not specified for 8p specifically",
+          "cintas_quantidade": 4
+        },
+        "mk18_size3": {
+          "pack": "A/B",
+          "dimensoes_mm": "not specified",
+          "cintas_quantidade": 2,
+          "note": "Flatpack, up to 36m"
+        },
+        "4n_flatpack": {
+          "pack": "B",
+          "dimensoes_mm": "1050 x 610",
+          "peso_kg": 63,
+          "cintas_quantidade": 8
+        }
+      },
+      "cilindros": {
+        "throwover": {
+          "co2_kg": 3.38,
+          "n2_kg": 0.14,
+          "pressao_bar": "as per TPED"
+        }
+      },
+      "cintas_fecho": {
+        "material": "Metal strap with crimp",
+        "quantidade_variavel": "2-8 depending on container"
+      }
+    },
+    "10p": {
+      "launch_type": "both",
+      "contentores": {
+        "mk10_size4_throwover": {
+          "pack": "A",
+          "pack_a": {
+            "dimensoes_mm": "1390 x 535",
+            "peso_kg": 100,
+            "cintas_quantidade": 4
+          },
+          "pack_b": {
+            "dimensoes_mm": "1260 x 485",
+            "peso_kg": 80,
+            "cintas_quantidade": 4
+          }
+        },
+        "mk14_size14_throwover": {
+          "pack": "A",
+          "dimensoes_mm": "1066 x 556",
+          "peso_kg": 99,
+          "cintas_quantidade": 4
+        },
+        "mk10_flatpack": {
+          "pack": "A/B",
+          "dimensoes_mm": "1190 x 650 x 315",
+          "peso_kg": 101,
+          "cintas_quantidade": 4,
+          "note": "MK 16 Size 2 Flatpack"
+        }
+      },
+      "cilindros": {
+        "throwover": {
+          "co2_kg": 5.38,
+          "n2_kg": 0.27,
+          "pressao_bar": "as per TPED"
+        }
+      },
+      "cintas_fecho": {
+        "material": "Metal strap with crimp",
+        "quantidade": "4 straps typical"
+      }
+    },
+    "12p": {
+      "launch_type": "both",
+      "contentores": {
+        "mk10_size4_throwover": {
+          "pack": "A",
+          "pack_a": {
+            "dimensoes_mm": "1390 x 535",
+            "peso_kg": 109,
+            "cintas_quantidade": 4
+          },
+          "pack_b": {
+            "dimensoes_mm": "1260 x 485",
+            "peso_kg": 85,
+            "cintas_quantidade": 4
+          }
+        },
+        "mk10_size6_throwover": {
+          "pack": "A",
+          "dimensoes_mm": "not specified",
+          "cintas_quantidade": 6
+        },
+        "mk14_size14_throwover": {
+          "pack": "A/B",
+          "dimensoes_mm": "1156 x 584",
+          "peso_kg": 108,
+          "cintas_quantidade": 4
+        },
+        "mk10_size4_davit": {
+          "pack": "A/B",
+          "pack_a": {
+            "dimensoes_mm": "1390 x 535",
+            "peso_kg": 114,
+            "cintas_quantidade": 6,
+            "hand_loop_straps": 2
+          },
+          "pack_b": {
+            "dimensoes_mm": "1260 x 485",
+            "peso_kg": 90,
+            "cintas_quantidade": 6,
+            "hand_loop_straps": 2
+          }
+        },
+        "mk14_size14_davit": {
+          "pack": "A/B",
+          "dimensoes_mm": "not specified for 12p DL",
+          "cintas_quantidade": 6,
+          "hand_loop_straps": 2
+        },
+        "mk16_flatpack": {
+          "pack": "A",
+          "dimensoes_mm": "1190 x 650 x 315",
+          "peso_kg": 111,
+          "cintas_quantidade": 4
+        }
+      },
+      "cilindros": {
+        "throwover": {
+          "co2_kg": 5.38,
+          "n2_kg": 0.27,
+          "pressao_bar": "as per TPED"
+        },
+        "davit_launch": {
+          "co2_kg": 5.38,
+          "n2_kg": 0.27,
+          "pressao_bar": "as per TPED"
+        }
+      },
+      "cintas_fecho": {
+        "material": "Metal strap with crimp",
+        "quantidade": "4-6 straps + 2 hand loop straps for DL",
+        "hand_loop_note": "Davit launch includes 2 hand loop straps for davit ring door"
+      }
+    },
+    "16p": {
+      "launch_type": "both",
+      "contentores": {
+        "mk10_size6_throwover": {
+          "pack": "A",
+          "pack_a": {
+            "dimensoes_mm": "1540 x 535",
+            "peso_kg": 137,
+            "cintas_quantidade": 6
+          },
+          "pack_b": {
+            "dimensoes_mm": "1390 x 535",
+            "peso_kg": 103,
+            "cintas_quantidade": 6
+          }
+        },
+        "mk14_size14_throwover": {
+          "pack": "A",
+          "dimensoes_mm": "1156 x 584",
+          "peso_kg": 144,
+          "cintas_quantidade": 6
+        },
+        "mk14_size17_throwover": {
+          "pack": "A",
+          "dimensoes_mm": "1308 x 685",
+          "peso_kg": 139,
+          "cintas_quantidade": 8
+        },
+        "mk10_size6_davit": {
+          "pack": "A/B",
+          "pack_a": {
+            "dimensoes_mm": "1540 x 535",
+            "peso_kg": 139,
+            "cintas_quantidade": 8,
+            "hand_loop_straps": 2
+          },
+          "pack_b": {
+            "dimensoes_mm": "1390 x 535",
+            "peso_kg": 107,
+            "cintas_quantidade": 8,
+            "hand_loop_straps": 2
+          }
+        },
+        "mk14_size14_davit": {
+          "pack": "B",
+          "dimensoes_mm": "not specified",
+          "cintas_quantidade": 6,
+          "hand_loop_straps": 2
+        },
+        "mk14_size17_davit": {
+          "pack": "A",
+          "dimensoes_mm": "not specified",
+          "cintas_quantidade": 8,
+          "hand_loop_straps": 2
+        }
+      },
+      "cilindros": {
+        "throwover_option1": {
+          "co2_kg": 8.80,
+          "n2_kg": 0.44,
+          "pressao_bar": "as per TPED"
+        },
+        "throwover_option2": {
+          "co2_kg": 6.85,
+          "n2_kg": 0.212,
+          "pressao_bar": "as per TPED",
+          "note": "Alternative cylinder configuration"
+        },
+        "davit_launch": {
+          "co2_kg": 7.18,
+          "n2_kg": 0.36,
+          "pressao_bar": "as per TPED"
+        }
+      },
+      "cintas_fecho": {
+        "material": "Metal strap with crimp",
+        "quantidade": "6-8 straps + 2 hand loop straps for DL",
+        "observacao": "Extra straps for containers >18m drop height"
+      }
+    },
+    "20p": {
+      "launch_type": "both",
+      "contentores": {
+        "mk10_size7_throwover": {
+          "pack": "A",
+          "pack_a": {
+            "dimensoes_mm": "1635 x 585",
+            "peso_kg": 158,
+            "cintas_quantidade": 8
+          },
+          "pack_b": {
+            "dimensoes_mm": "1540 x 535",
+            "peso_kg": 109,
+            "cintas_quantidade": 8
+          }
+        },
+        "mk10_size9_throwover": {
+          "pack": "A",
+          "dimensoes_mm": "not specified",
+          "cintas_quantidade": 10
+        },
+        "mk14_size17_throwover": {
+          "pack": "A",
+          "pack_a": {
+            "dimensoes_mm": "1308 x 685",
+            "peso_kg": 160,
+            "cintas_quantidade": 8
+          },
+          "pack_b": {
+            "dimensoes_mm": "1156 x 584",
+            "peso_kg": 106,
+            "cintas_quantidade": 8
+          }
+        },
+        "mk10_size7_davit": {
+          "pack": "A/B",
+          "pack_a": {
+            "dimensoes_mm": "1635 x 585",
+            "peso_kg": 160,
+            "cintas_quantidade": 12,
+            "hand_loop_straps": 2
+          },
+          "pack_b": {
+            "dimensoes_mm": "1540 x 535",
+            "peso_kg": 120,
+            "cintas_quantidade": 12,
+            "hand_loop_straps": 2
+          }
+        },
+        "mk10_size9_davit": {
+          "pack": "A",
+          "dimensoes_mm": "not specified",
+          "cintas_quantidade": 12,
+          "hand_loop_straps": 2
+        },
+        "mk14_size17_davit": {
+          "pack": "A/B",
+          "dimensoes_mm": "not specified",
+          "cintas_quantidade": 10,
+          "hand_loop_straps": 2
+        }
+      },
+      "cilindros": {
+        "throwover": {
+          "co2_kg": 8.80,
+          "n2_kg": 0.44,
+          "pressao_bar": "as per TPED"
+        },
+        "davit_launch": {
+          "co2_kg": 10.77,
+          "n2_kg": 0.54,
+          "pressao_bar": "as per TPED"
+        }
+      },
+      "cintas_fecho": {
+        "material": "Metal strap with crimp",
+        "quantidade": "8-12 straps + 2 hand loop straps for DL",
+        "observacao": "Higher strap count for larger containers and DL configurations"
+      }
+    },
+    "25p": {
+      "launch_type": "both",
+      "contentores": {
+        "mk10_size7_throwover": {
+          "pack": "B",
+          "dimensoes_mm": "1540 x 535",
+          "peso_kg": 128,
+          "cintas_quantidade": 8
+        },
+        "mk10_size9_throwover": {
+          "pack": "A",
+          "pack_a": {
+            "dimensoes_mm": "1635 x 585",
+            "peso_kg": 178,
+            "cintas_quantidade": 10
+          },
+          "pack_b": {
+            "dimensoes_mm": "1540 x 535",
+            "peso_kg": 128,
+            "cintas_quantidade": 10
+          }
+        },
+        "mk14_size17_throwover": {
+          "pack": "A/B",
+          "dimensoes_mm": "1308 x 685",
+          "peso_kg": 180,
+          "cintas_quantidade": 8
+        },
+        "mk10_size9_davit": {
+          "pack": "A/B",
+          "pack_a": {
+            "dimensoes_mm": "1635 x 585",
+            "peso_kg": 183,
+            "cintas_quantidade": 12,
+            "hand_loop_straps": 2
+          },
+          "pack_b": {
+            "dimensoes_mm": "1540 x 535",
+            "peso_kg": 133,
+            "cintas_quantidade": 12,
+            "hand_loop_straps": 2
+          }
+        },
+        "mk14_size17_davit": {
+          "pack": "A/B",
+          "dimensoes_mm": "1308 x 685",
+          "peso_kg": 185,
+          "cintas_quantidade": 10,
+          "hand_loop_straps": 2
+          }
+      },
+      "cilindros": {
+        "throwover": {
+          "co2_kg": 10.77,
+          "n2_kg": 0.54,
+          "pressao_bar": "as per TPED"
+        },
+        "davit_launch": {
+          "co2_kg": 12.57,
+          "n2_kg": 0.63,
+          "pressao_bar": "as per TPED"
+        }
+      },
+      "cintas_fecho": {
+        "material": "Metal strap with crimp",
+        "quantidade": "8-12 straps + 2 hand loop straps for DL",
+        "observacao": "Maximum capacity configuration"
+      }
+    },
+    "15p": {
+      "observacao": "No 15p capacity found in MK IV manual - capacity jumps from 12p to 16p"
+    }
+  },
+  "technical_specifications": {
+    "torque_settings": {
+      "cylinder_valve_to_gas_cylinder": {
+        "nm": 160,
+        "ft_lbf": 118,
+        "special_tool_required": false
+      },
+      "operating_head_to_cylinder_valve": {
+        "nm": 1.12,
+        "ft_lbf": 0.8,
+        "hex_size": "3mm",
+        "special_tool_required": false
+      },
+      "union_nut_to_cylinder_valve": {
+        "nm": 20,
+        "ft_lbf": 14.75,
+        "special_tool_required": false
+      },
+      "cylinder_valve_to_hose": {
+        "nm": 12.2,
+        "ft_lbf": 9.0,
+        "special_tool_required": false
+      },
+      "break_stem_seal_assy_to_valve_body": {
+        "nm": 40,
+        "ft_lbf": 29.5,
+        "special_tool_required": true
+      },
+      "torque_drive_assy_to_valve_body": {
+        "nm": 4,
+        "ft_lbf": 2.95,
+        "special_tool_required": true
+      }
+    },
+    "container_straps": {
+      "material": "Metal (stainless steel)",
+      "tipo": "Hand loop strap with crimp",
+      "crimping_process": "Tensioning tool applied until base rests in lower container rim, then secured with crimp using crimping tool",
+      "heat_shrink_sleeve": {
+        "available": true,
+        "overlap_required_mm": 5,
+        "encapsulation": "Complete crimp and tail encapsulation"
+      },
+      "closing_procedure": [
+        "Position strap ends approximately 25mm (1 inch) above container rim",
+        "Apply tensioning tool at midpoint across two rims",
+        "Tension until tool base rests in lower rim",
+        "Secure with crimp using crimping tool",
+        "For DL: Add 2 hand loop straps for davit ring access door",
+        "For containers >18m drop height: Add extra straps at each end"
+      ],
+      "safety_warnings": [
+        "Operator must stand to one side of strap",
+        "Proper clothing and eye protection required",
+        "Too much tension will break strap",
+        "Crimps must be attached on opposite side of container to roll direction"
+      ]
+    },
+    "cylinder_specifications": {
+      "valve_types": [
+        "Leafield GIST operating head",
+        "Standard cylinder valve"
+      ],
+      "valve_installation": {
+        "ptfe_tape_wraps": "2 turns for standard installation",
+        "torque_240nm": "For blast test cylinder (177 ft lb) +10% -0%"
+      },
+      "cylinder_tolerance": {
+        "co2_n2_mix": "Standard tolerance per manual tables",
+        "n2_only": "+0g, -10g overall weight tolerance"
+      },
+      "weighing_accuracy": "±1g scales required"
+    }
+  },
+  "additional_notes": {
+    "container_types": [
+      "MK 10 - Cylindrical throwover and davit-launch",
+      "MK 14 - Cylindrical throwover and davit-launch",
+      "MK 16 - Flatpack throwover",
+      "MK 18 - Flatpack throwover",
+      "4N - Flatpack throwover",
+      "G21 - Flatpack throwover"
+    ],
+    "pack_types": {
+      "SOLAS_A": "Full equipment pack - higher weight",
+      "SOLAS_B": "Reduced equipment pack - lower weight"
+    },
+    "stowage_height_categories": {
+      "standard": "Up to 18 metres",
+      "heavy_duty": "Up to 36 metres (requires more straps)"
+    },
+    "davit_launch_specifics": {
+      "hand_loop_straps": "2 straps required to secure davit ring access door",
+      "additional_height_requirements": "Refer to manual page 107 for minimum heights A, B, C, D",
+      "suspension_test": "Required for davit-launch liferafts"
+    },
+    "packing_materials": {
+      "polyethylene_sheet": "Wraps liferaft inside container",
+      "protective_foam": "E-pack protective foam - different sizes for A-pack vs B-pack",
+      "ratchet_straps": "Temporary straps used during closing process (2-3 straps)",
+      "painter_sachet": "Contains painter line",
+      "bowsing_lines": "For special configurations (e.g., 25p variant)"
+    },
+    "data_extraction_limitations": [
+      "15p capacity not found in manual - jumps from 12p to 16p",
+      "Some specific dimensions marked as 'not specified' in detailed tables",
+      "Exact torque for container strap crimping not specified - uses tensioning tool method instead",
+      "Multiple container options exist for same capacity - choice depends on SOLAS pack type and stowage height"
+    ]
+  }
+}

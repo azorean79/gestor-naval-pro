@@ -13,6 +13,7 @@ import { useAgendamentos } from '@/hooks/use-agendamentos'
 import { format, isSameDay } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import AgendaDayView from '@/components/agenda/agenda-day-view'
+import { useFeriados } from '@/hooks/use-feriados'
 
 interface TransformedAgendamento {
   id: string
@@ -37,6 +38,9 @@ export default function AgendaPage() {
 
   const { data: agendamentosData, isLoading } = useAgendamentos()
   const agendamentos = agendamentosData?.data || []
+
+  // Buscar feriados
+  const { data: feriados = [] } = useFeriados(selectedDate?.getFullYear())
 
   // If in day view, show the day view component
   if (viewMode === 'day' && selectedDate) {
@@ -165,11 +169,17 @@ export default function AgendaPage() {
               className="rounded-md border"
               modifiers={{
                 hasEvent: transformedAgendamentos.map(a => new Date(a.data)),
+                isHoliday: feriados.map(f => new Date(f.data)),
               }}
               modifiersStyles={{
                 hasEvent: {
                   backgroundColor: 'hsl(var(--primary))',
                   color: 'hsl(var(--primary-foreground))',
+                  fontWeight: 'bold',
+                },
+                isHoliday: {
+                  backgroundColor: 'hsl(var(--destructive))',
+                  color: 'hsl(var(--destructive-foreground))',
                   fontWeight: 'bold',
                 },
               }}
@@ -192,6 +202,27 @@ export default function AgendaPage() {
               <p>Carregando...</p>
             ) : (
               <div className="space-y-2">
+                {/* Mostrar feriados do dia */}
+                {selectedDate && feriados
+                  .filter(feriado => isSameDay(new Date(feriado.data), selectedDate))
+                  .map(feriado => (
+                    <div key={`feriado-${feriado.id}`} className="p-3 border rounded-lg bg-red-50 border-red-200">
+                      <h4 className="font-semibold text-red-800 flex items-center gap-2">
+                        <span>🏖️</span>
+                        {feriado.nome}
+                      </h4>
+                      <p className="text-sm text-red-600">
+                        {feriado.tipo === 'nacional' ? 'Feriado Nacional' :
+                         feriado.tipo === 'regional' ? `Feriado Regional - ${feriado.regiao}` :
+                         'Feriado Local'}
+                      </p>
+                      {feriado.descricao && (
+                        <p className="text-sm text-red-500 mt-1">{feriado.descricao}</p>
+                      )}
+                    </div>
+                  ))}
+
+                {/* Mostrar agendamentos do dia */}
                 {transformedAgendamentos
                   .filter(event => selectedDate && isSameDay(new Date(event.data), selectedDate))
                   .map(event => (

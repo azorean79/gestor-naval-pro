@@ -196,6 +196,26 @@ export function AddObraForm({ open, onOpenChange, onSuccess }: AddObraFormProps)
               {loading ? 'Criando...' : 'Criar Obra'}
             </Button>
           </div>
+
+          <Button
+            type="button"
+            variant="secondary"
+            className="gap-2"
+            onClick={async () => {
+              // Chama endpoint para download do Word
+              const clienteId = formData.clienteId;
+              const res = await fetch(`/api/obras/baixar-iva?clienteId=${clienteId}`);
+              const blob = await res.blob();
+              const url = window.URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = `declaracao-iva-obra-${clienteId}.docx`;
+              a.click();
+              window.URL.revokeObjectURL(url);
+            }}
+          >
+            Baixar Declaração de IVA
+          </Button>
         </form>
       </DialogContent>
     </Dialog>

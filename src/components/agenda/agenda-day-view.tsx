@@ -17,6 +17,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { useAgendamentos } from '@/hooks/use-agendamentos'
 import AgendarTarefaDialog from './agendar-tarefa-dialog'
+import { useFeriados } from '@/hooks/use-feriados'
 
 interface AgendaDayViewProps {
   selectedDate: Date
@@ -43,10 +44,18 @@ export default function AgendaDayView({ selectedDate, onBack }: AgendaDayViewPro
 
   const agendamentos = agendamentosData?.data || []
 
+  // Buscar feriados do dia
+  const { data: feriados = [] } = useFeriados(selectedDate.getFullYear())
+
   // Filter agendamentos for the selected day
   const dayAgendamentos = agendamentos.filter((agendamento: any) => {
     const agendDate = new Date(agendamento.dataInicio)
     return isSameDay(agendDate, selectedDate)
+  })
+
+  // Filter feriados for the selected day
+  const dayFeriados = feriados.filter((feriado: any) => {
+    return isSameDay(new Date(feriado.data), selectedDate)
   })
 
   // Sort by time
@@ -84,6 +93,7 @@ export default function AgendaDayView({ selectedDate, onBack }: AgendaDayViewPro
             </h2>
             <p className="text-sm text-gray-600">
               {dayAgendamentos.length} tarefas agendadas
+              {dayFeriados.length > 0 && ` • ${dayFeriados.length} feriado${dayFeriados.length > 1 ? 's' : ''}`}
             </p>
           </div>
         </div>
@@ -95,6 +105,44 @@ export default function AgendaDayView({ selectedDate, onBack }: AgendaDayViewPro
           Agendar Tarefa
         </Button>
       </div>
+
+      {/* Feriados do dia */}
+      {dayFeriados.length > 0 && (
+        <div className="space-y-3 mb-6">
+          {dayFeriados.map((feriado: any) => (
+            <Card key={`feriado-${feriado.id}`} className="border-l-4 border-l-red-500 bg-red-50">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3">
+                      <h3 className="font-semibold text-lg text-red-800 flex items-center gap-2">
+                        <span>🏖️</span>
+                        {feriado.nome}
+                      </h3>
+                      <Badge className="bg-red-100 text-red-800">
+                        {feriado.tipo === 'nacional' ? 'Feriado Nacional' :
+                         feriado.tipo === 'regional' ? 'Feriado Regional' :
+                         'Feriado Local'}
+                      </Badge>
+                    </div>
+
+                    {feriado.descricao && (
+                      <p className="text-sm text-red-600 mt-1">{feriado.descricao}</p>
+                    )}
+
+                    {feriado.regiao && (
+                      <div className="flex items-center gap-1 mt-3 text-sm text-red-600">
+                        <MapPin className="h-4 w-4" />
+                        {feriado.regiao}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      )}
 
       {/* Tasks List */}
       {sortedAgendamentos.length > 0 ? (

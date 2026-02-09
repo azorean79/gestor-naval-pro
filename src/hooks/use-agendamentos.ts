@@ -36,7 +36,13 @@ export function useCreateAgendamento() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      if (!response.ok) throw new Error('Failed to create agendamento');
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        console.error('Failed to create agendamento:', errorData);
+        throw new Error(errorData.details || errorData.error || 'Failed to create agendamento');
+      }
+      
       return response.json();
     },
     onSuccess: () => {

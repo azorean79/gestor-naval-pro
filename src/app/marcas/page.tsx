@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Plus, Search, Edit, Trash2, Package } from 'lucide-react'
+import { Plus, Search, Edit, Trash2, Package, FileText } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -33,7 +33,7 @@ export default function MarcasPage() {
   const { data: marcasResponse, isLoading, refetch } = useMarcasJangada({
     search: searchTerm || undefined,
     status: statusFilter !== 'todos' ? statusFilter : undefined,
-    limit: 100
+    limit: 9999
   })
 
   const marcas: MarcaItem[] = marcasResponse?.data || []
@@ -68,14 +68,19 @@ export default function MarcasPage() {
             Controle e gestão das marcas de jangadas
           </p>
         </div>
-        <Button onClick={() => setShowAddForm(true)} className="bg-blue-600 hover:bg-blue-700">
-          <Plus className="h-4 w-4 mr-2" />
-          Nova Marca
-        </Button>
+        <div className="flex gap-2">
+          <Button onClick={() => window.location.href = '/configuracoes'} variant="outline">
+            Ver Configurações Integradas
+          </Button>
+          <Button onClick={() => setShowAddForm(true)} className="bg-blue-600 hover:bg-blue-700">
+            <Plus className="h-4 w-4 mr-2" />
+            Nova Marca
+          </Button>
+        </div>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total de Marcas</CardTitle>
@@ -105,6 +110,19 @@ export default function MarcasPage() {
             <div className="text-2xl font-bold text-gray-600">
               {marcas.filter(m => m.status === 'inativo').length}
             </div>
+          </CardContent>
+        </Card>
+        <Card 
+          className="cursor-pointer hover:shadow-lg transition-shadow"
+          onClick={() => window.location.href = '/especificacoes'}
+        >
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Especificações</CardTitle>
+            <FileText className="h-4 w-4 text-blue-600" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold text-blue-600">Ver</div>
+            <p className="text-xs text-muted-foreground mt-1">Dados técnicos</p>
           </CardContent>
         </Card>
       </div>
@@ -187,6 +205,14 @@ export default function MarcasPage() {
                     </TableCell>
                     <TableCell>
                       <div className="flex gap-2">
+                        <Button 
+                          variant="ghost" 
+                          size="sm"
+                          onClick={() => window.location.href = `/especificacoes?marca=${marca.nome}`}
+                          title="Ver especificações técnicas"
+                        >
+                          <FileText className="h-4 w-4" />
+                        </Button>
                         <Button 
                           variant="ghost" 
                           size="sm"

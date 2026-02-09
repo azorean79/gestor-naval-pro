@@ -61,7 +61,6 @@ export async function PUT(
         refOrey: data.refOrey,
         refFabricante: data.refFabricante,
         lote: data.lote,
-        dataValidade: data.dataValidade,
         imagem: data.imagem,
         status: data.status,
       },

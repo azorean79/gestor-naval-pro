@@ -1,0 +1,306 @@
+[
+  {
+    "modelo": "RFD SURVIVA MKIII",
+    "arquivo": "MkIII.pdf",
+    "total_paginas": 300,
+    "pressaoTrabalho": {
+      "psi": 2.8,
+      "mmWG": 1968.59,
+      "inH2O": 77.51,
+      "milibares": null
+    },
+    "davitLaunch": {
+      "referencias_encontradas": 11,
+      "mencoes": [
+        {
+          "localizacao": "THROW OVERBOARD & DAVIT LAUNCH TYPES",
+          "contexto": "SOLAS STYLE LIFERAFTS | THROW OVERBOARD & DAVIT LAUNCH TYPES | Ver. 3"
+        },
+        {
+          "localizacao": "The range is complemented by Davit Launch versions sized 12, 16, 20 or 25",
+          "contexto": "capacity liferafts rated for 4, 6, 8, 10, 12, 16, 20 or 25 persons (FIGURE 101). | The range is comp"
+        },
+        {
+          "localizacao": "(Manually deployed on Davit Launch liferafts).",
+          "contexto": "(Automatically deployed on Throw Over liferafts). | (Manually deployed on Davit Launch liferafts). |"
+        },
+        {
+          "localizacao": "(11) Lifting bridle. (Only on Davit Launch liferafts).",
+          "contexto": "language. | (11) Lifting bridle. (Only on Davit Launch liferafts). | CHAPTER 1 251 Page 104"
+        },
+        {
+          "localizacao": "SOLAS Style Davit Launch liferaft",
+          "contexto": "Dec/04 | SOLAS Style Davit Launch liferaft | FIGURE 102"
+        }
+      ]
+    },
+    "especificacoesPorCapacidade": {
+      "6p": {
+        "numeros_extraidos": [
+          6.0
+        ],
+        "descricao": "(for 6 Persons and larger Liferafts)"
+      },
+      "4p": {
+        "numeros_extraidos": [
+          4.0
+        ],
+        "descricao": "(for 4 Persons Liferaft)"
+      },
+      "25p": {
+        "numeros_extraidos": [
+          4.0,
+          6.0,
+          8.0,
+          10.0,
+          12.0,
+          16.0,
+          20.0,
+          25.0,
+          101.0
+        ],
+        "descricao": "capacity liferafts rated for 4, 6, 8, 10, 12, 16, 20 or 25 persons (FIGURE 101)."
+      }
+    },
+    "estatisticas": {
+      "paginas_processadas": 0,
+      "paginas_com_pressao": 0
+    }
+  },
+  {
+    "modelo": "DSB LR05",
+    "arquivo": "LR05.pdf",
+    "total_paginas": 296,
+    "pressaoTrabalho": {
+      "psi": 2.8,
+      "mmWG": 1968.59,
+      "inH2O": 77.51,
+      "milibares": null
+    },
+    "davitLaunch": {
+      "referencias_encontradas": 21,
+      "mencoes": [
+        {
+          "localizacao": "THROW OVERBOARD & DAVIT LAUNCH TYPES",
+          "contexto": "SOLAS STYLE LIFERAFTS | THROW OVERBOARD & DAVIT LAUNCH TYPES | This Manual: Part Number 08196009"
+        },
+        {
+          "localizacao": "A2 DSB LR05 Davit launch liferafts (KLAPPE)",
+          "contexto": "A 1 Marine Equipment Directive Variations | A2 DSB LR05 Davit launch liferafts (KLAPPE) | A 3 US DoT"
+        },
+        {
+          "localizacao": "weights for Throw over (TO) & Davit launch (DL) ....................... 107",
+          "contexto": "3 CYLINDRICAL CONTAINERS: Nominal Dimensions and | weights for Throw over (TO) & Davit launch (DL) ."
+        },
+        {
+          "localizacao": "The range is complemented by Davit Launch versions sized 12, 16, 20 or 25",
+          "contexto": "liferafts rated for 6, 8, 10, 12, 16, 20 or 25 persons (FIGURE 101). | The range is complemented by "
+        },
+        {
+          "localizacao": "(Manually deployed on Davit Launch liferafts).",
+          "contexto": "(Automatically deployed on Throw Over liferafts). | (Manually deployed on Davit Launch liferafts). |"
+        }
+      ]
+    },
+    "especificacoesPorCapacidade": {
+      "25p": {
+        "numeros_extraidos": [
+          37632.0,
+          5.0,
+          6.0,
+          25.0,
+          1.0
+        ],
+        "descricao": "D-37632 Eschershausen LR 05 6-25 Persons Page 1"
+      }
+    },
+    "estatisticas": {
+      "paginas_processadas": 0,
+      "paginas_com_pressao": 0
+    }
+  },
+  {
+    "modelo": "RFD SURVIVA MKIV",
+    "arquivo": "MK IV.pdf",
+    "total_paginas": 680,
+    "pressaoTrabalho": {
+      "psi": null,
+      "mmWG": null,
+      "inH2O": null,
+      "milibares": 510.0
+    },
+    "davitLaunch": {
+      "referencias_encontradas": 3,
+      "mencoes": [
+        {
+          "localizacao": "• Davit Launch",
+          "contexto": "• Throwover | • Davit Launch | • Beaufort Seafarer"
+        },
+        {
+          "localizacao": "Unitor throw-over (TO) and davit launch (DL) liferafts have been packed into con",
+          "contexto": "1. Introduction | Unitor throw-over (TO) and davit launch (DL) liferafts have been packed into conta"
+        },
+        {
+          "localizacao": "Throw-over Davit launch",
+          "contexto": "Container label quantity | Throw-over Davit launch | Mk 10 Mk 14 Mk 14 Mk 10 Mk 14 Mk 14"
+        }
+      ]
+    },
+    "especificacoesPorCapacidade": {
+      "25p": {
+        "numeros_extraidos": [
+          6.0,
+          25.0
+        ],
+        "descricao": "Appendix A-6 25 Person liferaft - overcapacity variant"
+      },
+      "13p": {
+        "numeros_extraidos": [
+          8.0,
+          13.0
+        ],
+        "descricao": "Appendix A-8 Servicing a 13 person liferaft steps"
+      }
+    },
+    "estatisticas": {
+      "paginas_processadas": 0,
+      "paginas_com_pressao": 0
+    }
+  },
+  {
+    "modelo": "DSB LR97",
+    "arquivo": "LR97.pdf",
+    "total_paginas": 202,
+    "pressaoTrabalho": {
+      "psi": null,
+      "mmWG": null,
+      "inH2O": null,
+      "milibares": 360.0
+    },
+    "davitLaunch": {
+      "referencias_encontradas": 11,
+      "mencoes": [
+        {
+          "localizacao": "Davit launchable liferafts type LR 97 L for 12 to 25 persons",
+          "contexto": "Throw-over-board liferafts type LR 97 for 6 to 25 persons | Davit launchable liferafts type LR 97 L "
+        },
+        {
+          "localizacao": "3.3.7 Davit launchable liferafts",
+          "contexto": "3.3.6 Bonded joints buoyancy tube / buoyancy tube / floor | 3.3.7 Davit launchable liferafts | 3.3.8"
+        },
+        {
+          "localizacao": "3.10 Load test - davit launchable liferafts",
+          "contexto": "3.9 Testing of the pressure relief valves | 3.10 Load test - davit launchable liferafts | 3.11 Testi"
+        },
+        {
+          "localizacao": "the screw of the shackle securing the weak link, painter and HRU. Safeguard the",
+          "contexto": "be knotted if a hydrostatic release unit is not mounted. If an HRU is fitted loosen | the screw of t"
+        },
+        {
+          "localizacao": "Attention ! Davit launchable liferafts: Do not damage the black tear strip",
+          "contexto": "3.2.1.2 Cut the black plastic closing strap | Attention ! Davit launchable liferafts: Do not damage "
+        }
+      ]
+    },
+    "especificacoesPorCapacidade": {
+      "25p": {
+        "numeros_extraidos": [
+          97.0,
+          6.0,
+          25.0,
+          10.0,
+          97.0
+        ],
+        "descricao": "GmbH & CO KG LR 97 (L) 6 to 25 persons issue : 10/97"
+      },
+      "8p": {
+        "numeros_extraidos": [
+          6.0,
+          8.0
+        ],
+        "descricao": "for 6 and 8 persons rectangular"
+      },
+      "16p": {
+        "numeros_extraidos": [
+          10.0,
+          12.0,
+          16.0
+        ],
+        "descricao": "for 10, 12 and 16 persons hexagonal"
+      },
+      "6p": {
+        "numeros_extraidos": [
+          6.0,
+          8.0,
+          10.0,
+          10.0,
+          12.0,
+          12.0,
+          16.0,
+          16.0,
+          20.0,
+          20.0,
+          25.0,
+          25.0
+        ],
+        "descricao": "6 persons 8 persons 10 pers. 10/12 p. 12 pers. 16 pers. 16 pers. 20 pers. 20 pers. 25 pers. 25 pers."
+      },
+      "10p": {
+        "numeros_extraidos": [
+          97.0,
+          10.0,
+          6.0,
+          8.0,
+          4.0,
+          1.0,
+          5.0,
+          38.0,
+          0.0,
+          27.0,
+          5.0,
+          65.0
+        ],
+        "descricao": "LR 97 - 10 persons 6 8,04 1 5,38 0,27 5,65"
+      },
+      "12p": {
+        "numeros_extraidos": [
+          97.0,
+          10.0,
+          12.0,
+          6.0,
+          8.0,
+          4.0,
+          1.0,
+          5.0,
+          38.0,
+          0.0,
+          27.0,
+          5.0,
+          65.0
+        ],
+        "descricao": "LR 97 - 10/12 persons 6 8,04 1 5,38 0,27 5,65"
+      },
+      "20p": {
+        "numeros_extraidos": [
+          97.0,
+          20.0,
+          10.0,
+          13.0,
+          40.0,
+          1.0,
+          8.0,
+          80.0,
+          0.0,
+          44.0,
+          9.0,
+          24.0
+        ],
+        "descricao": "LR 97 - 20 persons 10 13,40 1 8,80 0,44 9,24"
+      }
+    },
+    "estatisticas": {
+      "paginas_processadas": 0,
+      "paginas_com_pressao": 0
+    }
+  }
+]

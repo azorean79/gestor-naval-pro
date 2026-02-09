@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
-import { AssistenteJulinho } from "@/components/assistente-julinho";
 import { MobileNavigation } from "@/components/navigation/mobile-navigation";
 import { OnlineStatusIndicator } from "@/components/online-status-indicator";
 
@@ -58,7 +57,6 @@ export default function RootLayout({
         <Providers>
           <OnlineStatusIndicator />
           {children}
-          <AssistenteJulinho />
           <MobileNavigation />
         </Providers>
       </body>

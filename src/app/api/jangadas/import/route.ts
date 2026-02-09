@@ -96,6 +96,37 @@ export async function POST(request: NextRequest) {
             }
           }
 
+          // Garantir que temos um modelo (criar modelo padrão se necessário)
+          if (!modelo) {
+            modelo = await prisma.modeloJangada.upsert({
+              where: {
+                nome_marcaId: {
+                  nome: 'Modelo Padrão',
+                  marcaId: marca.id
+                }
+              },
+              update: {},
+              create: {
+                nome: 'Modelo Padrão',
+                marcaId: marca.id
+              }
+            });
+          }
+
+          // Buscar ou criar tipo de pack padrão
+          let tipoPack = await prisma.tipoPack.findFirst({
+            where: { nome: 'Pack SOLAS A' }
+          });
+          if (!tipoPack) {
+            tipoPack = await prisma.tipoPack.create({
+              data: {
+                nome: 'Pack SOLAS A',
+                descricao: 'Pack SOLAS A - Padrão',
+                categoria: 'SOLAS A'
+              }
+            });
+          }
+
           // Find or create lotacao
           const capacidade = jData.capacidade || 8;
           let lotacao = await prisma.lotacaoJangada.findFirst({
@@ -118,7 +149,8 @@ export async function POST(request: NextRequest) {
               data: {
                 numeroSerie: jData.numeroSerie,
                 marcaId: marca.id,
-                modeloId: modelo?.id,
+                modeloId: modelo.id,
+                tipoPackId: tipoPack.id,
                 tipo: jData.tipo || '',
                 lotacaoId: lotacao?.id,
                 dataFabricacao: parseDate(jData.dataFabricacao),

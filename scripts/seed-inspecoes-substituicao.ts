@@ -121,9 +121,8 @@ async function main() {
     try {
       // Componentes que serão TODOS substituídos
       const componentesSubstituidos = [
-        { nome: 'Coletes de Salvação', quantidade: jangada.capacidade, motivoSubstituicao: 'Desgaste por uso prolongado' },
-        { nome: 'EPIRB', quantidade: 1, motivoSubstituicao: 'Validade expirada' },
-        { nome: 'Cilindro CO2', quantidade: 2, motivoSubstituicao: 'Pressão abaixo do recomendado' },
+       
+        { nome: 'Cilindro CO2', quantidade: 2, motivoSubstituicao: 'Peso abaixo do recomendado' },
         { nome: 'Sinalizador Luminoso', quantidade: 3, motivoSubstituicao: 'Bateria vencida' },
         { nome: 'Foguetes de Sinalização', quantidade: 6, motivoSubstituicao: 'Validade expirada' },
         { nome: 'Fumígenos Flutuantes', quantidade: 2, motivoSubstituicao: 'Validade expirada' },

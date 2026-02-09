@@ -14,12 +14,20 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 import { LifeBuoy, Save, AlertCircle } from 'lucide-react'
 import { useCreateJangada } from '@/hooks/use-jangadas'
 import { useNavios } from '@/hooks/use-navios'
+import { useMarcasJangada } from '@/hooks/use-marcas-jangada'
+import { useModelosJangada } from '@/hooks/use-modelos-jangada'
+import { useLotacoesJangada } from '@/hooks/use-lotacoes-jangada'
+import { useTiposPack } from '@/hooks/use-tipos-pack'
 
 // Schema simples
 const simpleJangadaSchema = z.object({
   numeroSerie: z.string().min(1, 'Número de série obrigatório'),
   tipo: z.string().min(1, 'Tipo obrigatório'),
   tipoPack: z.string().optional(),
+  marcaId: z.string().min(1, 'Marca obrigatória'),
+  modeloId: z.string().min(1, 'Modelo obrigatório'),
+  lotacaoId: z.string().min(1, 'Lotação obrigatória'),
+  dataFabricacao: z.string().min(1, 'Data de fabricação obrigatória'),
   navioId: z.string().min(1, 'Navio obrigatório'),
   status: z.string().optional(),
 })
@@ -37,14 +45,30 @@ export function JangadaFormQuick({ onSuccess }: JangadaFormQuickProps) {
   
   const createJangadaMutation = useCreateJangada()
   const { data: naviosResponse } = useNavios()
+  const { data: marcasResponse } = useMarcasJangada()
+  const { data: modelosResponse } = useModelosJangada()
+  const { data: lotacoesResponse } = useLotacoesJangada()
+  const { data: tiposPackResponse } = useTiposPack()
   const navios = naviosResponse?.data || []
+  const marcas = (marcasResponse?.data || []).sort((a: any, b: any) => {
+    if (a.nome === 'RFD') return -1
+    if (b.nome === 'RFD') return 1
+    return 0
+  })
+  const modelos = modelosResponse?.data || []
+  const lotacoes = lotacoesResponse?.data || []
+  const tiposPack = tiposPackResponse?.data || []
 
   const form = useForm<SimpleJangadaForm>({
     resolver: zodResolver(simpleJangadaSchema),
     defaultValues: {
       numeroSerie: '',
-      tipo: 'Jangada',
+      tipo: '',
       tipoPack: '',
+      marcaId: '',
+      modeloId: '',
+      lotacaoId: '',
+      dataFabricacao: '',
       navioId: '',
       status: 'ativo',
     },
@@ -57,7 +81,7 @@ export function JangadaFormQuick({ onSuccess }: JangadaFormQuickProps) {
     try {
       await createJangadaMutation.mutateAsync({
         ...values,
-        dataFabricacao: new Date().toISOString(),
+        dataFabricacao: new Date(values.dataFabricacao).toISOString(),
         dataInspecao: new Date().toISOString(),
         dataProximaInspecao: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(),
       } as any)
@@ -131,6 +155,8 @@ export function JangadaFormQuick({ onSuccess }: JangadaFormQuickProps) {
                         <SelectItem value="Jangada">Jangada</SelectItem>
                         <SelectItem value="Balsa">Balsa</SelectItem>
                         <SelectItem value="Bote">Bote</SelectItem>
+                        <SelectItem value="Contentor">Contentor</SelectItem>
+                        <SelectItem value="Valise">Valise</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -152,12 +178,109 @@ export function JangadaFormQuick({ onSuccess }: JangadaFormQuickProps) {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="">Nenhum</SelectItem>
-                        <SelectItem value="Standard">Standard</SelectItem>
-                        <SelectItem value="ISO 9650">ISO 9650</SelectItem>
-                        <SelectItem value="SOLAS">SOLAS</SelectItem>
+                        {tiposPack.map((tipo: any) => (
+                          <SelectItem key={tipo.id} value={tipo.nome}>
+                            {tipo.nome}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Marca */}
+              <FormField
+                control={form.control}
+                name="marcaId"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Marca *</FormLabel>
+                    <Select value={field.value} onValueChange={field.onChange}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecione a marca" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {marcas.map((marca: any) => (
+                          <SelectItem key={marca.id} value={marca.id}>
+                            {marca.nome}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Modelo */}
+              <FormField
+                control={form.control}
+                name="modeloId"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Modelo *</FormLabel>
+                    <Select value={field.value} onValueChange={field.onChange}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecione o modelo" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {modelos.map((modelo: any) => (
+                          <SelectItem key={modelo.id} value={modelo.id}>
+                            {modelo.nome}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Lotação */}
+              <FormField
+                control={form.control}
+                name="lotacaoId"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Lotação *</FormLabel>
+                    <Select value={field.value} onValueChange={field.onChange}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecione a lotação" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {lotacoes.map((lotacao: any) => (
+                          <SelectItem key={lotacao.id} value={lotacao.id}>
+                            {lotacao.capacidade} pessoas
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Data de Fabricação */}
+              <FormField
+                control={form.control}
+                name="dataFabricacao"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Data de Fabricação *</FormLabel>
+                    <FormControl>
+                      <Input 
+                        type="date"
+                        {...field} 
+                      />
+                    </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}

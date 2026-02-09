@@ -1,6 +1,6 @@
 ﻿import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../prisma/app/generated-prisma-client';
 
 export async function GET(request: NextRequest) {
   try {
@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
     const sortBy = searchParams.get('sortBy') || 'dataInicio';
     const sortOrder = searchParams.get('sortOrder') || 'asc';
     const page = parseInt(searchParams.get('page') || '1');
-    const limit = parseInt(searchParams.get('limit') || '10');
+    const limit = parseInt(searchParams.get('limit') || '100');
 
     const where: Prisma.AgendamentoWhereInput = {};
 
@@ -86,6 +86,8 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
+    
+    console.log('Creating agendamento with data:', body);
 
     const agendamento = await prisma.agendamento.create({
       data: {
@@ -96,11 +98,11 @@ export async function POST(request: NextRequest) {
         tipo: body.tipo,
         status: body.status || 'agendado',
         prioridade: body.prioridade || 'normal',
-        navioId: body.navioId,
-        jangadaId: body.jangadaId,
-        cilindroId: body.cilindroId,
-        pessoaId: body.pessoaId,
-        responsavel: body.responsavel,
+        navioId: body.navioId || null,
+        jangadaId: body.jangadaId || null,
+        cilindroId: body.cilindroId || null,
+        pessoaId: body.pessoaId || null,
+        responsavel: body.responsavel || null,
       },
       include: {
         navio: {
@@ -118,12 +120,13 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    console.log('Agendamento created successfully:', agendamento.id);
     return NextResponse.json(agendamento, { status: 201 });
 
   } catch (error) {
     console.error('Erro ao criar agendamento:', error);
     return NextResponse.json(
-      { error: 'Erro interno do servidor' },
+      { error: 'Erro interno do servidor', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }

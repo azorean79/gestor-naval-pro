@@ -1,0 +1,42 @@
+[
+  {
+    "arquivo": "Seasava Plus.pdf",
+    "total_paginas": 254,
+    "paginas_com_tabelas_potenciais": [],
+    "paginas_com_texto": [],
+    "paginas_com_muitas_linhas": [],
+    "metadados": {
+      "format": "PDF 1.3",
+      "title": "Network Scan Data",
+      "author": "Panasonic Communications Co., Ltd.",
+      "subject": "Image",
+      "keywords": "image ccitt MMR",
+      "creator": "PDFlib",
+      "producer": "PDFlib 3.03 (CSS)",
+      "creationDate": "D:20040922163302Z",
+      "modDate": "D:20061109153358Z",
+      "trapped": "",
+      "encryption": null
+    }
+  },
+  {
+    "arquivo": "Seasava Plus X E R.pdf",
+    "total_paginas": 152,
+    "paginas_com_tabelas_potenciais": [],
+    "paginas_com_texto": [],
+    "paginas_com_muitas_linhas": [],
+    "metadados": {
+      "format": "PDF 1.5",
+      "title": "Network Scan Data",
+      "author": "Panasonic Communications Co., Ltd.",
+      "subject": "Image",
+      "keywords": "image ccitt MMR",
+      "creator": "PDFlib",
+      "producer": "PDFlib 3.03 (CSS)",
+      "creationDate": "D:20040923135229Z",
+      "modDate": "D:20061117095559Z",
+      "trapped": "",
+      "encryption": null
+    }
+  }
+]

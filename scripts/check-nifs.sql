@@ -1,0 +1,1 @@
+SELECT nif FROM clientes LIMIT 5;

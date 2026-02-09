@@ -15,10 +15,12 @@ export default function AlertasPage() {
   const [lida, setLida] = useState<string>('false')
   const [search, setSearch] = useState('')
 
-  const { data: notificacoes = [], isLoading, isFetching } = useNotificacoes({
+  const { data: notificacoesResponse = { data: [] }, isLoading, isFetching } = useNotificacoes({
     tipo: tipo === 'todas' ? undefined : tipo,
     lida: lida === 'todas' ? undefined : lida === 'true'
   })
+
+  const notificacoes = notificacoesResponse?.data || []
 
   const { mutate: marcarComoLida } = useMarcarNotificacaoComoLida()
   const { mutate: removerNotificacao } = useRemoverNotificacao()

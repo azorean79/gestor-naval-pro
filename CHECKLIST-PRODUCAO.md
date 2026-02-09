@@ -171,6 +171,50 @@ vercel --prod
 
 ---
 
+## Checklist Produção com Dados Reais (Complementar)
+
+### 1. Banco de Dados
+- [ ] Backup do banco de dados atual
+- [ ] Executar migrações (`prisma migrate deploy`)
+- [ ] Importar dados reais (ex: `scripts/import-all-quadros.ts`, `import_mk4_spares.py`)
+- [ ] Validar integridade dos dados importados
+
+### 2. Variáveis de Ambiente
+- [ ] Preencher `.env` com credenciais reais (DB, APIs, storage, e-mail, etc)
+- [ ] Validar variáveis obrigatórias
+
+### 3. Dependências
+- [ ] `npm install`
+- [ ] `pip install -r requirements.txt` (ou ativar `.venv`)
+- [ ] Validar instalação de dependências críticas (`psycopg2`, `PyMuPDF`, `pdfplumber`, etc)
+
+### 4. Build e Testes
+- [ ] `npm run build` (Next.js)
+- [ ] Testar scripts de importação e análise (TS/Python)
+- [ ] Testar rotinas críticas manualmente (cadastro, uploads, relatórios)
+
+### 5. OCR e Integrações
+- [ ] Testar OCR com arquivos reais (`extract-seasava-ocr.py`, `ocr-seasava.py`)
+- [ ] Validar integrações externas (APIs, e-mail, storage)
+
+### 6. Logs e Monitoramento
+- [ ] Ativar logs detalhados
+- [ ] Configurar alertas para falhas críticas
+
+### 7. Deploy
+- [ ] Deploy em ambiente isolado (produção/staging)
+- [ ] Testar endpoints e funcionalidades principais
+
+### 8. Documentação
+- [ ] Checklist de deploy salvo
+- [ ] Guia de recuperação rápida disponível
+
+> **Atenção:** NÃO executar scripts de limpeza completa em produção!
+> Sempre testar com dados reais antes de liberar para usuários finais.
+> Manter backup atualizado antes de qualquer alteração crítica.
+
+---
+
 ## 📞 SUPORTE & ESCALAÇÃO
 
 **Erro crítico em produção:**

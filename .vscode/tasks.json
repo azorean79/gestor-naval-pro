@@ -12,6 +12,228 @@
 			"isBackground": false,
 			"problemMatcher": [],
 			"group": "build"
+		},
+		{
+			"label": "build",
+			"type": "shell",
+			"command": "npm run build",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "build",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "build",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "import-quadros",
+			"type": "shell",
+			"command": "tsx"
+		},
+		{
+			"label": "import-quadros",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"tsx",
+				"scripts/import-quadros-lote.ts"
+			]
+		},
+		{
+			"label": "import-quadros-js",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"import:quadros"
+			]
+		},
+		{
+			"label": "start-dev-server",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev"
+			]
+		},
+		{
+			"label": "import-quadros-js",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"import:quadros"
+			]
+		},
+		{
+			"label": "test-api",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"scripts/test-api.js"
+			]
+		},
+		{
+			"label": "start-dev-server",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev"
+			]
+		},
+		{
+			"label": "test-api",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"scripts/test-api.js"
+			]
+		},
+		{
+			"label": "start-dev-server-bg",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev"
+			],
+			"isBackground": true
+		},
+		{
+			"label": "start-dev-server-port-3002",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev",
+				"--",
+				"-p",
+				"3002"
+			],
+			"isBackground": true
+		},
+		{
+			"label": "test-api",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"scripts/test-api.js"
+			]
+		},
+		{
+			"label": "start-production-server",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"start"
+			],
+			"isBackground": true
+		},
+		{
+			"label": "import-quadros-final",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"import:quadros"
+			]
+		},
+		{
+			"label": "start-production-server-final",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"start"
+			],
+			"isBackground": true
+		},
+		{
+			"label": "start-production-server-port-3003",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"start",
+				"--",
+				"-p",
+				"3003"
+			],
+			"isBackground": true
+		},
+		{
+			"label": "import-quadros-final-3003",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"import:quadros"
+			]
+		},
+		{
+			"label": "start-production-server-default",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"start"
+			],
+			"isBackground": true
+		},
+		{
+			"label": "start-dev-server-3004",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev",
+				"--",
+				"-p",
+				"3004"
+			],
+			"isBackground": true
+		},
+		{
+			"label": "start-production-server-3005",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"start",
+				"--",
+				"-p",
+				"3005"
+			],
+			"isBackground": true
+		},
+		{
+			"label": "import-quadros-final-3005",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"import:quadros"
+			]
 		}
 	]
 }

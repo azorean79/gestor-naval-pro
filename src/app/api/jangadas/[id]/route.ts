@@ -8,8 +8,9 @@ export async function GET(
   try {
     const { id } = await params;
 
+    // Buscar por numeroSerie em vez de id
     const jangada = await prisma.jangada.findUnique({
-      where: { id },
+      where: { numeroSerie: id },
       include: {
         cliente: true,
         proprietario: true,
@@ -63,9 +64,7 @@ export async function PUT(
         proprietarioId: data.proprietarioId,
         tecnico: data.tecnicoResponsavel || data.tecnico,
         // HRU fields
-        hruAplicavel: data.hruAplicavel,
         hruNumeroSerie: data.hruNumeroSerie,
-        hruModelo: data.hruModelo,
         hruDataInstalacao: data.hruDataInstalacao ? new Date(data.hruDataInstalacao) : null,
         hruDataValidade: data.hruDataValidade ? new Date(data.hruDataValidade) : null,
       },

@@ -109,6 +109,24 @@ async function main() {
   // Buscar navios criados
   const naviosCriados = await prisma.navio.findMany()
 
+  // Criar marcas, modelos e tipos de pack primeiro
+  console.log('🏷️  Criando marcas, modelos e tipos de pack...')
+  
+  // Criar tipos de pack primeiro
+  const tiposPack = [
+    { nome: 'Pack SOLAS A', descricao: 'Pack SOLAS A - Completo', categoria: 'SOLAS A' },
+    { nome: 'Pack SOLAS B', descricao: 'Pack SOLAS B - Completo', categoria: 'SOLAS B' },
+    { nome: 'Pack ISO 9650-1', descricao: 'Pack ISO 9650-1', categoria: 'ISO >24h' },
+    { nome: 'E', descricao: 'Pack Standard Europeu', categoria: 'E' },
+  ]
+  for (const tipoPack of tiposPack) {
+    await prisma.tipoPack.upsert({
+      where: { nome: tipoPack.nome },
+      update: {},
+      create: tipoPack
+    })
+  }
+
   // Criar jangadas usando os exemplos
   console.log('🛟 Criando jangadas...')
   for (let i = 0; i < Math.min(EXEMPLOS_JANGADAS.length, 10); i++) {
@@ -119,11 +137,45 @@ async function main() {
     const statusPossiveis = ['Instalada', 'Em Inspeção', 'Aguardando Inspeção', 'Em Manutenção', 'Defeituosa']
     const status = statusPossiveis[Math.floor(Math.random() * statusPossiveis.length)]
 
+    // Criar ou buscar marca
+    const marca = await prisma.marcaJangada.upsert({
+      where: { nome: exemplo.marca },
+      update: {},
+      create: { nome: exemplo.marca, ativo: true }
+    })
+
+    // Criar ou buscar modelo
+    const modelo = await prisma.modeloJangada.upsert({
+      where: { 
+        nome_marcaId: { 
+          nome: exemplo.modelo, 
+          marcaId: marca.id 
+        } 
+      },
+      update: {},
+      create: { 
+        nome: exemplo.modelo, 
+        marcaId: marca.id,
+        ativo: true 
+      }
+    })
+
+    // Buscar tipo de pack (usar o primeiro se não encontrar)
+    let tipoPack = await prisma.tipoPack.findFirst({
+      where: { nome: exemplo.tipoPack }
+    })
+    if (!tipoPack) {
+      tipoPack = await prisma.tipoPack.findFirst()
+    }
+
     await prisma.jangada.upsert({
       where: { numeroSerie: exemplo.numeroSerie },
       update: {},
       create: {
         numeroSerie: exemplo.numeroSerie,
+        marcaId: marca.id,
+        modeloId: modelo.id,
+        tipoPackId: tipoPack!.id,
         tipo: exemplo.tipo,
         tipoPack: exemplo.tipoPack,
         dataInspecao: new Date(),
@@ -138,8 +190,8 @@ async function main() {
   }
 
   // Criar tipos de packs de equipamento de jangada
-  console.log('📋 Criando tipos de packs...')
-  const tiposPack = [
+  console.log('📋 Criando tipos de packs adicionais...')
+  const tiposPackAdicionais = [
     { nome: 'E', descricao: 'Pack Standard Europeu' },
     { nome: 'ORC', descricao: 'Pack ORC (Offshore Racing Council)' },
     { nome: 'STD', descricao: 'Pack Standard Completo' },
@@ -154,7 +206,7 @@ async function main() {
     { nome: 'ISO 9650-2', descricao: 'Pack ISO 9650-2' }
   ]
 
-  for (const tipoPack of tiposPack) {
+  for (const tipoPack of tiposPackAdicionais) {
     await prisma.tipoPack.upsert({
       where: { nome: tipoPack.nome },
       update: {},

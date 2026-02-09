@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Entrada Manual de Especificações</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; }
+    label { display: block; margin-top: 1em; }
+    input, textarea, select { width: 100%; padding: 0.5em; margin-top: 0.2em; }
+    button { margin-top: 1em; padding: 0.7em 1.5em; }
+    .success { color: green; margin-top: 1em; }
+    .error { color: red; margin-top: 1em; }
+  </style>
+</head>
+<body>
+  <h2>Entrada Manual de Especificações para IA</h2>
+  <form id="specForm">
+    <label>Marca:
+      <input type="text" name="marca" required>
+    </label>
+    <label>Modelo:
+      <input type="text" name="modelo" required>
+    </label>
+    <label>Tipo:
+      <input type="text" name="tipo" required>
+    </label>
+    <label>Fonte:
+      <input type="text" name="fonte">
+    </label>
+    <label>Dados Técnicos (JSON):
+      <textarea name="dados" rows="8" placeholder='{"capacidade": 6, "peso": 45}'></textarea>
+    </label>
+    <button type="submit">Salvar Especificação</button>
+  </form>
+  <div id="result"></div>
+  <script>
+    document.getElementById('specForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const marca = form.marca.value.trim();
+      const modelo = form.modelo.value.trim();
+      const tipo = form.tipo.value.trim();
+      const fonte = form.fonte.value.trim();
+      let dados = form.dados.value.trim();
+      let dadosObj = {};
+      try {
+        dadosObj = dados ? JSON.parse(dados) : {};
+      } catch (err) {
+        document.getElementById('result').innerHTML = '<div class="error">Erro no JSON dos dados técnicos.</div>';
+        return;
+      }
+        const spec = { marca, modelo, tipo, fonte, dados: dadosObj };
+        // Enviar para backend
+        try {
+          const resp = await fetch('/api/especificacoes-manual', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(spec)
+          });
+          if (resp.ok) {
+            document.getElementById('result').innerHTML = '<div class="success">Especificação enviada para backend com sucesso.</div>';
+          } else {
+            document.getElementById('result').innerHTML = '<div class="error">Erro ao enviar para backend.</div>';
+          }
+        } catch (err) {
+          document.getElementById('result').innerHTML = '<div class="error">Erro de conexão com backend.</div>';
+        }
+        // Download local também
+        const blob = new Blob([JSON.stringify(spec, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `especificacao-${marca}-${modelo}.json`;
+        a.click();
+        // Mensagem já definida acima
+    });
+  </script>
+</body>
+</html>

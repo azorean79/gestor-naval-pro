@@ -22,7 +22,6 @@ const editStockItemSchema = z.object({
   referenciaOrey: z.string().optional(),
   referenciaFabricante: z.string().optional(),
   lote: z.string().optional(),
-  validade: z.string().optional(),
   categoria: z.string().min(1, 'Categoria é obrigatória'),
   quantidade: z.number().min(0, 'Quantidade deve ser maior ou igual a 0'),
   quantidadeMinima: z.number().min(0, 'Quantidade mínima deve ser maior ou igual a 0'),
@@ -72,7 +71,6 @@ export function EditStockItemForm({ open, onOpenChange, item, onSuccess }: EditS
       referenciaOrey: '',
       referenciaFabricante: '',
       lote: '',
-      validade: '',
       categoria: '',
       quantidade: 0,
       quantidadeMinima: 1,
@@ -94,7 +92,6 @@ export function EditStockItemForm({ open, onOpenChange, item, onSuccess }: EditS
         referenciaOrey: item.refOrey || '',
         referenciaFabricante: item.refFabricante || '',
         lote: item.lote || '',
-        validade: item.dataValidade ? new Date(item.dataValidade).toISOString().split('T')[0] : '',
         categoria: item.categoria || '',
         quantidade: item.quantidade || 0,
         quantidadeMinima: item.quantidadeMinima || 1,
@@ -116,7 +113,6 @@ export function EditStockItemForm({ open, onOpenChange, item, onSuccess }: EditS
         id: item.id,
         data: {
           ...data,
-          validade: data.validade ? new Date(data.validade) : undefined,
         }
       })
 
@@ -360,20 +356,6 @@ export function EditStockItemForm({ open, onOpenChange, item, onSuccess }: EditS
                     <FormLabel>Localização</FormLabel>
                     <FormControl>
                       <Input placeholder="Localização no armazém" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="validade"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Data de Validade</FormLabel>
-                    <FormControl>
-                      <Input type="date" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

@@ -1,0 +1,883 @@
+[
+  {
+    "modelo": "RFD SURVIVA MKIII",
+    "arquivo": "MkIII.pdf",
+    "pressaoTrabalho": {
+      "psi": 2.8,
+      "mmWG": 1970.0
+    },
+    "pressaoTrabalho_convertida": {
+      "psi": 2.8,
+      "mmWG": 1968.59,
+      "inH2O": 77.51
+    },
+    "davitLaunch": {
+      "weak_link": [],
+      "bridle": [],
+      "safety_factors": [],
+      "test_weights": [],
+      "raw_findings": [
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "THROW OVERBOARD & DAVIT LAUNCH TYPES",
+          "contexto": "SOLAS STYLE LIFERAFTS | THROW OVERBOARD & DAVIT LAUNCH TYPES | Ver. 3"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "The range is complemented by Davit Launch versions sized 12, 16, 20 or 25",
+          "contexto": "capacity liferafts rated for 4, 6, 8, 10, 12, 16, 20 or 25 persons (FIGURE 101). | The range is complemented by Davit Launch versions sized 12, 16, 20 or 25 | persons, (FIGURE 102)."
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "(Manually deployed on Davit Launch liferafts).",
+          "contexto": "(Automatically deployed on Throw Over liferafts). | (Manually deployed on Davit Launch liferafts). | (5) Survival equipment, which is contained in emergency pack valise(s), are"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "(11) Lifting bridle. (Only on Davit Launch liferafts).",
+          "contexto": "language. | (11) Lifting bridle. (Only on Davit Launch liferafts). | CHAPTER 1 251 Page 104"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "SOLAS Style Davit Launch liferaft",
+          "contexto": "Dec/04 | SOLAS Style Davit Launch liferaft | FIGURE 102"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "THROW OVER DAVIT LAUNCH",
+          "contexto": "LIFERAFT DIMENSIONS | THROW OVER DAVIT LAUNCH | Nominal Dimensions Nominal Dimensions"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "DAVIT LAUNCH RAFTS",
+          "contexto": "EUROPEAN Cylinders | DAVIT LAUNCH RAFTS | 4 1.98 4.37 0.06 0.13"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "THROW OVER RAFTS DAVIT LAUNCH RAFTS",
+          "contexto": "USA & CANADA Cylinders | THROW OVER RAFTS DAVIT LAUNCH RAFTS | INFLATION SYSTEM INFLATION SYSTEM"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "In cases where Davit Launch liferafts are to be fitted they should be",
+          "contexto": "boat at any other launching station. | In cases where Davit Launch liferafts are to be fitted they should be | positioned at least 9m forward of the ships propellers."
+        },
+        {
+          "keyword": "weak\\s*link",
+          "linha": "fitted the painter line should be attached only to the HRU weak link.",
+          "contexto": "arrangement, such as a hydrostatic release unit, (HRU). Where a HRU is | fitted the painter line should be attached only to the HRU weak link. | WARNING: IT SHOULD BE IMPRESSED UPON ALL MEMBERS OF THE"
+        },
+        {
+          "keyword": "breaking\\s*strength",
+          "linha": "The weak-link in the system must have a breaking strength of 1.8 -",
+          "contexto": "a liferaft is not pulled under the water by a sinking ship. | The weak-link in the system must have a breaking strength of 1.8 - | 2.6 kN (404.66-584.5 lbf) to pull the painter from the liferaft container"
+        }
+      ]
+    },
+    "especificacoesPorCapacidade": {
+      "6p": {
+        "linha": "(for 6 Persons and larger Liferafts)",
+        "numeros": [
+          6.0
+        ]
+      },
+      "4p": {
+        "linha": "(for 4 Persons Liferaft)",
+        "numeros": [
+          4.0
+        ]
+      },
+      "25p": {
+        "linha": "capacity liferafts rated for 4, 6, 8, 10, 12, 16, 20 or 25 persons (FIGURE 101).",
+        "numeros": [
+          4.0,
+          6.0,
+          8.0,
+          10.0,
+          12.0,
+          16.0,
+          20.0,
+          25.0,
+          101.0
+        ]
+      }
+    },
+    "numeros_encontrados": [
+      {
+        "value": 17.0,
+        "line": "RFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland.",
+        "context": ", RFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: marine@rfdbeaufort.com SERVICE MANUAL"
+      },
+      {
+        "value": 9.0,
+        "line": "RFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland.",
+        "context": ", RFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: marine@rfdbeaufort.com SERVICE MANUAL"
+      },
+      {
+        "value": 44.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": ", RFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: marine@rfdbeaufort.com SERVICE MANUAL for"
+      },
+      {
+        "value": 0.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": ", RFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: marine@rfdbeaufort.com SERVICE MANUAL for"
+      },
+      {
+        "value": 28.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": ", RFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: marine@rfdbeaufort.com SERVICE MANUAL for"
+      },
+      {
+        "value": 9030.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": ", RFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: marine@rfdbeaufort.com SERVICE MANUAL for"
+      },
+      {
+        "value": 1531.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": ", RFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: marine@rfdbeaufort.com SERVICE MANUAL for"
+      },
+      {
+        "value": 44.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": ", RFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: marine@rfdbeaufort.com SERVICE MANUAL for"
+      },
+      {
+        "value": 0.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": ", RFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: marine@rfdbeaufort.com SERVICE MANUAL for"
+      },
+      {
+        "value": 28.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": ", RFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: marine@rfdbeaufort.com SERVICE MANUAL for"
+      },
+      {
+        "value": 9062.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": ", RFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: marine@rfdbeaufort.com SERVICE MANUAL for"
+      },
+      {
+        "value": 1765.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": ", RFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: marine@rfdbeaufort.com SERVICE MANUAL for"
+      },
+      {
+        "value": 3.0,
+        "line": "Ver. 3",
+        "context": "BEAUFORT SEAFARER SOLAS STYLE LIFERAFTS THROW OVERBOARD & DAVIT LAUNCH TYPES Ver. 3 Copyright © 2004 This manual: Part number 08133009 TITLE PAGE 251 Page 1"
+      },
+      {
+        "value": 2004.0,
+        "line": "Copyright © 2004",
+        "context": "SOLAS STYLE LIFERAFTS THROW OVERBOARD & DAVIT LAUNCH TYPES Ver. 3 Copyright © 2004 This manual: Part number 08133009 TITLE PAGE 251 Page 1 SERVICE MANUAL"
+      },
+      {
+        "value": 8133009.0,
+        "line": "This manual: Part number 08133009",
+        "context": "THROW OVERBOARD & DAVIT LAUNCH TYPES Ver. 3 Copyright © 2004 This manual: Part number 08133009 TITLE PAGE 251 Page 1 SERVICE MANUAL Feb/12"
+      },
+      {
+        "value": 251.0,
+        "line": "TITLE PAGE 251 Page 1",
+        "context": "Ver. 3 Copyright © 2004 This manual: Part number 08133009 TITLE PAGE 251 Page 1 SERVICE MANUAL Feb/12 RFD SURVIVA MK III"
+      },
+      {
+        "value": 1.0,
+        "line": "TITLE PAGE 251 Page 1",
+        "context": "Ver. 3 Copyright © 2004 This manual: Part number 08133009 TITLE PAGE 251 Page 1 SERVICE MANUAL Feb/12 RFD SURVIVA MK III"
+      },
+      {
+        "value": 12.0,
+        "line": "Feb/12",
+        "context": "This manual: Part number 08133009 TITLE PAGE 251 Page 1 SERVICE MANUAL Feb/12 RFD SURVIVA MK III BEAUFORT SEAFARER BLANK PAGE"
+      },
+      {
+        "value": 251.0,
+        "line": "TITLE PAGE 251 Page 2",
+        "context": "RFD SURVIVA MK III BEAUFORT SEAFARER BLANK PAGE TITLE PAGE 251 Page 2 SERVICE MANUAL Dec/04 STATEMENT OF CERTIFICATION"
+      },
+      {
+        "value": 2.0,
+        "line": "TITLE PAGE 251 Page 2",
+        "context": "RFD SURVIVA MK III BEAUFORT SEAFARER BLANK PAGE TITLE PAGE 251 Page 2 SERVICE MANUAL Dec/04 STATEMENT OF CERTIFICATION"
+      }
+    ],
+    "total_paginas": 300,
+    "status": "sucesso",
+    "texto_amostrado": ",\nRFD Beaufort Limited Kingsway, Dunmurry, Belfast BT17 9AF, Northern Ireland.\nTelephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765\nEmail: marine@rfdbeaufort.com\nSERVICE MANUAL\nfor\nRFD SURVIVA MK III\nBEAUFORT SEAFARER\nSOLAS STYLE LIFERAFTS\nTHROW OVERBOARD & DAVIT LAUNCH TYPES\nVer. 3\nCopyright © 2004\nThis manual: Part number 08133009\nTITLE PAGE 251 Page 1\nSERVICE MANUAL\nFeb/12\nRFD SURVIVA MK III\nBEAUFORT SEAFARER\nBLANK PAGE\nTITLE PAGE 251 Page 2\nSERVICE MANUAL\nDec/04\nSTATEMENT OF CERTIFICATION\n(for 6 Persons and larger Liferafts)\nThe equipment described in this manual has been accepted by the United Kingdom\nDepartment of Transport, and refers to inflatable liferafts which comply with the\nfollowing international conventions and regulations:\n1. SOLAS 74 as amended by Regulation III/4, 34, 35, 36 and MSC/Circ 809 as\namended.\n2. LSA Code, regulations I/1.2, IV/4.1 and 4.2.\n3. IMO resolution MSC 81(70) Part 1.\nand has been type approved in compliance with the Marine Equipment Directive,\n("
+  },
+  {
+    "modelo": "DSB LR05",
+    "arquivo": "LR05.pdf",
+    "pressaoTrabalho": {
+      "psi": 2.8,
+      "mmWG": 1970.0
+    },
+    "pressaoTrabalho_convertida": {
+      "psi": 2.8,
+      "mmWG": 1968.59,
+      "inH2O": 77.51
+    },
+    "davitLaunch": {
+      "weak_link": [],
+      "bridle": [],
+      "safety_factors": [],
+      "test_weights": [],
+      "raw_findings": [
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "THROW OVERBOARD & DAVIT LAUNCH TYPES",
+          "contexto": "SOLAS STYLE LIFERAFTS | THROW OVERBOARD & DAVIT LAUNCH TYPES | This Manual: Part Number 08196009"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "A2 DSB LR05 Davit launch liferafts (KLAPPE)",
+          "contexto": "A 1 Marine Equipment Directive Variations | A2 DSB LR05 Davit launch liferafts (KLAPPE) | A 3 US DoT cylinders"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "weights for Throw over (TO) & Davit launch (DL) ....................... 107",
+          "contexto": "3 CYLINDRICAL CONTAINERS: Nominal Dimensions and | weights for Throw over (TO) & Davit launch (DL) ....................... 107 | 4 Inflation system and Gas charges............................................... 109"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "The range is complemented by Davit Launch versions sized 12, 16, 20 or 25",
+          "contexto": "liferafts rated for 6, 8, 10, 12, 16, 20 or 25 persons (FIGURE 101). | The range is complemented by Davit Launch versions sized 12, 16, 20 or 25 | persons (FIGURE 102)."
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "(Manually deployed on Davit Launch liferafts).",
+          "contexto": "(Automatically deployed on Throw Over liferafts). | (Manually deployed on Davit Launch liferafts). | (5) Survival equipment, which is contained in emergency pack valise(s), are"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "(11) Lifting Bridle. (Only on Davit Launch liferafts).",
+          "contexto": "foreign language. | (11) Lifting Bridle. (Only on Davit Launch liferafts). | DSB Deutsche Schlauchboot Service Manual SOLAS DESCRIPTION & DATA"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "SOLAS Style Davit Launch Liferaft",
+          "contexto": "TOWING PATCH CYLINDER | SOLAS Style Davit Launch Liferaft | FIGURE 102"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "THROW OVER DAVIT LAUNCH",
+          "contexto": "LIFERAFT DIMENSIONS | THROW OVER DAVIT LAUNCH | Nominal Dimensions (mm) Nominal Dimensions (mm)"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "THROW OVER DAVIT LAUNCH",
+          "contexto": "25G 1400 780 710 | THROW OVER DAVIT LAUNCH | Raft Container"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "MK14 CONTAINER DIMENSIONS DAVIT LAUNCH RAFTS",
+          "contexto": "25 1273 685 177 1273 685 127 | MK14 CONTAINER DIMENSIONS DAVIT LAUNCH RAFTS | 16 1273 685 141"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "DAVIT LAUNCH RAFTS",
+          "contexto": "YTICAPAC | DAVIT LAUNCH RAFTS | INFLATION SYSTEM INFLATION SYSTEM"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "In cases where Davit Launch liferafts are to be fitted they should be",
+          "contexto": "rescue boat at any other launching station. | In cases where Davit Launch liferafts are to be fitted they should be | positioned at least 9m forward of the ships propellers."
+        },
+        {
+          "keyword": "breaking\\s*strength",
+          "linha": "The weak-link in the system must have a breaking strength of 1.8 -",
+          "contexto": "sure a liferaft is not pulled under the water by a sinking ship. | The weak-link in the system must have a breaking strength of 1.8 - | 2.6 kN to pull the painter from the liferaft container and activate its"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "NOTE: Davit launch only: Do not damage the black tear strip",
+          "contexto": "(3) Cut the black plastic closing strap. | NOTE: Davit launch only: Do not damage the black tear strip | which will be re-used when re-packing the liferaft."
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "NOTE: Davit launch only: Unbuckle the two, 40 mm wide fabric",
+          "contexto": "(7) CAREFULLY remove the polythene sheet covering the packed liferaft. | NOTE: Davit launch only: Unbuckle the two, 40 mm wide fabric | straps. Both straps will be used for re-packing."
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "Application: Davit Launch containers",
+          "contexto": "8 | Application: Davit Launch containers | Part Number: 00941460"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "Application: Davit Launch containers",
+          "contexto": "9 | Application: Davit Launch containers | Part Number: 00950270"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "Application: Davit Launch containers",
+          "contexto": "10 | Application: Davit Launch containers | Part Number: R20924011"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "Application: Davit Launch containers",
+          "contexto": "11 | Application: Davit Launch containers | Part Number: R20924021"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "NOTE: Davit Launch liferafts fitted with USDoT cylinders, are",
+          "contexto": "Solas compliant liferafts, fitted with USDoT compliant cylinders. | NOTE: Davit Launch liferafts fitted with USDoT cylinders, are | packed in accordance with Appendix 2."
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "(1) Allow the Davit launch ring to hang out of container. Measure up to a",
+          "contexto": "4. Closing the container | (1) Allow the Davit launch ring to hang out of container. Measure up to a | maximum of 200 mm from the bottom of the container rim to the bottom of"
+        }
+      ]
+    },
+    "especificacoesPorCapacidade": {
+      "25p": {
+        "linha": "D-37632 Eschershausen LR 05 6-25 Persons Page 1",
+        "numeros": [
+          37632.0,
+          5.0,
+          6.0,
+          25.0,
+          1.0
+        ]
+      }
+    },
+    "numeros_encontrados": [
+      {
+        "value": 1169.0,
+        "line": "P.O. BOX 1169, 37628 ESCHERSHAUSEN",
+        "context": "DEUTSCHE SCHLAUCHBOOT P.O. BOX 1169, 37628 ESCHERSHAUSEN GERMANY Telephone: (++49) 5534 3010 Fax: (++49) 55 3430 1200"
+      },
+      {
+        "value": 37628.0,
+        "line": "P.O. BOX 1169, 37628 ESCHERSHAUSEN",
+        "context": "DEUTSCHE SCHLAUCHBOOT P.O. BOX 1169, 37628 ESCHERSHAUSEN GERMANY Telephone: (++49) 5534 3010 Fax: (++49) 55 3430 1200"
+      },
+      {
+        "value": 49.0,
+        "line": "Telephone: (++49) 5534 3010",
+        "context": "DEUTSCHE SCHLAUCHBOOT P.O. BOX 1169, 37628 ESCHERSHAUSEN GERMANY Telephone: (++49) 5534 3010 Fax: (++49) 55 3430 1200 WARTUNGSHANDBUCH SERVICE MANUAL FOR"
+      },
+      {
+        "value": 5534.0,
+        "line": "Telephone: (++49) 5534 3010",
+        "context": "DEUTSCHE SCHLAUCHBOOT P.O. BOX 1169, 37628 ESCHERSHAUSEN GERMANY Telephone: (++49) 5534 3010 Fax: (++49) 55 3430 1200 WARTUNGSHANDBUCH SERVICE MANUAL FOR"
+      },
+      {
+        "value": 3010.0,
+        "line": "Telephone: (++49) 5534 3010",
+        "context": "DEUTSCHE SCHLAUCHBOOT P.O. BOX 1169, 37628 ESCHERSHAUSEN GERMANY Telephone: (++49) 5534 3010 Fax: (++49) 55 3430 1200 WARTUNGSHANDBUCH SERVICE MANUAL FOR"
+      },
+      {
+        "value": 49.0,
+        "line": "Fax: (++49) 55 3430 1200",
+        "context": "P.O. BOX 1169, 37628 ESCHERSHAUSEN GERMANY Telephone: (++49) 5534 3010 Fax: (++49) 55 3430 1200 WARTUNGSHANDBUCH SERVICE MANUAL FOR LR05"
+      },
+      {
+        "value": 55.0,
+        "line": "Fax: (++49) 55 3430 1200",
+        "context": "P.O. BOX 1169, 37628 ESCHERSHAUSEN GERMANY Telephone: (++49) 5534 3010 Fax: (++49) 55 3430 1200 WARTUNGSHANDBUCH SERVICE MANUAL FOR LR05"
+      },
+      {
+        "value": 3430.0,
+        "line": "Fax: (++49) 55 3430 1200",
+        "context": "P.O. BOX 1169, 37628 ESCHERSHAUSEN GERMANY Telephone: (++49) 5534 3010 Fax: (++49) 55 3430 1200 WARTUNGSHANDBUCH SERVICE MANUAL FOR LR05"
+      },
+      {
+        "value": 1200.0,
+        "line": "Fax: (++49) 55 3430 1200",
+        "context": "P.O. BOX 1169, 37628 ESCHERSHAUSEN GERMANY Telephone: (++49) 5534 3010 Fax: (++49) 55 3430 1200 WARTUNGSHANDBUCH SERVICE MANUAL FOR LR05"
+      },
+      {
+        "value": 5.0,
+        "line": "LR05",
+        "context": "Fax: (++49) 55 3430 1200 WARTUNGSHANDBUCH SERVICE MANUAL FOR LR05 SOLAS STYLE LIFERAFTS THROW OVERBOARD & DAVIT LAUNCH TYPES This Manual: Part Number 08196009"
+      },
+      {
+        "value": 8196009.0,
+        "line": "This Manual: Part Number 08196009",
+        "context": "LR05 SOLAS STYLE LIFERAFTS THROW OVERBOARD & DAVIT LAUNCH TYPES This Manual: Part Number 08196009 Copyright © 2005 Deutsche Schlauchboot Service Manual SOLAS TITLE PAGE D-37632 Eschershausen LR 05 6-2"
+      },
+      {
+        "value": 2005.0,
+        "line": "Copyright © 2005",
+        "context": "SOLAS STYLE LIFERAFTS THROW OVERBOARD & DAVIT LAUNCH TYPES This Manual: Part Number 08196009 Copyright © 2005 Deutsche Schlauchboot Service Manual SOLAS TITLE PAGE D-37632 Eschershausen LR 05 6-25 Per"
+      },
+      {
+        "value": 37632.0,
+        "line": "D-37632 Eschershausen LR 05 6-25 Persons Page 1",
+        "context": "This Manual: Part Number 08196009 Copyright © 2005 Deutsche Schlauchboot Service Manual SOLAS TITLE PAGE D-37632 Eschershausen LR 05 6-25 Persons Page 1 Germany Part No. : 08196009 Issue: Feb 06 THIS "
+      },
+      {
+        "value": 5.0,
+        "line": "D-37632 Eschershausen LR 05 6-25 Persons Page 1",
+        "context": "This Manual: Part Number 08196009 Copyright © 2005 Deutsche Schlauchboot Service Manual SOLAS TITLE PAGE D-37632 Eschershausen LR 05 6-25 Persons Page 1 Germany Part No. : 08196009 Issue: Feb 06 THIS "
+      },
+      {
+        "value": 6.0,
+        "line": "D-37632 Eschershausen LR 05 6-25 Persons Page 1",
+        "context": "This Manual: Part Number 08196009 Copyright © 2005 Deutsche Schlauchboot Service Manual SOLAS TITLE PAGE D-37632 Eschershausen LR 05 6-25 Persons Page 1 Germany Part No. : 08196009 Issue: Feb 06 THIS "
+      },
+      {
+        "value": 25.0,
+        "line": "D-37632 Eschershausen LR 05 6-25 Persons Page 1",
+        "context": "This Manual: Part Number 08196009 Copyright © 2005 Deutsche Schlauchboot Service Manual SOLAS TITLE PAGE D-37632 Eschershausen LR 05 6-25 Persons Page 1 Germany Part No. : 08196009 Issue: Feb 06 THIS "
+      },
+      {
+        "value": 1.0,
+        "line": "D-37632 Eschershausen LR 05 6-25 Persons Page 1",
+        "context": "This Manual: Part Number 08196009 Copyright © 2005 Deutsche Schlauchboot Service Manual SOLAS TITLE PAGE D-37632 Eschershausen LR 05 6-25 Persons Page 1 Germany Part No. : 08196009 Issue: Feb 06 THIS "
+      },
+      {
+        "value": 8196009.0,
+        "line": "Germany Part No. : 08196009 Issue: Feb 06",
+        "context": "Copyright © 2005 Deutsche Schlauchboot Service Manual SOLAS TITLE PAGE D-37632 Eschershausen LR 05 6-25 Persons Page 1 Germany Part No. : 08196009 Issue: Feb 06 THIS IS A BLANK PAGE Deutsche Schlauchb"
+      },
+      {
+        "value": 6.0,
+        "line": "Germany Part No. : 08196009 Issue: Feb 06",
+        "context": "Copyright © 2005 Deutsche Schlauchboot Service Manual SOLAS TITLE PAGE D-37632 Eschershausen LR 05 6-25 Persons Page 1 Germany Part No. : 08196009 Issue: Feb 06 THIS IS A BLANK PAGE Deutsche Schlauchb"
+      },
+      {
+        "value": 37632.0,
+        "line": "D-37632 Eschershausen LR 05 6-25 Persons Page 2",
+        "context": "Germany Part No. : 08196009 Issue: Feb 06 THIS IS A BLANK PAGE Deutsche Schlauchboot Service Manual SOLAS TITLE PAGE D-37632 Eschershausen LR 05 6-25 Persons Page 2 Germany Part No. : 08196009 Issue: "
+      }
+    ],
+    "total_paginas": 296,
+    "status": "sucesso",
+    "texto_amostrado": "DEUTSCHE SCHLAUCHBOOT\nP.O. BOX 1169, 37628 ESCHERSHAUSEN\nGERMANY\nTelephone: (++49) 5534 3010\nFax: (++49) 55 3430 1200\nWARTUNGSHANDBUCH\nSERVICE MANUAL FOR\nLR05\nSOLAS STYLE LIFERAFTS\nTHROW OVERBOARD & DAVIT LAUNCH TYPES\nThis Manual: Part Number 08196009\nCopyright © 2005\nDeutsche Schlauchboot Service Manual SOLAS TITLE PAGE\nD-37632 Eschershausen LR 05 6-25 Persons Page 1\nGermany Part No. : 08196009 Issue: Feb 06\nTHIS IS A BLANK PAGE\nDeutsche Schlauchboot Service Manual SOLAS TITLE PAGE\nD-37632 Eschershausen LR 05 6-25 Persons Page 2\nGermany Part No. : 08196009 Issue: Feb 06\nDSB LR05\nImportant Notice\nThis publication is for reference purposes and its use restricted to trained service\ntechnicians in lawful possession of a current marine liferaft servicing certificate\ngranted by DSB GMBH (‘entitlement’). It is not a stand-alone text embodying\nthe basic techniques or skills appropriate to liferaft servicing.\nDSB GMBH accepts no responsibility for loss, injury or death resulting from\nthe parti"
+  },
+  {
+    "modelo": "RFD SURVIVA MKIV",
+    "arquivo": "MK IV.pdf",
+    "pressaoTrabalho": {
+      "milibares": 510.0
+    },
+    "pressaoTrabalho_convertida": {
+      "milibares": 510.0
+    },
+    "davitLaunch": {
+      "weak_link": [],
+      "bridle": [],
+      "safety_factors": [],
+      "test_weights": [],
+      "raw_findings": [
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "• Davit Launch",
+          "contexto": "• Throwover | • Davit Launch | • Beaufort Seafarer"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "Unitor throw-over (TO) and davit launch (DL) liferafts have been packed into contain-",
+          "contexto": "1. Introduction | Unitor throw-over (TO) and davit launch (DL) liferafts have been packed into contain- | ers using Unitor branded labels. The Unitor brand is to be discontinued, branded"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "Throw-over Davit launch",
+          "contexto": "Container label quantity | Throw-over Davit launch | Mk 10 Mk 14 Mk 14 Mk 10 Mk 14 Mk 14"
+        }
+      ]
+    },
+    "especificacoesPorCapacidade": {
+      "25p": {
+        "linha": "Appendix A-6 25 Person liferaft - overcapacity variant",
+        "numeros": [
+          6.0,
+          25.0
+        ]
+      },
+      "13p": {
+        "linha": "Appendix A-8 Servicing a 13 person liferaft steps",
+        "numeros": [
+          8.0,
+          13.0
+        ]
+      }
+    },
+    "numeros_encontrados": [
+      {
+        "value": 17.0,
+        "line": "Kingsway, Dunmurry, Belfast BT17 9AF, N.Ireland.",
+        "context": "SERVICE MANUAL Survitec Group Limited, Dunmurry Design Authority Kingsway, Dunmurry, Belfast BT17 9AF, N.Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: publications@survitecgr"
+      },
+      {
+        "value": 9.0,
+        "line": "Kingsway, Dunmurry, Belfast BT17 9AF, N.Ireland.",
+        "context": "SERVICE MANUAL Survitec Group Limited, Dunmurry Design Authority Kingsway, Dunmurry, Belfast BT17 9AF, N.Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: publications@survitecgr"
+      },
+      {
+        "value": 44.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": "Survitec Group Limited, Dunmurry Design Authority Kingsway, Dunmurry, Belfast BT17 9AF, N.Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: publications@survitecgroup.com Service"
+      },
+      {
+        "value": 0.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": "Survitec Group Limited, Dunmurry Design Authority Kingsway, Dunmurry, Belfast BT17 9AF, N.Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: publications@survitecgroup.com Service"
+      },
+      {
+        "value": 28.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": "Survitec Group Limited, Dunmurry Design Authority Kingsway, Dunmurry, Belfast BT17 9AF, N.Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: publications@survitecgroup.com Service"
+      },
+      {
+        "value": 9030.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": "Survitec Group Limited, Dunmurry Design Authority Kingsway, Dunmurry, Belfast BT17 9AF, N.Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: publications@survitecgroup.com Service"
+      },
+      {
+        "value": 1531.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": "Survitec Group Limited, Dunmurry Design Authority Kingsway, Dunmurry, Belfast BT17 9AF, N.Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: publications@survitecgroup.com Service"
+      },
+      {
+        "value": 44.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": "Survitec Group Limited, Dunmurry Design Authority Kingsway, Dunmurry, Belfast BT17 9AF, N.Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: publications@survitecgroup.com Service"
+      },
+      {
+        "value": 0.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": "Survitec Group Limited, Dunmurry Design Authority Kingsway, Dunmurry, Belfast BT17 9AF, N.Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: publications@survitecgroup.com Service"
+      },
+      {
+        "value": 28.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": "Survitec Group Limited, Dunmurry Design Authority Kingsway, Dunmurry, Belfast BT17 9AF, N.Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: publications@survitecgroup.com Service"
+      },
+      {
+        "value": 9062.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": "Survitec Group Limited, Dunmurry Design Authority Kingsway, Dunmurry, Belfast BT17 9AF, N.Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: publications@survitecgroup.com Service"
+      },
+      {
+        "value": 1765.0,
+        "line": "Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765",
+        "context": "Survitec Group Limited, Dunmurry Design Authority Kingsway, Dunmurry, Belfast BT17 9AF, N.Ireland. Telephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765 Email: publications@survitecgroup.com Service"
+      },
+      {
+        "value": 7.0,
+        "line": "• DSB LR07",
+        "context": "• Davit Launch • Beaufort Seafarer • Crewsaver • DSB LR07 • Elliot • EV Silver Series • New Wave Guardian"
+      },
+      {
+        "value": 8.0,
+        "line": "Version 8",
+        "context": "• RFD - Surviva • Survitec Zodiac • Survitec Safety Solutions (SURVITEC) Version 8 Copyright © 2021"
+      },
+      {
+        "value": 2021.0,
+        "line": "2021",
+        "context": "Version 8 Copyright © 2021 Title Page M269–00 Page 1 Aug/21 MARINE MKIV"
+      },
+      {
+        "value": 269.0,
+        "line": "Title Page M269–00 Page 1",
+        "context": "Copyright © 2021 Title Page M269–00 Page 1 Aug/21 MARINE MKIV SERVICE MANUAL"
+      },
+      {
+        "value": 0.0,
+        "line": "Title Page M269–00 Page 1",
+        "context": "Copyright © 2021 Title Page M269–00 Page 1 Aug/21 MARINE MKIV SERVICE MANUAL"
+      },
+      {
+        "value": 1.0,
+        "line": "Title Page M269–00 Page 1",
+        "context": "Copyright © 2021 Title Page M269–00 Page 1 Aug/21 MARINE MKIV SERVICE MANUAL"
+      },
+      {
+        "value": 21.0,
+        "line": "Aug/21",
+        "context": "© 2021 Title Page M269–00 Page 1 Aug/21 MARINE MKIV SERVICE MANUAL BLANK PAGE"
+      },
+      {
+        "value": 269.0,
+        "line": "Title Page M269–00 Page 2",
+        "context": "MARINE MKIV SERVICE MANUAL BLANK PAGE Title Page M269–00 Page 2 Aug/21 MARINE MKIV SERVICE MANUAL"
+      }
+    ],
+    "total_paginas": 680,
+    "status": "sucesso",
+    "texto_amostrado": "MARINE MKIV\nSERVICE MANUAL\nSurvitec Group Limited,\nDunmurry Design Authority\nKingsway, Dunmurry, Belfast BT17 9AF, N.Ireland.\nTelephone: +44 (0)28 9030 1531 Fax: +44 (0)28 9062 1765\nEmail: publications@survitecgroup.com\nService Manual for Marine MK IV liferafts\n• Throwover\n• Davit Launch\n• Beaufort Seafarer\n• Crewsaver\n• DSB LR07\n• Elliot\n• EV Silver Series\n• New Wave Guardian\n• Oceanmaster\n• RFD - Surviva\n• Survitec Zodiac\n• Survitec Safety Solutions (SURVITEC)\nVersion 8\nCopyright\n©\n2021\nTitle Page M269–00 Page 1\nAug/21\nMARINE MKIV\nSERVICE MANUAL\nBLANK PAGE\nTitle Page M269–00 Page 2\nAug/21\nMARINE MKIV\nSERVICE MANUAL\nCertification Page M269–00 Page 1\nApr/16\nMARINE MKIV\nSERVICE MANUAL\nCertification Page M269–00 Page 2\nApr/16\nMARINE MKIV\nSERVICE MANUAL\nImportant Notice\nThis publication is for reference purposes and its use restricted to trained service\ntechnicians in lawful possession of a current marine liferaft servicing certificate\ngranted by Survitec Group Ltd (‘entitlement’). It is "
+  },
+  {
+    "modelo": "DSB LR97",
+    "arquivo": "LR97.pdf",
+    "pressaoTrabalho": {
+      "milibares": 360.0,
+      "bar": 230.0
+    },
+    "pressaoTrabalho_convertida": {
+      "milibares": 360.0
+    },
+    "davitLaunch": {
+      "weak_link": [],
+      "bridle": [],
+      "safety_factors": [],
+      "test_weights": [],
+      "raw_findings": [
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "Davit launchable liferafts type LR 97 L for 12 to 25 persons",
+          "contexto": "Throw-over-board liferafts type LR 97 for 6 to 25 persons | Davit launchable liferafts type LR 97 L for 12 to 25 persons | Issue: 10/97"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "3.3.7 Davit launchable liferafts",
+          "contexto": "3.3.6 Bonded joints buoyancy tube / buoyancy tube / floor | 3.3.7 Davit launchable liferafts | 3.3.8 Valves and high pressure hoses"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "3.10 Load test - davit launchable liferafts",
+          "contexto": "3.9 Testing of the pressure relief valves | 3.10 Load test - davit launchable liferafts | 3.11 Testing of detachable raft accessories"
+        },
+        {
+          "keyword": "weak\\s*link",
+          "linha": "the screw of the shackle securing the weak link, painter and HRU. Safeguard the",
+          "contexto": "be knotted if a hydrostatic release unit is not mounted. If an HRU is fitted loosen | the screw of the shackle securing the weak link, painter and HRU. Safeguard the | shackle and screw until the end of the servicing."
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "Attention ! Davit launchable liferafts: Do not damage the black tear strip",
+          "contexto": "3.2.1.2 Cut the black plastic closing strap | Attention ! Davit launchable liferafts: Do not damage the black tear strip | which will be re-used when packing"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "LR 97 L davit launch types must be greater than 250 mbar)",
+          "contexto": "Reseat pressures: LR 97 throw-over-board types must be greater than 200 mbar; | LR 97 L davit launch types must be greater than 250 mbar) | The pressure drop must not exceed more than 5 % after one hour."
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "3.10 Loading test - davit launchable liferafts",
+          "contexto": "A leakage and function test must be carried out after completion of the above. | 3.10 Loading test - davit launchable liferafts | Each davit launchable raft must be loaded with 1,1x G every two years."
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "Each davit launchable raft must be loaded with 1,1x G every two years.",
+          "contexto": "3.10 Loading test - davit launchable liferafts | Each davit launchable raft must be loaded with 1,1x G every two years. | Use the following cases (to fill with water) for ballast:"
+        },
+        {
+          "keyword": "test.*load",
+          "linha": "Test after loading:",
+          "contexto": "LR 97 L 25 pers. x 75 kg/pers. x 1,1 = 2075 kg | Test after loading: | 1. Connection of canopy fabric to the upper buoyancy tube"
+        },
+        {
+          "keyword": "test.*load",
+          "linha": "Test arrangement for load test",
+          "contexto": "D-37632 Eschershausen Art.-Nr.: 8.09.57.11.0 | Test arrangement for load test | Inspection of davit launchable liferafts"
+        },
+        {
+          "keyword": "davit\\s*launch",
+          "linha": "Inspection of davit launchable liferafts",
+          "contexto": "Test arrangement for load test | Inspection of davit launchable liferafts | Make sure that the load ballast is equally distributed inside the raft"
+        }
+      ]
+    },
+    "especificacoesPorCapacidade": {
+      "25p": {
+        "linha": "GmbH & CO KG LR 97 (L) 6 to 25 persons issue : 10/97",
+        "numeros": [
+          97.0,
+          6.0,
+          25.0,
+          10.0,
+          97.0
+        ]
+      },
+      "8p": {
+        "linha": "for 6 and 8 persons rectangular",
+        "numeros": [
+          6.0,
+          8.0
+        ]
+      },
+      "16p": {
+        "linha": "for 10, 12 and 16 persons hexagonal",
+        "numeros": [
+          10.0,
+          12.0,
+          16.0
+        ]
+      },
+      "6p": {
+        "linha": "6 persons 8 persons 10 pers. 10/12 p. 12 pers. 16 pers. 16 pers. 20 pers. 20 pers. 25 pers. 25 pers.",
+        "numeros": [
+          6.0,
+          8.0,
+          10.0,
+          10.0,
+          12.0,
+          12.0,
+          16.0,
+          16.0,
+          20.0,
+          20.0,
+          25.0,
+          25.0
+        ]
+      },
+      "10p": {
+        "linha": "LR 97 - 10 persons 6 8,04 1 5,38 0,27 5,65",
+        "numeros": [
+          97.0,
+          10.0,
+          6.0,
+          8.0,
+          4.0,
+          1.0,
+          5.0,
+          38.0,
+          0.0,
+          27.0,
+          5.0,
+          65.0
+        ]
+      },
+      "12p": {
+        "linha": "LR 97 - 10/12 persons 6 8,04 1 5,38 0,27 5,65",
+        "numeros": [
+          97.0,
+          10.0,
+          12.0,
+          6.0,
+          8.0,
+          4.0,
+          1.0,
+          5.0,
+          38.0,
+          0.0,
+          27.0,
+          5.0,
+          65.0
+        ]
+      },
+      "20p": {
+        "linha": "LR 97 - 20 persons 10 13,40 1 8,80 0,44 9,24",
+        "numeros": [
+          97.0,
+          20.0,
+          10.0,
+          13.0,
+          40.0,
+          1.0,
+          8.0,
+          80.0,
+          0.0,
+          44.0,
+          9.0,
+          24.0
+        ]
+      }
+    },
+    "numeros_encontrados": [
+      {
+        "value": 74.0,
+        "line": "for SOLAS 74/88 – Liferafts and their equipment",
+        "context": "SERVICE MANUAL for SOLAS 74/88 – Liferafts and their equipment Throw-over-board liferafts type LR 97 for 6 to 25 persons Davit launchable liferafts type LR 97 L for 12 to 25 persons Issue: 10/97"
+      },
+      {
+        "value": 88.0,
+        "line": "for SOLAS 74/88 – Liferafts and their equipment",
+        "context": "SERVICE MANUAL for SOLAS 74/88 – Liferafts and their equipment Throw-over-board liferafts type LR 97 for 6 to 25 persons Davit launchable liferafts type LR 97 L for 12 to 25 persons Issue: 10/97"
+      },
+      {
+        "value": 97.0,
+        "line": "Throw-over-board liferafts type LR 97 for 6 to 25 persons",
+        "context": "SERVICE MANUAL for SOLAS 74/88 – Liferafts and their equipment Throw-over-board liferafts type LR 97 for 6 to 25 persons Davit launchable liferafts type LR 97 L for 12 to 25 persons Issue: 10/97 Art.-"
+      },
+      {
+        "value": 6.0,
+        "line": "Throw-over-board liferafts type LR 97 for 6 to 25 persons",
+        "context": "SERVICE MANUAL for SOLAS 74/88 – Liferafts and their equipment Throw-over-board liferafts type LR 97 for 6 to 25 persons Davit launchable liferafts type LR 97 L for 12 to 25 persons Issue: 10/97 Art.-"
+      },
+      {
+        "value": 25.0,
+        "line": "Throw-over-board liferafts type LR 97 for 6 to 25 persons",
+        "context": "SERVICE MANUAL for SOLAS 74/88 – Liferafts and their equipment Throw-over-board liferafts type LR 97 for 6 to 25 persons Davit launchable liferafts type LR 97 L for 12 to 25 persons Issue: 10/97 Art.-"
+      },
+      {
+        "value": 97.0,
+        "line": "Davit launchable liferafts type LR 97 L for 12 to 25 persons",
+        "context": "SERVICE MANUAL for SOLAS 74/88 – Liferafts and their equipment Throw-over-board liferafts type LR 97 for 6 to 25 persons Davit launchable liferafts type LR 97 L for 12 to 25 persons Issue: 10/97 Art.-"
+      },
+      {
+        "value": 12.0,
+        "line": "Davit launchable liferafts type LR 97 L for 12 to 25 persons",
+        "context": "SERVICE MANUAL for SOLAS 74/88 – Liferafts and their equipment Throw-over-board liferafts type LR 97 for 6 to 25 persons Davit launchable liferafts type LR 97 L for 12 to 25 persons Issue: 10/97 Art.-"
+      },
+      {
+        "value": 25.0,
+        "line": "Davit launchable liferafts type LR 97 L for 12 to 25 persons",
+        "context": "SERVICE MANUAL for SOLAS 74/88 – Liferafts and their equipment Throw-over-board liferafts type LR 97 for 6 to 25 persons Davit launchable liferafts type LR 97 L for 12 to 25 persons Issue: 10/97 Art.-"
+      },
+      {
+        "value": 10.0,
+        "line": "Issue: 10/97",
+        "context": "for SOLAS 74/88 – Liferafts and their equipment Throw-over-board liferafts type LR 97 for 6 to 25 persons Davit launchable liferafts type LR 97 L for 12 to 25 persons Issue: 10/97 Art.-No.: 8.09.57.11"
+      },
+      {
+        "value": 97.0,
+        "line": "Issue: 10/97",
+        "context": "for SOLAS 74/88 – Liferafts and their equipment Throw-over-board liferafts type LR 97 for 6 to 25 persons Davit launchable liferafts type LR 97 L for 12 to 25 persons Issue: 10/97 Art.-No.: 8.09.57.11"
+      },
+      {
+        "value": 8.09,
+        "line": "Art.-No.: 8.09.57.11.0",
+        "context": "Throw-over-board liferafts type LR 97 for 6 to 25 persons Davit launchable liferafts type LR 97 L for 12 to 25 persons Issue: 10/97 Art.-No.: 8.09.57.11.0 DSB DEUTSCHE SCHLAUCHBOOT GMBH & CO. KG Anger"
+      },
+      {
+        "value": 57.11,
+        "line": "Art.-No.: 8.09.57.11.0",
+        "context": "Throw-over-board liferafts type LR 97 for 6 to 25 persons Davit launchable liferafts type LR 97 L for 12 to 25 persons Issue: 10/97 Art.-No.: 8.09.57.11.0 DSB DEUTSCHE SCHLAUCHBOOT GMBH & CO. KG Anger"
+      },
+      {
+        "value": 0.0,
+        "line": "Art.-No.: 8.09.57.11.0",
+        "context": "Throw-over-board liferafts type LR 97 for 6 to 25 persons Davit launchable liferafts type LR 97 L for 12 to 25 persons Issue: 10/97 Art.-No.: 8.09.57.11.0 DSB DEUTSCHE SCHLAUCHBOOT GMBH & CO. KG Anger"
+      },
+      {
+        "value": 5.0,
+        "line": "Angerweg 5, 37632 Eschershausen",
+        "context": "Art.-No.: 8.09.57.11.0 DSB DEUTSCHE SCHLAUCHBOOT GMBH & CO. KG Angerweg 5, 37632 Eschershausen Telefon : ++5534/3010 Telefax : ++5534/301200 e-mail: info@deutsche-schlauchboot.de"
+      },
+      {
+        "value": 37632.0,
+        "line": "Angerweg 5, 37632 Eschershausen",
+        "context": "Art.-No.: 8.09.57.11.0 DSB DEUTSCHE SCHLAUCHBOOT GMBH & CO. KG Angerweg 5, 37632 Eschershausen Telefon : ++5534/3010 Telefax : ++5534/301200 e-mail: info@deutsche-schlauchboot.de"
+      },
+      {
+        "value": 5534.0,
+        "line": "Telefon : ++5534/3010",
+        "context": "DSB DEUTSCHE SCHLAUCHBOOT GMBH & CO. KG Angerweg 5, 37632 Eschershausen Telefon : ++5534/3010 Telefax : ++5534/301200 e-mail: info@deutsche-schlauchboot.de Copyright for this Manual by DSB. The Manual"
+      },
+      {
+        "value": 3010.0,
+        "line": "Telefon : ++5534/3010",
+        "context": "DSB DEUTSCHE SCHLAUCHBOOT GMBH & CO. KG Angerweg 5, 37632 Eschershausen Telefon : ++5534/3010 Telefax : ++5534/301200 e-mail: info@deutsche-schlauchboot.de Copyright for this Manual by DSB. The Manual"
+      },
+      {
+        "value": 5534.0,
+        "line": "Telefax : ++5534/301200",
+        "context": "GMBH & CO. KG Angerweg 5, 37632 Eschershausen Telefon : ++5534/3010 Telefax : ++5534/301200 e-mail: info@deutsche-schlauchboot.de Copyright for this Manual by DSB. The Manual has be treated confidenti"
+      },
+      {
+        "value": 301200.0,
+        "line": "Telefax : ++5534/301200",
+        "context": "GMBH & CO. KG Angerweg 5, 37632 Eschershausen Telefon : ++5534/3010 Telefax : ++5534/301200 e-mail: info@deutsche-schlauchboot.de Copyright for this Manual by DSB. The Manual has be treated confidenti"
+      },
+      {
+        "value": 74.0,
+        "line": "DSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Introduction - page I",
+        "context": "e-mail: info@deutsche-schlauchboot.de Copyright for this Manual by DSB. The Manual has be treated confidential and may only be used for its intended purpose. It s not allowed to copy this Manual witho"
+      }
+    ],
+    "total_paginas": 202,
+    "status": "sucesso",
+    "texto_amostrado": "SERVICE MANUAL\nfor SOLAS 74/88 – Liferafts and their equipment\nThrow-over-board liferafts type LR 97 for 6 to 25 persons\nDavit launchable liferafts type LR 97 L for 12 to 25 persons\nIssue: 10/97\nArt.-No.: 8.09.57.11.0\nDSB DEUTSCHE SCHLAUCHBOOT\nGMBH & CO. KG\nAngerweg 5, 37632 Eschershausen\nTelefon : ++5534/3010\nTelefax : ++5534/301200\ne-mail: info@deutsche-schlauchboot.de\nCopyright for this Manual by DSB. The Manual has be treated confidential and may only be used\nfor its intended purpose. It s not allowed to copy this Manual without written permission by DSB.\nDSB Deutsche Schlauchboot Service Manual SOLAS 74/88 Introduction - page I\nGmbH & CO KG LR 97 (L) 6 to 25 persons issue : 10/97\nD-37632 Eschershausen Art.-No.: 8.09.57.11.0\nLimitation of use\nA precondition for use of this Manual is:\n1. Service Station is approved by the national administration\nin accordance with S.O.L.A.S., IMO and existing national\nregulations.\nThe service station must hold a DSB service station number\nand be in "
+  }
+]

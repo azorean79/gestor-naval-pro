@@ -1,0 +1,1088 @@
+
+
+=== PÁGINA 1 ===
+Eurovinil S.p.A.,
+Via Genova 5, 58100 Grosseto – Italy
+Tel: +39 0564 487100 Fax: +39 0564 487199
+Mail: info@eurovinil.it
+SERVICE MANUAL
+for
+EUROVINIL LEISURE
+SYNTESY LIFERAFTS
+&
+CREWSAVER
+ISO TYPE1(2) MK2
+MARINER MK2
+Ver.1
+EUROVINIL S.P.A. - GROSSETO - ITALY
+
+=== PÁGINA 2 ===
+PAGE INTENTIONALLY BLANCK
+
+=== PÁGINA 3 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+Important Notice
+This publication is for reference purposes and its use restricted to trained service
+technicians in lawful possession of a current marine life raft servicing certificate granted by
+Eurovinil (‘entitlement’). It is not a stand-alone text embodying the basic techniques or
+skills appropriate to life raft servicing.
+Eurovinil accepts no responsibility for loss, injury or death resulting from the partial,
+improper or unlawful application of the instructions herein.
+If the requirements within this publication are believed to be contrary to legislated national,
+international or local requirements from service station State, Eurovinil must be consulted
+prior to release into service of affected product.
+This publication may be subject to amendment by Eurovinil and for that purpose allocation
+has been recorded. It may not be distributed or reproduced by any means, wholly or in
+part, without the express written permission of Eurovinil (permission shall not be withheld
+unreasonably but any permission so granted will be on an exceptional basis - no general
+approval to reproduce shall be implied or inferred).
+If no longer required or if entitlement ceases, Eurovinil must be contacted to arrange for
+the disposal of this publication.
+Communications regarding this publication should be addressed to
+info@eurovinil.it
+for the attention of “Eurovinil Technical Services Department”.
+CERTIFICATION PAGE SERVICE MANUAL Page 1
+Apr/21
+
+=== PÁGINA 4 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+RECORD OF VERSIONS
+Rev. No. ISSUE DATE INSERTED DATE BY:
+Initial Ver.1 Apr/21 GIUSEPPE ROSALIA
+Technical Dept.
+Eurovinil S.p.A. – Survitec Group Grosseto
+VERSION RECORD SERVICE MANUAL Page 2
+Apr/21
+
+=== PÁGINA 5 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+SERVICE BULLETINS LIST
+Service Date Ver
+Bulletin Description applied applied
+SERVICE BULLETINS SERVICE MANUAL Page 3
+Apr/21
+
+=== PÁGINA 6 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+TABLE OF CONTENTS
+Chapter Title Pages
+1. INTRODUCTION TO THE SERVICE MANUAL 1.1 to 1.4
+2. CONSTRUCTION DETAILS 2.1 to 2.10
+3. SERVICING 3.1 to 3.56
+4. PACKING 4.1 to 4.46
+5. SPARE PARTS LIST 5.1 to 5.28
+6. SERVICING ACTIVITIES 6.1 to 6.2
+TABLE OF CONTENTS SERVICE MANUAL Page 4
+Apr/21
+
+=== PÁGINA 7 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+1. INTRODUCTION TO THE SERVICE MANUAL
+Section Title Page
+1.1 GENERAL .... 1.2
+1.2 LIFERAFT MODELS AND CONSTRUCTION TECHNIQUE 1.2
+TABLE 1.1 – Leisure Syntesy liferaft models 1.3
+1. INTRODUCTION SERVICE MANUAL Page 1.1
+Apr/21
+
+=== PÁGINA 8 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+1.1 GENERAL
+1.1.1 This manual is intended for use by the people who will do the regular servicing work on the
+equipment. They will normally be employees of the Manufacturer or of Service Stations
+appointed by the Manufacturer.
+1.1.2 The manual describes the procedures used to disassemble, inspect, repair and reassemble the
+equipment. These procedures must be strictly obeyed.
+1.1.3 Eurovinil is the Design Authority for the equipment. The company has invested much effort to
+create the equipment and its servicing procedures, so that the equipment will be capable of
+reliable use, regardless of climate, weather conditions or circumstances.
+While comments intended to improve the efficiency of servicing procedures are always welcome,
+you must not make any changes to the servicing procedures without the permission of Eurovinil.
+Unauthorised changes may cause the equipment to malfunction. They may also void the
+approval of the equipment.
+1.1.4 This manual covers the Eurovinil ISO and Leisure family of liferafts.
+1.1.5 Items included in the liferaft may be subject to approval by the administration of the country
+where the liferaft is intended for use.
+1.2 LIFERAFT MODELS AND CONSTRUCTION TECHNIQUE
+1.2.1 EUROVINIL liferafts are constructed with high-tenacity polyester fabric coated with a specific
+mixture on both sides. This material is weather-proof and resistant to hydrocarbons and to
+temperature range. It is also rot-proof, it does not deteriorate with time and does not need any
+maintenance apart from normal cleaning with fresh water and detergent. Liferaft buoyancy tubes
+and floor are assembled by means of high frequency (HF) electronic welding.
+WARNING: TALCUM POWDER, WHICH IS NORMALLY USED FOR GOOD PRESERVATION
+OF RUBBER MATERIALS, SHOULD NOT BE USED BY ANY MEANS ON
+EUROVINIL LIFERAFTS.
+All liferafts EV have rectangular configuration.
+1. INTRODUCTION SERVICE MANUAL Page 1.2
+Apr/21
+
+=== PÁGINA 9 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+Container
+Liferaft type Grab-bag
+ABS VTR VALISE
+SYNTESY 9650-1 >24H X X X
+SYNTESY 9650-1 >24H GRAB-BAG X X X X
+SYNTESY 9650-1 <24H X X X
+SYNTESY 9650-2 X X X
+ISO9650
+SYNTESY 9650-1 SOLAS-B X X
+EUROVINIL
+SYNTESY 9650-1 >24H USA X X
+SYNTESY 9650-1 <24H USA X X
+SYNTESY 9650-IT X X X
+SYNTESY 9650-1 IT G/B X X X X
+ISO TYPE1 MK2 (SYNTESY) >24H X X X
+ISO9650 ISO TYPE1 MK2 (SYNTESY) >24H G/B X X X X
+CREWSAVER ISO TYPE1 MK2 (SYNTESY) <24H X X X
+ISO TYPE2 MK2 (SYNTESY) X X X
+SYNTESY-INTL X X
+NON-ISO SYNTESY-USA X X X
+EUROVINIL SYNTESY-E USA X X X
+SYNTESY GREEK X X X
+COASTAL COMPACT-DRY X X
+NON-ISO MARINER MK2 X X X
+CREWSAVER MARINER MK2 USC X X X
+TABLE 1.1 - Leisure Syntesy Liferaft models
+1. INTRODUCTION SERVICE MANUAL Page 1.3
+Apr/21
+
+=== PÁGINA 10 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+PAGE INTENTIONALLY BLANCK
+1. INTRODUCTION SERVICE MANUAL Page 1.4
+Apr/21
+
+=== PÁGINA 11 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+2. CONSTRUCTION DETAILS
+Section Title Page
+2.1 LIFERAFT FRONT VIEW 2.2
+2.2 LIFERAFT REAR VIEW 2.3
+2.3 LIFERAFT SIDE VIEW 2.4
+2.4 LIFERAFT SECTIONAL VIEW 2.5
+2.5 LIFERAFT TOP VIEW 2.6
+2.6 LIFERAFT VIEW FROM BELOW 2.7
+2.7 LIFERAFT DIMENSIONS 2.8
+2. CONSTRUCTION DETAILS SERVICE MANUAL Page 2.1
+Apr/21
+
+=== PÁGINA 12 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+2.1 LIFERAFT FRONT VIEW
+Item Description ISO NON-ISO COASTAL
+1 Lower buoyancy 1 1 1
+2 Upper buoyancy 1 1 1
+4 External lifeline 1 1 1
+5 External boarding ladder 2 2 2
+7 Inflation/deflation valves 3 3 2
+10 CO2+N2 Inflation system 1 1 1
+11 Cylinder containing pocket / Boarding platform 1 1 1
+21 Reflective tape on canopy 1000 cm² 1 (E-pack only) (500 cm²
+upper tube)
+24 Non-return valves for inflation system 2 2 2
+30 Canopy 1 1
+31 Cord for fixing canopy open 4 4
+33 External light 1 (E-pack only)
+34 Internal light/battery pocket 1 (E-pack only)
+2. CONSTRUCTION DETAILS SERVICE MANUAL Page 2.2
+Apr/21
+
+=== PÁGINA 13 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+2.2 LIFERAFT REAR VIEW
+Item Description ISO NON-ISO COASTAL
+4 External lifeline 1 1 1
+5 External boarding ladder 2 2 2
+8 Pressure relief valves 2 2 2
+21 Reflective tape on canopy 1000 cm² 1 (E-pack only) (500 cm²
+upper tube)
+31 Cord for fixing canopy open 4 4
+33 External light 1 (E-pack only)
+34 Internal light/battery pocket 1 (E-pack only)
+35 Rain water collecting gauge 1 1
+36 Ventilation sleeve 1 1
+2. CONSTRUCTION DETAILS SERVICE MANUAL Page 2.3
+Apr/21
+
+=== PÁGINA 14 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+2.3 LIFERAFT SIDE VIEW
+Item Description ISO NON-ISO COASTAL
+5 External boarding ladder 2 2 2
+6 Righting system 1 1 1
+10 CO2+N2 Inflation system 1 1 1
+19 Towing connection 1 1 1
+20 Connection studs for external lifeline - - -
+21 Reflective tape on canopy 1000 cm² 1 (E-pack only) (500 cm²
+upper tube)
+23 Ballast pockets 4 2 2
+30 Canopy 1 1
+33 External light 1 (E-pack only)
+2. CONSTRUCTION DETAILS SERVICE MANUAL Page 2.4
+Apr/21
+
+=== PÁGINA 15 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+2.4 LIFERAFT SECTIONAL VIEW
+Item Description ISO NON-ISO COASTAL
+1 Lower buoyancy 1 1 1
+2 Upper buoyancy 1 1 1
+7 Inflation/deflation valves 3 3 2
+16 Equipment pack 1 1 1
+18 Liferaft floor 1 1 1
+25 Studs for upper-lower buoyancy connection 8 8 8
+28 Canopy arch 1 1
+29 Upper buoyancy / canopy arch connection valve 2 2
+31 Cord for fixing canopy open 4 4
+32 Studs for canopy shape 4 4
+2. CONSTRUCTION DETAILS SERVICE MANUAL Page 2.5
+Apr/21
+
+=== PÁGINA 16 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+2.5 LIFERAFT TOP VIEW (canopy opened on one side)
+Item Description ISO NON-ISO COASTAL
+3 Internal lifeline / boarding ladder 1 1 1
+4 External lifeline 1 1 1
+7 Inflation/deflation valves 3 3 2
+8 Pressure relief valves 2 2 2
+9 Studs for upper-lower buoyancies connection - - -
+10 CO2+N2 Inflation system 1 1 1
+11 Cylinder containing pocket / Boarding platform 1 1 1
+12 Rescue quoit and line 1 1 1
+13 Knife pocket 1 1 1
+14 Thermal insulating floor 1 (E-pack only)
+15 Sea-anchor 1 1 1
+16 Equipment pack 1 1 1
+19 Towing connection 1 1 1
+20 Connection studs for external lifeline - - -
+25 Studs for upper-lower buoyancy connection 8 8 8
+26 Additional studs for buoyancy connection (10-12P) 4 4 4
+27 Additional internal lifeline (8-10-12P) 1 1 1
+29 Upper buoyancy / canopy arch connection valve 2 2
+2. CONSTRUCTION DETAILS SERVICE MANUAL Page 2.6
+Apr/21
+
+=== PÁGINA 17 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+2.6 LIFERAFT VIEW FROM BELOW
+Item Description ISO NON-ISO COASTAL
+6 Righting system 1 1 1
+17 Connection studs for ballast pockets - - -
+22 Reflective tape on floor 500 cm² 1 (E-pack only) 1
+23 Ballast pockets 4 2 2
+2. CONSTRUCTION DETAILS SERVICE MANUAL Page 2.7
+Apr/21
+
+=== PÁGINA 18 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+2.7 LIFERAFT DIMENSIONS
+Liferaft type Size Dimensions (cm)
+A B C D H
+Syntesy 9650-1 (ISO) 4P 180 160 118 21 120
+Syntesy NON-ISO 6P 215 180 134 23 120
+8P 293 180 130 25 122
+10P 352 180 130 25,5 122
+12P 355 209 154 27,5 122
+Syntesy 9650-2 (ISO) 4P 180 160 118 21 120
+6P 215 180 134 23 120
+8-10P 228 180 130 25 122
+FIGURE 2.1
+Syntesy (ISO & NON-ISO) liferaft dimensions
+2. CONSTRUCTION DETAILS SERVICE MANUAL Page 2.8
+Apr/21
+
+=== PÁGINA 19 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+Liferaft type Size Dimensions (cm)
+A B C D H
+COASTAL 4P 180 160 118 21 42
+6P 215 180 134 23 46
+8P 293 180 130 25 50
+10P 352 180 130 25,5 51
+12P 355 209 154 27,5 55
+FIGURE 2.2
+Compact-Dry (Coastal) liferaft dimensions
+2. CONSTRUCTION DETAILS SERVICE MANUAL Page 2.9
+Apr/21
+
+=== PÁGINA 20 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+PAGE INTENTIONALLY BLANCK
+2. CONSTRUCTION DETAILS SERVICE MANUAL Page 2.10
+Apr/21
+
+=== PÁGINA 21 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3. SERVICING
+Section Title Page
+3.1 PRELIMINARY INSPECTION 3.3
+3.1.1 RECEIVING AND CHECKING THE ACCOMPANYING DOCUMENTS 3.3
+3.1.2 OPENING THE CONTAINER 3.3
+3.1.3 CYLINDER REMOVAL 3.5
+3.1.4 PREPARATION FOR TESTING 3.6
+3.2 INFLATABLE PART - TESTING 3.7
+3.2.1 TESTING PREPARATION NOTES 3.7
+3.2.2 TESTING TOOLS 3.7
+3.2.3 SERVICE INTERVALS 3.8
+TABLE 3.1 - Testing intervals for Syntesy ISO rafts 3.9
+TABLE 3.2 - Testing intervals for Syntesy (Non-ISO) and Compact-Dry rafts 3.10
+3.2.4 BLAST TEST 3.11
+3.2.5 PRESSURE RELIEF VALVE (PRV) CHECK 3.12
+3.2.6 WORKING PRESSURE (WP) TEST 3.13
+3.2.7 OVERPRESSURE STRENGTH (OP) TEST 3.13
+3.2.8 GAS INFLATION (GI) TEST 3.14
+3.2.9 NECESSARY ADDITIONAL PRESSURE (NAP) TEST 3.14
+3.2.10 FLOOR SEAM STRENGHT (FS) TEST 3.14
+3.3 VALVES (NON-RETURN, INFLATION, PRV, CONNECTION) 3.16
+3.3.1 NON-RETURN (NR) VALVE 3.16
+3.3.2 INFLATION-DEFLATION VALVE TYPE SUPERNOVA 3.18
+3.3.3 INFLATION-DEFLATION VALVE TYPE BRAVO 2005 3.20
+3.3.4 PRESSURE RELIEF VALVE (PRV) 3.22
+3. SERVICING SERVICE MANUAL Page 3.1
+Apr/21
+
+=== PÁGINA 22 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+Section Title Page
+3.4 INFLATION SYSTEMS 3.24
+TABLE 3.3 - Inflation systems information 3.24
+3.4.1 PERIODICITY OF INSPECTION 3.25
+TABLE 3.4 - Inflation system – Periodicity of inspection 3.25
+3.4.2 CYLINDER WEIGHT CHECK 3.25
+3.4.3 INFLATION SYSTEM VTE/87-PED - CHECK AND INSPECTION 3.27
+3.4.4 INFLATION SYSTEM VTE/99-PED - CHECK AND INSPECTION 3.32
+3.4.5 INFLATION SYSTEM / BUOYANCY CONNECTION CVT/09 3.37
+3.4.6 CHECK AND TEST OF THE CYLINDER 3.38
+3.4.7 CYLINDER REFILLING 3.38
+TABLE 3.5 - Valves – specific details 3.38
+3.4.8 CYLINDER LEAK TEST 3.40
+3.5 LIFERAFT EQUIPMENT 3.42
+3.5.1 RAFT STANDARD EQUIPMENT 3.42
+3.5.2 EQUIPMENT PACK 3.44
+TABLE 3.6 - Emergency Equipment < 24 hours 3.44
+TABLE 3.7 - Additional Emergency Equipment < 24 hours B-PACK 3.44
+TABLE 3.8 - Emergency Equipment > 24 hours 3.45
+TABLE 3.9 - Emergency Equipment > 24 hours GRAB BAG 3.46
+TABLE 3.10 - Emergency Equipment ISO 9650 ITA (DM219) 3.47
+TABLE 3.11 - Emergency Equipment ISO 9650-1 ITA GRAB BAG 3.48
+TABLE 3.12 - Emergency Equipment STANDARD INTERNATIONAL 3.49
+TABLE 3.13 - Emergency Equipment STANDARD GREEK PACK 3.49
+TABLE 3.14 - Emergency Equipment E-PACK 3.50
+TABLE 3.15 - Emergency Equipment COMPACT-DRY 3.51
+TABLE 3.16 - Authorized food rations 3.51
+TABLE 3.17 - Authorized water rations 3.51
+TABLE 3.18 - Authorized pyrotechnics 3.52
+3.6 REPAIRS 3.53
+3.6.1 GENERAL 3.53
+3.6.2 REPAIRING TORN AREAS 3.54
+3.6.3 OTHER REPAIRS 3.55
+3. SERVICING SERVICE MANUAL Page 3.2
+Apr/21
+
+=== PÁGINA 23 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3.1 PRELIMINARY INSPECTION
+3.1.1 RECEIVING AND CHECKING THE ACCOMPANYING DOCUMENTS
+3.1.1.1 Servicing of the raft shall be carried out normally and at owner’s expense and it will have to
+be marked on the obligatory documents that accompany it and that must follow the raft for its
+entire life.
+So, firstly check that the raft is accompanied by the prescribed documents; take them off and
+put them away carefully in order to send them with the raft after reconditioning, associated to
+the related Certificate of Inspection.
+3.1.2 OPENING THE CONTAINER
+3.1.2.1. Rigid containers (ABS / VTR Fiberglass)
+(a) Check that the containers are not damaged or chapped as this might compromise
+the raft’s functionality.
+(b) Check the integrity of the straps.
+(c) Check the readability and conformity of writings, note Serial Number.
+(d) Cut and remove straps and perimetral tape
+WARNING: WEAR EYE, FACE AND HAND PROTECTION DURING STRAPS REMOVAL.
+FIGURE 3.1
+VTR fiberglass Rigid container
+3. SERVICING SERVICE MANUAL Page 3.3
+Apr/21
+
+=== PÁGINA 24 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+FIGURE 3.2
+ABS Rigid container
+WARNING: WEAR PROTECTION EQUIPMENT AND GLOVES WHEN CUTTING THE STRAP
+AROUND THE CONTAINER. THE STRAP CAN CAUSE INJURY TO FACE AND
+HANDS WHEN CUTTING IT.
+3.1.2.2 PVC coated fabric valises
+(a) Check externally for cuts or abrasions.
+(b) Carefully open the valise from the perimetral Velcro tape, after cutting plastic seal.
+FIGURE 3.3
+Valise
+3. SERVICING SERVICE MANUAL Page 3.4
+Apr/21
+
+=== PÁGINA 25 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3.1.3 CYLINDER REMOVAL
+As soon as you open the raft container proceed to the deactivation of the inflation system so
+to avoid it accidentally activates.
+(a) Release and remove the painter line clip from the activation cable as represented
+below.
+FIGURE 3.4
+Clamp for firing cable
+(b) Untie the extremity of painter line laced to the vacuum bag hole.
+(c) Remove painter line and check its integrity.
+(d) Cut the vacuum bag and remove the liferaft inside.
+(e) Place the Liferaft on the worktable, laying it out with the canopy upwards.
+WARNING: TAKE CARE NOT TO PULL THE ACTIVATION CABLE DURING LIFERAFT
+REMOVAL FROM VACUUM BAG.
+(f) Disconnect inflation system from buoyancy connection, then remove it from the raft.
+(g) Remove steel connection pipe and apply safety plug.
+(h) Make cylinder inspection as indicated on Par. 3.4.6.
+3. SERVICING SERVICE MANUAL Page 3.5
+Apr/21
+
+=== PÁGINA 26 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+FIGURE 3.5
+Removal inflation system from CVT/09M connector
+WARNING: HOLD THE GAS CYLINDER IN A VICE OR SAFE CLAMPING MECHANISM
+WHEN INSTALLING OR REMOVING AN OPERATING HEAD.
+WARNING: APPLY SAFETY CAPS ON VALVE BEFORE AND AFTER WEIGHT CHECK.
+3.1.4 PREPARATION FOR TESTING
+(a) Lay completely the liferaft on the worktable with the canopy upwards.
+(b) Remove the equipment bags and note their exact position inside the raft.
+(c) Inflate the liferaft by dried compressed air through the inflation/deflation valve;
+stopping when the liferaft reaches its shape.
+(d) If the liferaft is wet after it has been inflated, dry it carefully, on the inside and the
+outside with a soft cloth.
+(e) Carefully examine the floor, the ballasts and the cylinder compartments, then the
+lower buoyancy, the upper buoyancy and, if fitted, the arch and canopy, checking
+that the openings are in order.
+3. SERVICING SERVICE MANUAL Page 3.6
+Apr/21
+
+=== PÁGINA 27 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3.2 INFLATABLE PART - TESTING
+3.2.1 TESTING PREPARATION NOTES
+3.2.1.1 Keep the records of all the inflation tests.
+3.2.1.2 Keep the liferaft away from draughts and direct sunlight, as change in temperature affects
+pressure.
+3.2.1.3 Keep a solution of hard soap (not detergent), water, and a quantity of clean, dry, lint free
+cloths in the area.
+3.2.1.4 If a buoyancy chamber needs to be tested separately because of a repair, carry out a WP
+test.
+3.2.1.5 Test each inflatable compartment of the liferaft: lower and upper buoyancy tubes, arch tube
+(if fitted).
+3.2.2 TESTING TOOLS
+3.2.2.1 The items described in Par. 5.11 TESTING AND REPAIRING EQUIPMENT are necessary to
+test the liferaft.
+3.2.2.2 Pressure control adapter P/N 99991001 for Supernova topping-up valves: operation
+instructions:
+AT
+MANOMETER
+Ferrule 2
+Ferrule 1
+FIGURE 3.6
+Pressure control adapter for Supernova valves
+(a) Remove inflation valve cap.
+(b) Screw ferrule 1 onto the inflation valve body.
+(c) loosen the obturator with ferrule 2 and check pressure on the gauge;
+(d) check pressure on the gauge;
+(e) close (not strongly) the obturator with ferrule 2;
+(f) unscrew ferrule 1;
+(g) close the valve with its cap checking that the gasket is perfectly placed in its seat.
+3.2.1.2 Pressure control plug P/N 10369064 for BRAVO 2005 topping-up valves: operation
+instructions
+3. SERVICING SERVICE MANUAL Page 3.7
+Apr/21
+
+=== PÁGINA 28 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+FIGURE 3.7
+Pressure control adapter for Bravo 2005 valve
+(a) Remove inflation valve cap.
+(b) Push the obturator pin in “open” position.
+(c) Screw pressure control plug and check pressure on the gauge;
+(d) Remove pressure control plug;
+(e) Push the obturator pin in “close” position;
+(f) Close the valve with its cap checking that the gasket is perfectly placed in its seat.
+3.2.3 SERVICE INTERVALS
+3.2.3.1 The liferaft shall be submitted to pressure and other physical tests according to its age as
+defined in Tables 3.1 and 3.2, and as described in this chapter.
+3.2.3.2 Blast Test is required on every service before effecting Working pressure test except when
+GI test is executed. For Blast test procedure see Par. 3.2.4.
+3.2.3.3 Working Pressure (WP) test must be executed at every service, always after the other tests.
+3. SERVICING SERVICE MANUAL Page 3.8
+Apr/21
+
+=== PÁGINA 29 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+SERVICE Syntesy 9650 IT
+INTERVALS Syntesy 9650-1(2) Syntesy 9650-1/B
+Syntesy 9650-1 IT G/B
+ISO Type1(2) Mk2
+Syntesy 9650 HR
+Valise ABS/VTR
+End of 1st year WP
+End of 2nd year WP WP
+End of 3rd year WP WP WP
+End of 4th year WP + CT WP
+End of 5th year GI
+End of 6th year OP WP WP GI + WP
+End of 7th year WP WP
+End of 8th year WP + CT WP WP
+End of 9th year WP WP WP
+End of 10th year WP GI+FS+WP GI+FS+WP
+End of 11th year WP WP
+End of 12th year OP + CT WP WP WP
+End of 13th year NAP+FS+WP NAP+FS+WP
+End of 14th year WP WP WP
+End of 15th year WP GI+NAP+FS+WP GI+NAP+FS+WP
+End of 16th year WP + CT WP WP
+End of 17th year WP WP
+End of 18th year WP WP NAP+FS+WP NAP+FS+WP
+End of 19th year WP WP
+End of 20th year WP + CT GI+NAP+FS+WP GI+NAP+FS+WP
+WP: Working pressure test GI: Gas Inflation test OP: Overpressure strength test
+CT: Cylinder Hydrostatic test NAP: Necessary Additional Pressure FS: Floor Seam test
+TABLE 3.1 - Testing intervals for Syntesy ISO rafts
+3. SERVICING SERVICE MANUAL Page 3.9
+Apr/21
+
+=== PÁGINA 30 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+SERVICE Syntesy-GREEK Syntesy -INTL
+Syntesy-USA Compact-Dry
+INTERVALS Syntesy E-USA Mariner Mk2
+End of 1st year WP
+End of 2nd year WP
+End of 3rd year WP WP WP
+End of 4th year WP WP
+End of 5th year GI OP + CT
+End of 6th year WP WP
+End of 7th year WP WP WP
+End of 8th year WP
+End of 9th year WP WP WP + CT
+End of 10th year GI+FS WP
+End of 11th year NAP+FS+WP OP
+End of 12th year NAP+FS+WP WP
+End of 13th year NAP+FS+WP WP WP + CT
+End of 14th year NAP+FS+WP
+End of 15th year GI+NAP+FS+WP WP WP
+End of 16th year NAP+FS+WP WP
+End of 17th year NAP+FS+WP OP + CT
+End of 18th year NAP+FS+WP WP
+End of 19th year NAP+FS+WP WP WP
+End of 20th year GI+NAP+FS+WP
+WP: Working pressure test GI: Gas Inflation test OP: Overpressure strength test
+CT: Cylinder Hydrostatic test NAP: Necessary Additional Pressure FS: Floor Seam test
+TABLE 3.2 - Testing intervals for Syntesy (Non-ISO) and Compact-Dry rafts
+3. SERVICING SERVICE MANUAL Page 3.10
+Apr/21
+
+=== PÁGINA 31 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3.2.4 BLAST TEST
+3..2.4.1 Blast test operation procedure is always required to check efficiency of non-return valves
+and connection CVT/09M.
+3..2.4.2 For Blast Test proceed as follows:
+(a) Connect blast test adaptor to the inflation system connector CVT/09.
+(b) Secure adaptor by screw.
+FIGURE 3.8
+Connect blast test adaptor
+FIGURE 3.9
+Screw blast test adaptor
+(c) Push the red handles of the blast test kit up to put in contact the two clamps.
+(d) Make blast test three times.
+CAUTION: CAUTION: FOR THE FIRST BLAST, KEEP HANDS AWAY FROM THE INLET
+VALVE IN CASE OF CO2 BURN.
+3. SERVICING SERVICE MANUAL Page 3.11
+Apr/21
+
+=== PÁGINA 32 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+FIGURE 3.10
+Blast test operation
+(e) For each blast, the red handles of the Blast test cylinder should be closed together.
+The blast should last for 1 second.
+(f) If no gas leakage is observed on the first blast, then the second and third blasts
+should be conducted with the one hand near the inlet valve to detect leakage, BUT
+NOT IN CONTACT with it.
+(g) The hose should now be disconnected from the blast cylinder.
+3.2.5 PRESSURE RELIEF VALVE (PRV) CHECK
+3.2.5.1 PRV check must be effected before Working Pressure (WP) test.
+3.2.5.2 For PRV check proceed as follows:
+(a) Inflate buoyancies up to PRVs open.
+(b) Make sure that the PRVs open and release the excess pressure within 0.30 bar,
+registering the effective date.
+(c) After ½ hour check and register the value of the final pressure. This value must be
+not less than 0.18 bar.
+NOTE: FOR PRESSURE VALUES LOWER THAN WHAT INDICATED, REPLACE THE
+DEFEATED OVERPRESSURE VALVE, THAN REPEAT ALL THE TEST (OPEN
+AND CLOSURE OF THE OVERPRESSURE VALVE AND OVERPRESSURE
+STRENGTH).
+3. SERVICING SERVICE MANUAL Page 3.12
+Apr/21
+
+=== PÁGINA 33 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3.2.6 WORKING PRESSURE (WP) TEST
+3.2.6.1 The test should be carried out at steady temperature. In case of temperature variation
+greater than 3°C, the test should be repeated after taking all precautions to limit temperature
+variations.
+3.2.6.2 In case of temperature variation smaller than 3°C, a correction equal to 0.004bar should be
+applied for each grade centigrade of temperature (positive for temperature decrease,
+negative otherwise).
+WARNING: BEFORE STARTING THE INFLATION, MAKE SURE THAT THE MANOMETER IS
+SETTED TO “0”.
+3.2.6.3 For WP test, proceed as follows:
+(a) Connect the manometer with the pressure check device.
+(b) Inflate buoyancy tube from the inflation hoses up to the starting of the overpressure
+valve.
+(c) Check, by means of the manometer, the value on which the overpressure valve
+starts to work. That value must be comprehended between 0,22 e 0,35 bar.
+NOTE: FOR DIFFERENT PRESSURE VALUES, REPLACE THE OVERPRESSURE
+VALVE AND REPEAT THE TEST.
+(d) After PRV test was completed, and pressure has become stabilized in the buoyancy
+tubes, restore pressure if lower than 0.20 bar.
+(e) After 60 minutes verify that the pressure lost is not more than 5% of the initial
+pressure, considering correction values above mentioned.
+NOTE: FOR PRESSURE VALUES LOWER THAN WHAT INDICATED, CHECK THE
+CAUSE OF THE LOSS AND SEND LIFERAFT TO REPAIR. AFTER REPAIRED,
+REPEAT THE TEST.
+(f) During test, verify tightness of the inflation valves, overpressure valves and non-
+return valves on the lower buoyancy tube, upper buoyancy tube and canopy arch, by
+means of soapy water.
+(g) In case of air leakage proceed to eliminate the inconvenience (tighten the valve,
+replace the gasket, replace the valve body or the ferrule, repair the valve hole on the
+buoyancy tube, etc.) as described in the following chapters and repeat test.
+3.2.7 OVERPRESSURE STRENGTH (OP) TEST
+3.2.7.1 This test is specifically required for liferafts Syntesy 9650 IT (including Grab Bag version)
+and Compact-dry.
+3.2.7.2 For OP test, proceed as follows:
+(a) Close PRV valve plug on both lower and upper buoyancy.
+(a) Connect manometer to the inflation valve for each buoyancy tube.
+(a) Inflate buoyancy tube up to a pressure of 0,25 bar.
+(a) After ½ hour from the test start, remove PRV valve plugs.
+(a) After 6 hours verify that the pressure lost is not more than 30% of the initial pressure,
+considering correction values above mentioned.
+3. SERVICING SERVICE MANUAL Page 3.13
+Apr/21
+
+=== PÁGINA 34 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+NOTE: FOR PRESSURE VALUES LOWER THAN WHAT INDICATED, CHECK THE
+CAUSE OF LOSS AND SEND LIFERAFT TO REPAIR. THEN REPEAT TEST.
+3.2.8 GAS INFLATION (GI) TEST
+NOTE: GAS INFLATION (GI) TEST MUST BE EFFECTED USING THE LIFERAFT’S
+CYLINDER.
+3.2.8.1 When undertaking a gas inflation test, special attention should be paid to the effectiveness of
+the relief valves.
+3.2.8.2 For GI test, proceed as follows:
+(a) Remove the liferaft from container/valise and from vacuum bag.
+(b) Activate gas inflation system by pulling the operating head cable.
+(c) Check that the liferaft inflates correctly.
+(d) Let the Liferaft settle for at least 2 hours in order to stabilize buoyancy tubes and let
+the solid particels of CO2 evaporate.
+(e) restore pressure if lower than 0.20 bar, then submit the liferaft to Working Pressure
+(WP) test.
+NOTE: AFTER EVERY ACTIVATION OF THE LIFERAFT INFLATION SYSTEM, THE
+CYLINDER MUST BE SUBMITTED TO HYDRAULIC TEST.
+(f) Should the test give negative results, look for causes of leaking and, if necessary,
+repair the liferaft, as shown in the following paragraphs.
+3.2.9 NECESSARY ADDITIONAL PRESSURE (NAP) TEST
+3.2.9.1 In addition to what indicated on tables 3.2 and 3.3, NAP test should be executed if deemed
+necessary as a result of visual inspection.
+3.2.9.2 For NAP test, proceed as follows:
+(a) Close PRV valve plug on both lower and upper buoyancy.
+(b) Connect manometer to the inflation valve for each buoyancy tube.
+(c) Inflate gradually the buoyancy tubes up to a pressure of 0,40 bar.
+(d) During test check for seam slippage, cracking, or significant pressure drop.
+(e) After 5 minutes, reduce pressure in all buoyancies by removing simultaneously plugs
+from PRV valves.
+3.2.10 FLOOR SEAM STRENGHT (FS) TEST
+3.2.10.1 For FS test, proceed as follows:
+(a) Lift the liferaft at a height of not less than 45 cm above the service floor. The
+supports to be used in suitable number (varying according to the liferaft type) should
+be so fitted as to guarantee the liferaft stability.
+(b) First carry out a visual inspection of the seams between the floor and the buoyancy
+tubes.
+3. SERVICING SERVICE MANUAL Page 3.14
+Apr/21
+
+=== PÁGINA 35 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+(c) A person weighing not less than 75 kg should walk/crawl around the perimeter of the
+floor for the entire circumference. Check floor seams again for integrity or any
+slippage.
+FIGURE 3.11
+Floor Seam Test support
+FIGURE 3.12
+Floor Seam Test support
+3. SERVICING SERVICE MANUAL Page 3.15
+Apr/21
+
+=== PÁGINA 36 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3.3 VALVES (NON-RETURN, INFLATION, PRV, CONNECTION)
+3.3.1 NON-RETURN (NR) VALVE
+Item Description
+A Valve Body
+B Ferrule
+C Nut
+D Spring Cap
+E Plastic Stopper
+F Spring
+G Side For Clamping Screw
+FIGURE 3.13
+NR valve - Construction design
+3.3.1.1 Check valve external airtightness by spraying soapy water in the surrounding area, checking
+for air bubbles near the valve body.
+CAUTION: AVOID ANY INFILTRATION OF WATER INSIDE NT VALVE BODY.
+3.3.1.2 In case of air leaking from external, proceed as under described:
+(a) Place a 17 mm open flat spanner on the nut (C) of the valve body so to hold it firmly.
+(a) With the other hand, tighten ferrule (B) with a 35 mm open torque wrench at a
+coupling torque of 25 Nm.
+3.3.1.3 Check valve internal airtightness by pouring alcohol into the valve nut (C).
+3.3.1.4 In case of leaking from valve body (internal), proceed as under described:
+(a) Insert a metal bar of suitable dimension and with rounded tip into the valve nut (C).
+3. SERVICING SERVICE MANUAL Page 3.16
+Apr/21
+
+=== PÁGINA 37 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+(b) Press on the Plastic Stopper (E) until valve tightness has been restored;
+NOTE: THE THREAD OF THE VALVE NUT IS COUNTERCLOCKWISE.
+NOTE: IN NO CASE A NON-RETURN VALVE SHALL BE REMOVED OR REPLACED BY
+SERVICE STATION: IN THIS CASE SEND THE LIFERAFT TO
+MANUFACTURER.
+3. SERVICING SERVICE MANUAL Page 3.17
+Apr/21
+
+=== PÁGINA 38 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3.3.2 INFLATION-DEFLATION VALVE TYPE SUPERNOVA
+1
+2
+3
+4
+6
+5
+Item Description P/N
+1 Plug N/A
+2 Plug gasket 10399292
+3 Obturator 99139027
+4 Valve body N/A
+5 Ferrule N/A
+6 Holder/Gasket 99139028
+FIGURE 3.14
+Inflation-Deflation valve - Construction design
+3. SERVICING SERVICE MANUAL Page 3.18
+Apr/21
+
+=== PÁGINA 39 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3.3.2.1 Check valve external airtightness by spraying soapy water in the surrounding area, checking
+for air bubbles near the valve body.
+3.3.2.2 In case of air leaking, proceed as under described:
+(a) Keep buoyancy tube inflated.
+(b) Tighten valve body by torque wrench and terminal 99200786 at 25 Nm.
+(c) If air leaking persists, replace the holder/gasket following procedure indicated on par.
+3.3.2.5.
+3.3.2.4 Check obturator’s airtightness. Small leaking from the membrane is acceptable, as tightness
+should be guaranteed by the plug gasket. Should leaking be excessive, replace the
+obturator.
+3.3.2.4 Check conditions of the plug gasket. Replace if damaged or hardened.
+FIGURE 3.15
+Inflation-Deflation valve - Detail
+3.3.2.5 If valve body or holder/gasket needs to be replaced, proceed as under described:
+(a) Keep buoyancy tube inflated.
+(b) Untighten valve body by spanner and terminal 99200486.
+(c) Unscrew valve body by hand, putting attention not to lose the ferrule inside the
+buoyancy chamber.
+(d) Remove valve body and/or holder/gasket and discard them.
+(e) Place new holder/gasket into the new valve body thread.
+(f) Screw new valve body to the ferrule inside buoyancy chamber, ensuring that the
+holder/gasket is properly fitted.
+(f) Inflate buoyancy chamber and progressively tighten valve body by torque wrench
+and terminal 99200786 until a torque value of 25 Nm is reached.
+(g) Submit buoyancy chamber to PRV and WP test as described in Par. 3.2.4 and Par.
+3.2.5.
+3. SERVICING SERVICE MANUAL Page 3.19
+Apr/21
+
+=== PÁGINA 40 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3.3.3 INFLATION-DEFLATION VALVE TYPE BRAVO 2005
+FIGURE 3.16
+Inflation-Deflation valve Type Bravo 2005 assembled
+Item Description
+A Valve Body
+B Valve Base
+C Closure/Opening Spring Button
+D Plug with Cord
+E Plug Gasket
+FIGURE 3.17
+Inflation-Deflation valve - Construction design
+3. SERVICING SERVICE MANUAL Page 3.20
+Apr/21
+
+=== PÁGINA 41 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3.3.3.1 Check valve external airtightness by spraying soapy water in the surrounding area, checking
+for air bubbles near the valve body.
+3.3.3.2 In case of air leaking, proceed as under described:
+(a) Keep buoyancy tube inflated.
+(b) Tighten valve body by torque wrench and terminal 99220776 at 25 Nm.
+(c) If air leaking persists, replace the valve body following procedure indicated on par.
+3.3.3.5.
+3.3.3.3 Check valve body’s airtightness. Small leaking from the membrane is acceptable, as
+tightness should be guaranteed by the plug gasket. Should leaking be excessive, replace the
+valve body.
+3.3.3.4 Check conditions of the plug gasket. Replace if damaged or hardened.
+3.3.3.5 If valve body needs to be replaced, proceed as under described:
+(a) Keep buoyancy tube inflated.
+(b) Untighten valve body by spanner and terminal 99220776.
+(c) Unscrew valve body by hand, putting attention not to lose the valve base inside the
+buoyancy chamber.
+(d) Remove valve body and discard it.
+(e) Screw the new valve body to the ferrule inside buoyancy chamber.
+(f) Inflate buoyancy chamber and progressively tighten valve body by torque wrench
+and terminal 99220776 until a torque value of 25 Nm is reached.
+(g) Submit buoyancy chamber to PRV and WP test as described in Par. 3.2.4 and Par.
+3.2.5.
+3. SERVICING SERVICE MANUAL Page 3.21
+Apr/21
+
+=== PÁGINA 42 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3.3.4 PRESSURE RELIEF VALVE (PRV)
+FIGURE 3.18
+Pressure Relief valve type VA70 assembled
+Item Description
+A Valve Base
+B Ferrule
+C Valve Body
+D Plug
+FIGURE 3.19
+Pressure Relief valve type VA70 - Construction design
+3. SERVICING SERVICE MANUAL Page 3.22
+Apr/21
+
+=== PÁGINA 43 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3.3.4.1 Check valve external airtightness by spraying soapy water in the surrounding area, checking
+for air bubbles near the valve body.
+3.3.4.2 In case of air leaking, proceed as under described:
+(a) Keep buoyancy tube inflated.
+(b) Tighten valve body by torque wrench and terminal 99220796 at 25 Nm.
+(c) If air leaking persists, replace the valve body following procedure indicated on par.
+3.3.3.5.
+3.3.4.3 If valve body needs to be replaced, proceed as under described:
+(a) Keep buoyancy tube inflated.
+(b) Untighten valve body by spanner and terminal 99220796.
+(c) Unscrew valve body by hand, putting attention not to lose the valve base inside the
+buoyancy chamber.
+(d) Remove valve body and discard it.
+(e) Screw the new valve body to the ferrule inside buoyancy chamber.
+(f) Inflate buoyancy chamber and progressively tighten valve body by torque wrench
+and terminal 99220796 until a torque value of 25 Nm is reached.
+(g) Submit buoyancy chamber to PRV and WP test as described in Par. 3.2.4 and Par.
+3.2.5.
+3. SERVICING SERVICE MANUAL Page 3.23
+Apr/21
+
+=== PÁGINA 44 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3.4 INFLATION SYSTEMS
+TABLE 3.3 - Inflation systems information
+3. SERVICING SERVICE MANUAL Page 3.24
+Apr/21
+
+=== PÁGINA 45 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3.4.1 PERIODICITY OF INSPECTION
+Periodicity
+At every Max 5 years Max 10 years
+Operation
+At every Liferaft Cylinder from last from last
+service discharge and Hydrotest Hydrotest
+refilling effected effected
+Cylinder weight check x x
+Operating head inspection x x
+Valve inspection x
+Hydrostatic test
+x x (1)
+(TPED Cylinders)
+Hydrostatic test
+x x
+(Triple Approval Cylinders)
+(1) unless otherwise specified by local regulation (see Table 3.1 & 3.2)
+TABLE 3.4 - Inflation system – Periodicity of inspection
+3.4.1.1 To carry out the checks and reconditioning listed below you need, besides normal workshop
+tools, also special devices for rearming the O.H. and for cylinder refilling, as listed in 5.11
+TESTING AND REPAIRING EQUIPMENT.
+3.4.2 CYLINDER WEIGHT CHECK
+WARNING: RESPECT CAREFULLY THE SEQUENCE INDICATED.
+3.4.2.1 After extracting the cylinder from the liferaft proceed as follows:
+(a) Secure the cylinder to a vise.
+(b) Remove the Operating Head with a 27 mm wrench; hold the valve body with a 27
+mm open wrench (VTE/87 valve) or a 35 mm open wrench (VTE/99 valve).
+(c) Place the cylinder on a suitable scale.
+(d) Remove safety plug and check weight. Tolerance admitted is ± 55g on Total Weight
+as reported on label.
+3.4.2.2 Discharge and recondition cylinder if one or more of the following cases is found:
+(a) Weight outside tolerance limits.
+(b) Latest hydraulic test effected doesn’t cover Liferaft next service (see date stamped
+on cylinder’s top).
+3. SERVICING SERVICE MANUAL Page 3.25
+Apr/21
+
+=== PÁGINA 46 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+FIGURE 3.20
+Cylinder label
+3.4.2.3 Reject and destroy cylinder if one or more of the following cases is found:
+(a) Visible swelling of the cylinder.
+(b) A dent which is deeper than 2 mm.
+(c) A dent which has a diameter of less than 30 times its depth.
+(d) A cut or gouge which is more than 2% of the cylinder’s length.
+(e) A cut /gouge which is deeper than 5% of the cylinder wall thickness.
+(f) A crack in the metal.
+(g) Any delamination of the metal.
+(h) The wear of the base end of the cylinder has reduced the thickness to less
+than 75% of the original.
+(i) Heat damage has caused burning of the metal or distortion of the cylinder.
+(j) Stamp marks made by a metal punch on the parallel section of the cylinder.
+(k) Stamp marks are illegible.
+3. SERVICING SERVICE MANUAL Page 3.26
+Apr/21
+
+=== PÁGINA 47 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+3.4.3 INFLATION SYSTEM VTE/87-PED - CHECK AND INSPECTION
+Siphon tube Valve Obturator Operating Head
+FIGURE 3.21
+VTE/87-PED inflation system - design
+3.4.3.1 The inspection of the Operating Head must be effected in every case, even if it seems
+externally in perfect condition.
+O.H. body Sliding shaft Spring Spring cap Firing cable
+Gasket OR-2087 Gasket OR-106 Spheres
+FIGURE 3.22
+VTE/87-PED Operating Head – Construction design
+3.4.3.2 For the check proceed as follows:
+(a) After removing the Operating Head from the valve, pull the firing cable and verify that
+the sliding shaft has completed its stroke (Fig. 3.22 Steps 1-2).
+WARNING: BE CAREFUL NOT TO HURT YOUR HANDS DURING ACTIVATION.
+(b) Remove the protection cap after removing the adhesive tape around it (Fig. 3.23
+Step 3).
+(c) Unscrew the spring cap so to inspect the internal parts and verify that they are not
+compromised by grime and oxide; in case carry out the procedure described on Par.
+3.4.3.3.
+WARNING: VERIFY ALWAYS THE STATE OF THE SPRING CAP, IN CASE OF DAMAGE OR
+CRACKS, IMMEDIATELY REPLACE THE OPERATING HEAD.
+3. SERVICING SERVICE MANUAL Page 3.27
+Apr/21
+
+=== PÁGINA 48 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+Step 1
+Step 2
+Step 3
+FIGURE 3.23
+VTE/87-PED Operating Head – Activation
+Otherwise, if the internal parts are contaminated by grime and oxide, proceed as follows:
+(a) Remove the spring from its side.
+(b) Remove the sliding shaft from its side.
+(c) Remove gaskets and spheres from their sides, clean the sliding shaft and the
+operative head body with petrol.
+(d) Remove gasket OR-2087 (P/N 99182145) from Operating Head body.
+(e) Verify that the spheres don’t have any sign of oxide, otherwise replace them.
+(f) Spread gaskets and spheres with grease type Aeroshell or equivalent before lodging
+them.
+(g) Insert the sliding shaft in its side of the valve body (Fig. 3.23 Step 1).
+(h) Insert the spring (Fig. 3.23 Step 2), verifying that it enters the first part of the sliding
+shaft.
+(i) Screw the spring cap up to reach the bottom with a torque value of about 5Nm (Fig.
+3.23 Step 3).
+3.4.3.3 To rearm the operative head proceed as follows:
+(a) Screw rearming tool P/N 99990985 to the operating head body (Fig. 3.23 Step 4).
+(b) Compress the sliding shaft up to its maximum travel.
+(c) Insert the firing cable up to reach the bottom (Fig. 3.23 Step 4).
+(d) Unscrew the lever of the rearming tool up to set free the axial effort.
+(e) Take the tool off the operating head.
+3. SERVICING SERVICE MANUAL Page 3.28
+Apr/21
+
+=== PÁGINA 49 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+(f) Insert the protection cap (Fig. 3.23 Step 5) making it slide until the beginning of the
+hexagonal part (replace the protection cap if it’s damaged). The sphere of the firing
+cable must be placed at about in the middle of the cylindrical terminal of the cap so
+to maintain the water-proof condition.
+(g) Apply a new gasket OR-2087 P/N 99182145 (Fig. 3.22 Step 5).
+(h) Install the Operating Head to the valve by a 27 mm torque wrench with a coupling
+torque of 40 Nm (Fig. 3.22 Step 6).
+(i) Fix the cap to the valve body with two turns of adhesive tape (Fig. 3.22 Step 7).
+WARNING: THE ONLY COMPONENTS THAT CAN BE REPLACED ARE THE “OR”
+GASKETS, SPHERES, CAP AND FIRING CABLE. IF ANY OTHER PART
+SHOULD BE DAMAGED, REPLACE THE COMPLETE OPERATIVE HEAD.
+3. SERVICING SERVICE MANUAL Page 3.29
+Apr/21
+
+=== PÁGINA 50 ===
+LEISURE SYNTESY LIFERAFTS
+EUROVINIL S.P.A. - GROSSETO - ITALY
+Step 1 Step 2 Step 3 Step 4
+Step 5 Step 6 Step 7
+FIGURE 3.24
+VTE/87-PED Operating Head – Rearming illustrated procedure
+3. SERVICING SERVICE MANUAL Page 3.30
+Apr/21

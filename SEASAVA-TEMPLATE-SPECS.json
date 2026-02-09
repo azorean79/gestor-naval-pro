@@ -1,0 +1,376 @@
+{
+  "modelos_seasava": [
+    {
+      "modelo": "SEASAVA Plus",
+      "fabricante": "SEASAVA",
+      "sistema_insuflacao": {
+        "tipo": "",
+        "descricao": "Ex: Thanner, Leafield, etc."
+      },
+      "valvulas_padrao": {
+        "tipos": [],
+        "descricao": "Ex: OTS65, A10, B10, C8, D5"
+      },
+      "capacidades": {
+        "4P": {
+          "capacidade_pessoas": 4,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        },
+        "6P": {
+          "capacidade_pessoas": 6,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        },
+        "8P": {
+          "capacidade_pessoas": 8,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        },
+        "10P": {
+          "capacidade_pessoas": 10,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        },
+        "12P": {
+          "capacidade_pessoas": 12,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        },
+        "16P": {
+          "capacidade_pessoas": 16,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        },
+        "20P": {
+          "capacidade_pessoas": 20,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        },
+        "25P": {
+          "capacidade_pessoas": 25,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        }
+      },
+      "pressao_trabalho": {
+        "PSI": 0,
+        "mmWG": 0,
+        "inH2O": 0,
+        "mbar": 0,
+        "observacoes": "Pressão de insuflação da câmara principal"
+      },
+      "davit_launch": {
+        "disponivel": false,
+        "capacidades_pessoas": [],
+        "weak_link_kn": [],
+        "weak_link_lbf": [],
+        "observacoes": ""
+      },
+      "weak_link_specifications": {
+        "throw_over": {
+          "kN": [],
+          "lbf": []
+        },
+        "davit": {
+          "kN": [],
+          "lbf": []
+        },
+        "observacoes": ""
+      },
+      "torques_aperto": {
+        "valvulas": {
+          "nm": 0,
+          "componente": "Válvulas principais"
+        },
+        "cilindros": {
+          "nm": 0,
+          "componente": "Conexão cilindros CO2"
+        },
+        "outros": []
+      },
+      "caracteristicas_especiais": []
+    },
+    {
+      "modelo": "SEASAVA Plus X/E/R",
+      "fabricante": "SEASAVA",
+      "sistema_insuflacao": {
+        "tipo": "",
+        "descricao": "Ex: Thanner, Leafield, etc."
+      },
+      "valvulas_padrao": {
+        "tipos": [],
+        "descricao": "Ex: OTS65, A10, B10, C8, D5"
+      },
+      "capacidades": {
+        "4P": {
+          "capacidade_pessoas": 4,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        },
+        "6P": {
+          "capacidade_pessoas": 6,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        },
+        "8P": {
+          "capacidade_pessoas": 8,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        },
+        "10P": {
+          "capacidade_pessoas": 10,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        },
+        "12P": {
+          "capacidade_pessoas": 12,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        },
+        "16P": {
+          "capacidade_pessoas": 16,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        },
+        "20P": {
+          "capacidade_pessoas": 20,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        },
+        "25P": {
+          "capacidade_pessoas": 25,
+          "cilindros_co2": {
+            "quantidade": 0,
+            "peso_individual_g": 0,
+            "peso_total_kg": 0,
+            "peso_total_n2_kg": null
+          },
+          "referencia_cilindro": "",
+          "peso_embalado_kg": 0,
+          "dimensoes_container_mm": {
+            "comprimento": 0,
+            "largura": 0,
+            "altura": 0
+          }
+        }
+      },
+      "pressao_trabalho": {
+        "PSI": 0,
+        "mmWG": 0,
+        "inH2O": 0,
+        "mbar": 0,
+        "observacoes": "Pressão de insuflação da câmara principal"
+      },
+      "davit_launch": {
+        "disponivel": false,
+        "capacidades_pessoas": [],
+        "weak_link_kn": [],
+        "weak_link_lbf": [],
+        "observacoes": ""
+      },
+      "weak_link_specifications": {
+        "throw_over": {
+          "kN": [],
+          "lbf": []
+        },
+        "davit": {
+          "kN": [],
+          "lbf": []
+        },
+        "observacoes": ""
+      },
+      "torques_aperto": {
+        "valvulas": {
+          "nm": 0,
+          "componente": "Válvulas principais"
+        },
+        "cilindros": {
+          "nm": 0,
+          "componente": "Conexão cilindros CO2"
+        },
+        "outros": []
+      },
+      "caracteristicas_especiais": [],
+      "diferencas_versoes": {
+        "Plus_X": "Versão X - características",
+        "Plus_E": "Versão E - características",
+        "Plus_R": "Versão R - características"
+      }
+    }
+  ],
+  "observacoes_gerais": {
+    "data_extracao": "2026-02-06",
+    "fonte": "Manuais PDF SEASAVA",
+    "arquivos_fonte": [
+      "Seasava Plus.pdf",
+      "Seasava Plus X E R.pdf"
+    ],
+    "notas": "Template para preenchimento manual - PDFs são escaneados (imagens)"
+  }
+}

@@ -96,7 +96,11 @@ export async function POST(request: NextRequest) {
           status: 'realizada',
         },
         include: {
-          navio: true,
+          navio: {
+            include: {
+              cliente: true,
+            },
+          },
           jangada: true,
           cilindro: true,
         },
@@ -125,6 +129,22 @@ export async function POST(request: NextRequest) {
       return criada
     })
 
+    // Geração automática da declaração de isenção de IVA
+    try {
+      const { gerarDeclaracaoIVA } = await import('@/lib/gerarDeclaracaoIVA');
+      await gerarDeclaracaoIVA({
+        cliente: inspecao.navio?.cliente?.nome || '',
+        nif: inspecao.navio?.cliente?.nif || '',
+        morada: inspecao.navio?.cliente?.endereco || '',
+        navio: inspecao.navio?.nome || '',
+        matricula: inspecao.navio?.matricula || '',
+        portoRegisto: inspecao.navio?.bandeira || '',
+        numeroSerie: inspecao.jangada?.numeroSerie || '',
+        data: new Date(),
+      });
+    } catch (err) {
+      console.error('Erro ao gerar declaração de IVA:', err);
+    }
     return NextResponse.json(inspecao, { status: 201 })
   } catch (error) {
     console.error('Erro ao criar inspeção:', error)

@@ -12,8 +12,10 @@ import { DndContext, DragEndEvent } from '@dnd-kit/core';
 import { AgendaCalendar } from './agenda-calendar';
 import { AgendaSidebar } from './agenda-sidebar';
 import { AgendarInspecaoDialog } from './agendar-inspecao-dialog';
+import { AgendaDetails } from './agenda-details';
 
-const DAILY_INSPECTION_LIMIT = 3;
+// Cada técnico pode fazer no máximo 2 inspeções por dia (3.5h cada)
+const INSPECTIONS_PER_TECHNICIAN = 2;
 
 export function AgendaContent() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -21,22 +23,44 @@ export function AgendaContent() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [dragData, setDragData] = useState<any>(null);
 
-  const { data: agendamentos = [] } = useAgendamentos();
-  const { data: jangadas = [] } = useJangadas();
+  const { data: agendamentosResponse } = useAgendamentos();
+  const { data: jangadasResponse } = useJangadas();
+
+  const agendamentos = Array.isArray(agendamentosResponse?.data) 
+    ? agendamentosResponse.data 
+    : Array.isArray(agendamentosResponse) 
+      ? agendamentosResponse 
+      : [];
+  const jangadas = Array.isArray(jangadasResponse?.data)
+    ? jangadasResponse.data
+    : Array.isArray(jangadasResponse)
+      ? jangadasResponse
+      : [];
+
 
   const monthStart = startOfMonth(currentMonth);
   const monthEnd = endOfMonth(currentMonth);
   const calendarDays = eachDayOfInterval({ start: monthStart, end: monthEnd });
 
   const getDayStatus = (date: Date) => {
-    const dayAgendamentos = agendamentos.filter(
+    const dayAgendamentos = (agendamentos || []).filter(
       (agendamento: any) =>
         format(new Date(agendamento.dataInicio), 'yyyy-MM-dd') === format(date, 'yyyy-MM-dd')
     );
 
-    if (dayAgendamentos.length === 0) return 'free';
-    if (dayAgendamentos.length >= DAILY_INSPECTION_LIMIT) return 'full';
-    return 'partial';
+    if (!Array.isArray(dayAgendamentos) || dayAgendamentos.length === 0) return 'free';
+    // Verificar se algum técnico atingiu o limite de 2 inspeções
+    const agendamentosPorTecnico = Array.isArray(dayAgendamentos)
+      ? dayAgendamentos.reduce((acc: any, agendamento: any) => {
+          const tecnico = agendamento.responsavel || 'Sem técnico';
+          acc[tecnico] = (acc[tecnico] || 0) + 1;
+          return acc;
+        }, {})
+      : {};
+    const alguemNoLimite = Object.values(agendamentosPorTecnico).length > 0 && Object.values(agendamentosPorTecnico).some((count: any) => count >= INSPECTIONS_PER_TECHNICIAN);
+    if (dayAgendamentos.length >= INSPECTIONS_PER_TECHNICIAN * 2) return 'full'; // 4 inspeções (2 por cada um dos 2 técnicos)
+    if (alguemNoLimite || dayAgendamentos.length > 0) return 'partial';
+    return 'free';
   };
 
   const handleDragEnd = (event: DragEndEvent) => {
@@ -62,8 +86,8 @@ export function AgendaContent() {
   return (
     <DndContext onDragEnd={handleDragEnd}>
       <div className="flex h-screen">
-        <div className="flex-1 p-6">
-          <div className="mb-6 flex items-center justify-between">
+        <div className="flex-1 p-6 overflow-y-auto">
+          <div className="mb-4 flex items-center justify-between">
             <h1 className="text-3xl font-bold">Agenda de Inspeções</h1>
             <div className="flex items-center gap-4">
               <Button variant="outline" size="sm" onClick={handlePrevMonth}>
@@ -75,6 +99,21 @@ export function AgendaContent() {
               <Button variant="outline" size="sm" onClick={handleNextMonth}>
                 <ChevronRight className="h-4 w-4" />
               </Button>
+            </div>
+          </div>
+
+          <div className="mb-4 bg-blue-50 border border-blue-200 rounded-lg p-3">
+            <div className="flex items-start gap-2">
+              <span className="text-blue-600 text-lg">ℹ️</span>
+              <div className="text-sm text-blue-900">
+                <p className="font-medium mb-1">Regras de Agendamento:</p>
+                <ul className="list-disc list-inside space-y-1 text-blue-800">
+                  <li>Horário de trabalho: <strong>Segunda a Sexta, 9:00 - 17:30</strong></li>
+                  <li>Duração por inspeção: <strong>3 horas e 30 minutos</strong></li>
+                  <li>Máximo de <strong>2 inspeções por técnico por dia</strong></li>
+                  <li>Arraste uma jangada da sidebar para agendar</li>
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -92,6 +131,11 @@ export function AgendaContent() {
           agendamentos={agendamentos}
           jangadas={jangadas}
         />
+
+        {/* Painel de detalhes do agendamento */}
+        {selectedDate && agendamentos.length > 0 && (
+          <AgendaDetails agendamento={agendamentos.find((a: any) => format(new Date(a.dataInicio), 'yyyy-MM-dd') === format(selectedDate, 'yyyy-MM-dd'))} />
+        )}
 
         <AgendarInspecaoDialog
           open={dialogOpen}

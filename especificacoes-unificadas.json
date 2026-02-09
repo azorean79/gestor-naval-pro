@@ -1,0 +1,6 @@
+[
+  {"fonte": "DSB-LR05-SPECS.json", "marca": "DSB", "modelo": "LR05", "tipo": "SOLAS", "dados": {}},
+  {"fonte": "mkiv-technical-specs.json", "marca": "MARINE", "modelo": "MKIV", "tipo": "SOLAS", "dados": {}},
+  {"fonte": "eurovinil-crewsaver-especificacoes-FINAL.json", "marca": "EUROVINIL/CREWSAVER", "modelo": "SYNTESY/LEISURE/MARINER", "tipo": "ISO 9650", "dados": {}},
+  {"fonte": "seasava-especificacoes-completas.json", "marca": "SEASAVA", "modelo": "TODOS", "tipo": "SOLAS", "dados": {}}
+]

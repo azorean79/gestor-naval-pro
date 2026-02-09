@@ -1,0 +1,587 @@
+{
+  "fonte": "Eurovinil Leisure Syntesy Liferafts & Crewsaver ISO Type1(2) Mk 2 Mariner Mk 2_1.pdf",
+  "data_extracao": "2026-02-06",
+  "notas": "Extração baseada em análise completa do manual técnico. Tabela 3.3 completa não foi totalmente extraível do PDF (possivelmente em formato de imagem). Valores baseados em padrões da indústria e informações confirmadas no manual.",
+  
+  "marcas": [
+    {
+      "nome": "EUROVINIL",
+      "modelos": [
+        {
+          "nome": "LEISURE",
+          "descricao": "Jangada de lazer não-ISO",
+          "sistema_insuflacao": "VTE/87-PED ou VTE/99-ISO",
+          "valvulas_padrao": [
+            "SUPERNOVA Inflation/Deflation Valve (10399310, 99139027)",
+            "BRAVO 2005 Inflation/Deflation Valve (99101109)",
+            "PRV VA70 (10359166)"
+          ],
+          "capacidades": {
+            "4p": {
+              "cilindros": 1,
+              "co2_kg": 1.90,
+              "n2_kg": 0.13,
+              "thread": "17E",
+              "davit_launch": false,
+              "container": {
+                "vtr": {
+                  "pn": "99991560",
+                  "dimensoes": "74x42x29 cm"
+                },
+                "valise": {
+                  "pn": "10362203",
+                  "dimensoes": "68x37x19 cm"
+                },
+                "abs": {
+                  "pn": "99991023",
+                  "dimensoes": "69x39x28 cm"
+                }
+              }
+            },
+            "6p": {
+              "cilindros": 1, 
+              "co2_kg": 2.20,
+              "n2_kg": 0.13,
+              "thread": "17E",
+              "davit_launch": false,
+              "container": {
+                "vtr": {
+                  "pn": "99991563",
+                  "dimensoes": "74x52x29 cm"
+                },
+                "valise": {
+                  "pn": "10362213",
+                  "dimensoes": "68x40x23 cm"
+                },
+                "abs": {
+                  "pn": "99991024",
+                  "dimensoes": "69x40x29 cm"
+                }
+              }
+            },
+            "8p": {
+              "cilindros": 1,
+              "co2_kg": null,
+              "n2_kg": null,
+              "thread": "25E",
+              "davit_launch": false,
+              "container": {
+                "vtr": {
+                  "pn": "99991563",
+                  "dimensoes": "74x52x29 cm"
+                },
+                "valise": {
+                  "pn": "10362153",
+                  "dimensoes": "70x41x26 cm"
+                },
+                "abs": {
+                  "pn": "99991025",
+                  "dimensoes": "71x49x29 cm"
+                }
+              }
+            },
+            "10p": {
+              "cilindros": 1,
+              "co2_kg": null,
+              "n2_kg": null,
+              "thread": "25E",
+              "davit_launch": false,
+              "container": {
+                "vtr": {
+                  "pn": "99991563",
+                  "dimensoes": "74x52x29 cm"
+                },
+                "valise": {
+                  "pn": "10362153",
+                  "dimensoes": "70x41x26 cm"
+                },
+                "abs": {
+                  "pn": "99991025",
+                  "dimensoes": "71x49x29 cm"
+                }
+              }
+            },
+            "12p": {
+              "cilindros": 1,
+              "co2_kg": null,
+              "n2_kg": null,
+              "thread": "25E",
+              "davit_launch": false,
+              "container": {
+                "vtr": {
+                  "pn": "99991561",
+                  "dimensoes": "82x54x29 cm"
+                },
+                "valise": {
+                  "pn": "10362173",
+                  "dimensoes": "79x50x28 cm"
+                },
+                "abs": {
+                  "pn": "99991050",
+                  "dimensoes": "80x49x31 cm"
+                }
+              }
+            }
+          },
+          "pressoes": {
+            "working_pressure_bar": "0.22-0.35",
+            "working_pressure_psi": "3.19-5.08",
+            "working_pressure_mmwg": "2243-3567",
+            "working_pressure_inh2o": "88.32-140.51",
+            "working_pressure_mbar": "220-350",
+            "prv_opening_bar": "0.22-0.35",
+            "prv_final_bar_min": 0.18,
+            "test_pressure_bar": 0.20
+          },
+          "weak_link": {
+            "nota": "Dados não extraídos do PDF - consultar Tabela específica do manual"
+          },
+          "contentor": {
+            "tipos_disponiveis": ["VTR Fibreglass", "ABS", "Valise"],
+            "sistema_abertura": "Automático com weak link",
+            "straps": {
+              "pn": "10304222 (4P-6P) ou 10304232 (8P-12P)",
+              "quantidade": 2,
+              "material": "Nylon com crimps"
+            }
+          }
+        },
+        {
+          "nome": "SYNTESY 9650-1",
+          "descricao": "Jangada ISO Type 1 ISO9650-1:2005",
+          "sistema_insuflacao": "VTE/99-ISO",
+          "valvulas_padrao": [
+            "SUPERNOVA Inflation/Deflation Valve",
+            "PRV VA70",
+            "VTE/99-ISO/V1 (1 NGT Thread)",
+            "VTE/99-ISO/V1W (25E Thread)"
+          ],
+          "capacidades": {
+            "4p": {
+              "cilindros": 1,
+              "co2_kg": null,
+              "n2_kg": null,
+              "thread": "1 NGT ou 25E",
+              "davit_launch": false,
+              "container": {
+                "vtr": {
+                  "pn": "99991563",
+                  "dimensoes": "74x52x29 cm"
+                },
+                "valise": {
+                  "pn": "10362153",
+                  "dimensoes": "70x41x26 cm"
+                },
+                "abs": {
+                  "pn": "99991024",
+                  "dimensoes": "70x41x26 cm"
+                }
+              }
+            },
+            "6p": {
+              "cilindros": 1,
+              "co2_kg": null,
+              "n2_kg": null,
+              "thread": "25E",
+              "davit_launch": false,
+              "container": {
+                "vtr": {
+                  "pn": "99991561",
+                  "dimensoes": "82x54x29 cm"
+                },
+                "valise": {
+                  "pn": "10362163",
+                  "dimensoes": "70x50x28 cm"
+                },
+                "abs": {
+                  "pn": "99991025",
+                  "dimensoes": "71x49x29 cm"
+                }
+              }
+            },
+            "8p": {
+              "cilindros": 1,
+              "co2_kg": null,
+              "n2_kg": null,
+              "thread": "25E",
+              "davit_launch": false,
+              "container": {
+                "vtr": {
+                  "pn": "99991562",
+                  "dimensoes": "82x54x31 cm"
+                },
+                "valise": {
+                  "pn": "10362173",
+                  "dimensoes": "79x50x28 cm"
+                },
+                "abs": {
+                  "pn": "99991050",
+                  "dimensoes": "80x49x31 cm"
+                }
+              }
+            },
+            "10p": {
+              "cilindros": 1,
+              "co2_kg": null,
+              "n2_kg": null,
+              "thread": "25E",
+              "davit_launch": false,
+              "container": {
+                "vtr": {
+                  "pn": "99991564",
+                  "dimensoes": "82x64x31 cm"
+                },
+                "valise": {
+                  "pn": "10362173",
+                  "dimensoes": "79x50x28 cm"
+                },
+                "abs": {
+                  "pn": "99991050",
+                  "dimensoes": "80x49x31 cm"
+                }
+              }
+            },
+            "12p": {
+              "cilindros": 1,
+              "co2_kg": null,
+              "n2_kg": null,
+              "thread": "25E",
+              "davit_launch": false,
+              "container": {
+                "vtr": {
+                  "pn": "99991565",
+                  "dimensoes": "82x64x35 cm"
+                },
+                "valise": {
+                  "pn": "10362173",
+                  "dimensoes": "79x50x28 cm"
+                },
+                "abs": {
+                  "pn": "99991027",
+                  "dimensoes": "90x56x35 cm"
+                }
+              }
+            }
+          },
+          "pressoes": {
+            "working_pressure_bar": "0.22-0.35",
+            "prv_opening_bar": "0.22-0.35",
+            "prv_final_bar_min": 0.18,
+            "test_pressure_bar": 0.20
+          },
+          "weak_link": {
+            "nota": "Consultar manual - valores não extraídos"
+          },
+          "contentor": {
+            "tipos_disponiveis": ["VTR Fibreglass", "ABS", "Valise"],
+            "sistema_abertura": "Automático",
+            "straps": {
+              "pn": "10304222 ou 10304232",
+              "quantidade": 2,
+              "tools": {
+                "crimp_securing": "04877009",
+                "strap_tensioning": "04876009",
+                "straps_crimps_pn": "9R41423002"
+              }
+            }
+          }
+        },
+        {
+          "nome": "SYNTESY 9650-2",
+          "descricao": "Jangada ISO Type 2 ISO9650-2:2005",
+          "sistema_insuflacao": "VTE/99-ISO",
+          "valvulas_padrao": [
+            "SUPERNOVA Inflation/Deflation Valve",
+            "PRV VA70"
+          ],
+          "capacidades": {
+            "4p": {
+              "cilindros": 1,
+              "container": {
+                "vtr": {
+                  "pn": "99991560",
+                  "dimensoes": "74x42x29 cm"
+                },
+                "valise": {
+                  "pn": "10362213",
+                  "dimensoes": "68x40x23 cm"
+                },
+                "abs": {
+                  "pn": "99991023",
+                  "dimensoes": "69x39x28 cm"
+                }
+              }
+            },
+            "6p": {
+              "cilindros": 1,
+              "container": {
+                "vtr": {
+                  "pn": "99991572",
+                  "dimensoes": "74x52x26 cm"
+                },
+                "valise": {
+                  "pn": null
+                },
+                "abs": {
+                  "pn": "99991024",
+                  "dimensoes": "69x40x29 cm"
+                }
+              }
+            },
+            "8p": {
+              "cilindros": 1,
+              "container": {
+                "vtr": {
+                  "pn": "99991563",
+                  "dimensoes": "74x52x29 cm"
+                },
+                "valise": {
+                  "pn": "10362163",
+                  "dimensoes": "70x50x28 cm"
+                },
+                "abs": {
+                  "pn": "99991025",
+                  "dimensoes": "71x49x29 cm"
+                }
+              }
+            },
+            "10p": {
+              "cilindros": 1,
+              "container": {
+                "vtr": null,
+                "valise": null,
+                "abs": null
+              }
+            }
+          },
+          "pressoes": {
+            "working_pressure_bar": "0.22-0.35",
+            "prv_opening_bar": "0.22-0.35"
+          }
+        }
+      ]
+    },
+    {
+      "nome": "CREWSAVER",
+      "modelos": [
+        {
+          "nome": "ISO TYPE 1 SYNTESY",
+          "descricao": "Jangada ISO Type 1 marca Crewsaver fabricada por Eurovinil",
+          "sistema_insuflacao": "VTE/99-ISO",
+          "fabricante": "Eurovinil S.p.A.",
+          "valvulas_padrao": [
+            "SUPERNOVA Inflation/Deflation Valve",
+            "PRV VA70"
+          ],
+          "capacidades": {
+            "nota": "Mesmas especificações do SYNTESY 9650-1",
+            "referencia": "Ver SYNTESY 9650-1"
+          },
+          "straps": {
+            "pn": "9R41423003",
+            "brand": "Crewsaver"
+          },
+          "pressoes": {
+            "working_pressure_bar": "0.22-0.35"
+          }
+        },
+        {
+          "nome": "ISO TYPE 2 SYNTESY",
+          "descricao": "Jangada ISO Type 2 marca Crewsaver fabricada por Eurovinil",
+          "sistema_insuflacao": "VTE/99-ISO",
+          "fabricante": "Eurovinil S.p.A.",
+          "valvulas_padrao": [
+            "SUPERNOVA Inflation/Deflation Valve",
+            "PRV VA70"
+          ],
+          "capacidades": {
+            "nota": "Mesmas especificações do SYNTESY 9650-2",
+             "referencia": "Ver SYNTESY 9650-2"
+          },
+          "straps": {
+            "pn": "9R41423003",
+            "brand": "Crewsaver"
+          }
+        },
+        {
+          "nome": "MARINER MK 2",
+          "descricao": "Jangada não-ISO marca Crewsaver fabricada por Eurovinil",
+          "sistema_insuflacao": "VTE/87-PED ou VTE/99-ISO",
+          "fabricante": "Eurovinil S.p.A.",
+          "valvulas_padrao": [
+            "SUPERNOVA Inflation/Deflation Valve",
+            "PRV VA70"
+          ],
+          "capacidades": {
+            "4p": {
+              "cilindros": 1,
+              "container": {
+                "vtr": {
+                  "pn": "99991560",
+                  "dimensoes": "74x42x29 cm"
+                },
+                "valise": {
+                  "pn": "10362203",
+                  "dimensoes": "68x37x19 cm"
+                },
+                "abs": {
+                  "pn": "99991023",
+                  "dimensoes": "69x39x28 cm"
+                }
+              }
+            },
+            "6p": {
+              "cilindros": 1,
+              "container": {
+                "vtr": {
+                  "pn": "99991563",
+                  "dimensoes": "74x52x29 cm"
+                },
+                "valise": {
+                  "pn": "10362213",
+                  "dimensoes": "68x40x23 cm"
+                },
+                "abs": {
+                  "pn": "99991024",
+                  "dimensoes": "69x40x29 cm"
+                }
+              }
+            },
+            "8p": {
+              "cilindros": 1,
+              "container": {
+                "vtr": {
+                  "pn": "99991563",
+                  "dimensoes": "74x52x29 cm"
+                },
+                "valise": null,
+                "abs": {
+                  "pn": "99991024",
+                  "dimensoes": "69x40x29 cm"
+                }
+              }
+            },
+            "10p": {
+              "cilindros": 1,
+              "container": {
+                "vtr": {
+                  "pn": "99991563",
+                  "dimensoes": "74x52x29 cm"
+                },
+                "valise": {
+                  "pn": "10362153",
+                  "dimensoes": "70x41x26 cm"
+                },
+                "abs": {
+                  "pn": "99991025",
+                  "dimensoes": "71x49x29 cm"
+                }
+              }
+            },
+            "12p": {
+              "cilindros": 1,
+              "container": {
+                "vtr": {
+                  "pn": "99991561",
+                  "dimensoes": "82x54x29 cm"
+                },
+                "valise": {
+                  "pn": "10362173",
+                  "dimensoes": "79x50x28 cm"
+                },
+                "abs": {
+                  "pn": "99991050",
+                  "dimensoes": "80x49x31 cm"
+                }
+              }
+            }
+          },
+          "straps": {
+            "pn": "9R41423003",
+            "brand": "Crewsaver"
+          }
+        }
+      ]
+    }
+  ],
+  
+  "informacoes_tecnicas_gerais": {
+    "sistemas_insuflacao": {
+      "VTE/87-PED": {
+        "thread": "17E",
+        "operating_head": "10399424",
+        "activation_cable": "10399594",
+        "obturator": "99201312",
+        "wrench_size": "27mm",
+        "wrench_torque": "100 Nm",
+        "plummer": "99201035 (cylinders up to 4L)"
+      },
+      "VTE/99-ISO": {
+        "thread": "1 NGT ou 25E",
+        "valve_v1": "10388044 (1 NGT)",
+        "valve_v1w": "10388046 (25E)",
+        "operating_head": "10388043",
+        "activation_cable": "10399596",
+        "obturator": "99201319",
+        "wrench_size": "35mm",
+        "wrench_torque": "130 Nm",
+        "plummer": "99201015 (cylinders up to 7L)"
+      }
+    },
+    "cilindros": {
+      "tipos": [
+        "TPED Cylinder (1 NGT Thread)",
+        "TPED Cylinder (17E Thread)",
+        "TPED Cylinder (25E Thread)",
+        "Triple Approval TPED-DOT-TC (25E Thread)"
+      ],
+      "hydrotest_interval": "Max 10 years (ou 5 anos se requerido por regulamentação local)",
+      "weight_tolerance": "±55g",
+      "max_pressure_refill": "200 bar at 20°C",
+      "quarantine_period": "15 days"
+    },
+    "valvulas": {
+      "supernova": {
+        "pn_complete": ["10399310", "99139027"],
+        "rubber_gasket": "10399292",
+        "gasket_plug_holder": "99139028",
+        "torque_terminal": "99220786",
+        "torque": "25 Nm"
+      },
+      "bravo_2005": {
+        "pn_complete": "99101109",
+        "torque_terminal": "99220776",
+        "pressure_check_adapter": "99101110",
+        "torque": "25 Nm"
+      },
+      "prv_va70": {
+        "pn_complete": "10359166",
+        "torque_terminal": "99220796",
+        "torque": "25 Nm"
+      }
+    },
+    "connector_cvt09": {
+      "cvt09m": "99201345",
+      "cvt09_compact_dry": "99201331",
+      "inox_terminal": "99201346",
+      "or106_gasket": "99182147",
+      "screw_m4x8": "99220695"
+    },
+    "materiais": {
+      "pvc_orange": "50200435 (EV-550 DTEX)",
+      "fab_canopy_400_orange": "9R00202430",
+      "elastic_cord_6mm": "52400200",
+      "polypropilene_plait_25mm_yellow": "52400428",
+      "polyester_plait_16mm_white": "52400016"
+    }
+  },
+  
+  "acoes_necessarias": [
+    "CRÍTICO: Valores de CO2 e N2 por capacidade não foram extraídos do PDF (Tabela 3.3 incompleta)",
+    "CRÍTICO: Valores de weak link (kN e lbf) não foram localizados",
+    "AÇÃO: Solicitar Tabela 3.3 completa ao fabricante Eurovinil",
+    "AÇÃO: Verificar manual físico ou solicitar dados técnicos de cilindros CO2/N2",
+    "AÇÃO: Confirmar pressões de trabalho em PSI, mmWG, inH2O e mbar",
+    "AÇÃO: Obter especificações de lashing straps (resistência em kN)"
+  ]
+}

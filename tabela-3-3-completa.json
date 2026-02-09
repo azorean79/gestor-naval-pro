@@ -1,0 +1,280 @@
+{
+  "fonte": "Tabela 3.3 - Inflation systems information (Página 3.24)",
+  "data_extracao": "2026-02-06",
+  "nota": "Dados extraídos manualmente da imagem da Tabela 3.3 do PDF Eurovinil",
+  
+  "sistemas_insuflacao": {
+    "VTE_87_PED": {
+      "nome": "VTE/87-PED",
+      "descricao": "Sistema padrão TPED com thread 17E",
+      "thread": "17E",
+      "valve_pn": "10388044",
+      "operating_head": "10399424",
+      "activation_cable": "10399594",
+      "obturator": "99201312",
+      "wrench_size": "27mm",
+      "wrench_torque": "100 Nm",
+      "plummer": "99201035 (cylinders up to 4L)",
+      "aplicacao": "LEISURE, Compact-Dry"
+    },
+    "VTE_99_ISO_V1": {
+      "nome": "VTE/99-ISO/V1",
+      "descricao": "Sistema ISO com thread 1 NGT",
+      "thread": "1 NGT",
+      "valve_pn": "10388044",
+      "operating_head": "10388043",
+      "activation_cable": "10399596",
+      "obturator": "99201319",
+      "wrench_size": "35mm",
+      "wrench_torque": "130 Nm",
+      "plummer": "99201015 (cylinders up to 7L)",
+      "aplicacao": "SYNTESY 9650-1, SYNTESY 9650-2"
+    },
+    "VTE_99_ISO_V1W": {
+      "nome": "VTE/99-ISO/V1W",
+      "descricao": "Sistema ISO com thread 25E",
+      "thread": "25E",
+      "valve_pn": "10388045",
+      "operating_head": "10388043",
+      "activation_cable": "10399596",
+      "obturator": "99201319",
+      "wrench_size": "35mm",
+      "wrench_torque": "130 Nm",
+      "plummer": "99201015 (cylinders up to 7L)",
+      "aplicacao": "SYNTESY 9650-1, SYNTESY 9650-2"
+    }
+  },
+
+  "cilindros_padrao": {
+    "TPED_17E": {
+      "nome": "TPED Cylinders - 17E Thread",
+      "tipo": "Standard TPED",
+      "thread": "17E",
+      "certificacao": "TPED (European)",
+      "max_pressure_refill": "200 bar at 20°C",
+      "hydrotest_interval": "Max 10 years",
+      "weight_tolerance": "±55g",
+      "capacidades": {
+        "4p": {
+          "modelo": "Syntesy & Compact-Dry",
+          "part_number": "10394046",
+          "co2_kg": 1.90,
+          "n2_kg": 0.13,
+          "volume_litro": 3.5,
+          "thread": "17E",
+          "test_pressure_bar": 250
+        },
+        "6p": {
+          "modelo": "Syntesy & Compact-Dry",
+          "part_number": "10394046",
+          "co2_kg": 2.20,
+          "n2_kg": 0.13,
+          "volume_litro": 3.5,
+          "thread": "17E",
+          "test_pressure_bar": 250
+        },
+        "8p": {
+          "modelo": "Compact-Dry",
+          "part_number": "10394046",
+          "co2_kg": 3.50,
+          "n2_kg": 0.20,
+          "volume_litro": 5,
+          "thread": "17E",
+          "test_pressure_bar": 250
+        },
+        "10p": {
+          "modelo": "Syntesy & Compact-Dry",
+          "part_number": "10394085",
+          "co2_kg": 3.80,
+          "n2_kg": 0.22,
+          "volume_litro": 6,
+          "thread": "25E",
+          "test_pressure_bar": 250
+        },
+        "12p": {
+          "modelo": "Syntesy & Compact-Dry",
+          "part_number": "10394086",
+          "co2_kg": 4.25,
+          "n2_kg": 0.27,
+          "volume_litro": 7,
+          "thread": "25E",
+          "test_pressure_bar": 250
+        }
+      }
+    },
+    
+    "TPED_25E_ALTERNATIVE": {
+      "nome": "TPED Cylinders (alternative) - 25E Thread",
+      "tipo": "Alternative TPED",
+      "thread": "25E",
+      "certificacao": "TPED (European)",
+      "max_pressure_refill": "200 bar at 20°C",
+      "hydrotest_interval": "Max 10 years",
+      "weight_tolerance": "±55g",
+      "capacidades": {
+        "4p": {
+          "modelo": "Compact-Dry",
+          "part_number": "10394046",
+          "co2_kg": 1.90,
+          "n2_kg": 0.13,
+          "volume_litro": 3.5,
+          "thread": "1 NGT",
+          "test_pressure_bar": 250
+        },
+        "6p": {
+          "modelo": "Syntesy & Compact-Dry",
+          "part_number": "10394046",
+          "co2_kg": 3.10,
+          "n2_kg": 0.20,
+          "volume_litro": 5,
+          "thread": "1 NGT",
+          "test_pressure_bar": 250
+        },
+        "8p": {
+          "modelo": "Syntesy & Compact-Dry",
+          "part_number": "10394046",
+          "co2_kg": 3.50,
+          "n2_kg": 0.20,
+          "volume_litro": 5,
+          "thread": "1 NGT",
+          "test_pressure_bar": 250
+        },
+        "10p": {
+          "modelo": "Syntesy & Compact-Dry",
+          "part_number": "10394085",
+          "co2_kg": 4.25,
+          "n2_kg": 0.27,
+          "volume_litro": 7,
+          "thread": "25E",
+          "test_pressure_bar": 250
+        }
+      }
+    },
+
+    "TRIPLE_APPROVAL": {
+      "nome": "Triple Approval Cylinders (TPED-DOT-TC)",
+      "tipo": "Triple Approval",
+      "thread": "25E",
+      "certificacao": "TPED + DOT + TC (Europe + USA + Canada)",
+      "max_pressure_refill": "200 bar at 20°C",
+      "hydrotest_interval": "5 years",
+      "weight_tolerance": "±55g",
+      "capacidades": {
+        "4p": {
+          "modelo": "Syntesy USA - Canada",
+          "part_number": "10382072",
+          "co2_kg": 1.70,
+          "n2_kg": 0.07,
+          "volume_litro": 3.5,
+          "thread": "25E",
+          "test_pressure_bar": 250
+        },
+        "6p": {
+          "modelo": "Syntesy USA - Canada",
+          "part_number": "10382071",
+          "co2_kg": 2.20,
+          "n2_kg": 0.13,
+          "volume_litro": 3.5,
+          "thread": "25E",
+          "test_pressure_bar": 250
+        },
+        "8p": {
+          "modelo": "Syntesy USA - Canada",
+          "part_number": "10382072",
+          "co2_kg": 3.10,
+          "n2_kg": 0.20,
+          "volume_litro": 5.4,
+          "thread": "25E",
+          "test_pressure_bar": 250
+        },
+        "10p": {
+          "modelo": "Syntesy USA - Canada",
+          "part_number": "10382073",
+          "co2_kg": 3.50,
+          "n2_kg": 0.22,
+          "volume_litro": 5.7,
+          "thread": "25E",
+          "test_pressure_bar": 250
+        },
+        "12p": {
+          "modelo": "Syntesy USA - Canada",
+          "part_number": "10382074",
+          "co2_kg": 4.25,
+          "n2_kg": 0.27,
+          "volume_litro": 6.7,
+          "thread": "25E",
+          "test_pressure_bar": 250
+        }
+      }
+    }
+  },
+
+  "pressoes": {
+    "working_pressure_bar": "0.22 - 0.35",
+    "working_pressure_psi": "3.19 - 5.08",
+    "working_pressure_mmwg": "2243.40 - 3567.02",
+    "working_pressure_inh2o": "88.32 - 140.51",
+    "working_pressure_mbar": "220 - 350",
+    "prv_opening_bar": "0.22 - 0.35",
+    "prv_final_bar_min": 0.18,
+    "prv_final_psi_min": 2.61,
+    "test_pressure_bar": 0.20,
+    "test_pressure_psi": 2.90,
+    "cylinder_refill_max": "200 bar at 20°C"
+  },
+
+  "mapeamento_modelos": {
+    "LEISURE": {
+      "sistema_preferencial": "VTE_87_PED",
+      "sistema_alternativo": "VTE_99_ISO_V1",
+      "cilindro_tipo": "TPED_17E",
+      "capacidades": ["4p", "6p", "8p", "10p", "12p"]
+    },
+    "SYNTESY_9650_1": {
+      "sistema_preferencial": "VTE_99_ISO_V1",
+      "sistema_alternativo": "VTE_99_ISO_V1W",
+      "cilindro_tipo": "TPED_25E_ALTERNATIVE ou TRIPLE_APPROVAL",
+      "capacidades": ["4p", "6p", "8p", "10p", "12p"]
+    },
+    "SYNTESY_9650_2": {
+      "sistema_preferencial": "VTE_99_ISO_V1",
+      "sistema_alternativo": "VTE_99_ISO_V1W",
+      "cilindro_tipo": "TPED_25E_ALTERNATIVE",
+      "capacidades": ["4p", "6p", "8p", "10p"]
+    },
+    "COMPACT_DRY": {
+      "sistema_preferencial": "VTE_87_PED",
+      "cilindro_tipo": "TPED_17E",
+      "capacidades": ["4p", "6p", "8p", "10p", "12p"]
+    },
+    "CREWSAVER_ISO_TYPE_1": {
+      "sistema_preferencial": "VTE_99_ISO_V1",
+      "cilindro_tipo": "TPED_25E_ALTERNATIVE ou TRIPLE_APPROVAL",
+      "capacidades": ["4p", "6p", "8p", "10p", "12p"]
+    },
+    "CREWSAVER_ISO_TYPE_2": {
+      "sistema_preferencial": "VTE_99_ISO_V1",
+      "cilindro_tipo": "TPED_25E_ALTERNATIVE",
+      "capacidades": ["4p", "6p", "8p", "10p"]
+    },
+    "CREWSAVER_MARINER_MK2": {
+      "sistema_preferencial": "VTE_87_PED",
+      "sistema_alternativo": "VTE_99_ISO_V1",
+      "cilindro_tipo": "TPED_17E",
+      "capacidades": ["4p", "6p", "8p", "10p", "12p"]
+    }
+  },
+
+  "notas_importantes": [
+    "Valores de CO2 e N2 extraídos da Tabela 3.3 (página 3.24)",
+    "LEISURE e Compact-Dry usam sistema VTE/87-PED (17E thread)",
+    "SYNTESY ISO modelos usam VTE/99-ISO/V1 (1 NGT) ou V1W (25E)",
+    "Cilindros Triple Approval têm hydrotest a cada 5 anos (vs 10 anos TPED)",
+    "Modelos USA/Canada requerem cilindros Triple Approval (TPED-DOT-TC)",
+    "Thread 17E para 4P-6P, Thread 25E para 8P-12P (maioria dos modelos)",
+    "Pressão de trabalho: 0.22-0.35 bar (3.19-5.08 PSI)",
+    "Pressão de teste cilindro: 250 bar",
+    "Tolerância peso cilindro: ±55g",
+    "Período quarentena pós-recarga: 15 dias"
+  ]
+}

@@ -40,6 +40,23 @@ export function InspecaoFormComTestes({
   // Calcular testes obrigatórios
   const resultadoTestes = useTestesSOLAS(dataFabricacao);
 
+  // Busca real dos boletins aplicados para a marca/modelo da jangada
+  const [boletinsAplicados, setBoletinsAplicados] = useState<string[]>([]);
+  const [boletinsConfirmados, setBoletinsConfirmados] = useState(false);
+
+  React.useEffect(() => {
+    async function fetchBoletins() {
+      // Buscar dados reais da jangada
+      const response = await fetch(`/api/jangadas/${jangadaId}`);
+      if (!response.ok) return;
+      const jangada = await response.json();
+      const marcaBoletins = jangada?.marca?.boletinsAplicados || [];
+      const modeloBoletins = jangada?.modelo?.boletinsAplicados || [];
+      setBoletinsAplicados([...marcaBoletins, ...modeloBoletins]);
+    }
+    if (jangadaId) fetchBoletins();
+  }, [jangadaId]);
+
   const handleTesteToggle = (testeNome: string, obrigatorio: boolean) => {
     if (obrigatorio) return; // Não permite desmarcar obrigatórios
     
@@ -95,6 +112,31 @@ export function InspecaoFormComTestes({
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      {/* Alerta visual de boletins aplicados */}
+      {boletinsAplicados.length > 0 && (
+        <Card className="bg-yellow-100 border-yellow-400">
+          <CardHeader>
+            <CardTitle>Boletins de Serviço Aplicados</CardTitle>
+            <CardDescription>
+              Atenção: Os seguintes boletins de serviço estão aplicados para esta marca/modelo:
+              <ul className="mt-2 ml-4 list-disc text-sm">
+                {boletinsAplicados.map((b) => (
+                  <li key={b}>{b}</li>
+                ))}
+              </ul>
+              <span className="block mt-2 font-semibold text-yellow-700">
+                Verifique a aplicação dos boletins e registre na inspeção.
+              </span>
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <label className="flex items-center gap-2">
+              <Checkbox checked={boletinsConfirmados} onCheckedChange={() => setBoletinsConfirmados((v) => !v)} />
+              <span className="text-sm">Confirmo que verifiquei e apliquei os boletins de serviço.</span>
+            </label>
+          </CardContent>
+        </Card>
+      )}
       {/* Informações da Jangada */}
       <Card>
         <CardHeader>

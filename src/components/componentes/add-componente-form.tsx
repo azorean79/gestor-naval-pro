@@ -35,6 +35,8 @@ const componenteSchema = z.object({
   precoUnitario: z.number().min(0, 'Preço unitário deve ser maior ou igual a 0').optional(),
   fornecedor: z.string().optional(),
   localizacao: z.string().optional(),
+  codigoFabricante: z.string().optional(),
+  referenciaOrey: z.string().optional(),
   status: z.enum(['ativo', 'inativo', 'baixo_stock']),
 })
 
@@ -70,6 +72,8 @@ export function AddComponenteForm({ componente, onClose, onSuccess }: AddCompone
       precoUnitario: componente?.precoUnitario || undefined,
       fornecedor: componente?.fornecedor || '',
       localizacao: componente?.localizacao || '',
+      codigoFabricante: componente?.codigoFabricante || '',
+      referenciaOrey: componente?.referenciaOrey || '',
       status: componente?.status || 'ativo',
     },
   })
@@ -222,6 +226,26 @@ export function AddComponenteForm({ componente, onClose, onSuccess }: AddCompone
                 id="fornecedor"
                 {...register('fornecedor')}
                 placeholder="Nome do fornecedor"
+              />
+            </div>
+
+            {/* Código Fabricante */}
+            <div>
+              <Label htmlFor="codigoFabricante">Código Fabricante</Label>
+              <Input
+                id="codigoFabricante"
+                {...register('codigoFabricante')}
+                placeholder="Ex: 12345ABC"
+              />
+            </div>
+
+            {/* Referência OREY */}
+            <div>
+              <Label htmlFor="referenciaOrey">Referência OREY</Label>
+              <Input
+                id="referenciaOrey"
+                {...register('referenciaOrey')}
+                placeholder="Ex: OY-123456"
               />
             </div>
 
