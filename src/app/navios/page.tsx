@@ -29,7 +29,7 @@ export default function NaviosPage() {
 
   const filteredNavios = navios.filter((navio: Navio) => {
     const matchesSearch = navio.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         navio.matricula.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         (navio.matricula?.toLowerCase().includes(searchTerm.toLowerCase()) ?? false) ||
                          navio.tipo.toLowerCase().includes(searchTerm.toLowerCase())
     const matchesStatus = statusFilter === 'todos' || navio.status === statusFilter
     return matchesSearch && matchesStatus

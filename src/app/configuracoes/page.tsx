@@ -1,10 +1,11 @@
+
+'use client'
 // Tipos para dados
 interface Marca { id: string; nome: string; }
 interface Modelo { id: string; nome: string; }
 interface Especificacao { id: string; nome?: string; marca?: { nome?: string }; modelo?: { nome?: string } }
 interface Inspecao { id: string; jangada?: { numeroSerie?: string } }
 interface Jangada { id: string; numeroSerie: string; }
-'use client'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
