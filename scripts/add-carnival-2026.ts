@@ -1,7 +1,4 @@
 import { PrismaClient } from '@prisma/client'
-import { withAccelerate } from '@prisma/extension-accelerate'
-import { PrismaPg } from '@prisma/adapter-pg'
-import { Pool } from 'pg'
 import dotenv from 'dotenv'
 import path from 'path'
 
@@ -9,11 +6,7 @@ import path from 'path'
 dotenv.config({ path: path.resolve(process.cwd(), '.env.local') })
 dotenv.config({ path: path.resolve(process.cwd(), '.env') })
 
-const connectionString = process.env.DATABASE_URL!
-
-const pool = new Pool({ connectionString })
-const adapter = new PrismaPg(pool)
-const prisma = new PrismaClient({ adapter }).$extends(withAccelerate())
+const prisma = new PrismaClient()
 
 async function addCarnival2026() {
   console.log('Adicionando Carnaval 2026...');

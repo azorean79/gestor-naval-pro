@@ -14,7 +14,7 @@ const directUrl = process.env.DIRECT_DATABASE_URL || "postgres://6cf689fdb839385
 async function main() {
   const pool = new Pool({ connectionString: directUrl });
   const adapter = new PrismaPg(pool);
-  const prisma = new PrismaClient({ adapter });
+  const prisma = new PrismaClient();
 
   try {
     console.log('🚀 Iniciando consolidação de embarcações duplicadas...\n');

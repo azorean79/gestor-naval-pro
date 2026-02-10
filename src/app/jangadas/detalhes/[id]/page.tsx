@@ -21,7 +21,18 @@ export default function JangadaDetalhesPage() {
   const { id } = useParams()
   const router = useRouter()
 
-  // Fetch componentes associados à jangada
+  // Buscar dados da jangada
+  const { data: jangadaData, isLoading } = useQuery({
+    queryKey: ['jangada', id],
+    queryFn: async () => {
+      const res = await fetch(`/api/jangadas/${id}`)
+      if (!res.ok) throw new Error('Erro ao buscar jangada')
+      return res.json()
+    },
+    enabled: !!id,
+  })
+
+  // Buscar componentes
   const { data: componentes = [] } = useQuery({
     queryKey: ['componentes', 'jangada', id],
     queryFn: async () => {
@@ -32,163 +43,16 @@ export default function JangadaDetalhesPage() {
     enabled: !!id,
   })
 
-  // Inline edit mutation
-  const mutation = useMutation({
-    mutationFn: async ({ componenteId, validade, estado }: { componenteId: string, validade?: string, estado?: string }) => {
-      const res = await fetch(`/api/inspecao-componente/${componenteId}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ validade, estado }),
-      })
-      if (!res.ok) throw new Error('Erro ao atualizar componente')
-      return res.json()
-    },
-  })
+  // Importar o card moderno
+  const ModernCard = require('@/components/modern-details-cards').JangadaDetailsCard
 
-  // Estado local para edição inline
-  const [editComponent, setEditComponent] = useState<{ [id: string]: { validade?: string, estado?: string } }>({})
-
-  // Estados possíveis para componentes
-  const estados = [
-    { value: 'ok', label: '✓ OK' },
-    { value: 'aviso', label: '⚠ Aviso' },
-    { value: 'reparo', label: '🔧 Precisa Reparo' },
-    { value: 'substituir', label: '❌ Substituir' },
-  ]
-
+  // Renderizar
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-50 to-cyan-100 p-6">
       <div className="max-w-6xl mx-auto">
-        {/* Componentes Table with Inline Editing */}
-        <div className="mb-8">
-          <Card className="bg-white shadow-lg">
-            <CardHeader>
-              <CardTitle>Componentes Associados</CardTitle>
-              <CardDescription>{(componentes as any)?.length || 0} componente(s) associado(s)</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Componente</TableHead>
-                    <TableHead>Estado</TableHead>
-                    <TableHead>Validade</TableHead>
-                    <TableHead>Ações</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {(componentes as any[])?.map((componente) => (
-                    <TableRow key={componente.id}>
-                      <TableCell className="font-medium">{componente.nome}</TableCell>
-                      <TableCell>
-                        {editComponent[componente.id]?.estado !== undefined ? (
-                          <Select
-                            value={editComponent[componente.id].estado}
-                            onValueChange={(value) => setEditComponent(prev => ({
-                              ...prev,
-                              [componente.id]: { ...prev[componente.id], estado: value }
-                            }))}
-                          >
-                            <SelectTrigger className="w-40">
-                              <SelectValue />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {estados.map((estado) => (
-                                <SelectItem key={estado.value} value={estado.value}>
-                                  {estado.label}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        ) : (
-                          <Badge variant={
-                            componente.estado === 'ok' ? 'default' :
-                            componente.estado === 'aviso' ? 'secondary' :
-                            componente.estado === 'reparo' ? 'destructive' :
-                            'outline'
-                          }>
-                            {estados.find(e => e.value === componente.estado)?.label || componente.estado}
-                          </Badge>
-                        )}
-                      </TableCell>
-                      <TableCell>
-                        {editComponent[componente.id]?.validade !== undefined ? (
-                          <Input
-                            type="date"
-                            value={editComponent[componente.id].validade}
-                            onChange={(e) => setEditComponent(prev => ({
-                              ...prev,
-                              [componente.id]: { ...prev[componente.id], validade: e.target.value }
-                            }))}
-                            className="w-40"
-                          />
-                        ) : (
-                          componente.validade ? format(new Date(componente.validade), 'dd/MM/yyyy') : '-'
-                        )}
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex gap-2">
-                          {editComponent[componente.id] ? (
-                            <>
-                              <Button
-                                size="sm"
-                                onClick={() => {
-                                  mutation.mutate({
-                                    componenteId: componente.id,
-                                    validade: editComponent[componente.id].validade,
-                                    estado: editComponent[componente.id].estado,
-                                  }, {
-                                    onSuccess: () => {
-                                      setEditComponent(prev => {
-                                        const newState = { ...prev }
-                                        delete newState[componente.id]
-                                        return newState
-                                      })
-                                      toast.success('Componente atualizado!')
-                                    },
-                                    onError: () => toast.error('Erro ao atualizar componente'),
-                                  })
-                                }}
-                                disabled={mutation.isPending}
-                              >
-                                <Save className="h-4 w-4" />
-                              </Button>
-                              <Button
-                                size="sm"
-                                variant="outline"
-                                onClick={() => setEditComponent(prev => {
-                                  const newState = { ...prev }
-                                  delete newState[componente.id]
-                                  return newState
-                                })}
-                              >
-                                Cancelar
-                              </Button>
-                            </>
-                          ) : (
-                            <Button
-                              size="sm"
-                              variant="outline"
-                              onClick={() => setEditComponent(prev => ({
-                                ...prev,
-                                [componente.id]: {
-                                  validade: componente.validade ? format(new Date(componente.validade), 'yyyy-MM-dd') : '',
-                                  estado: componente.estado
-                                }
-                              }))}
-                            >
-                              <Edit className="h-4 w-4" />
-                            </Button>
-                          )}
-                        </div>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </CardContent>
-          </Card>
-        </div>
+        {isLoading ? <Skeleton className="h-40 w-full" /> : jangadaData && (
+          <ModernCard jangada={jangadaData} componentes={componentes} onEdit={() => router.push(`/jangadas/${id}/editar`)} onAddComponente={() => router.push(`/jangadas/${id}/componentes/novo`)} onUpdateValidade={() => router.refresh()} />
+        )}
       </div>
     </div>
   )

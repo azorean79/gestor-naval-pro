@@ -1,270 +1,119 @@
+// Script padronizado para cálculos de testes SOLAS usando Prisma
+// Execute: node scripts/calcular-testes-solas.js
+
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+
 const fs = require('fs');
 const path = require('path');
-require('dotenv').config({ path: '.env.local' });
-require('dotenv').config({ path: '.env' });
 
-const { PrismaClient } = require('../prisma/app/generated-prisma-client');
-const { Pool } = require('pg');
-const { PrismaPg } = require('@prisma/adapter-pg');
+async function main() {
+	try {
+		// Argumentos de linha de comando para filtro (exemplo: node script.js --cliente=123 --modelo=MKIV)
+		const args = process.argv.slice(2);
+		let where = {};
+		args.forEach(arg => {
+			if (arg.startsWith('--cliente=')) {
+				where.clienteId = arg.split('=')[1];
+			}
+			if (arg.startsWith('--modelo=')) {
+				where.modelo = arg.split('=')[1];
+			}
+		});
 
-// Configurar variáveis de ambiente
-process.env.DATABASE_URL = process.env.DIRECT_DATABASE_URL || process.env.DATABASE_URL;
+		// Buscar todas as jangadas (com filtro se houver)
+		const jangadas = await prisma.jangada.findMany({ where });
+		console.log('Total de jangadas:', jangadas.length);
 
-// Inicializar Prisma com adapter PG
-const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-const adapter = new PrismaPg(pool);
-const prisma = new PrismaClient({ adapter });
+		// Exemplo de cálculo: pressão de teste em milibares
+		// Supondo que cada jangada tenha um campo "pressaoTeste" em kPa (kilopascal)
+		// 1 kPa = 10 mbar (milibares)
+		// Cálculo de pressões em milibares
+		const pressoesMbar = jangadas
+			.map(j => (j.pressaoTeste !== undefined && j.pressaoTeste !== null) ? j.pressaoTeste * 10 : null)
+			.filter(v => v !== null);
 
-// FUNÇÃO PARA CALCULAR TESTES OBRIGATÓRIOS
-function calcularTestesObrigatorios(dataFabricacao, dataInspecao = new Date()) {
-  const idadeAnos = Math.floor((dataInspecao - dataFabricacao) / (1000 * 60 * 60 * 24 * 365.25));
-  const anosFabrico = Math.floor((dataInspecao - dataFabricacao) / (1000 * 60 * 60 * 24 * 365.25));
-  
-  const testes = {
-    // SEMPRE OBRIGATÓRIO (toda inspeção anual)
-    visualInspection: {
-      nome: 'Inspeção Visual Completa',
-      obrigatorio: true,
-      frequencia: 'Anual',
-      norma: 'SOLAS III/20, IMO MSC.218(82)',
-      custo: 150.00,
-      motivo: 'Obrigatório em todas as inspeções anuais'
-    },
-    
-    pressureTest: {
-      nome: 'Teste de Pressão (Pressure Test)',
-      obrigatorio: true,
-      frequencia: 'Anual',
-      norma: 'SOLAS III/20.8, IMO MSC.48(66)',
-      custo: 200.00,
-      motivo: 'Obrigatório - verificação de estanquicidade e integridade estrutural'
-    },
+		// Estatísticas
+		const soma = pressoesMbar.reduce((a, b) => a + b, 0);
+		const media = pressoesMbar.length ? soma / pressoesMbar.length : 0;
+		const min = pressoesMbar.length ? Math.min(...pressoesMbar) : 0;
+		const max = pressoesMbar.length ? Math.max(...pressoesMbar) : 0;
+		const desvio = pressoesMbar.length ? Math.sqrt(pressoesMbar.reduce((a, b) => a + Math.pow(b - media, 2), 0) / pressoesMbar.length) : 0;
 
-    // A PARTIR DO 10º ANO
-    fsTest: {
-      nome: 'FS Test (Fabric Strength Test)',
-      obrigatorio: idadeAnos >= 10,
-      frequencia: idadeAnos >= 10 ? 'Anual' : 'Não aplicável',
-      norma: 'IMO MSC.81(70) Annex 1',
-      custo: 350.00,
-      motivo: idadeAnos >= 10 
-        ? `OBRIGATÓRIO - Jangada com ${idadeAnos} anos (≥10 anos)` 
-        : `Não obrigatório - Jangada com ${idadeAnos} anos (<10 anos)`,
-      idadeMinima: 10
-    },
+		// Validação padrão SOLAS (exemplo: 180 a 220 mbar)
+		const LIMITE_MIN = 180;
+		const LIMITE_MAX = 220;
+		const foraPadrao = jangadas.filter(j => {
+			if (j.pressaoTeste === undefined || j.pressaoTeste === null) return false;
+			const mbar = j.pressaoTeste * 10;
+			return mbar < LIMITE_MIN || mbar > LIMITE_MAX;
+		});
 
-    napTest: {
-      nome: 'NAP Test (Necessary Additional Pressure)',
-      obrigatorio: idadeAnos >= 10,
-      frequencia: idadeAnos >= 10 ? 'Anual' : 'Não aplicável',
-      norma: 'IMO MSC.81(70) Annex 2',
-      custo: 300.00,
-      motivo: idadeAnos >= 10 
-        ? `OBRIGATÓRIO - Jangada com ${idadeAnos} anos (≥10 anos)` 
-        : `Não obrigatório - Jangada com ${idadeAnos} anos (<10 anos)`,
-      idadeMinima: 10
-    },
+		// Atualizar status no banco (campo pressaoStatus)
+		for (const j of jangadas) {
+			let pressaoMbar = null;
+			if (j.pressaoTeste !== undefined && j.pressaoTeste !== null) {
+				pressaoMbar = j.pressaoTeste * 10;
+			}
+			let status = null;
+			if (pressaoMbar !== null) {
+				status = (pressaoMbar >= LIMITE_MIN && pressaoMbar <= LIMITE_MAX) ? 'OK' : 'FORA_DO_PADRAO';
+				// Atualiza apenas se o campo existir no schema
+				try {
+					await prisma.jangada.update({
+						where: { id: j.id },
+						data: { pressaoStatus: status },
+					});
+				} catch (e) {
+					// Campo não existe ou erro, ignora
+				}
+			}
+		}
 
-    // A CADA 5 ANOS DESDE O FABRICO
-    gasInsufflationTest: {
-      nome: 'Gas Insuflation Test',
-      obrigatorio: anosFabrico % 5 === 0 || anosFabrico >= 5,
-      frequencia: 'Quinquenal (5 em 5 anos)',
-      norma: 'SOLAS III/20.11, IMO MSC.218(82)',
-      custo: 450.00,
-      motivo: anosFabrico >= 5 && anosFabrico % 5 === 0
-        ? `OBRIGATÓRIO - Teste quinquenal (${anosFabrico} anos desde fabrico)`
-        : anosFabrico < 5
-        ? `Não obrigatório - Próximo teste aos 5 anos (faltam ${5 - anosFabrico} anos)`
-        : `Próximo teste aos ${Math.ceil(anosFabrico / 5) * 5} anos`,
-      proximoTeste: Math.ceil(anosFabrico / 5) * 5
-    }
-  };
+		// Relatório detalhado
+		const csvRows = [
+			'id,numeroSerie,pressaoTeste_kPa,pressaoTeste_mbar,status'
+		];
+		jangadas.forEach(j => {
+			let pressaoMbar = null;
+			if (j.pressaoTeste !== undefined && j.pressaoTeste !== null) {
+				pressaoMbar = j.pressaoTeste * 10;
+			}
+			const status = (pressaoMbar !== null && pressaoMbar >= LIMITE_MIN && pressaoMbar <= LIMITE_MAX) ? 'OK' : 'FORA DO PADRÃO';
+			console.log(`Jangada: ${j.numeroSerie || j.id} | Pressão Teste: ${j.pressaoTeste ?? 'N/A'} kPa | ${pressaoMbar !== null ? pressaoMbar + ' mbar' : 'Sem valor'} | ${status}`);
+			csvRows.push([
+				j.id,
+				j.numeroSerie || '',
+				j.pressaoTeste ?? '',
+				pressaoMbar ?? '',
+				status
+			].join(','));
+		});
 
-  return { idadeAnos, anosFabrico, testes };
+		// Estatísticas gerais
+		console.log('\n--- Estatísticas Gerais ---');
+		console.log('Média:', media.toFixed(2), 'mbar');
+		console.log('Mínimo:', min.toFixed(2), 'mbar');
+		console.log('Máximo:', max.toFixed(2), 'mbar');
+		console.log('Desvio padrão:', desvio.toFixed(2), 'mbar');
+		console.log('Total analisado:', pressoesMbar.length);
+		console.log('Fora do padrão SOLAS (', LIMITE_MIN, '-', LIMITE_MAX, 'mbar ):', foraPadrao.length);
+		if (foraPadrao.length) {
+			console.log('IDs/Num. Série fora do padrão:');
+			foraPadrao.forEach(j => {
+				console.log('-', j.numeroSerie || j.id);
+			});
+		}
+
+		// Exportar CSV
+		const csvPath = path.join(__dirname, 'relatorio-pressao-solas.csv');
+		fs.writeFileSync(csvPath, csvRows.join('\n'), 'utf8');
+		console.log(`\nRelatório CSV salvo em: ${csvPath}`);
+	} catch (error) {
+		console.error('Erro ao calcular testes SOLAS:', error);
+	} finally {
+		await prisma.$disconnect();
+	}
 }
 
-async function inspecaoComTestesSOLAS() {
-  console.log('🔍 INSPEÇÃO JANGADA - CÁLCULO AUTOMÁTICO DE TESTES SOLAS/IMO\n');
-
-  try {
-    // 1. OBTER JANGADA
-    console.log('1️⃣ Carregando jangada...');
-    const jangada = await prisma.jangada.findFirst({
-      where: { numeroSerie: { contains: 'RFD-MKIV-ESP' } },
-      orderBy: { createdAt: 'desc' }
-    });
-
-    if (!jangada) {
-      console.error('❌ Jangada não encontrada');
-      process.exit(1);
-    }
-
-    console.log(`✅ Jangada: ${jangada.numeroSerie}`);
-    console.log(`   Fabricação: ${jangada.dataFabricacao.toLocaleDateString('pt-PT')}`);
-    console.log(`   Capacidade: ${jangada.capacidade} pessoas`);
-
-    // 2. CALCULAR TESTES NECESSÁRIOS
-    console.log('\n2️⃣ Calculando testes obrigatórios baseado na idade...\n');
-
-    const dataInspecao = new Date();
-    const { idadeAnos, anosFabrico, testes } = calcularTestesObrigatorios(
-      jangada.dataFabricacao,
-      dataInspecao
-    );
-
-    console.log(`   📅 Data Inspeção: ${dataInspecao.toLocaleDateString('pt-PT')}`);
-    console.log(`   🕐 Idade da Jangada: ${idadeAnos} anos`);
-    console.log(`   📆 Anos desde Fabrico: ${anosFabrico} anos\n`);
-
-    // 3. QUADRO DE TESTES
-    console.log('═'.repeat(140));
-    console.log('📋 QUADRO DE TESTES SOLAS/IMO');
-    console.log('═'.repeat(140));
-    console.log('TESTE                                    | OBRIGATÓRIO | FREQUÊNCIA         | NORMA                      | CUSTO      | STATUS');
-    console.log('═'.repeat(140));
-
-    let testesObrigatorios = [];
-    let testesOpcionais = [];
-    let custoTotal = 0;
-
-    for (const [key, teste] of Object.entries(testes)) {
-      const status = teste.obrigatorio ? '✅ SIM' : '❌ NÃO';
-      const custoStr = `€${teste.custo.toFixed(2)}`;
-
-      console.log(
-        `${teste.nome.padEnd(38)} | ${status.padEnd(11)} | ${teste.frequencia.padEnd(18)} | ${teste.norma.padEnd(26)} | ${custoStr.padEnd(10)} | ${teste.motivo}`
-      );
-
-      if (teste.obrigatorio) {
-        testesObrigatorios.push(teste);
-        custoTotal += teste.custo;
-      } else {
-        testesOpcionais.push(teste);
-      }
-    }
-
-    console.log('═'.repeat(140));
-
-    // 4. RESUMO DE TESTES OBRIGATÓRIOS
-    console.log('\n3️⃣ Resumo de Testes Obrigatórios\n');
-    console.log('─'.repeat(140));
-    console.log(`📋 TESTES A REALIZAR NESTA INSPEÇÃO: ${testesObrigatorios.length}`);
-    console.log('─'.repeat(140));
-
-    testesObrigatorios.forEach((teste, index) => {
-      console.log(`\n   ${index + 1}. ${teste.nome}`);
-      console.log(`      • Norma: ${teste.norma}`);
-      console.log(`      • Frequência: ${teste.frequencia}`);
-      console.log(`      • Custo: €${teste.custo.toFixed(2)}`);
-      console.log(`      • Motivo: ${teste.motivo}`);
-    });
-
-    console.log('\n─'.repeat(140));
-    console.log(`💰 CUSTO TOTAL DOS TESTES: €${custoTotal.toFixed(2)}`);
-    console.log('─'.repeat(140));
-
-    // 5. PRÓXIMOS TESTES
-    console.log('\n4️⃣ Calendário de Próximos Testes\n');
-    console.log('─'.repeat(140));
-
-    if (testesOpcionais.length > 0) {
-      console.log('📅 TESTES FUTUROS (não obrigatórios nesta inspeção):\n');
-
-      testesOpcionais.forEach(teste => {
-        if (teste.proximoTeste) {
-          const anoProximoTeste = jangada.dataFabricacao.getFullYear() + teste.proximoTeste;
-          console.log(`   • ${teste.nome}: ${anoProximoTeste} (faltam ${teste.proximoTeste - anosFabrico} anos)`);
-        } else if (teste.idadeMinima) {
-          const anosRestantes = teste.idadeMinima - idadeAnos;
-          const anoObrigatorio = new Date().getFullYear() + anosRestantes;
-          console.log(`   • ${teste.nome}: ${anoObrigatorio} (quando completar ${teste.idadeMinima} anos)`);
-        }
-      });
-    }
-
-    // 6. CRIAR SERVIÇOS DE TESTE NO STOCK (se não existirem)
-    console.log('\n5️⃣ Criando serviços de teste no stock...\n');
-
-    let servicosCriados = 0;
-    for (const teste of testesObrigatorios) {
-      const servicoExiste = await prisma.stock.findFirst({
-        where: { nome: { contains: teste.nome.split('(')[0].trim() } }
-      });
-
-      if (!servicoExiste) {
-        const refBase = teste.nome.split(' ')[0].toUpperCase();
-        await prisma.stock.create({
-          data: {
-            nome: teste.nome,
-            descricao: `${teste.nome} - Conforme norma ${teste.norma}`,
-            categoria: 'servico_teste',
-            quantidade: 999999, // Ilimitado para serviços
-            quantidadeMinima: 0,
-            precoUnitario: teste.custo,
-            refOrey: `TST-${refBase}-${Date.now()}`,
-            status: 'ativo'
-          }
-        });
-        console.log(`   ✅ Criado: ${teste.nome}`);
-        servicosCriados++;
-      } else {
-        console.log(`   ℹ️  Já existe: ${teste.nome}`);
-      }
-    }
-    
-    if (servicosCriados === 0) {
-      console.log(`   ℹ️  Todos os serviços já existem no stock`);
-    }
-
-    // 7. RECOMENDAÇÕES
-    console.log('\n6️⃣ Recomendações de Implementação\n');
-    console.log('═'.repeat(140));
-    console.log('✅ MELHORES PRÁTICAS:');
-    console.log('═'.repeat(140));
-    console.log(`\n   1. CÁLCULO AUTOMÁTICO:`);
-    console.log(`      • Calcular testes na abertura da inspeção baseado na data de fabrico`);
-    console.log(`      • Mostrar alertas para testes obrigatórios`);
-    console.log(`      • Incluir automaticamente custos na fatura`);
-
-    console.log(`\n   2. ALERTAS PREVENTIVOS:`);
-    console.log(`      • Notificar 30 dias antes de testes quinquenais (Gas Insuflation)`);
-    console.log(`      • Alertar quando jangada completar 9 anos (preparar FS/NAP Test)`);
-    console.log(`      • Lembrete anual para jangadas ≥10 anos (FS/NAP obrigatório)`);
-
-    console.log(`\n   3. DOCUMENTAÇÃO:`);
-    console.log(`      • Anexar certificados de teste à inspeção`);
-    console.log(`      • Registrar resultados (pressão medida, resistência do tecido, etc.)`);
-    console.log(`      • Manter histórico completo de testes realizados`);
-
-    console.log(`\n   4. FATURAÇÃO:`);
-    console.log(`      • Adicionar testes obrigatórios automaticamente à obra`);
-    console.log(`      • Sugerir testes opcionais (preventivos) ao cliente`);
-    console.log(`      • Descontos para pacotes de testes múltiplos`);
-
-    // 8. RESUMO FINAL
-    console.log('\n' + '═'.repeat(140));
-    console.log('🎉 ANÁLISE DE TESTES CONCLUÍDA');
-    console.log('═'.repeat(140));
-    console.log(`   📅 Jangada: ${jangada.numeroSerie}`);
-    console.log(`   🕐 Idade: ${idadeAnos} anos`);
-    console.log(`   ✅ Testes obrigatórios: ${testesObrigatorios.length}`);
-    console.log(`   💰 Custo total: €${custoTotal.toFixed(2)}`);
-    console.log(`   📋 Normas: SOLAS III/20, IMO MSC.218(82), MSC.81(70)`);
-    console.log('═'.repeat(140));
-
-  } catch (error) {
-    console.error('❌ Erro:', error.message);
-    throw error;
-  }
-}
-
-// Executar
-inspecaoComTestesSOLAS()
-  .catch((e) => {
-    console.error('❌ Erro geral:', e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+main();

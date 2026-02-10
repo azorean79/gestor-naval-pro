@@ -24,7 +24,7 @@ async function main() {
 
   console.log('✅ Conectando ao PostgreSQL direto...')
   const pool = new Pool({ connectionString: databaseUrl, max: 10 })
-  const prisma = new PrismaClient({ adapter: new PrismaPg(pool) })
+  const prisma = new PrismaClient();
 
   try {
     const specs = JSON.parse(fs.readFileSync(specFile, 'utf-8'))

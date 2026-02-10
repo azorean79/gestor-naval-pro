@@ -31,7 +31,7 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL || process.env.DIRECT_DATABASE_URL,
 });
 const adapter = new PrismaPg(pool);
-const prisma = new PrismaClient({ adapter });
+const prisma = new PrismaClient();
 
 async function main() {
   try {

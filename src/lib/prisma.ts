@@ -11,7 +11,7 @@ dotenv.config({ path: path.resolve(process.cwd(), '.env') })
 
 // Determine which database URL to use
 const databaseUrl = process.env.DATABASE_URL || '';
-const prismaAccelerateUrl = process.env.PRISMA_DATABASE_URL || '';
+const prismaAccelerateUrl = process.env.PRISMA_DATABASE_URL || process.env.DATABASE_URL || '';
 
 console.log('[Prisma] DATABASE_URL exists:', !!databaseUrl);
 console.log('[Prisma] PRISMA_DATABASE_URL exists:', !!prismaAccelerateUrl);
@@ -31,55 +31,31 @@ const prismaConfig: any = {
       createdAt: true,
       updatedAt: true,
     },
-    inspecao: {
-      createdAt: true,
-      updatedAt: true,
-    },
-    cilindro: {
-      createdAt: true,
-      updatedAt: true,
-    },
-    fatura: {
-      createdAt: true,
-      updatedAt: true,
-    },
-    agendamento: {
-      createdAt: true,
-      updatedAt: true,
-    },
-    obra: {
-      createdAt: true,
-      updatedAt: true,
-    },
     proprietario: {
       createdAt: true,
       updatedAt: true,
     },
-    marcaJangada: {
+    tarefa: {
       createdAt: true,
       updatedAt: true,
     },
-    modeloJangada: {
+    correspondencia: {
       createdAt: true,
       updatedAt: true,
     },
-    lotacaoJangada: {
+    envio: {
       createdAt: true,
       updatedAt: true,
     },
-    sistemaCilindro: {
+    checklistInspecao: {
       createdAt: true,
       updatedAt: true,
     },
-    tipoValvula: {
+    verificacaoChecklistInspecao: {
       createdAt: true,
       updatedAt: true,
     },
-    custoInspecao: {
-      createdAt: true,
-      updatedAt: true,
-    },
-    notificacao: {
+    feriado: {
       createdAt: true,
       updatedAt: true,
     },

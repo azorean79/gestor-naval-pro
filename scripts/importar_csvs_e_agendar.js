@@ -3,14 +3,12 @@ const path = require('path');
 require('dotenv').config({ path: '.env.local' });
 require('dotenv').config({ path: '.env' });
 
-const { PrismaClient } = require('../prisma/app/generated-prisma-client');
-const { Pool } = require('pg');
-const { PrismaPg } = require('@prisma/adapter-pg');
 
-process.env.DATABASE_URL = process.env.DIRECT_DATABASE_URL || process.env.DATABASE_URL;
-const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-const adapter = new PrismaPg(pool);
-const prisma = new PrismaClient({ adapter });
+const { PrismaClient } = require('@prisma/client');
+
+
+// Inicializar PrismaClient puro para ambiente local
+const prisma = new PrismaClient();
 
 const CSV_DIR = path.join(__dirname, '../OREY DIGITAL 2026/2025/IMPORT_CSVS');
 

@@ -53,6 +53,14 @@ interface ExtractionResult {
     estado?: string;
     dataInspecao?: string;
     dataProximaInspecao?: string;
+    tipoPack?: string;
+    pesoBruto?: number;
+    tara?: number;
+    quantidadeCO2?: number;
+    quantidadeN2?: number;
+    dataTesteHidraulico?: string;
+    numeroCertificado?: string;
+    navioNome?: string;
   };
   componentes?: ComponenteInspecao[];
   navios?: Array<{
@@ -226,6 +234,26 @@ Document Type Priority based on DATA, not labels:
 - If document contains jangada (liferaft) data OR componentes (inspection items): Classify as "quadro_inspecao" or "jangadas_csv"
 - If only CSV-like rows with multiple entries: Classify as appropriate "_csv" type
 
+For QUADRO_INSPECAO documents, extract comprehensive liferaft data including:
+- Basic info: numeroSerie, marca, modelo, tipo, capacidade, dataFabricacao
+- Pack details: tipoPack (VALISE/CONTAINER/PALLET)
+- Weight specifications: pesoBruto (gross weight), tara (tare)
+- Gas quantities: quantidadeCO2, quantidadeN2
+- Test dates: dataTesteHidraulico (hydraulic test date), dataInspecao (inspection date)
+- Certificate info: numeroCertificado
+- Ship association: navioNome or navioMatricula
+
+Look for these fields in Portuguese or English variations:
+- Tipo de Pack / Pack Type
+- Peso Bruto / Gross Weight
+- Tara / Tare
+- CO2 / Quantidade CO2
+- N2 / Quantidade N2
+- Teste Hidráulico / Hydraulic Test
+- Data Inspeção / Inspection Date
+- Número Certificado / Certificate Number
+- Navio / Ship Name
+
 RESPONSE FORMAT (JSON only):
 {
   "type": "certificado" | "quadro_inspecao" | "navios_csv" | "jangadas_csv" | "stock_csv" | "clientes_csv" | "unknown",
@@ -261,7 +289,15 @@ RESPONSE FORMAT (JSON only):
     "status": "string or null",
     "estado": "string or null",
     "dataInspecao": "DD/MM/YYYY or null",
-    "dataProximaInspecao": "DD/MM/YYYY or null"
+    "dataProximaInspecao": "DD/MM/YYYY or null",
+    "tipoPack": "VALISE | CONTAINER | PALLET or null",
+    "pesoBruto": number or null,
+    "tara": number or null,
+    "quantidadeCO2": number or null,
+    "quantidadeN2": number or null,
+    "dataTesteHidraulico": "DD/MM/YYYY or null",
+    "numeroCertificado": "string or null",
+    "navioNome": "string or null"
   },
   "componentes": [
     {

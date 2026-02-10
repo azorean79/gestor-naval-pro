@@ -12,6 +12,15 @@ interface AgendaSidebarProps {
 }
 
 export function AgendaSidebar({ selectedDate, agendamentos, jangadas }: AgendaSidebarProps) {
+    // Jangadas com inspeção caducada
+    const getInspecoesCaducadas = () => {
+      const hoje = new Date();
+      return (jangadas || []).filter((jangada) => {
+        if (!jangada.dataProximaInspecao) return false;
+        const proximaInspecao = new Date(jangada.dataProximaInspecao);
+        return proximaInspecao < hoje;
+      });
+    };
   const getValidadesProximas = () => {
     const hoje = new Date();
     const trintaDias = addDays(hoje, 30);
@@ -77,6 +86,39 @@ export function AgendaSidebar({ selectedDate, agendamentos, jangadas }: AgendaSi
 
   return (
     <div className="w-80 border-l bg-gray-50 p-4 space-y-4 overflow-y-auto">
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="text-base">Inspeções Caducadas</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {getInspecoesCaducadas().length === 0 ? (
+            <p className="text-sm text-gray-500 text-center py-4">
+              Nenhuma jangada com inspeção caducada
+            </p>
+          ) : (
+            <div className="space-y-2">
+              {getInspecoesCaducadas().map((jangada) => (
+                <Draggable
+                  key={jangada.id}
+                  id={`jangada-caducada-${jangada.id}`}
+                  data={{ type: 'jangada', jangada }}
+                >
+                  <div className="p-3 bg-white rounded-lg border cursor-move hover:bg-red-50 hover:border-red-300 transition-all">
+                    <div className="font-medium text-sm">{jangada.numeroSerie}</div>
+                    <div className="text-xs text-gray-600 mt-1">
+                      <div>🚢 {jangada.navio?.nome || 'N/A'}</div>
+                      <div>🏷️ {jangada.marca?.nome} {jangada.modelo?.nome}</div>
+                      <div className="font-medium text-red-600 mt-1">
+                        📅 Caducada: {format(new Date(jangada.dataProximaInspecao), 'dd/MM/yyyy')}
+                      </div>
+                    </div>
+                  </div>
+                </Draggable>
+              ))}
+            </div>
+          )}
+        </CardContent>
+      </Card>
       {selectedDate && (
         <Card>
           <CardHeader className="pb-3">

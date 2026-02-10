@@ -1,7 +1,7 @@
 import { PrismaClient } from '../prisma/app/generated-prisma-client'
 import { EXEMPLOS_JANGADAS } from '../src/lib/exemplos-jangadas'
 
-const prisma = new PrismaClient({
+const prisma = new PrismaClient();
   accelerateUrl: process.env.PRISMA_DATABASE_URL,
 })
 

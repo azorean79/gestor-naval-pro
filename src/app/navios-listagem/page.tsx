@@ -1,17 +1,47 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Plus, Search, ListPlus, Anchor, Ship } from 'lucide-react'
+import { Plus, Search, ListPlus, Anchor, Ship, Filter } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
+import { Skeleton } from '@/components/ui/skeleton'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
 
 export default function NaviosListagemPage() {
+  const router = useRouter();
+    // Exportação de dados
+    const exportToExcel = () => {
+      const header = ['Nome', 'Tipo', 'Matrícula', 'IMO', 'MMSI', 'Bandeira', 'Capacidade', 'Status'];
+      const rows = naviosFiltrados.map(n => [n.nome, n.tipo, n.matricula, n.imo, n.mmsi, n.bandeira, n.capacidade, n.status]);
+      const csv = [header, ...rows].map(r => r.join(';')).join('\n');
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'navios.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+    };
+
+    // PDF (simples)
+    const exportToPDF = () => {
+      window.print(); // Para exportação rápida, pode ser melhorado com libs
+    };
   const [searchTerm, setSearchTerm] = useState('')
+  const [statusFilter, setStatusFilter] = useState<string>('todos')
+  const [tipoFilter, setTipoFilter] = useState<string>('todos')
+  const [bandeiraFilter, setBandeiraFilter] = useState<string>('todos')
+  const [showFilters, setShowFilters] = useState(false)
   const [navios, setNavios] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
+
+  // Importar lista moderna
+  const ModernList = require('@/components/modern-lists-and-forms').NaviosList
 
   useEffect(() => {
     const fetchNavios = async () => {
@@ -30,12 +60,90 @@ export default function NaviosListagemPage() {
     fetchNavios()
   }, [])
 
-  const filteredNavios = navios.filter(navio =>
-    navio.nome?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    navio.matricula?.includes(searchTerm) ||
-    navio.imo?.includes(searchTerm) ||
-    navio.cliente?.nome?.toLowerCase().includes(searchTerm.toLowerCase())
+  // Filtros avançados
+  const [filtroStatus, setFiltroStatus] = useState('todos')
+  const [filtroTipo, setFiltroTipo] = useState('todos')
+  const [filtroBandeira, setFiltroBandeira] = useState('todos')
+  const [filtroCapacidade, setFiltroCapacidade] = useState('todos')
+  const tipos = Array.from(new Set(navios.map(n => n.tipo || 'Desconhecido')))
+  const bandeiras = Array.from(new Set(navios.map(n => n.bandeira || 'Desconhecida')))
+  const capacidades = Array.from(new Set(navios.map(n => n.capacidade || 'Desconhecida')))
+  const statusList = Array.from(new Set(navios.map(n => n.status || 'Desconhecido')))
+  const naviosFiltrados = navios.filter(n =>
+    (filtroStatus === 'todos' || n.status === filtroStatus) &&
+    (filtroTipo === 'todos' || n.tipo === filtroTipo) &&
+    (filtroBandeira === 'todos' || n.bandeira === filtroBandeira) &&
+    (filtroCapacidade === 'todos' || String(n.capacidade) === String(filtroCapacidade))
   )
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-4 flex flex-wrap gap-4">
+          <Select value={filtroStatus} onValueChange={setFiltroStatus}>
+            <SelectTrigger className="w-40"><SelectValue placeholder="Status" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="todos">Todos</SelectItem>
+              {statusList.map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+            </SelectContent>
+          </Select>
+          <Select value={filtroTipo} onValueChange={setFiltroTipo}>
+            <SelectTrigger className="w-40"><SelectValue placeholder="Tipo" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="todos">Todos</SelectItem>
+              {tipos.map(t => <SelectItem key={t} value={t}>{t}</SelectItem>)}
+            </SelectContent>
+          </Select>
+          <Select value={filtroBandeira} onValueChange={setFiltroBandeira}>
+            <SelectTrigger className="w-40"><SelectValue placeholder="Bandeira" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="todos">Todas</SelectItem>
+              {bandeiras.map(b => <SelectItem key={b} value={b}>{b}</SelectItem>)}
+            </SelectContent>
+          </Select>
+          <Select value={filtroCapacidade} onValueChange={setFiltroCapacidade}>
+            <SelectTrigger className="w-40"><SelectValue placeholder="Capacidade" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="todos">Todas</SelectItem>
+              {capacidades.map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="mb-4 flex gap-4">
+          <Button variant="outline" onClick={exportToExcel}>Exportar Excel</Button>
+          <Button variant="outline" onClick={exportToPDF}>Exportar PDF</Button>
+        </div>
+        {loading ? <Skeleton className="h-40 w-full" /> : (
+          <ModernList
+            navios={naviosFiltrados}
+            onView={(navio: import('@/components/modern-lists-and-forms').Navio) => router.push(`/navios/detalhes/${navio.id}`)}
+            onEdit={(navio: import('@/components/modern-lists-and-forms').Navio) => router.push(`/navios/${navio.id}/editar`)}
+            onDelete={(navio: import('@/components/modern-lists-and-forms').Navio) => router.push(`/navios/${navio.id}/excluir`)}
+            onAdd={() => router.push(`/navios/novo`)}
+          />
+        )}
+      </div>
+    </div>
+  )
+
+  const filteredNavios = navios.filter(navio => {
+    const matchesSearch = navio.nome?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         navio.matricula?.includes(searchTerm) ||
+                         navio.imo?.includes(searchTerm) ||
+                         navio.cliente?.nome?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         navio.tipo?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         navio.bandeira?.toLowerCase().includes(searchTerm.toLowerCase())
+    
+    const matchesStatus = statusFilter === 'todos' || navio.status === statusFilter
+    const matchesTipo = tipoFilter === 'todos' || navio.tipo === tipoFilter
+    const matchesBandeira = bandeiraFilter === 'todos' || navio.bandeira === bandeiraFilter
+    
+    return matchesSearch && matchesStatus && matchesTipo && matchesBandeira
+  })
+
+  // Get unique values for filters
+  const uniqueTipos = [...new Set(navios.map(n => n.tipo).filter(Boolean))]
+  const uniqueBandeiras = [...new Set(navios.map(n => n.bandeira).filter(Boolean))]
 
   const getStatusBadge = (status: string): 'default' | 'link' | 'destructive' | 'outline' | 'secondary' | 'ghost' => {
     const statusMap: Record<string, 'default' | 'link' | 'destructive' | 'outline' | 'secondary' | 'ghost'> = {
@@ -60,17 +168,95 @@ export default function NaviosListagemPage() {
 
       {/* Filtros */}
       <Card className="mb-6">
-        <CardContent className="pt-6">
-          <div className="relative">
-            <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Buscar por nome, matrícula, IMO ou cliente..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10"
-            />
-          </div>
-        </CardContent>
+        <Collapsible open={showFilters} onOpenChange={setShowFilters}>
+          <CollapsibleTrigger asChild>
+            <CardHeader className="cursor-pointer hover:bg-muted/50 transition-colors">
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-lg">Filtros</CardTitle>
+                <Button variant="ghost" size="sm">
+                  <Filter className="h-4 w-4 mr-2" />
+                  {showFilters ? 'Ocultar' : 'Mostrar'} Filtros
+                </Button>
+              </div>
+            </CardHeader>
+          </CollapsibleTrigger>
+          <CollapsibleContent>
+            <CardContent className="pt-0">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                <div className="relative">
+                  <label className="text-sm font-medium mb-2 block">Buscar</label>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                    <Input
+                      placeholder="Nome, matrícula, IMO, cliente, tipo, bandeira..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="text-sm font-medium mb-2 block">Status</label>
+                  <Select value={statusFilter} onValueChange={setStatusFilter}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Todos os status" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="todos">Todos os status</SelectItem>
+                      <SelectItem value="ativo">Ativo</SelectItem>
+                      <SelectItem value="manutencao">Manutenção</SelectItem>
+                      <SelectItem value="inativo">Inativo</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <label className="text-sm font-medium mb-2 block">Tipo</label>
+                  <Select value={tipoFilter} onValueChange={setTipoFilter}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Todos os tipos" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="todos">Todos os tipos</SelectItem>
+                      {uniqueTipos.map(tipo => (
+                        <SelectItem key={tipo} value={tipo}>{tipo}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <label className="text-sm font-medium mb-2 block">Bandeira</label>
+                  <Select value={bandeiraFilter} onValueChange={setBandeiraFilter}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Todas as bandeiras" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="todos">Todas as bandeiras</SelectItem>
+                      {uniqueBandeiras.map(bandeira => (
+                        <SelectItem key={bandeira} value={bandeira}>{bandeira}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              {(searchTerm || statusFilter !== 'todos' || tipoFilter !== 'todos' || bandeiraFilter !== 'todos') && (
+                <div className="flex gap-2">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={() => {
+                      setSearchTerm('')
+                      setStatusFilter('todos')
+                      setTipoFilter('todos')
+                      setBandeiraFilter('todos')
+                    }}
+                  >
+                    Limpar Filtros
+                  </Button>
+                </div>
+              )}
+            </CardContent>
+          </CollapsibleContent>
+        </Collapsible>
       </Card>
 
       {/* Estatísticas */}

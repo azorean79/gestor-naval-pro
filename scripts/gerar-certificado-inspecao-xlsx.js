@@ -4,15 +4,12 @@ require('dotenv').config({ path: '.env.local' });
 require('dotenv').config({ path: '.env' });
 
 const XLSX = require('xlsx');
-const { PrismaClient } = require('../prisma/app/generated-prisma-client');
-const { Pool } = require('pg');
-const { PrismaPg } = require('@prisma/adapter-pg');
 
-process.env.DATABASE_URL = process.env.DIRECT_DATABASE_URL || process.env.DATABASE_URL;
+const { PrismaClient } = require('@prisma/client');
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-const adapter = new PrismaPg(pool);
-const prisma = new PrismaClient({ adapter });
+
+// Inicializar PrismaClient puro para ambiente local
+const prisma = new PrismaClient();
 
 function formatMonthYear(date) {
   if (!date) return '';

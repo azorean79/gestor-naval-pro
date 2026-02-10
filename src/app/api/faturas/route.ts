@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
     const sortBy = searchParams.get('sortBy') || 'dataEmissao';
     const sortOrder = searchParams.get('sortOrder') || 'desc';
     const page = parseInt(searchParams.get('page') || '1');
-    const limit = parseInt(searchParams.get('limit') || '10');
+    const limit = parseInt(searchParams.get('limit') || '1000');
 
     const where: any = {};
 

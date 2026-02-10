@@ -41,17 +41,26 @@ export function useDadosCruzados() {
   return useQuery({
     queryKey: ['dados-cruzados'],
     queryFn: async () => {
+      console.log('useDadosCruzados: Starting fetch...');
       try {
         const response = await fetch('/api/dashboard/resumo')
-        if (!response.ok) throw new Error('Erro ao carregar resumo')
+        console.log('useDadosCruzados: Response status:', response.status);
+        if (!response.ok) {
+          console.error('useDadosCruzados: Response not ok:', response.status, response.statusText);
+          throw new Error('Erro ao carregar resumo')
+        }
         const data = await response.json()
+        console.log('useDadosCruzados: Data received:', data);
         return data.dashboardStats as DashboardStats
       } catch (error) {
+        console.error('useDadosCruzados: Fetch error:', error);
         // Fallback offline
         return dadosCruzadosOffline
       }
     },
     staleTime: 1000 * 60 * 5, // 5 minutes
     refetchOnWindowFocus: false,
+    retry: 3,
+    retryDelay: 1000,
   });
 }

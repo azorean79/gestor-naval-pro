@@ -1,6 +1,12 @@
 [
+  {"fonte": "DSB-LR97-SPECS.json", "marca": "DSB", "modelo": "LR97", "tipo": "SOLAS", "dados": {}},
   {"fonte": "DSB-LR05-SPECS.json", "marca": "DSB", "modelo": "LR05", "tipo": "SOLAS", "dados": {}},
+  {"fonte": "DSB-LR07-SPECS.json", "marca": "DSB", "modelo": "LR07", "tipo": "SOLAS", "dados": {}},
   {"fonte": "mkiv-technical-specs.json", "marca": "MARINE", "modelo": "MKIV", "tipo": "SOLAS", "dados": {}},
   {"fonte": "eurovinil-crewsaver-especificacoes-FINAL.json", "marca": "EUROVINIL/CREWSAVER", "modelo": "SYNTESY/LEISURE/MARINER", "tipo": "ISO 9650", "dados": {}},
-  {"fonte": "seasava-especificacoes-completas.json", "marca": "SEASAVA", "modelo": "TODOS", "tipo": "SOLAS", "dados": {}}
+  {"fonte": "seasava-especificacoes-completas.json", "marca": "SEASAVA", "modelo": "TODOS", "tipo": "SOLAS", "dados": {}},
+  {"fonte": "rfd-surviva-mkiv-specs.json", "marca": "RFD", "modelo": "SURVIVA MKIV", "tipo": "SOLAS", "dados": {}},
+  {"fonte": "rfd-surviva-mkiii-specs.json", "marca": "RFD", "modelo": "SURVIVA MKIII", "tipo": "SOLAS", "dados": {}},
+  {"fonte": "rfd-seasava-plus-specs.json", "marca": "RFD", "modelo": "SEASAVA PLUS", "tipo": "SOLAS", "dados": {}},
+  {"fonte": "rfd-seasava-xe-r-specs.json", "marca": "RFD", "modelo": "SEASAVA XE R", "tipo": "SOLAS", "dados": {}}
 ]

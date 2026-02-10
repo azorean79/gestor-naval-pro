@@ -1,7 +1,6 @@
-import { PrismaClient } from '../prisma/app/generated-prisma-client'
+import { prisma } from '../src/lib/prisma'
 
 async function main() {
-  const prisma = new PrismaClient()
   
   try {
     console.log('🚀 Consultando Base de Dados...\n')
@@ -22,7 +21,7 @@ async function main() {
     console.log(`Total de Clientes: ${clientes.length}\n`)
     
     if (clientes.length > 0) {
-      clientes.forEach((cliente, index) => {
+      clientes.forEach((cliente: any, index) => {
         console.log(`${index + 1}. ${cliente.nome}`)
         console.log(`   ID: ${cliente.id}`)
         console.log(`   Email: ${cliente.email || 'N/A'}`)
@@ -59,7 +58,7 @@ async function main() {
     console.log(`Total de Obras: ${obras.length}\n`)
     
     if (obras.length > 0) {
-      obras.forEach((obra, index) => {
+      obras.forEach((obra: any, index) => {
         console.log(`${index + 1}. ${obra.titulo}`)
         console.log(`   ID: ${obra.id}`)
         console.log(`   Descrição: ${obra.descricao || 'N/A'}`)
@@ -71,7 +70,7 @@ async function main() {
         console.log(`   Orçamento: ${obra.orcamento ? `${obra.orcamento.toFixed(2)}€` : 'N/A'}`)
         console.log(`   Inspeções: ${obra.inspecoes.length}`)
         if (obra.inspecoes.length > 0) {
-          obra.inspecoes.forEach((inspecao, i) => {
+          obra.inspecoes.forEach(function(inspecao: any, i: number): void {
             console.log(`     ${i + 1}. ${inspecao.numero} - ${inspecao.tipoInspecao} (${inspecao.resultado})`)
             console.log(`        Data: ${new Date(inspecao.dataInspecao).toLocaleDateString('pt-PT')}`)
             console.log(`        Técnico: ${inspecao.tecnico}`)
@@ -103,7 +102,7 @@ async function main() {
     console.log(`Total de Navios: ${navios.length}\n`)
     
     if (navios.length > 0) {
-      navios.forEach((navio, index) => {
+      navios.forEach((navio: any, index) => {
         console.log(`${index + 1}. ${navio.nome}`)
         console.log(`   ID: ${navio.id}`)
         console.log(`   Tipo: ${navio.tipo}`)
@@ -151,7 +150,7 @@ async function main() {
     console.log(`Total de Inspeções: ${inspecoes.length}\n`)
     
     if (inspecoes.length > 0) {
-      inspecoes.forEach((inspecao, index) => {
+      inspecoes.forEach((inspecao: any, index) => {
         console.log(`${index + 1}. ${inspecao.numero}`)
         console.log(`   ID: ${inspecao.id}`)
         console.log(`   Tipo: ${inspecao.tipoInspecao}`)
@@ -189,7 +188,7 @@ async function main() {
     console.log(`Total de Jangadas: ${jangadas.length}\n`)
     
     if (jangadas.length > 0) {
-      jangadas.forEach((jangada, index) => {
+      jangadas.forEach((jangada: any, index) => {
         console.log(`${index + 1}. ${jangada.tipo}`)
         console.log(`   ID: ${jangada.id}`)
         console.log(`   Número de Série: ${jangada.numeroSerie}`)

@@ -8,9 +8,9 @@ export async function GET(
   try {
     const { id } = await params;
 
-    // Buscar por numeroSerie em vez de id
+    // Buscar por id
     const jangada = await prisma.jangada.findUnique({
-      where: { numeroSerie: id },
+      where: { id },
       include: {
         cliente: true,
         proprietario: true,

@@ -17,7 +17,7 @@ async function resetDatabase() {
 
   const pool = new Pool({ connectionString: databaseUrl, max: 10 })
   const adapter = new PrismaPg(pool)
-  const prisma = new PrismaClient({ adapter })
+  const prisma = new PrismaClient();
 
   try {
     console.log('🗑️  Deletando todos os dados...')

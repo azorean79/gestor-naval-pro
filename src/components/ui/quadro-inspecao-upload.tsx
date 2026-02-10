@@ -14,6 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useMarcasJangada } from '@/hooks/use-marcas-jangada';
 import { useModelosJangada } from '@/hooks/use-modelos-jangada';
 import { useLotacoesJangada } from '@/hooks/use-lotacoes-jangada';
+import { useNavios } from '@/hooks/use-navios';
 
 interface QuadroImportResult {
   success: boolean;
@@ -45,10 +46,20 @@ interface EditedData {
   modeloId: string;
   lotacaoId: string;
   dataFabricacao: string;
+  dataInspecao: string;
+  numeroCertificado: string;
+  navioId: string;
   certificadoNumero: string;
   certificadoTipo: string;
   certificadoDataEmissao: string;
   certificadoDataValidade: string;
+  tipoPack: string;
+  numeroSerieCilindro: string;
+  pesoBruto: string;
+  tara: string;
+  quantidadeCO2: string;
+  quantidadeN2: string;
+  dataTesteHidraulico: string;
   cilindros: any[];
 }
 
@@ -66,10 +77,12 @@ export function QuadroInspecaoUploadDialog() {
   const { data: marcasResponse } = useMarcasJangada();
   const { data: modelosResponse } = useModelosJangada();
   const { data: lotacoesResponse } = useLotacoesJangada();
+  const { data: naviosResponse } = useNavios();
 
   const marcas = marcasResponse?.data || [];
   const modelos = modelosResponse?.data || [];
   const lotacoes = lotacoesResponse?.data || [];
+  const navios = naviosResponse?.data || [];
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
@@ -145,10 +158,20 @@ export function QuadroInspecaoUploadDialog() {
           modeloId: data.jangada?.modelo?.id || '',
           lotacaoId: data.jangada?.lotacao?.id || '',
           dataFabricacao: data.jangada?.dataFabricacao ? new Date(data.jangada.dataFabricacao).getFullYear().toString() : '',
+          dataInspecao: data.jangada?.dataInspecao ? new Date(data.jangada.dataInspecao).toISOString().split('T')[0] : '',
+          numeroCertificado: data.certificado?.numero || '',
+          navioId: data.jangada?.navio?.id || '',
           certificadoNumero: data.certificado?.numero || '',
           certificadoTipo: data.certificado?.tipo || 'CERTIFICADO_INSPECAO',
           certificadoDataEmissao: data.certificado?.dataEmissao ? new Date(data.certificado.dataEmissao).toISOString().split('T')[0] : '',
           certificadoDataValidade: data.certificado?.dataValidade ? new Date(data.certificado.dataValidade).toISOString().split('T')[0] : '',
+          tipoPack: data.jangada?.tipoPack || '',
+          numeroSerieCilindro: data.jangada?.numeroSerieCilindro || '',
+          pesoBruto: data.jangada?.pesoBruto || '',
+          tara: data.jangada?.tara || '',
+          quantidadeCO2: data.jangada?.quantidadeCO2 || '',
+          quantidadeN2: data.jangada?.quantidadeN2 || '',
+          dataTesteHidraulico: data.jangada?.dataTesteHidraulico ? new Date(data.jangada.dataTesteHidraulico).toISOString().split('T')[0] : '',
           cilindros: data.cilindros || []
         });
         // Invalidate jangadas cache to refresh the list
@@ -184,8 +207,36 @@ export function QuadroInspecaoUploadDialog() {
       if (editedData.marcaId) jangadaData.marcaId = editedData.marcaId;
       if (editedData.modeloId) jangadaData.modeloId = editedData.modeloId;
       if (editedData.lotacaoId) jangadaData.lotacaoId = editedData.lotacaoId;
+      if (editedData.navioId) jangadaData.navioId = editedData.navioId;
       if (editedData.dataFabricacao) {
         jangadaData.dataFabricacao = new Date(parseInt(editedData.dataFabricacao), 0, 1);
+      }
+      if (editedData.dataInspecao) {
+        jangadaData.dataInspecao = new Date(editedData.dataInspecao);
+      }
+      if (editedData.numeroCertificado) {
+        jangadaData.numeroCertificado = editedData.numeroCertificado;
+      }
+      if (editedData.tipoPack) {
+        jangadaData.tipoPack = editedData.tipoPack;
+      }
+      if (editedData.numeroSerieCilindro) {
+        jangadaData.numeroSerieCilindro = editedData.numeroSerieCilindro;
+      }
+      if (editedData.pesoBruto) {
+        jangadaData.pesoBruto = parseFloat(editedData.pesoBruto);
+      }
+      if (editedData.tara) {
+        jangadaData.tara = parseFloat(editedData.tara);
+      }
+      if (editedData.quantidadeCO2) {
+        jangadaData.quantidadeCO2 = parseFloat(editedData.quantidadeCO2);
+      }
+      if (editedData.quantidadeN2) {
+        jangadaData.quantidadeN2 = parseFloat(editedData.quantidadeN2);
+      }
+      if (editedData.dataTesteHidraulico) {
+        jangadaData.dataTesteHidraulico = new Date(editedData.dataTesteHidraulico);
       }
 
       // Prepare certificado data if provided
@@ -544,6 +595,126 @@ export function QuadroInspecaoUploadDialog() {
                             />
                           ) : (
                             <p className="text-sm">{result.jangada?.dataFabricacao ? new Date(result.jangada.dataFabricacao).getFullYear() : 'Não identificado'}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="text-xs text-gray-500">Tipo de Pack</label>
+                          {isEditing ? (
+                            <Select
+                              value={editedData?.tipoPack || ''}
+                              onValueChange={(value) => setEditedData((prev: EditedData | null) => ({ ...prev!, tipoPack: value }))}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Selecione o tipo de pack" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="VALISE">Valise</SelectItem>
+                                <SelectItem value="CONTAINER">Container</SelectItem>
+                                <SelectItem value="PALLET">Pallet</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          ) : (
+                            <p className="text-sm">{result.jangada?.tipoPack || 'Não identificado'}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="text-xs text-gray-500">Peso Bruto (kg)</label>
+                          {isEditing ? (
+                            <Input
+                              type="number"
+                              value={editedData?.pesoBruto || ''}
+                              onChange={(e) => setEditedData((prev: EditedData | null) => ({ ...prev!, pesoBruto: e.target.value }))}
+                              placeholder="Peso bruto em kg"
+                            />
+                          ) : (
+                            <p className="text-sm">{result.jangada?.pesoBruto ? `${result.jangada.pesoBruto} kg` : 'Não identificado'}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="text-xs text-gray-500">Tara (kg)</label>
+                          {isEditing ? (
+                            <Input
+                              type="number"
+                              value={editedData?.tara || ''}
+                              onChange={(e) => setEditedData((prev: EditedData | null) => ({ ...prev!, tara: e.target.value }))}
+                              placeholder="Tara em kg"
+                            />
+                          ) : (
+                            <p className="text-sm">{result.jangada?.tara ? `${result.jangada.tara} kg` : 'Não identificado'}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="text-xs text-gray-500">Quantidade CO2 (kg)</label>
+                          {isEditing ? (
+                            <Input
+                              type="number"
+                              step="0.1"
+                              value={editedData?.quantidadeCO2 || ''}
+                              onChange={(e) => setEditedData((prev: EditedData | null) => ({ ...prev!, quantidadeCO2: e.target.value }))}
+                              placeholder="Quantidade de CO2 em kg"
+                            />
+                          ) : (
+                            <p className="text-sm">{result.jangada?.quantidadeCO2 ? `${result.jangada.quantidadeCO2} kg` : 'Não identificado'}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="text-xs text-gray-500">Quantidade N2 (kg)</label>
+                          {isEditing ? (
+                            <Input
+                              type="number"
+                              step="0.1"
+                              value={editedData?.quantidadeN2 || ''}
+                              onChange={(e) => setEditedData((prev: EditedData | null) => ({ ...prev!, quantidadeN2: e.target.value }))}
+                              placeholder="Quantidade de N2 em kg"
+                            />
+                          ) : (
+                            <p className="text-sm">{result.jangada?.quantidadeN2 ? `${result.jangada.quantidadeN2} kg` : 'Não identificado'}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="text-xs text-gray-500">Data Teste Hidráulico</label>
+                          {isEditing ? (
+                            <Input
+                              type="date"
+                              value={editedData?.dataTesteHidraulico || ''}
+                              onChange={(e) => setEditedData((prev: EditedData | null) => ({ ...prev!, dataTesteHidraulico: e.target.value }))}
+                            />
+                          ) : (
+                            <p className="text-sm">{result.jangada?.dataTesteHidraulico ? new Date(result.jangada.dataTesteHidraulico).toLocaleDateString('pt-PT') : 'Não identificado'}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="text-xs text-gray-500">Data Inspeção</label>
+                          {isEditing ? (
+                            <Input
+                              type="date"
+                              value={editedData?.dataInspecao || ''}
+                              onChange={(e) => setEditedData((prev: EditedData | null) => ({ ...prev!, dataInspecao: e.target.value }))}
+                            />
+                          ) : (
+                            <p className="text-sm">{result.jangada?.dataInspecao ? new Date(result.jangada.dataInspecao).toLocaleDateString('pt-PT') : 'Não identificado'}</p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="text-xs text-gray-500">Navio</label>
+                          {isEditing ? (
+                            <Select
+                              value={editedData?.navioId || ''}
+                              onValueChange={(value) => setEditedData((prev: EditedData | null) => ({ ...prev!, navioId: value }))}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Selecione o navio" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {navios.map((navio: any) => (
+                                  <SelectItem key={navio.id} value={navio.id}>
+                                    {navio.nome}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          ) : (
+                            <p className="text-sm">{result.jangada?.navio?.nome || 'Não identificado'}</p>
                           )}
                         </div>
                       </div>

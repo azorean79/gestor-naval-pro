@@ -9,7 +9,7 @@ require('dotenv').config({ path: '.env' });
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const adapter = new PrismaPg(pool);
-const prisma = new PrismaClient({ adapter });
+const prisma = new PrismaClient();
 
 const numeroSerie = process.argv[2];
 

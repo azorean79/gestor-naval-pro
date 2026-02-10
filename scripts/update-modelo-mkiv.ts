@@ -34,7 +34,7 @@ async function main() {
   })
 
   console.log('\n📋 Modelos SURVIVA encontrados:')
-  modelos.forEach(m => {
+  modelos.forEach((m: any) => {
     console.log(`  - ${m.marca.nome} ${m.nome} (ID: ${m.id})`)
   })
 }

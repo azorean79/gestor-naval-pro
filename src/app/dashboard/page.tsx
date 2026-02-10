@@ -3,7 +3,7 @@
 export const dynamic = 'force-dynamic'
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -61,6 +61,32 @@ function DashboardPage() {
   const { data: cronogramas } = useCronogramas();
   const dataAtualizacao = new Date().toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' });
 
+  // Debug logging
+  useEffect(() => {
+    console.log('Dashboard Debug:', {
+      isLoading,
+      error,
+      stats: !!stats,
+      statusItems: !!statusItems,
+      resumo: !!resumo,
+      tendenciasResponse: !!tendenciasResponse,
+      cronogramas: !!cronogramas
+    });
+  }, [isLoading, error, stats, statusItems, resumo, tendenciasResponse, cronogramas]);
+
+  // Force loading timeout to prevent infinite loading
+  const [forceRender, setForceRender] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (isLoading) {
+        console.log('Forcing render due to loading timeout');
+        setForceRender(true);
+      }
+    }, 10000); // 10 seconds timeout
+
+    return () => clearTimeout(timer);
+  }, [isLoading]);
+
   const handleSeedDatabase = async () => {
     if (confirm('Tem certeza que deseja popular a base de dados com dados de exemplo? Esta ação pode demorar alguns segundos.')) {
       setIsSeeding(true);
@@ -97,12 +123,13 @@ function DashboardPage() {
     }
   };
 
-  if (isLoading) {
+  if (isLoading && !forceRender) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
           <p className="text-slate-600 dark:text-slate-400">Carregando dashboard...</p>
+          <p className="text-sm text-slate-500 mt-2">Debug: isLoading={String(isLoading)}, hasStats={String(!!stats)}</p>
         </div>
       </div>
     );

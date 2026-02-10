@@ -28,7 +28,7 @@ import { Cliente, Navio } from '@/lib/types'
 import { MARCAS_JANGADA, MODELOS_JANGADA, TIPOS_PACK, COMPONENTES_POR_PACK } from '@/lib/jangada-options'
 import { format } from 'date-fns'
 import { pt } from 'date-fns/locale'
-import { ArrowLeft, Save, Edit, Lightbulb, Sparkles, Package } from 'lucide-react'
+import { ArrowLeft, Save, Edit, Lightbulb, Sparkles, Package, LifeBuoy, Users, User, Ship, Calendar, FileText, Plus, CheckCircle, AlertCircle } from 'lucide-react'
 import { ValidationIndicator } from '@/components/ui/validation-indicator'
 import { useRealTimeValidation } from '@/hooks/use-real-time-validation'
 import { useAutoFillSuggestions } from '@/hooks/use-auto-fill'
@@ -57,6 +57,77 @@ function ComponentesJangadaSection({ jangadaId, jangada }: ComponentesJangadaSec
 
   return (
     <div className="space-y-4">
+      {componentes.length > 0 && (
+        <>
+          {/* Estatísticas do Stock */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+            <Card className="border-l-4 border-l-green-500">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-green-600">
+                      {componentes.filter((c: any) => c.stockItems?.some((item: any) => item.quantidade >= c.quantidadeNecessaria)).length}
+                    </p>
+                    <p className="text-xs text-muted-foreground">Com stock suficiente</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-orange-500">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                    <AlertCircle className="h-4 w-4 text-orange-600" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-orange-600">
+                      {componentes.filter((c: any) => c.stockItems?.some((item: any) => item.quantidade > 0 && item.quantidade < c.quantidadeNecessaria)).length}
+                    </p>
+                    <p className="text-xs text-muted-foreground">Stock insuficiente</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-red-500">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                    <AlertCircle className="h-4 w-4 text-red-600" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-red-600">
+                      {componentes.filter((c: any) => !c.stockItems?.some((item: any) => item.quantidade > 0)).length}
+                    </p>
+                    <p className="text-xs text-muted-foreground">Sem stock</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-blue-500">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <Package className="h-4 w-4 text-blue-600" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-blue-600">
+                      {componentes.length}
+                    </p>
+                    <p className="text-xs text-muted-foreground">Total de componentes</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </>
+      )}
+
       {componentes.length === 0 ? (
         <div className="text-center py-8 text-muted-foreground">
           <Package className="h-12 w-12 mx-auto mb-4 opacity-50" />
@@ -379,6 +450,7 @@ export default function JangadaDetailPage() {
   const proprietarios = proprietariosResponse?.data || []
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showAgendarDialog, setShowAgendarDialog] = useState(false)
 
   const form = useForm<JangadaForm>({
     resolver: zodResolver(jangadaSchema),
@@ -564,8 +636,195 @@ export default function JangadaDetailPage() {
         </div>
       </div>
 
-      {/* Main content com margem superior para a barra de autosave */}
-      <div className="w-full max-w-6xl mx-auto space-y-4 pt-20 px-4">
+      {/* Informações Gerais */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <Card>
+          <CardContent className="p-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                <LifeBuoy className="h-5 w-5 text-blue-600" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-muted-foreground">Tipo</p>
+                <p className="text-lg font-semibold">{jangada.tipo || 'N/A'}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                <Users className="h-5 w-5 text-green-600" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-muted-foreground">Capacidade</p>
+                <p className="text-lg font-semibold">{jangada.capacidade ? `${jangada.capacidade} pessoas` : 'N/A'}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
+                <Package className="h-5 w-5 text-orange-600" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-muted-foreground">Peso</p>
+                <p className="text-lg font-semibold">{jangada.peso ? `${jangada.peso} kg` : 'N/A'}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                <Badge variant={jangada.status === 'ativo' ? 'default' : jangada.status === 'manutencao' ? 'secondary' : 'destructive'} className="h-5 w-5 p-0 flex items-center justify-center text-xs">
+                  {jangada.status === 'ativo' ? 'A' : jangada.status === 'manutencao' ? 'M' : 'I'}
+                </Badge>
+              </div>
+              <div>
+                <p className="text-sm font-medium text-muted-foreground">Status</p>
+                <Badge variant={jangada.status === 'ativo' ? 'default' : jangada.status === 'manutencao' ? 'secondary' : 'destructive'}>
+                  {jangada.status}
+                </Badge>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Informações Adicionais */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Informações Técnicas</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">Marca:</span>
+              <span className="font-medium">{jangada.marca?.nome || 'N/A'}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">Modelo:</span>
+              <span className="font-medium">{jangada.modelo?.nome || 'N/A'}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">Tipo de Pack:</span>
+              <span className="font-medium">{jangada.tipoPack || 'N/A'}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">Dimensões:</span>
+              <span className="font-medium">{jangada.dimensoes || 'N/A'}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">Número de Aprovação:</span>
+              <span className="font-medium">{jangada.numeroAprovacao || 'N/A'}</span>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Datas Importantes</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">Data de Fabricação:</span>
+              <span className="font-medium">
+                {jangada.dataFabricacao 
+                  ? format(new Date(jangada.dataFabricacao), 'dd/MM/yyyy', { locale: pt })
+                  : 'N/A'
+                }
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">Última Inspeção:</span>
+              <span className="font-medium">
+                {jangada.dataInspecao 
+                  ? format(new Date(jangada.dataInspecao), 'dd/MM/yyyy', { locale: pt })
+                  : 'N/A'
+                }
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">Próxima Inspeção:</span>
+              <span className={`font-medium ${
+                jangada.dataProximaInspecao && new Date(jangada.dataProximaInspecao) < new Date()
+                  ? 'text-red-600'
+                  : jangada.dataProximaInspecao && new Date(jangada.dataProximaInspecao) <= new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+                  ? 'text-orange-600'
+                  : 'text-green-600'
+              }`}>
+                {jangada.dataProximaInspecao 
+                  ? format(new Date(jangada.dataProximaInspecao), 'dd/MM/yyyy', { locale: pt })
+                  : 'N/A'
+                }
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">Data de Validade:</span>
+              <span className="font-medium">
+                {jangada.dataValidade 
+                  ? format(new Date(jangada.dataValidade), 'dd/MM/yyyy', { locale: pt })
+                  : 'N/A'
+                }
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">HRU Aplicável:</span>
+              <span className="font-medium">{jangada.hruAplicavel ? 'Sim' : 'Não'}</span>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Associações */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg flex items-center gap-2">
+              <User className="h-5 w-5" />
+              Cliente
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="font-medium">{jangada.cliente?.nome || 'N/A'}</p>
+            <p className="text-sm text-muted-foreground">{jangada.cliente?.email || ''}</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg flex items-center gap-2">
+              <Ship className="h-5 w-5" />
+              Navio
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="font-medium">{jangada.navio?.nome || 'N/A'}</p>
+            <p className="text-sm text-muted-foreground">{jangada.navio?.tipo || ''}</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg flex items-center gap-2">
+              <User className="h-5 w-5" />
+              Proprietário
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="font-medium">{jangada.proprietario?.nome || 'N/A'}</p>
+            <p className="text-sm text-muted-foreground">{jangada.proprietario?.empresa || ''}</p>
+          </CardContent>
+        </Card>
+      </div>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Button variant="outline" onClick={() => router.back()}>
@@ -591,10 +850,60 @@ export default function JangadaDetailPage() {
                 {jangada.marca} {jangada.modelo} - {jangada.tipo}
               </p>
             </div>
+      {/* Ações Rápidas */}
+      <Card className="mb-6">
+        <CardHeader>
+          <CardTitle>Ações Rápidas</CardTitle>
+          <CardDescription>
+            Ações comuns para gerenciar esta jangada
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-3">
+            <Button 
+              variant="outline"
+              onClick={() => setShowAgendarDialog(true)}
+              className="flex items-center gap-2"
+            >
+              <Calendar className="h-4 w-4" />
+              Agendar Inspeção
+            </Button>
+            
+            <Button 
+              variant="outline"
+              onClick={async () => {
+                await fetch(`/api/jangadas/${jangada.id}/gerar-ficha-dgrm`, { method: 'POST' })
+                alert('Ficha DGRM gerada (ver pasta DGRM).');
+              }}
+              className="flex items-center gap-2"
+            >
+              <FileText className="h-4 w-4" />
+              Gerar Ficha DGRM
+            </Button>
+            
+            <Button 
+              variant="outline"
+              onClick={() => router.push(`/jangadas/${jangada.id}/inspecoes/nova`)}
+              className="flex items-center gap-2"
+            >
+              <Plus className="h-4 w-4" />
+              Nova Inspeção
+            </Button>
+            
+            <Button 
+              variant="outline"
+              onClick={() => router.push(`/jangadas/${jangada.id}/quadro`)}
+              className="flex items-center gap-2"
+            >
+              <FileText className="h-4 w-4" />
+              Ver Quadro
+            </Button>
           </div>
-        </div>
+        </CardContent>
+      </Card>
+      </div>
 
-      <Card className="w-full">
+      <Card className="w-full mt-6">
         <CardHeader>
           <div className="flex items-center justify-between">
             <div>
@@ -853,16 +1162,16 @@ export default function JangadaDetailPage() {
                 </div>
               </form>
             </Form>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
 
-      {/* Seção de Materiais e Componentes */}
-      <Card className="w-full mt-6">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Package className="h-5 w-5" />
-            Materiais e Componentes
-          </CardTitle>
+        {/* Seção de Materiais e Componentes */}
+        <Card className="w-full mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Package className="h-5 w-5" />
+              Materiais e Componentes
+            </CardTitle>
           <CardDescription>
             Componentes necessários para esta jangada com informações detalhadas do stock
           </CardDescription>
@@ -871,6 +1180,35 @@ export default function JangadaDetailPage() {
           <ComponentesJangadaSection jangadaId={id} jangada={jangada} />
         </CardContent>
       </Card>
+
+      {/* Dialog de Agendamento de Inspeção */}
+      {showAgendarDialog && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg max-w-md w-full mx-4">
+            <h3 className="text-lg font-semibold mb-4">Agendar Inspeção</h3>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-1">Data da Inspeção</label>
+                <input
+                  type="datetime-local"
+                  className="w-full border border-gray-300 rounded px-3 py-2"
+                  onChange={(e) => {
+                    if (e.target.value) {
+                      handleAgendarInspecao(e.target.value)
+                      setShowAgendarDialog(false)
+                    }
+                  }}
+                />
+              </div>
+              <div className="flex gap-2 justify-end">
+                <Button variant="outline" onClick={() => setShowAgendarDialog(false)}>
+                  Cancelar
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
     </div>
   )

@@ -1,23 +1,45 @@
-'use client'
+ 'use client'
 
-import { useState } from 'react'
-import {
-  format,
-  startOfDay,
-  endOfDay,
-  eachHourOfInterval,
-  isSameDay,
-  addMinutes,
-  parseISO,
-} from 'date-fns'
-import { ptBR } from 'date-fns/locale'
-import { Plus, ChevronLeft, Clock, MapPin, User, AlertCircle } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { useAgendamentos } from '@/hooks/use-agendamentos'
-import AgendarTarefaDialog from './agendar-tarefa-dialog'
-import { useFeriados } from '@/hooks/use-feriados'
+ interface Agendamento {
+   id: string;
+   titulo: string;
+   descricao?: string;
+   dataInicio: string;
+   dataFim: string;
+   prioridade?: string;
+   status?: string;
+   navio?: { nome: string };
+   jangada?: { nome: string };
+   responsavel?: string;
+ }
+
+ interface Feriado {
+   id: string;
+   nome: string;
+   data: string;
+   tipo?: string;
+   descricao?: string;
+   regiao?: string;
+ }
+
+ import { useState } from 'react'
+ import {
+   format,
+   startOfDay,
+   endOfDay,
+   eachHourOfInterval,
+   isSameDay,
+   addMinutes,
+   parseISO,
+ } from 'date-fns'
+ import { ptBR } from 'date-fns/locale'
+ import { Plus, ChevronLeft, Clock, MapPin, User, AlertCircle } from 'lucide-react'
+ import { Button } from '@/components/ui/button'
+ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+ import { Badge } from '@/components/ui/badge'
+ import { useAgendamentos } from '@/hooks/use-agendamentos'
+ import AgendarTarefaDialog from './agendar-tarefa-dialog'
+ import { useFeriados } from '@/hooks/use-feriados'
 
 interface AgendaDayViewProps {
   selectedDate: Date
@@ -48,18 +70,18 @@ export default function AgendaDayView({ selectedDate, onBack }: AgendaDayViewPro
   const { data: feriados = [] } = useFeriados(selectedDate.getFullYear())
 
   // Filter agendamentos for the selected day
-  const dayAgendamentos = agendamentos.filter((agendamento: any) => {
+  const dayAgendamentos = agendamentos.filter((agendamento: Agendamento) => {
     const agendDate = new Date(agendamento.dataInicio)
     return isSameDay(agendDate, selectedDate)
   })
 
   // Filter feriados for the selected day
-  const dayFeriados = feriados.filter((feriado: any) => {
+  const dayFeriados = feriados.filter((feriado: Feriado) => {
     return isSameDay(new Date(feriado.data), selectedDate)
   })
 
   // Sort by time
-  const sortedAgendamentos = dayAgendamentos.sort((a: any, b: any) => {
+  const sortedAgendamentos = dayAgendamentos.sort((a: Agendamento, b: Agendamento) => {
     const timeA = new Date(a.dataInicio).getTime()
     const timeB = new Date(b.dataInicio).getTime()
     return timeA - timeB
@@ -109,7 +131,7 @@ export default function AgendaDayView({ selectedDate, onBack }: AgendaDayViewPro
       {/* Feriados do dia */}
       {dayFeriados.length > 0 && (
         <div className="space-y-3 mb-6">
-          {dayFeriados.map((feriado: any) => (
+          {dayFeriados.map((feriado: Feriado) => (
             <Card key={`feriado-${feriado.id}`} className="border-l-4 border-l-red-500 bg-red-50">
               <CardContent className="pt-6">
                 <div className="flex items-start gap-4">
@@ -147,7 +169,7 @@ export default function AgendaDayView({ selectedDate, onBack }: AgendaDayViewPro
       {/* Tasks List */}
       {sortedAgendamentos.length > 0 ? (
         <div className="space-y-3">
-          {sortedAgendamentos.map((agendamento: any) => {
+          {sortedAgendamentos.map((agendamento: Agendamento) => {
             const dataInicio = parseISO(agendamento.dataInicio)
             const dataFim = parseISO(agendamento.dataFim)
             const duracao = Math.round(
@@ -157,14 +179,14 @@ export default function AgendaDayView({ selectedDate, onBack }: AgendaDayViewPro
             return (
               <Card
                 key={agendamento.id}
-                className={`border-l-4 ${PRIORITY_COLORS[agendamento.prioridade] || PRIORITY_COLORS.normal}`}
+                className={`border-l-4 ${PRIORITY_COLORS[agendamento.prioridade ?? 'normal']}`}
               >
                 <CardContent className="pt-6">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-3">
                         <h3 className="font-semibold text-lg">{agendamento.titulo}</h3>
-                        <Badge className={STATUS_COLORS[agendamento.status]}>
+                        <Badge className={STATUS_COLORS[agendamento.status ?? 'agendado']}>
                           {agendamento.status}
                         </Badge>
                         {agendamento.prioridade === 'urgente' && (
@@ -236,7 +258,7 @@ export default function AgendaDayView({ selectedDate, onBack }: AgendaDayViewPro
           <div className="space-y-2">
             {dayHours.map((hour) => {
               const hourStr = format(hour, 'HH:00')
-              const tasksInHour = sortedAgendamentos.filter((agendamento: any) => {
+              const tasksInHour = sortedAgendamentos.filter((agendamento: Agendamento) => {
                 const taskStart = parseISO(agendamento.dataInicio)
                 return format(taskStart, 'HH:00') === hourStr
               })
@@ -246,7 +268,7 @@ export default function AgendaDayView({ selectedDate, onBack }: AgendaDayViewPro
                   <div className="w-12 text-sm font-medium text-gray-600">{hourStr}</div>
                   <div className="flex-1 min-h-12 flex flex-wrap items-center gap-2">
                     {tasksInHour.length > 0 ? (
-                      tasksInHour.map((agendamento: any) => (
+                      tasksInHour.map((agendamento: Agendamento) => (
                         <Badge key={agendamento.id} variant="outline">
                           {agendamento.titulo}
                         </Badge>

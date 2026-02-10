@@ -1,16 +1,20 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Plus, Search, Users, Building2, Briefcase } from 'lucide-react'
+import { Plus, Search, Users, Building2, Briefcase, Filter } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
 
 export default function ClientesPage() {
   const [searchTerm, setSearchTerm] = useState('')
+  const [tipoFilter, setTipoFilter] = useState<string>('todos')
+  const [showFilters, setShowFilters] = useState(false)
   const [showAddForm, setShowAddForm] = useState(false)
   const [clientes, setClientes] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
@@ -33,11 +37,16 @@ export default function ClientesPage() {
     fetchClientes()
   }, [])
 
-  const filteredClientes = clientes.filter(cliente =>
-    cliente.nome?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    cliente.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    cliente.nif?.includes(searchTerm)
-  )
+  const filteredClientes = clientes.filter(cliente => {
+    const matchesSearch = cliente.nome?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         cliente.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         cliente.nif?.includes(searchTerm) ||
+                         cliente.telefone?.includes(searchTerm)
+    
+    const matchesTipo = tipoFilter === 'todos' || cliente.tipo === tipoFilter
+    
+    return matchesSearch && matchesTipo
+  })
 
   const clienteTypes = {
     cliente: 'Cliente',

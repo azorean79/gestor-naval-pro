@@ -345,6 +345,40 @@ Quando ver "✅ Build bem-sucedido", você está pronto! 🎉
 
 ---
 
-**Status**: PRONTO PARA DEPLOY 🚀
-**Data**: 04 de Fevereiro de 2026
-**Versão**: 1.0.0 (Produção)
+# ✅ CHECKLIST TÉCNICO DE DEPLOY (Vercel)
+
+## 1. Banco de Dados
+- [ ] Atualize as credenciais no `.env` e no painel da Vercel (`DATABASE_URL`)
+- [ ] Execute as migrações Prisma: `npx prisma migrate deploy`
+- [ ] Teste conexão e leitura/escrita
+
+## 2. Variáveis de Ambiente
+- [ ] Configure todas as variáveis no painel da Vercel
+- [ ] Não suba `.env` para o repositório
+
+## 3. Build e Testes
+- [ ] Rode `npm run build` localmente
+- [ ] Rode `npm run start` e teste a aplicação em modo produção
+- [ ] Teste todos os fluxos críticos (cadastro, edição, comentários, agenda, dashboard, etc)
+
+## 4. Responsividade e Acessibilidade
+- [ ] Teste em mobile/tablet
+- [ ] Use Lighthouse para revisar performance e acessibilidade
+
+## 5. API e Segurança
+- [ ] Proteja rotas sensíveis (autenticação/autorização)
+- [ ] Remova logs sensíveis
+
+## 6. Configuração Vercel
+- [ ] Crie/ajuste `vercel.json` se necessário
+- [ ] Defina build command e output directory no painel
+- [ ] Teste deploy em preview/staging
+
+## 7. Pós-Deploy
+- [ ] Teste a aplicação em produção
+- [ ] Ative monitoramento/alertas (Sentry, etc)
+- [ ] Documente e treine usuários
+
+---
+
+# (Checklist detalhado e exemplos continuam abaixo)

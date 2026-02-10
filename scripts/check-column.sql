@@ -1,1 +1,1 @@
-SELECT id, "numeroSerie" FROM jangadas LIMIT 1;
+SELECT TOP 1 id, "numeroSerie" FROM jangadas;

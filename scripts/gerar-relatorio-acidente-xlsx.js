@@ -14,7 +14,7 @@ process.env.DATABASE_URL = process.env.DIRECT_DATABASE_URL || process.env.DATABA
 // Inicializar Prisma com adapter PG
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const adapter = new PrismaPg(pool);
-const prisma = new PrismaClient({ adapter });
+const prisma = new PrismaClient();
 
 function calcularTestesSOLAS(dataFabricacao, dataInspecao = new Date()) {
   const idadeAnos = Math.floor((dataInspecao - dataFabricacao) / (1000 * 60 * 60 * 24 * 365.25));

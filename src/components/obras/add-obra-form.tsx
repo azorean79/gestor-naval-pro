@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { useClientes } from '@/hooks/use-clientes'
+import { useNavios } from '@/hooks/use-navios'
 import { useCreateObra } from '@/hooks/use-obras'
 import { toast } from 'sonner'
 
@@ -27,13 +28,34 @@ export function AddObraForm({ open, onOpenChange, onSuccess }: AddObraFormProps)
     dataFim: '',
     orcamento: '',
     clienteId: '',
-    responsavel: ''
+    responsavel: '',
+    navioId: '',
+    jangadaId: ''
   })
 
   const { data: clientesResponse } = useClientes({ limit: 100 })
+  const { data: naviosResponse } = useNavios({ limit: 100 })
   const createObra = useCreateObra()
 
   const clientes = clientesResponse?.data || []
+  const navios = naviosResponse?.data || []
+
+  // Buscar jangadas da estação de serviço
+  const [jangadasEstacao, setJangadasEstacao] = useState<any[]>([])
+
+  useEffect(() => {
+    const fetchJangadasEstacao = async () => {
+      try {
+        const response = await fetch('/api/estacao-servico/jangadas')
+        if (response.ok) {
+          setJangadasEstacao(await response.json())
+        }
+      } catch (error) {
+        console.error('Erro ao carregar jangadas da estação:', error)
+      }
+    }
+    fetchJangadasEstacao()
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -49,6 +71,8 @@ export function AddObraForm({ open, onOpenChange, onSuccess }: AddObraFormProps)
         orcamento: formData.orcamento ? parseFloat(formData.orcamento) : undefined,
         clienteId: formData.clienteId || undefined,
         responsavel: formData.responsavel || undefined,
+        navioId: formData.navioId || undefined,
+        jangadaId: formData.jangadaId || undefined,
       })
 
       toast.success('Obra criada com sucesso!')
@@ -64,7 +88,9 @@ export function AddObraForm({ open, onOpenChange, onSuccess }: AddObraFormProps)
         dataFim: '',
         orcamento: '',
         clienteId: '',
-        responsavel: ''
+        responsavel: '',
+        navioId: '',
+        jangadaId: ''
       })
     } catch (error) {
       console.error('Erro ao criar obra:', error)
@@ -171,6 +197,40 @@ export function AddObraForm({ open, onOpenChange, onSuccess }: AddObraFormProps)
                   {clientes.map((cliente: any) => (
                     <SelectItem key={cliente.id} value={cliente.id}>
                       {cliente.nome}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
+              <Label htmlFor="navioId">Navio (opcional)</Label>
+              <Select value={formData.navioId} onValueChange={(value) => handleInputChange('navioId', value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Selecione um navio" />
+                </SelectTrigger>
+                <SelectContent>
+                  {navios.map((navio: any) => (
+                    <SelectItem key={navio.id} value={navio.id}>
+                      {navio.nome}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <Label htmlFor="jangadaId">Jangada da Estação (opcional)</Label>
+              <Select value={formData.jangadaId} onValueChange={(value) => handleInputChange('jangadaId', value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Selecione uma jangada" />
+                </SelectTrigger>
+                <SelectContent>
+                  {jangadasEstacao.map((jangada: any) => (
+                    <SelectItem key={jangada.id} value={jangada.id}>
+                      {jangada.numeroSerie} - {jangada.marca} {jangada.modelo}
                     </SelectItem>
                   ))}
                 </SelectContent>

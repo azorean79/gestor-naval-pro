@@ -70,6 +70,7 @@ model Navio {
   inspecoes         Inspecao[]
   jangadas          Jangada[]
   obras             Obra[]
+  comentarios      Comentario[] @relation("NavioComentarios")
 
   @@map("navios")
 }
@@ -98,6 +99,7 @@ model Jangada {
   // Controle de estação de serviço
   dataEntradaEstacao DateTime? // Data que chegou na estação
   dataPrevistaEntrega DateTime? // Data prevista para devolução ao cliente
+  dataEntregaSolicitada DateTime? // Data solicitada para entrega
   
   clienteId         String?
   proprietarioId    String?
@@ -132,6 +134,8 @@ model Jangada {
   componentesPack   ComponentePack[]
   camaras           CamaraJangada[]
   envioItens        EnvioItem[]
+  obras             Obra[]
+  comentarios      Comentario[] @relation("JangadaComentarios")
 
   @@map("jangadas")
 }
@@ -392,6 +396,7 @@ model Obra {
   orcamento         Float?
   clienteId         String?
   navioId           String?
+  jangadaId         String?
   responsavel       String?
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
@@ -399,7 +404,9 @@ model Obra {
   // Relations
   cliente           Cliente? @relation(fields: [clienteId], references: [id])
   navio             Navio?   @relation(fields: [navioId], references: [id])
+  jangada           Jangada? @relation(fields: [jangadaId], references: [id])
   inspecoes         Inspecao[]
+  comentarios       Comentario[] @relation("ObraComentarios")
 
   @@map("obras")
 }
@@ -463,6 +470,7 @@ model Inspecao {
   substituicoesComponente SubstituicaoComponente[]
   verificacoesChecklist VerificacaoChecklistInspecao[]
   componentesStock  ComponenteStock[]
+    comentarios       Comentario[] @relation("InspecaoComentarios")
 
   @@map("inspecoes")
 }
@@ -982,4 +990,24 @@ model Feriado {
 
   @@unique([nome, data])
   @@map("feriados")
+}
+
+model Comentario {
+  id          String   @id @default(cuid())
+  texto       String
+  autor       String   // Nome ou ID do usuário
+  tipo        String   // navio, inspecao, jangada, obra, etc.
+  navioId     String?
+  inspecaoId  String?
+  jangadaId   String?
+  obraId      String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  navio       Navio?     @relation("NavioComentarios", fields: [navioId], references: [id])
+  inspecao    Inspecao?  @relation("InspecaoComentarios", fields: [inspecaoId], references: [id])
+  jangada     Jangada?   @relation("JangadaComentarios", fields: [jangadaId], references: [id])
+  obra        Obra?      @relation("ObraComentarios", fields: [obraId], references: [id])
+
+  @@map("comentarios")
 }

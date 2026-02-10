@@ -46,6 +46,8 @@ export function useCreateObra() {
       orcamento?: number
       clienteId?: string
       responsavel?: string
+      navioId?: string
+      jangadaId?: string
     }) => {
       const response = await fetch('/api/obras', {
         method: 'POST',

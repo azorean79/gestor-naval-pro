@@ -12,7 +12,7 @@ import { DndContext, DragEndEvent } from '@dnd-kit/core';
 import { AgendaCalendar } from './agenda-calendar';
 import { AgendaSidebar } from './agenda-sidebar';
 import { AgendarInspecaoDialog } from './agendar-inspecao-dialog';
-import { AgendaDetails } from './agenda-details';
+// import { AgendaDetails } from './agenda-details'; // Componente removido
 
 // Cada técnico pode fazer no máximo 2 inspeções por dia (3.5h cada)
 const INSPECTIONS_PER_TECHNICIAN = 2;
@@ -37,6 +37,9 @@ export function AgendaContent() {
       ? jangadasResponse
       : [];
 
+  // Sugestões de agendamento agrupadas por navio
+  const sugestoesPorNavio = agendamentosResponse?.sugestoesPorNavio || {};
+
 
   const monthStart = startOfMonth(currentMonth);
   const monthEnd = endOfMonth(currentMonth);
@@ -49,18 +52,20 @@ export function AgendaContent() {
     );
 
     if (!Array.isArray(dayAgendamentos) || dayAgendamentos.length === 0) return 'free';
-    // Verificar se algum técnico atingiu o limite de 2 inspeções
-    const agendamentosPorTecnico = Array.isArray(dayAgendamentos)
-      ? dayAgendamentos.reduce((acc: any, agendamento: any) => {
-          const tecnico = agendamento.responsavel || 'Sem técnico';
-          acc[tecnico] = (acc[tecnico] || 0) + 1;
-          return acc;
-        }, {})
-      : {};
-    const alguemNoLimite = Object.values(agendamentosPorTecnico).length > 0 && Object.values(agendamentosPorTecnico).some((count: any) => count >= INSPECTIONS_PER_TECHNICIAN);
-    if (dayAgendamentos.length >= INSPECTIONS_PER_TECHNICIAN * 2) return 'full'; // 4 inspeções (2 por cada um dos 2 técnicos)
-    if (alguemNoLimite || dayAgendamentos.length > 0) return 'partial';
-    return 'free';
+    // Impedir múltiplos agendamentos para a mesma jangada no mesmo dia
+    const jangadasAgendadas = new Set(dayAgendamentos.map((a: any) => a.jangada?.numeroSerie));
+    if (jangadasAgendadas.size < dayAgendamentos.length) return 'full'; // Já existe agendamento para a mesma jangada no mesmo dia
+
+    // Impedir múltiplos agendamentos para a mesma jangada no mesmo mês
+    const monthAgendamentos = (agendamentos || []).filter(
+      (agendamento: any) =>
+        agendamento.jangada?.numeroSerie &&
+        format(new Date(agendamento.dataInicio), 'yyyy-MM') === format(date, 'yyyy-MM')
+    );
+    const jangadasMes = new Set(monthAgendamentos.map((a: any) => a.jangada?.numeroSerie));
+    if (jangadasMes.size < monthAgendamentos.length) return 'full'; // Já existe agendamento para a mesma jangada no mesmo mês
+
+    return 'partial';
   };
 
   const handleDragEnd = (event: DragEndEvent) => {
@@ -69,6 +74,23 @@ export function AgendaContent() {
     if (over && typeof over.id === 'string' && over.id.startsWith('day-')) {
       const dateStr = over.id.replace('day-', '');
       const date = new Date(dateStr);
+      const dragJangada = active.data.current?.jangada;
+      if (dragJangada) {
+        // Verifica se já existe agendamento para a mesma jangada no mesmo dia
+        const diaAgendado = agendamentos.some((a: any) =>
+          a.jangada?.numeroSerie === dragJangada.numeroSerie &&
+          format(new Date(a.dataInicio), 'yyyy-MM-dd') === format(date, 'yyyy-MM-dd')
+        );
+        // Verifica se já existe agendamento para a mesma jangada no mesmo mês
+        const mesAgendado = agendamentos.some((a: any) =>
+          a.jangada?.numeroSerie === dragJangada.numeroSerie &&
+          format(new Date(a.dataInicio), 'yyyy-MM') === format(date, 'yyyy-MM')
+        );
+        if (diaAgendado || mesAgendado) {
+          alert('Já existe agendamento para esta jangada neste dia ou mês.');
+          return;
+        }
+      }
       setSelectedDate(date);
       setDragData(active.data.current);
       setDialogOpen(true);
@@ -84,6 +106,7 @@ export function AgendaContent() {
   };
 
   return (
+
     <DndContext onDragEnd={handleDragEnd}>
       <div className="flex h-screen">
         <div className="flex-1 p-6 overflow-y-auto">
@@ -117,6 +140,38 @@ export function AgendaContent() {
             </div>
           </div>
 
+          {Object.keys(sugestoesPorNavio).length > 0 && (
+            <div className="mb-4 bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+              <div className="flex items-start gap-2">
+                <span className="text-yellow-600 text-lg">⚠️</span>
+                <div className="text-sm text-yellow-900">
+                  <p className="font-medium mb-1">Sugestões de Agendamento por Navio:</p>
+                  {Object.entries(sugestoesPorNavio).map(([navio, sugestoes], idx) => (
+                    <div key={navio} className="mb-2">
+                      <div className="font-semibold text-yellow-700">🚢 {navio}</div>
+                      <ul className="list-disc list-inside space-y-1 text-yellow-800">
+                        {(sugestoes as any[]).map((s: any, sidx: number) => (
+                          <li key={sidx}>
+                            {s.tecnico ? (
+                              <span><b>{s.tecnico}</b>: </span>
+                            ) : null}
+                            {s.numeroSerie ? (
+                              <span>Jangada {s.numeroSerie}: </span>
+                            ) : null}
+                            {s.dia ? (
+                              <span>Dia {s.dia}: </span>
+                            ) : null}
+                            {s.sugestao}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
           <AgendaCalendar
             currentMonth={currentMonth}
             calendarDays={calendarDays}
@@ -132,10 +187,7 @@ export function AgendaContent() {
           jangadas={jangadas}
         />
 
-        {/* Painel de detalhes do agendamento */}
-        {selectedDate && agendamentos.length > 0 && (
-          <AgendaDetails agendamento={agendamentos.find((a: any) => format(new Date(a.dataInicio), 'yyyy-MM-dd') === format(selectedDate, 'yyyy-MM-dd'))} />
-        )}
+        {/* Painel de detalhes do agendamento removido: detalhes do agendamento não são mais exibidos */}
 
         <AgendarInspecaoDialog
           open={dialogOpen}

@@ -1,12 +1,12 @@
 const { PrismaClient } = require('../prisma/app/generated-prisma-client');
-const { withAccelerate } = require('@prisma/extension-accelerate');
+// ...existing code...
 
 // Configurar Prisma Accelerate
 const ACCELERATE_URL = "prisma+postgres://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfaWQiOjEsInNlY3VyZV9rZXkiOiJza19TTVZ5LXJiWktoUUtZMHpmSm5Yd3YiLCJhcGlfa2V5IjoiMDFLR0FCQjI2RjRQMTFTR0dQOEY5RjlCRkoiLCJ0ZW5hbnRfaWQiOiIyMDkxNzE0YjM5OTA5NzkzMzVjM2M1MWUxZjQxNTY0NGE0ZDk0ZmM5MzhkODU4NWY4MGExM2VlYjdkODQwOGZkIiwiaW50ZXJuYWxfc2VjcmV0IjoiN2U1MDI0MGUtYjdmYS00NjhjLTljZTQtZTM5NTA2OGQ1NmJlIn0.A-eGaWSZG_w0sMQ4BmVZ13ckdGeYuRb6lMG4T4yvblk";
 
-const prisma = new PrismaClient({
+const prisma = new PrismaClient();
   accelerateUrl: ACCELERATE_URL,
-}).$extends(withAccelerate());
+});
 
 // Lista de operadores e armadores para adicionar como clientes
 const operadoresArmadores = [

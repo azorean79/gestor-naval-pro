@@ -24,16 +24,14 @@ function loadEnvFile(filePath) {
   });
 }
 
-loadEnvFile(path.join(__dirname, '..', '.env.local'));
 loadEnvFile(path.join(__dirname, '..', '.env'));
+loadEnvFile(path.join(__dirname, '..', '.env.local'));
 
-process.env.DATABASE_URL = process.env.DIRECT_DATABASE_URL || process.env.DATABASE_URL;
+process.env.DATABASE_URL = process.env.DATABASE_URL;
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+const prisma = new PrismaClient({
+  accelerateUrl: process.env.DATABASE_URL
 });
-const adapter = new PrismaPg(pool);
-const prisma = new PrismaClient({ adapter });
 
 const PDF_PATH = path.join(__dirname, '..', 'tmp', 'despacho-2025-09-17.pdf');
 

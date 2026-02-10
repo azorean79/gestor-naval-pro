@@ -2,7 +2,7 @@
 
 import { useParams, useRouter } from 'next/navigation'
 import { useState } from 'react'
-import { ArrowLeft, Edit, Ship, Trash2, MapPin, Calendar, Anchor, Ruler, User, LifeBuoy, Shield } from 'lucide-react'
+import { ArrowLeft, Edit, Ship, Trash2, MapPin, Calendar, Anchor, Ruler, User, LifeBuoy, Shield, Plus, Search, Link, Unlink, Bot } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -15,6 +15,10 @@ import { pt } from 'date-fns/locale'
 import { toast } from 'sonner'
 import { EditNavioForm } from '@/components/navios/edit-navio-form'
 import { Skeleton } from '@/components/ui/skeleton'
+import { Input } from '@/components/ui/input'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import { Label } from '@/components/ui/label'
 
 export default function NavioDetailPage() {
   const params = useParams()
@@ -22,6 +26,19 @@ export default function NavioDetailPage() {
   const id = params.id as string
   const [openEdit, setOpenEdit] = useState(false)
   const [activeTab, setActiveTab] = useState('jangadas')
+  const [showAssociateDialog, setShowAssociateDialog] = useState(false)
+  const [showCreateDialog, setShowCreateDialog] = useState(false)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedMarca, setSelectedMarca] = useState('')
+  const [selectedModelo, setSelectedModelo] = useState('')
+  const [newJangadaData, setNewJangadaData] = useState({
+    numeroSerie: '',
+    marcaId: '',
+    modeloId: '',
+    lotacaoId: '',
+    tipo: 'bote-salva-vidas',
+    estado: 'novo'
+  })
 
   const { data: navioData, isLoading, error, refetch } = useNavio(id)
   
@@ -36,6 +53,47 @@ export default function NavioDetailPage() {
     enabled: !!id
   })
 
+  // Buscar jangadas disponíveis (não associadas a nenhum navio)
+  const { data: jangadasDisponiveis = [] } = useQuery({
+    queryKey: ['jangadas', 'disponiveis'],
+    queryFn: async () => {
+      const res = await fetch('/api/jangadas?status=ativo&navioId=null')
+      if (!res.ok) throw new Error('Erro ao buscar jangadas disponíveis')
+      return res.json()
+    }
+  })
+
+  // Buscar opções para criação de jangada
+  const { data: marcas = [] } = useQuery({
+    queryKey: ['marcas-jangada'],
+    queryFn: async () => {
+      const res = await fetch('/api/marcas-jangada')
+      if (!res.ok) throw new Error('Erro ao buscar marcas')
+      return res.json()
+    }
+  })
+
+  const { data: lotacoes = [] } = useQuery({
+    queryKey: ['lotacoes-jangada'],
+    queryFn: async () => {
+      const res = await fetch('/api/lotacoes-jangada')
+      if (!res.ok) throw new Error('Erro ao buscar lotações')
+      return res.json()
+    }
+  })
+
+  // Buscar modelos baseado na marca selecionada
+  const { data: modelos = [] } = useQuery({
+    queryKey: ['modelos-jangada', selectedMarca],
+    queryFn: async () => {
+      if (!selectedMarca) return []
+      const res = await fetch(`/api/modelos-jangada?marcaId=${selectedMarca}`)
+      if (!res.ok) throw new Error('Erro ao buscar modelos')
+      return res.json()
+    },
+    enabled: !!selectedMarca
+  })
+
   // Buscar inspeções do navio
   const { data: inspecoes = [] } = useQuery({
     queryKey: ['inspecoes', 'navio', id],
@@ -47,6 +105,18 @@ export default function NavioDetailPage() {
     enabled: !!id
   })
 
+  // Buscar embarcações de marítimo turístico do mesmo cliente
+  const { data: embarcacoesMaritimoTuristico = [] } = useQuery({
+    queryKey: ['embarcacoes-maritimo-turistico', navioData?.clienteId],
+    queryFn: async () => {
+      if (!navioData?.clienteId) return []
+      const res = await fetch(`/api/navios?clienteId=${navioData.clienteId}&tipo=maritimo-turistica`)
+      if (!res.ok) throw new Error('Erro ao buscar embarcações de marítimo turístico')
+      return res.json()
+    },
+    enabled: !!navioData?.clienteId
+  })
+
   const handleDelete = async () => {
     if (!confirm('Tem a certeza que deseja eliminar este navio?')) return
     try {
@@ -56,6 +126,68 @@ export default function NavioDetailPage() {
       router.push('/navios')
     } catch (error) {
       toast.error('Erro ao eliminar navio')
+    }
+  }
+
+  const handleAssociateJangada = async (jangadaId: string) => {
+    try {
+      const response = await fetch(`/api/jangadas/${jangadaId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ navioId: id })
+      })
+      if (!response.ok) throw new Error('Erro ao associar jangada')
+      toast.success('Jangada associada com sucesso!')
+      // Refetch das queries
+      window.location.reload()
+    } catch (error) {
+      toast.error('Erro ao associar jangada')
+    }
+  }
+
+  const handleRemoveJangada = async (jangadaId: string) => {
+    if (!confirm('Tem certeza que deseja remover esta jangada do navio?')) return
+    try {
+      const response = await fetch(`/api/jangadas/${jangadaId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ navioId: null })
+      })
+      if (!response.ok) throw new Error('Erro ao remover jangada')
+      toast.success('Jangada removida com sucesso!')
+      // Refetch das queries
+      window.location.reload()
+    } catch (error) {
+      toast.error('Erro ao remover jangada')
+    }
+  }
+
+  const handleCreateJangada = async () => {
+    try {
+      const response = await fetch('/api/jangadas', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...newJangadaData,
+          navioId: id,
+          status: 'ativo'
+        })
+      })
+      if (!response.ok) throw new Error('Erro ao criar jangada')
+      toast.success('Jangada criada e associada com sucesso!')
+      setShowCreateDialog(false)
+      setNewJangadaData({
+        numeroSerie: '',
+        marcaId: '',
+        modeloId: '',
+        lotacaoId: '',
+        tipo: 'bote-salva-vidas',
+        estado: 'novo'
+      })
+      // Refetch das queries
+      window.location.reload()
+    } catch (error) {
+      toast.error('Erro ao criar jangada')
     }
   }
 
@@ -332,12 +464,16 @@ export default function NavioDetailPage() {
         )}
       </div>
 
-      {/* Tabs para Jangadas e Inspeções */}
+      {/* Tabs para Jangadas, Embarcações e Inspeções */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="mt-8">
-        <TabsList className="grid w-full grid-cols-2">
+        <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="jangadas">
             <LifeBuoy className="h-4 w-4 mr-2" />
             Jangadas ({(jangadas as any)?.data?.length || 0})
+          </TabsTrigger>
+          <TabsTrigger value="embarcacoes">
+            <Bot className="h-4 w-4 mr-2" />
+            Embarcações MT ({(embarcacoesMaritimoTuristico as any)?.data?.length || 0})
           </TabsTrigger>
           <TabsTrigger value="inspecoes">
             <Shield className="h-4 w-4 mr-2" />
@@ -349,16 +485,231 @@ export default function NavioDetailPage() {
         <TabsContent value="jangadas" className="mt-6">
           <Card>
             <CardHeader>
-              <CardTitle>Jangadas Associadas ao Navio</CardTitle>
-              <CardDescription>
-                Lista de todas as jangadas (botes salva-vidas) associadas a este navio
-              </CardDescription>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle>Jangadas Associadas ao Navio</CardTitle>
+                  <CardDescription>
+                    Lista de todas as jangadas (botes salva-vidas) associadas a este navio
+                  </CardDescription>
+                </div>
+                <div className="flex gap-2">
+                  <Dialog open={showAssociateDialog} onOpenChange={setShowAssociateDialog}>
+                    <DialogTrigger asChild>
+                      <Button variant="outline">
+                        <Link className="h-4 w-4 mr-2" />
+                        Associar Jangada
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl">
+                      <DialogHeader>
+                        <DialogTitle>Associar Jangada Existente</DialogTitle>
+                        <DialogDescription>
+                          Selecione uma jangada disponível para associar a este navio
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="space-y-4">
+                        <div className="flex gap-4">
+                          <div className="flex-1">
+                            <Label htmlFor="search">Buscar por série</Label>
+                            <Input
+                              id="search"
+                              placeholder="Digite o número de série..."
+                              value={searchTerm}
+                              onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                          </div>
+                          <div className="flex-1">
+                            <Label htmlFor="marca">Marca</Label>
+                            <Select value={selectedMarca} onValueChange={setSelectedMarca}>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Todas as marcas" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="">Todas as marcas</SelectItem>
+                                {marcas?.data?.map((marca: any) => (
+                                  <SelectItem key={marca.id} value={marca.id}>
+                                    {marca.nome}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </div>
+                        <div className="max-h-96 overflow-y-auto">
+                          <Table>
+                            <TableHeader>
+                              <TableRow>
+                                <TableHead>Série</TableHead>
+                                <TableHead>Marca/Modelo</TableHead>
+                                <TableHead>Capacidade</TableHead>
+                                <TableHead>Estado</TableHead>
+                                <TableHead>Ação</TableHead>
+                              </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                              {(jangadasDisponiveis as any)?.data
+                                ?.filter((jangada: any) => {
+                                  const matchesSearch = !searchTerm || 
+                                    jangada.numeroSerie.toLowerCase().includes(searchTerm.toLowerCase())
+                                  const matchesMarca = !selectedMarca || jangada.marcaId === selectedMarca
+                                  return matchesSearch && matchesMarca
+                                })
+                                ?.map((jangada: any) => (
+                                <TableRow key={jangada.id}>
+                                  <TableCell className="font-medium">{jangada.numeroSerie}</TableCell>
+                                  <TableCell>
+                                    {jangada.marca?.nome} {jangada.modelo?.nome}
+                                  </TableCell>
+                                  <TableCell>{jangada.lotacao?.capacidade} pessoas</TableCell>
+                                  <TableCell>
+                                    <Badge variant="outline">{jangada.estado}</Badge>
+                                  </TableCell>
+                                  <TableCell>
+                                    <Button
+                                      size="sm"
+                                      onClick={() => handleAssociateJangada(jangada.id)}
+                                    >
+                                      <Link className="h-4 w-4 mr-1" />
+                                      Associar
+                                    </Button>
+                                  </TableCell>
+                                </TableRow>
+                              ))}
+                            </TableBody>
+                          </Table>
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+
+                  <Dialog open={showCreateDialog} onOpenChange={setShowCreateDialog}>
+                    <DialogTrigger asChild>
+                      <Button>
+                        <Plus className="h-4 w-4 mr-2" />
+                        Criar Jangada
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Criar Nova Jangada</DialogTitle>
+                        <DialogDescription>
+                          Crie uma nova jangada e associe automaticamente a este navio
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="space-y-4">
+                        <div>
+                          <Label htmlFor="numeroSerie">Número de Série *</Label>
+                          <Input
+                            id="numeroSerie"
+                            value={newJangadaData.numeroSerie}
+                            onChange={(e) => setNewJangadaData(prev => ({ ...prev, numeroSerie: e.target.value }))}
+                            placeholder="Ex: JNG-001"
+                          />
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <Label htmlFor="marca">Marca *</Label>
+                            <Select 
+                              value={newJangadaData.marcaId} 
+                              onValueChange={(value) => {
+                                setNewJangadaData(prev => ({ ...prev, marcaId: value, modeloId: '' }))
+                                setSelectedMarca(value)
+                              }}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Selecione a marca" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {marcas?.data?.map((marca: any) => (
+                                  <SelectItem key={marca.id} value={marca.id}>
+                                    {marca.nome}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div>
+                            <Label htmlFor="modelo">Modelo *</Label>
+                            <Select 
+                              value={newJangadaData.modeloId} 
+                              onValueChange={(value) => setNewJangadaData(prev => ({ ...prev, modeloId: value }))}
+                              disabled={!newJangadaData.marcaId}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Selecione o modelo" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {modelos?.data?.map((modelo: any) => (
+                                  <SelectItem key={modelo.id} value={modelo.id}>
+                                    {modelo.nome}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <Label htmlFor="lotacao">Capacidade *</Label>
+                            <Select 
+                              value={newJangadaData.lotacaoId} 
+                              onValueChange={(value) => setNewJangadaData(prev => ({ ...prev, lotacaoId: value }))}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Selecione a capacidade" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {lotacoes?.data?.map((lotacao: any) => (
+                                  <SelectItem key={lotacao.id} value={lotacao.id}>
+                                    {lotacao.capacidade} pessoas
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div>
+                            <Label htmlFor="tipo">Tipo</Label>
+                            <Select 
+                              value={newJangadaData.tipo} 
+                              onValueChange={(value) => setNewJangadaData(prev => ({ ...prev, tipo: value }))}
+                            >
+                              <SelectTrigger>
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="bote-salva-vidas">Bote Salva-Vidas</SelectItem>
+                                <SelectItem value="bote-resgate">Bote de Resgate</SelectItem>
+                                <SelectItem value="jangada">Jangada</SelectItem>
+                                <SelectItem value="bote-livre">Bote Livre</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </div>
+                        <div className="flex justify-end gap-2 pt-4">
+                          <Button variant="outline" onClick={() => setShowCreateDialog(false)}>
+                            Cancelar
+                          </Button>
+                          <Button 
+                            onClick={handleCreateJangada}
+                            disabled={!newJangadaData.numeroSerie || !newJangadaData.marcaId || !newJangadaData.modeloId || !newJangadaData.lotacaoId}
+                          >
+                            Criar e Associar
+                          </Button>
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                </div>
+              </div>
             </CardHeader>
             <CardContent>
               {!(jangadas as any)?.data || (jangadas as any)?.data?.length === 0 ? (
                 <div className="text-center py-8">
                   <LifeBuoy className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
                   <p className="text-muted-foreground">Nenhuma jangada associada a este navio</p>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Use os botões acima para associar jangadas existentes ou criar novas.
+                  </p>
                 </div>
               ) : (
                 <Table>
@@ -371,6 +722,7 @@ export default function NavioDetailPage() {
                       <TableHead>Capacidade</TableHead>
                       <TableHead>Status</TableHead>
                       <TableHead>Próxima Inspeção</TableHead>
+                      <TableHead>Ações</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -398,6 +750,94 @@ export default function NavioDetailPage() {
                           {jangada.dataProximaInspecao
                             ? format(new Date(jangada.dataProximaInspecao), 'dd/MM/yyyy', { locale: pt })
                             : 'N/A'}
+                        </TableCell>
+                        <TableCell onClick={(e) => e.stopPropagation()}>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => handleRemoveJangada(jangada.id)}
+                            className="text-red-600 hover:text-red-700"
+                          >
+                            <Unlink className="h-4 w-4 mr-1" />
+                            Remover
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        {/* Aba de Embarcações de Marítimo Turístico */}
+        <TabsContent value="embarcacoes" className="mt-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Embarcações de Marítimo Turístico</CardTitle>
+              <CardDescription>
+                Lista de embarcações de marítimo turístico do mesmo cliente/operador
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              {!(embarcacoesMaritimoTuristico as any)?.data || (embarcacoesMaritimoTuristico as any)?.data?.length === 0 ? (
+                <div className="text-center py-8">
+                  <Bot className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
+                  <p className="text-muted-foreground">Nenhuma embarcação de marítimo turístico encontrada</p>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Este cliente não possui outras embarcações de marítimo turístico cadastradas.
+                  </p>
+                </div>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Nome</TableHead>
+                      <TableHead>Matrícula</TableHead>
+                      <TableHead>Tipo</TableHead>
+                      <TableHead>Capacidade</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Próxima Inspeção</TableHead>
+                      <TableHead>Ações</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {(embarcacoesMaritimoTuristico as any)?.data
+                      ?.filter((embarcacao: any) => embarcacao.id !== id) // Excluir o navio atual
+                      ?.map((embarcacao: any) => (
+                      <TableRow
+                        key={embarcacao.id}
+                        className="cursor-pointer hover:bg-muted/50"
+                        onClick={() => router.push(`/navios/${embarcacao.id}`)}
+                      >
+                        <TableCell className="font-medium">{embarcacao.nome}</TableCell>
+                        <TableCell>{embarcacao.matricula || 'N/A'}</TableCell>
+                        <TableCell>
+                          <Badge variant="outline">
+                            {embarcacao.tipo === 'maritimo-turistica' ? 'Marítimo Turística' : embarcacao.tipo}
+                          </Badge>
+                        </TableCell>
+                        <TableCell>{embarcacao.capacidade ? `${embarcacao.capacidade} pessoas` : 'N/A'}</TableCell>
+                        <TableCell>
+                          <Badge variant={embarcacao.status === 'ativo' ? 'default' : 'destructive'}>
+                            {embarcacao.status}
+                          </Badge>
+                        </TableCell>
+                        <TableCell>
+                          {embarcacao.dataProximaInspecao
+                            ? format(new Date(embarcacao.dataProximaInspecao), 'dd/MM/yyyy', { locale: pt })
+                            : 'N/A'}
+                        </TableCell>
+                        <TableCell onClick={(e) => e.stopPropagation()}>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => router.push(`/navios/${embarcacao.id}`)}
+                          >
+                            <Ship className="h-4 w-4 mr-1" />
+                            Ver Detalhes
+                          </Button>
                         </TableCell>
                       </TableRow>
                     ))}

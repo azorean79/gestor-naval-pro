@@ -19,9 +19,12 @@ export function Providers({ children }: { children: React.ReactNode }) {
       })
   );
 
+  const { AuthProvider } = require('./auth-context');
   return (
     <QueryClientProvider client={queryClient}>
-      {children}
+      <AuthProvider>
+        {children}
+      </AuthProvider>
       <Toaster position="top-right" richColors />
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>

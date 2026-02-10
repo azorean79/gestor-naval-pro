@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Calendar, Search, Filter, Plus, Clock, MapPin, User, AlertTriangle } from 'lucide-react'
+import { Calendar, Search, Filter, Plus, Clock, MapPin, User, AlertTriangle, Check } from 'lucide-react'
 import { Calendar as CalendarComponent } from '@/components/ui/calendar'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -9,11 +9,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { useAgendamentos } from '@/hooks/use-agendamentos'
+import { Checkbox } from '@/components/ui/checkbox'
+import { useAgendamentos, useDeleteAgendamento, useUpdateAgendamento } from '@/hooks/use-agendamentos'
 import { format, isSameDay } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import AgendaDayView from '@/components/agenda/agenda-day-view'
 import { useFeriados } from '@/hooks/use-feriados'
+import { useQuery } from '@tanstack/react-query'
 
 interface TransformedAgendamento {
   id: string
@@ -35,9 +37,26 @@ export default function AgendaPage() {
   const [tipoFilter, setTipoFilter] = useState<string>('todos')
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date())
   const [viewMode, setViewMode] = useState<'calendar' | 'day'>('calendar')
+  const [showProximos, setShowProximos] = useState(false)
+  const [showEstacaoServico, setShowEstacaoServico] = useState(false)
 
-  const { data: agendamentosData, isLoading } = useAgendamentos()
+  const { data: agendamentosData, isLoading } = useAgendamentos({
+    proximos: showProximos,
+    estacaoServico: showEstacaoServico,
+  })
+  const deleteAgendamento = useDeleteAgendamento()
+  const updateAgendamento = useUpdateAgendamento()
   const agendamentos = agendamentosData?.data || []
+
+  // Buscar jangadas aguardando inspeção
+  const { data: jangadasAguardando } = useQuery({
+    queryKey: ['jangadas', 'aguardando-inspecao'],
+    queryFn: async () => {
+      const response = await fetch('/api/jangadas?status=ativo&limit=50')
+      if (!response.ok) throw new Error('Erro ao buscar jangadas')
+      return response.json()
+    }
+  })
 
   // Buscar feriados
   const { data: feriados = [] } = useFeriados(selectedDate?.getFullYear())
@@ -131,6 +150,46 @@ export default function AgendaPage() {
       const dataAgendamento = new Date(agendamento.data)
       return dataAgendamento >= hoje
     }).sort((a, b) => new Date(a.data).getTime() - new Date(b.data).getTime()).slice(0, 3)
+  }
+
+  const handleEditAgendamento = (agendamento: TransformedAgendamento) => {
+    // TODO: Open edit modal or navigate to edit page
+    console.log('Edit agendamento:', agendamento)
+  }
+
+  const handleDeleteAgendamento = async (id: string) => {
+    if (confirm('Tem certeza que deseja excluir este agendamento?')) {
+      try {
+        await deleteAgendamento.mutateAsync(id)
+        alert('Agendamento excluído com sucesso!')
+      } catch (error) {
+        alert('Erro ao excluir agendamento: ' + (error instanceof Error ? error.message : 'Erro desconhecido'))
+      }
+    }
+  }
+
+  const handleDragStart = (e: React.DragEvent, agendamento: TransformedAgendamento) => {
+    e.dataTransfer.setData('application/json', JSON.stringify(agendamento))
+  }
+
+  const handleDropOnJangada = async (e: React.DragEvent, jangadaId: string) => {
+    e.preventDefault()
+    const agendamentoData = JSON.parse(e.dataTransfer.getData('application/json'))
+    
+    try {
+      // Update the appointment to link it with the lifeboat
+      await updateAgendamento.mutateAsync({
+        id: agendamentoData.id,
+        data: { jangadaId: jangadaId }
+      })
+      alert('Agendamento movido para a jangada com sucesso!')
+    } catch (error) {
+      alert('Erro ao mover agendamento: ' + (error instanceof Error ? error.message : 'Erro desconhecido'))
+    }
+  }
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault()
   }
 
   return (
@@ -321,6 +380,34 @@ export default function AgendaPage() {
               </SelectContent>
             </Select>
           </div>
+          <div className="flex flex-wrap gap-4 mt-4">
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="proximos"
+                checked={showProximos}
+                onCheckedChange={(checked) => setShowProximos(checked as boolean)}
+              />
+              <label
+                htmlFor="proximos"
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              >
+                Apenas agendamentos próximos (30 dias)
+              </label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="estacao-servico"
+                checked={showEstacaoServico}
+                onCheckedChange={(checked) => setShowEstacaoServico(checked as boolean)}
+              />
+              <label
+                htmlFor="estacao-servico"
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              >
+                Apenas jangadas na estação de serviço
+              </label>
+            </div>
+          </div>
         </CardContent>
       </Card>
 
@@ -421,7 +508,12 @@ export default function AgendaPage() {
                 </TableRow>
               ) : (
                 filteredAgendamentos.map((agendamento) => (
-                  <TableRow key={agendamento.id}>
+                  <TableRow 
+                    key={agendamento.id} 
+                    draggable
+                    onDragStart={(e) => handleDragStart(e, agendamento)}
+                    className="cursor-move hover:bg-muted/50"
+                  >
                     <TableCell>
                       <div>
                         <div className="font-medium">
@@ -453,15 +545,72 @@ export default function AgendaPage() {
                       {getStatusBadge(agendamento.status)}
                     </TableCell>
                     <TableCell className="text-right">
-                      <Button variant="outline" size="sm">
-                        Editar
-                      </Button>
+                      <div className="flex gap-2 justify-end">
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={() => handleEditAgendamento(agendamento)}
+                        >
+                          Editar
+                        </Button>
+                        <Button 
+                          variant="destructive" 
+                          size="sm"
+                          onClick={() => handleDeleteAgendamento(agendamento.id)}
+                        >
+                          Excluir
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                 ))
               )}
             </TableBody>
           </Table>
+        </CardContent>
+      </Card>
+
+      {/* Jangadas Aguardando Inspeção */}
+      <Card className="mt-6">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <AlertTriangle className="h-5 w-5" />
+            Jangadas Aguardando Inspeção
+          </CardTitle>
+          <CardDescription>
+            Arraste agendamentos para aqui para associá-los com jangadas
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          {jangadasAguardando?.data?.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {jangadasAguardando.data.map((jangada: any) => (
+                <div
+                  key={jangada.id}
+                  className="p-4 border-2 border-dashed border-muted-foreground/25 rounded-lg hover:border-primary/50 transition-colors cursor-pointer"
+                  onDrop={(e) => handleDropOnJangada(e, jangada.id)}
+                  onDragOver={handleDragOver}
+                >
+                  <div className="font-medium">{jangada.numeroSerie}</div>
+                  <div className="text-sm text-muted-foreground">
+                    {jangada.tipo} - {jangada.capacidade}p
+                  </div>
+                  {jangada.navio && (
+                    <div className="text-sm text-muted-foreground">
+                      Navio: {jangada.navio.nome}
+                    </div>
+                  )}
+                  <div className="text-xs text-muted-foreground mt-2">
+                    Solte um agendamento aqui
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-muted-foreground text-center py-8">
+              Nenhuma jangada aguardando inspeção
+            </p>
+          )}
         </CardContent>
       </Card>
     </div>

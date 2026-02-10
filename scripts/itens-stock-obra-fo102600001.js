@@ -11,7 +11,7 @@ process.env.DATABASE_URL = process.env.DIRECT_DATABASE_URL || process.env.DATABA
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const adapter = new PrismaPg(pool);
-const prisma = new PrismaClient({ adapter });
+const prisma = new PrismaClient();
 
 async function criarItensStockObraFO102600001() {
   console.log('📦 CRIANDO ITENS DE STOCK DA OBRA FO102600001\n');

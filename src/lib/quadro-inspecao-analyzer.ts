@@ -20,6 +20,12 @@ export interface QuadroInspecaoExtraction {
     certificadoNumero?: string;
     navio?: string;
     tecnico?: string;
+    tipoPack?: string;
+    pesoBruto?: number;
+    tara?: number;
+    quantidadeCO2?: number;
+    quantidadeN2?: number;
+    dataTesteHidraulico?: string;
   };
   componentes: {
     interiores: ComponenteInspecao[];
@@ -108,6 +114,12 @@ Extract the following data exactly as it appears in the document:
    - Número do Certificado (Certificate Number)
    - Nome do Navio (Ship name) if mentioned
    - Técnico Responsável (Responsible Technician)
+   - Tipo de Pack (Pack Type: VALISE/CONTAINER/PALLET)
+   - Peso Bruto (Gross Weight) in kg
+   - Tara (Tare) in kg
+   - Quantidade CO2 (CO2 Quantity) in kg
+   - Quantidade N2 (N2 Quantity) in kg
+   - Data Teste Hidráulico (Hydraulic Test Date) in DD/MM/YYYY format
 
 2. COMPONENTES (Components) - List EVERY item with:
    - Nome completo (Full name)
@@ -154,7 +166,13 @@ RESPONSE FORMAT (VALID JSON ONLY):
     "dataProximaInspecao": "DD/MM/YYYY or null",
     "certificadoNumero": "exact number or null",
     "navio": "ship name or null",
-    "tecnico": "technician name or null"
+    "tecnico": "technician name or null",
+    "tipoPack": "VALISE/CONTAINER/PALLET or null",
+    "pesoBruto": number or null,
+    "tara": number or null,
+    "quantidadeCO2": number or null,
+    "quantidadeN2": number or null,
+    "dataTesteHidraulico": "DD/MM/YYYY or null"
   },
   "componentes": {
     "interiores": [

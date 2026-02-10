@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
     const sortBy = searchParams.get('sortBy') || 'createdAt';
     const sortOrder = searchParams.get('sortOrder') || 'desc';
     const page = parseInt(searchParams.get('page') || '1');
-    const limit = parseInt(searchParams.get('limit') || '10');
+    const limit = parseInt(searchParams.get('limit') || '1000');
 
     const where: any = {};
 
@@ -48,6 +48,16 @@ export async function GET(request: NextRequest) {
         cliente: {
           select: { id: true, nome: true, nif: true },
         },
+        navio: {
+          select: { id: true, nome: true },
+        },
+        jangada: {
+          select: { id: true, numeroSerie: true },
+          include: {
+            marca: { select: { nome: true } },
+            modelo: { select: { nome: true } },
+          },
+        },
       },
     });
 
@@ -82,6 +92,8 @@ export async function POST(request: NextRequest) {
         orcamento: body.orcamento,
         clienteId: body.clienteId,
         responsavel: body.responsavel,
+        navioId: body.navioId,
+        jangadaId: body.jangadaId,
       },
       include: {
         cliente: {
@@ -90,6 +102,12 @@ export async function POST(request: NextRequest) {
         navio: {
           include: {
             cliente: true,
+          },
+        },
+        jangada: {
+          include: {
+            marca: true,
+            modelo: true,
           },
         },
       },

@@ -36,7 +36,7 @@ export async function GET(
       )
     }
 
-    const custoTotal = inspecao.custos?.reduce((acc, c) => acc + (c.valor || 0), 0) || 0
+    const custoTotal = inspecao.custos?.reduce((acc: any, c) => acc + (c.valor || 0), 0) || 0
 
     return NextResponse.json({
       data: inspecao,

@@ -5,30 +5,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 import dotenv from 'dotenv'
 dotenv.config({ path: path.join(__dirname, '..', '.env') })
 import { PrismaClient } from '@prisma/client'
-import { withAccelerate } from '@prisma/extension-accelerate'
-import { PrismaPg } from '@prisma/adapter-pg'
-import { Pool } from 'pg'
-
 
 async function insertSpecifications() {
-  // Initialize Prisma with proper configuration
-  const databaseUrl = process.env.DATABASE_URL || ''
-  const prismaAccelerateUrl = process.env.PRISMA_DATABASE_URL || ''
+  const ACCELERATE_URL = "prisma+postgres://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfaWQiOjEsInNlY3VyZV9rZXkiOiJza19TTVZ5LXJiWktoUUtZMHpmSm5Yd3YiLCJhcGlfa2V5IjoiMDFLR0FCQjI2RjRQMTFTR0dQOEY5RjlCRkoiLCJ0ZW5hbnRfaWQiOiIyMDkxNzE0YjM5OTA5NzkzMzVjM2M1MWUxZjQxNTY0NGE0ZDk0ZmM5MzhkODU4NWY4MGExM2VlYjdkODQwOGZkIiwiaW50ZXJuYWxfc2VjcmV0IjoiN2U1MDI0MGUtYjdmYS00NjhjLTljZTQtZTM5NTA2OGQ1NmJlIn0.A-eGaWSZG_w0sMQ4BmVZ13ckdGeYuRb6lMG4T4yvblk";
 
-  const prismaConfig: any = {
-    log: [],
-  }
-
-  if (prismaAccelerateUrl && prismaAccelerateUrl.startsWith('prisma+postgres://')) {
-    prismaConfig.accelerateUrl = prismaAccelerateUrl
-  } else if (databaseUrl && databaseUrl.startsWith('postgres')) {
-    const pool = new Pool({ connectionString: databaseUrl, max: 10 })
-    prismaConfig.adapter = new PrismaPg(pool)
-  } else {
-    throw new Error('DATABASE_URL or PRISMA_DATABASE_URL must be set')
-  }
-
-  const prisma = new PrismaClient(prismaConfig).$extends(withAccelerate())
+  const prisma = new PrismaClient({
+    accelerateUrl: ACCELERATE_URL
+  });
 
   try {
     console.log('\n📊 Inserindo marcas e modelos no banco de dados...\n')

@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
     })
 
     // Parse JSON fields
-    const parsed = especificacoes.map(spec => ({
+    const parsed = especificacoes.map((spec: any) => ({
       ...spec,
       referenciaCilindro: spec.referenciaCilindro 
         ? JSON.parse(spec.referenciaCilindro) 

@@ -8,15 +8,17 @@ import { z } from 'zod'
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Textarea } from '@/components/ui/textarea'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription } from '@/components/ui/form'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { toast } from 'sonner'
-import { LifeBuoy, Loader2 } from 'lucide-react'
+import { LifeBuoy, Loader2, Package, Users, Ship, User, Calendar, CheckCircle, AlertCircle, Info, Hash, FileText } from 'lucide-react'
 import { useQuery } from '@tanstack/react-query'
 import { useMarcasJangada } from '@/hooks/use-marcas-jangada'
 
 const jangadaSchema = z.object({
   numeroSerie: z.string().min(1, 'Número de série é obrigatório'),
+  numeroImo: z.string().optional(),
   marcaId: z.string().min(1, 'Marca é obrigatória'),
   modeloId: z.string().optional(),
   lotacaoId: z.string().optional(),
@@ -28,12 +30,14 @@ const jangadaSchema = z.object({
   status: z.enum(['ativo', 'manutencao', 'inativo']),
   estado: z.enum(['instalada', 'removida']).optional(),
   dataFabricacao: z.string().optional(),
+  dataValidade: z.string().optional(),
   dataInspecao: z.string().optional(),
   dataProximaInspecao: z.string().optional(),
   capacidade: z.number().optional(),
   peso: z.number().optional(),
   dimensoes: z.string().optional(),
   numeroAprovacao: z.string().optional(),
+  observacoes: z.string().optional(),
 })
 
 interface AddJangadaDialogProps {
@@ -63,11 +67,21 @@ const ESTADOS_JANGADA = [
 export function AddJangadaDialog({ open, onOpenChange, clienteId, onSuccess }: AddJangadaDialogProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [selectedMarcaId, setSelectedMarcaId] = useState('')
+  const [showAllModelos, setShowAllModelos] = useState(false)
   const router = useRouter()
 
   const { data: marcasResponse } = useMarcasJangada()
   const marcas = marcasResponse?.data || []
 
+  const { data: allModelsResponse } = useQuery({
+    queryKey: ['modelos', 'all'],
+    queryFn: async () => {
+      const res = await fetch(`/api/modelos-jangada`)
+      if (!res.ok) throw new Error('Erro ao buscar todos os modelos')
+      return res.json()
+    },
+    enabled: open
+  })
   const { data: modelsResponse } = useQuery({
     queryKey: ['modelos', selectedMarcaId],
     queryFn: async () => {
@@ -99,7 +113,7 @@ export function AddJangadaDialog({ open, onOpenChange, clienteId, onSuccess }: A
     enabled: open
   })
 
-  const { data: naviosData } = useQuery({
+  const { data: naviosData, error: naviosError } = useQuery({
     queryKey: ['navios', 'cliente', clienteId],
     queryFn: async () => {
       const res = await fetch(`/api/navios?clienteId=${clienteId}`)
@@ -119,10 +133,10 @@ export function AddJangadaDialog({ open, onOpenChange, clienteId, onSuccess }: A
     enabled: open
   })
 
-  const modelos = modelsResponse?.data || []
+  const modelos = showAllModelos ? (allModelsResponse?.data || []) : (modelsResponse?.data || [])
   const capacidades = capacidadesResponse?.data || []
   const typesPack = typesPackResponse?.data || []
-  const navios = naviosData?.data || []
+  const navios = Array.isArray(naviosData?.data) ? naviosData.data : []
   const proprietarios = proprietariosData?.data || []
 
   const form = useForm({
@@ -266,16 +280,22 @@ export function AddJangadaDialog({ open, onOpenChange, clienteId, onSuccess }: A
             </div>
 
             {/* Marca, Modelo e Capacidade */}
-            <div className="space-y-3 border-b pb-4">
-              <h3 className="font-semibold text-sm">Especificações</h3>
+            <div className="space-y-4 border-b pb-4">
+              <div className="flex items-center gap-2">
+                <Package className="h-4 w-4 text-blue-600" />
+                <h3 className="font-semibold text-sm">Especificações Técnicas</h3>
+              </div>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4">
                 <FormField
                   control={form.control}
                   name="marcaId"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Marca *</FormLabel>
+                      <FormLabel className="flex items-center gap-2">
+                        <Package className="h-4 w-4" />
+                        Marca *
+                      </FormLabel>
                       <Select 
                         onValueChange={(value) => {
                           field.onChange(value)
@@ -285,14 +305,22 @@ export function AddJangadaDialog({ open, onOpenChange, clienteId, onSuccess }: A
                         value={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Selecione" />
+                          <SelectTrigger className="h-12">
+                            <SelectValue placeholder="Selecione a marca do fabricante" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
                           {marcas.map((marca: any) => (
-                            <SelectItem key={marca.id} value={marca.id}>
-                              {marca.nome}
+                            <SelectItem key={marca.id} value={marca.id} className="py-3">
+                              <div className="flex items-center gap-3">
+                                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                  <Package className="h-4 w-4 text-blue-600" />
+                                </div>
+                                <div>
+                                  <div className="font-medium">{marca.nome}</div>
+                                  <div className="text-xs text-muted-foreground">Fabricante certificado</div>
+                                </div>
+                              </div>
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -307,46 +335,41 @@ export function AddJangadaDialog({ open, onOpenChange, clienteId, onSuccess }: A
                   name="modeloId"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Modelo</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value || ''}>
+                      <FormLabel className="flex items-center gap-2">
+                        <LifeBuoy className="h-4 w-4" />
+                        Modelo
+                        <Button
+                          type="button"
+                          size="sm"
+                          variant="outline"
+                          className="ml-2"
+                          onClick={() => setShowAllModelos((v) => !v)}
+                        >
+                          {showAllModelos ? 'Filtrar por marca' : 'Mostrar todos'}
+                        </Button>
+                      </FormLabel>
+                      <Select 
+                        onValueChange={field.onChange} 
+                        value={field.value || ''} 
+                        disabled={modelos.length === 0}
+                      >
                         <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Selecione" />
+                          <SelectTrigger className="h-12">
+                            <SelectValue placeholder="Selecione o modelo" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          {/* Nenhum option removed to fix SelectItem value error */}
                           {modelos.map((modelo: any) => (
-                            <SelectItem key={modelo.id} value={modelo.id}>
-                              {modelo.nome}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <FormField
-                  control={form.control}
-                  name="lotacaoId"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Capacidade (Lotação)</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value || ''}>
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Selecione" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          {/* Nenhuma option removed to fix SelectItem value error */}
-                          {capacidades.map((cap: any) => (
-                            <SelectItem key={cap.id} value={cap.id}>
-                              {cap.capacidade} pessoas
+                            <SelectItem key={modelo.id} value={modelo.id} className="py-3">
+                              <div className="flex items-center gap-3">
+                                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                  <LifeBuoy className="h-4 w-4 text-green-600" />
+                                </div>
+                                <div>
+                                  <div className="font-medium">{modelo.nome}</div>
+                                  <div className="text-xs text-muted-foreground">Modelo certificado</div>
+                                </div>
+                              </div>
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -356,56 +379,148 @@ export function AddJangadaDialog({ open, onOpenChange, clienteId, onSuccess }: A
                   )}
                 />
 
-                <FormField
-                  control={form.control}
-                  name="tipoPackId"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Tipo de Pack</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value || ''}>
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Selecione" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="">Nenhum</SelectItem>
-                          {typesPack.map((pack: any) => (
-                            <SelectItem key={pack.id} value={pack.id}>
-                              {pack.nome}
+                <div className="grid grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="lotacaoId"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="flex items-center gap-2">
+                          <Users className="h-4 w-4" />
+                          Capacidade (Lotação)
+                        </FormLabel>
+                        <Select onValueChange={field.onChange} value={field.value || ''}>
+                          <FormControl>
+                            <SelectTrigger className="h-12">
+                              <SelectValue placeholder="Capacidade máxima" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {capacidades.map((cap: any) => (
+                              <SelectItem key={cap.id} value={cap.id} className="py-3">
+                                <div className="flex items-center gap-3">
+                                  <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                                    <Users className="h-4 w-4 text-orange-600" />
+                                  </div>
+                                  <div>
+                                    <div className="font-medium">{cap.capacidade} pessoas</div>
+                                    <div className="text-xs text-muted-foreground">Capacidade certificada</div>
+                                  </div>
+                                </div>
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="tipoPackId"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="flex items-center gap-2">
+                          <Package className="h-4 w-4" />
+                          Tipo de Pack
+                        </FormLabel>
+                        <Select onValueChange={field.onChange} value={field.value || ''}>
+                          <FormControl>
+                            <SelectTrigger className="h-12">
+                              <SelectValue placeholder="Equipamentos incluídos" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="" className="py-3">
+                              <div className="flex items-center gap-3">
+                                <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                  <Info className="h-4 w-4 text-gray-600" />
+                                </div>
+                                <div>
+                                  <div className="font-medium">Nenhum pack específico</div>
+                                  <div className="text-xs text-muted-foreground">Equipamentos básicos</div>
+                                </div>
+                              </div>
                             </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                            {typesPack.map((pack: any) => (
+                              <SelectItem key={pack.id} value={pack.id} className="py-3">
+                                <div className="flex items-center gap-3">
+                                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                                    <Package className="h-4 w-4 text-purple-600" />
+                                  </div>
+                                  <div>
+                                    <div className="font-medium">{pack.nome}</div>
+                                    <div className="text-xs text-muted-foreground">
+                                      {pack.descricao || 'Pack completo de equipamentos'}
+                                    </div>
+                                  </div>
+                                </div>
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
               </div>
             </div>
 
             {/* Navio e Proprietário */}
-            <div className="space-y-3 border-b pb-4">
-              <h3 className="font-semibold text-sm">Associações</h3>
+            <div className="space-y-4 border-b pb-4">
+              <div className="flex items-center gap-2">
+                <Ship className="h-4 w-4 text-indigo-600" />
+                <h3 className="font-semibold text-sm">Associações</h3>
+              </div>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4">
                 <FormField
                   control={form.control}
                   name="navioId"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Navio (Opcional)</FormLabel>
+                      <FormLabel className="flex items-center gap-2">
+                        <Ship className="h-4 w-4" />
+                        Navio (Opcional)
+                      </FormLabel>
                       <Select onValueChange={field.onChange} value={field.value || ''}>
                         <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Selecione" />
+                          <SelectTrigger className="h-12">
+                            <SelectValue placeholder="Selecione o navio associado" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="">Nenhum</SelectItem>
+                          {naviosError && (
+                            <SelectItem value="" disabled className="py-3">
+                              <div className="text-red-600">Erro ao carregar navios</div>
+                            </SelectItem>
+                          )}
+                          <SelectItem value="" className="py-3">
+                            <div className="flex items-center gap-3">
+                              <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                <Info className="h-4 w-4 text-gray-600" />
+                              </div>
+                              <div>
+                                <div className="font-medium">Nenhum navio associado</div>
+                                <div className="text-xs text-muted-foreground">Jangada independente</div>
+                              </div>
+                            </div>
+                          </SelectItem>
                           {navios.map((navio: any) => (
-                            <SelectItem key={navio.id} value={navio.id}>
-                              {navio.nome}
+                            <SelectItem key={navio.id} value={String(navio.id)} className="py-3">
+                              <div className="flex items-center gap-3">
+                                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                  <Ship className="h-4 w-4 text-blue-600" />
+                                </div>
+                                <div>
+                                  <div className="font-medium">{navio.nome}</div>
+                                  <div className="text-xs text-muted-foreground">
+                                    {navio.tipo || 'Embarcação registrada'}
+                                  </div>
+                                </div>
+                              </div>
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -420,18 +535,41 @@ export function AddJangadaDialog({ open, onOpenChange, clienteId, onSuccess }: A
                   name="proprietarioId"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Proprietário (Opcional)</FormLabel>
+                      <FormLabel className="flex items-center gap-2">
+                        <User className="h-4 w-4" />
+                        Proprietário (Opcional)
+                      </FormLabel>
                       <Select onValueChange={field.onChange} value={field.value || ''}>
                         <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Selecione" />
+                          <SelectTrigger className="h-12">
+                            <SelectValue placeholder="Selecione o proprietário" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="">Nenhum</SelectItem>
+                          <SelectItem value="" className="py-3">
+                            <div className="flex items-center gap-3">
+                              <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                <Info className="h-4 w-4 text-gray-600" />
+                              </div>
+                              <div>
+                                <div className="font-medium">Propriedade do cliente</div>
+                                <div className="text-xs text-muted-foreground">Cliente atual</div>
+                              </div>
+                            </div>
+                          </SelectItem>
                           {proprietarios.map((prop: any) => (
-                            <SelectItem key={prop.id} value={prop.id}>
-                              {prop.nome}
+                            <SelectItem key={prop.id} value={prop.id} className="py-3">
+                              <div className="flex items-center gap-3">
+                                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                  <User className="h-4 w-4 text-green-600" />
+                                </div>
+                                <div>
+                                  <div className="font-medium">{prop.nome}</div>
+                                  <div className="text-xs text-muted-foreground">
+                                    {prop.empresa || 'Proprietário registrado'}
+                                  </div>
+                                </div>
+                              </div>
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -443,20 +581,34 @@ export function AddJangadaDialog({ open, onOpenChange, clienteId, onSuccess }: A
               </div>
             </div>
 
-            {/* Datas e Dimensões */}
-            <div className="space-y-3 border-b pb-4">
-              <h3 className="font-semibold text-sm">Datas e Dimensões</h3>
+            {/* Informações Adicionais */}
+            <div className="space-y-4 border-b pb-4">
+              <div className="flex items-center gap-2">
+                <Info className="h-4 w-4 text-green-600" />
+                <h3 className="font-semibold text-sm">Informações Adicionais</h3>
+              </div>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4">
                 <FormField
                   control={form.control}
-                  name="dataFabricacao"
+                  name="numeroSerie"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Data de Fabricação</FormLabel>
+                      <FormLabel className="flex items-center gap-2">
+                        <Hash className="h-4 w-4" />
+                        Número de Série *
+                      </FormLabel>
                       <FormControl>
-                        <Input type="date" {...field} />
+                        <Input 
+                          placeholder="Ex: LR-2024-001" 
+                          className="h-12"
+                          {...field} 
+                        />
                       </FormControl>
+                      <FormDescription className="flex items-center gap-2">
+                        <Info className="h-3 w-3" />
+                        Identificador único do fabricante
+                      </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -464,39 +616,121 @@ export function AddJangadaDialog({ open, onOpenChange, clienteId, onSuccess }: A
 
                 <FormField
                   control={form.control}
-                  name="estado"
+                  name="numeroImo"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Estado</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value || ''}>
+                      <FormLabel className="flex items-center gap-2">
+                        <Ship className="h-4 w-4" />
+                        Número IMO (Opcional)
+                      </FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="Ex: 1234567" 
+                          className="h-12"
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormDescription className="flex items-center gap-2">
+                        <Info className="h-3 w-3" />
+                        Número de identificação da embarcação
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <div className="grid grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="dataFabricacao"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="flex items-center gap-2">
+                          <Calendar className="h-4 w-4" />
+                          Data de Fabricação
+                        </FormLabel>
                         <FormControl>
-                          <SelectTrigger>
-                            <SelectValue />
-                          </SelectTrigger>
+                          <Input 
+                            type="date" 
+                            className="h-12"
+                            {...field} 
+                          />
                         </FormControl>
-                        <SelectContent>
-                          {ESTADOS_JANGADA.map((estado) => (
-                            <SelectItem key={estado.value} value={estado.value}>
-                              {estado.label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="dataValidade"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="flex items-center gap-2">
+                          <Calendar className="h-4 w-4" />
+                          Data de Validade
+                        </FormLabel>
+                        <FormControl>
+                          <Input 
+                            type="date" 
+                            className="h-12"
+                            {...field} 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <FormField
+                  control={form.control}
+                  name="observacoes"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center gap-2">
+                        <FileText className="h-4 w-4" />
+                        Observações
+                      </FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Informações adicionais sobre a jangada..." 
+                          className="min-h-[80px] resize-none"
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormDescription className="flex items-center gap-2">
+                        <Info className="h-3 w-3" />
+                        Detalhes técnicos, condições especiais, etc.
+                      </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
               </div>
-
+            </div>
+            <div className="space-y-4 border-b pb-4">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-4 w-4 text-emerald-600" />
+                <h3 className="font-semibold text-sm">Inspeções e Especificações</h3>
+              </div>
+              
               <div className="grid grid-cols-2 gap-4">
                 <FormField
                   control={form.control}
                   name="dataInspecao"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Data da Inspeção</FormLabel>
+                      <FormLabel className="flex items-center gap-2">
+                        <Calendar className="h-4 w-4" />
+                        Data da Inspeção
+                      </FormLabel>
                       <FormControl>
-                        <Input type="date" {...field} />
+                        <Input 
+                          type="date" 
+                          className="h-12"
+                          {...field} 
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -508,9 +742,16 @@ export function AddJangadaDialog({ open, onOpenChange, clienteId, onSuccess }: A
                   name="dataProximaInspecao"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Próxima Inspeção</FormLabel>
+                      <FormLabel className="flex items-center gap-2">
+                        <Calendar className="h-4 w-4" />
+                        Próxima Inspeção
+                      </FormLabel>
                       <FormControl>
-                        <Input type="date" {...field} />
+                        <Input 
+                          type="date" 
+                          className="h-12"
+                          {...field} 
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -524,57 +765,83 @@ export function AddJangadaDialog({ open, onOpenChange, clienteId, onSuccess }: A
                   name="capacidade"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Capacidade (pessoas)</FormLabel>
-                      <FormControl>
-                        <Input type="number" placeholder="0" {...field} onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                        <FormLabel className="flex items-center gap-2">
+                          <Users className="h-4 w-4" />
+                          Capacidade (pessoas)
+                        </FormLabel>
+                        <FormControl>
+                          <Input 
+                            type="number" 
+                            placeholder="0" 
+                            className="h-12"
+                            {...field} 
+                            onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)} 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-                <FormField
-                  control={form.control}
-                  name="peso"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Peso (kg)</FormLabel>
-                      <FormControl>
-                        <Input type="number" placeholder="0" step="0.1" {...field} onChange={(e) => field.onChange(e.target.value ? parseFloat(e.target.value) : undefined)} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                  <FormField
+                    control={form.control}
+                    name="peso"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="flex items-center gap-2">
+                          <Package className="h-4 w-4" />
+                          Peso (kg)
+                        </FormLabel>
+                        <FormControl>
+                          <Input 
+                            type="number" 
+                            placeholder="0" 
+                            step="0.1" 
+                            className="h-12"
+                            {...field} 
+                            onChange={(e) => field.onChange(e.target.value ? parseFloat(e.target.value) : undefined)} 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-                <FormField
-                  control={form.control}
-                  name="dimensoes"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Dimensões</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Ex: 50x30x25 cm" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
+                  <FormField
+                    control={form.control}
+                    name="dimensoes"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="flex items-center gap-2">
+                          <Info className="h-4 w-4" />
+                          Dimensões
+                        </FormLabel>
+                        <FormControl>
+                          <Input 
+                            placeholder="Ex: 50x30x25 cm" 
+                            className="h-12"
+                            {...field} 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-              <FormField
-                control={form.control}
-                name="numeroAprovacao"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Número de Aprovação</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Ex: SOLAS-2024-001" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                  <FormField
+                    control={form.control}
+                    name="numeroAprovacao"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Número de Aprovação</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Ex: SOLAS-2024-001" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+            </div>
             </div>
 
             <DialogFooter>

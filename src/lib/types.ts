@@ -28,6 +28,12 @@ export type CilindroWithJangada = Prisma.CilindroGetPayload<{
         nome: true;
       };
     };
+    jangadas: {
+      include: {
+        marca: true;
+        modelo: true;
+      };
+    };
     agendamentos: {
       orderBy: { dataInicio: 'desc' };
       take: 5;

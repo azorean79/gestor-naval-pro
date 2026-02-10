@@ -33,7 +33,7 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 const adapter = new PrismaPg(pool);
-const prisma = new PrismaClient({ adapter });
+const prisma = new PrismaClient();
 
 const CSV_PATH = path.join(__dirname, '..', 'omt-lista-embarcacoes.csv');
 const PDF_PATH = path.join(__dirname, '..', 'tmp', 'omt-lista-embarcacoes.pdf');

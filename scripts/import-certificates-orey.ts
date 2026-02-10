@@ -1,14 +1,10 @@
-import { PrismaClient } from '../prisma/app/generated-prisma-client';
+import { prisma } from '../src/lib/prisma';
 import * as fs from 'fs';
 import * as path from 'path';
 import dotenv from 'dotenv';
 
 // Carregar .env.local
 dotenv.config({ path: path.join(__dirname, '..', '.env.local') });
-
-const prisma = new PrismaClient({
-  accelerateUrl: process.env.PRISMA_DATABASE_URL,
-});
 
 interface Certificate {
   ficheiro: string;

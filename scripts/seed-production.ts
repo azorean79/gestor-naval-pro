@@ -7,7 +7,7 @@ const ACCELERATE_URL = "prisma+postgres://accelerate.prisma-data.net/?api_key=ey
 
 console.log('Using Accelerate URL')
 
-const prisma = new PrismaClient({
+const prisma = new PrismaClient();
   accelerateUrl: ACCELERATE_URL,
 }).$extends(withAccelerate())
 

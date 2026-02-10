@@ -44,6 +44,7 @@ export function StartInspectionButton({
           tipo: 'completa',
           status: 'em_progresso',
           dataInicio: new Date().toISOString(),
+          criarCronograma: false, // Não criar agendamentos automáticos
         })
       })
 

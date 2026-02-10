@@ -44,12 +44,22 @@ export function AgendaCalendar({
     );
   };
 
+  // Corrige o alinhamento dos dias: calcula o offset do primeiro dia do mês
+  const firstDayOfMonth = calendarDays[0];
+  const firstDayWeekIndex = getDay(firstDayOfMonth); // 0=Dom, 1=Seg, ..., 6=Sáb
+  const emptyDays = Array.from({ length: firstDayWeekIndex }, (_, i) => i);
+
   return (
     <div className="grid grid-cols-7 gap-2">
       {['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'].map((day) => (
         <div key={day} className="p-2 text-center font-semibold text-sm">
           {day}
         </div>
+      ))}
+
+      {/* Preenche os dias vazios antes do primeiro dia do mês */}
+      {emptyDays.map((_, idx) => (
+        <div key={`empty-${idx}`} className="min-h-[120px}" />
       ))}
 
       {calendarDays.map((date) => {
@@ -84,7 +94,7 @@ export function AgendaCalendar({
                 )}
               </div>
               <div className="space-y-1">
-                {dayAgendamentos.slice(0, 3).map((agendamento, index) => (
+                {dayAgendamentos.map((agendamento, index) => (
                   <Draggable
                     key={agendamento.id}
                     id={`agendamento-${agendamento.id}`}
@@ -98,11 +108,6 @@ export function AgendaCalendar({
                     </div>
                   </Draggable>
                 ))}
-                {dayAgendamentos.length > 3 && (
-                  <div className="text-xs text-gray-600">
-                    +{dayAgendamentos.length - 3} mais
-                  </div>
-                )}
               </div>
             </div>
           </Droppable>

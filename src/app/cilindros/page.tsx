@@ -20,8 +20,9 @@ export default function CilindrosPage() {
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState('todos')
   const [tipoFilter, setTipoFilter] = useState('todos')
+  const [associacaoFilter, setAssociacaoFilter] = useState('todos') // Novo filtro: todos, associados, vazios, cheios
   const [currentPage, setCurrentPage] = useState(1)
-  const [limit] = useState(50) // Aumentei o limite para mostrar mais cilindros
+  const [limit] = useState(50)
   const [showAddForm, setShowAddForm] = useState(false)
 
   const queryClient = useQueryClient()
@@ -38,11 +39,14 @@ export default function CilindrosPage() {
   const total = cilindrosResponse?.total ?? 0
   const totalPages = cilindrosResponse?.totalPages ?? 1
 
-  // Separar cilindros por categoria de status
-  const cilindrosAtivos = cilindros.filter((c: CilindroWithJangada) => c.status === 'ativo')
-  const cilindrosManutencao = cilindros.filter((c: CilindroWithJangada) => c.status === 'manutencao')
+  // Separar cilindros por categoria
+  const cilindrosAssociados = cilindros.filter((c: any) => c.jangadas && c.jangadas.length > 0)
+  const cilindrosVazios = cilindros.filter((c: any) => (!c.jangadas || c.jangadas.length === 0) && (!c.capacidade || c.capacidade === 0))
+  const cilindrosCheios = cilindros.filter((c: any) => c.capacidade && c.capacidade > 0) // Todos os cilindros cheios têm CO2+N2
+  const cilindrosAtivos = cilindros.filter((c: any) => c.status === 'ativo')
+  const cilindrosManutencao = cilindros.filter((c: any) => c.status === 'manutencao')
   const cilindrosProblema = cilindros.filter(
-    (c: CilindroWithJangada) => c.status === 'defeituoso' || c.status === 'expirado'
+    (c: any) => c.status === 'defeituoso' || c.status === 'expirado'
   )
 
   const getStatusBadge = (status: string) => {
@@ -60,8 +64,12 @@ export default function CilindrosPage() {
     }
   }
 
-  const getTipoBadge = (tipo: string) => {
-    return <Badge variant="outline">{tipo}</Badge>
+  const getTipoBadge = (tipo: string, capacidade?: number) => {
+    // Todos os cilindros cheios são do tipo CO2+N2
+    if (capacidade && capacidade > 0) {
+      return <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">CO2+N2</Badge>
+    }
+    return <Badge variant="outline">{tipo || 'N/A'}</Badge>
   }
 
   const formatDate = (dateValue: Date | string | null | undefined) => {
@@ -102,6 +110,7 @@ export default function CilindrosPage() {
               <TableHeader>
                 <TableRow>
                   <TableHead>Número de Série</TableHead>
+                  <TableHead>Jangada Associada</TableHead>
                   <TableHead>Tipo</TableHead>
                   <TableHead>Sistema</TableHead>
                   <TableHead>Capacidade</TableHead>
@@ -116,9 +125,30 @@ export default function CilindrosPage() {
                 {cilindrosList.map((cilindro) => (
                   <TableRow key={cilindro.id}>
                     <TableCell className="font-medium">{cilindro.numeroSerie}</TableCell>
-                    <TableCell>{getTipoBadge(cilindro.tipo)}</TableCell>
+                    <TableCell>
+                      {cilindro.jangadas && cilindro.jangadas.length > 0 ? (
+                        <div>
+                          <div className="font-medium">{cilindro.jangadas[0].numeroSerie}</div>
+                          <div className="text-sm text-muted-foreground">
+                            {cilindro.jangadas[0].marca?.nome} {cilindro.jangadas[0].modelo?.nome}
+                            {cilindro.jangadas.length > 1 && ` (+${cilindro.jangadas.length - 1} mais)`}
+                          </div>
+                        </div>
+                      ) : (
+                        <span className="text-muted-foreground">Não associado</span>
+                      )}
+                    </TableCell>
+                    <TableCell>{getTipoBadge(cilindro.tipo, cilindro.capacidade || undefined)}</TableCell>
                     <TableCell>{cilindro.sistema?.nome || 'N/A'}</TableCell>
-                    <TableCell>{cilindro.capacidade || 'N/A'}</TableCell>
+                    <TableCell>
+                      {cilindro.capacidade ? (
+                        <span className="font-medium text-green-600">
+                          {cilindro.capacidade} kg
+                        </span>
+                      ) : (
+                        <span className="text-muted-foreground">Vazio</span>
+                      )}
+                    </TableCell>
                     <TableCell>{cilindro.pressaoTrabalho || 'N/A'}</TableCell>
                     <TableCell>{cilindro.pressaoTeste || 'N/A'}</TableCell>
                     <TableCell>
@@ -231,18 +261,39 @@ export default function CilindrosPage() {
         <div className="text-center py-8">Carregando cilindros...</div>
       ) : (
         <>
+          {/* Cilindros Associados a Jangadas */}
+          {renderCilindrosTable(
+            cilindrosAssociados,
+            "Cilindros Associados a Jangadas",
+            "Cilindros atualmente instalados em jangadas salva-vidas"
+          )}
+
+          {/* Cilindros Vazios (Não Associados) */}
+          {renderCilindrosTable(
+            cilindrosVazios,
+            "Cilindros Vazios (Não Associados)",
+            "Cilindros disponíveis no stock, não instalados em jangadas"
+          )}
+
+          {/* Cilindros Cheios (Com Gases) */}
+          {renderCilindrosTable(
+            cilindrosCheios,
+            "Cilindros Cheios (Com Gases)",
+            "Cilindros carregados com CO2 e N2, prontos para uso"
+          )}
+
           {/* Cilindros Ativos */}
           {renderCilindrosTable(
             cilindrosAtivos,
             "Cilindros Ativos",
-            "Cilindros em operação regular"
+            "Cilindros em condições normais de operação"
           )}
 
           {/* Cilindros em Manutenção */}
           {renderCilindrosTable(
             cilindrosManutencao,
             "Cilindros em Manutenção",
-            "Cilindros com manutenção em curso"
+            "Cilindros atualmente em processo de manutenção ou teste"
           )}
 
           {/* Cilindros com Problemas */}
@@ -280,7 +331,7 @@ export default function CilindrosPage() {
       )}
 
       {/* Estatísticas */}
-      <div className="grid grid-cols-1 md:grid-cols-6 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-6">
         <Card>
           <CardContent className="pt-6">
             <div className="flex items-center">
@@ -295,10 +346,43 @@ export default function CilindrosPage() {
         <Card>
           <CardContent className="pt-6">
             <div className="flex items-center">
+              <Package className="h-8 w-8 text-green-600" />
+              <div className="ml-4">
+                <p className="text-sm font-medium text-muted-foreground">Associados</p>
+                <p className="text-2xl font-bold text-green-600">{cilindrosAssociados.length}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="pt-6">
+            <div className="flex items-center">
+              <AlertTriangle className="h-8 w-8 text-orange-600" />
+              <div className="ml-4">
+                <p className="text-sm font-medium text-muted-foreground">Vazios</p>
+                <p className="text-2xl font-bold text-orange-600">{cilindrosVazios.length}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="pt-6">
+            <div className="flex items-center">
+              <CheckCircle className="h-8 w-8 text-blue-600" />
+              <div className="ml-4">
+                <p className="text-sm font-medium text-muted-foreground">Cheios (CO2+N2)</p>
+                <p className="text-2xl font-bold text-blue-600">{cilindrosCheios.length}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="pt-6">
+            <div className="flex items-center">
               <CheckCircle className="h-8 w-8 text-green-600" />
               <div className="ml-4">
-                <p className="text-sm font-medium text-muted-foreground">Cilindros Ativos</p>
-                <p className="text-2xl font-bold">{cilindrosAtivos.length}</p>
+                <p className="text-sm font-medium text-muted-foreground">Ativos</p>
+                <p className="text-2xl font-bold text-green-600">{cilindrosAtivos.length}</p>
               </div>
             </div>
           </CardContent>
@@ -306,21 +390,10 @@ export default function CilindrosPage() {
         <Card>
           <CardContent className="pt-6">
             <div className="flex items-center">
-              <Package className="h-8 w-8 text-purple-600" />
+              <Wrench className="h-8 w-8 text-yellow-600" />
               <div className="ml-4">
-                <p className="text-sm font-medium text-muted-foreground">Em Manutenção</p>
-                <p className="text-2xl font-bold">{cilindrosManutencao.length}</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center">
-              <Cylinder className="h-8 w-8 text-orange-600" />
-              <div className="ml-4">
-                <p className="text-sm font-medium text-muted-foreground">Com Problemas</p>
-                <p className="text-2xl font-bold">{cilindrosProblema.length}</p>
+                <p className="text-sm font-medium text-muted-foreground">Manutenção</p>
+                <p className="text-2xl font-bold text-yellow-600">{cilindrosManutencao.length}</p>
               </div>
             </div>
           </CardContent>

@@ -27,10 +27,11 @@ interface QuadroData {
 }
 
 interface UploadStep {
-  status: 'idle' | 'loading' | 'analyzing' | 'success' | 'error'
+  status: 'idle' | 'loading' | 'analyzing' | 'editing' | 'saving' | 'success' | 'error'
   message: string
   data?: QuadroData
   certificado?: string
+  rawData?: any // Dados brutos da análise para edição
 }
 
 export default function QuadroUploadPage() {
@@ -61,6 +62,46 @@ export default function QuadroUploadPage() {
     const files = e.currentTarget.files
     if (files && files.length > 0) {
       await processFile(files[0])
+    }
+  }
+
+  const handleSaveEditedData = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!step.data || !step.rawData) return
+
+    setStep(prev => ({ ...prev, status: 'saving', message: '💾 Salvando dados...' }))
+
+    try {
+      // Enviar dados editados para salvar
+      const response = await fetch('/api/jangadas/save-edited-quadro', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          editedData: step.data,
+          rawData: step.rawData
+        })
+      })
+
+      if (!response.ok) {
+        throw new Error('Erro ao salvar dados editados')
+      }
+
+      const result = await response.json()
+
+      setStep({
+        status: 'success',
+        message: `✅ Dados salvos com sucesso!`,
+        data: step.data,
+        certificado: result.certificado?.numero
+      })
+    } catch (error) {
+      setStep({
+        status: 'error',
+        message: `❌ Erro ao salvar: ${error instanceof Error ? error.message : 'Erro desconhecido'}`
+      })
     }
   }
 
@@ -103,8 +144,8 @@ export default function QuadroUploadPage() {
       await new Promise(resolve => setTimeout(resolve, 2000))
 
       setStep({
-        status: 'success',
-        message: `✅ Inspeção importada com sucesso!`,
+        status: 'editing',
+        message: '📝 Reveja e edite os dados extraídos',
         data: {
           numeroSerie: result.data.jangada.numeroSerie,
           marca: result.data.jangada.marca?.nome || 'Desconhecido',
@@ -119,7 +160,7 @@ export default function QuadroUploadPage() {
             pack: []
           }
         },
-        certificado: result.data.certificado?.numero
+        rawData: result.data // Salvar dados brutos para edição
       })
     } catch (error) {
       setStep({
@@ -219,6 +260,20 @@ export default function QuadroUploadPage() {
           </Card>
         )}
 
+        {step.status === 'saving' && (
+          <Card className="bg-slate-800/50 border-slate-700 mb-12">
+            <CardContent className="pt-8 pb-8">
+              <div className="flex items-center justify-center gap-3">
+                <Loader2 className="h-6 w-6 text-green-400 animate-spin" />
+                <p className="text-lg text-white">{step.message}</p>
+              </div>
+              <div className="mt-6 w-full bg-slate-700 rounded-full h-1 overflow-hidden">
+                <div className="bg-gradient-to-r from-green-500 to-emerald-500 h-full w-2/3 animate-pulse"></div>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
         {step.status === 'error' && (
           <Alert className="bg-red-500/10 border-red-500/30 mb-12">
             <AlertCircle className="h-4 w-4 text-red-400" />
@@ -226,6 +281,188 @@ export default function QuadroUploadPage() {
               {step.message}
             </AlertDescription>
           </Alert>
+        )}
+
+        {step.status === 'editing' && step.data && (
+          <div className="space-y-6">
+            {/* Editing Banner */}
+            <Alert className="bg-blue-500/10 border-blue-500/30">
+              <CheckCircle2 className="h-4 w-4 text-blue-400" />
+              <AlertDescription className="text-blue-300">
+                {step.message}
+              </AlertDescription>
+            </Alert>
+
+            {/* Formulário de Edição */}
+            <Card className="bg-slate-800/50 border-slate-700">
+              <CardHeader>
+                <CardTitle className="text-white">Editar Dados Extraídos</CardTitle>
+                <CardDescription>Revise e corrija os dados antes de salvar</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSaveEditedData} className="space-y-6">
+                  {/* Informações da Jangada */}
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div>
+                      <label className="block text-xs text-slate-500 uppercase tracking-wide mb-1">Número de Série</label>
+                      <input
+                        type="text"
+                        value={step.data.numeroSerie}
+                        onChange={(e) => setStep(prev => prev.data ? {
+                          ...prev,
+                          data: { ...prev.data, numeroSerie: e.target.value }
+                        } : prev)}
+                        className="w-full bg-slate-700 border border-slate-600 rounded px-3 py-2 text-white"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-slate-500 uppercase tracking-wide mb-1">Marca</label>
+                      <input
+                        type="text"
+                        value={step.data.marca}
+                        onChange={(e) => setStep(prev => prev.data ? {
+                          ...prev,
+                          data: { ...prev.data, marca: e.target.value }
+                        } : prev)}
+                        className="w-full bg-slate-700 border border-slate-600 rounded px-3 py-2 text-white"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-slate-500 uppercase tracking-wide mb-1">Modelo</label>
+                      <input
+                        type="text"
+                        value={step.data.modelo}
+                        onChange={(e) => setStep(prev => prev.data ? {
+                          ...prev,
+                          data: { ...prev.data, modelo: e.target.value }
+                        } : prev)}
+                        className="w-full bg-slate-700 border border-slate-600 rounded px-3 py-2 text-white"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-slate-500 uppercase tracking-wide mb-1">Capacidade</label>
+                      <input
+                        type="number"
+                        value={step.data.capacidade}
+                        onChange={(e) => setStep(prev => prev.data ? {
+                          ...prev,
+                          data: { ...prev.data, capacidade: parseInt(e.target.value) || 0 }
+                        } : prev)}
+                        className="w-full bg-slate-700 border border-slate-600 rounded px-3 py-2 text-white"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-slate-500 uppercase tracking-wide mb-1">Data Fabrico</label>
+                      <input
+                        type="date"
+                        value={step.data.dataFabricacao ? new Date(step.data.dataFabricacao).toISOString().split('T')[0] : ''}
+                        onChange={(e) => setStep(prev => prev.data ? {
+                          ...prev,
+                          data: { ...prev.data, dataFabricacao: e.target.value ? new Date(e.target.value).toISOString() : undefined }
+                        } : prev)}
+                        className="w-full bg-slate-700 border border-slate-600 rounded px-3 py-2 text-white"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-slate-500 uppercase tracking-wide mb-1">Data Inspeção</label>
+                      <input
+                        type="date"
+                        value={step.data.dataInspecao ? new Date(step.data.dataInspecao).toISOString().split('T')[0] : ''}
+                        onChange={(e) => setStep(prev => prev.data ? {
+                          ...prev,
+                          data: { ...prev.data, dataInspecao: e.target.value ? new Date(e.target.value).toISOString() : undefined }
+                        } : prev)}
+                        className="w-full bg-slate-700 border border-slate-600 rounded px-3 py-2 text-white"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Cilindros */}
+                  {step.data.cilindros.length > 0 && (
+                    <div className="pt-6 border-t border-slate-700">
+                      <h3 className="text-lg font-semibold text-white mb-4">Cilindros CO2</h3>
+                      <div className="space-y-3">
+                        {step.data.cilindros.map((cil, i) => (
+                          <div key={i} className="grid grid-cols-3 gap-3 p-3 bg-slate-700/30 rounded">
+                            <div>
+                              <label className="block text-xs text-slate-500 uppercase tracking-wide mb-1">Tipo</label>
+                              <input
+                                type="text"
+                                value={cil.tipo}
+                                onChange={(e) => {
+                                  const newCilindros = [...step.data!.cilindros]
+                                  newCilindros[i] = { ...newCilindros[i], tipo: e.target.value }
+                                  setStep(prev => prev.data ? {
+                                    ...prev,
+                                    data: { ...prev.data, cilindros: newCilindros }
+                                  } : prev)
+                                }}
+                                className="w-full bg-slate-600 border border-slate-500 rounded px-2 py-1 text-white text-sm"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-xs text-slate-500 uppercase tracking-wide mb-1">Pressão (bar)</label>
+                              <input
+                                type="number"
+                                value={cil.pressao}
+                                onChange={(e) => {
+                                  const newCilindros = [...step.data!.cilindros]
+                                  newCilindros[i] = { ...newCilindros[i], pressao: parseInt(e.target.value) || 0 }
+                                  setStep(prev => prev.data ? {
+                                    ...prev,
+                                    data: { ...prev.data, cilindros: newCilindros }
+                                  } : prev)
+                                }}
+                                className="w-full bg-slate-600 border border-slate-500 rounded px-2 py-1 text-white text-sm"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-xs text-slate-500 uppercase tracking-wide mb-1">Próximo Teste</label>
+                              <input
+                                type="text"
+                                value={cil.dataProximoTeste}
+                                onChange={(e) => {
+                                  const newCilindros = [...step.data!.cilindros]
+                                  newCilindros[i] = { ...newCilindros[i], dataProximoTeste: e.target.value }
+                                  setStep(prev => prev.data ? {
+                                    ...prev,
+                                    data: { ...prev.data, cilindros: newCilindros }
+                                  } : prev)
+                                }}
+                                className="w-full bg-slate-600 border border-slate-500 rounded px-2 py-1 text-white text-sm"
+                              />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Botões de Ação */}
+                  <div className="flex gap-4 pt-6 border-t border-slate-700">
+                    <Button
+                      type="submit"
+                      className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 h-12"
+                    >
+                      Salvar Dados
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className="flex-1 h-12"
+                      onClick={() => {
+                        setStep({ status: 'idle', message: '' })
+                        if (fileInputRef.current) fileInputRef.current.value = ''
+                      }}
+                    >
+                      Cancelar
+                    </Button>
+                  </div>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
         )}
 
         {step.status === 'success' && step.data && (

@@ -75,6 +75,7 @@ export function InspectionObraDialog({
           status: 'em_progresso',
           dataInicio: new Date().toISOString(),
           obraId: tipoObra === 'existente' ? obraId : null,
+          criarCronograma: false, // Não criar agendamentos automáticos
         }),
       })
 

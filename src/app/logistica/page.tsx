@@ -94,28 +94,19 @@ export default function LogisticaPage() {
 
   const handleReceberJangadas = async () => {
     try {
-      // Aqui seria uma API que retorna jangadas disponíveis nos portos para inspeção
-      // Por enquanto, vamos simular com dados mockados
-      const jangadasParaInspecao = [
-        {
-          id: 'receber-1',
-          numeroSerie: 'JL-2024-010',
-          modelo: 'Liferaft 20P',
-          marca: 'Viking',
-          localizacaoAtual: 'Porto de Ponta Delgada',
-          cliente: 'Transportes Açores'
-        },
-        {
-          id: 'receber-2',
-          numeroSerie: 'JL-2024-011',
-          modelo: 'Liferaft 15P',
-          marca: 'RFD',
-          localizacaoAtual: 'Porto da Ribeira Quente',
-          cliente: 'Naviera Açor'
-        }
-      ];
-      setJangadasDisponiveis(jangadasParaInspecao);
-      setShowRececaoModal(true);
+      // Carregar todas as jangadas da lista geral
+      const response = await fetch('/api/jangadas');
+      if (response.ok) {
+        const jangadas = await response.json();
+        // Filtrar apenas jangadas ativas ou em manutenção (não defeituosas)
+        const jangadasDisponiveis = jangadas.filter((j: any) =>
+          j.status !== 'defeituoso' && j.status !== 'expirado'
+        );
+        setJangadasDisponiveis(jangadasDisponiveis);
+        setShowRececaoModal(true);
+      } else {
+        console.error('Erro ao carregar jangadas para receção');
+      }
     } catch (error) {
       console.error('Erro ao carregar jangadas para receção:', error);
     }
@@ -616,7 +607,7 @@ export default function LogisticaPage() {
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Receber Jangadas para Inspeção</h3>
 
             <div className="mb-4">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Jangadas Disponíveis nos Portos</h4>
+              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Selecionar Jangadas da Lista Geral</h4>
               <div className="space-y-2 max-h-60 overflow-y-auto">
                 {jangadasDisponiveis.map(jangada => (
                   <div key={jangada.id} className="flex items-center gap-3 p-3 border border-gray-200 dark:border-gray-600 rounded-lg">
@@ -634,9 +625,22 @@ export default function LogisticaPage() {
                     />
                     <div className="flex-1">
                       <p className="font-medium text-gray-900 dark:text-white">{jangada.numeroSerie}</p>
-                      <p className="text-sm text-gray-600 dark:text-gray-300">{jangada.modelo} - {jangada.marca}</p>
-                      <p className="text-sm text-gray-500">Localização: {jangada.localizacaoAtual}</p>
-                      <p className="text-sm text-gray-500">Cliente: {jangada.cliente}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        {jangada.marca?.nome || 'N/A'} {jangada.modelo?.nome || 'N/A'}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        Status: <Badge variant="outline" className="ml-1">{jangada.status}</Badge>
+                      </p>
+                      {jangada.navio && (
+                        <p className="text-sm text-gray-500">
+                          Navio: {jangada.navio.nome} ({jangada.navio.cliente?.nome || 'Cliente não informado'})
+                        </p>
+                      )}
+                      {!jangada.navio && jangada.cliente && (
+                        <p className="text-sm text-gray-500">
+                          Cliente: {jangada.cliente.nome}
+                        </p>
+                      )}
                     </div>
                   </div>
                 ))}

@@ -93,7 +93,7 @@ export default function EstacaoServicoPage() {
                 Estação de Serviço - Cabouco
               </h1>
               <p className="text-gray-600 dark:text-gray-300 mt-1">
-                Jangadas aguardando manutenção e inspeção
+                Todas as jangadas recebidas na estação de serviço
               </p>
             </div>
             <Link href="/dashboard">
@@ -163,7 +163,7 @@ export default function EstacaoServicoPage() {
                 <CheckCircle className="h-8 w-8 text-green-600" />
                 <div className="ml-4">
                   <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
-                    Total em Serviço
+                    Total Recebidas
                   </p>
                   <p className="text-2xl font-bold text-gray-900 dark:text-white">
                     {jangadas.length}
@@ -177,9 +177,9 @@ export default function EstacaoServicoPage() {
         {/* Jangadas List */}
         <Card>
           <CardHeader>
-            <CardTitle>Jangadas na Estação de Serviço</CardTitle>
+            <CardTitle>Todas as Jangadas Recebidas</CardTitle>
             <CardDescription>
-              Lista de jangadas que não estão instaladas em navios
+              Lista completa de todas as jangadas que estão na estação de serviço
             </CardDescription>
           </CardHeader>
           <CardContent>

@@ -9,7 +9,7 @@ const directUrl = process.env.DIRECT_DATABASE_URL || "postgres://6cf689fdb839385
 async function verificar() {
   const pool = new Pool({ connectionString: directUrl });
   const adapter = new PrismaPg(pool);
-  const prisma = new PrismaClient({ adapter });
+  const prisma = new PrismaClient();
 
   try {
     const total = await prisma.navio.count();

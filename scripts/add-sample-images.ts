@@ -2,13 +2,13 @@ import { config } from 'dotenv'
 config()
 
 import { PrismaClient } from '../prisma/app/generated-prisma-client'
-import { withAccelerate } from '@prisma/extension-accelerate'
+// ...existing code...
 
 // Check if we're using Prisma Accelerate URL or direct connection
 const databaseUrl = process.env.PRISMA_DATABASE_URL || process.env.DATABASE_URL || '';
 const isDatabaseUrlAccelerate = databaseUrl.startsWith('prisma+postgres://');
 
-const prismaConfig: any = {
+// ...existing code...
   log: ['error', 'warn'],
   omit: {
     navio: {
@@ -84,10 +84,10 @@ const prismaConfig: any = {
 
 // Add accelerateUrl only if using Prisma Accelerate
 if (isDatabaseUrlAccelerate) {
-  prismaConfig.accelerateUrl = databaseUrl;
+// ...existing code...
 }
 
-const prisma = new PrismaClient(prismaConfig).$extends(withAccelerate())
+const prisma = new PrismaClient();
 
 // Imagens de exemplo (URLs de placeholder)
 const sampleImages = [

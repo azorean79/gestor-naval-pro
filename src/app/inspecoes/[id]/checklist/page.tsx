@@ -40,6 +40,7 @@ import { pt } from 'date-fns/locale'
 import { format } from 'date-fns'
 import { ChecklistInspecaoManual } from '@/components/checklist-inspecao-manual'
 import { regrasLegislacao } from '@/legislacao/regras-legislacao'
+import { Comentarios } from '@/components/comentarios'
   // Filtrar regras de legislação aplicáveis a inspeção/checklist
   const alertasLegislacao = regrasLegislacao.filter(r => r.aplicaEm.includes('inspecao') || r.aplicaEm.includes('checklist'));
 
@@ -53,16 +54,30 @@ interface ChecklistItem {
   resultado?: string
 }
 
+
 interface TestePressurao {
-  id: string
-  cilindroNumero: string
-  tipoCilindro: 'CO2' | 'N2' | 'Ar'
-  pressaoEsperada: number
-  pressaoMedida: number | null
-  unidade: 'bar' | 'psi'
-  aprovado: boolean | null
-  observacoes?: string
-  data: Date
+  id: string;
+  cilindroNumero: string;
+  tipoCilindro: 'CO2' | 'N2' | 'Ar';
+}
+
+interface Comentario {
+  id: string;
+  autor: string;
+  texto: string;
+  data: string;
+}
+
+interface TestePressurao {
+  id: string;
+  cilindroNumero: string;
+  tipoCilindro: 'CO2' | 'N2' | 'Ar';
+  pressaoEsperada: number;
+  pressaoMedida: number | null;
+  unidade: 'bar' | 'psi';
+  aprovado: boolean | null;
+  observacoes?: string;
+  data: Date;
 }
 
 export default function ChecklistInspecaoPage() {
@@ -70,6 +85,17 @@ export default function ChecklistInspecaoPage() {
   const inspecaoId = params.id as string
 
   const [activeTab, setActiveTab] = useState('componentes')
+  const [comentarios, setComentarios] = useState<Comentario[]>([])
+
+  const handleAddComentario = (texto: string) => {
+    const novo: Comentario = {
+      id: Math.random().toString(36).substr(2, 9),
+      autor: 'Usuário', // Replace with actual user
+      texto,
+      data: new Date().toISOString(),
+    }
+    setComentarios(prev => [novo, ...prev])
+  }
 
   // Buscar dados da inspeção e jangada
   const { data: inspecaoData } = useQuery({
@@ -943,6 +969,10 @@ export default function ChecklistInspecaoPage() {
             </AlertDescription>
           </Alert>
         )}
+      </div>
+      {/* Comentários - colaboração */}
+      <div className="mt-8">
+        <Comentarios comentarios={comentarios} onAdd={handleAddComentario} />
       </div>
     </div>
   )

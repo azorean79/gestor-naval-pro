@@ -2,14 +2,14 @@ const fs = require('fs');
 const path = require('path');
 const pdfParse = require('pdf-parse');
 const { PrismaClient } = require('../prisma/app/generated-prisma-client');
-const { withAccelerate } = require('@prisma/extension-accelerate');
+// ...existing code...
 
 // Configurar Prisma Accelerate
 const ACCELERATE_URL = "prisma+postgres://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfaWQiOjEsInNlY3VyZV9rZXkiOiJza19vUGw0S2F4emFsSDVUa2prLUpVTDQiLCJhcGlfa2V5IjoiMDFLR0o4TjBSVzRLSzZKRTZEMkhWTjRCRzUiLCJ0ZW5hbnRfaWQiOiI2Y2Y2ODlmZGI4MzkzODViYmI0ZDI1MzNlYTg3YzBjZDFkYjU4ZTNkYmI0ZjdkNDE5MzQ1Y2VjZDBjOTMyN2U0IiwiaW50ZXJuYWxfc2VjcmV0IjoiNDVmNzI2ZjItZDQ2YS00ODNjLWIyZjgtOGYyNTk3MzVhM2I5In0.S3sEic1XPPYbZwcQ1Od0TW63XHlsnWAPwPBjWvp-W7Q";
 
-const prisma = new PrismaClient({
+const prisma = new PrismaClient();
   accelerateUrl: ACCELERATE_URL,
-}).$extends(withAccelerate());
+});
 
 const PDF_PATH = path.join(__dirname, '..', 'tmp', 'despacho-2025-09-17.pdf');
 

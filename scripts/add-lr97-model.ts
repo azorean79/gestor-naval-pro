@@ -2,20 +2,20 @@ import { config } from 'dotenv'
 config()
 
 import { PrismaClient } from '../prisma/app/generated-prisma-client'
-import { withAccelerate } from '@prisma/extension-accelerate'
+// ...existing code...
 
 const databaseUrl = process.env.PRISMA_DATABASE_URL || process.env.DATABASE_URL || ''
 const isDatabaseUrlAccelerate = databaseUrl.startsWith('prisma+postgres://')
 
-const prismaConfig: any = {
+// ...existing code...
   log: ['error', 'warn'],
 }
 
 if (isDatabaseUrlAccelerate) {
-  prismaConfig.accelerateUrl = databaseUrl
+// ...existing code...
 }
 
-const prisma = new PrismaClient(prismaConfig).$extends(withAccelerate())
+const prisma = new PrismaClient();
 
 async function main() {
   try {

@@ -4,28 +4,22 @@
  * Script para listar todos os navios e clientes importados na base de dados
  */
 
-require('dotenv').config({ path: '.env.local' });
+require('dotenv').config({ path: '.env' });
+
 
 const { PrismaClient } = require('@prisma/client');
-const { Pool } = require('pg');
-const { PrismaPg } = require('@prisma/adapter-pg');
 
 // Configurar variáveis de ambiente
-const databaseUrl = process.env.PRISMA_DATABASE_URL || 
-                   process.env.DIRECT_DATABASE_URL || 
-                   process.env.POSTGRES_URL || 
-                   process.env.DATABASE_URL;
+const databaseUrl = process.env.DATABASE_URL;
 
 if (!databaseUrl) {
   console.error('❌ Erro: DATABASE_URL não configurada!');
-  console.error('Configure as variáveis de ambiente em .env.local');
+  console.error('Configure as variáveis de ambiente em .env');
   process.exit(1);
 }
 
-process.env.DATABASE_URL = databaseUrl;
-
-// Inicializar Prisma
-const prisma = new PrismaClient();
+// Inicializar Prisma com Accelerate
+const prisma = new PrismaClient({ accelerateUrl: databaseUrl });
 
 /**
  * Função principal para listar dados
