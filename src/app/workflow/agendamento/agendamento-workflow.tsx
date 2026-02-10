@@ -21,7 +21,7 @@ import {
   CheckCircle
 } from "lucide-react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { format } from "date-fns";
 import { pt } from "date-fns/locale";
 
@@ -44,8 +44,8 @@ interface Tecnico {
 
 export function AgendamentoWorkflow() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const jangadaId = searchParams.get('jangada');
+  // Remover useSearchParams e usar abordagem alternativa
+  const [jangadaId, setJangadaId] = useState<string | null>(null);
 
   const [loading, setLoading] = useState(false);
   const [jangada, setJangada] = useState<Jangada | null>(null);
