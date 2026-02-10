@@ -1,5 +1,33 @@
 import { z } from 'zod';
 
+// Função para verificar se número de série já existe
+export async function verificarNumeroSerieUnico(numeroSerie: string, excludeId?: string): Promise<boolean> {
+  try {
+    const params = new URLSearchParams();
+    params.append('numeroSerie', numeroSerie);
+    if (excludeId) {
+      params.append('excludeId', excludeId);
+    }
+    
+    const response = await fetch(`/api/jangadas/verificar-numero-serie?${params}`);
+    if (!response.ok) return false;
+    
+    const result = await response.json();
+    return result.disponivel;
+  } catch {
+    return false;
+  }
+}
+
+// Schema com validação assíncrona para número de série único
+export const numeroSerieSchema = z.string()
+  .min(1, 'Número de série é obrigatório')
+  .refine(async (numeroSerie) => {
+    return await verificarNumeroSerieUnico(numeroSerie);
+  }, 'Este número de série já está em uso');
+
+// Jangada validation schema - SIMPLIFICADO
+
 // Cliente validation schema
 export const clienteSchema = z.object({
   nome: z.string().min(1, 'Nome é obrigatório'),
@@ -40,7 +68,7 @@ export const navioSchema = z.object({
 
 // Jangada validation schema - SIMPLIFICADO
 export const jangadaSchema = z.object({
-  numeroSerie: z.string().min(1, 'Número de série é obrigatório'),
+  numeroSerie: numeroSerieSchema,
   marcaId: z.string().min(1, 'Marca é obrigatória'),
   modeloId: z.string(),
   tipo: z.string(),

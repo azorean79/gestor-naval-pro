@@ -20,7 +20,6 @@ export const EXEMPLOS_JANGADAS = [
     luzExterior: 1,
     componentesSelecionados: {
       "Balsa Inflável": { incluido: true, quantidade: 1 },
-      "Coletes Salva-Vidas": { incluido: true, quantidade: 25 },
       "Rações de Emergência": { incluido: true, quantidade: 25 },
       "Água Potável": { incluido: true, quantidade: 37.5 },
       "Kit de Primeiros Socorros": { incluido: true, quantidade: 1 },
@@ -47,7 +46,6 @@ export const EXEMPLOS_JANGADAS = [
     },
     validadeComponentes: {
       "Balsa Inflável": "12/2029",
-      "Coletes Salva-Vidas": "06/2028",
       "Rações de Emergência": "09/2026",
       "Água Potável": "09/2026",
       "Kit de Primeiros Socorros": "03/2027",
@@ -108,7 +106,6 @@ export const EXEMPLOS_JANGADAS = [
     luzExterior: 1,
     componentesSelecionados: {
       "Balsa Inflável": { incluido: true, quantidade: 1 },
-      "Coletes Salva-Vidas": { incluido: true, quantidade: 25 },
       "Kit de Primeiros Socorros": { incluido: true, quantidade: 1 },
       "Comprimidos para o Enjoo": { incluido: true, quantidade: 150 },
       "Sacos para Enjoo": { incluido: true, quantidade: 25 },
@@ -130,7 +127,6 @@ export const EXEMPLOS_JANGADAS = [
     },
     validadeComponentes: {
       "Balsa Inflável": "11/2028",
-      "Coletes Salva-Vidas": "05/2027",
       "Kit de Primeiros Socorros": "02/2026",
       "Comprimidos para o Enjoo": "02/2026",
       "Sacos para Enjoo": "02/2026",
@@ -186,7 +182,6 @@ export const EXEMPLOS_JANGADAS = [
     luzExterior: 1,
     componentesSelecionados: {
       "Balsa Inflável": { incluido: true, quantidade: 1 },
-      "Coletes Salva-Vidas": { incluido: true, quantidade: 8 },
       "Foguetes com Paraquedas": { incluido: true, quantidade: 2 },
       "Fachos de Mão": { incluido: true, quantidade: 2 },
       "Sinais Flutuantes de Fumo": { incluido: true, quantidade: 1 },
@@ -197,7 +192,6 @@ export const EXEMPLOS_JANGADAS = [
     },
     validadeComponentes: {
       "Balsa Inflável": "09/2027",
-      "Coletes Salva-Vidas": "03/2026",
       "Foguetes com Paraquedas": "08/2024",
       "Fachos de Mão": "08/2024",
       "Sinais Flutuantes de Fumo": "08/2024",
@@ -242,8 +236,7 @@ export const EXEMPLOS_JANGADAS = [
     luzExterior: 1,
     componentesSelecionados: {
       "Balsa Inflável": { incluido: true, quantidade: 1 },
-      "Coletes Salva-Vidas": { incluido: true, quantidade: 16 },
-      "Rações de Emergência": { incluido: true, quantidade: 16 },
+"Rações de Emergência": { incluido: true, quantidade: 16 },
       "Água Potável": { incluido: true, quantidade: 24 },
       "Kit de Primeiros Socorros": { incluido: true, quantidade: 1 },
       "Foguetes com Paraquedas": { incluido: true, quantidade: 4 },
@@ -256,8 +249,7 @@ export const EXEMPLOS_JANGADAS = [
     },
     validadeComponentes: {
       "Balsa Inflável": "10/2028",
-      "Coletes Salva-Vidas": "04/2027",
-      "Rações de Emergência": "07/2026",
+"Rações de Emergência": "07/2026",
       "Água Potável": "07/2026",
       "Kit de Primeiros Socorros": "01/2027",
       "Foguetes com Paraquedas": "09/2025",
@@ -304,8 +296,7 @@ export const EXEMPLOS_JANGADAS = [
     luzExterior: 1,
     componentesSelecionados: {
       "Balsa Inflável": { incluido: true, quantidade: 1 },
-      "Coletes Salva-Vidas": { incluido: true, quantidade: 10 },
-      "Rações de Emergência": { incluido: true, quantidade: 10 },
+"Rações de Emergência": { incluido: true, quantidade: 10 },
       "Água Potável": { incluido: true, quantidade: 15 },
       "Kit de Primeiros Socorros": { incluido: true, quantidade: 1 },
       "Foguetes com Paraquedas": { incluido: true, quantidade: 4 },
@@ -318,8 +309,7 @@ export const EXEMPLOS_JANGADAS = [
     },
     validadeComponentes: {
       "Balsa Inflável": "11/2029",
-      "Coletes Salva-Vidas": "05/2028",
-      "Rações de Emergência": "08/2026",
+"Rações de Emergência": "08/2026",
       "Água Potável": "08/2026",
       "Kit de Primeiros Socorros": "02/2027",
       "Foguetes com Paraquedas": "10/2026",
@@ -366,8 +356,7 @@ export const EXEMPLOS_JANGADAS = [
     luzExterior: 1,
     componentesSelecionados: {
       "Balsa Inflável": { incluido: true, quantidade: 1 },
-      "Coletes Salva-Vidas": { incluido: true, quantidade: 20 },
-      "Rações de Emergência": { incluido: true, quantidade: 20 },
+"Rações de Emergência": { incluido: true, quantidade: 20 },
       "Água Potável": { incluido: true, quantidade: 30 },
       "Kit de Primeiros Socorros": { incluido: true, quantidade: 1 },
       "Foguetes com Paraquedas": { incluido: true, quantidade: 4 },
@@ -380,8 +369,7 @@ export const EXEMPLOS_JANGADAS = [
     },
     validadeComponentes: {
       "Balsa Inflável": "12/2029",
-      "Coletes Salva-Vidas": "06/2028",
-      "Rações de Emergência": "09/2026",
+"Rações de Emergência": "09/2026",
       "Água Potável": "09/2026",
       "Kit de Primeiros Socorros": "03/2027",
       "Foguetes com Paraquedas": "11/2026",
@@ -428,8 +416,7 @@ export const EXEMPLOS_JANGADAS = [
     luzExterior: 1,
     componentesSelecionados: {
       "Balsa Inflável": { incluido: true, quantidade: 1 },
-      "Coletes Salva-Vidas": { incluido: true, quantidade: 12 },
-      "Rações de Emergência": { incluido: true, quantidade: 12 },
+"Rações de Emergência": { incluido: true, quantidade: 12 },
       "Água Potável": { incluido: true, quantidade: 18 },
       "Kit de Primeiros Socorros": { incluido: true, quantidade: 1 },
       "Foguetes com Paraquedas": { incluido: true, quantidade: 4 },
@@ -442,8 +429,7 @@ export const EXEMPLOS_JANGADAS = [
     },
     validadeComponentes: {
       "Balsa Inflável": "10/2028",
-      "Coletes Salva-Vidas": "04/2027",
-      "Rações de Emergência": "07/2026",
+"Rações de Emergência": "07/2026",
       "Água Potável": "07/2026",
       "Kit de Primeiros Socorros": "01/2027",
       "Foguetes com Paraquedas": "09/2025",
@@ -490,8 +476,7 @@ export const EXEMPLOS_JANGADAS = [
     luzExterior: 1,
     componentesSelecionados: {
       "Balsa Inflável": { incluido: true, quantidade: 1 },
-      "Coletes Salva-Vidas": { incluido: true, quantidade: 8 },
-      "Rações de Emergência": { incluido: true, quantidade: 8 },
+"Rações de Emergência": { incluido: true, quantidade: 8 },
       "Água Potável": { incluido: true, quantidade: 12 },
       "Kit de Primeiros Socorros": { incluido: true, quantidade: 1 },
       "Foguetes com Paraquedas": { incluido: true, quantidade: 4 },
@@ -504,8 +489,7 @@ export const EXEMPLOS_JANGADAS = [
     },
     validadeComponentes: {
       "Balsa Inflável": "01/2030",
-      "Coletes Salva-Vidas": "07/2028",
-      "Rações de Emergência": "10/2026",
+"Rações de Emergência": "10/2026",
       "Água Potável": "10/2026",
       "Kit de Primeiros Socorros": "04/2027",
       "Foguetes com Paraquedas": "12/2026",
@@ -552,8 +536,7 @@ export const EXEMPLOS_JANGADAS = [
     luzExterior: 1,
     componentesSelecionados: {
       "Balsa Inflável": { incluido: true, quantidade: 1 },
-      "Coletes Salva-Vidas": { incluido: true, quantidade: 15 },
-      "Rações de Emergência": { incluido: true, quantidade: 15 },
+"Rações de Emergência": { incluido: true, quantidade: 15 },
       "Água Potável": { incluido: true, quantidade: 22.5 },
       "Kit de Primeiros Socorros": { incluido: true, quantidade: 1 },
       "Foguetes com Paraquedas": { incluido: true, quantidade: 4 },
@@ -566,8 +549,7 @@ export const EXEMPLOS_JANGADAS = [
     },
     validadeComponentes: {
       "Balsa Inflável": "08/2028",
-      "Coletes Salva-Vidas": "02/2027",
-      "Rações de Emergência": "05/2026",
+"Rações de Emergência": "05/2026",
       "Água Potável": "05/2026",
       "Kit de Primeiros Socorros": "11/2026",
       "Foguetes com Paraquedas": "07/2025",
@@ -614,8 +596,7 @@ export const EXEMPLOS_JANGADAS = [
     luzExterior: 1,
     componentesSelecionados: {
       "Balsa Inflável": { incluido: true, quantidade: 1 },
-      "Coletes Salva-Vidas": { incluido: true, quantidade: 10 },
-      "Rações de Emergência": { incluido: true, quantidade: 10 },
+"Rações de Emergência": { incluido: true, quantidade: 10 },
       "Água Potável": { incluido: true, quantidade: 15 },
       "Kit de Primeiros Socorros": { incluido: true, quantidade: 1 },
       "Foguetes com Paraquedas": { incluido: true, quantidade: 4 },
@@ -628,8 +609,7 @@ export const EXEMPLOS_JANGADAS = [
     },
     validadeComponentes: {
       "Balsa Inflável": "09/2029",
-      "Coletes Salva-Vidas": "03/2028",
-      "Rações de Emergência": "06/2026",
+"Rações de Emergência": "06/2026",
       "Água Potável": "06/2026",
       "Kit de Primeiros Socorros": "12/2026",
       "Foguetes com Paraquedas": "08/2026",
@@ -676,8 +656,7 @@ export const EXEMPLOS_JANGADAS = [
     luzExterior: 1,
     componentesSelecionados: {
       "Balsa Inflável": { incluido: true, quantidade: 1 },
-      "Coletes Salva-Vidas": { incluido: true, quantidade: 6 },
-      "Rações de Emergência": { incluido: true, quantidade: 6 },
+"Rações de Emergência": { incluido: true, quantidade: 6 },
       "Água Potável": { incluido: true, quantidade: 9 },
       "Kit de Primeiros Socorros": { incluido: true, quantidade: 1 },
       "Foguetes com Paraquedas": { incluido: true, quantidade: 4 },
@@ -690,8 +669,7 @@ export const EXEMPLOS_JANGADAS = [
     },
     validadeComponentes: {
       "Balsa Inflável": "07/2028",
-      "Coletes Salva-Vidas": "01/2027",
-      "Rações de Emergência": "04/2026",
+"Rações de Emergência": "04/2026",
       "Água Potável": "04/2026",
       "Kit de Primeiros Socorros": "10/2026",
       "Foguetes com Paraquedas": "06/2025",
@@ -738,8 +716,7 @@ export const EXEMPLOS_JANGADAS = [
     luzExterior: 1,
     componentesSelecionados: {
       "Balsa Inflável": { incluido: true, quantidade: 1 },
-      "Coletes Salva-Vidas": { incluido: true, quantidade: 8 },
-      "Rações de Emergência": { incluido: true, quantidade: 8 },
+"Rações de Emergência": { incluido: true, quantidade: 8 },
       "Água Potável": { incluido: true, quantidade: 12 },
       "Kit de Primeiros Socorros": { incluido: true, quantidade: 1 },
       "Foguetes com Paraquedas": { incluido: true, quantidade: 4 },
@@ -752,8 +729,7 @@ export const EXEMPLOS_JANGADAS = [
     },
     validadeComponentes: {
       "Balsa Inflável": "11/2029",
-      "Coletes Salva-Vidas": "05/2028",
-      "Rações de Emergência": "08/2026",
+"Rações de Emergência": "08/2026",
       "Água Potável": "08/2026",
       "Kit de Primeiros Socorros": "02/2027",
       "Foguetes com Paraquedas": "10/2026",
@@ -800,8 +776,7 @@ export const EXEMPLOS_JANGADAS = [
     luzExterior: 1,
     componentesSelecionados: {
       "Balsa Inflável": { incluido: true, quantidade: 1 },
-      "Coletes Salva-Vidas": { incluido: true, quantidade: 8 },
-      "Rações de Emergência": { incluido: true, quantidade: 8 },
+"Rações de Emergência": { incluido: true, quantidade: 8 },
       "Água Potável": { incluido: true, quantidade: 12 },
       "Kit de Primeiros Socorros": { incluido: true, quantidade: 1 },
       "Foguetes com Paraquedas": { incluido: true, quantidade: 4 },
@@ -814,8 +789,7 @@ export const EXEMPLOS_JANGADAS = [
     },
     validadeComponentes: {
       "Balsa Inflável": "06/2028",
-      "Coletes Salva-Vidas": "12/2026",
-      "Rações de Emergência": "03/2026",
+"Rações de Emergência": "03/2026",
       "Água Potável": "03/2026",
       "Kit de Primeiros Socorros": "09/2026",
       "Foguetes com Paraquedas": "05/2025",

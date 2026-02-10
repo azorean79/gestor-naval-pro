@@ -19,6 +19,7 @@ import { pt } from 'date-fns/locale'
 import { ImportDialog } from '@/components/ui/import-dialog'
 import { DocumentUploadDialog } from '@/components/ui/document-upload-dialog'
 import { QuadroInspecaoUploadDialog } from '@/components/ui/quadro-inspecao-upload'
+import { ReceptionWizard } from '@/components/reception-wizard'
 
 export default function JangadasPage() {
   const router = useRouter()
@@ -29,6 +30,7 @@ export default function JangadasPage() {
   const [statusFilter, setStatusFilter] = useState<string>('todos')
   const [showImportDialog, setShowImportDialog] = useState(false)
   const [showDocumentUpload, setShowDocumentUpload] = useState(false)
+  const [showReceptionWizard, setShowReceptionWizard] = useState(false)
 
   const filteredJangadas = jangadas.filter((jangada: Jangada) => {
     const matchesSearch = jangada.numeroSerie.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -90,6 +92,10 @@ export default function JangadasPage() {
           <Button variant="outline" onClick={() => setShowDocumentUpload(true)}>
             <Upload className="mr-2 h-4 w-4" />
             Upload com IA
+          </Button>
+          <Button variant="default" onClick={() => setShowReceptionWizard(true)}>
+            <Plus className="mr-2 h-4 w-4" />
+            Nova Recepção
           </Button>
           <Button onClick={() => router.push('/jangadas/novo')}>
             <Plus className="mr-2 h-4 w-4" />
@@ -219,6 +225,10 @@ export default function JangadasPage() {
         open={showDocumentUpload}
         onOpenChange={setShowDocumentUpload}
       />
+
+      {showReceptionWizard && (
+        <ReceptionWizard onClose={() => setShowReceptionWizard(false)} />
+      )}
     </div>
   )
 }

@@ -1,1 +1,1 @@
-SELECT nif FROM clientes LIMIT 5;
+SELECT TOP 5 nif FROM clientes;

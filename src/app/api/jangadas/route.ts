@@ -218,6 +218,15 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Erro ao criar jangada:', error);
+    
+    // Verificar se é erro de unicidade no número de série
+    if (error instanceof Error && error.message.includes('numeroSerie')) {
+      return NextResponse.json(
+        { error: 'Já existe uma jangada com este número de série' },
+        { status: 400 }
+      );
+    }
+    
     return NextResponse.json(
       { error: 'Erro ao criar jangada' },
       { status: 500 }

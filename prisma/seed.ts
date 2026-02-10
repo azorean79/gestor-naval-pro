@@ -22,7 +22,7 @@ async function main() {
       endereco: 'Avenida do Porto, 456, Angra do Heroísmo, Açores',
       nif: '987654321',
       delegacao: 'Açores',
-      tecnico: 'Julio Correia'
+      tecnico: 'Alex Santos'
     },
     {
       nome: 'Atlantic Lines',
@@ -184,7 +184,7 @@ async function main() {
         estado: status === 'Instalada' ? 'instalada' : 'removida',
         clienteId: clienteAleatorio.id,
         navioId: navioAleatorio.id,
-        tecnico: 'Julio Correia'
+        tecnico: Math.random() > 0.5 ? 'Julio Correia' : 'Alex Santos'
       }
     })
   }
@@ -1101,9 +1101,11 @@ async function main() {
   ]
 
   for (const envio of enviosExemplo) {
-    if (envio.itens.length > 0) {
-      await prisma.envio.create({
-        data: {
+    if (envio.itens.length > 0 && envio.numeroRastreio) {
+      await prisma.envio.upsert({
+        where: { numeroRastreio: envio.numeroRastreio },
+        update: {},
+        create: {
           numeroRastreio: envio.numeroRastreio,
           tipo: envio.tipo,
           metodoEnvio: envio.metodoEnvio,
