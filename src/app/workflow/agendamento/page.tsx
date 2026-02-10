@@ -1,75 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Badge } from "@/components/ui/badge";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import {
-  Calendar as CalendarIcon,
-  Clock,
-  User,
-  ArrowLeft,
-  Save,
-  AlertCircle,
-  CheckCircle
-} from "lucide-react";
-import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-import { format } from "date-fns";
-import { pt } from "date-fns/locale";
-
-interface Jangada {
-  id: string;
-  numeroSerie: string;
-  modelo: string;
-  marca: string;
-  cliente: string;
-  navio: string;
-  status: string;
-}
-
-interface Tecnico {
-  id: string;
-  nome: string;
-  especialidade: string;
-  disponibilidade: string[];
-}
+import { Suspense } from "react";
+import { AgendamentoWorkflow } from "./agendamento-workflow";
 
 export default function AgendamentoPage() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const jangadaId = searchParams.get('jangada');
-
-  const [loading, setLoading] = useState(false);
-  const [jangada, setJangada] = useState<Jangada | null>(null);
-  const [tecnicos, setTecnicos] = useState<Tecnico[]>([]);
-  const [date, setDate] = useState<Date>();
-  const [timeSlots, setTimeSlots] = useState<string[]>([]);
-
-  const [formData, setFormData] = useState({
-    jangadaId: jangadaId || '',
-    tecnicoId: '',
-    dataInspecao: '',
-    horaInspecao: '',
-    tipoInspecao: 'rotina',
-    prioridade: 'normal',
-    observacoes: '',
-    equipamentosNecessarios: [] as string[],
-    tempoEstimado: '2' // horas
-  });
-
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
-  useEffect(() => {
-    if (jangadaId) {
-      fetchJangada(jangadaId);
+  return (
+    <Suspense fallback={<div>Carregando...</div>}>
+      <AgendamentoWorkflow />
+    </Suspense>
+  );
+}
     }
     fetchTecnicos();
     generateTimeSlots();
