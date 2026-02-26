@@ -12,6 +12,7 @@ import { toast } from "sonner";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { WizardCliente } from "@/components/ui/WizardCliente";
 import Link from "next/link";
+import Shortcuts from '@/components/dashboard/shortcuts';
 
 // Mock data - será substituído por dados reais
 const mockClientes = [
@@ -403,6 +404,8 @@ const mockClientes = [
 
 export default function ClientesPage() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [ilhaFilter, setIlhaFilter] = useState("");
+  const [tipoFilter, setTipoFilter] = useState("");
   const [mounted, setMounted] = useState(false);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [selectAll, setSelectAll] = useState(false);
@@ -410,10 +413,11 @@ export default function ClientesPage() {
 
   // Sempre chamar o hook na raiz do componente
 
-  const hookResult = useClientes();
+  const hookResult = useClientes({ tipo: tipoFilter || undefined, ilha: ilhaFilter || undefined });
 
   // Só usa dados reais se montado, senão usa mock
   const displayClientes = mounted && hookResult.data ? hookResult.data : mockClientes;
+  const islands = Array.from(new Set(displayClientes.map((c: any) => c.ilha).filter(Boolean)));
   const isLoading = mounted ? hookResult.isLoading : false;
   const error = mounted ? hookResult.error : null;
 
@@ -423,7 +427,19 @@ export default function ClientesPage() {
     cliente.nif.toLowerCase().includes(searchTerm.toLowerCase()) ||
     cliente.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
     (cliente.telefone && cliente.telefone.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
+  ).filter((cliente) => {
+    if (ilhaFilter) {
+      if ((cliente.ilha || '').toLowerCase() !== ilhaFilter.toLowerCase()) return false;
+    }
+    if (tipoFilter) {
+      // server already filters when mounted; keep a defensive local filter for mock data
+      const t = (cliente.tipo || '').toLowerCase();
+      const tf = tipoFilter.toLowerCase();
+      if (!t.includes(tf) && !(tf.includes('pesca') && t.includes('pesca'))) return false;
+    }
+    return true;
+  });
+
 
   // Seleção múltipla
   const handleSelectAll = (checked: boolean) => {
@@ -449,6 +465,8 @@ export default function ClientesPage() {
           <h2 className="text-2xl font-bold text-red-600 mb-2">Erro ao carregar clientes</h2>
           <p className="text-gray-600">{error.message}</p>
         </div>
+
+        <Shortcuts />
       </div>
     );
   }
@@ -512,7 +530,7 @@ export default function ClientesPage() {
         {/* Filters */}
         <Card className="mb-6">
           <CardContent className="pt-6">
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-center">
               <div className="flex-1">
                 <div className="relative">
                   <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
@@ -523,6 +541,35 @@ export default function ClientesPage() {
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
                 </div>
+              </div>
+              <div className="w-56">
+                <label className="sr-only">Filtrar por ilha</label>
+                <select
+                  value={ilhaFilter}
+                  onChange={(e) => setIlhaFilter(e.target.value)}
+                  className="w-full border rounded px-3 py-2 bg-white dark:bg-gray-800"
+                >
+                  <option value="">Todas as ilhas</option>
+                  {islands.map((il) => (
+                    <option key={il} value={il}>{il}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="w-56">
+                <label className="sr-only">Filtrar por tipo</label>
+                <select
+                  value={tipoFilter}
+                  onChange={(e) => setTipoFilter(e.target.value)}
+                  className="w-full border rounded px-3 py-2 bg-white dark:bg-gray-800"
+                >
+                  <option value="">Todos os tipos</option>
+                  <option value="pesca">Pesca (geral)</option>
+                  <option value="pesca costeira">Pesca Costeira</option>
+                  <option value="pesca local">Pesca Local</option>
+                  <option value="maritimo turistica">Marítimo Turística</option>
+                  <option value="recreio">Recreio</option>
+                  <option value="nacional">Nacional</option>
+                </select>
               </div>
               <Button variant="outline">
                 <Filter className="h-4 w-4 mr-2" />

@@ -18,7 +18,7 @@ export interface Cliente {
   updatedAt?: string;
 }
 
-export function useClientes() {
+export function useClientes(params?: { tipo?: string; ilha?: string }) {
   // Dados offline para quando a API não estiver disponível
   const dadosOffline: Cliente[] = [
     {
@@ -72,14 +72,31 @@ export function useClientes() {
   ];
 
   return useQuery({
-    queryKey: ['clientes'],
+    queryKey: ['clientes', params?.tipo ?? null, params?.ilha ?? null],
     queryFn: async (): Promise<Cliente[]> => {
-      // Sempre usar dados offline, sem fetch
-      return dadosOffline;
+      const base = '/api/clientes';
+      const qs = new URLSearchParams();
+      if (params?.tipo) qs.append('tipo', params.tipo);
+      if (params?.ilha) qs.append('ilha', params.ilha);
+      const url = qs.toString() ? `${base}?${qs.toString()}` : base;
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          return dadosOffline;
+        }
+        const json = await response.json();
+        // API retorna envelope { data, total, ... } ou array
+        if (Array.isArray(json)) return json;
+        if (json && Array.isArray(json.data)) return json.data;
+        return dadosOffline;
+      } catch (e) {
+        return dadosOffline;
+      }
     },
-    enabled: true, // Sempre executar
-    retry: 0, // Não tentar novamente
-    staleTime: 5 * 60 * 1000, // 5 minutos
+    enabled: true,
+    retry: 0,
+    staleTime: 5 * 60 * 1000,
   });
 }
 
