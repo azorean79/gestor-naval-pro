@@ -1,0 +1,254 @@
+
+> marine-safe-station@2.0.0 dev
+> next dev
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.204.100.43:3000
+- Environments: .env
+- Experiments (use with caution):
+  ✓ optimizeCss
+
+✓ Starting...
+✓ Ready in 2.1s
+prisma:warn Attempt 1/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 41ms
+prisma:warn Attempt 2/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 148ms
+prisma:warn Attempt 3/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 287ms
+prisma:error 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:109:170
+
+  106 async function GET(request, { params }) {
+  107     try {
+  108         const { id } = await params;
+→ 109         const cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+ GET /api/cilindros/CIL-001 500 in 2.0s (compile: 1271ms, render: 739ms)
+prisma:warn Attempt 1/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 64ms
+prisma:warn Attempt 2/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 106ms
+prisma:warn Attempt 3/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 116ms
+prisma:error 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:120:168
+
+  117 const safeId = sanitizeString(id);
+  118 let cilindro;
+  119 try {
+→ 120     cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+ GET /api/cilindros/CIL-001 500 in 557ms (compile: 86ms, render: 471ms)
+prisma:warn Attempt 1/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 63ms
+prisma:warn Attempt 2/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 82ms
+prisma:warn Attempt 3/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 177ms
+prisma:error 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:120:168
+
+  117 const safeId = sanitizeString(id);
+  118 let cilindro;
+  119 try {
+→ 120     cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+ GET /api/cilindros/CIL-001 500 in 905ms (compile: 26ms, render: 879ms)
+prisma:warn Attempt 1/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Attempt 1/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 26ms
+prisma:warn Attempt 2/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 51ms
+prisma:warn Attempt 2/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 118ms
+prisma:warn Attempt 3/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 144ms
+prisma:warn Attempt 3/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 143ms
+prisma:error 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.count()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__f5921fda._.js:158:151
+
+  155     skip,
+  156     take: limit
+  157 }),
+→ 158 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.count(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+ GET /api/cilindros 500 in 1462ms (compile: 595ms, render: 867ms)
+prisma:warn Retrying after 233ms
+prisma:error 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findMany()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__f5921fda._.js:146:151
+
+  143 const skip = (page - 1) * limit;
+  144 // Buscar cilindros com filtros e paginação
+  145 const [cilindros, total] = await Promise.all([
+→ 146     __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findMany(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Attempt 1/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 28ms
+prisma:warn Attempt 2/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 129ms
+prisma:warn Attempt 3/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 149ms
+prisma:error 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:128:168
+
+  125 const safeId = sanitizeString(id);
+  126 let cilindro;
+  127 try {
+→ 128     cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+ GET /api/cilindros/CIL-001 200 in 17.1s (compile: 338ms, render: 16.8s)
+prisma:warn Attempt 1/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 66ms
+prisma:warn Attempt 2/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 121ms
+prisma:warn Attempt 3/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 197ms
+prisma:error 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:128:168
+
+  125 const safeId = sanitizeString(id);
+  126 let cilindro;
+  127 try {
+→ 128     cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+ GET /api/cilindros/CIL-001 500 in 21.9s (compile: 31ms, render: 21.9s)
+prisma:warn Attempt 1/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Attempt 1/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 34ms
+prisma:warn Attempt 2/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 58ms
+prisma:warn Attempt 2/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 75ms
+prisma:warn Attempt 3/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 144ms
+prisma:warn Attempt 3/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 151ms
+prisma:error 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findMany()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__f5921fda._.js:155:155
+
+  152 // Buscar cilindros com filtros e paginação
+  153 try {
+  154     const [cilindros, total] = await Promise.all([
+→ 155         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findMany(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 294ms
+prisma:error 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.count()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__f5921fda._.js:167:155
+
+  164     skip,
+  165     take: limit
+  166 }),
+→ 167 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.count(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+ GET /api/cilindros 500 in 22.5s (compile: 259ms, render: 22.2s)
+prisma:warn Attempt 1/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 56ms
+prisma:warn Attempt 2/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 53ms
+prisma:warn Attempt 3/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 284ms
+prisma:error 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:128:168
+
+  125 const safeId = sanitizeString(id);
+  126 let cilindro;
+  127 try {
+→ 128     cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+ GET /api/cilindros/CIL-001 200 in 18.1s (compile: 36ms, render: 18.1s)
+prisma:warn Attempt 1/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 26ms
+prisma:warn Attempt 2/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 84ms
+prisma:warn Attempt 3/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 250ms
+prisma:error 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:128:168
+
+  125 const safeId = sanitizeString(id);
+  126 let cilindro;
+  127 try {
+→ 128     cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+ GET /api/cilindros/CIL-001 500 in 21.9s (compile: 14ms, render: 21.9s)
+prisma:warn Attempt 1/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 32ms
+prisma:warn Attempt 2/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 83ms
+prisma:warn Attempt 3/3 failed for querying: Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+prisma:warn Retrying after 245ms
+prisma:error 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:128:168
+
+  125 const safeId = sanitizeString(id);
+  126 let cilindro;
+  127 try {
+→ 128     cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+ GET /api/cilindros/CIL-001 500 in 21.9s (compile: 32ms, render: 21.8s)
+  Reload env: .env.local
+  Reload env: .env.local
+[?25h

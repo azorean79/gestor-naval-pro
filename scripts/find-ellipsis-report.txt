@@ -1,0 +1,13 @@
+Scanner run: find-ellipsis-pg.js
+Timestamp: 2026-02-24T00:00:00Z
+
+Summary:
+- Connected to DB via pg.
+- Scanning for U+2026 (HORIZONTAL ELLIPSIS, Unicode U+2026).
+- Result: No occurrences of U+2026 found.
+
+Notes:
+- Scanner executed using a temporary runner `run-find-ellipsis-with-url.js` which set `process.env.DATABASE_URL` for this session.
+- No DB mutations were performed.
+
+If you want, I can prepare targeted SQL UPDATE statements to sanitize specific columns if further checks find problematic characters, or run broader normalization.

@@ -1,0 +1,1 @@
+{"error":"Erro ao acessar o DB via fallback (ver logs do servidor)."}

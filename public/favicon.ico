@@ -1,0 +1,46 @@
+{
+  "short_name": "NavalPro",
+  "name": "Gestor Naval Pro",
+  "description": "Gestão de jangadas, navios, clientes e estoque offline.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a1128",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "pt-PT",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/next.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "description": "Acesso rápido ao dashboard",
+      "url": "/",
+      "icons": [
+        { "src": "/next.svg", "sizes": "96x96" }
+      ]
+    },
+    {
+      "name": "Jangadas",
+      "short_name": "Jangadas",
+      "description": "Gerenciar jangadas",
+      "url": "/jangadas",
+      "icons": [
+        { "src": "/next.svg", "sizes": "96x96" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+nome,numero,proprietario,numeroSerie,modelo,lotacao,dataFabricacao,cilindro,tipoPack,tipoPesca,zonaPesca,status,ilha,portoEscala,ultimaInspecao,proximaInspecao,observacoes
+Exemplo Jangada,J-001,Proprietario Exemplo,NS-123,Modelo Exemplo,8,2020-01-01,Cilindro Exemplo,Pack Exemplo,Pesca Exemplo,Zona Exemplo,ativo,Ilha Exemplo,Porto Exemplo,2026-01-01,2026-07-01,Observacoes exemplo

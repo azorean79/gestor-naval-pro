@@ -1,0 +1,2 @@
+nome,email,telefone,morada,nif,tipo,status,dataNascimento,profissao,empresa,observacoes
+Exemplo Cliente,cliente@email.com,+351 912345678,Rua Exemplo 123, 9500-000 Cidade,123456789,empresa,ativo,1990-01-01,Profissao Exemplo,Empresa Exemplo,Observacoes exemplo

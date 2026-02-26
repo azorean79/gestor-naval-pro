@@ -1,0 +1,264 @@
+⚠ Turbopack's filesystem cache has been deleted because we previously detected an internal error in Turbopack. Builds or page loads may be slower as a result.
+prisma:warn In production, we recommend using `prisma generate --no-engine` (See: `prisma generate --help`)
+prisma:warn In production, we recommend using `prisma generate --no-engine` (See: `prisma generate --help`)
+Erro ao buscar cilindro: Error [PrismaClientKnownRequestError]: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:109:170
+
+  106 async function GET(request, { params }) {
+  107     try {
+  108         const { id } = await params;
+→ 109         const cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+    at <unknown> (src\app\api\cilindros\[id]\route.ts:13:44)
+    at async GET (src\app\api\cilindros\[id]\route.ts:13:22)
+  11 |     const { id } = await params;
+  12 |
+> 13 |     const cilindro = await prisma.cilindro.findUnique({
+     |                                            ^
+  14 |       where: { id },
+  15 |       include: {
+  16 |         certificados: true, {
+  code: 'P5010',
+  clientVersion: '5.22.0',
+  meta: [Object]
+}
+Erro ao buscar cilindro (Prisma): Error [PrismaClientKnownRequestError]: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:120:168
+
+  117 const safeId = sanitizeString(id);
+  118 let cilindro;
+  119 try {
+→ 120     cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+    at <unknown> (src\app\api\cilindros\[id]\route.ts:25:40)
+    at async GET (src\app\api\cilindros\[id]\route.ts:25:18)
+  23 |     let cilindro;
+  24 |     try {
+> 25 |       cilindro = await prisma.cilindro.findUnique({
+     |                                        ^
+  26 |         where: { id: safeId },
+  27 |         include: {
+  28 |           certificados: true, {
+  code: 'P5010',
+  clientVersion: '5.22.0',
+  meta: [Object]
+}
+prisma:warn In production, we recommend using `prisma generate --no-engine` (See: `prisma generate --help`)
+Erro ao buscar cilindro (Prisma): Error [PrismaClientKnownRequestError]: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:120:168
+
+  117 const safeId = sanitizeString(id);
+  118 let cilindro;
+  119 try {
+→ 120     cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+    at <unknown> (src\app\api\cilindros\[id]\route.ts:25:40)
+    at async GET (src\app\api\cilindros\[id]\route.ts:25:18)
+  23 |     let cilindro;
+  24 |     try {
+> 25 |       cilindro = await prisma.cilindro.findUnique({
+     |                                        ^
+  26 |         where: { id: safeId },
+  27 |         include: {
+  28 |           certificados: true, {
+  code: 'P5010',
+  clientVersion: '5.22.0',
+  meta: [Object]
+}
+prisma:warn In production, we recommend using `prisma generate --no-engine` (See: `prisma generate --help`)
+Erro ao buscar cilindros: Error [PrismaClientKnownRequestError]: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.count()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__f5921fda._.js:158:151
+
+  155     skip,
+  156     take: limit
+  157 }),
+→ 158 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.count(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+    at <unknown> (src\app\api\cilindros\route.ts:58:23)
+    at async GET (src\app\api\cilindros\route.ts:47:32)
+  56 |         take: limit,
+  57 |       }),
+> 58 |       prisma.cilindro.count({ where }),
+     |                       ^
+  59 |     ]);
+  60 |
+  61 |     return NextResponse.json({ {
+  code: 'P5010',
+  clientVersion: '5.22.0',
+  meta: [Object]
+}
+Erro ao buscar cilindro (Prisma): Error [PrismaClientKnownRequestError]: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:128:168
+
+  125 const safeId = sanitizeString(id);
+  126 let cilindro;
+  127 try {
+→ 128     cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+    at <unknown> (src\app\api\cilindros\[id]\route.ts:26:40)
+    at async GET (src\app\api\cilindros\[id]\route.ts:26:18)
+  24 |     let cilindro;
+  25 |     try {
+> 26 |       cilindro = await prisma.cilindro.findUnique({
+     |                                        ^
+  27 |         where: { id: safeId },
+  28 |         include: {
+  29 |           certificados: true, {
+  code: 'P5010',
+  clientVersion: '5.22.0',
+  meta: [Object]
+}
+prisma:warn In production, we recommend using `prisma generate --no-engine` (See: `prisma generate --help`)
+Erro ao buscar cilindro (Prisma): Error [PrismaClientKnownRequestError]: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:128:168
+
+  125 const safeId = sanitizeString(id);
+  126 let cilindro;
+  127 try {
+→ 128     cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+    at <unknown> (src\app\api\cilindros\[id]\route.ts:26:40)
+    at async GET (src\app\api\cilindros\[id]\route.ts:26:18)
+  24 |     let cilindro;
+  25 |     try {
+> 26 |       cilindro = await prisma.cilindro.findUnique({
+     |                                        ^
+  27 |         where: { id: safeId },
+  28 |         include: {
+  29 |           certificados: true, {
+  code: 'P5010',
+  clientVersion: '5.22.0',
+  meta: [Object]
+}
+prisma:warn In production, we recommend using `prisma generate --no-engine` (See: `prisma generate --help`)
+Fallback pg falhou: AggregateError: 
+    at ignore-listed frames {
+  code: 'ETIMEDOUT'
+}
+Fallback pg falhou: AggregateError: 
+    at ignore-listed frames {
+  code: 'ETIMEDOUT'
+}
+Prisma failed listing cilindros: Error [PrismaClientKnownRequestError]: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findMany()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__f5921fda._.js:155:155
+
+  152 // Buscar cilindros com filtros e paginação
+  153 try {
+  154     const [cilindros, total] = await Promise.all([
+→ 155         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findMany(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+    at <unknown> (src\app\api\cilindros\route.ts:50:25)
+    at async GET (src\app\api\cilindros\route.ts:49:34)
+  48 |     try {
+  49 |       const [cilindros, total] = await Promise.all([
+> 50 |         prisma.cilindro.findMany({
+     |                         ^
+  51 |           where,
+  52 |           include: {
+  53 |             certificados: true, {
+  code: 'P5010',
+  clientVersion: '5.22.0',
+  meta: [Object]
+}
+Fallback pg failed: AggregateError: 
+    at ignore-listed frames {
+  code: 'ETIMEDOUT'
+}
+Erro ao buscar cilindro (Prisma): Error [PrismaClientKnownRequestError]: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:128:168
+
+  125 const safeId = sanitizeString(id);
+  126 let cilindro;
+  127 try {
+→ 128     cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+    at <unknown> (src\app\api\cilindros\[id]\route.ts:26:40)
+    at async GET (src\app\api\cilindros\[id]\route.ts:26:18)
+  24 |     let cilindro;
+  25 |     try {
+> 26 |       cilindro = await prisma.cilindro.findUnique({
+     |                                        ^
+  27 |         where: { id: safeId },
+  28 |         include: {
+  29 |           certificados: true, {
+  code: 'P5010',
+  clientVersion: '5.22.0',
+  meta: [Object]
+}
+prisma:warn In production, we recommend using `prisma generate --no-engine` (See: `prisma generate --help`)
+Erro ao buscar cilindro (Prisma): Error [PrismaClientKnownRequestError]: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:128:168
+
+  125 const safeId = sanitizeString(id);
+  126 let cilindro;
+  127 try {
+→ 128     cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+    at <unknown> (src\app\api\cilindros\[id]\route.ts:26:40)
+    at async GET (src\app\api\cilindros\[id]\route.ts:26:18)
+  24 |     let cilindro;
+  25 |     try {
+> 26 |       cilindro = await prisma.cilindro.findUnique({
+     |                                        ^
+  27 |         where: { id: safeId },
+  28 |         include: {
+  29 |           certificados: true, {
+  code: 'P5010',
+  clientVersion: '5.22.0',
+  meta: [Object]
+}
+prisma:warn In production, we recommend using `prisma generate --no-engine` (See: `prisma generate --help`)
+Fallback pg falhou: AggregateError: 
+    at ignore-listed frames {
+  code: 'ETIMEDOUT'
+}
+Fallback pg falhou: AggregateError: 
+    at ignore-listed frames {
+  code: 'ETIMEDOUT'
+}
+Erro ao buscar cilindro (Prisma): Error [PrismaClientKnownRequestError]: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique()` invocation in
+C:\Users\julio\Desktop\APLICACAO MASTER\gestor-naval-pro\.next\dev\server\chunks\[root-of-the-server]__6537c143._.js:128:168
+
+  125 const safeId = sanitizeString(id);
+  126 let cilindro;
+  127 try {
+→ 128     cilindro = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].cilindro.findUnique(
+Cannot fetch data from service:
+Cannot convert argument to a ByteString because the character at index 112 has a value of 8230 which is greater than 255.
+    at <unknown> (src\app\api\cilindros\[id]\route.ts:26:40)
+    at async GET (src\app\api\cilindros\[id]\route.ts:26:18)
+  24 |     let cilindro;
+  25 |     try {
+> 26 |       cilindro = await prisma.cilindro.findUnique({
+     |                                        ^
+  27 |         where: { id: safeId },
+  28 |         include: {
+  29 |           certificados: true, {
+  code: 'P5010',
+  clientVersion: '5.22.0',
+  meta: [Object]
+}
+prisma:warn In production, we recommend using `prisma generate --no-engine` (See: `prisma generate --help`)
+Fallback pg falhou: AggregateError: 
+    at ignore-listed frames {
+  code: 'ETIMEDOUT'
+}

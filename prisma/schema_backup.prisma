@@ -1,0 +1,604 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ========== MODELOS BASE ==========
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  nome      String
+  role      String   @default("operador") // admin | operador | visualizador
+  permissoes String?   // JSON string de permiss√µes
+  ativo     Boolean  @default(true)
+  ultimoAcesso DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+// ========== JANGADAS ==========
+model Jangada {
+  id             String   @id @default(cuid())
+  numero         String   @unique
+  nome           String
+  proprietario   String
+  numeroSerie    String?  // n√∫mero de s√©rie da jangada
+  marca          String?
+  modelo         String?
+  lotacao        Int?     // capacidade de pessoas
+  dataFabricacao DateTime?
+  cilindro       String?  // tipo de cilindro/motor
+  tipoPack       String?  // tipo de pack (composto pelos itens do pack)
+  tipoPesca      String?
+  zonaPesca      String?
+  status         String   @default("ativo") // ativo | inativo | manutencao
+  // ...campo portoRegisto removido
+  ilha           String?
+  portoEscala    String?
+  ultimaInspecao DateTime?
+  proximaInspecao DateTime?
+  observacoes    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  documentos Documento[]
+
+  @@map("jangadas")
+}
+
+// ========== NAVIOS ==========
+model Navio {
+  id             String   @id @default(cuid())
+  nome           String
+  imo            String   @unique
+  mmsi           String?
+  matricula      String?
+  bandeira       String?
+  // ...campo portoRegisto removido
+  ilha           String?
+  portoEscala    String?
+  tipo           String
+  comprimento    Float?
+  largura        Float?
+  calado         Float?
+  capacidade     Float?  // em toneladas
+  proprietario   String?
+  proprietarioId String?
+
+  cliente Cliente? @relation(fields: [proprietarioId], references: [id], onDelete: SetNull)
+  armador        String?
+  status         String   @default("ativo") // ativo | inativo | manutencao | abandonado
+  ultimaInspecao DateTime?
+  proximaInspecao DateTime?
+  observacoes    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  certificados Certificado[]
+  equipamentos Equipamento[]
+
+  ordensServico OrdemServico[]
+
+  @@map("navios")
+}
+
+// ========== CLIENTES ==========
+model Cliente {
+  id             String   @id @default(cuid())
+  nome           String
+  tipo           String   // pessoa_fisica | pessoa_juridica
+  nif            String   @unique
+  email          String
+  telefone       String
+  morada         String?    // JSON string de morada
+  contactosEmergencia String? // JSON string de contactos de emerg√™ncia
+  status         String   @default("ativo") // ativo | inativo | suspenso
+  // ...campo portoRegisto removido
+  ilha           String?
+  portoEscala    String?
+  dataNascimento DateTime?
+  profissao      String?
+  empresa        String?
+  observacoes    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  documentos Documento[]
+  navios Navio[]
+
+  ordensServico OrdemServico[]
+
+  @@map("clientes")
+}
+
+// ========== STOCK ==========
+model ItemStock {
+  id             String   @id @default(cuid())
+  nome           String
+  categoria      String
+  descricao      String?
+  unidade        String   @default("unidade")
+  quantidadeAtual Float   @default(0)
+  quantidadeMinima Float  @default(0)
+  quantidadeMaxima Float?
+  precoUnitario  Float?
+  fornecedor     String?
+  localizacao    String?
+  status         String   @default("disponivel") // disponivel | baixo | esgotado
+  dataUltimaEntrada DateTime?
+  dataUltimaSaida DateTime?
+  observacoes    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  movimentacoes MovimentacaoStock[]
+
+  itensOrdemServico ItemOrdemServico[]
+
+  @@map("item_stock")
+}
+
+model MovimentacaoStock {
+  id             String   @id @default(cuid())
+  itemId         String
+  tipo           String   // entrada | saida
+  quantidade     Float
+  motivo         String
+  data           DateTime @default(now())
+  responsavel    String
+  valorUnitario  Float?
+  observacoes    String?
+
+  item ItemStock @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  @@map("movimentacao_stock")
+}
+
+// ========== CILINDROS ==========
+model Cilindro {
+  id             String   @id @default(cuid())
+  numeroSerie    String   @unique
+  pesoBruto      Float?  // peso bruto em kg
+  tara           Float?  // tara em kg
+  quantidadeCO2  Float?  // quantidade de CO2 em kg
+  quantidadeN2   Float?  // quantidade de N2 em kg
+  testeHidraulico DateTime? // data do √∫ltimo teste hidr√°ulico
+  proximoTesteHidraulico DateTime? // data do pr√≥ximo teste hidr√°ulico
+  tipoSistemaInsuflacao String? // tipo de sistema de insufla√ß√£o
+  status         String   @default("operacional") // operacional | manutencao | defeituoso | descartado
+  localizacao    String?
+  proprietario   String?
+  observacoes    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  certificados Certificado[]
+  historicoInspecoes InspecaoCilindro[]
+
+  @@map("cilindros")
+}
+
+model InspecaoCilindro {
+  id             String   @id @default(cuid())
+  cilindroId     String
+  data           DateTime @default(now())
+  tipo           String   // periodica | extraordinaria
+  resultado      String   // aprovado | reprovado
+  inspector      String
+  observacoes    String
+  proximaInspecao DateTime?
+
+  cilindro Cilindro @relation(fields: [cilindroId], references: [id], onDelete: Cascade)
+
+  @@map("inspecao_cilindro")
+}
+
+// ========== AGENDA ==========
+model Agendamento {
+  id             String   @id @default(cuid())
+  titulo         String
+  descricao      String?
+  tipo           String   // inspecao | manutencao | reuniao | treinamento | outro
+  dataInicio     DateTime
+  dataFim        DateTime
+  local          String?
+  responsavel    String
+  participantes  String?   // JSON string de participantes
+  status         String   @default("agendado") // agendado | em_andamento | concluido | cancelado
+  prioridade     String   @default("media") // baixa | media | alta | urgente
+  entidadeRelacionada String? // JSON string de entidade relacionada
+  observacoes    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  lembretes Lembrete[]
+
+  @@map("agendamentos")
+}
+
+model Lembrete {
+  id             String   @id @default(cuid())
+  agendamentoId  String
+  data           DateTime
+  tipo           String   // email | sms | notificacao
+  mensagem       String
+  enviado        Boolean  @default(false)
+
+  agendamento Agendamento @relation(fields: [agendamentoId], references: [id], onDelete: Cascade)
+
+  @@map("lembretes")
+}
+
+// ========== ORDENS DE SERVI√áO ==========
+model OrdemServico {
+  id             String   @id @default(cuid())
+  numero         String   @unique
+  clienteId      String?
+  clienteNome    String?
+  navioId        String?
+  navioNome      String?
+  tipoServico    String
+  status         String   @default("recebido") // recebido | em_andamento | concluido | cancelado
+  prioridade     String   @default("normal") // baixa | normal | alta | urgente
+  dataRececao    DateTime
+  dataPrevistaEntrega DateTime?
+  delegacao      String?
+  tecnicoResponsavel String?
+  observacoes    String?
+  valorEstimado  Float?
+  etapas         String?   // JSON string de etapas
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  cliente Cliente? @relation(fields: [clienteId], references: [id], onDelete: SetNull)
+  navio Navio? @relation(fields: [navioId], references: [id], onDelete: SetNull)
+  itens ItemOrdemServico[]
+  relatorios Relatorio[]
+
+  @@map("ordens_servico")
+}
+
+model ItemOrdemServico {
+  id             String   @id @default(cuid())
+  ordemServicoId String
+  itemStockId    String
+  quantidade     Float
+  valorUnitario  Float?
+  observacoes    String?
+
+  ordemServico OrdemServico @relation(fields: [ordemServicoId], references: [id], onDelete: Cascade)
+  itemStock ItemStock @relation(fields: [itemStockId], references: [id], onDelete: Cascade)
+
+  @@map("itens_ordem_servico")
+}
+
+// ========== RELAT√ìRIOS ==========
+model Relatorio {
+  id             String   @id @default(cuid())
+  titulo         String
+  tipo           String   // jangadas | navios | clientes | stock | cilindros | agenda | financeiro | geral
+  periodo        String     // JSON string de per√≠odo
+  dados          String     // JSON string de dados do relat√≥rio
+  geradoPor      String
+  dataGeracao    DateTime @default(now())
+  formato        String   @default("pdf") // pdf | excel | json
+  arquivo        String?  // Caminho do arquivo
+  ordemServicoId String?
+
+  ordemServico OrdemServico? @relation(fields: [ordemServicoId], references: [id], onDelete: SetNull)
+
+  @@map("relatorios")
+}
+
+// ========== BACKUP ==========
+model Backup {
+  id             String   @id @default(cuid())
+  nome           String
+  tipo           String   @default("manual") // automatico | manual
+  data           DateTime @default(now())
+  tamanho        Int      // em bytes
+  status         String   @default("concluido") // em_andamento | concluido | falhou
+  localizacao    String   // Caminho do arquivo
+  criadoPor      String
+  observacoes    String?
+
+  @@map("backups")
+}
+
+// ========== CONFIGURA√á√ïES ==========
+model Configuracao {
+  id             String   @id @default(cuid())
+  chave          String   @unique
+  valor          String
+  tipo           String   @default("string") // string | number | boolean | object
+  descricao      String
+  categoria      String
+  editavel       Boolean  @default(true)
+
+  @@map("configuracoes")
+}
+
+// ========== ENTIDADES AUXILIARES ==========
+model Documento {
+  id             String   @id @default(cuid())
+  tipo           String   // licenca | seguro | certificado | outro
+  numero         String
+  emissor        String
+  dataEmissao    DateTime
+  dataValidade   DateTime
+  arquivo        String?  // Caminho do arquivo
+  jangadaId      String?
+  clienteId      String?
+
+  jangada Jangada? @relation(fields: [jangadaId], references: [id], onDelete: Cascade)
+  cliente Cliente? @relation(fields: [clienteId], references: [id], onDelete: Cascade)
+
+  @@map("documentos")
+}
+
+model Certificado {
+  id             String   @id @default(cuid())
+  tipo           String
+  numero         String
+  emissor        String
+  dataEmissao    DateTime?
+  dataValidade   DateTime?
+  status         String   @default("valido") // valido | expirando | expirado
+  navioId        String?
+  cilindroId     String?
+  arquivoUrl     String?
+  tipoEquipamento String?
+  marca          String?
+  modelos        String?    // JSON string de modelos
+  observacoes    String?
+
+  navio Navio? @relation(fields: [navioId], references: [id], onDelete: Cascade)
+  cilindro Cilindro? @relation(fields: [cilindroId], references: [id], onDelete: Cascade)
+
+  @@map("certificados")
+}
+
+model Equipamento {
+  id             String   @id @default(cuid())
+  nome           String
+  tipo           String
+  fabricante     String
+  modelo         String
+  numeroSerie    String
+  dataInstalacao DateTime?
+  status         String   @default("operacional") // operacional | manutencao | defeituoso
+  ultimaManutencao DateTime?
+  proximaManutencao DateTime?
+  navioId        String
+
+  navio Navio @relation(fields: [navioId], references: [id], onDelete: Cascade)
+
+  @@map("equipamentos")
+}
+
+// ========== INSPE√á√ïES ==========
+model Inspecao {
+  id                String   @id @default(cuid())
+  equipamentoId     String
+  equipamentoNome   String
+  clienteId         String
+  clienteNome       String
+  tipoInspecao      String   // anual | extraordinaria | inicial | final
+  tecnico           String
+  dataInspecao      DateTime
+  status            String   @default("em_andamento") // em_andamento | concluida | aprovada | reprovada
+  checklist         String   // JSON string do checklist
+  observacoesGerais String?
+  dataConclusao     DateTime?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Nota: Rela√ß√µes n√£o definidas pois equipamento pode ser navio, jangada, etc.
+  // Usamos campos denormalizados para simplicidade
+}
+
+// ========== LOG√çSTICA DE JANGADAS ==========
+model TransporteJangada {
+  id                String   @id @default(cuid())
+  jangadaId         String
+  jangadaNome       String
+  origemIlha        String   // Ilha de origem (S√£o Miguel, Terceira, etc.)
+  destinoIlha       String   // Ilha de destino
+  dataTransporte    DateTime
+  tipoTransporte    String   // barco_transporte | ferry | reboque | proprio
+  veiculoTransporte String?  // Nome/barco que far√° o transporte
+  motorista         String?  // Nome do respons√°vel pelo transporte
+  custoTransporte   Float?
+  status            String   @default("agendado") // agendado | em_transito | concluido | cancelado
+  documentacao      String?  // JSON string com documenta√ß√£o necess√°ria
+  observacoes       String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("transporte_jangadas")
+}
+
+model Porto {
+  id                String   @id @default(cuid())
+  nome              String
+  ilha              String   // Ilha onde est√° localizado
+  tipo              String   // comercial | pesca | recreativo | transporte
+  coordenadas       String?  // Latitude,Longitude
+  capacidade        Int?     // Capacidade de embarca√ß√µes
+  servicos          String?  // JSON string com servi√ßos dispon√≠veis
+  contacto          String?
+  status            String   @default("ativo") // ativo | manutencao | fechado
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("portos")
+}
+
+model RotaTransporte {
+  id                String   @id @default(cuid())
+  origemIlha        String
+  destinoIlha       String
+  distanciaKm       Float
+  tempoEstimadoHoras Float
+  custoBase         Float
+  frequencia        String?  // diaria | semanal | mensal
+  transportadoras   String?  // JSON string com transportadoras dispon√≠veis
+  observacoes       String?
+  status            String   @default("ativo") // ativo | suspenso | cancelado
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("rotas_transporte")
+}
+
+// ========== INCLUS√O DE M”DULOS ADICIONAIS ==========
+// Incluir schemas dos mÛdulos EPIRBS, IMPORTA«’ES e AN¡LISE IA
+// Nota: Os modelos est„o definidos em arquivos separados para melhor organizaÁ„o
+
+// ========== EPIRBS (Emergency Position Indicating Radio Beacons) ==========
+model EPIRB {
+  id             String   @id @default(cuid())
+  numeroSerie    String   @unique
+  tipo           String   // categoria1 | categoria2
+  fabricante     String
+  modelo         String
+  frequencia     String   // 406 MHz | 121.5 MHz
+  tipoBateria    String
+  dataFabricacao DateTime?
+  dataInstalacao DateTime?
+  dataUltimoTeste DateTime?
+  dataProximoTeste DateTime?
+  status         String   @default("operacional") // operacional | manutencao | defeituoso | expirado
+  embarcacaoId   String?  // ID da embarcaÁ„o (navio ou jangada)
+  embarcacaoTipo String?  // navio | jangada
+  embarcacaoNome String?
+  localizacao    String?  // LocalizaÁ„o atual
+  proprietario   String?
+  observacoes    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  testes TesteEPIRB[]
+
+  @@map("epirbs")
+}
+
+model TesteEPIRB {
+  id             String   @id @default(cuid())
+  epirbId        String
+  dataTeste      DateTime @default(now())
+  tipoTeste      String   // automatico | manual | homologacao
+  resultado      String   // aprovado | reprovado
+  tecnico        String
+  latitude       Float?
+  longitude      Float?
+  sinalRecebido  Boolean  @default(false)
+  observacoes    String?
+
+  epirb EPIRB @relation(fields: [epirbId], references: [id], onDelete: Cascade)
+
+  @@map("teste_epirbs")
+}
+
+// ========== IMPORTA«’ES ==========
+model Importacao {
+  id             String   @id @default(cuid())
+  numeroProcesso String   @unique
+  tipo           String   // equipamento | pecas | combustivel | outros
+  descricao      String
+  fornecedor     String
+  paisOrigem     String
+  valorTotal     Float
+  moeda         String   @default("EUR")
+  dataPedido     DateTime
+  dataPrevistaEntrega DateTime?
+  dataEntrega    DateTime?
+  status         String   @default("em_transito") // solicitada | em_transito | liberada | rejeitada | cancelada
+  documentos     String?  // JSON string com documentos necess·rios
+  certificados   String?  // JSON string com certificados necess·rios
+  taxas          String?  // JSON string com taxas e impostos
+  transportador  String?
+  portoDestino   String?
+  responsavel    String
+  observacoes    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  itens ItemImportacao[]
+
+  @@map("importacoes")
+}
+
+model ItemImportacao {
+  id             String   @id @default(cuid())
+  importacaoId   String
+  produto        String
+  quantidade     Float
+  unidade        String
+  valorUnitario  Float
+  valorTotal     Float
+  categoria      String
+  especificacoes String?  // JSON string com especificaÁıes tÈcnicas
+  certificados   String?  // JSON string com certificados do item
+  observacoes    String?
+
+  importacao Importacao @relation(fields: [importacaoId], references: [id], onDelete: Cascade)
+
+  @@map("itens_importacao")
+}
+
+// ========== AN¡LISE IA ==========
+model AnaliseIA {
+  id             String   @id @default(cuid())
+  tipo           String   // predicao_manutencao | analise_risco | otimizacao_rotas | analise_consumo
+  titulo         String
+  descricao      String
+  dadosEntrada   String   // JSON string com dados de entrada
+  modeloIA       String   // nome do modelo/algoritmo usado
+  resultado      String   // JSON string com resultado da an·lise
+  confianca      Float?   // nÌvel de confianÁa (0-1)
+  recomendacoes  String?  // JSON string com recomendaÁıes
+  dataAnalise    DateTime @default(now())
+  entidadeId     String?  // ID da entidade analisada (navio, jangada, etc.)
+  entidadeTipo   String?  // navio | jangada | cliente | equipamento
+  status         String   @default("concluida") // em_andamento | concluida | falhou
+  tempoProcessamento Int? // tempo em segundos
+  custo          Float?   // custo computacional estimado
+  observacoes    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("analises_ia")
+}
+
+model ModeloIA {
+  id             String   @id @default(cuid())
+  nome           String
+  versao         String
+  tipo           String   // regressao | classificacao | clustering | serie_temporal
+  descricao      String
+  parametros     String?  // JSON string com par‚metros do modelo
+  acuracia       Float?
+  precisao       Float?
+  recall         Float?
+  f1Score        Float?
+  dataTreinamento DateTime?
+  dataset        String?  // referÍncia ao dataset usado
+  status         String   @default("ativo") // ativo | treinado | deprecated
+  observacoes    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+
+
+  @@map("modelos_ia")
+}

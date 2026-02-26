@@ -1,0 +1,2 @@
+nome,categoria,descricao,unidade,quantidadeAtual,quantidadeMinima,quantidadeMaxima,precoUnitario,fornecedor,localizacao,status,dataUltimaEntrada,dataUltimaSaida,observacoes
+Exemplo Item,Categoria Exemplo,Descricao exemplo,unidade,10,2,20,100.00,Fornecedor Exemplo,Localizacao Exemplo,disponivel,2026-01-01,2026-01-10,Observacoes exemplo

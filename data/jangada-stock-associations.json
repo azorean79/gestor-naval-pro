@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-02-26T15:56:14.794Z",
+  "associations": [
+    {
+      "jangadaId": "cmm3m2mhi0004ahajoukyyxno",
+      "numeroReferencia": "RFD-SURVIVA-MKIV-01",
+      "pack": "SOLAS A",
+      "itemIds": [
+        "cmm3m4l9d0000u1noe8ymepce",
+        "cmm3m4l9o0001u1noqla8pbue",
+        "cmm3m4l9w0002u1nohc3yut0h"
+      ]
+    },
+    {
+      "jangadaId": "cmm3m2mhi0004ahajoukyyxno",
+      "numeroReferencia": "RFD-SURVIVA-MKIV-01",
+      "pack": "SOLAS B",
+      "itemIds": [
+        "cmm3m4l9d0000u1noe8ymepce",
+        "cmm3m4l9o0001u1noqla8pbue",
+        "cmm3m4l9w0002u1nohc3yut0h"
+      ]
+    },
+    {
+      "jangadaId": "cmm3m2mhy0007ahajphd1ym8g",
+      "numeroReferencia": "RFD-SURVIVA-MKIV-02",
+      "pack": "SOLAS A",
+      "itemIds": [
+        "cmm3m4l9d0000u1noe8ymepce",
+        "cmm3m4l9o0001u1noqla8pbue",
+        "cmm3m4l9w0002u1nohc3yut0h"
+      ]
+    },
+    {
+      "jangadaId": "cmm3m2mhy0007ahajphd1ym8g",
+      "numeroReferencia": "RFD-SURVIVA-MKIV-02",
+      "pack": "SOLAS B",
+      "itemIds": [
+        "cmm3m4l9d0000u1noe8ymepce",
+        "cmm3m4l9o0001u1noqla8pbue",
+        "cmm3m4l9w0002u1nohc3yut0h"
+      ]
+    },
+    {
+      "jangadaId": "cmm3m2mim000aahaje55r5lju",
+      "numeroReferencia": "RFD-SURVIVA-MKIV-03",
+      "pack": "SOLAS A",
+      "itemIds": [
+        "cmm3m4l9d0000u1noe8ymepce",
+        "cmm3m4l9o0001u1noqla8pbue",
+        "cmm3m4l9w0002u1nohc3yut0h"
+      ]
+    },
+    {
+      "jangadaId": "cmm3m2mim000aahaje55r5lju",
+      "numeroReferencia": "RFD-SURVIVA-MKIV-03",
+      "pack": "SOLAS B",
+      "itemIds": [
+        "cmm3m4l9d0000u1noe8ymepce",
+        "cmm3m4l9o0001u1noqla8pbue",
+        "cmm3m4l9w0002u1nohc3yut0h"
+      ]
+    }
+  ]
+}

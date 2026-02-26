@@ -1,0 +1,138 @@
+// ========== EPIRBS (Emergency Position Indicating Radio Beacons) ==========
+model EPIRB {
+  id             String   @id @default(cuid())
+  numeroSerie    String   @unique
+  tipo           String   // categoria1 | categoria2
+  fabricante     String
+  modelo         String
+  frequencia     String   // 406 MHz | 121.5 MHz
+  tipoBateria    String
+  dataFabricacao DateTime?
+  dataInstalacao DateTime?
+  dataUltimoTeste DateTime?
+  dataProximoTeste DateTime?
+  status         String   @default('operacional') // operacional | manutencao | defeituoso | expirado
+  embarcacaoId   String?  // ID da embarcação (navio ou jangada)
+  embarcacaoTipo String?  // navio | jangada
+  embarcacaoNome String?
+  localizacao    String?  // Localização atual
+  proprietario   String?
+  observacoes    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  testes TesteEPIRB[]
+
+  @@map('epirbs')
+}
+
+model TesteEPIRB {
+  id             String   @id @default(cuid())
+  epirbId        String
+  dataTeste      DateTime @default(now())
+  tipoTeste      String   // automatico | manual | homologacao
+  resultado      String   // aprovado | reprovado
+  tecnico        String
+  latitude       Float?
+  longitude      Float?
+  sinalRecebido  Boolean  @default(false)
+  observacoes    String?
+
+  epirb EPIRB @relation(fields: [epirbId], references: [id], onDelete: Cascade)
+
+  @@map('teste_epirbs')
+}
+
+// ========== IMPORTAÇÕES ==========
+model Importacao {
+  id             String   @id @default(cuid())
+  numeroProcesso String   @unique
+  tipo           String   // equipamento | pecas | combustivel | outros
+  descricao      String
+  fornecedor     String
+  paisOrigem     String
+  valorTotal     Float
+  moeda         String   @default('EUR')
+  dataPedido     DateTime
+  dataPrevistaEntrega DateTime?
+  dataEntrega    DateTime?
+  status         String   @default('em_transito') // solicitada | em_transito | liberada | rejeitada | cancelada
+  documentos     String?  // JSON string com documentos necessários
+  certificados   String?  // JSON string com certificados necessários
+  taxas          String?  // JSON string com taxas e impostos
+  transportador  String?
+  portoDestino   String?
+  responsavel    String
+  observacoes    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  itens ItemImportacao[]
+
+  @@map('importacoes')
+}
+
+model ItemImportacao {
+  id             String   @id @default(cuid())
+  importacaoId   String
+  produto        String
+  quantidade     Float
+  unidade        String
+  valorUnitario  Float
+  valorTotal     Float
+  categoria      String
+  especificacoes String?  // JSON string com especificações técnicas
+  certificados   String?  // JSON string com certificados do item
+  observacoes    String?
+
+  importacao Importacao @relation(fields: [importacaoId], references: [id], onDelete: Cascade)
+
+  @@map('itens_importacao')
+}
+
+// ========== ANÁLISE IA ==========
+model AnaliseIA {
+  id             String   @id @default(cuid())
+  tipo           String   // predicao_manutencao | analise_risco | otimizacao_rotas | analise_consumo
+  titulo         String
+  descricao      String
+  dadosEntrada   String   // JSON string com dados de entrada
+  modeloIA       String   // nome do modelo/algoritmo usado
+  resultado      String   // JSON string com resultado da análise
+  confianca      Float?   // nível de confiança (0-1)
+  recomendacoes  String?  // JSON string com recomendações
+  dataAnalise    DateTime @default(now())
+  entidadeId     String?  // ID da entidade analisada (navio, jangada, etc.)
+  entidadeTipo   String?  // navio | jangada | cliente | equipamento
+  status         String   @default('concluida') // em_andamento | concluida | falhou
+  tempoProcessamento Int? // tempo em segundos
+  custo          Float?   // custo computacional estimado
+  observacoes    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map('analises_ia')
+}
+
+model ModeloIA {
+  id             String   @id @default(cuid())
+  nome           String
+  versao         String
+  tipo           String   // regressao | classificacao | clustering | serie_temporal
+  descricao      String
+  parametros     String?  // JSON string com parâmetros do modelo
+  acuracia       Float?
+  precisao       Float?
+  recall         Float?
+  f1Score        Float?
+  dataTreinamento DateTime?
+  dataset        String?  // referência ao dataset usado
+  status         String   @default('ativo') // ativo | treinado | deprecated
+  observacoes    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  analises AnaliseIA[]
+
+  @@map('modelos_ia')
+}

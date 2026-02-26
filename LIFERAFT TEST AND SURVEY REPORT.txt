@@ -1,0 +1,274 @@
+	SURVITEC ZODIAC    LIFERAFT TEST AND SURVEY REPORT n°		PAGE No 1/3
+				
+	Date: _ _/_ _/ _ _		Station N°: _ _ _ _ _	REINSPECTION CERTIFICATE N°: _ _ _ _ _ _
+														
+														
+	Type of liferaft					Ship name								
+	Capacity					Owner								
+	Serial n°					Flag state								
+	Pack					IMO N°								
+	Date of Manufacture					Last service								
+	Painter Line length					By station n°								
+	Stowage height					Last certificate n°						
+		Information if MES SIS raft (mini slide)		Left			Right	
+				Position of container on board	Port side		Starboard	
+				Firing Line Length (if EBL)								
+			Mooring springs position for SIS slide connection	1	2	3	4		5	6	
+														
+														
+
+        1. BLAST TEST on inflation hoses
+
+    2. OVERPRESSURE VALVES *
+
+Start:			TUBES						ARCHES		
+End:	UP / F1	LOW / F2	F3	F4	F5	F6	A1	A2	A3	A4	A5	A6
+Opening												
+Reset												
+
+    • Opening/reset pressures of the over pressure valves according to the color of the dot on the valve. Refer to Manual MS003, page 4 in PART I - Controls, Solas Tests
+
+
+LIFERAFT FITTED WITH VENTURI: VENTURI PROTECTIVE TUBE
+
+Overpressure valves test	UPPER	LOWER
+
+Opening (max 296)
+
+Reset (mini 206)
+
+
+3. WORKING PRESSURE TEST (WP test) Tolerance 5% of start pressure
+							Time					Temperature			Atmospheric pressure
+			Start								T1:				P1:			
+			End								T2:				P2:			
+				Difference															
+				Correction															
+																				
+					TUBES										ARCHES			
+			UP / F1	LOW / F2		F3	F4		F5		F6		A1	A2		A3		A4		A5	A6
+	Start																			
+	End																			
+	Result (after																			
+	correction)																			
+	Valid test																			
+	YES/NO																			
+									
+			LIFERAFT FITTED WITH VENTURI: VENTURI PROTECTIVE TUBE			
+												
+			Pressure Test		Time			UP (~235 mbar)	LOW (~235 mbar)			
+			Start																
+																			
+			End (test on 10 mn)																
+																
+			Final Result (OK if loss < 130 mbar)												
+
+
+
+
+
+
+Ed.03-2020
+
+SURVITEC ZODIAC	LIFERAFT TEST AND SURVEY REPORT n°	PAGE No 2/3
+
+
+
+    4. CYLINDERS
+
+Cylinder N° CO2 Weight N2 Weight
+
+Full Weight
+
+Weight reading
+
+Last Hydro test
+
+Cylinder refilling date
+
+Firing head Type & n°
+
+
+	5. TESTS CARRIED OUT	Yes	No
+			
+
+NAP TEST
+
+GI test
+
+Floor seam test
+
+Over load test (DL)
+
+Cylinder hydro test
+
+Hoses replaced
+
+
+	6. LIFERAFT INSPECTION																		
+	Main buoyancies	Check		R*			Canopy			Check		R*	Inner floor		Check	R*	
+	Buoyancy				Canopy						Automatic bailer					
+	Reflective tape				Reflective tape						Vacuum breaker					
+	Outer lifeline				Rainwater collector					Insulating foam/rem. floor					
+	Inner lifeline				Entrances						Outer floor		Check	R*	
+	Painter patch				External flashing light					Reflective tape					
+	Towing patch				Arches						Water pockets					
+	Bowsing lines				Shackle / Ring (DL)					CO² cyl. pocket/Velcro straps					
+	Ramp / Ladder				Webbings (DL)						Righting straps					
+	Overpressure valves																				
+	Overpressure valves caps					Container / Valise		Check		R*	Inflation system		Check	R*	
+	Labels				Upper shell						CO² valves					
+	Floating knife				Lower shell						Hoses					
+	Sea Anchor				Foam / plastic sheet					Inflation valves					
+	Quoit + Line				Painter line												
+	Painter line retrieving line				Labels						If raft fitted with Venturi		Check	R*	
+	Signal card				Identification tube						Venturi					
+	Immediate actions card				Shackle access cover (DL)				Venturi caps					
+	Lighting system														Venturi flap cover					
+	R* = replacement																				
+																	
+	7. IF MES LIFERAFT: CONNECTION LINES												
+						MES SIS LIFERAFT (Mini slide)							
+	Extremity Bowsing Line (EBL)			Check		R*		Central Bowsing Line (CBL)		Check		R*	
+	EBL system good condition (Bowsing lines + Shock						CBL system good condition (Shock absorber +						
+	absorbers)										Safety line)								
+	Bowsing lines attached with 35kg zip ties								4 rings (per side) connected						
+	2 B. lines with connected shock absorber (one per side)						Shackles secured							
+	Slings connected to the EBL system								Bowsing line + Painter connected to the CBL system						
+					MES MIS LIFERAFT (Super slide)							
+	PRIMARY				Check		R*		SECONDARY / ADDITIONNAL		Check		R*	
+	Blue Tether line attached with 9 kg (x2) zip ties							Extremity connection lines fixed with 9 kg (x2) zip ties						
+	Bowsing lines V connected with shackle + secured							Short connection lines OR shackles connected (in						
+								vacuum pouch)								
+																			
+	Slings connected to the Bowsing V								Pre-connection lines connected (out of vacuum pouch)						
+Ed.03-2020																				
+
+SURVITEC ZODIAC	LIFERAFT TEST AND SURVEY REPORT n°	PAGE No 3/3
+
+
+
+8. ACCESSORIES INSPECTION
+
+
+Equipment	Check	R*	Expiry date
+In the pack:			
+Hand flares			
+Rocket parachute			
+Smoke signal			
+Food			
+Water			
+First aid kit			
+Seasickness tablets			
+Batteries 1,5V			
+Glue in repair kit			
+EPIRB			
+			
+			
+Outside of the pack:			
+Radar transponder			
+HRU			
+Lighting system			
+(battery + flashing light)			
+R* = replacement			
+
+
+
+Other equipment	Check	R*
+
+Leak stopper
+
+Foot pump
+
+Bailer
+
+Sponge
+
+Tin opener
+
+Fishing kit
+
+Torch
+
+Spare bulb
+
+Signal mirror
+
+Whistle
+
+Drinking vessel
+
+Seasickness bags
+
+Sea anchor
+
+Paddles
+
+Rainwater collector
+
+Servicing history
+
+T.P.A.
+
+Radar reflector
+
+
+9. LIFERAFT AND EQUIPMENT CONDITION INFORMATION
+
+					Yes	No		Yes	No
+									
+	Was the raft wet?			Was the liferaft damaged?		
+									
+	Was the container damaged?			Had the liferaft been fired		
+									
+	Nature and extent of the damages:				
+							
+	Nature and extent of the defects:				
+						
+	Repairs carried out / remarks:				
+									
+
+
+
+
+10. REPACKING WITH SAFETY CHECK - PACKER / CHECKER
+
+
+	DOCUMENTS		Packer	Checker
+	Liferaft label completed		
+	ID card completed		
+	Re-inspection certificate completed		
+
+
+DOCUMENTS	Packer	Checker
+Container label completed		
+Servicing history completed		
+		
+
+	CONNECTIONS		Packer	Checker.
+	Light connected		
+	Painter line connected		
+	Quick firing line connected		
+			
+	DL container: shackle access cover		
+	glued		
+
+
+For liferaft with VENTURI	Packer	Checker
+Venturi flap cover in position		
+Venturi caps removed		
+Venturis opened / secured		
+Venturi protection rolled		
+Venturi protection held in central		
+pos. on container (Not on MIS R302)		
+
+Station n°:	Technician’s name:	Signature:
+	Checker’s name:	Signature:
+IMPORTANT - The « Technician or Packer » as well as the « Checker » must be approved by SurvitecZodiac.
+Please contact SurvitecZodiac for approval if an exemption is needed.
+
+- The fields « Packer » and « Checker » must be always filled with the initials or with « N/A».
+
+
+
+Ed.03-2020

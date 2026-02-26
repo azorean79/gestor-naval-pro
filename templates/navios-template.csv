@@ -1,0 +1,2 @@
+nome,imo,mmsi,matricula,bandeira,ilha,portoEscala,tipoNavio,comprimento,largura,calado,capacidade,proprietario,armador,status,ultimaInspecao,proximaInspecao,observacoes
+Exemplo Navio,IMO123456,123456789,PT-1234-A,Portugal,Ilha Exemplo,Porto Exemplo,Tipo Exemplo,100,20,5,5000,Proprietario Exemplo,Armador Exemplo,ativo,2026-01-01,2026-07-01,Observacoes exemplo

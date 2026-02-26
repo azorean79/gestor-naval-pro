@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stock Viewer</title>
+  <style>
+    body{font-family:Inter, system-ui, Arial, sans-serif;margin:20px;background:#f6f8fa}
+    .controls{display:flex;gap:10px;margin-bottom:16px}
+    input,select{padding:8px;border:1px solid #ddd;border-radius:6px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+    .card{background:#fff;padding:12px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    .name{font-weight:700;margin-bottom:6px}
+    .meta{color:#555;font-size:13px;margin-bottom:6px}
+    .badge{display:inline-block;padding:3px 8px;border-radius:999px;background:#eef2ff;color:#3730a3;font-size:12px;margin-right:6px}
+    .footer{margin-top:8px;color:#666;font-size:13px}
+  </style>
+</head>
+<body>
+  <h2>Stock Viewer</h2>
+  <div class="controls">
+    <input id="q" placeholder="Pesquisar por nome, referência ou localização" style="flex:1" />
+    <select id="cat"><option value="">Todas as categorias</option></select>
+    <button id="toggleView">Table view</button>
+    <button id="reload">Recarregar</button>
+  </div>
+  <div id="count" style="margin-bottom:8px;color:#333"></div>
+  <div id="grid" class="grid"></div>
+  <div id="tableWrap" style="display:none">
+    <table id="table" style="width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden">
+      <thead style="background:#f3f4f6;color:#111">
+        <tr>
+          <th data-key="numeroReferencia">Referência</th>
+          <th data-key="nome">Nome</th>
+          <th data-key="categoria">Categoria</th>
+          <th data-key="quantidadeAtual">Qtd</th>
+          <th data-key="unidade">Unidade</th>
+          <th data-key="localizacao">Local</th>
+          <th data-key="precoUnitario">Preço</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+
+  <script>
+    async function loadData(){
+      // try API first, fallback to static snapshot
+      try{
+        const res = await fetch('/api/stock?limit=1000');
+        if(!res.ok) throw new Error('API retornou ' + res.status);
+        return await res.json();
+      }catch(err){
+        console.warn('API falhou, carregando snapshot:', err.message);
+        const res2 = await fetch('/data/stock-snapshot.json');
+        return await res2.json();
+      }
+    }
+
+    let viewMode = 'grid'; // or 'table'
+    let sortKey = null;
+    let sortDir = 1;
+
+    function render(items){
+      const grid = document.getElementById('grid');
+      const tableWrap = document.getElementById('tableWrap');
+      grid.innerHTML='';
+      const q = (document.getElementById('q').value||'').toLowerCase();
+      const cat = document.getElementById('cat').value;
+      let filtered = items.filter(i=>{
+        const matchesQ = q==='' || [i.nome,i.numeroReferencia,i.localizacao,i.observacoes].filter(Boolean).join(' ').toLowerCase().includes(q);
+        const matchesCat = !cat || i.categoria===cat;
+        return matchesQ && matchesCat;
+      });
+
+      // sorting
+      if(sortKey){
+        filtered.sort((a,b)=>{
+          const A = a[sortKey] ?? '';
+          const B = b[sortKey] ?? '';
+          if(typeof A === 'number' || typeof B === 'number') return (A - B) * sortDir;
+          return String(A).localeCompare(String(B)) * sortDir;
+        });
+      }
+
+      document.getElementById('count').textContent = `${filtered.length} itens`;
+
+      if(viewMode === 'grid'){
+        tableWrap.style.display='none';
+        grid.style.display='grid';
+        for(const it of filtered){
+          const el = document.createElement('div'); el.className='card';
+          el.innerHTML = `
+            <div class=name>${escapeHtml(it.nome)} <span style="font-weight:600;color:#666;font-size:13px">${escapeHtml(it.numeroReferencia||'')}</span></div>
+            <div class=meta><span class=badge>${escapeHtml(it.categoria||'')}</span> Quantidade: <strong>${it.quantidadeAtual ?? 0}</strong> — Unidade: ${escapeHtml(it.unidade||'')}</div>
+            <div>${escapeHtml(it.descricao||'')}</div>
+            <div class=footer>Preço unit.: ${it.precoUnitario!=null?('€'+it.precoUnitario):'—'} • Local: ${escapeHtml(it.localizacao||'—')}</div>
+          `;
+          grid.appendChild(el);
+        }
+      } else {
+        // table mode
+        grid.style.display='none';
+        tableWrap.style.display='block';
+        const tbody = document.getElementById('tableBody'); tbody.innerHTML='';
+        for(const it of filtered){
+          const tr = document.createElement('tr');
+          tr.style.borderBottom='1px solid #eee';
+          tr.innerHTML = `
+            <td style="padding:8px;border-right:1px solid #f6f6f6">${escapeHtml(it.numeroReferencia||'')}</td>
+            <td style="Padding:8px;border-right:1px solid #f6f6f6">${escapeHtml(it.nome)}</td>
+            <td style="padding:8px;border-right:1px solid #f6f6f6">${escapeHtml(it.categoria||'')}</td>
+            <td style="padding:8px;text-align:right;border-right:1px solid #f6f6f6">${it.quantidadeAtual ?? 0}</td>
+            <td style="padding:8px;border-right:1px solid #f6f6f6">${escapeHtml(it.unidade||'')}</td>
+            <td style="padding:8px;border-right:1px solid #f6f6f6">${escapeHtml(it.localizacao||'')}</td>
+            <td style="padding:8px;text-align:right">${it.precoUnitario!=null?('€'+it.precoUnitario):'—'}</td>
+          `;
+          tbody.appendChild(tr);
+        }
+      }
+    }
+
+    function escapeHtml(s){ if(!s) return ''; return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
+
+    let cached = [];
+    async function init(){
+      const data = await loadData();
+      cached = data.data || [];
+      const cats = Array.from(new Set(cached.map(i=>i.categoria).filter(Boolean))).sort();
+      const sel = document.getElementById('cat');
+      for(const c of cats){ const opt = document.createElement('option'); opt.value=c; opt.textContent=c; sel.appendChild(opt); }
+      render(cached);
+    }
+
+    document.getElementById('q').addEventListener('input', ()=>render(cached));
+    document.getElementById('cat').addEventListener('change', ()=>render(cached));
+    document.getElementById('reload').addEventListener('click', async ()=>{ document.getElementById('grid').innerHTML='Carregando...'; await init(); });
+
+    // toggle between grid and table
+    const toggleBtn = document.getElementById('toggleView');
+    toggleBtn.addEventListener('click', ()=>{
+      viewMode = viewMode === 'grid' ? 'table' : 'grid';
+      toggleBtn.textContent = viewMode === 'grid' ? 'Table view' : 'Grid view';
+      render(cached);
+    });
+
+    // allow sorting by clicking table headers
+    document.addEventListener('click', (ev)=>{
+      const th = ev.target.closest && ev.target.closest('#table thead th');
+      if(!th) return;
+      const key = th.dataset.key;
+      if(!key) return;
+      if(sortKey === key) sortDir = -sortDir; else { sortKey = key; sortDir = 1; }
+      render(cached);
+    });
+
+    init().catch(e=>{ document.getElementById('grid').textContent='Erro ao carregar: '+e.message });
+  </script>
+</body>
+</html>

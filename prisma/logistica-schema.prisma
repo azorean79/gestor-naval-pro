@@ -1,0 +1,55 @@
+// ========== LOGÍSTICA DE JANGADAS ==========
+model TransporteJangada {
+  id                String   @id @default(cuid())
+  jangadaId         String
+  origemIlha        String   // Ilha de origem (São Miguel, Terceira, etc.)
+  destinoIlha       String   // Ilha de destino
+  dataTransporte    DateTime
+  tipoTransporte    String   // barco_transporte | ferry | reboque | proprio
+  veiculoTransporte String?  // Nome/barco que fará o transporte
+  motorista         String?  // Nome do responsável pelo transporte
+  custoTransporte   Float?
+  status            String   @default("agendado") // agendado | em_transito | concluido | cancelado
+  documentacao      String?  // JSON string com documentação necessária
+  observacoes       String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Nota: Relação com jangada não definida pois pode ser navio ou jangada
+  // Usamos campo denormalizado para simplicidade
+
+  @@map("transporte_jangadas")
+}
+
+model Porto {
+  id                String   @id @default(cuid())
+  nome              String
+  ilha              String   // Ilha onde está localizado
+  tipo              String   // comercial | pesca | recreativo | transporte
+  coordenadas       String?  // Latitude,Longitude
+  capacidade        Int?     // Capacidade de embarcações
+  servicos          String?  // JSON string com serviços disponíveis
+  contacto          String?
+  status            String   @default("ativo") // ativo | manutencao | fechado
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("portos")
+}
+
+model RotaTransporte {
+  id                String   @id @default(cuid())
+  origemIlha        String
+  destinoIlha       String
+  distanciaKm       Float
+  tempoEstimadoHoras Float
+  custoBase         Float
+  frequencia        String?  // diaria | semanal | mensal
+  transportadoras   String?  // JSON string com transportadoras disponíveis
+  observacoes       String?
+  status            String   @default("ativo") // ativo | suspenso | cancelado
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("rotas_transporte")
+}
