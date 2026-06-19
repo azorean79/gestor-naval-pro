@@ -1,0 +1,367 @@
+{
+  "generatedAt": "2026-03-10T14:39:08.729Z",
+  "total": 204,
+  "semMatch": 45,
+  "topUnmatched": [
+    {
+      "key": "ARIMAR | STD | 8",
+      "qty": 6
+    },
+    {
+      "key": "ARIMAR | STD | 6",
+      "qty": 5
+    },
+    {
+      "key": "SEA-SAFE | SEA-SAFE | 12",
+      "qty": 4
+    },
+    {
+      "key": "ARIMAR | STD | 10",
+      "qty": 3
+    },
+    {
+      "key": "ARIMAR | STD | 12",
+      "qty": 3
+    },
+    {
+      "key": "ALMAR | STD | 10",
+      "qty": 3
+    },
+    {
+      "key": "ALMAR | STD | 8",
+      "qty": 2
+    },
+    {
+      "key": "ZODIAC | ZODIAC | 6",
+      "qty": 2
+    },
+    {
+      "key": "ALMAR | STD | 6",
+      "qty": 2
+    },
+    {
+      "key": "VIKING | VIKING 10DK+ | 10",
+      "qty": 2
+    },
+    {
+      "key": "RFD | OCEAN | 8",
+      "qty": 2
+    },
+    {
+      "key": "SEA-SAFE | SEA-SAFE | 10",
+      "qty": 1
+    },
+    {
+      "key": "RFD | RFD SESAVA | 6",
+      "qty": 1
+    },
+    {
+      "key": "ARIMAR |  SEA WORLD B | 8",
+      "qty": 1
+    },
+    {
+      "key": "ARIMAR | COASTAL LIGHT PR | 6",
+      "qty": 1
+    },
+    {
+      "key": "ARIMAR | ARIMAR COASTAL LIGHT | 6",
+      "qty": 1
+    },
+    {
+      "key": "EUROVINIL | EUROVINIL | 8",
+      "qty": 1
+    },
+    {
+      "key": "ALMAR |  COASTAL | 6",
+      "qty": 1
+    },
+    {
+      "key": "EUROVINIL | COMPACTDRY+ | 8",
+      "qty": 1
+    },
+    {
+      "key": "RFD | RFD SEASAVA + | 6",
+      "qty": 1
+    },
+    {
+      "key": "EUROVINIL |  CE TO | 12",
+      "qty": 1
+    },
+    {
+      "key": "EUROVINIL | COASTAL DRY | 6",
+      "qty": 1
+    }
+  ],
+  "rows": [
+    {
+      "serial": "14041018",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 10
+    },
+    {
+      "serial": "AGP0808140",
+      "brand": "ALMAR",
+      "model": "STD",
+      "capacity": 8
+    },
+    {
+      "serial": "14062027",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 12
+    },
+    {
+      "serial": "14091001",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 10
+    },
+    {
+      "serial": "AO91206001",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 6
+    },
+    {
+      "serial": "ZAP0910005",
+      "brand": "ALMAR",
+      "model": "STD",
+      "capacity": 10
+    },
+    {
+      "serial": "PL-12-0265",
+      "brand": "SEA-SAFE",
+      "model": "SEA-SAFE",
+      "capacity": 12
+    },
+    {
+      "serial": "PL-12-0269",
+      "brand": "SEA-SAFE",
+      "model": "SEA-SAFE",
+      "capacity": 12
+    },
+    {
+      "serial": "14042002",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 12
+    },
+    {
+      "serial": "PL-12-F0237",
+      "brand": "SEA-SAFE",
+      "model": "SEA-SAFE",
+      "capacity": 12
+    },
+    {
+      "serial": "PLF-12-F0241",
+      "brand": "SEA-SAFE",
+      "model": "SEA-SAFE",
+      "capacity": 12
+    },
+    {
+      "serial": "AO60706112",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 6
+    },
+    {
+      "serial": "2005008134",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 8
+    },
+    {
+      "serial": "PLF-10-F0433",
+      "brand": "SEA-SAFE",
+      "model": "SEA-SAFE",
+      "capacity": 10
+    },
+    {
+      "serial": "AO40708182",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 8
+    },
+    {
+      "serial": "5017230300032",
+      "brand": "RFD",
+      "model": "RFD SESAVA",
+      "capacity": 6
+    },
+    {
+      "serial": "ZAP01710027",
+      "brand": "ALMAR",
+      "model": "STD",
+      "capacity": 10
+    },
+    {
+      "serial": "A100508043",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 8
+    },
+    {
+      "serial": "38040211429",
+      "brand": "ARIMAR",
+      "model": " SEA WORLD B",
+      "capacity": 8
+    },
+    {
+      "serial": "1901006635",
+      "brand": "ARIMAR",
+      "model": "COASTAL LIGHT PR",
+      "capacity": 6
+    },
+    {
+      "serial": "A130506107",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 8
+    },
+    {
+      "serial": "XDCAHV36E303",
+      "brand": "ZODIAC",
+      "model": "ZODIAC",
+      "capacity": 6
+    },
+    {
+      "serial": "A040506012",
+      "brand": "ALMAR",
+      "model": "STD",
+      "capacity": 6
+    },
+    {
+      "serial": "1902006126",
+      "brand": "ARIMAR",
+      "model": "ARIMAR COASTAL LIGHT",
+      "capacity": 6
+    },
+    {
+      "serial": "AGP0806072",
+      "brand": "ALMAR",
+      "model": "STD",
+      "capacity": 6
+    },
+    {
+      "serial": "A130506140",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 6
+    },
+    {
+      "serial": "A040808107",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 8
+    },
+    {
+      "serial": "AGP0708190",
+      "brand": "ALMAR",
+      "model": "STD",
+      "capacity": 8
+    },
+    {
+      "serial": "AGP0710023",
+      "brand": "ALMAR",
+      "model": "STD",
+      "capacity": 10
+    },
+    {
+      "serial": "09122002",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 12
+    },
+    {
+      "serial": "14041021",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 10
+    },
+    {
+      "serial": "A010406054",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 6
+    },
+    {
+      "serial": "62010100",
+      "brand": "EUROVINIL",
+      "model": "EUROVINIL",
+      "capacity": 8
+    },
+    {
+      "serial": "A051006100",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 6
+    },
+    {
+      "serial": "LC22008",
+      "brand": "ALMAR",
+      "model": " COASTAL",
+      "capacity": 6
+    },
+    {
+      "serial": "79251760",
+      "brand": "EUROVINIL",
+      "model": "COMPACTDRY+",
+      "capacity": 8
+    },
+    {
+      "serial": "5017210100026",
+      "brand": "RFD",
+      "model": "RFD SEASAVA +",
+      "capacity": 6
+    },
+    {
+      "serial": "R180103",
+      "brand": "VIKING",
+      "model": "VIKING 10DK+",
+      "capacity": 10
+    },
+    {
+      "serial": "U160203",
+      "brand": "VIKING",
+      "model": "VIKING 10DK+",
+      "capacity": 10
+    },
+    {
+      "serial": "79033839",
+      "brand": "EUROVINIL",
+      "model": " CE TO",
+      "capacity": 12
+    },
+    {
+      "serial": "XDC9CY20E000",
+      "brand": "ZODIAC",
+      "model": "ZODIAC",
+      "capacity": 6
+    },
+    {
+      "serial": "79182131",
+      "brand": "EUROVINIL",
+      "model": "COASTAL DRY",
+      "capacity": 6
+    },
+    {
+      "serial": "15118016",
+      "brand": "ARIMAR",
+      "model": "STD",
+      "capacity": 8
+    },
+    {
+      "serial": "RAFT-IA-TESTE-002",
+      "brand": "RFD",
+      "model": "OCEAN",
+      "capacity": 8
+    },
+    {
+      "serial": "RAFT-IA-TESTE-003",
+      "brand": "RFD",
+      "model": "OCEAN",
+      "capacity": 8
+    }
+  ]
+}

@@ -1,0 +1,729 @@
+{
+  "generatedAt": "2026-03-04T19:07:45.622Z",
+  "total": 132,
+  "updatedCount": 29,
+  "unmatchedCount": 103,
+  "unmatched": [
+    {
+      "id": 2,
+      "fileName": "certificado2.pdf",
+      "raftSerial": "J002",
+      "shipName": "Navio Beta",
+      "certificadoNumero": "CERT002"
+    },
+    {
+      "id": 36,
+      "fileName": "AZ25-052 NETOS JOSE AUGUSTO.xlsx",
+      "raftSerial": "5086310502760",
+      "shipName": "NETOS DE JOSE AUGUSTO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 33,
+      "fileName": "AZ25-032 BIANCA E FABIANA.xlsx",
+      "raftSerial": "50175200300207",
+      "shipName": "BIANCA E FABIANA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 34,
+      "fileName": "AZ25-033 ARQUIPELAGO B.xlsx",
+      "raftSerial": "50866110213343",
+      "shipName": "ARQUIPELAGO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 35,
+      "fileName": "AZ25-050 RAUL FILIPE.xlsx",
+      "raftSerial": "50173103S7237",
+      "shipName": "RAUL FILIPE",
+      "certificadoNumero": null
+    },
+    {
+      "id": 40,
+      "fileName": "AZ25-056 ANDRE E TIAGO.xlsx",
+      "raftSerial": "42458000300468",
+      "shipName": "ANDRÉ E TIAGO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 38,
+      "fileName": "AZ25-054 RIBEIRA DA SILVA.xlsx",
+      "raftSerial": "XDC1DZ20D505",
+      "shipName": "RIBEIRA DA SILVA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 39,
+      "fileName": "AZ25-055 DECEIVER.xlsx",
+      "raftSerial": "21/0297",
+      "shipName": "DECEIVER",
+      "certificadoNumero": null
+    },
+    {
+      "id": 42,
+      "fileName": "AZ25-058 RELAX.xlsx",
+      "raftSerial": "79180211",
+      "shipName": "RELAX",
+      "certificadoNumero": null
+    },
+    {
+      "id": 43,
+      "fileName": "AZ25-059 CHALLENGE.xlsx",
+      "raftSerial": "14062027",
+      "shipName": "CHALLENGE",
+      "certificadoNumero": null
+    },
+    {
+      "id": 44,
+      "fileName": "AZ25-060 CHALLENGE.xlsx",
+      "raftSerial": "14091001",
+      "shipName": "CHALLENGE",
+      "certificadoNumero": null
+    },
+    {
+      "id": 45,
+      "fileName": "AZ25-061 DAVID CARLOS.xlsx",
+      "raftSerial": "5086110209637",
+      "shipName": "DAVID CARLOS",
+      "certificadoNumero": null
+    },
+    {
+      "id": 46,
+      "fileName": "AZ25-062 BAIA DOS ANJOS.xlsx",
+      "raftSerial": "4582000100405",
+      "shipName": "BAIA DOS ANJOS",
+      "certificadoNumero": null
+    },
+    {
+      "id": 49,
+      "fileName": "AZ25-065 BALEIAS EXPRESSO.xlsx",
+      "raftSerial": "41832000200489",
+      "shipName": "BALEIAS EXPRESSO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 50,
+      "fileName": "AZ25-066 MAE IEMANJA.xlsx",
+      "raftSerial": "4153300400019",
+      "shipName": "MÃE IEMANJA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 56,
+      "fileName": "AZ25-071 VIVA OS AÇORES.xlsx",
+      "raftSerial": "501733300015",
+      "shipName": "VIVA OS AÇORES",
+      "certificadoNumero": null
+    },
+    {
+      "id": 57,
+      "fileName": "AZ25-072 BADEJO.xlsx",
+      "raftSerial": "5017330300017",
+      "shipName": "BADEJO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 95,
+      "fileName": "AZ25-107 CIDADE MAR.xlsx",
+      "raftSerial": "5017230300542",
+      "shipName": "CIDADE MAR",
+      "certificadoNumero": null
+    },
+    {
+      "id": 60,
+      "fileName": "AZ25-075 NOSSA SENHORA DA GRAÇA.xlsx",
+      "raftSerial": "5085810204938",
+      "shipName": "NOSSA SENHORA DA GRAÇA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 61,
+      "fileName": "AZ25-076 ARESTA.xlsx",
+      "raftSerial": "50175203S7193",
+      "shipName": "ARESTA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 66,
+      "fileName": "AZ25-081 NETOS JOSE AUGUSTO.xlsx",
+      "raftSerial": "63390",
+      "shipName": "NETOS DE JOSE AUGUSTO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 67,
+      "fileName": "AZ25-082 MAR AÇOREANO.xlsx",
+      "raftSerial": "5017330300350",
+      "shipName": "MAR AÇOREANO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 68,
+      "fileName": "AZ25-083 HELENA.xlsx",
+      "raftSerial": "5017210300006",
+      "shipName": "HELENA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 70,
+      "fileName": "AZ25-085 GILBERTO PENTEADO.xlsx",
+      "raftSerial": "5017330300338",
+      "shipName": "GILBERTO PENTEADO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 71,
+      "fileName": "AZ25-086 JOANA.xlsx",
+      "raftSerial": "ZAP0910005",
+      "shipName": "JOANA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 72,
+      "fileName": "AZ25-087 JOANA.xlsx",
+      "raftSerial": "79160295",
+      "shipName": "JOANA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 73,
+      "fileName": "AZ25-088 WATER AND WIND.xlsx",
+      "raftSerial": "KI-12-F0049",
+      "shipName": "WATER AND WIND",
+      "certificadoNumero": null
+    },
+    {
+      "id": 74,
+      "fileName": "AZ25-089 GUIA ME JESUS.xlsx",
+      "raftSerial": "5017210300042",
+      "shipName": "GUIA ME JESUS",
+      "certificadoNumero": null
+    },
+    {
+      "id": 77,
+      "fileName": "AZ25-091 AIR MAIL.xlsx",
+      "raftSerial": "29132F0020",
+      "shipName": "AIR MAIL",
+      "certificadoNumero": null
+    },
+    {
+      "id": 79,
+      "fileName": "AZ25-092 BETTY.xlsx",
+      "raftSerial": "PL-12-0265",
+      "shipName": "BETTY",
+      "certificadoNumero": null
+    },
+    {
+      "id": 80,
+      "fileName": "AZ25-093 BETTY.xlsx",
+      "raftSerial": "PL-12-0269",
+      "shipName": "BETTY",
+      "certificadoNumero": null
+    },
+    {
+      "id": 81,
+      "fileName": "AZ25-093 VITOR VELOSO.xlsx",
+      "raftSerial": "50173303S7241",
+      "shipName": "VITOR VELOSO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 82,
+      "fileName": "AZ25-094 LAGRIMA DE CRISTO.xlsx",
+      "raftSerial": "5086010206436",
+      "shipName": "LAGRIMA DE CRISTO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 84,
+      "fileName": "AZ25-096 DRAGAOCIDENTAL.xlsx",
+      "raftSerial": "4581700301441",
+      "shipName": "DRAGAOCIDENTAL",
+      "certificadoNumero": null
+    },
+    {
+      "id": 85,
+      "fileName": "AZ25-097 MISS POES.xlsx",
+      "raftSerial": "14042002",
+      "shipName": "MISS POES",
+      "certificadoNumero": null
+    },
+    {
+      "id": 86,
+      "fileName": "AZ25-098 MSE SAO MIGUEL.xlsx",
+      "raftSerial": "5086010205165",
+      "shipName": "MSE",
+      "certificadoNumero": null
+    },
+    {
+      "id": 87,
+      "fileName": "AZ25-099 MSE SAO MIGUEL.xlsx",
+      "raftSerial": "5086010205737",
+      "shipName": "MSE",
+      "certificadoNumero": null
+    },
+    {
+      "id": 88,
+      "fileName": "AZ25-100 MESTRE ROQUEIRA.xlsx",
+      "raftSerial": "5017330300321A",
+      "shipName": "ROQUEIRA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 89,
+      "fileName": "AZ25-101 ENTRE MARES.xlsx",
+      "raftSerial": "5017230300540",
+      "shipName": "ENTRE MARÉS",
+      "certificadoNumero": null
+    },
+    {
+      "id": 91,
+      "fileName": "AZ25-103 ABISMO.xlsx",
+      "raftSerial": "79190695",
+      "shipName": "ABISMO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 92,
+      "fileName": "AZ25-104 ABISMO.xlsx",
+      "raftSerial": "79190697",
+      "shipName": "ABISMO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 93,
+      "fileName": "AZ25-105 ELIXIR A.xlsx",
+      "raftSerial": "PL-12-F0237",
+      "shipName": "ELIXIR",
+      "certificadoNumero": null
+    },
+    {
+      "id": 94,
+      "fileName": "AZ25-106 ELIXIR B.xlsx",
+      "raftSerial": "PLF-12-F0241",
+      "shipName": "ELIXIR",
+      "certificadoNumero": null
+    },
+    {
+      "id": 103,
+      "fileName": "AZ25-117 OCEAN CAY.xlsx",
+      "raftSerial": "PLF-10-F0433",
+      "shipName": "OCEAN CAY",
+      "certificadoNumero": null
+    },
+    {
+      "id": 96,
+      "fileName": "AZ25-108 BEST SPOT A.xlsx",
+      "raftSerial": "79190357",
+      "shipName": "BESTSPOT",
+      "certificadoNumero": null
+    },
+    {
+      "id": 97,
+      "fileName": "AZ25-109 BEST SPOT B.xlsx",
+      "raftSerial": "79190356",
+      "shipName": "BESTSPOT",
+      "certificadoNumero": null
+    },
+    {
+      "id": 98,
+      "fileName": "AZ25-110 BEST SPOT C.xlsx",
+      "raftSerial": "79191253",
+      "shipName": "BESTSPOT",
+      "certificadoNumero": null
+    },
+    {
+      "id": 102,
+      "fileName": "AZ25-116 LUIZA.xlsx",
+      "raftSerial": "2005008134",
+      "shipName": "LUIZA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 115,
+      "fileName": "AZ25-131 MARFISA.xlsx",
+      "raftSerial": "PLF-10-F0433",
+      "shipName": "OCEAN CAY",
+      "certificadoNumero": null
+    },
+    {
+      "id": 104,
+      "fileName": "AZ25-118 EXOCET TWO.xlsx",
+      "raftSerial": "79250891",
+      "shipName": "EXOCET TWO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 109,
+      "fileName": "AZ25-125 MSEPDL.xlsx",
+      "raftSerial": "5017230300032",
+      "shipName": "MSE",
+      "certificadoNumero": null
+    },
+    {
+      "id": 110,
+      "fileName": "AZ25-126 VILAÇOR.xlsx",
+      "raftSerial": "4253300400016",
+      "shipName": "VILAÇOR",
+      "certificadoNumero": null
+    },
+    {
+      "id": 111,
+      "fileName": "AZ25-127 MSE NEUZAMAR.xlsx",
+      "raftSerial": "4153300400018",
+      "shipName": "NEUZAMAR",
+      "certificadoNumero": null
+    },
+    {
+      "id": 116,
+      "fileName": "AZ25-132 TANTOMAR.xlsx",
+      "raftSerial": "7913824",
+      "shipName": "TANTOMAR",
+      "certificadoNumero": null
+    },
+    {
+      "id": 119,
+      "fileName": "AZ25-136 VASQUINHO.xlsx",
+      "raftSerial": "5017230300498",
+      "shipName": "VASQUINHO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 123,
+      "fileName": "AZ25-140 PEROLA DA PRAIA.xlsx",
+      "raftSerial": "XDC8DL59I203",
+      "shipName": "PEROLA DA PRAIA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 178,
+      "fileName": "AZ25-194 GARANTIA.xlsx",
+      "raftSerial": "5017330300495",
+      "shipName": "GARANTIA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 180,
+      "fileName": "AZ25-196 SOL DO ORIENTE.xlsx",
+      "raftSerial": "5017320300116",
+      "shipName": "SOL DO ORIENTE",
+      "certificadoNumero": null
+    },
+    {
+      "id": 181,
+      "fileName": "AZ25-197 SÃO DOMINGOS.xlsx",
+      "raftSerial": "5017330300365",
+      "shipName": "SÃO DOMINGOS",
+      "certificadoNumero": null
+    },
+    {
+      "id": 189,
+      "fileName": "AZ25-205 PESCA AÇORES.xlsx",
+      "raftSerial": "4583200300158",
+      "shipName": "PESCA AÇORES",
+      "certificadoNumero": null
+    },
+    {
+      "id": 125,
+      "fileName": "AZ25-142 RABÃO.xlsx",
+      "raftSerial": "XDCAHV36E303",
+      "shipName": "RABÃO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 126,
+      "fileName": "AZ25-143 MESTRE MELO.xlsx",
+      "raftSerial": "5017330300080",
+      "shipName": "MESTRE MELO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 130,
+      "fileName": "AZ25-147 GARAJAU DOS A.xlsx",
+      "raftSerial": "791161284",
+      "shipName": "GARAJAU DOS",
+      "certificadoNumero": null
+    },
+    {
+      "id": 131,
+      "fileName": "AZ25-148 GARAJAU DOS B.xlsx",
+      "raftSerial": "79116159",
+      "shipName": "GARAJAU DOS",
+      "certificadoNumero": null
+    },
+    {
+      "id": 132,
+      "fileName": "AZ25-149 GARAJAU DOS C.xlsx",
+      "raftSerial": "791161281",
+      "shipName": "GARAJAU DOS",
+      "certificadoNumero": null
+    },
+    {
+      "id": 133,
+      "fileName": "AZ25-150 GARAJAU DOS D.xlsx",
+      "raftSerial": "79151158",
+      "shipName": "GARAJAU DOS",
+      "certificadoNumero": null
+    },
+    {
+      "id": 134,
+      "fileName": "AZ25-150 NANNY.xlsx",
+      "raftSerial": "1902006126",
+      "shipName": "NANNY",
+      "certificadoNumero": null
+    },
+    {
+      "id": 136,
+      "fileName": "AZ25-152 ILHEU AZUL.xlsx",
+      "raftSerial": "XDC7GB83B717",
+      "shipName": "ILHEU AZUL",
+      "certificadoNumero": null
+    },
+    {
+      "id": 137,
+      "fileName": "AZ25-153 DRAGÃO AZUL.xlsx",
+      "raftSerial": "4153000400085",
+      "shipName": "DRAGÃO AZUL",
+      "certificadoNumero": null
+    },
+    {
+      "id": 138,
+      "fileName": "AZ25-154 MESTRE ANTONIO.xlsx",
+      "raftSerial": "5017330300081",
+      "shipName": "MESTRE ANTONIO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 139,
+      "fileName": "AZ25-155 BAIA DA CRÉ.xlsx",
+      "raftSerial": "50172303S7542",
+      "shipName": "BAIA DA CRÉ",
+      "certificadoNumero": null
+    },
+    {
+      "id": 144,
+      "fileName": "AZ25-160 MARRACHINHO.xlsx",
+      "raftSerial": "60894",
+      "shipName": "MARRACHINHO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 149,
+      "fileName": "AZ25-165 ZIG ZAGUE.xlsx",
+      "raftSerial": "79211523",
+      "shipName": "ZIG ZAGUE",
+      "certificadoNumero": null
+    },
+    {
+      "id": 151,
+      "fileName": "AZ25-167 FAMILIA CAMARA.xlsx",
+      "raftSerial": "50172303S6959",
+      "shipName": "FAMILIA CAMARA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 152,
+      "fileName": "AZ25-168 RAINHA DA MONTANHA.xlsx",
+      "raftSerial": "5017230100003",
+      "shipName": "RAINHA DA MONTANHA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 153,
+      "fileName": "AZ25-169 BOM BARQUEIRO.xlsx",
+      "raftSerial": "5017230300505",
+      "shipName": "BOM BARQUEIRO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 158,
+      "fileName": "AZ25-174 RAINHA DA CALHETA.xlsx",
+      "raftSerial": "5017230300206",
+      "shipName": "RAINHA DA CALHETA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 159,
+      "fileName": "AZ25-175 EDUINO JOAO.xlsx",
+      "raftSerial": "5017330300087",
+      "shipName": "EDUINO JOÃO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 164,
+      "fileName": "AZ25-180 EUROPA.xlsx",
+      "raftSerial": "5085810100573",
+      "shipName": "EUROPA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 166,
+      "fileName": "AZ25-182 DRAGAOCIDENTAL A.xlsx",
+      "raftSerial": "4581700301444",
+      "shipName": "DRAGAOCIDENTAL",
+      "certificadoNumero": null
+    },
+    {
+      "id": 169,
+      "fileName": "AZ25-185 FAMILIA MEDEIROS.xlsx",
+      "raftSerial": "5017330300321",
+      "shipName": "FAMILIA MEDEIROS",
+      "certificadoNumero": null
+    },
+    {
+      "id": 172,
+      "fileName": "AZ25-188 TRES PASTORINHOS.xlsx",
+      "raftSerial": "5017520300206",
+      "shipName": "TRES PASTORINHOS",
+      "certificadoNumero": null
+    },
+    {
+      "id": 174,
+      "fileName": "AZ25-190 MESTRE JOSE.xlsx",
+      "raftSerial": "XDC5FD27H818",
+      "shipName": "MESTRE JOSE",
+      "certificadoNumero": null
+    },
+    {
+      "id": 175,
+      "fileName": "AZ25-191 RUMAR.xlsx",
+      "raftSerial": "5017230300308",
+      "shipName": "RUMAR",
+      "certificadoNumero": null
+    },
+    {
+      "id": 176,
+      "fileName": "AZ25-192 RINQUINHO.xlsx",
+      "raftSerial": "5017230300170",
+      "shipName": "RINQUINHO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 177,
+      "fileName": "AZ25-193 ARPÃO DAS FLORES.xlsx",
+      "raftSerial": "LC22008",
+      "shipName": "ARPÃO DAS FLORES",
+      "certificadoNumero": null
+    },
+    {
+      "id": 194,
+      "fileName": "AZ25-210 CONDE DO MAR.xlsx",
+      "raftSerial": "50173330300329",
+      "shipName": "CONDE DO MAR",
+      "certificadoNumero": null
+    },
+    {
+      "id": 1,
+      "fileName": "certificado1.pdf",
+      "raftSerial": "J001",
+      "shipName": "Navio Alpha",
+      "certificadoNumero": "CERT001"
+    },
+    {
+      "id": 195,
+      "fileName": "AZ25-211 ANJO DA NOITE.xlsx",
+      "raftSerial": "5017330300304",
+      "shipName": "ANJO DA NOITE",
+      "certificadoNumero": null
+    },
+    {
+      "id": 171,
+      "fileName": "AZ25-187 SAO JORGE.xlsx",
+      "raftSerial": "5086310502760",
+      "shipName": "SÃO JORGE",
+      "certificadoNumero": null
+    },
+    {
+      "id": 173,
+      "fileName": "AZ25-189 SAO JORGE.xlsx",
+      "raftSerial": "5086310502760",
+      "shipName": "SÃO JORGE",
+      "certificadoNumero": null
+    },
+    {
+      "id": 196,
+      "fileName": "AZ25-212 PONTA DA BARCA (2).xlsx",
+      "raftSerial": "13112033",
+      "shipName": "PONTA DA BARCA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 208,
+      "fileName": "AZ25-223 ANDRE E TIAGO.xlsx",
+      "raftSerial": "42458000300468",
+      "shipName": "ANDRÉ E TIAGO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 59,
+      "fileName": "AZ25-074 CORAÇÃO DO OCEANO.xlsx",
+      "raftSerial": "XDC5FD23H818",
+      "shipName": "CORAÇÃO DO OCEANO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 198,
+      "fileName": "AZ25-214 SAULO.xlsx",
+      "raftSerial": "5017330300074",
+      "shipName": "SAULO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 65,
+      "fileName": "AZ25-080 NETOS JOSE AUGUSTO.xlsx",
+      "raftSerial": "57781",
+      "shipName": "NETOS DE JOSE AUGUSTO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 100,
+      "fileName": "AZ25-113 CIDADE MAR.xlsx",
+      "raftSerial": "5017230300542",
+      "shipName": "CIDADE MAR",
+      "certificadoNumero": null
+    },
+    {
+      "id": 199,
+      "fileName": "AZ25-215 BEATRIZ REBELO.xlsx",
+      "raftSerial": "5017330300086",
+      "shipName": "BEATRIZ REBELO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 200,
+      "fileName": "AZ25-216 RONDÃO.xlsx",
+      "raftSerial": "5017330300355",
+      "shipName": "RONDÃO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 201,
+      "fileName": "AZ25-217 PÃO SAGRADO.xlsx",
+      "raftSerial": "5017330300356",
+      "shipName": "PÃO SAGRADO",
+      "certificadoNumero": null
+    },
+    {
+      "id": 207,
+      "fileName": "AZ25-222 MESTRE GAROUPA.xlsx",
+      "raftSerial": "5017330300348",
+      "shipName": "MESTRE GAROUPA",
+      "certificadoNumero": null
+    },
+    {
+      "id": 209,
+      "fileName": "AZ25-223 CAFRE.xlsx",
+      "raftSerial": "15118016",
+      "shipName": "CAFRE",
+      "certificadoNumero": null
+    },
+    {
+      "id": 210,
+      "fileName": "AZ25-224 MESTRE PEIXOTO.xlsx",
+      "raftSerial": "5017310300013",
+      "shipName": "MESTRE PEIXOTO",
+      "certificadoNumero": null
+    }
+  ]
+}

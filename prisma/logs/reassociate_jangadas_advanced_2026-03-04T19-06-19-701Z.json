@@ -1,0 +1,160 @@
+{
+  "generatedAt": "2026-03-04T19:06:19.706Z",
+  "audit": {
+    "certificados": {
+      "attempted": 132,
+      "updated": 29
+    },
+    "inspecoes": {
+      "attempted": 2,
+      "updated": 0
+    },
+    "details": [
+      {
+        "id": 28,
+        "method": "exact",
+        "serial": "5017330300347"
+      },
+      {
+        "id": 3,
+        "method": "exact",
+        "serial": "5017330300014"
+      },
+      {
+        "id": 4,
+        "method": "exact",
+        "serial": "5017330300330"
+      },
+      {
+        "id": 5,
+        "method": "exact",
+        "serial": "5086210101268"
+      },
+      {
+        "id": 6,
+        "method": "exact",
+        "serial": "5017330300334"
+      },
+      {
+        "id": 7,
+        "method": "exact",
+        "serial": "5017330300359"
+      },
+      {
+        "id": 9,
+        "method": "exact",
+        "serial": "5017330300324"
+      },
+      {
+        "id": 10,
+        "method": "exact",
+        "serial": "5085810204307"
+      },
+      {
+        "id": 11,
+        "method": "exact",
+        "serial": "XDC5FD34K616"
+      },
+      {
+        "id": 12,
+        "method": "exact",
+        "serial": "5017330300314"
+      },
+      {
+        "id": 13,
+        "method": "exact",
+        "serial": "50173303S7530"
+      },
+      {
+        "id": 14,
+        "method": "exact",
+        "serial": "5017330300346"
+      },
+      {
+        "id": 16,
+        "method": "exact",
+        "serial": "79210383"
+      },
+      {
+        "id": 17,
+        "method": "exact",
+        "serial": "791900023"
+      },
+      {
+        "id": 18,
+        "method": "exact",
+        "serial": "791900024"
+      },
+      {
+        "id": 20,
+        "method": "exact",
+        "serial": "50173303S7234"
+      },
+      {
+        "id": 22,
+        "method": "exact",
+        "serial": "29133Y0006"
+      },
+      {
+        "id": 23,
+        "method": "exact",
+        "serial": "5086010100346"
+      },
+      {
+        "id": 24,
+        "method": "exact",
+        "serial": "5017330300076"
+      },
+      {
+        "id": 25,
+        "method": "exact",
+        "serial": "5017420300021"
+      },
+      {
+        "id": 26,
+        "method": "exact",
+        "serial": "50172303S7541"
+      },
+      {
+        "id": 27,
+        "method": "exact",
+        "serial": "5017420300111"
+      },
+      {
+        "id": 30,
+        "method": "exact",
+        "serial": "PL-12-F0294"
+      },
+      {
+        "id": 31,
+        "method": "exact",
+        "serial": "14041018"
+      },
+      {
+        "id": 32,
+        "method": "exact",
+        "serial": "XDC4ES74I809"
+      },
+      {
+        "id": 62,
+        "method": "suffix",
+        "serial": "5017420300021"
+      },
+      {
+        "id": 64,
+        "method": "suffix",
+        "serial": "4581600300040"
+      },
+      {
+        "id": 19,
+        "method": "exact",
+        "serial": "57068SN00011439"
+      },
+      {
+        "id": 29,
+        "method": "exact",
+        "serial": "5017330300347"
+      }
+    ]
+  }
+}

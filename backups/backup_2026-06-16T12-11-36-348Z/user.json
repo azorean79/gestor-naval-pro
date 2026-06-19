@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "email": "julio.correia@orey.com",
+    "name": "Júlio Correia",
+    "passwordHash": "$2b$10$LS3fIeYFD.UrtP18qPOxKeSOeNt33eDJEuh6Dl0tDWodj/so/acPW",
+    "role": "ADMIN",
+    "permissionsOverrideJson": "{\"visibleModules\":[\"dashboard\",\"agenda\",\"estacao-servico\",\"logistica\",\"alertas\",\"relatorios\",\"jangadas\",\"packs\",\"navios\",\"epirbs\",\"clientes\",\"tecnicos\",\"equipamentos\",\"stock\",\"cilindros\",\"departamento-tecnico\",\"legislacao\",\"dgrm\",\"auditorias\",\"fotos\",\"contactos-internos\",\"ia-importacao\",\"utilizadores\",\"registar\"],\"visiblePages\":[\"/\",\"/agenda\",\"/estacao-servico\",\"/logistica\",\"/alertas\",\"/relatorios\",\"/jangadas\",\"/packs\",\"/navios\",\"/epirbs\",\"/clientes\",\"/tecnicos\",\"/equipamentos\",\"/stock\",\"/cilindros\",\"/departamento-tecnico\",\"/legislacao\",\"/dgrm\",\"/auditorias\",\"/fotos\",\"/contactos-internos\",\"/ia-importacao\",\"/utilizadores\",\"/registar\"],\"editablePages\":[\"/\",\"/agenda\",\"/estacao-servico\",\"/logistica\",\"/alertas\",\"/relatorios\",\"/jangadas\",\"/packs\",\"/navios\",\"/epirbs\",\"/clientes\",\"/tecnicos\",\"/equipamentos\",\"/stock\",\"/cilindros\",\"/departamento-tecnico\",\"/legislacao\",\"/dgrm\",\"/auditorias\",\"/fotos\",\"/contactos-internos\",\"/ia-importacao\",\"/utilizadores\",\"/registar\"],\"editableFields\":{\"jangadas-detail\":[\"serial\",\"model\",\"brand\",\"capacity\",\"owner\",\"dataFabrico\",\"packType\",\"launchType\",\"fabricType\",\"dataInspecao\",\"dataProxInspecao\",\"ultimoCertificadoNumero\",\"shipId\",\"shipNameManual\",\"numeroObra\",\"cylinderSerial\",\"cylinderTara\",\"cylinderPesoBruto\",\"cylinderDataTeste\",\"cylinderDataProxTeste\",\"cylinderSistema\",\"valvulasAlivio\",\"valvulasAtestar\",\"hruAplicavel\",\"hruReferencia\",\"hruValidade\",\"radarReflector\",\"radarReflectorValidade\",\"tuboIdentificacao\",\"artigos\",\"inspectionChecklistValues\",\"serviceBulletinsApplied\"]},\"allowedStationCodes\":[],\"updatedAt\":\"2026-06-12T14:52:31.816Z\"}",
+    "googleId": null,
+    "image": null,
+    "lastLoginAt": "2026-06-12T10:06:35.640Z",
+    "createdAt": "2026-06-11T17:11:01.639Z",
+    "updatedAt": "2026-06-12T14:52:31.832Z"
+  }
+]

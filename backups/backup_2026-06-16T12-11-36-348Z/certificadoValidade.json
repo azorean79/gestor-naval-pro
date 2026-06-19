@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "certificadoId": 1,
+    "item": "Facho de Mão",
+    "validade": "2026-12-31",
+    "rowNumber": 1,
+    "createdAt": "2026-06-11T17:11:29.890Z"
+  },
+  {
+    "id": 2,
+    "certificadoId": 1,
+    "item": "Paraquedas",
+    "validade": "2026-06-30",
+    "rowNumber": 2,
+    "createdAt": "2026-06-11T17:11:29.890Z"
+  },
+  {
+    "id": 3,
+    "certificadoId": 2,
+    "item": "Facho de Mão",
+    "validade": "2026-12-31",
+    "rowNumber": 1,
+    "createdAt": "2026-06-11T17:11:30.578Z"
+  },
+  {
+    "id": 4,
+    "certificadoId": 2,
+    "item": "Paraquedas",
+    "validade": "2026-06-30",
+    "rowNumber": 2,
+    "createdAt": "2026-06-11T17:11:30.578Z"
+  },
+  {
+    "id": 5,
+    "certificadoId": 3,
+    "item": "Facho de Mão",
+    "validade": "2026-12-31",
+    "rowNumber": 1,
+    "createdAt": "2026-06-11T17:11:31.156Z"
+  },
+  {
+    "id": 6,
+    "certificadoId": 3,
+    "item": "Paraquedas",
+    "validade": "2026-06-30",
+    "rowNumber": 2,
+    "createdAt": "2026-06-11T17:11:31.156Z"
+  }
+]

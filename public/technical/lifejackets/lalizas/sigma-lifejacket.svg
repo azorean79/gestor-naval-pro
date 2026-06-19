@@ -1,0 +1,16 @@
+<svg width="960" height="1280" viewBox="0 0 960 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="1280" rx="72" fill="#FFF8F1"/>
+  <rect x="78" y="78" width="804" height="1124" rx="54" fill="#FFFFFF" stroke="#F4D7BF" stroke-width="12"/>
+  <path d="M349 183C388 132 435 106 480 106C525 106 572 132 611 183L675 268C700 302 715 343 717 385L723 525C724 560 712 593 689 620L636 682L649 1123C649 1150 628 1172 601 1172H359C332 1172 311 1150 312 1123L324 682L271 620C248 593 236 560 237 525L243 385C245 343 260 302 285 268L349 183Z" fill="#FF8B2A" stroke="#E56610" stroke-width="18"/>
+  <path d="M412 268C434 236 458 220 480 220C502 220 526 236 548 268L589 327C604 348 613 373 614 398L619 498C620 518 613 537 600 552L570 587L579 1030H381L390 587L360 552C347 537 340 518 341 498L346 398C347 373 356 348 371 327L412 268Z" fill="#FFF3E7" stroke="#FFD5B4" stroke-width="14"/>
+  <path d="M434 639C449 657 464 666 480 666C496 666 511 657 526 639" stroke="#0F172A" stroke-width="18" stroke-linecap="round"/>
+  <rect x="435" y="562" width="90" height="58" rx="18" fill="#1F2937"/>
+  <rect x="402" y="742" width="156" height="182" rx="28" fill="#FFFAF5" stroke="#F4D7BF" stroke-width="10"/>
+  <path d="M480 746V920" stroke="#CBD5E1" stroke-width="8" stroke-dasharray="14 14"/>
+  <rect x="424" y="782" width="112" height="74" rx="18" fill="#E2E8F0"/>
+  <path d="M278 872L192 1045" stroke="#E56610" stroke-width="22" stroke-linecap="round"/>
+  <path d="M682 872L768 1045" stroke="#E56610" stroke-width="22" stroke-linecap="round"/>
+  <circle cx="480" cy="132" r="38" fill="#0F172A" fill-opacity="0.08"/>
+  <text x="480" y="1110" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#C2410C">LALIZAS SIGMA 150N</text>
+  <text x="480" y="1158" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#7C2D12">Ilustração técnica de referência para ficha do colete</text>
+</svg>

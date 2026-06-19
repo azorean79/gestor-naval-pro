@@ -1,0 +1,1578 @@
+import { NextRequest, NextResponse } from "next/server";
+import prisma from "@/lib/prisma";
+import { logAuditoria } from "@/lib/auditoria";
+import { readAuditoriaJson, writeAuditoriaJson } from "@/lib/auditorias-storage";
+import { getApplicableServiceBulletinsForRaft } from "@/modules/rafts/serviceBulletins";
+import { buildDatabaseErrorResponse } from "@/lib/database-errors";
+import { getAccessContext } from "@/lib/access-control";
+import { canEditPath } from "@/lib/user-permissions";
+import { syncRaftArticlesWithPackType } from "@/lib/checklist-sync";
+import { clearActiveAgendaForRaft, syncNextInspectionAgenda } from "@/lib/agenda-sync";
+import { isKnownPackTypeName, resolveMandatoryPackItemsForRaftAsync } from "@/lib/custom-pack-types";
+import { deleteJangadaById } from "@/lib/jangada-delete";
+import { generateInspectionCertificateNumber } from "@/app/inspecoes/actions";
+import { saveInspectionSnapshot } from "@/lib/inspection-snapshots";
+import {
+  canonicalizeCylinderSistema,
+  canonicalizeRaftBrand,
+  canonicalizeRaftModel,
+  normalizeLooseText,
+  normalizeUpperText,
+} from "@/lib/text-normalization";
+
+type ServiceBulletinsAppliedMap = Record<string, boolean>;
+type ServiceBulletinsAppliedStore = Record<string, ServiceBulletinsAppliedMap>;
+type InspectionChecklistValues = Record<string, string | number | boolean>;
+type InspectionChecklistStore = Record<string, InspectionChecklistValues>;
+type JangadaObservacoesStore = Record<string, string>;
+
+const SERVICE_BULLETINS_APPLIED_STORE_FILE = "_meta/jangadas-service-bulletins-applied.json";
+const INSPECTION_CHECKLIST_STORE_FILE = "_meta/jangadas-inspection-checklist-values.json";
+const JANGADAS_OBSERVACOES_STORE_FILE = "_meta/jangadas-observacoes.json";
+const HRU_REFERENCE_ARTIGO = "20701002";
+
+const NAVIO_WITH_CLIENTE_SELECT = {
+  id: true,
+  nome: true,
+  matricula: true,
+  tipoPesca: true,
+  tipoNavio: true,
+  ilha: true,
+  portoRegisto: true,
+  proprietario: true,
+  bandeira: true,
+  mmsi: true,
+  imo: true,
+  callSignal: true,
+  hruReferencia: true,
+  hruValidade: true,
+  radarReflector: true,
+  radarReflectorValidade: true,
+  cliente: {
+    select: {
+      id: true,
+      nome: true,
+      ilha: true,
+    },
+  },
+} as const;
+
+function normalize(value: unknown) {
+  return normalizeLooseText(value ?? "");
+}
+
+function isLegacyAlmarModel(value: unknown) {
+  return normalizeUpperText(value) === "ALMAR";
+}
+
+function normalizeBrandName(value: unknown, model?: unknown) {
+  if (isLegacyAlmarModel(model)) return "ALMAR";
+  return canonicalizeRaftBrand(value ?? "");
+}
+
+function normalizeRaftModel(value: unknown, brand?: unknown, packType?: unknown) {
+  if (isLegacyAlmarModel(value)) return "STD";
+  return canonicalizeRaftModel(value ?? "", brand, packType);
+}
+
+function normalizeServiceBulletinsApplied(raw: unknown): ServiceBulletinsAppliedMap {
+  if (!raw) return {};
+
+  let parsed: unknown = raw;
+  if (typeof raw === "string") {
+    const value = raw.trim();
+    if (!value) return {};
+    try {
+      parsed = JSON.parse(value);
+    } catch {
+      return {};
+    }
+  }
+
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return {};
+
+  return Object.entries(parsed as Record<string, unknown>).reduce<ServiceBulletinsAppliedMap>((acc, [key, value]) => {
+    if (!key) return acc;
+    acc[key] = value === true || value === "true" || value === 1 || value === "1";
+    return acc;
+  }, {});
+}
+
+function normalizeInspectionChecklistValues(raw: unknown): InspectionChecklistValues {
+  if (!raw) return {};
+
+  let parsed: unknown = raw;
+  if (typeof raw === "string") {
+    const value = raw.trim();
+    if (!value) return {};
+    try {
+      parsed = JSON.parse(value);
+    } catch {
+      return {};
+    }
+  }
+
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return {};
+
+  return Object.entries(parsed as Record<string, unknown>).reduce<InspectionChecklistValues>((acc, [key, value]) => {
+    if (!key) return acc;
+    if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") {
+      acc[key] = value;
+    }
+    return acc;
+  }, {});
+}
+
+async function readServiceBulletinsAppliedStore() {
+  return readAuditoriaJson<ServiceBulletinsAppliedStore>(SERVICE_BULLETINS_APPLIED_STORE_FILE, {});
+}
+
+async function readInspectionChecklistStore() {
+  return readAuditoriaJson<InspectionChecklistStore>(INSPECTION_CHECKLIST_STORE_FILE, {});
+}
+
+async function readJangadasObservacoesStore() {
+  return readAuditoriaJson<JangadaObservacoesStore>(JANGADAS_OBSERVACOES_STORE_FILE, {});
+}
+
+async function readServiceBulletinsApplied(jangadaId: number) {
+  const store = await readServiceBulletinsAppliedStore();
+  return normalizeServiceBulletinsApplied(store[String(jangadaId)]);
+}
+
+async function writeServiceBulletinsApplied(jangadaId: number, value: unknown) {
+  const currentStore = await readServiceBulletinsAppliedStore();
+  const normalized = normalizeServiceBulletinsApplied(value);
+  const key = String(jangadaId);
+  const previous = normalizeServiceBulletinsApplied(currentStore[key]);
+
+  const nextStore: ServiceBulletinsAppliedStore = {
+    ...currentStore,
+    [key]: normalized,
+  };
+
+  await writeAuditoriaJson(SERVICE_BULLETINS_APPLIED_STORE_FILE, nextStore);
+
+  await logAuditoria({
+    tabela: "JangadaServiceBulletinApplied",
+    tipoOperacao: "UPDATE",
+    idRegisto: jangadaId,
+    descricao: "Atualização do estado de service boletins aplicados na jangada.",
+    usuario: "sistema",
+    dadosAntes: previous,
+    dadosDepois: normalized,
+  });
+
+  return normalized;
+}
+
+async function readInspectionChecklistValues(jangadaId: number) {
+  const store = await readInspectionChecklistStore();
+  return normalizeInspectionChecklistValues(store[String(jangadaId)]);
+}
+
+async function writeInspectionChecklistValues(jangadaId: number, value: unknown) {
+  const currentStore = await readInspectionChecklistStore();
+  const normalized = normalizeInspectionChecklistValues(value);
+  const key = String(jangadaId);
+  const previous = normalizeInspectionChecklistValues(currentStore[key]);
+
+  const nextStore: InspectionChecklistStore = {
+    ...currentStore,
+    [key]: normalized,
+  };
+
+  await writeAuditoriaJson(INSPECTION_CHECKLIST_STORE_FILE, nextStore);
+
+  await logAuditoria({
+    tabela: "JangadaInspectionChecklist",
+    tipoOperacao: "UPDATE",
+    idRegisto: jangadaId,
+    descricao: "Atualização do checklist de inspeção da jangada.",
+    usuario: "sistema",
+    dadosAntes: previous,
+    dadosDepois: normalized,
+  });
+
+  return normalized;
+}
+
+async function readJangadaObservacoes(jangadaId: number) {
+  const store = await readJangadasObservacoesStore();
+  return String(store[String(jangadaId)] || "");
+}
+
+async function writeJangadaObservacoes(jangadaId: number, value: unknown) {
+  const currentStore = await readJangadasObservacoesStore();
+  const key = String(jangadaId);
+  const previous = String(currentStore[key] || "");
+  const normalized = String(value ?? "").trim();
+
+  const nextStore: JangadaObservacoesStore = {
+    ...currentStore,
+    [key]: normalized,
+  };
+
+  await writeAuditoriaJson(JANGADAS_OBSERVACOES_STORE_FILE, nextStore);
+
+  await logAuditoria({
+    tabela: "JangadaObservacoes",
+    tipoOperacao: "UPDATE",
+    idRegisto: jangadaId,
+    descricao: "Atualização das observações da jangada.",
+    usuario: "sistema",
+    dadosAntes: previous,
+    dadosDepois: normalized,
+  });
+
+  return normalized;
+}
+
+function addFiveYears(value?: string) {
+  if (!value) return "";
+  const parsed = Date.parse(value);
+  if (Number.isNaN(parsed)) return "";
+  const date = new Date(parsed);
+  date.setFullYear(date.getFullYear() + 5);
+  return date.toISOString().slice(0, 10);
+}
+
+function normalizeIsoDate(value: unknown) {
+  const raw = String(value ?? "").trim();
+  if (!raw) return "";
+  const parsed = Date.parse(raw);
+  if (Number.isNaN(parsed)) return "";
+  return new Date(parsed).toISOString().slice(0, 10);
+}
+
+function addYearsToIsoDate(value: string, years: number) {
+  const normalized = normalizeIsoDate(value);
+  if (!normalized) return "";
+  const date = new Date(normalized);
+  if (Number.isNaN(date.getTime())) return "";
+  date.setFullYear(date.getFullYear() + years);
+  return date.toISOString().slice(0, 10);
+}
+
+function parseHruApplicability(value: unknown): boolean | null {
+  const raw = String(value ?? "").trim().toUpperCase();
+  if (!raw) return null;
+  if (["SIM", "YES", "TRUE", "1"].includes(raw)) return true;
+  if (["NAO", "NÃO", "NO", "FALSE", "0"].includes(raw)) return false;
+  return null;
+}
+
+function applyHruBusinessRules(args: {
+  rawInput: Record<string, unknown>;
+  targetData: Record<string, any>;
+  current?: { hruReferencia?: string | null; hruDataInstalacao?: string | null; hruValidade?: string | null } | null;
+}) {
+  const { rawInput, targetData, current } = args;
+
+  const hasAnyHruInput = ["hruAplicavel", "hruReferencia", "hruDataInstalacao", "hruValidade"].some((field) =>
+    Object.prototype.hasOwnProperty.call(rawInput || {}, field)
+  );
+
+  if (!hasAnyHruInput) return { error: null as string | null };
+
+  const explicitApplicability = Object.prototype.hasOwnProperty.call(rawInput || {}, "hruAplicavel")
+    ? parseHruApplicability(rawInput.hruAplicavel)
+    : null;
+
+  const resolveField = (field: "hruReferencia" | "hruDataInstalacao" | "hruValidade") => {
+    if (Object.prototype.hasOwnProperty.call(targetData, field)) {
+      return String(targetData[field] ?? "").trim();
+    }
+    return String(current?.[field] ?? "").trim();
+  };
+
+  const hruReferencia = resolveField("hruReferencia");
+  const hruDataInstalacaoRaw = resolveField("hruDataInstalacao");
+  const hruDataInstalacao = normalizeIsoDate(hruDataInstalacaoRaw);
+
+  const hasHruChanged =
+    hruReferencia !== String(current?.hruReferencia ?? "").trim() ||
+    hruDataInstalacaoRaw !== String(current?.hruDataInstalacao ?? "").trim() ||
+    explicitApplicability !== null;
+
+  if (!hasHruChanged) {
+    if (current?.hruValidade) {
+      targetData.hruValidade = current.hruValidade;
+    }
+    return { error: null as string | null };
+  }
+
+  const isApplicable = explicitApplicability ?? Boolean(hruReferencia || hruDataInstalacaoRaw);
+
+  if (!isApplicable) {
+    targetData.hruReferencia = "";
+    targetData.hruDataInstalacao = "";
+    targetData.hruValidade = "";
+    return { error: null as string | null };
+  }
+
+  const hruReferenciaFinal = hruReferencia || HRU_REFERENCE_ARTIGO;
+
+  if (!hruDataInstalacao) {
+    return { error: "HRU aplicável: informe uma data de instalação válida." };
+  }
+
+  targetData.hruReferencia = hruReferenciaFinal;
+  targetData.hruDataInstalacao = hruDataInstalacao;
+  targetData.hruValidade = addYearsToIsoDate(hruDataInstalacao, 2);
+
+  return { error: null as string | null };
+}
+
+function normalizeMonthYear(value: unknown): string | null {
+  const raw = String(value ?? "").trim();
+  if (!raw) return null;
+
+  const mmYyyy = raw.match(/^(\d{1,2})\/(\d{4})$/);
+  if (mmYyyy) {
+    const month = Number(mmYyyy[1]);
+    const year = Number(mmYyyy[2]);
+    if (month >= 1 && month <= 12) return `${String(month).padStart(2, "0")}/${year}`;
+  }
+
+  const yyyyMm = raw.match(/^(\d{4})-(\d{1,2})(?:-(\d{1,2}))?$/);
+  if (yyyyMm) {
+    const year = Number(yyyyMm[1]);
+    const month = Number(yyyyMm[2]);
+    if (month >= 1 && month <= 12) return `${String(month).padStart(2, "0")}/${year}`;
+  }
+
+  const ddMmYyyy = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (ddMmYyyy) {
+    const month = Number(ddMmYyyy[2]);
+    const year = Number(ddMmYyyy[3]);
+    if (month >= 1 && month <= 12) return `${String(month).padStart(2, "0")}/${year}`;
+  }
+
+  return null;
+}
+
+function buildJangadaUpdateData(
+  input: any,
+  current?: { brand?: string | null; model?: string | null; packType?: string | null } | null,
+) {
+  const allowedStringFields = [
+    "brand",
+    "model",
+    "serial",
+    "launchType",
+    "fabricType",
+    "painterLength",
+    "maxStowageHeight",
+    "dataFabrico",
+    "packType",
+    "containerModel",
+    "owner",
+    "shipNameManual",
+    "dataInspecao",
+    "dataProxInspecao",
+    "ultimoCertificadoNumero",
+    "cylinderSerial",
+    "cylinderTara",
+    "cylinderPesoBruto",
+    "cylinderCo2",
+    "cylinderN2",
+    "cylinderDataTeste",
+    "cylinderDataProxTeste",
+    "cylinderSistema",
+    "cylinderCabecaDisparoRef",
+    "cylinderCabecaDisparoDescricao",
+    "cylinderTuboCamaraSuperiorRef",
+    "cylinderTuboCamaraSuperiorDescricao",
+    "cylinderTuboCamaraInferiorRef",
+    "cylinderTuboCamaraInferiorDescricao",
+    "cylinderAcessoriosCamaraSuperiorJson",
+    "cylinderAcessoriosCamaraInferiorJson",
+    "valvulasAlivio",
+    "valvulasAtestar",
+    "hruReferencia",
+    "hruDataInstalacao",
+    "hruValidade",
+    "radarReflector",
+    "radarReflectorValidade",
+    "tuboIdentificacao",
+    "numeroObra",
+    "testeWP",
+    "testeNAP",
+    "testeFS",
+    "testeGI",
+    "testeDL",
+    "testeTemperaturaCamaraSuperior",
+    "testeTemperaturaCamaraInferior",
+    "testePressaoCamaraSuperior",
+    "testePressaoCamaraInferior",
+    "testeWPUnidadePressao",
+    "testeWPHoraInicio",
+    "testeWPHoraFim",
+    "testeWPTemperaturaInicial",
+    "testeWPTemperaturaFinal",
+    "testeWPPressaoAtmosfericaInicial",
+    "testeWPPressaoAtmosfericaFinal",
+    "testeWPCamaraSuperiorInicio",
+    "testeWPCamaraSuperiorFim",
+    "testeWPCamaraSuperiorQueda",
+    "testeWPCamaraInferiorInicio",
+    "testeWPCamaraInferiorFim",
+    "testeWPCamaraInferiorQueda",
+    "signatureBase64",
+  ] as const;
+
+  const data: Record<string, any> = {};
+
+  for (const key of allowedStringFields) {
+    if (Object.prototype.hasOwnProperty.call(input, key)) {
+      data[key] = input[key] === undefined ? null : input[key];
+    }
+  }
+
+  if (Object.prototype.hasOwnProperty.call(input, "brand")) {
+    data.brand = normalizeBrandName(input?.brand, input?.model);
+  }
+
+  const shouldRecomputeModel = ["brand", "model", "packType"].some((field) =>
+    Object.prototype.hasOwnProperty.call(input, field)
+  );
+
+  if (shouldRecomputeModel) {
+    const effectiveBrand = Object.prototype.hasOwnProperty.call(input, "brand")
+      ? (data.brand ?? input?.brand)
+      : current?.brand;
+    const effectiveModel = Object.prototype.hasOwnProperty.call(input, "model") ? input?.model : current?.model;
+    const effectivePackType = Object.prototype.hasOwnProperty.call(input, "packType")
+      ? (data.packType ?? input?.packType)
+      : current?.packType;
+
+    data.model = normalizeRaftModel(effectiveModel, effectiveBrand, effectivePackType);
+    if (Object.prototype.hasOwnProperty.call(input, "model") && isLegacyAlmarModel(input?.model)) {
+      data.brand = "ALMAR";
+    }
+  }
+
+  if (Object.prototype.hasOwnProperty.call(input, "dataFabrico")) {
+    data.dataFabrico = normalizeMonthYear(input?.dataFabrico) || "";
+  }
+
+  if (Object.prototype.hasOwnProperty.call(input, "cylinderSistema")) {
+    data.cylinderSistema = canonicalizeCylinderSistema(input?.cylinderSistema);
+  }
+
+  if (Object.prototype.hasOwnProperty.call(input, "capacity")) {
+    const c = Number(input.capacity);
+    if (Number.isFinite(c)) data.capacity = c;
+  }
+
+  if (Object.prototype.hasOwnProperty.call(input, "shipId")) {
+    const shipId = input.shipId;
+    if (shipId === null || shipId === "") {
+      data.shipId = null;
+    } else {
+      const parsed = Number(shipId);
+      if (Number.isFinite(parsed)) data.shipId = parsed;
+    }
+  }
+
+  if (Object.prototype.hasOwnProperty.call(input, "certificadoAtivoId")) {
+    const certId = input.certificadoAtivoId;
+    if (certId === null || certId === "") {
+      data.certificadoAtivoId = null;
+    } else {
+      const parsed = Number(certId);
+      if (Number.isFinite(parsed)) data.certificadoAtivoId = parsed;
+    }
+  }
+
+  if (Object.prototype.hasOwnProperty.call(input, "serviceStationId")) {
+    const serviceStationId = input.serviceStationId;
+    if (serviceStationId === null || serviceStationId === "") {
+      data.serviceStationId = null;
+    } else {
+      const parsed = Number(serviceStationId);
+      if (Number.isFinite(parsed)) data.serviceStationId = parsed;
+    }
+  }
+
+  return data;
+}
+
+const JANGADA_COMPAT_OPTIONAL_FIELDS = [
+  "serviceBulletinsAppliedJson",
+  "testeWPUnidadePressao",
+  "testeWPHoraInicio",
+  "testeWPHoraFim",
+  "testeWPTemperaturaInicial",
+  "testeWPTemperaturaFinal",
+  "testeWPPressaoAtmosfericaInicial",
+  "testeWPPressaoAtmosfericaFinal",
+  "testeWPCamaraSuperiorInicio",
+  "testeWPCamaraSuperiorFim",
+  "testeWPCamaraSuperiorQueda",
+  "testeWPCamaraInferiorInicio",
+  "testeWPCamaraInferiorFim",
+  "testeWPCamaraInferiorQueda",
+] as const;
+
+const JANGADA_DETAIL_FIELD_NAMES = [
+  "id",
+  "brand",
+  "model",
+  "serial",
+  "launchType",
+  "painterLength",
+  "maxStowageHeight",
+  "dataFabrico",
+  "packType",
+  "containerModel",
+  "capacity",
+  "owner",
+  "shipId",
+  "serviceStationId",
+  "shipNameManual",
+  "dataInspecao",
+  "dataProxInspecao",
+  "ultimoCertificadoNumero",
+  "cylinderSerial",
+  "cylinderTara",
+  "cylinderPesoBruto",
+  "cylinderCo2",
+  "cylinderN2",
+  "cylinderDataTeste",
+  "cylinderDataProxTeste",
+  "cylinderSistema",
+  "cylinderCabecaDisparoRef",
+  "fabricType",
+  "cylinderCabecaDisparoDescricao",
+  "cylinderTuboCamaraSuperiorRef",
+  "cylinderTuboCamaraSuperiorDescricao",
+  "cylinderTuboCamaraInferiorRef",
+  "cylinderTuboCamaraInferiorDescricao",
+  "cylinderAcessoriosCamaraSuperiorJson",
+  "cylinderAcessoriosCamaraInferiorJson",
+  "valvulasAlivio",
+  "valvulasAtestar",
+  "hruReferencia",
+  "hruDataInstalacao",
+  "hruValidade",
+  "radarReflector",
+  "radarReflectorValidade",
+  "tuboIdentificacao",
+  "numeroObra",
+  "testeWP",
+  "testeNAP",
+  "testeFS",
+  "testeGI",
+  "testeDL",
+  "testeTemperaturaCamaraSuperior",
+  "testeTemperaturaCamaraInferior",
+  "testePressaoCamaraSuperior",
+  "testePressaoCamaraInferior",
+  "testeWPUnidadePressao",
+  "testeWPHoraInicio",
+  "testeWPHoraFim",
+  "testeWPTemperaturaInicial",
+  "testeWPTemperaturaFinal",
+  "testeWPPressaoAtmosfericaInicial",
+  "testeWPPressaoAtmosfericaFinal",
+  "testeWPCamaraSuperiorInicio",
+  "testeWPCamaraSuperiorFim",
+  "testeWPCamaraSuperiorQueda",
+  "testeWPCamaraInferiorInicio",
+  "testeWPCamaraInferiorFim",
+  "testeWPCamaraInferiorQueda",
+  "createdAt",
+  "updatedAt",
+  "certificadoAtivoId",
+] as const;
+
+function buildJangadaDetailSelect(unsupportedFields?: Iterable<string>) {
+  const unsupported = new Set(unsupportedFields || []);
+  const scalarSelect = Object.fromEntries(
+    JANGADA_DETAIL_FIELD_NAMES.filter((field) => !unsupported.has(field)).map((field) => [field, true])
+  );
+
+  return {
+    ...scalarSelect,
+    serviceStation: {
+      select: {
+        id: true,
+        codigo: true,
+        nome: true,
+      },
+    },
+    certificadoAtivo: { include: { validities: true } },
+    certificadosExtraidos: {
+      include: { validities: true },
+      orderBy: [{ sourceYear: 'desc' }, { dataInspecao: 'desc' }, { id: 'desc' }],
+    },
+  } as any;
+}
+
+function getMissingCompatibleJangadaField(error: any): string | null {
+  if (error?.code !== "P2022") return null;
+
+  const column = String(error?.meta?.column || "");
+  const match = column.match(/^Jangada\.(.+)$/);
+  if (!match) return null;
+
+  const field = match[1];
+  return (JANGADA_COMPAT_OPTIONAL_FIELDS as readonly string[]).includes(field) ? field : null;
+}
+
+function omitUnsupportedFields<T extends Record<string, any>>(value: T, unsupportedFields: Set<string>): T {
+  if (!unsupportedFields.size) return value;
+
+  return Object.fromEntries(Object.entries(value).filter(([key]) => !unsupportedFields.has(key))) as T;
+}
+
+async function findJangadaByIdCompat(id: number) {
+  const unsupportedFields = new Set<string>();
+
+  while (true) {
+    try {
+      const jangada = await prisma.jangada.findUnique({
+        where: { id },
+        select: buildJangadaDetailSelect(unsupportedFields),
+      });
+
+      return { jangada, unsupportedFields };
+    } catch (error) {
+      const missingField = getMissingCompatibleJangadaField(error);
+      if (!missingField || unsupportedFields.has(missingField)) throw error;
+      unsupportedFields.add(missingField);
+    }
+  }
+}
+
+async function updateJangadaCompat(id: number, data: Record<string, any>) {
+  const unsupportedFields = new Set<string>();
+
+  while (true) {
+    try {
+      const updated = await prisma.jangada.update({
+        where: { id },
+        data: omitUnsupportedFields(data, unsupportedFields),
+        select: buildJangadaDetailSelect(unsupportedFields),
+      });
+
+      return { updated, unsupportedFields };
+    } catch (error) {
+      const missingField = getMissingCompatibleJangadaField(error);
+      if (!missingField || unsupportedFields.has(missingField)) throw error;
+      unsupportedFields.add(missingField);
+    }
+  }
+}
+
+async function resolveShipAssignment(shipId: number) {
+  return prisma.navio.findUnique({
+    where: { id: shipId },
+    select: NAVIO_WITH_CLIENTE_SELECT,
+  });
+}
+
+function normalizeExpectedDeliveryInput(value: unknown): Date | null {
+  const raw = String(value ?? '').trim();
+  if (!raw) return null;
+  const parsed = Date.parse(raw);
+  if (Number.isNaN(parsed)) return null;
+  return new Date(parsed);
+}
+
+function parseQueueMetaBoolean(value: unknown, fallback = false) {
+  if (typeof value === 'boolean') return value;
+  if (typeof value === 'number') return value > 0;
+  const raw = String(value ?? '').trim().toLowerCase();
+  if (!raw) return fallback;
+  if (['1', 'true', 'sim', 'yes', 'y'].includes(raw)) return true;
+  if (['0', 'false', 'nao', 'não', 'no', 'n'].includes(raw)) return false;
+  return fallback;
+}
+
+type JangadaQueueLogisticsMeta = {
+  workflowStatus?: string;
+  readyForDelivery?: boolean;
+  deliveryMethod?: string;
+  deliveredAt?: string | null;
+};
+
+type JangadaQueueStatus = 'aguardar' | 'agendada' | 'progresso' | 'a_secar' | 'finalizada';
+
+function normalizeJangadaQueueStatus(value: unknown): JangadaQueueStatus | undefined {
+  const raw = String(value ?? '').trim().toLowerCase();
+  if (!raw) return undefined;
+  if (raw === 'agendada') return 'agendada';
+  if (raw === 'progresso') return 'progresso';
+  if (raw === 'a_secar') return 'a_secar';
+  if (raw === 'finalizada') return 'finalizada';
+  if (raw === 'aguardar' || raw === 'aguardando' || raw === 'aguardar inspeccao' || raw === 'aguardar inspeção') return 'aguardar';
+  return undefined;
+}
+
+function parseJangadaQueueLogisticsMeta(raw: unknown): JangadaQueueLogisticsMeta {
+  const text = String(raw ?? '').trim();
+  if (!text) return {};
+
+  try {
+    const parsed = JSON.parse(text);
+    if (!parsed || typeof parsed !== 'object') return {};
+
+    return {
+      workflowStatus: typeof (parsed as any).workflowStatus === 'string' ? String((parsed as any).workflowStatus).trim() || undefined : undefined,
+      readyForDelivery: parseQueueMetaBoolean((parsed as any).readyForDelivery, false),
+      deliveryMethod: typeof (parsed as any).deliveryMethod === 'string' ? String((parsed as any).deliveryMethod).trim() || undefined : undefined,
+      deliveredAt: typeof (parsed as any).deliveredAt === 'string' ? String((parsed as any).deliveredAt).trim() || null : null,
+    };
+  } catch {
+    return {};
+  }
+}
+
+function mergeJangadaQueueLogisticsMeta(raw: unknown, updates: Partial<JangadaQueueLogisticsMeta>) {
+  const currentRaw = String(raw ?? '').trim();
+  let base: Record<string, unknown> = {};
+
+  if (currentRaw) {
+    try {
+      const parsed = JSON.parse(currentRaw);
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+        base = { ...(parsed as Record<string, unknown>) };
+      }
+    } catch {
+      base = { observacao: currentRaw };
+    }
+  }
+
+  if (Object.prototype.hasOwnProperty.call(updates, 'workflowStatus')) {
+    base.workflowStatus = updates.workflowStatus || '';
+  }
+
+  if (Object.prototype.hasOwnProperty.call(updates, 'readyForDelivery')) {
+    base.readyForDelivery = Boolean(updates.readyForDelivery);
+  }
+
+  if (Object.prototype.hasOwnProperty.call(updates, 'deliveryMethod')) {
+    base.deliveryMethod = updates.deliveryMethod || '';
+  }
+
+  if (Object.prototype.hasOwnProperty.call(updates, 'deliveredAt')) {
+    base.deliveredAt = updates.deliveredAt || '';
+  }
+
+  return JSON.stringify(base);
+}
+
+function parseArtigosFromText(raw: unknown) {
+  if (Array.isArray(raw)) return raw;
+  if (typeof raw !== "string") return [];
+  const value = raw.trim();
+  if (!value) return [];
+  try {
+    const parsed = JSON.parse(value);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function normalizeArtigosInput(raw: unknown) {
+  if (!Array.isArray(raw)) return [] as Array<{
+    name: string;
+    quantidade: number;
+    validade: Date | null;
+    referencia: string | null;
+    codigoFabricante: string | null;
+  }>;
+
+  return raw
+    .map((item: any) => {
+      const name = String(item?.name || "").trim();
+      if (!name) return null;
+
+      const quantidadeNum = Number(item?.quantidade);
+      const quantidade = Number.isFinite(quantidadeNum) ? Math.max(0, Math.round(quantidadeNum)) : 0;
+
+      const validadeRaw = String(item?.validade || "").trim();
+      const validadeParsed = validadeRaw ? Date.parse(validadeRaw) : Number.NaN;
+      const validade = Number.isNaN(validadeParsed) ? null : new Date(validadeParsed);
+
+      const referencia = item?.referencia ? String(item.referencia).trim() : null;
+      const codigoFabricante = item?.codigoFabricante ? String(item.codigoFabricante).trim() : null;
+
+      return {
+        name,
+        quantidade,
+        validade,
+        referencia,
+        codigoFabricante,
+      };
+    })
+    .filter((item): item is {
+      name: string;
+      quantidade: number;
+      validade: Date | null;
+      referencia: string | null;
+      codigoFabricante: string | null;
+    } => item !== null);
+}
+
+function filterPayloadByAllowedFields(payload: Record<string, unknown>, allowedFields: Set<string>) {
+  return Object.entries(payload).reduce<Record<string, unknown>>((acc, [key, value]) => {
+    if (allowedFields.has(key)) acc[key] = value;
+    return acc;
+  }, {});
+}
+
+function toClientArtigo(art: any) {
+  return {
+    id: art?.id,
+    name: art?.name || "",
+    quantidade: art?.quantidade ?? 0,
+    validade: art?.validade ? new Date(art.validade).toISOString().slice(0, 10) : undefined,
+    referencia: art?.referencia || undefined,
+    codigoFabricante: art?.codigoFabricante || undefined,
+  };
+}
+
+async function loadArtigosPersistidosLean(artigoJangadaDelegate: any, jangadaId: number) {
+  if (!artigoJangadaDelegate) return [] as any[];
+
+  const baseSelect = {
+    id: true,
+    name: true,
+    quantidade: true,
+    validade: true,
+    referencia: true,
+    codigoFabricante: true,
+    updatedAt: true,
+  };
+
+  // Primeiro tentamos apenas os artigos ativos da ficha (inspecaoId nulo),
+  // preservando exatamente os valores guardados na jangada.
+  let rows = await artigoJangadaDelegate.findMany({
+    where: { jangadaId, inspecaoId: null },
+    orderBy: [{ id: "asc" }],
+    take: 2000,
+    select: baseSelect,
+  });
+
+  // Compatibilidade com dados antigos: fallback para todos os artigos da jangada,
+  // mantendo seleção enxuta e limite de segurança.
+  if (!rows.length) {
+    rows = await artigoJangadaDelegate.findMany({
+      where: { jangadaId },
+      orderBy: [{ id: "asc" }],
+      take: 2000,
+      select: baseSelect,
+    });
+  }
+
+  return rows.map(toClientArtigo);
+}
+
+const GROUPS: Array<{ key: string; tokens: string[] }> = [
+  { key: "fachos_mao", tokens: ["facho", "fachos", "mao", "handflare", "fogo de mao"] },
+  { key: "paraquedas", tokens: ["paraquedas", "parachute", "rocket", "foguete"] },
+  { key: "comprimidos", tokens: ["comprimido", "comprimidos", "pastilha", "enjoo", "tablet", "seasickness"] },
+  { key: "aguas", tokens: ["agua", "aguas", "water", "potavel"] },
+  { key: "racoes", tokens: ["racao", "racoes", "ration", "food"] },
+  { key: "farmacia", tokens: ["farmacia", "first aid", "primeiros socorros", "ambulancia", "ambulância"] },
+  { key: "fumo", tokens: ["fumo", "fumigeno", "smoke"] },
+];
+
+function detectGroups(text: string) {
+  const norm = normalize(text);
+  const groups = new Set<string>();
+
+  for (const group of GROUPS) {
+    for (const token of group.tokens) {
+      if (norm.includes(normalize(token))) {
+        groups.add(group.key);
+        break;
+      }
+    }
+  }
+
+  return groups;
+}
+
+function matchStockItem(rawItem: string, stock: Array<{ referencia: string; descricao: string; categoria: string | null; codigoFabricante: string | null }>) {
+  const normItem = normalize(rawItem);
+  const groups = detectGroups(rawItem);
+
+  let best: { score: number; item: { referencia: string; descricao: string; categoria: string | null; codigoFabricante: string | null } } | null = null;
+
+  for (const s of stock) {
+    const blob = normalize([s.descricao, s.referencia, s.categoria || "", s.codigoFabricante || ""].join(" "));
+    let score = 0;
+
+    if (blob.includes(normItem)) score += 8;
+
+    const sGroups = detectGroups(blob);
+    for (const g of groups) {
+      if (sGroups.has(g)) score += 5;
+    }
+
+    for (const word of normItem.split(" ").filter((w) => w.length >= 3)) {
+      if (blob.includes(word)) score += 1;
+    }
+
+    if (!best || score > best.score) {
+      best = { score, item: s };
+    }
+  }
+
+  if (!best || best.score < 5) return null;
+  return best.item;
+}
+
+export async function GET(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  try {
+    const access = await getAccessContext();
+    if (!access) return NextResponse.json({ error: "Sessão obrigatória." }, { status: 401 });
+
+    const { id: rawId } = await context.params;
+    const id = Number(rawId);
+    if (!id) return NextResponse.json({ error: "ID inválido" }, { status: 400 });
+    const { jangada } = await findJangadaByIdCompat(id);
+    if (!jangada) return NextResponse.json({ error: 'Jangada não encontrada' }, { status: 404 });
+
+    if (!access.isAdmin && !access.allowedStationIds.includes(Number((jangada as any).serviceStationId || 0))) {
+      return NextResponse.json({ error: "Sem permissão para aceder a esta jangada." }, { status: 403 });
+    }
+    const serviceBulletinsApplied = await readServiceBulletinsApplied(id);
+    const inspectionChecklistValues = await readInspectionChecklistValues(id);
+    const observacoes = await readJangadaObservacoes(id);
+
+    const globalStock = await prisma.stock.findMany({
+      where: {
+        estadoArtigo: "ATIVO"
+      },
+      select: {
+        id: true,
+        referencia: true,
+        descricao: true,
+        categoria: true,
+        codigoFabricante: true,
+        lote: true,
+        validade: true,
+        quantidade: true
+      },
+      orderBy: { descricao: 'asc' }
+    });
+
+    const artigoJangadaDelegate = (prisma as any).artigoJangada;
+    
+    const ownerDisplayValue = typeof (jangada as any).owner === "string" ? (jangada as any).owner.trim() : "";
+    const jangadaShipId = Number.isFinite(Number((jangada as any).shipId)) ? Number((jangada as any).shipId) : null;
+    let ownerDisplay: string | null = ownerDisplayValue || null;
+    let ownerClientId: number | null = null;
+    let shipDetails: any = null;
+    if (!ownerDisplay && jangadaShipId) {
+      const navio = await resolveShipAssignment(jangadaShipId);
+      shipDetails = navio
+        ? {
+            id: navio.id,
+            nome: navio.nome,
+            matricula: navio.matricula,
+            tipoPesca: navio.tipoPesca,
+            tipoNavio: navio.tipoNavio,
+            ilha: navio.ilha,
+            portoRegisto: navio.portoRegisto,
+            proprietario: navio.proprietario,
+            bandeira: navio.bandeira,
+            mmsi: navio.mmsi,
+            imo: navio.imo,
+            callSignal: navio.callSignal,
+            hruReferencia: (navio as any).hruReferencia || null,
+            hruValidade: (navio as any).hruValidade || null,
+            radarReflector: (navio as any).radarReflector || null,
+            radarReflectorValidade: (navio as any).radarReflectorValidade || null,
+            cliente: navio.cliente
+              ? {
+                  id: navio.cliente.id,
+                  nome: navio.cliente.nome,
+                  ilha: navio.cliente.ilha,
+                }
+              : null,
+          }
+        : null;
+      ownerDisplay = navio?.cliente?.nome || null;
+      ownerClientId = navio?.cliente?.id ?? null;
+    } else if (jangadaShipId) {
+      const navio = await resolveShipAssignment(jangadaShipId);
+      shipDetails = navio
+        ? {
+            id: navio.id,
+            nome: navio.nome,
+            matricula: navio.matricula,
+            tipoPesca: navio.tipoPesca,
+            tipoNavio: navio.tipoNavio,
+            ilha: navio.ilha,
+            portoRegisto: navio.portoRegisto,
+            proprietario: navio.proprietario,
+            bandeira: navio.bandeira,
+            mmsi: navio.mmsi,
+            imo: navio.imo,
+            callSignal: navio.callSignal,
+            hruReferencia: (navio as any).hruReferencia || null,
+            hruValidade: (navio as any).hruValidade || null,
+            radarReflector: (navio as any).radarReflector || null,
+            radarReflectorValidade: (navio as any).radarReflectorValidade || null,
+            cliente: navio.cliente
+              ? {
+                  id: navio.cliente.id,
+                  nome: navio.cliente.nome,
+                  ilha: navio.cliente.ilha,
+                }
+              : null,
+          }
+        : null;
+    }
+
+    const certs2025 = [
+      ...(Array.isArray(jangada.certificadosExtraidos) ? jangada.certificadosExtraidos : []).filter((c: any) => Number(c?.sourceYear) === 2025),
+      ...(jangada.certificadoAtivo && Number((jangada.certificadoAtivo as any)?.sourceYear) === 2025 ? [jangada.certificadoAtivo] : []),
+    ];
+
+    const dedupe = new Set<string>();
+    const artigosDerivados: Array<{
+      name: string;
+      quantidade: number;
+      validade?: string;
+      referencia?: string;
+      codigoFabricante?: string;
+      sourceItemCertificado?: string;
+      sourceCertificadoNumero?: string;
+    }> = [];
+
+    for (const cert of certs2025 as any[]) {
+      const rows = Array.isArray(cert?.validities) ? cert.validities : [];
+      for (const row of rows) {
+        const item = String(row?.item || "").trim();
+        const validade = String(row?.validade || "").trim();
+        if (!item) continue;
+
+        const matched = matchStockItem(item, globalStock as any[]);
+        const entry = {
+          name: matched?.descricao || item,
+          quantidade: 1,
+          validade: validade || undefined,
+          referencia: matched?.referencia || undefined,
+          codigoFabricante: matched?.codigoFabricante || undefined,
+          sourceItemCertificado: item,
+          sourceCertificadoNumero: cert?.certificadoNumero || cert?.fileName || undefined,
+        };
+
+        const key = `${entry.name}|${entry.validade || ""}|${entry.referencia || ""}`;
+        if (dedupe.has(key)) continue;
+        dedupe.add(key);
+        artigosDerivados.push(entry);
+      }
+    }
+
+    let artigosPersistidos: any[] = [];
+    if (artigoJangadaDelegate) {
+      artigosPersistidos = await loadArtigosPersistidosLean(artigoJangadaDelegate, id);
+    } else {
+      // Compatibilidade com esquema legado onde artigos era armazenado como texto JSON
+      artigosPersistidos = parseArtigosFromText((jangada as any).artigos);
+    }
+
+    const latestQueue = await prisma.serviceStationQueue.findFirst({
+      where: { jangadaId: id },
+      orderBy: [{ updatedAt: 'desc' }, { id: 'desc' }],
+      select: { dataPrevistaEntrega: true, updatedAt: true, status: true, observacoes: true },
+    });
+    const latestQueueMeta = parseJangadaQueueLogisticsMeta(latestQueue?.observacoes);
+
+    const resolvedMandatoryPack = await resolveMandatoryPackItemsForRaftAsync({
+      brand: (jangada as any).brand,
+      model: (jangada as any).model,
+      packType: (jangada as any).packType,
+      capacity: (jangada as any).capacity,
+    });
+
+    const inspections = await prisma.inspecao.findMany({
+      where: {
+        OR: [
+          { jangadaId: id },
+          { jangadaSerial: (jangada as any).serial || "" }
+        ]
+      },
+      include: {
+        artigos: true
+      },
+      orderBy: { dataInspecao: 'desc' }
+    });
+
+    return NextResponse.json({
+      ...jangada,
+      brand: normalizeBrandName((jangada as any).brand, (jangada as any).model),
+      model: normalizeRaftModel((jangada as any).model, (jangada as any).brand, (jangada as any).packType),
+      cylinderSistema: canonicalizeCylinderSistema((jangada as any).cylinderSistema),
+      shipNameManual: shipDetails?.nome || (jangada as any).shipNameManual || "",
+      ownerDisplay,
+      ownerClientId,
+      shipDetails,
+      serviceStationStatus: normalizeJangadaQueueStatus(latestQueue?.status) || null,
+      serviceStationWorkflowStatus: latestQueueMeta.workflowStatus || null,
+      readyForDelivery: Boolean(latestQueueMeta.readyForDelivery),
+      deliveryMethod: latestQueueMeta.deliveryMethod || null,
+      expectedDeliveryDate: latestQueue?.dataPrevistaEntrega ? latestQueue.dataPrevistaEntrega.toISOString().slice(0, 10) : null,
+      delivered: Boolean(latestQueueMeta.deliveredAt),
+      deliveredAt: latestQueueMeta.deliveredAt || null,
+      statusSetAt: latestQueue?.updatedAt ? latestQueue.updatedAt.toISOString() : null,
+      artigos: artigosPersistidos.length > 0 ? artigosPersistidos : artigosDerivados,
+      mandatoryPackItems: resolvedMandatoryPack.items,
+      mandatoryPackSource: resolvedMandatoryPack.source,
+      customPackDefinition: resolvedMandatoryPack.customPack,
+      applicableServiceBulletins: getApplicableServiceBulletinsForRaft(jangada),
+      serviceBulletinsApplied,
+      inspectionChecklistValues,
+      observacoes,
+      inspecoes: inspections,
+    });
+  } catch (err: any) {
+    return buildDatabaseErrorResponse(err, err?.message || "Erro ao procurar jangada");
+  }
+}
+
+export async function DELETE(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  try {
+    const access = await getAccessContext();
+    if (!access) return NextResponse.json({ error: "Sessão obrigatória." }, { status: 401 });
+    if (!access.isAdmin) return NextResponse.json({ error: "Sem permissão para eliminar jangadas." }, { status: 403 });
+
+    const { id: rawId } = await context.params;
+    const id = Number(rawId);
+    if (!id) return NextResponse.json({ error: "ID inválido" }, { status: 400 });
+    await deleteJangadaById(id);
+    return NextResponse.json({ success: true });
+  } catch (err: any) {
+    return buildDatabaseErrorResponse(err, err?.message || "Erro ao eliminar jangada");
+  }
+}
+
+export async function PUT(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  try {
+    const access = await getAccessContext();
+    if (!access) return NextResponse.json({ error: "Sessão obrigatória." }, { status: 401 });
+
+    const { id: rawId } = await context.params;
+    const id = Number(rawId);
+    if (!id) return NextResponse.json({ error: "ID inválido" }, { status: 400 });
+
+    const existing = await prisma.jangada.findUnique({
+      where: { id },
+      select: { 
+        id: true, 
+        brand: true, 
+        model: true, 
+        packType: true, 
+        capacity: true, 
+        serviceStationId: true, 
+        hruReferencia: true, 
+        hruDataInstalacao: true, 
+        hruValidade: true,
+        serial: true,
+        shipId: true,
+        shipNameManual: true,
+        dataInspecao: true,
+        dataProxInspecao: true,
+        ultimoCertificadoNumero: true
+      },
+    });
+    if (!existing) return NextResponse.json({ error: "Jangada não encontrada." }, { status: 404 });
+
+    if (!access.isAdmin && !access.allowedStationIds.includes(Number(existing.serviceStationId || 0))) {
+      return NextResponse.json({ error: "Sem permissão para editar esta jangada." }, { status: 403 });
+    }
+
+    const rawData = (await req.json()) as Record<string, unknown>;
+    const editableFields = new Set(access.permissions.editableFields?.["jangadas-detail"] || []);
+    const canEditJangadasPage = access.isAdmin || canEditPath(access.permissions, "/jangadas");
+
+    if (!access.isAdmin && !canEditJangadasPage) {
+      return NextResponse.json({ error: "Sem permissão para editar a página de jangadas." }, { status: 403 });
+    }
+
+    const pageEditorAuxiliaryFields = [
+      'hruAplicavel',
+      'artigos',
+      'inspectionChecklistValues',
+      'serviceBulletinsApplied',
+      'observacoes',
+      'expectedDeliveryDate',
+      'delivered',
+      'deliveredAt',
+    ];
+    const permittedFields = new Set<string>([
+      ...editableFields,
+      ...(canEditJangadasPage ? pageEditorAuxiliaryFields : ['delivered', 'deliveredAt']),
+      'shipId',
+    ]);
+    const data = rawData;
+
+    const jangadaData = buildJangadaUpdateData(data || {}, existing);
+    const hasServiceBulletinsApplied = Object.prototype.hasOwnProperty.call(data || {}, "serviceBulletinsApplied");
+    const hasInspectionChecklistValues = Object.prototype.hasOwnProperty.call(data || {}, "inspectionChecklistValues");
+    const hasObservacoes = Object.prototype.hasOwnProperty.call(data || {}, "observacoes");
+    const expectedDeliveryDate = Object.prototype.hasOwnProperty.call(data || {}, 'expectedDeliveryDate')
+      ? normalizeExpectedDeliveryInput(data?.expectedDeliveryDate)
+      : undefined;
+    const serviceStationStatus = Object.prototype.hasOwnProperty.call(data || {}, 'serviceStationStatus')
+      ? normalizeJangadaQueueStatus(data?.serviceStationStatus)
+      : undefined;
+    const readyForDelivery = Object.prototype.hasOwnProperty.call(data || {}, 'readyForDelivery')
+      ? parseQueueMetaBoolean(data?.readyForDelivery, false)
+      : undefined;
+    const deliveryMethod = Object.prototype.hasOwnProperty.call(data || {}, 'deliveryMethod')
+      ? String(data?.deliveryMethod || '').trim() || ''
+      : undefined;
+    const delivered = Object.prototype.hasOwnProperty.call(data || {}, 'delivered')
+      ? parseQueueMetaBoolean(data?.delivered, false)
+      : undefined;
+    const deliveredAt = Object.prototype.hasOwnProperty.call(data || {}, 'deliveredAt')
+      ? (String(data?.deliveredAt || '').trim() ? new Date(String(data?.deliveredAt)).toISOString() : null)
+      : undefined;
+    const artigosInput = Array.isArray(data?.artigos) ? data.artigos : null;
+    const artigoJangadaDelegate = (prisma as any).artigoJangada;
+
+    const hruRules = applyHruBusinessRules({
+      rawInput: data || {},
+      targetData: jangadaData,
+      current: existing,
+    });
+    if (hruRules.error) {
+      return NextResponse.json({ error: hruRules.error }, { status: 400 });
+    }
+
+    if (jangadaData?.cylinderDataTeste) {
+      jangadaData.cylinderDataProxTeste = addFiveYears(String(jangadaData.cylinderDataTeste));
+    }
+
+    if (Object.prototype.hasOwnProperty.call(jangadaData, "packType")) {
+      const nextPackType = String(jangadaData.packType || "");
+      const isValidPackType = await isKnownPackTypeName(nextPackType, {
+        includeInactiveCustom: nextPackType.trim().toUpperCase() === String(existing.packType || "").trim().toUpperCase(),
+      });
+      if (!isValidPackType) {
+        return NextResponse.json({ error: "Tipo de pack inválido." }, { status: 400 });
+      }
+    }
+
+    if (artigosInput && artigoJangadaDelegate) {
+      const artigosNormalizados = normalizeArtigosInput(artigosInput);
+      await artigoJangadaDelegate.deleteMany({ where: { jangadaId: id } });
+      if (artigosNormalizados.length > 0) {
+        await artigoJangadaDelegate.createMany({
+          data: artigosNormalizados.map((art) => ({ ...art, jangadaId: id })),
+        });
+      }
+    } else if (artigosInput) {
+      // Compatibilidade com esquema legado onde artigos era armazenado como texto JSON
+      jangadaData.artigos = JSON.stringify(artigosInput);
+    }
+
+    const nextShipId = Number(jangadaData.shipId || 0);
+    let assignedShip: Awaited<ReturnType<typeof resolveShipAssignment>> | null = null;
+    if (Number.isFinite(nextShipId) && nextShipId > 0) {
+      assignedShip = await resolveShipAssignment(nextShipId);
+      if (!assignedShip) {
+        return NextResponse.json({ error: "Navio associado não encontrado." }, { status: 400 });
+      }
+      jangadaData.shipId = assignedShip.id;
+      jangadaData.shipNameManual = assignedShip.nome;
+    } else if (Object.prototype.hasOwnProperty.call(data || {}, "shipId")) {
+      jangadaData.shipNameManual = "";
+    }
+
+    const nextBrandForSync = normalizeBrandName(
+      Object.prototype.hasOwnProperty.call(data || {}, "brand") ? jangadaData.brand : existing.brand,
+      Object.prototype.hasOwnProperty.call(data || {}, "model") ? data?.model : existing.model,
+    );
+    const nextPackTypeForSync = String(
+      Object.prototype.hasOwnProperty.call(data || {}, "packType") ? (jangadaData.packType ?? data?.packType ?? "") : (existing.packType ?? "")
+    ).trim();
+    const nextModelForSync = normalizeRaftModel(
+      Object.prototype.hasOwnProperty.call(data || {}, "model")
+        ? (jangadaData.model ?? data?.model)
+        : existing.model,
+      nextBrandForSync,
+      nextPackTypeForSync,
+    );
+    const nextCapacityForSync = Object.prototype.hasOwnProperty.call(jangadaData, "capacity")
+      ? Number(jangadaData.capacity || 0)
+      : Number(existing.capacity || 0);
+
+    const shouldSyncMandatoryPackArticles =
+      normalize(nextBrandForSync) !== normalize(existing.brand) ||
+      normalize(nextModelForSync) !== normalize(existing.model) ||
+      normalize(nextPackTypeForSync) !== normalize(existing.packType) ||
+      nextCapacityForSync !== Number(existing.capacity || 0);
+
+    // Registar ou atualizar o histórico de inspeções
+    const nextDataInspecao = Object.prototype.hasOwnProperty.call(data || {}, "dataInspecao")
+      ? (data.dataInspecao ? String(data.dataInspecao).trim() : null)
+      : undefined;
+    const nextDataProxInspecao = Object.prototype.hasOwnProperty.call(data || {}, "dataProxInspecao")
+      ? (data.dataProxInspecao ? String(data.dataProxInspecao).trim() : null)
+      : undefined;
+
+    if (nextDataInspecao !== undefined || nextDataProxInspecao !== undefined) {
+      const targetDataInspecao = nextDataInspecao !== undefined ? nextDataInspecao : existing.dataInspecao;
+      
+      if (targetDataInspecao) {
+        // Tenta encontrar uma inspeção existente para esta data nesta jangada
+        let existingInspection = await prisma.inspecao.findFirst({
+          where: {
+            jangadaId: id,
+            dataInspecao: targetDataInspecao,
+          },
+        });
+
+        // Se não encontrar por data exata, tenta encontrar a última inspeção registada no histórico
+        if (!existingInspection) {
+          existingInspection = await prisma.inspecao.findFirst({
+            where: { jangadaId: id },
+            orderBy: { dataInspecao: "desc" },
+          });
+        }
+
+        if (existingInspection) {
+          // Atualiza a inspeção existente
+          const updatePayload: Record<string, any> = {};
+          if (nextDataInspecao !== undefined) updatePayload.dataInspecao = nextDataInspecao;
+          if (nextDataProxInspecao !== undefined) updatePayload.dataProxInspecao = nextDataProxInspecao;
+
+          await prisma.inspecao.update({
+            where: { id: existingInspection.id },
+            data: updatePayload,
+          });
+
+          // Guardar snapshot para esta inspeção existente
+          await saveInspectionSnapshot(existingInspection.certificadoNumero, id);
+        } else {
+          // Se não houver nenhuma inspeção para este id no histórico, cria uma nova
+          const certNum = await generateInspectionCertificateNumber(targetDataInspecao);
+
+          await prisma.inspecao.create({
+            data: {
+              certificadoNumero: certNum,
+              jangadaId: id,
+              jangadaSerial: data?.serial ? String(data.serial) : (existing.serial || ""),
+              navioId: data?.shipId ? Number(data.shipId) : (existing.shipId || null),
+              navioNome: data?.shipNameManual ? String(data.shipNameManual) : (existing.shipNameManual || "Sem navio"),
+              dataInspecao: targetDataInspecao,
+              dataProxInspecao: nextDataProxInspecao !== undefined ? nextDataProxInspecao : null,
+              status: "Concluída",
+            },
+          });
+
+          // Guardar snapshot para esta nova inspeção
+          await saveInspectionSnapshot(certNum, id);
+
+          // Atualizar o certificado na jangada
+          jangadaData.ultimoCertificadoNumero = certNum;
+        }
+      }
+    }
+
+    const { updated } = await updateJangadaCompat(id, jangadaData);
+
+    if (shouldSyncMandatoryPackArticles && artigoJangadaDelegate) {
+      await syncRaftArticlesWithPackType(id);
+    }
+
+    const updatedShipId = Number((updated as any).shipId || 0);
+    const updatedShip = updatedShipId > 0
+      ? (assignedShip && assignedShip.id === updatedShipId ? assignedShip : await resolveShipAssignment(updatedShipId))
+      : null;
+    const updatedShipDetails = updatedShip
+      ? {
+          id: updatedShip.id,
+          nome: updatedShip.nome,
+          matricula: updatedShip.matricula,
+          tipoPesca: updatedShip.tipoPesca,
+          tipoNavio: updatedShip.tipoNavio,
+          ilha: updatedShip.ilha,
+          portoRegisto: updatedShip.portoRegisto,
+          proprietario: updatedShip.proprietario,
+          bandeira: updatedShip.bandeira,
+          mmsi: updatedShip.mmsi,
+          imo: updatedShip.imo,
+          callSignal: updatedShip.callSignal,
+          hruReferencia: (updatedShip as any).hruReferencia || null,
+          hruValidade: (updatedShip as any).hruValidade || null,
+          radarReflector: (updatedShip as any).radarReflector || null,
+          radarReflectorValidade: (updatedShip as any).radarReflectorValidade || null,
+          cliente: updatedShip.cliente
+            ? {
+                id: updatedShip.cliente.id,
+                nome: updatedShip.cliente.nome,
+                ilha: updatedShip.cliente.ilha,
+              }
+            : null,
+        }
+      : null;
+    const updatedOwnerDisplay = String((updated as any).owner || "").trim()
+      || updatedShip?.cliente?.nome
+      || null;
+    const updatedOwnerClientId = updatedShip?.cliente?.id ?? null;
+
+    let artigosPersistidos: any[] = [];
+    if (artigoJangadaDelegate) {
+      artigosPersistidos = await loadArtigosPersistidosLean(artigoJangadaDelegate, id);
+    }
+
+    if (
+      expectedDeliveryDate !== undefined
+      || delivered !== undefined
+      || deliveredAt !== undefined
+      || serviceStationStatus !== undefined
+      || readyForDelivery !== undefined
+      || deliveryMethod !== undefined
+    ) {
+      const latestQueue = await prisma.serviceStationQueue.findFirst({
+        where: { jangadaId: id },
+        orderBy: [{ updatedAt: 'desc' }, { id: 'desc' }],
+        select: { id: true, observacoes: true, status: true },
+      });
+
+      const nextDeliveredAt = deliveredAt !== undefined
+        ? deliveredAt
+        : delivered !== undefined
+          ? (delivered ? new Date().toISOString() : null)
+          : undefined;
+
+      const previousQueueStatus = normalizeJangadaQueueStatus(latestQueue?.status) || 'aguardar';
+      const nextQueueStatus = serviceStationStatus !== undefined
+        ? serviceStationStatus
+        : (nextDeliveredAt ? 'finalizada' : previousQueueStatus);
+      const nextReadyForDelivery = readyForDelivery !== undefined
+        ? readyForDelivery
+        : nextDeliveredAt
+          ? false
+          : serviceStationStatus !== undefined
+            ? nextQueueStatus === 'finalizada'
+            : undefined;
+
+      if (latestQueue?.id) {
+        const nextObservacoes = nextDeliveredAt !== undefined
+          ? mergeJangadaQueueLogisticsMeta(latestQueue.observacoes, {
+              workflowStatus: nextQueueStatus,
+              deliveredAt: nextDeliveredAt,
+              readyForDelivery: nextDeliveredAt ? false : nextReadyForDelivery,
+              deliveryMethod: deliveryMethod,
+            })
+          : (serviceStationStatus !== undefined || readyForDelivery !== undefined || deliveryMethod !== undefined)
+            ? mergeJangadaQueueLogisticsMeta(latestQueue.observacoes, {
+                workflowStatus: nextQueueStatus,
+                readyForDelivery: nextReadyForDelivery,
+                deliveryMethod: deliveryMethod,
+              })
+            : undefined;
+
+        await prisma.serviceStationQueue.update({
+          where: { id: latestQueue.id },
+          data: {
+            ...(expectedDeliveryDate !== undefined ? { dataPrevistaEntrega: expectedDeliveryDate } : {}),
+            ...(nextObservacoes !== undefined ? { observacoes: nextObservacoes } : {}),
+            ...((serviceStationStatus !== undefined || nextDeliveredAt !== undefined) ? { status: nextQueueStatus } : {}),
+          },
+          select: { id: true },
+        });
+      } else if (expectedDeliveryDate || nextDeliveredAt || serviceStationStatus !== undefined || readyForDelivery !== undefined || deliveryMethod !== undefined) {
+        await prisma.serviceStationQueue.create({
+          data: {
+            jangadaId: id,
+            ...(existing.serviceStationId ? { serviceStationId: existing.serviceStationId } : {}),
+            status: nextQueueStatus || (nextDeliveredAt ? 'finalizada' : 'aguardar'),
+            dataPrevistaEntrega: expectedDeliveryDate,
+            observacoes: mergeJangadaQueueLogisticsMeta('', {
+              workflowStatus: nextQueueStatus || (nextDeliveredAt ? 'finalizada' : 'aguardar'),
+              deliveredAt: nextDeliveredAt,
+              readyForDelivery: nextDeliveredAt ? false : nextReadyForDelivery,
+              deliveryMethod: deliveryMethod,
+            }),
+          },
+          select: { id: true },
+        });
+      }
+    }
+
+    const nextDeliveredAtValue = deliveredAt !== undefined
+      ? deliveredAt
+      : delivered !== undefined
+        ? (delivered ? new Date().toISOString() : null)
+        : undefined;
+
+    if (nextDeliveredAtValue) {
+      await clearActiveAgendaForRaft({ jangadaId: id });
+    }
+
+    if (serviceStationStatus !== undefined && serviceStationStatus === 'finalizada') {
+      await syncNextInspectionAgenda({
+        jangadaId: id,
+        tecnico: access.email || 'sistema',
+      });
+    }
+
+    const latestQueue = await prisma.serviceStationQueue.findFirst({
+      where: { jangadaId: id },
+      orderBy: [{ updatedAt: 'desc' }, { id: 'desc' }],
+      select: { dataPrevistaEntrega: true, updatedAt: true, status: true, observacoes: true },
+    });
+    const latestQueueMeta = parseJangadaQueueLogisticsMeta(latestQueue?.observacoes);
+
+    const resolvedMandatoryPack = await resolveMandatoryPackItemsForRaftAsync({
+      brand: (updated as any).brand,
+      model: (updated as any).model,
+      packType: (updated as any).packType,
+      capacity: (updated as any).capacity,
+    });
+
+    const serviceBulletinsApplied = hasServiceBulletinsApplied
+      ? await writeServiceBulletinsApplied(id, data?.serviceBulletinsApplied)
+      : await readServiceBulletinsApplied(id);
+    const inspectionChecklistValues = hasInspectionChecklistValues
+      ? await writeInspectionChecklistValues(id, data?.inspectionChecklistValues)
+      : await readInspectionChecklistValues(id);
+    const observacoes = hasObservacoes
+      ? await writeJangadaObservacoes(id, data?.observacoes)
+      : await readJangadaObservacoes(id);
+
+    return NextResponse.json({
+      ...updated,
+      brand: normalizeBrandName((updated as any).brand, (updated as any).model),
+      model: normalizeRaftModel((updated as any).model, (updated as any).brand, (updated as any).packType),
+      cylinderSistema: canonicalizeCylinderSistema((updated as any).cylinderSistema),
+      shipNameManual: updatedShip?.nome || (updated as any).shipNameManual || "",
+      ownerDisplay: updatedOwnerDisplay,
+      ownerClientId: updatedOwnerClientId,
+      shipDetails: updatedShipDetails,
+      serviceStationStatus: normalizeJangadaQueueStatus(latestQueue?.status) || null,
+      serviceStationWorkflowStatus: latestQueueMeta.workflowStatus || null,
+      readyForDelivery: Boolean(latestQueueMeta.readyForDelivery),
+      deliveryMethod: latestQueueMeta.deliveryMethod || null,
+      expectedDeliveryDate: latestQueue?.dataPrevistaEntrega ? latestQueue.dataPrevistaEntrega.toISOString().slice(0, 10) : null,
+      delivered: Boolean(latestQueueMeta.deliveredAt),
+      deliveredAt: latestQueueMeta.deliveredAt || null,
+      statusSetAt: latestQueue?.updatedAt ? latestQueue.updatedAt.toISOString() : null,
+      artigos: artigosPersistidos.length > 0 ? artigosPersistidos : parseArtigosFromText((updated as any).artigos),
+      mandatoryPackItems: resolvedMandatoryPack.items,
+      mandatoryPackSource: resolvedMandatoryPack.source,
+      customPackDefinition: resolvedMandatoryPack.customPack,
+      applicableServiceBulletins: getApplicableServiceBulletinsForRaft(updated),
+      serviceBulletinsApplied,
+      inspectionChecklistValues,
+      observacoes,
+    });
+  } catch (err: any) {
+    return buildDatabaseErrorResponse(err, err?.message || "Erro ao atualizar jangada");
+  }
+}

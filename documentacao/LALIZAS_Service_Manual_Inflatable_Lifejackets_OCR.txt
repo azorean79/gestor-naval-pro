@@ -1,0 +1,1084 @@
+
+
+=== PAGE 1 ===
+LALIZAS 4
+
+Inflatable Lifejackets
+
+AVICE MANUAL, TABLE LI}
+
+Service Manual
+for
+
+RECIPIENT OF PROCEDURE No: 24.09
+
+|
+
+Liferaft & Service Stat. Prod. Manager (344)
+
+N
+
+Approval Manager (600)
+
+4.
+
+REV6
+
+EDITOR: EIRINI POLLATOU
+
+18/02/2014
+
+1 OF 28
+
+APPROVAL:
+
+
+=== PAGE 2 ===
+$3
+Te
+
+INSPECTION SERVICE AND MAINTENANCE MANUAL OF
+LALIZAS INFLATABLE LIFEJACKETS
+LAMDA — DELTA - OMEGA — ALPHA — SIGMA —
+DELTA - EPSILON - YPSILON
+
+ISSUED BY Lalizas Hellas S.A.
+Inspection Service & Maintenance shall be carried out by trained personnel only.
+
+The trained operative shall be authorised by the issue of a Certificate of Competence lasting
+for a period of 3 years, after which a Refresher Training Coursewill be required. For any
+updates of the servicing schedule Lalizas Hellas is responsible to inform authorized service
+stations.
+
+REV6 18/02/2014 2 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 3 ===
+LALIZAS 4
+
+This document is designed as a guide to the servicing, maintenance and repair of Lalizas’ range of
+Inflatable lifejackets (Omega/Alfa/Sigma/Delta/Lamda/Epsilon/Ypsilon).
+
+Note that the only service/replaceable part of the lifejacket is the firing head, all the other defects will
+normally result in the lifejacket being marked “unfit for economical repair”.
+
+SERVICE INTERVALS
+
+A service interval must be conducted once per year. Every station must keep its unique database with
+numbers of inspections and keeps records of it for every inspection that performs.
+
+The inspection number must be written also at the record template (Section 9 Example record template).
+
+For EN ISO 12402 OMEGA — ALPHA — SIGMA — DELTA — YPSILON - EPSILON:
+
+After servicing a lifejacket, the inspector must write on the instructions label that is sewed in the
+lifeiacket - at the specified stamp which is on it (see photo and example) - the date of service, the
+inspection number that the authorized service station used for and the spare part that has been replaced.
+
+Example: An inspection took place at the »x00000 authorized station on month/year and took
+xo0o00n inspection number. So it is recommended to complete the table as the above example with the
+photo:
+
+e At the column INSPECTED BY, write the
+name of authorized service station (i.e.
+Lalizas Hellas).
+
+At the column SERVICING DATE, write the
+date of the inspection (i.e. 02/2014 month
+& year)
+
+e At the SPARE PART REPLACED column,
+write the codes of the parts that they have
+been replaced and also the inspection
+number (i.e. 00349, 20260/ I.N. 0021)
+
+REV6 18/02/2014 3 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 4 ===
+LALIZAS 4
+
+For LAMDA & DELTA SOLAS lifejackets:
+
+After servicing a lifejacket, the inspector must write on the lifejacket - at the specified stamp which is on
+it (see photo and example) - the date of service, the inspection number that the authorized service
+station used for and the spare part that has been replaced.
+
+Example: An inspection took place at the »00000c authorized station on month/year and took
+xo0000c inspection number. So it is recommended to complete the table as the above example with the
+photo:
+
+It is recommended to complete the table as the above example with the photo:
+
+‘e At the column INSPECTED BY write the name
+of authorized service station (i.e. Lalizas
+Hellas).
+
+At the column SERVICING DATE write the date
+of the inspection (i.e. 02/2014 month & year)
+
+At the SPARE PART REPLACED column write
+the codes of the parts that they have been
+replaced and also the inspection number (i.e.
+00349, 20260/ I.N. 0021)
+
+REV6 18/02/2014 4 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 5 ===
+LALIZAS 4 —
+
+SECTIONS
+
+SECTION 1 - LIST OF REQUIRED EQUIPMENT
+
+SECTION 2 - PRELIMINARY INSPECTION
+
+SECTION 3 - TESTING
+
+SECTION 4 - LEAK FINDING - DEFLATE LIFEJACKET - CLEANING
+
+SECTION 5 - Re-ARMING INFLATORS
+
+SECTION 6 - Re-PACKING
+
+SECTION 7 - TECHNICAL CHARACTERISTICS AND MODELS OF LIFEJACKETS
+
+SECTION 8 - RECOMMENDED SPARE PARTS
+
+SECTION 9 — EXAMPLE RECORD TEMPLATES
+
+2 2
+
+4A
+
+REV6 18/02/2014 5 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 6 ===
+LALIZAS F) SERVICE MANUAL FOR INFLATABLE LIFEJACKETS _ No: 24.09
+
+— LIST OF REQUIRED EQUIPMENT
+
+NT:
+
+8.
+
+9.
+
+Airline source for dry filtered air.
+
+Regulator, capable of accuracy up to 300 Millibar.
+
+Workbench.
+
+Manometer. (Mercury manometers are not recommended for lifejacket testing).
+Thermometer.
+
+Wax marker.
+
+Soap /water mix (approx 1/500 mix), or water tank.
+
+Digital weighing scales, accurate to 0.1 grams.
+
+14mm socket
+
+10. Torque wrench, set to 3 N.M.
+
+11. Hammar Servicing Kit.
+
+DESCRIPTION:
+
+All Manometers, Weighing scales, Regulators, Thermometers must be calibrated annually and a record of
+this maintained.
+
+REV6 18/02/2014 6 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 7 ===
+LALIZAS 4
+
+E IN 2 - PREL: RY INSPE IN
+
+Note: The Testing and Inspecting area shall be free from dust and draughts, and be capable of
+maintaining an even temperature.
+
+2. INSPECTION
+
+2.1 Visually inspect all webbings, buckles, stitching and cover materials looking for signs of wear or
+damage. Any defect, which could affect the performance or the safety of the lifejacket, should be noted
+along with the serial number of the lifejacket, and the lifejackets should be marked as unsuitable for use.
+Also check for abrasion and puncture marks.
+
+2.2 Record the serial number on the record sheet (See SECTION 9).
+
+2.3 Open up the cover and unfold the bladder. Visually inspect the bladder (including all of its
+components), bladder attachment, stitching for any signs of wear or damage. Any defect, which could
+affect the performance or the safety of the lifejacket, should be noted along with the serial number of the
+lifejacket, and the lifejacket should be marked as unsuitable for use.
+
+Extra care should be taken with lifejackets with integral harness, as to the condition of the harness
+stitching, especially around the stainless steel D ring area.
+
+2.4 Remove the gas cylinder by unscrewing it from the inflation mechanism and check that the end seal
+is intact. Then, inspect it visually for any signs of damage or corrosion. The threads should be in good
+condition, and there should be no evidence of “scouring” on the burst cap. If there are any signs of
+damage or wear the cylinder should be replaced with a new one. Also, noting the presence of the green
+ready for action tags.
+
+2.5 If all of the above is deemed to be acceptable, then continue the servicing procedure.
+
+NOTE: Do not re-fit the cylinder until after the lifejacket has been pressure-tested. The existing or the
+replacing cylinder should be “weigh-checked” using a set of calibrated digital scales with accuracy
+capable of reading up to 1/10 of a grammar. You should ensure that it is within the minimum gross
+tolerance as marked (segregated cylinders should be emptied of their gas contents in a safe manner prior
+to disposal).
+
+Especially for the Epsilon inflatable lifejacket, the cylinder’s permissible tolerances are stamped on the
+side of the inflation unit.
+
+There is no recommended life-span for CO. cylinders. Provided they pass the weight test and that they
+are not corroded or damaged, they can remain in service.
+
+not u: linders of an ‘ight it Lalizas indi:
+
+2.6 Inspect oral tube for splitting and other damages.
+
+REV6 18/02/2014 7 OF 28
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 8 ===
+LALIZAS 4
+
+2.7 Check the manual inflator by pulling on handle and observing that the pin pierces inside the cylinder
+aperture. Replace with a new re-arming clip if necessary.
+
+2.8 If any defects are found, they should be recorded and a new operating head should be fitted if it is
+needed.
+
+2.9 Check the automatic inflator by removing either the bobbin or the end cap. Replace with a new re-
+arming clip if necessary.
+
+2.10 If any defects are found, they should be recorded and a new automatic operating head should be
+fitted if it is needed.
+
+2.11 Check condition of reflective tape. Replace it if necessary by fitting new tape over the existing tape
+ensuring a clean dry surface.
+
+2.12 Lifejackets free from visual defects should be sent for further testing.
+
+REV6 18/02/2014 8 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 9 ===
+LALIZAS 4 worms ”
+
+- TESTIN
+
+3. PRESSURE TEST
+Note: Before start the tests, record the room temperature at the area of the lifejacket.
+3.1 Pressure Test Chamber
+
+3.1.1 Inflate the lifejacket, using the oral inflation tube, up to 220 mbar and maintain it. Then reduce the
+pressure to 200 mbar.
+
+3.1.2 After having recorded the temperature & the pressure of the lifejacket, leave the lifejacket for 5
+minutes.
+
+3.1.3 Record again the pressure of the lifejacket and the room temperature.
+
+3.1.4 If the temperature’s change is 0.5 degrees Celsius or less, continue to step 3.1.5. If the
+temperature’s change is greater than 0.5 degrees Celsius, then the test shall be considered void and
+should be repeated.
+
+3.1.5 Leave the lung inflated for a period of 4 hours in an area of constant temperature.
+
+3.1.6 After 4 hours check again the pressure. If the pressure has dropped by 5% or less, the lifejacket
+shall be considered to have PASSED the test.
+
+3.1.7 Then the lifejacket should be recorded as passed and placed into an area clearly marked ‘PASSED
+TEST’.
+
+3.1.8 If the pressure has dropped by more than 5% or less, the lifejacket will have deemed to have
+FAILED the test. Then, the lifejacket must be inspected for any leakage, as described in Section 4.
+
+3.1.9 Then the lifejacket shall be labelled accordingly and placed into an area clearly marked ‘FAILED
+TEST’.
+
+3.1.10 If the lifejacket has passed the test, then fully deflate the bladder, ensuring all residual air is
+removed.
+
+3.1.11 To deflate the lifejacket, remove the cap on the oral inflation tube and insert the nipple into the
+valve head. Gently squeeze the lifejacket to expel the remaining air or CO2. When fully deflated, place
+again on the cap of oral tube.
+
+REV6 18/02/2014 ‘9 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 10 ===
+LALIZAS 4 ve ”"
+
+E IN 4 — IEFLATE LIFEJACKET,
+
+4, FINDING LEAKS
+
+infli le lifej
+4.1 Remove the inflator mechanism with the 14mm socket, using the torque wrench set to 3 N.M.
+
+4.2 Using a mix of approx 500 parts water to one part liquid soap, apply the mix over the surface of the
+inflated bladder and watch carefully for air bubbles forming. After leaks have been marked, soapy water
+should then be rinsed off using clean fresh water. Alternatively, the inflated bladder can be submerged in
+a tank of clean fresh water and observations made for a column of air bubbles appearing.
+
+4.3 If the leak is found to be from any part of the bladder material or welded seam, the lifejacket should
+be deemed as FAILED and not suitable for use.
+
+4.4 If a leak is located from the inlet valve, replace the valve and then retest the lifejacket in accordance
+with the method for that bladder type.
+
+NOTE: A record should be made of all lifejacket tested including date, serial number, PASS or FAIL (if
+failed include a note of failure) and name of the Inspector. If the lifejacket is deemed to have failed,
+inform the customer and advise the lifejacket is no longer suitable for use.
+
+4.5 Lifejackets deemed to have passed Inspection & Pressure Test should be dried off and are then ready
+for re-arming and packing.
+
+4.6 For the Epsilon 150N inflatable lifejacket, you don’t have to remove the inflation mechanism.
+However, the leakage test can be conducted only by spaying a soap and water mix (see $4.2).
+
+NOTE: Leakage testing by immersion the Epsilon 150N lifejacket in a tank will lead to its inflation (full
+function).
+
+DEFLATE LIFEJACKET
+
+4.7 Ensure that a record of the lifejacket serial number, any parts used and other relevant comments are
+kept for each lifejacket.
+
+4.8 Ensure that all the residual air is removed from the lifejacket. Insert a nipple on the cap strap and
+hold into the valve. Apply gentle pressure to the lifejacket and deflate it. Ensure that the cap is in the
+normal position on the inflation tube.
+
+REV6 18/02/2014 10 OF 28
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 11 ===
+LALIZAS
+
+4.9 Neatly flatten it out on the workbench.
+
+4.10 Using the soft-tipped indelible ink pen, record your initials and the month and year of service in the
+service grid printed on:
+
+a. the bladder, in case of SOLAS inflatable lifejackets
+
+b. the instructions long paper, in case of ISO 12402 inflatable lifejacket.
+
+CLEANING
+
+4.11 After immersion it in salty water, it is recommended that the whole lifejacket is washed. Always
+remove the auto-firing head before washing automatic inflated lifejackets.
+
+Use only warm water and mild detergents and a gentle hand wash. Use of stain removers is not
+recommended. Check that the lifejacket is completely dry and repacking it.
+
+DO NOT MACHINE WASH, DRY CLEAN OR USE STAIN REMOVERS.
+
+REV6 18/02/2014 11 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 12 ===
+LALIZAS 4 ts
+
+E IN_5 - Re-ARMING INFLATOR:
+
+5.1 Lalizas’ Manual inflation system.
+
+This is applicable for the following lifejackets:
+
+Product Code Product Description
+
+71095 Lifejacket Sigma 150N, Adult
+71097 Lifejacket Sigma 150N, Adult
+71099 Lifejacket Alpha Auto 150N, Adult
+71101 Lifejacket Alpha Auto 150N, Adult
+71104 Lifejacket Omega 150N, Adult
+71106 Lifejacket Omega 150N, Adult
+71109 Lifejacket Belt-Pack Delta 150N
+
+Fit new or repaired Lalizas manual operating head (record on record sheet). (Figures 5.1 & 1.2).
+
+Fold the orange lever back into the valve body attached to the lung and secure with “green ready for
+action” tag.
+
+Note when re-fitting the gas cylinder special attention must be given to the cylinder/valve seal. This must
+be in good condition and be seated squarely to ensure successful inflation.
+
+The cylinder should be screw clockwise into the valve body until firmly tight.
+
+DO NOT USE TOOLS OVER TIGHTENING. IT MAY CAUSE DAMAGE.
+
+OK STOP
+With green “Ready for Without
+i green
+action” tag “Ready for action” tag
+
+Ce
+Cre og
+.
+—. |, teflator body
+O “a Ww
+Marval lever
+Figure 5.2
+REV6 18/02/2014 12 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 13 ===
+Place the operating head at the bolt and screw the nut with torque wrench set to 3 N.M.
+
+Fit a 33gr CO, cylinder by screwing cylinder clockwise.
+
+For more information, follow the steps as it is shown in the below diagram:
+
+REV6 18/02/2014 13 OF 28
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 14 ===
+5.2 Lalizas’ Automatic inflator JS1 inflator.
+
+This is applicable for the following lifejackets:
+
+Product Code Product Description
+71094 Lifejacket Sigma 150N, Adult
+71096 Lifejacket Sigma 150N, Adult
+71098 Lifejacket Alpha Auto 150N, Adult
+71100 Lifejacket Alpha Auto 150N, Adult
+71102 Lifejacket Alpha Auto 150N, Child
+71103 Lifejacket Omega 150N, Adult
+71105 Lifejacket Omega 150N, Adult
+71201 Lifejacket Belt-Pack Delta Manual 150N _|
+71725 Lifejacket Ypsilon 150N
+71107 Lamda Auto 150 Nt Lifejacket, SOLAS
+71108 Belt- Pack, Delta Auto 150 Nt Lifejacket, SOLAS
+71216 Inflatable Lifejacket Lamda Auto 275 N, SOLAS
+
+Figure 5.3 includes the indications to when an automatic system Lalizas is ready for use (OK) and to
+when it should be serviced (STOP).
+
+STOP STOP STOP
+
+r G
+Indicator
+Inflator
+cp
+
+Figure 5.4
+
+REV6 18/02/2014 14 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 15 ===
+LALIZAS 4 tinct vo.2408
+
+Automatic systems have a manual system as well as a water activation unit. Before the automatic unit is
+checked, first read and understand the manual servicing instruction at section 5.1.
+
+To check the automatic system Lalizas, first inspect the inflator cap making sure the green “ready for
+action” indicator is visible in the base of the unit.
+
+Next remove and inspect the seal of the CO, cylinder. If the cylinder seal has bean pierced or the “red
+fired” indicator is visible in the base of the unit the complete water activated device will need replacing.
+
+To replace the water activated device, unscrew the inflator cap in an anticlockwise direction and discard
+the used water activated device. Then install a new water activated device in the “inflation body” and
+screw on the inflator cap in a clockwise direction until no thread is visible. Then check that the green
+“ready for action” indicator it appears in the base.
+
+Check the manual system “green tag” is in place and refit the CO, cylinder.
+
+The replacing cylinder must be for:
+
+© The adult lifejackets SOLAS Lamda 150N, SOLAS Delta, ISO 12402 Alpha, ISO 12402 Sigma, ISO
+12402 Delta & ISO 12402 Ypsilon: 33gr cylinder.
+
+e . The children’s lifejackets ISO 12402 Alpha: 22gr cylinder.
+© The lifejackets SOLAS Lamda 275N & ISO 12402 OMEGA 275 N: 60gr cylinder.
+
+NOTE: LALIZAS S.A. recommends that in every annual inspection of the lifejacket, the water
+activated device (code 00340) should be replaced.
+
+REV6 18/02/2014 15 OF 28
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 16 ===
+For more information, follow the steps as it is shown in the below diagram:
+
+REV6 18/02/2014 16 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 17 ===
+LALIZAS 4
+
+5.3 Hammar’s Automatic Hydrostatic Inflator MA1 EC (only for 71725 - Epsilon 150N
+inflatable lifejacket)
+
+Before the automatic unit is checked, first read and understand the manual servicing instructions at
+section 5.1.
+
+Place the lifejacket on a smooth, flat surface and wipe off any water. Hold the gas cylinder through the
+fabric, using one hand.
+
+Insert metal key as shown in Picture 2a and turn the key counter-clockwise (Picture 2b) between black
+locking ring and labelled yellow cap. The black locking ring will now turn counter-clockwise.
+
+REV6 18/02/2014 17 OF 28
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 18 ===
+LALIZAS 4 — 28
+
+Now turn black locking ring counter-clockwise (Picture 3a) and lift off cap (Picture 3b). (Cap=yellow
+inflator operating head). Dispose of the used cap.
+
+Squeeze sealing ring to elongate and remove the inflator body through the sealing ring. Dispose of used
+inflator body in an environmentally approved manner.
+
+Check that the indicator is green. Insert new inflator body with gas cylinder of 33gr pointing upwards
+inside the lifejacket. Let the sealing ring rest on the inflator body around the four lugs.
+
+Now check the new manual/automatic cap as follows:
+1. Single point indicator showing green?
+2. Expiry date OK?
+If YES is the answer to both these questions, then proceed as follows.
+If NO, get a new cap.
+
+Hold the gas cylinder through the fabric of the lifejacket (Picture 7a). Position the replacement cap with
+the water inlet valve pointing to the right (Picture 7b) and press it FIRMLY onto the inflator body and
+sealing ring.
+
+While pressing FIRMLY onto the inflator body, turn the black locking ring clockwise into the locked
+Position. Pull on the cap to make sure it has locked onto the inflator body.
+
+Final checks that must be done:
+© To see that the indicator on the cap is green
+¢ That the pull to inflate lanyard is present and that the locking ring is locked (Picture 9a). When
+the locking ring is locked, it cannot be turned counter-clockwise by hand.
+The replacing cylinder for the 71725 - Epsilon 150N inflatable lifejacket must be a 33gr cylinder.
+For 71725 - Epsilon 150N inflatable lifejacket, you must always use the 71741 — Hammar’s re-arming kit.
+
+Note: After the replacement of the 33gr cylinder, a new pressure test must be performed in the Epsilon
+150N inflatable lifejacket, to ensure that the lifejacket’s good performance.
+
+REV6 18/02/2014 18 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 19 ===
+LALIZAS 4 ies
+
+E - Re — packing.
+
+6.1 For OMEGA & ALPHA LIFEJACKETS.
+
+This is applicable for the following lifejackets:
+
+Product Code Product Description
+71098 Lifejacket Alpha 150N, Adult
+71099 Lifejacket Alpha 150N, Adult
+71100 Lifejacket Alpha 150N, Adult
+71101 Lifejacket Alpha 150N, Adult
+71102 Lifejacket Alpha 150N, Child
+71103 Lifejacket Omega 150N, Adult
+71104 Lifejacket Omega 150N, Adult
+71105 Lifejacket Omega 150N, Adult
+71106 Lifejacket Omega 150N, Adult
+
+FOLDS Po
+
+\
+
+|
+|
+
+- Lay the lifejacket on a flat surface so that the retro-reflective tape is visible (step 1).
+
+- Fold the head of the jacket on the jacket along (fold 1) and attach the Velcro patch.
+
+- Fold the chest part of the lung along (fold 2) and hold in position. Complete the folding and
+fasten all the Velcro strips along the outermost seam (fold 3).
+
+- Repeat as above (fold 4 & 5).
+
+= Check that the orange manual pull tag is visible below the right hand side of the jacket.
+
+REV6 18/02/2014 19 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 20 ===
+LALIZAS 4 ia
+
+6.2 For SIGMA & LAMDA SOLAS LIFEJACKETS.
+
+This is applicable for the following lifejackets:
+
+FOLD 3
+
+- Lay the lifejacket on a flat surface so that the retro-reflective tape is visible (step 1).
+
+- Fold the orange chest part of the lung fold 1 and 2 and hold in position.
+
+- Fold the red chest cover of the lung along fold 3 and attach the Velcro patch.
+
+- Repeat as above for fold 4.
+
+- _ Fold the top of the orange head under (fold 5), then over (fold 6) and under again (fold 7) and
+hold in position.
+
+- Fold the red head cover of the lifejacket along (fold 8) and attach the Velcro patch.
+
+- Check that the orange manual pull tag is visible below the right hand side of the jacket.
+
+REV6 18/02/2014 20 OF 28
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 21 ===
+6.3 For DELTA LIFEJACKETS (SOLAS & ISO 12402).
+
+This is applicable for the following lifejackets:
+
+Product Code Product Description |
+71108 Lifejacket Belt- Pack, Delta Auto 150 N, SOLAS
+71109 Lifejacket Belt-Pack Delta Manual 150N
+71201 Lifejacket Belt-Pack Delta Auto 150N |
+
+- _ Lay the lifejacket on a flat surface so that the retro-reflective tape is visible.
+
+- Follow the details of re — packing the DELTA inflatable lifejacket as provided above.
+
+- Turn the chamber right and pass the rope of the inflator though the hole of the bag at the
+bottom.
+
+- Then fold as shown in the pictures above.
+
+REV6 18/02/2014 21 OF 28
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 22 ===
+LALIZAS 4 -_
+
+6.4 For Epsilon & Ypsilon LIFEJACKETS.
+
+This is applicable for the following lifejackets:
+
+Product Code Product Description
+71724 Inflatable Life Jacket Epsilon 150N, ISO 12402-3
+with HAMMAR MAI inflator
+Inflatable Life Jacket Ypsillon 150N, ISO 12402-3
+
+ai723 with automatic inflator Lalizas JS1
+= | | 2 Ss | |
+AA AUB) \JE WE 2
+| ’ | ||
+|
+
+- Lay the lifejacket on a flat surface so that the retro-reflective tape is visible (step 1).
+
+- Fold the orange chest part of the lung fold 1 and fold 2 and attach the Velcro patch.
+
+- Repeat the same step for the other part of the chamber (fold 3 & 4).
+
+- _ Fold the top of the orange head under (fold 5), then over (fold 6) and under again (fold 7) and
+hold in position.
+
+- Fold the head cover of the lifejacket along (fold 8) and attach the Velcro patch.
+
+= Check that the orange manual pull tag is visible below the right hand side of the jacket.
+
+REV6 18/02/2014 22 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 23 ===
+LALIZAS 4
+
+= ICAL CHARACTERI:
+
+Mar
+
+AND MODE!
+
+IF LIFEJACKET:
+
+7.1 At the below table can easily recognised which lifejacket uses indicated spare parts and contains
+useful information for each type of lifejacket.
+
+Technical Characteristics for Gas Inflation Omega / Alpha / Sigma / Lamda / Delta Lifejackets
+Approval § | = |_00,GasCyinder | 5 g g slg
+g [Sal S/E5| 2 | = |Se| o| wm) 23 3 s,|2|#|2| 2 zie Fs
+& jus/3|28| 218 s2| 2 (38/8) 8|5 | 2288] 8
+71098 | ¥ v v[vi[v¥i[viqv Red
+71095 |_¥ v y v[v[yv[v Red
+71096 | ¥ ¥ y a Red
+71097_[_¥ v q a a Red
+71098 |v v y ¥ vy[v[fv{[v q Red
+71099 | V v v V vytvtTvt vy v Red
+71100 | Vv v ¥ v v v v N i Red
+mot |v y y v v[vfy v Red
+7102 | Vv v v v Vv v v v x Red
+71103 | Vv v v v v v v v y Red
+704 |v ¥ v vy[vtTv{Tvt vy Red
+7105 |v v v v vy [vv y Red
+7106 |v v Vv v vy [v[y¥ y q Red
+71107 vf v vf[v[yv [Vv y Red
+T1216 viv Vv v v v Vv ¥ Red
+71108 vty y vy [>v[v[yv ¥ Black
+7409 |v y Se a v Red
+71201 |v v ¥ ae a v Red
+7724 |v y y Se ae v Red / Black
+7725 |v y z vy{[vt[v y Red /Black
+7.2 Lifejackets per product model (SOLAS & ISO 12402).
+Inflatable Lifejackets Sigma 150N, CE ISO 12402-3
+Code 71094 | 71095 | 71096 | 71097
+‘Automatic Gas . .
+Manual Gas . .
+With Hames . .
+Inflatable Lifejackets Alpha 150N, CE ISO 12402 -3
+Code 71098 | 71099 | 71100 | 71101 | 71102
+Adult a . . .
+(Chit :
+‘Automatic Gas . . .
+Manual Gas ° :
+With Hames 5 ° .
+REV6 18/02/2014 23 OF 28
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+
+=== PAGE 24 ===
+LALIZAS 4
+
+Inflatable Lifejackets Omega 275N, CE ISO 12402-2
+
+(Code 71103 | 74104 | 71105 | 71106
+‘Adult . . . .
+Automatic Gas . .
+
+Manual Gas . °
+With Hamess . .
+
+Lifejacket Lamda Auto, SOLAS
+Code 71107 | 71216
+
+Newton 150 275
+
+Lifejacket Belt-Pack, Delta Auto 150N, SOLAS
+
+| Code 1108
+| Newton | 160 |
+
+Inflatable Lifejackets Belt-Pack, Delta 150N, CE ISO 12402-3
+
+Code 71109 | 74201
+Manual Gas .
+Automatic Gas .
+
+Inflatable Life Jacket Epsilon 150N, ISO 12402-3
+with HAMMAR MAL inflator
+
+| Code
+
+Newton
+
+Inflatable Life Jacket Ypsillon 150N, ISO 12402-3
+with automatic inflator Lalizas JS1
+
+| Code 71725
+| Newton 150 |
+
+REV6 18/02/2014 24 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+
+=== PAGE 25 ===
+LALIZAS 4
+
+8. RECOMMENDED SPARE PARTS
+
+8.1 Below provided all the required spare parts for Lalizas OMEGA — ALFA — SIGMA lifejackets.
+
+CODE DESCRIPTION
+
+00340 Water Activated Device For JS1
+
+00348 CO2 Gas Cylinder, 33gr
+
+00349 CO2 Gas Cylinder, 22gr
+
+02197 CO2 Gas Cylinder, 60gr
+
+20190 LALIZAS Auto re-arm kit for JS1 adult life jacket
+
+20200 LALIZAS Auto re-arm kit for JS1 child life jacket
+
+20220 Manual inflator
+
+20260 Automatic inflator JS1
+
+20610 Valve for oral tube
+
+20611 Valve for double oral tube for SOLAS
+
+71323 Manual re-arm kit (adult's Lifejacket 33gr)
+
+71324 LALIZAS Auto re-arm bobines set of 4 for adult & child life jacket
+71741 LALIZAS Auto re-arm mechanism Hammar MA1 & cylinder 33gr
+
+00340 00348 00349
+
+02197 20190 20200
+
+REV6
+
+EDITOR: EIRINI POLLATOU
+
+18/02/2014 25 OF 28
+
+APPROVAL:
+
+
+
+=== PAGE 26 ===
+71324 71741
+
+For more information please contact technical support at: Lalizas Hellas on tel.:+30 210 4226274,
+fax: +30 210 4226273, email: liferaft@lalizas.com or write to Lalizas Hellas: 3 Gounari Str Piraeus,
+18531, Greece.
+
+REV6 18/02/2014 26 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:
+
+
+=== PAGE 27 ===
+LALIZAS
+
+FLAT
+
+SECTION 9 - EXAMPLE RECORD TEMPLATES
+
+INSPECTION Number:.
+
+Servicing record template checklist
+
+For authorized service stations for Lalizas Inflatable Lifejackets
+
+LIFEJACKET CODE:
+DATE OF SERVICIN
+CUSTOMER'S NAME:
+TYPE OF LIFEJACKET:.
+
+DATE OF MANUFACTURE:
+INSPECTOR’S NAME
+AUTHORIZED STATION:.
+SERIAL NUMBER:,
+
+VISUAL INSPECTS
+
+Condition (Good,
+
+Damages
+average, bad)
+
+Repair Failed *
+(yes or no) | (yes or no)|
+
+Webbings
+
+Buckles
+
+Stitching
+
+Velcro
+
+Cover
+
+Harness stitching
+
+Dring
+
+Cylinder
+
+Inflator mechanism
+
+= ].0]o0/SU]an}un| |u|]
+
+.0| Others (write)
+
+* If any of the above has the remark “FAILED” the lifejacket must be replaced.
+
+Cylinders
+
+Condition (Good,
+
+Damages,
+
+average, bad) Weight lost
+
+Replacements Failed **
+
+|_(yes or no)
+
+Used cylinder
+
+(yes orno) _|
+
+Unused cylinder
+
+Weight of the cylinder
+
+Corrosion
+
+Damages
+
+Cylinder’s thread
+
+Nlalu}a|ur|e
+
+Found a non-compatible
+cylinder
+
+8 | Cylinder is missing
+
+** If any of the above has the remark "FAILED" the cylinder must be replaced.
+
+Servicing checklist for authorized service station by LALIZAS
+
+Page 1
+
+REV6
+
+EDITOR: EIRINI POLLATOU
+
+18/02/2014
+
+27 OF 28
+
+APPROVAL:
+
+
+=== PAGE 28 ===
+LALIZAS 4 - tn 24
+
+Inflators
+Condition (Good, Damages Replacements Failed ***
+average, bad) (yes or no) (yes or no)
+
+Used manual inflator
+Unused man. Inflator
+Used auto infl. JS1
+Unused auto JS1
+Found a non-compatible
+Inflator
+
+Inflator is missing
+
+The inflator is broken
+No green tag
+
+Manual lever is missing
+10] Inflator cap is broken
+11] Valve body
+
+12| Water activated devise
+13] Other (write)
+
+ws loo}ro}e
+
+'*** If any of the above has the remark “FAILED” the part must be replaced.
+
+Inflation test
+Yes or NO Notes Difference Failed ****
+
+(yes or no)
+
+1 | Inflate the lifejacket
+at 35 mbar
+
+Wait 4 hours
+
+Lost of pressure
+
+Temperature
+
+Immersion test
+
+Marked air leakages
+
+2
+3
+4
+5 | Air leakage
+6
+7
+8
+
+Pressure drop >2.5 mbar
+
+ho
+
+Pressure drop <2.5 mbar
+
+10| Temperature changed
+
+11] Repairs
+
+12| Soap water test
+
+13} Leakage from the lung
+
+14| Leakage from valve of tube
+
+15] Completed test
+
+=*** If any of the above measurement has the remark “FAILED” the test must be re-done. If number 13 measurement “FAILED” test the lifejacket being marked
+“unfit for economical repair”.
+
+Servicing checklist for authorized service station by LALIZAS Page 2
+
+REV6 18/02/2014 28 OF 28
+
+EDITOR: EIRINI POLLATOU APPROVAL:

@@ -1,0 +1,1356 @@
+{
+  "fileCount": 208,
+  "sheetNames": [
+    {
+      "name": "CERTIFICADO",
+      "count": 208
+    },
+    {
+      "name": "QUADRO",
+      "count": 130
+    }
+  ],
+  "topLabels": [
+    {
+      "label": "SERIAL NO.",
+      "count": 621
+    },
+    {
+      "label": "NO. SÉRIE",
+      "count": 416
+    },
+    {
+      "label": "CERTIFICATE NO.:",
+      "count": 208
+    },
+    {
+      "label": "CERTIFICADO NO.:",
+      "count": 208
+    },
+    {
+      "label": "CERTIFICATE OF RE-INSPECTION",
+      "count": 208
+    },
+    {
+      "label": "THIS IS TO CERTIFY THAT THE RAFT DETAILED BELOW HAS BEEN SURVEYED, CONTROLLED AND TESTED IN COMPLIANCE WITH REQUIREMENTS FROM:",
+      "count": 208
+    },
+    {
+      "label": "TYPE:",
+      "count": 208
+    },
+    {
+      "label": "DATE OF MANUF.:",
+      "count": 208
+    },
+    {
+      "label": "NO. SÉRIE:",
+      "count": 208
+    },
+    {
+      "label": "DATA DE FABR.:",
+      "count": 208
+    },
+    {
+      "label": "FABRIC TYPE:",
+      "count": 208
+    },
+    {
+      "label": "CONTENTS CO2",
+      "count": 208
+    },
+    {
+      "label": "LATEST HYD. TEST",
+      "count": 208
+    },
+    {
+      "label": "QUANTIDADE DE CO2",
+      "count": 208
+    },
+    {
+      "label": "QUANTIDADE DE N2",
+      "count": 208
+    },
+    {
+      "label": "TYPE",
+      "count": 208
+    },
+    {
+      "label": "EPIRB:",
+      "count": 208
+    },
+    {
+      "label": "HRU TEST:",
+      "count": 208
+    },
+    {
+      "label": "DATE OF INSPECTION:",
+      "count": 208
+    },
+    {
+      "label": "SERVICE STATION NAME AND NO.",
+      "count": 208
+    },
+    {
+      "label": "DATE NEXT INSPECTION:",
+      "count": 208
+    },
+    {
+      "label": "DATA DA INSPECÇÃO:",
+      "count": 208
+    },
+    {
+      "label": "NOME E NO. DA ESTAÇÃO DE SERVIÇO",
+      "count": 208
+    },
+    {
+      "label": "DATA DA PRÓXIMA INSPECÇÃO:",
+      "count": 208
+    },
+    {
+      "label": "NACIONALIDADE:",
+      "count": 208
+    },
+    {
+      "label": "NAME OF SHIP:",
+      "count": 208
+    },
+    {
+      "label": "NOME DO NAVIO",
+      "count": 208
+    },
+    {
+      "label": "SHIP OWNER:",
+      "count": 208
+    },
+    {
+      "label": "ARMADOR:",
+      "count": 208
+    },
+    {
+      "label": "CONTENTS N2",
+      "count": 207
+    },
+    {
+      "label": "FLAG OF SHIP:",
+      "count": 205
+    },
+    {
+      "label": "FOR AUTHORIZED SERVICING STATION",
+      "count": 205
+    },
+    {
+      "label": "QUADRO DE INSPECÇÃO DA JANGADA",
+      "count": 130
+    },
+    {
+      "label": "OBRA Nº:",
+      "count": 130
+    },
+    {
+      "label": "LIFERAFT INSPECTION SCHEDULE",
+      "count": 130
+    },
+    {
+      "label": "JANGADA:",
+      "count": 130
+    },
+    {
+      "label": "NAVIO:",
+      "count": 130
+    },
+    {
+      "label": "MARCA/MODELO:",
+      "count": 130
+    },
+    {
+      "label": "LIFERAFT:",
+      "count": 130
+    },
+    {
+      "label": "SHIP:",
+      "count": 130
+    },
+    {
+      "label": "BRAND/TYPE:",
+      "count": 130
+    },
+    {
+      "label": "JANGADA - EXTERIOR",
+      "count": 130
+    },
+    {
+      "label": "LIFERAFT - EXTERNAL",
+      "count": 130
+    },
+    {
+      "label": "MARCAS DO INVÓLUCRO",
+      "count": 130
+    },
+    {
+      "label": "EQUIPAMENTO JANGADA",
+      "count": 130
+    },
+    {
+      "label": "CILINDRO CO2",
+      "count": 130
+    },
+    {
+      "label": "CYLINDER CO2",
+      "count": 130
+    },
+    {
+      "label": "EMERGENCY PACK TYPE",
+      "count": 130
+    },
+    {
+      "label": "CILINDROS CO2",
+      "count": 130
+    },
+    {
+      "label": "CO2 CYLINDERS",
+      "count": 130
+    },
+    {
+      "label": "JANGADA - INTERIOR",
+      "count": 130
+    },
+    {
+      "label": "LIFERAFT - INTERNAL",
+      "count": 130
+    },
+    {
+      "label": "CARGA CO2",
+      "count": 130
+    },
+    {
+      "label": "CO2 CHARGE",
+      "count": 130
+    },
+    {
+      "label": "CARGA N2",
+      "count": 130
+    },
+    {
+      "label": "N2 CHARGE",
+      "count": 130
+    },
+    {
+      "label": "HYD. TEST",
+      "count": 130
+    },
+    {
+      "label": "ESTAÇÃO DE SERVIÇO:",
+      "count": 130
+    },
+    {
+      "label": "SERVICE STATION",
+      "count": 130
+    },
+    {
+      "label": "ACCORDING TO SOLAS REGULATION, THIS INFLATABLE LIFERAFT REQUIRES SERVICING WITHIN 12 MONTHS FROM THE DATE OF INSPECTION.",
+      "count": 129
+    },
+    {
+      "label": "DE ACORDO COM A REGULAÇÃO SOLAS, ESTA JANGADA INSUFLAVEL REQUER INSPECÇÃO DENTRO DE 12 MESES A PARTIR DA DATA DE INSPECÇÃO.",
+      "count": 129
+    },
+    {
+      "label": "ACCORDING TO SOLAS REGULATION, THIS INFLATABLE LIFERAFT REQUIRES SERVICING WITHIN 36 MONTHS FROM THE DATE OF INSPECTION.",
+      "count": 12
+    },
+    {
+      "label": "DE ACORDO COM A REGULAÇÃO SOLAS, ESTA JANGADA INSUFLAVEL REQUER INSPECÇÃO DENTRO DE 36 MESES A PARTIR DA DATA DE INSPECÇÃO.",
+      "count": 12
+    },
+    {
+      "label": "FLAGE OF SHIP:",
+      "count": 3
+    },
+    {
+      "label": "EM 2026 NÃO ABRIR E COBRAR 1 TUBO DE ALTA PRESSÃO E A BATERIA RL05",
+      "count": 1
+    },
+    {
+      "label": "THIS INFLATABLE LIFERAFT REQUIRES SERVICING WITHIN 36 MONTHS FROM THE DATE OF INSPECTION.",
+      "count": 1
+    },
+    {
+      "label": "ESTA JANGADA INSUFLAVEL REQUER INSPECÇÃO DENTRO DE 36 MESES A PARTIR DA DATA DE INSPECÇÃO.",
+      "count": 1
+    },
+    {
+      "label": "ACCORDING TO SOLAS REGULATION, THIS INFLATABLE LIFERAFT REQUIRES SERVICING WITHIN 24 MONTHS FROM THE DATE OF INSPECTION.",
+      "count": 1
+    },
+    {
+      "label": "DE ACORDO COM A REGULAÇÃO SOLAS, ESTA JANGADA INSUFLAVEL REQUER INSPECÇÃO DENTRO DE 24 MESES A PARTIR DA DATA DE INSPECÇÃO.",
+      "count": 1
+    }
+  ],
+  "sampleValuesByLabel": [
+    {
+      "label": "CERTIFICATE NO.:",
+      "values": [
+        "AZ25-001",
+        "Certificado No.:",
+        "AZ25-002",
+        "AZ22-007",
+        "AZ25-003",
+        "AZ25-004",
+        "AZ23-009",
+        "AZ25-005",
+        "AZ23-166",
+        "AZ25-007",
+        "AZ25-008",
+        "AZ25-009",
+        "AZ25-010",
+        "AZ25-011",
+        "AZ20-137",
+        "AZ25-012",
+        "AZ25-013",
+        "AZ25-014",
+        "AZ25-016",
+        "AZ25-017",
+        "AZ25-018",
+        "AZ25-019",
+        "AZ25-020",
+        "AZ25-021",
+        "AZ25-022"
+      ]
+    },
+    {
+      "label": "CERTIFICATE OF RE-INSPECTION",
+      "values": [
+        "This is to certify that the raft detailed below has been surveyed, controlled and tested in compliance with requirements from:",
+        "IPTM and the manufacturer and in acoordance with IMO Resolution: A.761(18)",
+        "DGRM and the manufacturer and in acoordance with IMO Resolution: A.761(18)"
+      ]
+    },
+    {
+      "label": "THIS IS TO CERTIFY THAT THE RAFT DETAILED BELOW HAS BEEN SURVEYED, CONTROLLED AND TESTED IN COMPLIANCE WITH REQUIREMENTS FROM:",
+      "values": [
+        "IPTM and the manufacturer and in acoordance with IMO Resolution: A.761(18)",
+        "DGRM and the manufacturer and in acoordance with IMO Resolution: A.761(18)"
+      ]
+    },
+    {
+      "label": "TYPE:",
+      "values": [
+        "Tipo:",
+        "RFD SEASAVA",
+        "RFD SEASAVA PLUS R",
+        "RFD SURVIVA MKIV",
+        "DSB LR97",
+        "ZODIAC COASTAL PT",
+        "ZODIAL COASTAL",
+        "EUROVINIL",
+        "EUROVINIL ISO 9650-2",
+        "PLASTIMO",
+        "PLASTIO CRUISER",
+        "DSB LR07",
+        "SEA-SAFE",
+        "ARIMAR",
+        "ALMAR",
+        "HERO",
+        "RFD SURVIVA MKIII",
+        "ZODIAL COASTAL PT",
+        "RFD FERRYMAN",
+        "RFD SURVIVA MK.IV",
+        "RFD SEASAVA PLUS",
+        "PLASTIMO CRUISER 8",
+        "PLASTIMAR",
+        "EUROVINIL STD",
+        "RFD SEASAVA +"
+      ]
+    },
+    {
+      "label": "SERIAL NO.",
+      "values": [
+        "Date of Manuf.:",
+        "No. Série:",
+        "5017330300014",
+        "No. Série",
+        "0085270",
+        "Expiry date",
+        "5017330300330",
+        "17W633103",
+        "5086210101268",
+        "10728449",
+        "5017330300334",
+        "18W316189",
+        "5017330300359",
+        "22W123002",
+        "52813",
+        "GZ8891",
+        "5017330300324",
+        "16W384113",
+        "5085810204307",
+        "21W036034",
+        "XDC5FD34K616",
+        "XQS044",
+        "5017330300314",
+        "3AA2175",
+        "50173303S7530"
+      ]
+    },
+    {
+      "label": "DATE OF MANUF.:",
+      "values": [
+        "Data de Fabr.:",
+        "08/2006",
+        "08-08-2018",
+        "05/2009",
+        "18-04-2019",
+        "01/11/2022",
+        "06/1999",
+        "23-02-2017",
+        "2021-07-15",
+        "11/2016",
+        "7-7-2016",
+        "12/2009",
+        "07/07/2021",
+        "03/2000",
+        "11/2020",
+        "12-09-2018",
+        "06/2015",
+        "09/2009",
+        "01/2008",
+        "01/2000",
+        "03/2009",
+        "11/2009",
+        "10-10-2007",
+        "01/03/2012",
+        "18-05-2021"
+      ]
+    },
+    {
+      "label": "NO. SÉRIE:",
+      "values": [
+        "Data de Fabr.:",
+        "5017330300014",
+        "5017330300330",
+        "5086210101268",
+        "Wed Mar 01 2023 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "5017330300334",
+        "5017330300359",
+        "52813",
+        "5017330300324",
+        "5085810204307",
+        "XDC5FD34K616",
+        "5017330300314",
+        "50173303S7530",
+        "Wed Sep 01 2021 00:00:32 GMT+0000 (Hora de verão dos Açores)",
+        "5017330300346",
+        "XDC1CY73C0000",
+        "79210383",
+        "791900023",
+        "791900024",
+        "57068SN00011439",
+        "50173303S7234",
+        "4581600300040",
+        "29133Y0006",
+        "5086010100346",
+        "Sun Nov 01 2020 00:00:32 GMT-0100 (Hora padrão dos Açores)"
+      ]
+    },
+    {
+      "label": "DATA DE FABR.:",
+      "values": [
+        "08/2006",
+        "Max stowage height:",
+        "08-08-2018",
+        "05/2009",
+        "18-04-2019",
+        "01/11/2022",
+        "06/1999",
+        "23-02-2017",
+        "2021-07-15",
+        "11/2016",
+        "7-7-2016",
+        "12/2009",
+        "07/07/2021",
+        "03/2000",
+        "11/2020",
+        "12-09-2018",
+        "06/2015",
+        "09/2009",
+        "01/2008",
+        "01/2000",
+        "03/2009",
+        "11/2009",
+        "10-10-2007",
+        "01/03/2012",
+        "18-05-2021"
+      ]
+    },
+    {
+      "label": "FABRIC TYPE:",
+      "values": [
+        "Tipo de tela:",
+        "PU",
+        "N.R.",
+        "P.U.",
+        "PVC",
+        "SOS",
+        "N.R",
+        "NR",
+        "P.V.C"
+      ]
+    },
+    {
+      "label": "CONTENTS CO2",
+      "values": [
+        "Contents N2",
+        "Quantidade de Co2",
+        "2.5",
+        "8.8",
+        "11.752",
+        "2.2",
+        "3.68",
+        "3.1",
+        "2.85",
+        "2.22",
+        "1.4",
+        "5.38",
+        "4.77",
+        "3.84",
+        "3.54",
+        "7.18",
+        "10.77",
+        "0",
+        "2.76",
+        "3.51",
+        "2.1",
+        "2.81",
+        "5,940 KG",
+        "3.38",
+        "11.26"
+      ]
+    },
+    {
+      "label": "CONTENTS N2",
+      "values": [
+        "Latest hyd. Test",
+        "Quantidade de N2",
+        "0,160",
+        "0.16",
+        "0.44",
+        "0,140",
+        "0.235",
+        "0,200",
+        "0,120",
+        "0.04",
+        "0,270",
+        "0,240",
+        "0,360",
+        "0,540",
+        "0.112",
+        "0,110",
+        "0.23",
+        "0,080",
+        "0,150",
+        "0,180 KG",
+        "0.14",
+        "0.540",
+        "0.072",
+        "0.06",
+        "0,040"
+      ]
+    },
+    {
+      "label": "LATEST HYD. TEST",
+      "values": [
+        "Último teste hidráulico",
+        "10/14",
+        "11/17",
+        "06/20",
+        "08/18",
+        "04/22",
+        "11/20",
+        "09/16",
+        "02/21",
+        "01/14",
+        "01/24",
+        "05/21",
+        "01/25",
+        "07/18",
+        "07/14",
+        "11/14",
+        "02/25",
+        "01/00",
+        "03/19",
+        "07/09",
+        "02/17",
+        "01/22",
+        "06/2013",
+        "03/20",
+        "11/23"
+      ]
+    },
+    {
+      "label": "NO. SÉRIE",
+      "values": [
+        "0085270",
+        "Validade",
+        "5017330300014",
+        "17W633103",
+        "5017330300330",
+        "10728449",
+        "5086210101268",
+        "18W316189",
+        "5017330300334",
+        "22W123002",
+        "5017330300359",
+        "GZ8891",
+        "52813",
+        "16W384113",
+        "5017330300324",
+        "21W036034",
+        "5085810204307",
+        "XQS044",
+        "XDC5FD34K616",
+        "3AA2175",
+        "5017330300314",
+        "02153",
+        "50173303S7530",
+        "20W281162",
+        "5017330300346"
+      ]
+    },
+    {
+      "label": "QUANTIDADE DE CO2",
+      "values": [
+        "Quantidade de N2",
+        "2.5",
+        "8.8",
+        "11.752",
+        "2.2",
+        "3.68",
+        "3.1",
+        "2.85",
+        "2.22",
+        "1.4",
+        "5.38",
+        "4.77",
+        "3.84",
+        "3.54",
+        "7.18",
+        "10.77",
+        "0",
+        "2.76",
+        "3.51",
+        "2.1",
+        "2.81",
+        "5,940 KG",
+        "3.38",
+        "11.26",
+        "10.770"
+      ]
+    },
+    {
+      "label": "QUANTIDADE DE N2",
+      "values": [
+        "Último teste hidráulico",
+        "0,160",
+        "0.16",
+        "0,440",
+        "0.44",
+        "0,140",
+        "0.235",
+        "0,200",
+        "0,120",
+        "0.04",
+        "0,270",
+        "0,240",
+        "0,360",
+        "0,540",
+        "0.112",
+        "0,110",
+        "0.23",
+        "0,080",
+        "0,150",
+        "0,180 KG",
+        "0.14",
+        "0.540",
+        "0.072",
+        "0.06",
+        "0,040"
+      ]
+    },
+    {
+      "label": "TYPE",
+      "values": [
+        "Serial No.",
+        "Tipo",
+        "SIMPL. REDUZ.",
+        "R",
+        "SOLAS B",
+        "MIN",
+        "SOLAS A",
+        "COASTAL",
+        "SIMPL",
+        "< 24H",
+        "STD",
+        "SIMP MIN",
+        "SIMP. REDUZ.",
+        "REDUZIDO",
+        "*- 24H",
+        "E",
+        "SOLAS \"B\"",
+        "SIMPL. E",
+        "SIMP RED",
+        "NIN",
+        "<24H",
+        "REDUZ.",
+        "LUSO PT",
+        "SIMPL.",
+        "SIM"
+      ]
+    },
+    {
+      "label": "EPIRB:",
+      "values": [
+        "Rádio Baliza:",
+        "HRU test:",
+        "Thu Aug 01 2024 00:00:32 GMT+0000 (Hora de verão dos Açores)",
+        "Sun Nov 01 2020 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Feb 01 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Aug 01 2023 00:00:32 GMT+0000 (Hora de verão dos Açores)",
+        "Mon Jan 01 2024 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Mar 01 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Jul 01 2024 00:00:32 GMT+0000 (Hora de verão dos Açores)",
+        "Sun Oct 01 2028 00:00:32 GMT+0000 (Hora de verão dos Açores)",
+        "Mon Apr 01 2030 00:00:32 GMT+0000 (Hora de verão dos Açores)"
+      ]
+    },
+    {
+      "label": "HRU TEST:",
+      "values": [
+        "Teste do Hidróstatico:",
+        "Radar reflector:"
+      ]
+    },
+    {
+      "label": "DATE OF INSPECTION:",
+      "values": [
+        "Data da inspecção:",
+        "Thu Jan 02 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Jan 07 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Jan 10 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Jan 13 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Oct 30 2023 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Jan 15 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Jan 03 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Thu Jan 16 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Jan 20 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Jan 27 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Feb 17 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Feb 25 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Sun Feb 16 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Feb 24 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Feb 28 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Thu Feb 27 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Feb 26 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Mar 03 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Thu Mar 06 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Mar 10 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Mar 12 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Mar 14 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Mar 17 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Mar 19 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)"
+      ]
+    },
+    {
+      "label": "SERVICE STATION NAME AND NO.",
+      "values": [
+        "Nome e No. da Estação de Serviço",
+        "OREY TÉCNICA",
+        "OREY",
+        "50937 OREY TÉCNICA",
+        "50937 Orey Technica, Azores",
+        "OREY TÉCNICA - SERVIÇOS NAVAIS, LDA - 50937",
+        "50937 OREY TECNICA",
+        "50937 OREY TECHNICA AZORES",
+        "OREY TÉCNICA - SERVIÇOS NAVAIS, LDA",
+        "OREY TECNICA"
+      ]
+    },
+    {
+      "label": "DATE NEXT INSPECTION:",
+      "values": [
+        "Data da próxima inspecção:",
+        "Fri Jan 02 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Jan 07 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Sat Jan 10 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Jan 13 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Oct 30 2024 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Thu Jan 15 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Sat Jan 03 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Jan 16 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Jan 20 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Jan 27 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Thu Jan 27 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Thu Feb 17 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Feb 25 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Feb 16 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Feb 24 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Feb 25 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Feb 28 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Feb 27 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Thu Feb 26 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Sat Feb 28 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Mar 03 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Mar 03 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Mar 06 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Mar 06 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)"
+      ]
+    },
+    {
+      "label": "DATA DA INSPECÇÃO:",
+      "values": [
+        "Thu Jan 02 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Jan 07 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Jan 10 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Jan 13 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Oct 30 2023 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Jan 15 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Jan 03 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Thu Jan 16 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Jan 20 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Jan 27 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Feb 17 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Feb 25 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Sun Feb 16 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Feb 24 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Feb 28 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Thu Feb 27 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Feb 26 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Mar 03 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Thu Mar 06 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Mar 10 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Mar 12 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Mar 14 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Mar 17 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Mar 19 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Thu Mar 20 2025 00:00:32 GMT-0100 (Hora padrão dos Açores)"
+      ]
+    },
+    {
+      "label": "NOME E NO. DA ESTAÇÃO DE SERVIÇO",
+      "values": [
+        "OREY TÉCNICA",
+        "OREY",
+        "50937 OREY TÉCNICA",
+        "50937 Orey Technica, Azores",
+        "OREY TÉCNICA - SERVIÇOS NAVAIS, LDA - 50937",
+        "50937 OREY TECNICA",
+        "50937 OREY TECHNICA AZORES",
+        "OREY TÉCNICA - SERVIÇOS NAVAIS, LDA",
+        "OREY TECNICA"
+      ]
+    },
+    {
+      "label": "DATA DA PRÓXIMA INSPECÇÃO:",
+      "values": [
+        "Fri Jan 02 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Jan 07 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Sat Jan 10 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Jan 13 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Oct 30 2024 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Thu Jan 15 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Sat Jan 03 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Jan 16 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Jan 20 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Jan 27 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Thu Jan 27 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Thu Feb 17 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Feb 25 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Feb 16 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Feb 24 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Wed Feb 25 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Feb 28 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Feb 27 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Thu Feb 26 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Sat Feb 28 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Mar 03 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Mar 03 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Mar 06 2028 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Fri Mar 06 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Mar 10 2026 00:00:32 GMT-0100 (Hora padrão dos Açores)"
+      ]
+    },
+    {
+      "label": "ACCORDING TO SOLAS REGULATION, THIS INFLATABLE LIFERAFT REQUIRES SERVICING WITHIN 12 MONTHS FROM THE DATE OF INSPECTION.",
+      "values": [
+        "De acordo com a regulação SOLAS, esta jangada insuflavel requer inspecção dentro de 12 meses a partir da data de inspecção."
+      ]
+    },
+    {
+      "label": "FLAG OF SHIP:",
+      "values": [
+        "Nacionalidade:",
+        "IMO No."
+      ]
+    },
+    {
+      "label": "NACIONALIDADE:",
+      "values": [
+        "IMO No."
+      ]
+    },
+    {
+      "label": "NAME OF SHIP:",
+      "values": [
+        "Nome do navio",
+        "Ship owner:"
+      ]
+    },
+    {
+      "label": "NOME DO NAVIO",
+      "values": [
+        "Ship owner:",
+        "Armador:"
+      ]
+    },
+    {
+      "label": "SHIP OWNER:",
+      "values": [
+        "Armador:"
+      ]
+    },
+    {
+      "label": "QUADRO DE INSPECÇÃO DA JANGADA",
+      "values": [
+        "LIFERAFT INSPECTION SCHEDULE"
+      ]
+    },
+    {
+      "label": "OBRA Nº:",
+      "values": [
+        "CERT. Nº",
+        "AZ25-001",
+        "AZ25-002",
+        "AZ25-003",
+        "AZ25-004",
+        "AZ25-005",
+        "AZ25-007",
+        "AZ25-008",
+        "AZ25-009",
+        "AZ25-010",
+        "AZ25-011",
+        "AZ25-012",
+        "AZ25-014",
+        "AZ25-016",
+        "AZ25-017",
+        "AZ25-018",
+        "AZ25-019",
+        "AZ25-021",
+        "AZ25-022",
+        "AZ25-023",
+        "AZ25-025",
+        "AZ25-026",
+        "AZ25-027",
+        "AZ25-028",
+        "AZ25-029"
+      ]
+    },
+    {
+      "label": "JANGADA:",
+      "values": [
+        "5017330300014",
+        "NAVIO:",
+        "LIFERAFT:",
+        "5017330300330",
+        "5086210101268",
+        "5017330300334",
+        "5017330300359",
+        "5017330300324",
+        "5085810204307",
+        "XDC5FD34K616",
+        "5017330300314",
+        "50173303S7530",
+        "5017330300346",
+        "79210383",
+        "791900023",
+        "791900024",
+        "57068SN00011439",
+        "50173303S7234",
+        "29133Y0006",
+        "5086010100346",
+        "5017330300076",
+        "5017420300021",
+        "50172303S7541",
+        "5017420300111",
+        "5017330300347"
+      ]
+    },
+    {
+      "label": "NAVIO:",
+      "values": [
+        "NANCI MARIA",
+        "SHIP:",
+        "MESTRE MIGUEL",
+        "CECILIA A",
+        "ANA BEATRIZ",
+        "PÃO DE CRISTO",
+        "ISAC VENDEIRO",
+        "CORAL DA HORTA",
+        "ADILIO",
+        "ESTRELA",
+        "MESTRE VIEIRA",
+        "GRAÇAS A DEUS",
+        "TERRA MAR",
+        "ZIFIO",
+        "MARIA PIA",
+        "SANTO MESSIAS",
+        "O CHARAMBA",
+        "BAIA DA MAIA",
+        "SALTO E VARA",
+        "CANANO",
+        "BAIA DO SOL",
+        "ILHA AMARELA",
+        "ILHA DE SÃO MIGUEL",
+        "PRINCESA ARIEL",
+        "STRAPPO"
+      ]
+    },
+    {
+      "label": "MARCA/MODELO:",
+      "values": [
+        "RFD SEASAVA",
+        "BRAND/TYPE:",
+        "RFD SEASAVA PLUS R",
+        "RFD SURVIVA MKIV",
+        "ZODIAC COASTAL PT",
+        "EUROVINIL",
+        "EUROVINIL ISO 9650-2",
+        "PLASTIMO",
+        "PLASTIO CRUISER",
+        "DSB LR07",
+        "SEA-SAFE",
+        "ARIMAR",
+        "HERO",
+        "RFD SURVIVA MKIII",
+        "RFD FERRYMAN",
+        "RFD SEASAVA PLUS",
+        "DSB LR97",
+        "ALMAR",
+        "EV SYNTESY ISO 9650-2",
+        "RFD SESAVA",
+        "ZODIAC",
+        "ARIMAR COASTAL LIGHT",
+        "ZODIAC COASTAL",
+        "DSB LR 97",
+        "EUROVINIL ISO 9650"
+      ]
+    },
+    {
+      "label": "LIFERAFT:",
+      "values": [
+        "SHIP:",
+        "JANGADA - EXTERIOR"
+      ]
+    },
+    {
+      "label": "SHIP:",
+      "values": [
+        "Fecho da Cobertura"
+      ]
+    },
+    {
+      "label": "BRAND/TYPE:",
+      "values": [
+        "Ajudas Térmicas"
+      ]
+    },
+    {
+      "label": "JANGADA - EXTERIOR",
+      "values": [
+        "Fecho da Cobertura",
+        "LIFERAFT - EXTERNAL",
+        "Cobertura Exterior"
+      ]
+    },
+    {
+      "label": "LIFERAFT - EXTERNAL",
+      "values": [
+        "Closure for Canopy",
+        "Cobertura Exterior",
+        "Canopy External"
+      ]
+    },
+    {
+      "label": "MARCAS DO INVÓLUCRO",
+      "values": [
+        "Markings on Container",
+        "EQUIPAMENTO JANGADA",
+        "Tue Mar 01 2022 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Mon Aug 01 2022 00:00:32 GMT+0000 (Hora de verão dos Açores)",
+        "Tue Feb 01 2022 00:00:32 GMT-0100 (Hora padrão dos Açores)",
+        "Tue Aug 01 2023 00:00:32 GMT+0000 (Hora de verão dos Açores)"
+      ]
+    },
+    {
+      "label": "EQUIPAMENTO JANGADA",
+      "values": [
+        "RAFT EQUIPMENT",
+        "Tipo de Equipamento"
+      ]
+    },
+    {
+      "label": "CILINDRO CO2",
+      "values": [
+        "Tipo de Equipamento",
+        "Cylinder CO2",
+        "Cabeça de Disparo"
+      ]
+    },
+    {
+      "label": "CYLINDER CO2",
+      "values": [
+        "Emergency Pack Type",
+        "Cabeça de Disparo",
+        "Operating Head",
+        "GIST",
+        "LIEFIELD",
+        "DK99 02426",
+        "GIST 28748",
+        "VTE99",
+        "DK99S",
+        "DK99",
+        "DK94S",
+        "LIEFIELD 63883",
+        "LEAFIELD",
+        "LIEFFIELD",
+        "DK94",
+        "GIST WHITE 11/26",
+        "dk94",
+        "LIFIELD"
+      ]
+    },
+    {
+      "label": "EMERGENCY PACK TYPE",
+      "values": [
+        "SIMPL. REDUZ.",
+        "Pagaias",
+        "Paddles",
+        "R",
+        "SOLAS B",
+        "MIN",
+        "SOLAS A",
+        "COASTAL",
+        "< 24H",
+        "STD",
+        "SIMP. REDUZ.",
+        "REDUZIDO",
+        "*- 24H",
+        "E",
+        "SIMPL. E",
+        "NIN",
+        "<24H",
+        "REDUZ.",
+        "SIMPL",
+        "SIMP RED",
+        "SIM",
+        "SOLAS \"B\"",
+        "SIMP."
+      ]
+    },
+    {
+      "label": "CILINDROS CO2",
+      "values": [
+        "CO2 CYLINDERS",
+        "Cil. Nº:"
+      ]
+    },
+    {
+      "label": "CO2 CYLINDERS",
+      "values": [
+        "Cil. Nº:",
+        "Cyl. No."
+      ]
+    },
+    {
+      "label": "JANGADA - INTERIOR",
+      "values": [
+        "Batedouro",
+        "LIFERAFT - INTERNAL",
+        "Escada de Entrada"
+      ]
+    },
+    {
+      "label": "LIFERAFT - INTERNAL",
+      "values": [
+        "Bailer",
+        "Escada de Entrada",
+        "Entrance Ladder",
+        "PORTUGAL"
+      ]
+    },
+    {
+      "label": "CARGA CO2",
+      "values": [
+        "2.5",
+        "CO2 Charge",
+        "Carga N2",
+        "8.8",
+        "11.752",
+        "2.2",
+        "3.1",
+        "2.85",
+        "2.22",
+        "5.38",
+        "4.77",
+        "3.84",
+        "3.54",
+        "7.18",
+        "10.77",
+        "2.76",
+        "2.1",
+        "2.81",
+        "5,940 KG",
+        "11.26",
+        "3.68",
+        "3.38",
+        "1.4",
+        "1.98",
+        "3.4"
+      ]
+    },
+    {
+      "label": "CO2 CHARGE",
+      "values": [
+        "Carga N2",
+        "N2 Charge"
+      ]
+    },
+    {
+      "label": "CARGA N2",
+      "values": [
+        "0,160",
+        "N2 Charge",
+        "Teste Hid.",
+        "0,440",
+        "0,140",
+        "0,200",
+        "0,120",
+        "0,270",
+        "0,240",
+        "0,360",
+        "0,540",
+        "0,110",
+        "0,080",
+        "0,150",
+        "0,180 KG",
+        "0,040",
+        "0,060",
+        "0,126",
+        "0,230",
+        "0,095",
+        "0,103",
+        "0,14",
+        "0.18",
+        "0,235",
+        "0,050"
+      ]
+    },
+    {
+      "label": "N2 CHARGE",
+      "values": [
+        "Teste Hid.",
+        "Hyd. Test"
+      ]
+    },
+    {
+      "label": "HYD. TEST",
+      "values": [
+        "Inicial",
+        "20 Cº",
+        "17 Cº",
+        "18 Cº",
+        "15 Cº",
+        "16 Cº",
+        "16,5 Cº",
+        "16,6 Cº",
+        "19 Cº",
+        "14 Cº",
+        "14,5 Cº",
+        "17ºC",
+        "15,1 Cº",
+        "16,2 ºC",
+        "17 ºC",
+        "18,5 Cº",
+        "17,2 Cº",
+        "22 Cº",
+        "21",
+        "19,5 Cº",
+        "23 Cº",
+        "21,5 Cº",
+        "21 Cº",
+        "18,2 Cº",
+        "17,3 Cº"
+      ]
+    },
+    {
+      "label": "ESTAÇÃO DE SERVIÇO:",
+      "values": [
+        "OREY TÉCNICA",
+        "Service Station",
+        "50937 OREY TÉCNICA",
+        "OREY"
+      ]
+    },
+    {
+      "label": "CERTIFICADO NO.:",
+      "values": [
+        "AZ22-007",
+        "AZ23-009",
+        "AZ20-137",
+        "AZ24-025",
+        "AZ24-041",
+        "AZ25-072",
+        "AZ21-042",
+        "AZ23-122",
+        "AZ21-098",
+        "AZ23-131",
+        "AZ21-215",
+        "AZ22-153",
+        "AZ25-205",
+        "AZ20-170",
+        "AZ23-150"
+      ]
+    },
+    {
+      "label": "ACCORDING TO SOLAS REGULATION, THIS INFLATABLE LIFERAFT REQUIRES SERVICING WITHIN 36 MONTHS FROM THE DATE OF INSPECTION.",
+      "values": [
+        "De acordo com a regulação SOLAS, esta jangada insuflavel requer inspecção dentro de 36 meses a partir da data de inspecção."
+      ]
+    },
+    {
+      "label": "FLAGE OF SHIP:",
+      "values": [
+        "Nacionalidade:",
+        "IMO No."
+      ]
+    },
+    {
+      "label": "ARMADOR:",
+      "values": [
+        "OREY GROUP: OREY Financial | OREY International | OREY Shipping | OREY Technical Orey Técnica – Serviços Navais, Lda Polígono Industrial Lezíria Park, Armazém 2, E.N. 10, 2625-445 Forte da Casa Tel:+(351) 213 610 890 Fax:+(351) 213 640 144 E-mail: orey-tecnica@orey.com Delegação Norte: Rua Roberto Ivens, nº 315, 4450-253 Matosinhos Tel:+(351) 229 363 490 Fax:+(351) 229 363 491 E-mail: leixoes.tecnica@orey.com Delegação Sul: Zona Industrial e Comercial do Rogel, Lt.3, fracção G, 8365-204 Alcantarilha Tel:+(351) 282 322 795 Fax:+(351) 282 322 156 E-mail:algarve.tecnica@orey.com Delegação Açores: Zona Industrial dos Portões Vermelhos, Armazém 19, 9560-350 Cabouco-Lagoa Tel:+(351) 296 929 314 Fax:+(351) 296 929 315 E-mail: azores.tecnica@orey.com www.oreytecnica.com"
+      ]
+    },
+    {
+      "label": "THIS INFLATABLE LIFERAFT REQUIRES SERVICING WITHIN 36 MONTHS FROM THE DATE OF INSPECTION.",
+      "values": [
+        "esta jangada insuflavel requer inspecção dentro de 36 meses a partir da data de inspecção."
+      ]
+    },
+    {
+      "label": "ACCORDING TO SOLAS REGULATION, THIS INFLATABLE LIFERAFT REQUIRES SERVICING WITHIN 24 MONTHS FROM THE DATE OF INSPECTION.",
+      "values": [
+        "De acordo com a regulação SOLAS, esta jangada insuflavel requer inspecção dentro de 24 meses a partir da data de inspecção."
+      ]
+    }
+  ]
+}

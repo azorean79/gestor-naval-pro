@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-03-05T13:32:08.897Z",
+  "sourceCertRows": "scripts\\jangadas_navios_associadas_2025.json",
+  "sourceOwners": "jangadas_certificados_2025.json",
+  "certRowsTotal": 208,
+  "ownerFilesMapped": 30,
+  "certificadosUpserted": 208,
+  "naviosCreated": 0,
+  "clientesCreated": 0,
+  "clientesMatched": 27,
+  "navioClienteLinksUpdated": 0
+}

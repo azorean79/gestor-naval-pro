@@ -1,0 +1,1401 @@
+{
+  "baseUrl": "https://oreyazores26.vercel.app",
+  "generatedAt": "2026-04-07T11:40:51.075Z",
+  "total": 146,
+  "summary": {
+    "ok": 81,
+    "auth-blocked": 17,
+    "method-blocked": 15,
+    "server-error": 5,
+    "unresolved-dynamic": 25,
+    "not-found": 2,
+    "protected-page": 1
+  },
+  "results": [
+    {
+      "pattern": "/",
+      "resolvedPath": "/",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/agenda",
+      "resolvedPath": "/agenda",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/agenda",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/alertas",
+      "resolvedPath": "/alertas",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/alertas",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/active-service-station",
+      "resolvedPath": "/api/active-service-station",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/active-service-station",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/admin/analyze",
+      "resolvedPath": "/api/admin/analyze",
+      "status": 405,
+      "finalUrl": "https://oreyazores26.vercel.app/api/admin/analyze",
+      "contentType": "",
+      "redirected": false,
+      "category": "method-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/admin/enrich",
+      "resolvedPath": "/api/admin/enrich",
+      "status": 405,
+      "finalUrl": "https://oreyazores26.vercel.app/api/admin/enrich",
+      "contentType": "",
+      "redirected": false,
+      "category": "method-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/agenda",
+      "resolvedPath": "/api/agenda",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/agenda",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/agenda/audit",
+      "resolvedPath": "/api/agenda/audit",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/agenda/audit",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/agenda/conflicts",
+      "resolvedPath": "/api/agenda/conflicts",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/agenda/conflicts",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/agenda/metrics",
+      "resolvedPath": "/api/agenda/metrics",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/agenda/metrics",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/agendamentos",
+      "resolvedPath": "/api/agendamentos",
+      "status": 501,
+      "finalUrl": "https://oreyazores26.vercel.app/api/agendamentos",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "server-error",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/alertas",
+      "resolvedPath": "/api/alertas",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/alertas",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/auditorias",
+      "resolvedPath": "/api/auditorias",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/auditorias",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/auditorias/documentos",
+      "resolvedPath": "/api/auditorias/documentos",
+      "status": 400,
+      "finalUrl": "https://oreyazores26.vercel.app/api/auditorias/documentos",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/auditorias/documentos/[categoria]/[file]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/auditorias/documentos/client-upload",
+      "resolvedPath": "/api/auditorias/documentos/client-upload",
+      "status": 405,
+      "finalUrl": "https://oreyazores26.vercel.app/api/auditorias/documentos/client-upload",
+      "contentType": "",
+      "redirected": false,
+      "category": "method-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/auditorias/planeamento",
+      "resolvedPath": "/api/auditorias/planeamento",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/auditorias/planeamento",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/auth/[...nextauth]",
+      "resolvedPath": "/api/auth/session",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/auth/session",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "nextauth-sample"
+    },
+    {
+      "pattern": "/api/auth/register",
+      "resolvedPath": "/api/auth/register",
+      "status": 405,
+      "finalUrl": "https://oreyazores26.vercel.app/api/auth/register",
+      "contentType": "",
+      "redirected": false,
+      "category": "method-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/boletins/[file]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/certificadoextraido",
+      "resolvedPath": "/api/certificadoextraido",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/certificadoextraido",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/certificados",
+      "resolvedPath": "/api/certificados",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/certificados",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/certificados/orey",
+      "resolvedPath": "/api/certificados/orey",
+      "status": 405,
+      "finalUrl": "https://oreyazores26.vercel.app/api/certificados/orey",
+      "contentType": "",
+      "redirected": false,
+      "category": "method-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/certificados/survitec-moderno",
+      "resolvedPath": "/api/certificados/survitec-moderno",
+      "status": 405,
+      "finalUrl": "https://oreyazores26.vercel.app/api/certificados/survitec-moderno",
+      "contentType": "",
+      "redirected": false,
+      "category": "method-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/certificadovalidade",
+      "resolvedPath": "/api/certificadovalidade",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/certificadovalidade",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/clientes",
+      "resolvedPath": "/api/clientes",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/clientes",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/clientes/[id]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/clientes/[id]/ficha-terceiro",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/coletes",
+      "resolvedPath": "/api/coletes",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/coletes",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/coletes/[id]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/coletes/[id]/certificado",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/coletes/[id]/evidencias",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/coletes/[id]/verificacoes",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/coletes/catalog-options",
+      "resolvedPath": "/api/coletes/catalog-options",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/coletes/catalog-options",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/contactos-internos",
+      "resolvedPath": "/api/contactos-internos",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/contactos-internos",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/contactos-internos/[id]",
+      "resolvedPath": "/api/contactos-internos/53",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/contactos-internos/53",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "contacto-id-from-api"
+    },
+    {
+      "pattern": "/api/contactos-internos/importar",
+      "resolvedPath": "/api/contactos-internos/importar",
+      "status": 500,
+      "finalUrl": "https://oreyazores26.vercel.app/api/contactos-internos/importar",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "server-error",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/data-quality",
+      "resolvedPath": "/api/data-quality",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/data-quality",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/documentacao/[file]",
+      "resolvedPath": "/api/documentacao/CARTAZ_OFICINA_ESTACAO_SERVICO_JANGADAS.md",
+      "status": 404,
+      "finalUrl": "https://oreyazores26.vercel.app/api/documentacao/CARTAZ_OFICINA_ESTACAO_SERVICO_JANGADAS.md",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "not-found",
+      "note": "local-documentacao-file"
+    },
+    {
+      "pattern": "/api/epirbs",
+      "resolvedPath": "/api/epirbs",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/epirbs",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/epirbs/[id]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/equipamento",
+      "resolvedPath": "/api/equipamento",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/equipamento",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/export/excel",
+      "resolvedPath": "/api/export/excel",
+      "status": 500,
+      "finalUrl": "https://oreyazores26.vercel.app/api/export/excel",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "server-error",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/export/pdf",
+      "resolvedPath": "/api/export/pdf",
+      "status": 500,
+      "finalUrl": "https://oreyazores26.vercel.app/api/export/pdf",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "server-error",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/exportar-raft",
+      "resolvedPath": "/api/exportar-raft",
+      "status": 405,
+      "finalUrl": "https://oreyazores26.vercel.app/api/exportar-raft",
+      "contentType": "",
+      "redirected": false,
+      "category": "method-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/health",
+      "resolvedPath": "/api/health",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/health",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/ia-importacao/analyze",
+      "resolvedPath": "/api/ia-importacao/analyze",
+      "status": 405,
+      "finalUrl": "https://oreyazores26.vercel.app/api/ia-importacao/analyze",
+      "contentType": "",
+      "redirected": false,
+      "category": "method-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/ia-importacao/apply",
+      "resolvedPath": "/api/ia-importacao/apply",
+      "status": 405,
+      "finalUrl": "https://oreyazores26.vercel.app/api/ia-importacao/apply",
+      "contentType": "",
+      "redirected": false,
+      "category": "method-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/ia-importacao/feedback",
+      "resolvedPath": "/api/ia-importacao/feedback",
+      "status": 405,
+      "finalUrl": "https://oreyazores26.vercel.app/api/ia-importacao/feedback",
+      "contentType": "",
+      "redirected": false,
+      "category": "method-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/inspecao",
+      "resolvedPath": "/api/inspecao",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/inspecao",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/inspecaoartigo",
+      "resolvedPath": "/api/inspecaoartigo",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/inspecaoartigo",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/inspecoes",
+      "resolvedPath": "/api/inspecoes",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/inspecoes",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/jangadas",
+      "resolvedPath": "/api/jangadas",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/jangadas",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/jangadas/[id]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/jangadas/[id]/artigos",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/jangadas/[id]/artigos/[artigoId]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/jangadas/[id]/evidencias",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/jangadas/[id]/sync-pack",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/jangadas/catalog-options",
+      "resolvedPath": "/api/jangadas/catalog-options",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/jangadas/catalog-options",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/jangadas/pack-types",
+      "resolvedPath": "/api/jangadas/pack-types",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/jangadas/pack-types",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/jangadas/serial/[serial]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/jangadas/substituir-artigo",
+      "resolvedPath": "/api/jangadas/substituir-artigo",
+      "status": 400,
+      "finalUrl": "https://oreyazores26.vercel.app/api/jangadas/substituir-artigo",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/legislacao/[file]",
+      "resolvedPath": "/api/legislacao/EDITAL%201-2022%20Revis%C3%A3o%20de%20Jangadas%20Pneum%C3%A1ticas.pdf",
+      "status": 404,
+      "finalUrl": "https://oreyazores26.vercel.app/api/legislacao/EDITAL%201-2022%20Revis%C3%A3o%20de%20Jangadas%20Pneum%C3%A1ticas.pdf",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "not-found",
+      "note": "local-legislacao-file"
+    },
+    {
+      "pattern": "/api/manuais",
+      "resolvedPath": "/api/manuais",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/manuais",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/manuais-assets/[...path]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/manuais/[file]",
+      "resolvedPath": "/api/manuais/010816_MGN_553_Non_SOLAS_LSA_DRAFT.pdf",
+      "status": 200,
+      "finalUrl": "https://drive.google.com/drive/folders/1EkHa42w4FuI3TEOTSbYIfI5SkrnbbB_c?usp=sharing",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": true,
+      "category": "ok",
+      "note": "local-manual-file"
+    },
+    {
+      "pattern": "/api/movimento-maritimo/autofill-vessel",
+      "resolvedPath": "/api/movimento-maritimo/autofill-vessel",
+      "status": 405,
+      "finalUrl": "https://oreyazores26.vercel.app/api/movimento-maritimo/autofill-vessel",
+      "contentType": "",
+      "redirected": false,
+      "category": "method-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/movimento-maritimo/bulk-autofill",
+      "resolvedPath": "/api/movimento-maritimo/bulk-autofill",
+      "status": 405,
+      "finalUrl": "https://oreyazores26.vercel.app/api/movimento-maritimo/bulk-autofill",
+      "contentType": "",
+      "redirected": false,
+      "category": "method-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/movimento-maritimo/tracking",
+      "resolvedPath": "/api/movimento-maritimo/tracking",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/movimento-maritimo/tracking",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/movimento-maritimo/tracking/stream",
+      "resolvedPath": "/api/movimento-maritimo/tracking/stream",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/movimento-maritimo/tracking/stream",
+      "contentType": "text/event-stream",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/navios",
+      "resolvedPath": "/api/navios",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/navios",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/navios/[id]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/navios/[id]/ais-live",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/navios/[id]/ais-live/stream",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/ordens-servico",
+      "resolvedPath": "/api/ordens-servico",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/ordens-servico",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/ordens-servico/[id]",
+      "resolvedPath": "/api/ordens-servico/14",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/ordens-servico/14",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "ot-id-from-api"
+    },
+    {
+      "pattern": "/api/ordens-servico/[id]/checklist",
+      "resolvedPath": "/api/ordens-servico/14/checklist",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/ordens-servico/14/checklist",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "ot-id-from-api"
+    },
+    {
+      "pattern": "/api/ordens-servico/[id]/documento",
+      "resolvedPath": "/api/ordens-servico/14/documento",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/ordens-servico/14/documento",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "ot-id-from-api"
+    },
+    {
+      "pattern": "/api/ordens-servico/[id]/logs",
+      "resolvedPath": "/api/ordens-servico/14/logs",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/ordens-servico/14/logs",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "ot-id-from-api"
+    },
+    {
+      "pattern": "/api/ordens-servico/[id]/materiais",
+      "resolvedPath": "/api/ordens-servico/14/materiais",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/ordens-servico/14/materiais",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "ot-id-from-api"
+    },
+    {
+      "pattern": "/api/ordens-servico/[id]/tempos",
+      "resolvedPath": "/api/ordens-servico/14/tempos",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/ordens-servico/14/tempos",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "ot-id-from-api"
+    },
+    {
+      "pattern": "/api/ordens-servico/[id]/upload-checklist-photo",
+      "resolvedPath": "/api/ordens-servico/14/upload-checklist-photo",
+      "status": 405,
+      "finalUrl": "https://oreyazores26.vercel.app/api/ordens-servico/14/upload-checklist-photo",
+      "contentType": "",
+      "redirected": false,
+      "category": "method-blocked",
+      "note": "ot-id-from-api"
+    },
+    {
+      "pattern": "/api/ordens-servico/alertas",
+      "resolvedPath": "/api/ordens-servico/alertas",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/ordens-servico/alertas",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/ordens-servico/kpis",
+      "resolvedPath": "/api/ordens-servico/kpis",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/ordens-servico/kpis",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/pack-types",
+      "resolvedPath": "/api/pack-types",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/pack-types",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/pack-types/[id]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/api/pack-types/resolve",
+      "resolvedPath": "/api/pack-types/resolve",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/pack-types/resolve",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/post",
+      "resolvedPath": "/api/post",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/post",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/raft-capacities",
+      "resolvedPath": "/api/raft-capacities",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/raft-capacities",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/relatorios/export",
+      "resolvedPath": "/api/relatorios/export",
+      "status": 400,
+      "finalUrl": "https://oreyazores26.vercel.app/api/relatorios/export",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/search/global",
+      "resolvedPath": "/api/search/global",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/search/global",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/service-station",
+      "resolvedPath": "/api/service-station",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/service-station",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/service-stations",
+      "resolvedPath": "/api/service-stations",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/service-stations",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/stats",
+      "resolvedPath": "/api/stats",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/stats",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/stock",
+      "resolvedPath": "/api/stock",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/stock",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/stock/[id]",
+      "resolvedPath": "/api/stock/3215",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/stock/3215",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "stock-id-from-api"
+    },
+    {
+      "pattern": "/api/stock/[id]/movimentacoes",
+      "resolvedPath": "/api/stock/3215/movimentacoes",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/stock/3215/movimentacoes",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "stock-id-from-api"
+    },
+    {
+      "pattern": "/api/stock/necessidades",
+      "resolvedPath": "/api/stock/necessidades",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/api/stock/necessidades",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/tecnicos",
+      "resolvedPath": "/api/tecnicos",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/tecnicos",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/tecnicos/ausencias",
+      "resolvedPath": "/api/tecnicos/ausencias",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/tecnicos/ausencias",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/upload-certificados",
+      "resolvedPath": "/api/upload-certificados",
+      "status": 503,
+      "finalUrl": "https://oreyazores26.vercel.app/api/upload-certificados",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "server-error",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/upload-certificados/client-upload",
+      "resolvedPath": "/api/upload-certificados/client-upload",
+      "status": 405,
+      "finalUrl": "https://oreyazores26.vercel.app/api/upload-certificados/client-upload",
+      "contentType": "",
+      "redirected": false,
+      "category": "method-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/upload-documento",
+      "resolvedPath": "/api/upload-documento",
+      "status": 400,
+      "finalUrl": "https://oreyazores26.vercel.app/api/upload-documento",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/upload-documento/client-upload",
+      "resolvedPath": "/api/upload-documento/client-upload",
+      "status": 405,
+      "finalUrl": "https://oreyazores26.vercel.app/api/upload-documento/client-upload",
+      "contentType": "",
+      "redirected": false,
+      "category": "method-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/user",
+      "resolvedPath": "/api/user",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/user",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/user/permissions",
+      "resolvedPath": "/api/user/permissions",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/user/permissions",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/api/user/presence",
+      "resolvedPath": "/api/user/presence",
+      "status": 401,
+      "finalUrl": "https://oreyazores26.vercel.app/api/user/presence",
+      "contentType": "application/json",
+      "redirected": false,
+      "category": "auth-blocked",
+      "note": "static"
+    },
+    {
+      "pattern": "/auditorias",
+      "resolvedPath": "/auditorias",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/auditorias",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/cilindros",
+      "resolvedPath": "/cilindros",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/cilindros",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/clientes",
+      "resolvedPath": "/clientes",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/clientes",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/clientes/[id]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/contactos-internos",
+      "resolvedPath": "/contactos-internos",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/contactos-internos",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/contactos-internos/[id]",
+      "resolvedPath": "/contactos-internos/53",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/contactos-internos/53",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "contacto-id-from-api"
+    },
+    {
+      "pattern": "/criar-ot",
+      "resolvedPath": "/criar-ot",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/criar-ot",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/dashboard",
+      "resolvedPath": "/dashboard",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/dashboard",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/departamento-tecnico",
+      "resolvedPath": "/departamento-tecnico",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/departamento-tecnico",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/dgrm",
+      "resolvedPath": "/dgrm",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/dgrm",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/epirbs",
+      "resolvedPath": "/epirbs",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/epirbs",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/epirbs/[id]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/equipamentos",
+      "resolvedPath": "/equipamentos",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/equipamentos",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/equipamentos/[id]",
+      "resolvedPath": "/equipamentos/1",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/equipamentos/1",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "equipamento-id-from-api"
+    },
+    {
+      "pattern": "/estacao-servico",
+      "resolvedPath": "/estacao-servico",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/estacao-servico",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/fotos",
+      "resolvedPath": "/fotos",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/fotos",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/ia-importacao",
+      "resolvedPath": "/ia-importacao",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/ia-importacao",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/inspecoes",
+      "resolvedPath": "/inspecoes",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/jangadas?fromLegacyInspecoes=1",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": true,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/jangadas",
+      "resolvedPath": "/jangadas",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/jangadas",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/jangadas/[id]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/jangadas/serial/[serial]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/legislacao",
+      "resolvedPath": "/legislacao",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/legislacao",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/login",
+      "resolvedPath": "/login",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/login",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/logistica",
+      "resolvedPath": "/logistica",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/logistica",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/movimento-maritimo",
+      "resolvedPath": "/movimento-maritimo",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/movimento-maritimo",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/navios",
+      "resolvedPath": "/navios",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/navios",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/navios/[id]",
+      "resolvedPath": null,
+      "status": null,
+      "category": "unresolved-dynamic",
+      "note": "No sample parameter available"
+    },
+    {
+      "pattern": "/obras",
+      "resolvedPath": "/obras",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/criar-ot",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": true,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/ordens-servico",
+      "resolvedPath": "/ordens-servico",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/ordens-servico",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/ordens-servico/[id]",
+      "resolvedPath": "/ordens-servico/14",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/ordens-servico/14",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "ot-id-from-api"
+    },
+    {
+      "pattern": "/packs",
+      "resolvedPath": "/packs",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/packs",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "protected-page",
+      "note": "static"
+    },
+    {
+      "pattern": "/qualidade-dados",
+      "resolvedPath": "/qualidade-dados",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/qualidade-dados",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/registar",
+      "resolvedPath": "/registar",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/registar",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/relatorios",
+      "resolvedPath": "/relatorios",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/criar-ot",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": true,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/stock",
+      "resolvedPath": "/stock",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/stock",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/stock/[id]",
+      "resolvedPath": "/stock/3215",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/stock/3215",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "stock-id-from-api"
+    },
+    {
+      "pattern": "/stock/reposicoes",
+      "resolvedPath": "/stock/reposicoes",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/stock/reposicoes",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/tecnicos",
+      "resolvedPath": "/tecnicos",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/tecnicos",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    },
+    {
+      "pattern": "/utilizadores",
+      "resolvedPath": "/utilizadores",
+      "status": 200,
+      "finalUrl": "https://oreyazores26.vercel.app/utilizadores",
+      "contentType": "text/html; charset=utf-8",
+      "redirected": false,
+      "category": "ok",
+      "note": "static"
+    }
+  ]
+}

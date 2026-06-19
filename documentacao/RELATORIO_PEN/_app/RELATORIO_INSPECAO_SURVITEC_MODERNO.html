@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Relatório de Inspeção de Jangada (Estilo Orey Técnica)</title>
+    <style>
+      :root {
+        --bg: #f3f6fb;
+        --card: #ffffff;
+        --ink: #142033;
+        --muted: #5f6b7a;
+        --line: #d8e1ef;
+        --accent: #1146a6;
+        --accent-2: #0ea5e9;
+        --ok: #16a34a;
+        --warn: #d97706;
+        --bad: #dc2626;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+      }
+
+      .page {
+        max-width: 1080px;
+        margin: 28px auto;
+        padding: 28px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 18px 46px rgba(15, 23, 42, 0.08);
+      }
+
+      .titlebar {
+        display: grid;
+        grid-template-columns: 1.2fr 2fr 1.2fr;
+        gap: 18px;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 14px;
+        background: linear-gradient(90deg, #f8fbff 0%, #f3f8ff 100%);
+      }
+
+      .logo-block {
+        border: 1px solid #b9c9e3;
+        border-radius: 10px;
+        min-height: 68px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        padding: 8px 10px;
+        background: #fff;
+      }
+
+      .orey-mark {
+        font-size: 17px;
+        letter-spacing: 0.6px;
+        font-weight: 900;
+        color: #0b2f7f;
+      }
+
+      .orey-sub {
+        font-size: 10px;
+        color: #334155;
+        text-transform: uppercase;
+        letter-spacing: 0.35px;
+      }
+
+      .orey-bar {
+        width: 100%;
+        height: 5px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #0b2f7f, #2196f3);
+      }
+
+      .doc-title h1 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.1;
+        letter-spacing: 0.2px;
+      }
+
+      .doc-title p {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 12.5px;
+      }
+
+      .meta {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #fff;
+      }
+
+      .meta-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .meta-row:last-child {
+        border-bottom: 0;
+      }
+
+      .meta-cell {
+        padding: 8px 10px;
+        border-right: 1px solid var(--line);
+      }
+
+      .meta-cell:last-child {
+        border-right: 0;
+      }
+
+      .lbl {
+        color: var(--muted);
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+
+      .val {
+        margin-top: 2px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .section {
+        margin-top: 18px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+
+      .section-head {
+        padding: 10px 14px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .section-head h2 {
+        margin: 0;
+        font-size: 14px;
+        letter-spacing: 0.2px;
+      }
+
+      .section-head small {
+        opacity: 0.95;
+        font-size: 11px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 0;
+      }
+
+      .grid.cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid.cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .field {
+        border-right: 1px solid var(--line);
+        border-top: 1px solid var(--line);
+        padding: 10px 12px;
+      }
+
+      .grid .field:nth-child(2n) {
+        border-right: 0;
+      }
+
+      .grid.cols-3 .field:nth-child(3n) {
+        border-right: 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid var(--line);
+        padding: 8px 10px;
+        font-size: 12px;
+        vertical-align: top;
+      }
+
+      th {
+        text-align: left;
+        background: #eef4ff;
+        font-weight: 700;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .tag.ok {
+        background: #dcfce7;
+        color: var(--ok);
+      }
+
+      .tag.warn {
+        background: #ffedd5;
+        color: var(--warn);
+      }
+
+      .tag.bad {
+        background: #fee2e2;
+        color: var(--bad);
+      }
+
+      .check {
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+
+      .free-text {
+        border-top: 1px solid var(--line);
+        padding: 12px;
+        min-height: 92px;
+        color: #1e293b;
+        font-size: 12.5px;
+        white-space: pre-wrap;
+      }
+
+      .signatures {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        padding: 12px;
+        border-top: 1px solid var(--line);
+      }
+
+      .sig {
+        border: 1px dashed #b7c6e0;
+        border-radius: 10px;
+        padding: 10px;
+        min-height: 92px;
+      }
+
+      .footer-note {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.45;
+      }
+
+      .note-inline {
+        padding: 10px 12px;
+        border-top: 1px solid var(--line);
+        font-size: 11.5px;
+        color: #334155;
+      }
+
+      @media (max-width: 900px) {
+        .titlebar {
+          grid-template-columns: 1fr;
+        }
+
+        .grid.cols-2,
+        .grid.cols-3,
+        .signatures {
+          grid-template-columns: 1fr;
+        }
+
+        .grid .field,
+        .grid.cols-3 .field {
+          border-right: 0;
+        }
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .page {
+          margin: 0;
+          border: 0;
+          border-radius: 0;
+          box-shadow: none;
+          max-width: none;
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="titlebar">
+        <div class="logo-block" aria-label="logotipo orey tecnica">
+          <div class="orey-mark">OREY TÉCNICA</div>
+          <div class="orey-sub">Serviços Navais, Lda.</div>
+          <div class="orey-bar"></div>
+        </div>
+
+        <div class="doc-title">
+          <h1>Relatório de Inspeção de Jangada Salva‑vidas</h1>
+          <p>
+            Modelo moderno alinhado ao certificado técnico (Form 1 / Inspection Report)
+          </p>
+        </div>
+
+        <div class="meta" aria-label="metadados do relatório">
+          <div class="meta-row">
+            <div class="meta-cell">
+              <div class="lbl">Doc. Number</div>
+              <div class="val">VAN-QF-5</div>
+            </div>
+            <div class="meta-cell">
+              <div class="lbl">Revisão</div>
+              <div class="val">05</div>
+            </div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-cell">
+              <div class="lbl">Data ativa</div>
+              <div class="val">08 Mar 2021</div>
+            </div>
+            <div class="meta-cell">
+              <div class="lbl">Formulário</div>
+              <div class="val">Form 1</div>
+            </div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-cell">
+              <div class="lbl">N.º Relatório</div>
+              <div class="val">INSP-2026-0001</div>
+            </div>
+            <div class="meta-cell">
+              <div class="lbl">N.º Ordem</div>
+              <div class="val">5502200244</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>1) Identificação / Identification</h2>
+          <small>Dados do cliente, navio e jangada</small>
+        </div>
+        <div class="grid cols-3">
+          <div class="field"><div class="lbl">Cliente / Owner</div><div class="val">Eagle</div></div>
+          <div class="field"><div class="lbl">Navio / Vessel</div><div class="val">—</div></div>
+          <div class="field"><div class="lbl">País / Country</div><div class="val">Brazil</div></div>
+
+          <div class="field"><div class="lbl">Marca / Brand</div><div class="val">Survitec</div></div>
+          <div class="field"><div class="lbl">Modelo / Model</div><div class="val">RFD 10 Person</div></div>
+          <div class="field"><div class="lbl">Serial No.</div><div class="val">4257100400327</div></div>
+
+          <div class="field"><div class="lbl">Part No.</div><div class="val">00051167</div></div>
+          <div class="field"><div class="lbl">Pack Type</div><div class="val">135.167</div></div>
+          <div class="field"><div class="lbl">Container Type</div><div class="val">122 STAD</div></div>
+
+          <div class="field"><div class="lbl">Data fabrico</div><div class="val">07/2010</div></div>
+          <div class="field"><div class="lbl">Última inspeção</div><div class="val">09/2018</div></div>
+          <div class="field"><div class="lbl">Estação de serviço</div><div class="val">2</div></div>
+
+          <div class="field"><div class="lbl">Manual usado</div><div class="val">25-61-549 Rev. Ver 1 (Feb/2016)</div></div>
+          <div class="field"><div class="lbl">Aprovação</div><div class="val">TSO‑C70a Type 1 SA</div></div>
+          <div class="field"><div class="lbl">Estado</div><div class="val"><span class="tag ok">Inspected/Tested</span></div></div>
+
+          <div class="field"><div class="lbl">Capacidade</div><div class="val">10 Pessoas</div></div>
+          <div class="field"><div class="lbl">Compr. retenida</div><div class="val">36 m</div></div>
+          <div class="field"><div class="lbl">Altura máx. estiva</div><div class="val">18 m</div></div>
+
+          <div class="field"><div class="lbl">HRU (Ref.)</div><div class="val">HRU-RR-001</div></div>
+          <div class="field"><div class="lbl">HRU validade</div><div class="val">06/2027</div></div>
+          <div class="field"><div class="lbl">Refletor radar</div><div class="val">RR-001 (06/2027)</div></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>2) Ensaios e verificação funcional</h2>
+          <small>Critérios, medições e histórico de teste</small>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Teste</th>
+              <th>Critério</th>
+              <th>Resultado</th>
+              <th>Medição / Observação</th>
+              <th>Último teste</th>
+              <th>Próximo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>NAP test</td>
+              <td>Sem queda de pressão fora do limite</td>
+              <td><span class="tag ok">PASS</span></td>
+              <td>Sem perdas anómalas nas câmaras</td>
+              <td>03/2026</td>
+              <td>03/2027</td>
+            </tr>
+            <tr>
+              <td>Gas inflation test</td>
+              <td>Inflação completa em tempo do manual</td>
+              <td><span class="tag ok">PASS</span></td>
+              <td>Tempo de inflação: 24 s</td>
+              <td>03/2026</td>
+              <td>03/2027</td>
+            </tr>
+            <tr>
+              <td>Floor seam test</td>
+              <td>Sem abertura de costura / sem delaminação</td>
+              <td><span class="tag warn">N/A</span></td>
+              <td>Não aplicável para este modelo</td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Load test D.L.</td>
+              <td>Conforme carga regulamentar</td>
+              <td><span class="tag warn">N/A</span></td>
+              <td>Não executado nesta periodicidade</td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>HRU test (hidrostático)</td>
+              <td>Dispositivo íntegro e dentro da validade</td>
+              <td><span class="tag ok">PASS</span></td>
+              <td>Referência HRU-RR-001 / Validade 06/2027</td>
+              <td>03/2026</td>
+              <td>03/2027</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>3) Componentes verificados da jangada</h2>
+          <small>Checklist técnico de conformidade</small>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Componente</th>
+              <th>Estado</th>
+              <th>Ação</th>
+              <th>Observações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>P.R.V. (Pressure Relief Valve)</td>
+              <td><span class="tag ok">Conforme</span></td>
+              <td>Verificado</td>
+              <td>Sem anomalias visíveis</td>
+            </tr>
+            <tr>
+              <td>T.R.V. / non-return valves</td>
+              <td><span class="tag ok">Conforme</span></td>
+              <td>Verificado</td>
+              <td>Funcionamento verificado</td>
+            </tr>
+            <tr>
+              <td>Tecido e costuras</td>
+              <td><span class="tag ok">Conforme</span></td>
+              <td>Inspecionado</td>
+              <td>Sem rasgos, sem delaminação</td>
+            </tr>
+            <tr>
+              <td>Arreios / painter / fitas</td>
+              <td><span class="tag ok">Conforme</span></td>
+              <td>Inspecionado</td>
+              <td>Sem desgaste crítico</td>
+            </tr>
+            <tr>
+              <td>Sistema de iluminação</td>
+              <td><span class="tag ok">Conforme</span></td>
+              <td>Testado</td>
+              <td>Luz exterior e interior funcionais</td>
+            </tr>
+            <tr>
+              <td>Bolsa de emergência (pack)</td>
+              <td><span class="tag ok">Conforme</span></td>
+              <td>Auditado</td>
+              <td>Inventário completo e atualizado</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>4) Cilindro e sistema de inflação</h2>
+          <small>Rastreabilidade e conformidade</small>
+        </div>
+        <div class="grid cols-2">
+          <div class="field"><div class="lbl">Serial cilindro</div><div class="val">CYL-TEST-001</div></div>
+          <div class="field"><div class="lbl">Data último hidroteste</div><div class="val">01/2025</div></div>
+          <div class="field"><div class="lbl">CO₂ (kg)</div><div class="val">2.95</div></div>
+          <div class="field"><div class="lbl">N₂ (kg)</div><div class="val">0.12</div></div>
+          <div class="field"><div class="lbl">Tipo de tecido</div><div class="val">P.U.</div></div>
+          <div class="field"><div class="lbl">Condição do sistema de inflação</div><div class="val"><span class="tag ok">Conforme</span></div></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>5) Artigos e validades (inventário)</h2>
+          <small>Validade de consumíveis e equipamentos do pack</small>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Artigo</th>
+              <th>Unidade/Tipo</th>
+              <th>N.º Série / Lote</th>
+              <th>Validade</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Emergency Pack</td>
+              <td>COASTAL</td>
+              <td>XDC5FD26K616</td>
+              <td>20/03/2027</td>
+              <td><span class="tag ok">Válido</span></td>
+            </tr>
+            <tr>
+              <td>HRU</td>
+              <td>Hydrostatic Release Unit</td>
+              <td>HRU-RR-001</td>
+              <td>06/2027</td>
+              <td><span class="tag ok">Válido</span></td>
+            </tr>
+            <tr>
+              <td>Reflector de Radar</td>
+              <td>RR-001</td>
+              <td>RR-001</td>
+              <td>06/2027</td>
+              <td><span class="tag ok">Válido</span></td>
+            </tr>
+            <tr>
+              <td>First Aid Kit</td>
+              <td>Farmácia SOLAS</td>
+              <td>FK-2208-AZ</td>
+              <td>08/2027</td>
+              <td><span class="tag ok">Válido</span></td>
+            </tr>
+            <tr>
+              <td>Flares pack</td>
+              <td>Pirotecnia SOLAS</td>
+              <td>LOT-FL-2402</td>
+              <td>02/2028</td>
+              <td><span class="tag ok">Válido</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="note-inline">
+          Nota: artigos com validade &lt; 6 meses devem ser marcados como <span class="tag warn">Atenção</span> e substituídos antes da libertação.
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>6) Artigos substituídos</h2>
+          <small>Rastreabilidade obrigatória da intervenção</small>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Artigo removido</th>
+              <th>Artigo novo / referência</th>
+              <th>Qtd.</th>
+              <th>Lote / Série novo</th>
+              <th>Validade nova</th>
+              <th>Motivo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>HRU antigo</td>
+              <td>HRU-RR-001</td>
+              <td>1</td>
+              <td>LOT-HRU-2603</td>
+              <td>06/2027</td>
+              <td>Validade a expirar</td>
+            </tr>
+            <tr>
+              <td>Kit farmacêutico</td>
+              <td>Farmácia SOLAS</td>
+              <td>1</td>
+              <td>FK-2208-AZ</td>
+              <td>08/2027</td>
+              <td>Atualização de validade</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>7) Service Bulletins e ações aplicadas</h2>
+          <small>Registo obrigatório de cumprimento</small>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Boletim</th>
+              <th>Aplicável</th>
+              <th>Aplicado</th>
+              <th>Evidência</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SB 01/17 Ver.3 (Inflation Hoses)</td>
+              <td><span class="tag ok">Sim</span></td>
+              <td><span class="tag ok">Sim</span></td>
+              <td>Registo: “SB 01/17 Ver.3 APPLIED”</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>8) Observações, não conformidades e recomendações</h2>
+          <small>Notas do técnico / observações do cliente</small>
+        </div>
+        <div class="free-text">Produto identificado acima foi inspecionado e testado de acordo com o manual do fabricante.
+Qualquer item fora de validade deve ser substituído antes da libertação da jangada para serviço.
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>9) Aprovação e assinatura</h2>
+          <small>Authorized release / service completion</small>
+        </div>
+        <div class="grid cols-3">
+          <div class="field"><div class="lbl">Data inspeção</div><div class="val">01/04/2022</div></div>
+          <div class="field"><div class="lbl">Próxima inspeção</div><div class="val">01/04/2023</div></div>
+          <div class="field"><div class="lbl">Status final</div><div class="val"><span class="tag ok">Aprovado</span></div></div>
+        </div>
+
+        <div class="signatures">
+          <div class="sig">
+            <div class="lbl">Técnico autorizado</div>
+            <div class="val">Nome / Assinatura / Carimbo</div>
+          </div>
+          <div class="sig">
+            <div class="lbl">Revisor QA</div>
+            <div class="val">Nome / Assinatura</div>
+          </div>
+          <div class="sig">
+            <div class="lbl">Cliente</div>
+            <div class="val">Confirmação de receção</div>
+          </div>
+        </div>
+      </section>
+
+      <p class="footer-note">
+        Este template foi desenhado para digitalização fácil (web/PDF), mantendo os campos operacionais observados no certificado técnico (identificação, testes, componentes verificados, validades, artigos substituídos e autorização).
+        Pode ser integrado diretamente no fluxo da aplicação (exportação HTML/PDF) com preenchimento dinâmico via dados da inspeção.
+      </p>
+    </main>
+  </body>
+</html>

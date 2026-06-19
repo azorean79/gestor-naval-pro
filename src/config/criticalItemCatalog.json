@@ -1,0 +1,14 @@
+[
+  { "canonical": "Fachos de Mão", "referencia": "PYR-FLARE-RED", "keywords": ["facho", "hand flare", "mao vermelho", "fogos de mao"] },
+  { "canonical": "Foguetes Paraquedas", "referencia": "PYR-ROCKET-RED", "keywords": ["paraquedas", "rocket", "foguete"] },
+  { "canonical": "Sinal Fumígeno Flutuante", "referencia": "20500002", "keywords": ["pote de fumo", "fumo", "smoke"] },
+  { "canonical": "Água Potável", "referencia": "DRINKING_WATER_STOCK_REFERENCE", "keywords": ["agua", "potavel", "water ration"] },
+  { "canonical": "Rações de Comida", "referencia": "FOOD_RATIONS_STOCK_REFERENCE", "keywords": ["racao", "rações", "food ration", "ration"] },
+  { "canonical": "Comprimidos para o Enjoo", "referencia": "TAB-SICKNESS", "keywords": ["comprimido", "enjoo", "sea sickness", "sickness tablet"] },
+  { "canonical": "Kit de Primeiros Socorros SOLAS", "referencia": "MED-KIT-SOLAS", "keywords": ["primeiros socorros", "first aid", "solas kit", "medical kit"] },
+  { "canonical": "Kit de Primeiros Socorros ISO", "referencia": "MED-KIT-ISO", "keywords": ["iso kit", "first aid iso"] },
+  { "canonical": "Bateria de Iluminação", "referencia": "BAT-RL5-LITH", "keywords": ["bateria", "battery", "lithium"] },
+  { "canonical": "Luz Externa", "referencia": "LGT-RL5-EXT", "keywords": ["luz externa", "external light", "rl5-ext"] },
+  { "canonical": "Luz Interna", "referencia": "LGT-RL5-INT", "keywords": ["luz interna", "internal light", "rl5-int"] },
+  { "canonical": "Kit Luz RL6", "referencia": "LGT-RL6-KIT", "keywords": ["rl6", "light unit rl6", "kit luz"] }
+]

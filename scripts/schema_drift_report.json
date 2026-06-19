@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-03-01T23:09:52.284Z",
+  "dbTableCount": 8,
+  "prismaModelCount": 7,
+  "missingTables": [],
+  "missingColumns": [],
+  "extraDbColumns": []
+}

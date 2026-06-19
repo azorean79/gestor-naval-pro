@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-03-18T14:59:28.567Z",
+  "sourceDir": "CERTIFICADOS 2026",
+  "filesProcessed": 55,
+  "extractedWithShip": 55,
+  "extractedWithOwner": 55,
+  "matchedJangada": 55,
+  "updatedJangadaOwner": 35,
+  "updatedJangadaShipName": 0,
+  "ownerConflictsJangada": 5,
+  "matchedNavio": 29,
+  "updatedNavioOwner": 27,
+  "ownerConflictsNavio": 0,
+  "uniqueShipsInCertificates": 41,
+  "certShipsNotInNaviosCount": 14,
+  "certShipsNotInNaviosSample": [
+    "JOAHANNA",
+    "ELISA MEDEIROS",
+    "DEUS NOS ACOMPANHE",
+    "NAVI BLUE",
+    "TERRA",
+    "MARE NOSTRUM",
+    "STORIA",
+    "TERRA AZUL I",
+    "TERRA AZUL",
+    "TERRA AZUL II",
+    "TERRA AZUL III",
+    "MARACA",
+    "MESTRE SOARES",
+    "\"ILHAS DE BRUMA\""
+  ],
+  "conflictSamples": [
+    {
+      "type": "jangada_owner_conflict",
+      "serial": "50173303S7530",
+      "currentOwner": "Manuel João Cabral Vieira",
+      "certOwner": "ACACIO FILIPE CABRAL ANDRADE",
+      "fileName": "AZ26-008 MESTRE VIEIRA.xlsx"
+    },
+    {
+      "type": "jangada_owner_conflict",
+      "serial": "5017330300359",
+      "currentOwner": "José Manuel Terceira Andrade",
+      "certOwner": "EMANUEL DE JESUS MONIZ ANDRADE",
+      "fileName": "AZ26-009 PÃO DE CRISTO.xlsx"
+    },
+    {
+      "type": "jangada_owner_conflict",
+      "serial": "5017420300111",
+      "currentOwner": "Pescafixe, Unipessoal, Lda.",
+      "certOwner": "ANDRE FILIPE MEDEIROS FERRAO",
+      "fileName": "AZ26-015 ILHA AMARELA.xlsx"
+    },
+    {
+      "type": "jangada_owner_conflict",
+      "serial": "5086010100346",
+      "currentOwner": "Pescafixe Unipessoal, Lda",
+      "certOwner": "PESCAFIXE, UNIPESSOAL, LDA",
+      "fileName": "AZ26-049 BAIA DA MAIA.xlsx"
+    },
+    {
+      "type": "jangada_owner_conflict",
+      "serial": "XDC4ES74I809",
+      "currentOwner": "José Silva Moniz",
+      "certOwner": "JAIME ANDRÉ PEIXOTO BRUM",
+      "fileName": "AZ26-052 ALEGRIA DE DEUS.xlsx"
+    }
+  ]
+}

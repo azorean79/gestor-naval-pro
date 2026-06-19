@@ -1,0 +1,181 @@
+TOTAL_BRANDS=60
+
+[AKANA] modelos=2 variantes=1
+modelos: ANA-D | ANA-T
+
+[ANGEVINIER] modelos=3 variantes=1
+modelos: ADL | AOR | ATOB
+
+[ARIMAR] modelos=3 variantes=1
+modelos: Deep-Sea | Deep-Sea II | FORC
+
+[AUSSEA] modelos=1 variantes=1
+modelos: Aussea II
+
+[BEAUFORT] modelos=3 variantes=1
+modelos: ORL | Seafarer | Seafarer DL
+
+[BFA] modelos=1 variantes=1
+modelos: ORIL
+
+[BOMBARD] modelos=2 variantes=1
+modelos: ORIL | ORIL EPS
+
+[BRUDE] modelos=2 variantes=1
+modelos: BHK ORL | BHR
+
+[CREWSAVER] modelos=1 variantes=1
+modelos: ORL
+
+[CRV] modelos=6 variantes=1
+modelos: CRVF-A | CRVF-D | CRVF-K | CRVF-U | CRVF-Z | QJF-U
+
+[CSM] modelos=10 variantes=1
+modelos: A | D | R | Raft-A | Raft-D | Raft-F | Raft-R | Raft-SR | SMLR-A | SMLR-D
+
+[CUNHONG] modelos=12 variantes=1
+modelos: CHF-A | CHF-D | CHF-K | CHF-U | CHF-Y | CHF-Z | KHF-A | KHF-D | KHF-K | SCH-A | SCH-D | SCH-K
+
+[DSB] modelos=5 variantes=1
+modelos: LR05 | LR05L | LR14R | LR97 | ORL
+
+[DUARRY] modelos=12 variantes=1
+modelos: A-COM Vacuum | B-100 | BN | DL | Duarry | KHA | KHD | KHK | KHZ | KHZD | ORL | TOB
+
+[ELLIOT] modelos=1 variantes=1
+modelos: ORL
+
+[EUROSAFE] modelos=4 variantes=1
+modelos: DSR | SMLR-A | SMLR-D | SR
+
+[EUROSUL] modelos=2 variantes=1
+modelos: ZHR-A | ZHR-D
+
+[FITZWRIGHT (DSS)] modelos=2 variantes=1
+modelos: SMLR-A | SMLR-D
+
+[FUJIKURA] modelos=6 variantes=1
+modelos: FRC | FRN-R | FRN-SN | FRN-SN-D | FRN-SV | FZMES
+
+[GLOBAL MARINE SAFETY] modelos=4 variantes=1
+modelos: DSR | SMLR-A | SMLR-D | SR
+
+[HAF] modelos=7 variantes=1
+modelos: HAF-A | HAF-ASR | HAF-D | HAF-K | HAF-U Coastal | HAF-U ISO | HAF-U ISO SR
+
+[HAI AN] modelos=7 variantes=1
+modelos: HAF-A | HAF-ASR | HAF-D | HAF-K | HAF-U Coastal | HAF-U ISO | HAF-U ISO SR
+
+[HAI YAN] modelos=3 variantes=1
+modelos: HYF-A | HYF-D | HYF-K
+
+[HAINING] modelos=13 variantes=1
+modelos: HNF-A | HNF-CR | HNF-D | HNF-DSR | HNF-FJ | HNF-HSC | HNF-MES-D-15 | HNF-MES-V-300 | HNF-MES-V-600 | HNF-SR | HNF-Y | HNF-YJ | HNF-YT
+
+[HERO] modelos=9 variantes=1
+modelos: Coastal | KHA | KHD | KHK | KHZ | KHZD | Offshore | Standard International | VPRO
+
+[HUAXIANG DACHENG] modelos=3 variantes=1
+modelos: SDR-A | SDR-D | SDR-R
+
+[HUAYANG] modelos=10 variantes=1
+modelos: HYF-A | HYF-AU | HYF-D | HYF-K | HYF-MES | HYF-U(I) | HYF-U(II) | HYF-UZ | HYF-Y | HYF-Z
+
+[HYF] modelos=10 variantes=1
+modelos: HYF-A | HYF-AU | HYF-D | HYF-K | HYF-MES | HYF-U(I) | HYF-U(II) | HYF-UZ | HYF-Y | HYF-Z
+
+[LALIZAS] modelos=13 variantes=1
+modelos: Europe II Inshore | Europe II Inshore HR | ISO Atlantic C | ISO Atlantic C-HR | ISO Atlantic L | ISO Atlantic L-HR | ISO Atlantic P | ISO Atlantic PG | ISO-Raft | Leisure raft | Seaworld LB | Seaworld PB | Seaworld PBGR
+
+[LALIZAS OCEANO] modelos=5 variantes=1
+modelos: DL | DLSR | ORL | TO | TOSR
+
+[LIFESAVER] modelos=1 variantes=1
+modelos: HYF-Z
+
+[LSA] modelos=6 variantes=1
+modelos: IBA | MES Mk1 | MES Mk2 | MES MSS | ORL | SRL Mk1
+
+[MATCHANU] modelos=1 variantes=1
+modelos: MMR-A
+
+[MSC] modelos=5 variantes=1
+modelos: KHA | KHD | KHK | KHZ | KHZD
+
+[NKBMS] modelos=1 variantes=1
+modelos: SMLR-A
+
+[OCEAN SAFETY] modelos=2 variantes=1
+modelos: HYF-K | HYF-Z
+
+[OCEAN SOLAS (OCEAN SAFETY)] modelos=12 variantes=1
+modelos: DSR | LR-DL | LR-DLSR | LR-ORL | LR-SR | LR-TO | LR-TO Compact | LR-TO Ultralite | R | SMLR-A | SMLR-D | SR
+
+[POLARIS] modelos=1 variantes=1
+modelos: HYF-Z
+
+[REVERE] modelos=4 variantes=1
+modelos: DSR | SMLR-A | SMLR-D | SR
+
+[RFD] modelos=6 variantes=1
+modelos: Ferryman | Marin Ark I | Marin Ark II | Surviva | Surviva DL MkIII | Surviva MkIII
+
+[RFD TOYO] modelos=2 variantes=1
+modelos: MkIV | ORL
+
+[SAFINDO] modelos=3 variantes=1
+modelos: SLR-A | SLR-D | SLR-K
+
+[SAMGONG] modelos=3 variantes=1
+modelos: SG-DN | SG-PB | SG-SV
+
+[SEA AIR] modelos=10 variantes=1
+modelos: ADL | ADLSR | AOR | ASR | ATOB | HSR-ESS | HSR-Y | YJT | YSR | YT
+
+[SEA DINASTY] modelos=5 variantes=1
+modelos: KHA | KHD | KHK | KHZ | KHZD
+
+[SEA SAFE] modelos=5 variantes=1
+modelos: KHA | KHD | KHK | KHZ | KHZD
+
+[SEAGO] modelos=4 variantes=1
+modelos: DSR | SMLR-A | SMLR-D | SR
+
+[SEAMAN] modelos=2 variantes=1
+modelos: DFN-D | DFN-T
+
+[SEAWOLF] modelos=3 variantes=1
+modelos: ECE-R | ECE-T | SDF-D
+
+[SOLLAX] modelos=2 variantes=1
+modelos: Sollax A | Sollax D
+
+[SSPI] modelos=1 variantes=1
+modelos: ORL
+
+[SURVITEC] modelos=1 variantes=1
+modelos: ORL
+
+[SURVITECZODIAC] modelos=2 variantes=1
+modelos: ORIL | ORL
+
+[TOKUGAWA] modelos=5 variantes=1
+modelos: DLR-A | DLR-D | DLR-K | DLR-U | DLR-Z
+
+[UNITOR] modelos=7 variantes=1
+modelos: KHA | KHD | KHK | KHZ | KHZD | Unitor | Unitor DL
+
+[VANGUARD] modelos=1 variantes=1
+modelos: KHA
+
+[VIKING] modelos=51 variantes=1
+modelos: DK | DK+ | DK+ E | DK+ S30 | DKF+ | DKF+ E | DKF+ GN | DKF+ S30 | DKFS | DKFS E | DKFS S30 | DKN | DKN S30 | DKR+ | DKR+ E | DKR+ S30 | DKS | DKS E | DKS S30 | DKS SBS | DKS+VENOC | DKSN | DKSN S30 | DKSU | MOR | MOR S30 | Rescue Coastal UKCL | RescYou Ocean UKL | RescYou Pro   UKSL | SBS | SES 2A | SES 2B | SES 2C | SES 2D | SES Basic | Undertun VU100 | Undertun VU150 | VAS | VEC | VEC+ | VEDC | VEDS | VELS-SMS | VEMC | VEMC Polar | VEMC S30 | VEMS 2.1 | VEMS 2.2 | VEMS 3.1 | VENOC | VES DD
+
+[YOULONG] modelos=21 variantes=1
+modelos: KHA | KHD | KHK | KHR | KHY | KHYF | KHYFSR | KHYJ | KHYSR | KHZ | KHZD | MOR | QJF-Y | YL-MES-21-700 | YL-MES-21-700-X | YL-MES-D(II)-X | YL-MES-D(III) | YL-MES-I-350-X | YL-MES-I-C | YL-MES-S(II)-X | YL-MES-S(III)
+
+[ZENHUA] modelos=2 variantes=1
+modelos: ZHR-A | ZHR-D
+
+[ZODIAC] modelos=2 variantes=1
+modelos: ORIL | ORIL EPS

@@ -1,0 +1,993 @@
+### TODOS OS MODELOS
+[A COM VACUUM] marcas: DUARRY
+tamanhos: 6 | 8 | 10 | 12
+
+[ADL] marcas: ANGEVINIER | SEA AIR
+tamanhos: 12 | 15 | 16 | 20 | 25
+
+[ADLSR] marcas: SEA AIR
+tamanhos: 12 | 16 | 20 | 25 | 32 | 37 | 39
+
+[ANA D] marcas: AKANA
+tamanhos: 15 | 16 | 20 | 25
+
+[ANA T] marcas: AKANA
+tamanhos: 6 | 10 | 15 | 16 | 20 | 25
+
+[AOR] marcas: ANGEVINIER | SEA AIR
+tamanhos: 6 | 10 | 25 | 30 | 50 | 65 | 100
+
+[ASR] marcas: SEA AIR
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35 | 50 | 66 | 100
+
+[ATOB] marcas: ANGEVINIER | SEA AIR
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35
+
+[AUSSEA II] marcas: AUSSEA
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[BHK ORL] marcas: BRUDE
+tamanhos: 150
+
+[BHR] marcas: BRUDE
+tamanhos: 65 | 150
+
+[CHF A] marcas: CUNHONG
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 32 | 35
+
+[CHF D] marcas: CUNHONG
+tamanhos: 10 | 12 | 15 | 16 | 20 | 25 | 30 | 32 | 35
+
+[CHF K] marcas: CUNHONG
+tamanhos: 20 | 30 | 50 | 65
+
+[CHF U] marcas: CUNHONG
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[CHF Y] marcas: CUNHONG
+tamanhos: 6 | 8 | 10 | 12 | 15 | 20 | 25
+
+[CHF Z] marcas: CUNHONG
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30
+
+[COASTAL] marcas: HERO
+tamanhos: 4 | 6 | 8
+
+[CRVF A] marcas: CRV
+tamanhos: 6 | 10 | 15 | 20 | 25
+
+[DEEP SEA] marcas: ARIMAR
+tamanhos: 6 | 8 | 10 | 12 | 16 | 20 | 25 | 35 | 37 | 40
+
+[DEEP SEA II] marcas: ARIMAR
+tamanhos: 6 | 8 | 10 | 12 | 16 | 20 | 25
+
+[DFN D] marcas: SEAMAN
+tamanhos: 15 | 16 | 20 | 25
+
+[DFN T] marcas: SEAMAN
+tamanhos: 6 | 10 | 15 | 16 | 20 | 25
+
+[DK] marcas: VIKING
+tamanhos: 4 | 6
+
+[DK+] marcas: VIKING
+tamanhos: 6 | 8 | 10 | 12 | 16 | 20 | 25 | 35
+
+[DK+ E] marcas: VIKING
+tamanhos: 6 | 8 | 10 | 12 | 16 | 20 | 25 | 35
+
+[DK+ S30] marcas: VIKING
+tamanhos: 6 | 8 | 10 | 12 | 16 | 20 | 25 | 35
+
+[DKF+] marcas: VIKING
+tamanhos: 12 | 16 | 20 | 25 | 35
+
+[DKF+ E] marcas: VIKING
+tamanhos: 12 | 16 | 20 | 25 | 35
+
+[DKF+ GN] marcas: VIKING
+tamanhos: 20
+
+[DKF+ S30] marcas: VIKING
+tamanhos: 12 | 16 | 20 | 25 | 35
+
+[DKFS] marcas: VIKING
+tamanhos: 25 | 39
+
+[DKFS E] marcas: VIKING
+tamanhos: 25 | 39
+
+[DKFS S30] marcas: VIKING
+tamanhos: 25 | 39
+
+[DKN] marcas: VIKING
+tamanhos: 6 | 10
+
+[DKN S30] marcas: VIKING
+tamanhos: 6 | 10
+
+[DKR+] marcas: VIKING
+tamanhos: 12 | 25 | 50 | 101 | 153
+
+[DKR+ E] marcas: VIKING
+tamanhos: 12 | 25 | 50 | 101 | 153
+
+[DKR+ S30] marcas: VIKING
+tamanhos: 12 | 25 | 50 | 101 | 153
+
+[DKS] marcas: VIKING
+tamanhos: 12 | 16 | 25 | 39 | 51 | 101 | 153
+
+[DKS E] marcas: VIKING
+tamanhos: 12 | 25 | 39 | 51 | 101 | 153
+
+[DKS S30] marcas: VIKING
+tamanhos: 12 | 25 | 39 | 51 | 101 | 153
+
+[DKS SBS] marcas: VIKING
+tamanhos: 101 | 153
+
+[DKS+VENOC] marcas: VIKING
+tamanhos: 51 | 101
+
+[DKSN] marcas: VIKING
+tamanhos: 12 | 16 | 25
+
+[DKSN S30] marcas: VIKING
+tamanhos: 12 | 16 | 25
+
+[DKSU] marcas: VIKING
+tamanhos: 101 | 153
+
+[DL] marcas: DUARRY | LALIZAS OCEANO
+tamanhos: 12 | 15 | 16 | 20 | 25
+
+[DLR A] marcas: TOKUGAWA
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25
+
+[DLR D] marcas: TOKUGAWA
+tamanhos: 12 | 15 | 16 | 20 | 25
+
+[DLR K] marcas: TOKUGAWA
+tamanhos: 20 | 30 | 50 | 65
+
+[DLR U] marcas: TOKUGAWA
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[DLR Z] marcas: TOKUGAWA
+tamanhos: 10 | 15 | 20 | 25 | 30
+
+[DLSR] marcas: LALIZAS OCEANO
+tamanhos: 12 | 16 | 20 | 25 | 32 | 37 | 39
+
+[DSR] marcas: EUROSAFE | GLOBAL MARINE SAFETY | OCEAN SOLAS (OCEAN SAFETY) | REVERE | SEAGO
+tamanhos: 25 | 37
+
+[ECE R] marcas: SEAWOLF
+tamanhos: 6 | 10 | 25 | 30 | 50 | 65 | 100
+
+[ECE T] marcas: SEAWOLF
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35
+
+[EUROPE II INSHORE] marcas: LALIZAS
+tamanhos: 4 | 6 | 8
+
+[EUROPE II INSHORE HR] marcas: LALIZAS
+tamanhos: 4 | 6 | 8
+
+[FERRYMAN] marcas: RFD
+tamanhos: 6 | 10 | 20 | 25 | 28 | 30 | 50 | 51 | 65 | 100 | 130 | 150
+
+[FORC] marcas: ARIMAR
+tamanhos: 25 | 50 | 100
+
+[FRC] marcas: FUJIKURA
+tamanhos: 5 | 6 | 8 | 10
+
+[FRN R] marcas: FUJIKURA
+tamanhos: 25 | 50 | 101
+
+[FRN SN] marcas: FUJIKURA
+tamanhos: 6 | 10 | 15 | 20 | 25 | 30 | 35 | 37
+
+[FRN SN D] marcas: FUJIKURA
+tamanhos: 30 | 35 | 37
+
+[FRN SV] marcas: FUJIKURA
+tamanhos: 6 | 10 | 15 | 20 | 25
+
+[HAF A] marcas: HAF | HAI AN
+tamanhos: 6 | 10 | 12 | 15 | 16 | 20 | 25 | 30
+
+[HAF ASR] marcas: HAF | HAI AN
+tamanhos: 6 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 37 | 50 | 65
+
+[HAF D] marcas: HAF | HAI AN
+tamanhos: 15 | 16 | 20 | 25
+
+[HAF K] marcas: HAF | HAI AN
+tamanhos: 50 | 65
+
+[HAF U COASTAL] marcas: HAF | HAI AN
+tamanhos: 4 | 6 | 8
+
+[HAF U ISO] marcas: HAF | HAI AN
+tamanhos: 4 | 6 | 8
+
+[HAF U ISO SR] marcas: HAF | HAI AN
+tamanhos: 4 | 6 | 8
+
+[HNF A] marcas: HAINING
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25
+
+[HNF CR] marcas: HAINING
+tamanhos: 25 | 30 | 35 | 40 | 45 | 50 | 65
+
+[HNF D] marcas: HAINING
+tamanhos: 15 | 20 | 25
+
+[HNF DSR] marcas: HAINING
+tamanhos: 12 | 15 | 16 | 20 | 25 | 37
+
+[HNF FJ] marcas: HAINING
+tamanhos: 50 | 55
+
+[HNF HSC] marcas: HAINING
+tamanhos: 25 | 50 | 65
+
+[HNF SR] marcas: HAINING
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 50 | 65 | 100 | 125
+
+[HNF Y] marcas: HAINING
+tamanhos: 10 | 12 | 15 | 20 | 25
+
+[HNF YJ] marcas: HAINING
+tamanhos: 6 | 10
+
+[HNF YT] marcas: HAINING
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[HSR Y] marcas: SEA AIR
+tamanhos: 6 | 8 | 10 | 12 | 15 | 20 | 25
+
+[HYF A] marcas: HAI YAN | HUAYANG | HYF
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35 | 36 | 37
+
+[HYF AU] marcas: HUAYANG | HYF
+tamanhos: 6 | 8 | 10 | 12
+
+[HYF D] marcas: HAI YAN | HUAYANG | HYF
+tamanhos: 10 | 12 | 15 | 16 | 20 | 25
+
+[HYF K] marcas: HAI YAN | HUAYANG | HYF | OCEAN SAFETY
+tamanhos: 6 | 10 | 15 | 20 | 25 | 30 | 35 | 50 | 65 | 100
+
+[HYF U(I)] marcas: HUAYANG | HYF
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[HYF U(II)] marcas: HUAYANG | HYF
+tamanhos: 4 | 6 | 8 | 10
+
+[HYF UZ] marcas: HUAYANG | HYF
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[HYF Y] marcas: HUAYANG | HYF
+tamanhos: 6 | 8 | 10 | 12 | 15 | 20 | 25
+
+[HYF Z] marcas: HUAYANG | HYF | LIFESAVER | OCEAN SAFETY | POLARIS
+tamanhos: 6 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35 | 37 | 50 | 65 | 100 | 101 | 125
+
+[IBA] marcas: LSA
+tamanhos: 150
+
+[ISO ATLANTIC C] marcas: LALIZAS
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[ISO ATLANTIC C HR] marcas: LALIZAS
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[ISO ATLANTIC L] marcas: LALIZAS
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[ISO ATLANTIC L HR] marcas: LALIZAS
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[ISO ATLANTIC P] marcas: LALIZAS
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[ISO ATLANTIC PG] marcas: LALIZAS
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[ISO RAFT] marcas: LALIZAS
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[KHA] marcas: DUARRY | HERO | MSC | SEA DINASTY | SEA SAFE | UNITOR | VANGUARD | YOULONG
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35
+
+[KHD] marcas: DUARRY | HERO | MSC | SEA DINASTY | SEA SAFE | UNITOR | YOULONG
+tamanhos: 12 | 15 | 16 | 20 | 25 | 30 | 35
+
+[KHF A] marcas: CUNHONG
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25
+
+[KHF D] marcas: CUNHONG
+tamanhos: 12 | 15 | 16 | 20 | 25
+
+[KHF K] marcas: CUNHONG
+tamanhos: 20 | 30 | 50 | 65
+
+[KHK] marcas: DUARRY | HERO | MSC | SEA DINASTY | SEA SAFE | UNITOR | YOULONG
+tamanhos: 6 | 10 | 25 | 30 | 50 | 65 | 100 | 152
+
+[KHR] marcas: YOULONG
+tamanhos: 6 | 10 | 25 | 30 | 50 | 65 | 100
+
+[KHY] marcas: YOULONG
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[KHYF] marcas: YOULONG
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[KHYFSR] marcas: YOULONG
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[KHYJ] marcas: YOULONG
+tamanhos: 4 | 6 | 8 | 10
+
+[KHYSR] marcas: YOULONG
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[KHZ] marcas: DUARRY | HERO | MSC | SEA DINASTY | SEA SAFE | UNITOR | YOULONG
+tamanhos: 6 | 10 | 15 | 20 | 25 | 30 | 35 | 50 | 65 | 100 | 110 | 125
+
+[KHZD] marcas: DUARRY | HERO | MSC | SEA DINASTY | SEA SAFE | UNITOR | YOULONG
+tamanhos: 15 | 16 | 20 | 25 | 30 | 35 | 37
+
+[LEISURE RAFT] marcas: LALIZAS
+tamanhos: 4 | 6
+
+[LR DL] marcas: OCEAN SOLAS (OCEAN SAFETY)
+tamanhos: 12 | 16 | 20 | 25
+
+[LR DLSR] marcas: OCEAN SOLAS (OCEAN SAFETY)
+tamanhos: 25 | 37
+
+[LR ORL] marcas: OCEAN SOLAS (OCEAN SAFETY)
+tamanhos: 6 | 15 | 25 | 30 | 50 | 65 | 132
+
+[LR SR] marcas: OCEAN SOLAS (OCEAN SAFETY)
+tamanhos: 6 | 10 | 15 | 20 | 25 | 50
+
+[LR TO] marcas: OCEAN SOLAS (OCEAN SAFETY)
+tamanhos: 6 | 8 | 10 | 12 | 16 | 20 | 25 | 32
+
+[LR TO COMPACT] marcas: OCEAN SOLAS (OCEAN SAFETY)
+tamanhos: 6 | 8 | 10 | 12 | 16
+
+[LR TO ULTRALITE] marcas: OCEAN SOLAS (OCEAN SAFETY)
+tamanhos: 6 | 8 | 10 | 12 | 16
+
+[LR05] marcas: DSB
+tamanhos: 6 | 8 | 10 | 12 | 16 | 20 | 25
+
+[LR05L] marcas: DSB
+tamanhos: 12 | 16 | 20 | 25
+
+[LR14R] marcas: DSB
+tamanhos: 30 | 50 | 100
+
+[LR97] marcas: DSB
+tamanhos: 28 | 51 | 100 | 150
+
+[MARIN ARK I] marcas: RFD
+tamanhos: 50 | 109
+
+[MARIN ARK II] marcas: RFD
+tamanhos: 50 | 109 | 158
+
+[MKIV] marcas: RFD TOYO
+tamanhos: 6 | 10 | 16 | 20 | 25
+
+[MMR A] marcas: MATCHANU
+tamanhos: 6 | 10 | 15 | 16 | 20 | 25
+
+[MOR] marcas: VIKING | YOULONG
+tamanhos: 12 | 15
+
+[MOR S30] marcas: VIKING
+tamanhos: 12
+
+[OFFSHORE] marcas: HERO
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[ORIL] marcas: BFA | BOMBARD | SURVITECZODIAC | ZODIAC
+tamanhos: 6 | 10 | 20 | 30 | 50 | 100 | 151
+
+[ORIL EPS] marcas: BOMBARD | ZODIAC
+tamanhos: 30 | 50
+
+[ORL] marcas: BEAUFORT | CREWSAVER | DSB | DUARRY | ELLIOT | LALIZAS OCEANO | LSA | RFD TOYO | SSPI | SURVITEC | SURVITECZODIAC
+tamanhos: 6 | 10 | 20 | 25 | 30 | 50 | 65 | 100 | 128 | 130 | 151
+
+[QJF U] marcas: CRV
+tamanhos: 6 | 8 | 10 | 12
+
+[QJF Y] marcas: YOULONG
+tamanhos: 6 | 8 | 10 | 12 | 14 | 15 | 16 | 20 | 25
+
+[R] marcas: CSM | OCEAN SOLAS (OCEAN SAFETY)
+tamanhos: 6 | 15 | 25 | 50 | 65 | 66 | 132
+
+[RAFT A] marcas: CSM
+tamanhos: 6 | 10 | 15 | 16 | 20 | 25
+
+[RAFT D] marcas: CSM
+tamanhos: 16 | 20 | 25
+
+[RAFT F] marcas: CSM
+tamanhos: 6 | 10 | 15 | 20 | 25
+
+[RAFT R] marcas: CSM
+tamanhos: 6 | 15 | 16 | 25 | 30 | 50 | 65 | 66 | 132
+
+[RAFT SR] marcas: CSM
+tamanhos: 6 | 10 | 15 | 20 | 25 | 50
+
+[RESCUE COASTAL UKCL] marcas: VIKING
+tamanhos: 6
+
+[RESCYOU OCEAN UKL] marcas: VIKING
+tamanhos: 4 | 6 | 8
+
+[RESCYOU PRO   UKSL] marcas: VIKING
+tamanhos: 4 | 6 | 8
+
+[SBS] marcas: VIKING
+tamanhos: 50 | 51 | 100 | 101 | 150 | 153
+
+[SCH A] marcas: CUNHONG
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25
+
+[SCH D] marcas: CUNHONG
+tamanhos: 12 | 15 | 16 | 20 | 25
+
+[SCH K] marcas: CUNHONG
+tamanhos: 20 | 30 | 50 | 65
+
+[SDF D] marcas: SEAWOLF
+tamanhos: 12 | 15 | 16 | 20 | 25
+
+[SDR A] marcas: HUAXIANG DACHENG
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25
+
+[SDR D] marcas: HUAXIANG DACHENG
+tamanhos: 12 | 16 | 20 | 25
+
+[SDR R] marcas: HUAXIANG DACHENG
+tamanhos: 6 | 10 | 25 | 30 | 50 | 65
+
+[SEAFARER] marcas: BEAUFORT
+tamanhos: 6 | 8 | 10 | 12 | 16 | 20 | 25 | 50 | 100
+
+[SEAFARER DL] marcas: BEAUFORT
+tamanhos: 12 | 16 | 20 | 25
+
+[SEAWORLD LB] marcas: LALIZAS
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[SEAWORLD PB] marcas: LALIZAS
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[SEAWORLD PBGR] marcas: LALIZAS
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[SES 2A] marcas: VIKING
+tamanhos: 12 | 16 | 20 | 25 | 35 | 51
+
+[SES 2B] marcas: VIKING
+tamanhos: 12 | 16 | 20 | 25 | 35 | 51
+
+[SES 2C] marcas: VIKING
+tamanhos: 12 | 16 | 20 | 25 | 35
+
+[SES 2D] marcas: VIKING
+tamanhos: 12 | 16 | 20 | 25 | 35
+
+[SG DN] marcas: SAMGONG
+tamanhos: 20 | 25
+
+[SG SV] marcas: SAMGONG
+tamanhos: 6 | 10 | 15 | 16 | 20 | 25
+
+[SLR A] marcas: SAFINDO
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25
+
+[SLR D] marcas: SAFINDO
+tamanhos: 12 | 15 | 16 | 20 | 25
+
+[SLR K] marcas: SAFINDO
+tamanhos: 20 | 30 | 50 | 65
+
+[SMLR A] marcas: CSM | EUROSAFE | FITZWRIGHT (DSS) | GLOBAL MARINE SAFETY | NKBMS | OCEAN SOLAS (OCEAN SAFETY) | REVERE | SEAGO
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 32
+
+[SMLR D] marcas: CSM | EUROSAFE | FITZWRIGHT (DSS) | GLOBAL MARINE SAFETY | OCEAN SOLAS (OCEAN SAFETY) | REVERE | SEAGO
+tamanhos: 12 | 16 | 20 | 25 | 32
+
+[SOLLAX A] marcas: SOLLAX
+tamanhos: 6 | 10 | 15 | 16 | 20 | 25
+
+[SOLLAX D] marcas: SOLLAX
+tamanhos: 15 | 16 | 20 | 25
+
+[SR] marcas: EUROSAFE | GLOBAL MARINE SAFETY | OCEAN SOLAS (OCEAN SAFETY) | REVERE | SEAGO
+tamanhos: 50
+
+[SRL MK1] marcas: LSA
+tamanhos: 50 | 100 | 115
+
+[STANDARD INTERNATIONAL] marcas: HERO
+tamanhos: 4 | 6 | 8
+
+[SURVIVA] marcas: RFD
+tamanhos: 50 | 100
+
+[SURVIVA DL MKIII] marcas: RFD
+tamanhos: 12 | 16 | 20 | 25
+
+[SURVIVA MKIII] marcas: RFD
+tamanhos: 6 | 8 | 10 | 12 | 16 | 20 | 25
+
+[TO] marcas: LALIZAS OCEANO
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35
+
+[TOB] marcas: DUARRY
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35
+
+[TOSR] marcas: LALIZAS OCEANO
+tamanhos: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35 | 50 | 100
+
+[UNDERTUN VU100] marcas: VIKING
+tamanhos: 101
+
+[UNDERTUN VU150] marcas: VIKING
+tamanhos: 153
+
+[VAS] marcas: VIKING
+tamanhos: 153
+
+[VEC] marcas: VIKING
+tamanhos: 101
+
+[VEC+] marcas: VIKING
+tamanhos: 101
+
+[VEDC] marcas: VIKING
+tamanhos: 153
+
+[VEDS] marcas: VIKING
+tamanhos: 153
+
+[VELS SMS] marcas: VIKING
+tamanhos: 153
+
+[VEMC] marcas: VIKING
+tamanhos: 101 | 153
+
+[VEMC POLAR] marcas: VIKING
+tamanhos: 101 | 153
+
+[VEMC S30] marcas: VIKING
+tamanhos: 101 | 153
+
+[VEMS 2.1] marcas: VIKING
+tamanhos: 101
+
+[VEMS 2.2] marcas: VIKING
+tamanhos: 101
+
+[VEMS 3.1] marcas: VIKING
+tamanhos: 101
+
+[VENOC] marcas: VIKING
+tamanhos: 51 | 101
+
+[VES DD] marcas: VIKING
+tamanhos: 25 | 39 | 50 | 51 | 100 | 101
+
+[VPRO] marcas: HERO
+tamanhos: 6
+
+[YJT] marcas: SEA AIR
+tamanhos: 4 | 6 | 8
+
+[YSR] marcas: SEA AIR
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[YT] marcas: SEA AIR
+tamanhos: 4 | 6 | 8 | 10 | 12
+
+[ZHR A] marcas: EUROSUL | ZENHUA
+tamanhos: 6 | 10 | 12 | 15 | 16 | 20 | 25 | 30
+
+[ZHR D] marcas: EUROSUL | ZENHUA
+tamanhos: 15 | 16 | 20 | 25
+
+
+### MODELOS COM SOLAS
+[A COM VACUUM] marcas: DUARRY
+tamanhos SOLAS: 6 | 8 | 10 | 12
+
+[ADL] marcas: ANGEVINIER | SEA AIR
+tamanhos SOLAS: 12 | 15 | 16 | 20 | 25
+
+[ANA D] marcas: AKANA
+tamanhos SOLAS: 15 | 16 | 20 | 25
+
+[ANA T] marcas: AKANA
+tamanhos SOLAS: 6 | 10 | 15 | 16 | 20 | 25
+
+[ATOB] marcas: ANGEVINIER | SEA AIR
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35
+
+[BHR] marcas: BRUDE
+tamanhos SOLAS: 65 | 150
+
+[CHF A] marcas: CUNHONG
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 32 | 35
+
+[CHF D] marcas: CUNHONG
+tamanhos SOLAS: 10 | 12 | 15 | 16 | 20 | 25 | 30 | 32 | 35
+
+[CHF Z] marcas: CUNHONG
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30
+
+[CRVF A] marcas: CRV
+tamanhos SOLAS: 6 | 10 | 15 | 20 | 25
+
+[DEEP SEA] marcas: ARIMAR
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 16 | 20 | 25 | 35 | 37 | 40
+
+[DEEP SEA II] marcas: ARIMAR
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 16 | 20 | 25
+
+[DFN D] marcas: SEAMAN
+tamanhos SOLAS: 15 | 16 | 20 | 25
+
+[DFN T] marcas: SEAMAN
+tamanhos SOLAS: 6 | 10 | 15 | 16 | 20 | 25
+
+[DK+] marcas: VIKING
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 16 | 20 | 25 | 35
+
+[DK+ E] marcas: VIKING
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 16 | 20 | 25 | 35
+
+[DK+ S30] marcas: VIKING
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 16 | 20 | 25 | 35
+
+[DKF+] marcas: VIKING
+tamanhos SOLAS: 12 | 16 | 20 | 25 | 35
+
+[DKF+ E] marcas: VIKING
+tamanhos SOLAS: 12 | 16 | 20 | 25 | 35
+
+[DKF+ GN] marcas: VIKING
+tamanhos SOLAS: 20
+
+[DKF+ S30] marcas: VIKING
+tamanhos SOLAS: 12 | 16 | 20 | 25 | 35
+
+[DKFS] marcas: VIKING
+tamanhos SOLAS: 25 | 39
+
+[DKFS E] marcas: VIKING
+tamanhos SOLAS: 25 | 39
+
+[DKFS S30] marcas: VIKING
+tamanhos SOLAS: 25 | 39
+
+[DKN] marcas: VIKING
+tamanhos SOLAS: 6 | 10
+
+[DKN S30] marcas: VIKING
+tamanhos SOLAS: 6 | 10
+
+[DKS] marcas: VIKING
+tamanhos SOLAS: 12 | 16 | 25 | 39 | 51 | 101 | 153
+
+[DKS E] marcas: VIKING
+tamanhos SOLAS: 12 | 25 | 39 | 51 | 101 | 153
+
+[DKS S30] marcas: VIKING
+tamanhos SOLAS: 12 | 25 | 39 | 51 | 101 | 153
+
+[DKS SBS] marcas: VIKING
+tamanhos SOLAS: 101 | 153
+
+[DKS+VENOC] marcas: VIKING
+tamanhos SOLAS: 51 | 101
+
+[DKSN] marcas: VIKING
+tamanhos SOLAS: 12 | 16 | 25
+
+[DKSN S30] marcas: VIKING
+tamanhos SOLAS: 12 | 16 | 25
+
+[DKSU] marcas: VIKING
+tamanhos SOLAS: 101 | 153
+
+[DL] marcas: DUARRY | LALIZAS OCEANO
+tamanhos SOLAS: 12 | 15 | 16 | 20 | 25
+
+[DLR A] marcas: TOKUGAWA
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25
+
+[DLR D] marcas: TOKUGAWA
+tamanhos SOLAS: 12 | 15 | 16 | 20 | 25
+
+[DLR Z] marcas: TOKUGAWA
+tamanhos SOLAS: 10 | 15 | 20 | 25 | 30
+
+[DLSR] marcas: LALIZAS OCEANO
+tamanhos SOLAS: 12 | 16 | 20 | 25 | 32 | 37 | 39
+
+[DSR] marcas: EUROSAFE | GLOBAL MARINE SAFETY | OCEAN SOLAS (OCEAN SAFETY) | REVERE | SEAGO
+tamanhos SOLAS: 25 | 37
+
+[ECE T] marcas: SEAWOLF
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35
+
+[FRN R] marcas: FUJIKURA
+tamanhos SOLAS: 25 | 50 | 101
+
+[FRN SN] marcas: FUJIKURA
+tamanhos SOLAS: 6 | 10 | 15 | 20 | 25 | 30 | 35 | 37
+
+[FRN SN D] marcas: FUJIKURA
+tamanhos SOLAS: 30 | 35 | 37
+
+[FRN SV] marcas: FUJIKURA
+tamanhos SOLAS: 6 | 10 | 15 | 20 | 25
+
+[HAF A] marcas: HAF | HAI AN
+tamanhos SOLAS: 6 | 10 | 12 | 15 | 16 | 20 | 25 | 30
+
+[HAF ASR] marcas: HAF | HAI AN
+tamanhos SOLAS: 6 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 37 | 50 | 65
+
+[HAF D] marcas: HAF | HAI AN
+tamanhos SOLAS: 15 | 16 | 20 | 25
+
+[HNF A] marcas: HAINING
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25
+
+[HNF CR] marcas: HAINING
+tamanhos SOLAS: 25 | 30 | 35 | 40 | 45 | 50 | 65
+
+[HNF D] marcas: HAINING
+tamanhos SOLAS: 15 | 20 | 25
+
+[HNF DSR] marcas: HAINING
+tamanhos SOLAS: 12 | 15 | 16 | 20 | 25 | 37
+
+[HNF SR] marcas: HAINING
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 50 | 65 | 100 | 125
+
+[HYF A] marcas: HAI YAN | HUAYANG | HYF
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35 | 36 | 37
+
+[HYF AU] marcas: HUAYANG | HYF
+tamanhos SOLAS: 6 | 8 | 10 | 12
+
+[HYF D] marcas: HAI YAN | HUAYANG | HYF
+tamanhos SOLAS: 10 | 12 | 15 | 16 | 20 | 25
+
+[HYF Z] marcas: HUAYANG | HYF | LIFESAVER | OCEAN SAFETY | POLARIS
+tamanhos SOLAS: 6 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35 | 37 | 50 | 65 | 100 | 101 | 125
+
+[KHA] marcas: DUARRY | HERO | MSC | SEA DINASTY | SEA SAFE | UNITOR | VANGUARD | YOULONG
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35
+
+[KHD] marcas: DUARRY | HERO | MSC | SEA DINASTY | SEA SAFE | UNITOR | YOULONG
+tamanhos SOLAS: 12 | 15 | 16 | 20 | 25 | 30 | 35
+
+[KHF A] marcas: CUNHONG
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25
+
+[KHF D] marcas: CUNHONG
+tamanhos SOLAS: 12 | 15 | 16 | 20 | 25
+
+[KHR] marcas: YOULONG
+tamanhos SOLAS: 6 | 10 | 25 | 30 | 50 | 65 | 100
+
+[KHZ] marcas: DUARRY | HERO | MSC | SEA DINASTY | SEA SAFE | UNITOR | YOULONG
+tamanhos SOLAS: 6 | 10 | 15 | 20 | 25 | 30 | 35 | 50 | 65 | 100 | 110 | 125
+
+[KHZD] marcas: DUARRY | HERO | MSC | SEA DINASTY | SEA SAFE | UNITOR | YOULONG
+tamanhos SOLAS: 15 | 16 | 20 | 25 | 30 | 35 | 37
+
+[LR DL] marcas: OCEAN SOLAS (OCEAN SAFETY)
+tamanhos SOLAS: 12 | 16 | 20 | 25
+
+[LR DLSR] marcas: OCEAN SOLAS (OCEAN SAFETY)
+tamanhos SOLAS: 25 | 37
+
+[LR SR] marcas: OCEAN SOLAS (OCEAN SAFETY)
+tamanhos SOLAS: 6 | 10 | 15 | 20 | 25 | 50
+
+[LR TO] marcas: OCEAN SOLAS (OCEAN SAFETY)
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 16 | 20 | 25 | 32
+
+[LR TO COMPACT] marcas: OCEAN SOLAS (OCEAN SAFETY)
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 16
+
+[LR TO ULTRALITE] marcas: OCEAN SOLAS (OCEAN SAFETY)
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 16
+
+[LR05] marcas: DSB
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 16 | 20 | 25
+
+[LR05L] marcas: DSB
+tamanhos SOLAS: 12 | 16 | 20 | 25
+
+[MARIN ARK I] marcas: RFD
+tamanhos SOLAS: 50 | 109
+
+[MARIN ARK II] marcas: RFD
+tamanhos SOLAS: 50 | 109 | 158
+
+[MKIV] marcas: RFD TOYO
+tamanhos SOLAS: 6 | 10 | 16 | 20 | 25
+
+[MMR A] marcas: MATCHANU
+tamanhos SOLAS: 6 | 10 | 15 | 16 | 20 | 25
+
+[QJF U] marcas: CRV
+tamanhos SOLAS: 6 | 8 | 10 | 12
+
+[RAFT A] marcas: CSM
+tamanhos SOLAS: 6 | 10 | 15 | 16 | 20 | 25
+
+[RAFT D] marcas: CSM
+tamanhos SOLAS: 16 | 20 | 25
+
+[RAFT F] marcas: CSM
+tamanhos SOLAS: 6 | 10 | 15 | 20 | 25
+
+[RAFT SR] marcas: CSM
+tamanhos SOLAS: 6 | 10 | 15 | 20 | 25 | 50
+
+[SBS] marcas: VIKING
+tamanhos SOLAS: 51 | 101 | 153
+
+[SCH A] marcas: CUNHONG
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25
+
+[SCH D] marcas: CUNHONG
+tamanhos SOLAS: 12 | 15 | 16 | 20 | 25
+
+[SDF D] marcas: SEAWOLF
+tamanhos SOLAS: 12 | 15 | 16 | 20 | 25
+
+[SDR A] marcas: HUAXIANG DACHENG
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25
+
+[SDR D] marcas: HUAXIANG DACHENG
+tamanhos SOLAS: 12 | 16 | 20 | 25
+
+[SEAFARER] marcas: BEAUFORT
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 16 | 20 | 25 | 50 | 100
+
+[SEAFARER DL] marcas: BEAUFORT
+tamanhos SOLAS: 12 | 16 | 20 | 25
+
+[SES 2A] marcas: VIKING
+tamanhos SOLAS: 12 | 16 | 20 | 25 | 35 | 51
+
+[SES 2B] marcas: VIKING
+tamanhos SOLAS: 12 | 16 | 20 | 25 | 35 | 51
+
+[SES 2C] marcas: VIKING
+tamanhos SOLAS: 12 | 16 | 20 | 25 | 35
+
+[SES 2D] marcas: VIKING
+tamanhos SOLAS: 12 | 16 | 20 | 25 | 35
+
+[SG DN] marcas: SAMGONG
+tamanhos SOLAS: 20 | 25
+
+[SG SV] marcas: SAMGONG
+tamanhos SOLAS: 6 | 10 | 15 | 16 | 20 | 25
+
+[SLR A] marcas: SAFINDO
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25
+
+[SLR D] marcas: SAFINDO
+tamanhos SOLAS: 12 | 15 | 16 | 20 | 25
+
+[SMLR A] marcas: CSM | EUROSAFE | FITZWRIGHT (DSS) | GLOBAL MARINE SAFETY | NKBMS | OCEAN SOLAS (OCEAN SAFETY) | REVERE | SEAGO
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 32
+
+[SMLR D] marcas: CSM | EUROSAFE | FITZWRIGHT (DSS) | GLOBAL MARINE SAFETY | OCEAN SOLAS (OCEAN SAFETY) | REVERE | SEAGO
+tamanhos SOLAS: 12 | 16 | 20 | 25 | 32
+
+[SOLLAX A] marcas: SOLLAX
+tamanhos SOLAS: 6 | 10 | 15 | 16 | 20 | 25
+
+[SOLLAX D] marcas: SOLLAX
+tamanhos SOLAS: 15 | 16 | 20 | 25
+
+[SR] marcas: EUROSAFE | GLOBAL MARINE SAFETY | OCEAN SOLAS (OCEAN SAFETY) | REVERE | SEAGO
+tamanhos SOLAS: 50
+
+[SRL MK1] marcas: LSA
+tamanhos SOLAS: 50 | 100 | 115
+
+[SURVIVA] marcas: RFD
+tamanhos SOLAS: 50 | 100
+
+[SURVIVA DL MKIII] marcas: RFD
+tamanhos SOLAS: 12 | 16 | 20 | 25
+
+[SURVIVA MKIII] marcas: RFD
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 16 | 20 | 25
+
+[TO] marcas: LALIZAS OCEANO
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35
+
+[TOB] marcas: DUARRY
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35
+
+[TOSR] marcas: LALIZAS OCEANO
+tamanhos SOLAS: 6 | 8 | 10 | 12 | 15 | 16 | 20 | 25 | 30 | 35 | 50 | 100
+
+[UNDERTUN VU100] marcas: VIKING
+tamanhos SOLAS: 101
+
+[UNDERTUN VU150] marcas: VIKING
+tamanhos SOLAS: 153
+
+[VEC] marcas: VIKING
+tamanhos SOLAS: 101
+
+[VEC+] marcas: VIKING
+tamanhos SOLAS: 101
+
+[VEDC] marcas: VIKING
+tamanhos SOLAS: 153
+
+[VEDS] marcas: VIKING
+tamanhos SOLAS: 153
+
+[VELS SMS] marcas: VIKING
+tamanhos SOLAS: 153
+
+[VEMC] marcas: VIKING
+tamanhos SOLAS: 101 | 153
+
+[VEMC POLAR] marcas: VIKING
+tamanhos SOLAS: 101 | 153
+
+[VEMC S30] marcas: VIKING
+tamanhos SOLAS: 101 | 153
+
+[VEMS 2.1] marcas: VIKING
+tamanhos SOLAS: 101
+
+[VEMS 2.2] marcas: VIKING
+tamanhos SOLAS: 101
+
+[VENOC] marcas: VIKING
+tamanhos SOLAS: 51 | 101
+
+[VES DD] marcas: VIKING
+tamanhos SOLAS: 25 | 39 | 51 | 101
+
+[ZHR A] marcas: EUROSUL | ZENHUA
+tamanhos SOLAS: 6 | 10 | 12 | 15 | 16 | 20 | 25 | 30
+
+[ZHR D] marcas: EUROSUL | ZENHUA
+tamanhos SOLAS: 15 | 16 | 20 | 25
+

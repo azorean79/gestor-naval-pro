@@ -1,0 +1,26 @@
+[
+  {
+    "id": 3,
+    "serviceStationId": null,
+    "jangadaId": 8,
+    "ordemServicoId": null,
+    "dataChegada": "2026-06-12T15:21:00.103Z",
+    "dataPrevistaEntrega": null,
+    "status": "aguardar",
+    "observacoes": "{\"workflowStatus\":\"aguardar\",\"readyForDelivery\":false,\"deliveryMethod\":\"\",\"deliveredAt\":\"\"}",
+    "createdAt": "2026-06-12T15:21:00.103Z",
+    "updatedAt": "2026-06-12T15:28:43.473Z"
+  },
+  {
+    "id": 5,
+    "serviceStationId": null,
+    "jangadaId": 7,
+    "ordemServicoId": null,
+    "dataChegada": "2026-06-15T09:45:25.248Z",
+    "dataPrevistaEntrega": null,
+    "status": "aguardar",
+    "observacoes": "{\"workflowStatus\":\"aguardar\",\"readyForDelivery\":false,\"deliveryMethod\":\"\",\"deliveredAt\":\"\"}",
+    "createdAt": "2026-06-15T09:45:25.248Z",
+    "updatedAt": "2026-06-15T17:23:24.350Z"
+  }
+]

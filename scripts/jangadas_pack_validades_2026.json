@@ -1,0 +1,1725 @@
+{
+  "timestamp": "2026-03-18T15:06:57.255Z",
+  "sourceDir": "CERTIFICADOS 2026",
+  "fileCount": 55,
+  "raftsWithSerial": 37,
+  "raftsWithShip": 55,
+  "raftsWithQuadro": 39,
+  "raftsWithValidities": 39,
+  "rows": [
+    {
+      "file": "AZ26-001 MESTRE GIL.xlsx",
+      "certNumber": "AZ26-001",
+      "raftSerial": "501731030009",
+      "shipName": "MESTRE GIL",
+      "owner": "GIL CABRAL VIEIRA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "R",
+      "validities": [
+        {
+          "item": "Seasickness Tables",
+          "validade": "04/2027",
+          "row": 15
+        },
+        {
+          "item": "Handflares",
+          "validade": "02/2027",
+          "row": 19
+        },
+        {
+          "item": "Paddles",
+          "validade": "01/2026",
+          "row": 49
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "11/07",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "11/2007",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-002 GOLFIM.xlsx",
+      "certNumber": "AZ26-002",
+      "raftSerial": "",
+      "shipName": "GOLFIM",
+      "owner": "LAZARO MIGUEL LIMA SILVA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    },
+    {
+      "file": "AZ26-003 MESTRE MIGUEL.xlsx",
+      "certNumber": "AZ26-003",
+      "raftSerial": "5017330300330",
+      "shipName": "MESTRE MIGUEL",
+      "owner": "NATÁLIA DA CONCEIÇÃO MEDEIROS PONTE PACHECO",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "MIN",
+      "validities": [
+        {
+          "item": "Seasickness Tables",
+          "validade": "04/27",
+          "row": 15
+        },
+        {
+          "item": "Handflares",
+          "validade": "02/27",
+          "row": 19
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "11/17",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "08-08-2018",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-004 JOHANNA.xlsx",
+      "certNumber": "AZ26-004",
+      "raftSerial": "",
+      "shipName": "JOAHANNA",
+      "owner": "MARCO LIMA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "ISO 9650-2 COSTAL",
+      "validities": [
+        {
+          "item": "Seasickness Tables",
+          "validade": "04/27",
+          "row": 15
+        },
+        {
+          "item": "Handflares",
+          "validade": "02/27",
+          "row": 19
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "05/25",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "05/2025",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-005 ANA BEATRIZ.xlsx",
+      "certNumber": "AZ26-005",
+      "raftSerial": "5017330300334",
+      "shipName": "ANA BEATRIZ",
+      "owner": "RUI CARLOS SILVA ROSONINA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "MIN",
+      "validities": [
+        {
+          "item": "Seasickness Tables",
+          "validade": "05/27",
+          "row": 15
+        },
+        {
+          "item": "Handflares",
+          "validade": "12/27",
+          "row": 19
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "08/18",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "18-04-2019",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-006 ISAC VENDEIRO.xlsx",
+      "certNumber": "AZ26-006",
+      "raftSerial": "5017330300324",
+      "shipName": "ISAC VENDEIRO",
+      "owner": "BRUNO XAVIER PENACHO VIEIRA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "MIN",
+      "validities": [
+        {
+          "item": "Seasickness Tables",
+          "validade": "04/2027",
+          "row": 15
+        },
+        {
+          "item": "Handflares",
+          "validade": "04/2027",
+          "row": 19
+        },
+        {
+          "item": "Lithium Battery",
+          "validade": "06/2027",
+          "row": 25
+        },
+        {
+          "item": "Top Light and Battery",
+          "validade": "06/2027",
+          "row": 29
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "09/16",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "23-02-2017",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-007 ELISA MEDEIROS.xlsx",
+      "certNumber": "AZ26-007",
+      "raftSerial": "5017130300176",
+      "shipName": "ELISA MEDEIROS",
+      "owner": "MARIO ANTONIO SILVEIRA MEDEIROS",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "MIN",
+      "validities": [
+        {
+          "item": "First Aid Kit",
+          "validade": "01/2027",
+          "row": 13
+        },
+        {
+          "item": "Seasickness Tables",
+          "validade": "07/2028",
+          "row": 15
+        },
+        {
+          "item": "Handflares",
+          "validade": "02/2027",
+          "row": 19
+        },
+        {
+          "item": "MIN",
+          "validade": "01/2026",
+          "row": 47
+        },
+        {
+          "item": "Paddles",
+          "validade": "01/2026",
+          "row": 49
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "12/14",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "12/2014",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-008 MESTRE VIEIRA.xlsx",
+      "certNumber": "AZ26-008",
+      "raftSerial": "50173303S7530",
+      "shipName": "MESTRE VIEIRA",
+      "owner": "ACACIO FILIPE CABRAL ANDRADE",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "R",
+      "validities": [
+        {
+          "item": "Seasickness Tables",
+          "validade": "04/2027",
+          "row": 15
+        },
+        {
+          "item": "Handflares",
+          "validade": "01/2027",
+          "row": 19
+        },
+        {
+          "item": "Paddles",
+          "validade": "01/26",
+          "row": 49
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "01/24",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "12/2009",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-009 PÃO DE CRISTO.xlsx",
+      "certNumber": "AZ26-009",
+      "raftSerial": "5017330300359",
+      "shipName": "PÃO DE CRISTO",
+      "owner": "EMANUEL DE JESUS MONIZ ANDRADE",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "MIN",
+      "validities": [
+        {
+          "item": "Seasickness Tables",
+          "validade": "07/2028",
+          "row": 15
+        },
+        {
+          "item": "Handflares",
+          "validade": "12/2028",
+          "row": 19
+        },
+        {
+          "item": "Lithium Battery",
+          "validade": "08/27",
+          "row": 25
+        },
+        {
+          "item": "Top Light and Battery",
+          "validade": "08/27",
+          "row": 29
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "04/22",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "01/11/2022",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-010 ESTRELA.xlsx",
+      "certNumber": "AZ26-010",
+      "raftSerial": "5017330300314",
+      "shipName": "ESTRELA",
+      "owner": "MANUEL HUMBERTO ANDRADE VIEIRA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "MIN",
+      "validities": [
+        {
+          "item": "First Aid Kit",
+          "validade": "01/2027",
+          "row": 13
+        },
+        {
+          "item": "Seasickness Tables",
+          "validade": "04/2027",
+          "row": 15
+        },
+        {
+          "item": "Handflares",
+          "validade": "02/2027",
+          "row": 19
+        },
+        {
+          "item": "MIN",
+          "validade": "01/26",
+          "row": 47
+        },
+        {
+          "item": "Paddles",
+          "validade": "01/26",
+          "row": 49
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "02/21",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "7-7-2016",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-011 ILHAS DE BRUMA SOS.xlsx",
+      "certNumber": "AZ25-173",
+      "raftSerial": "",
+      "shipName": "ILHAS DE BRUMA",
+      "owner": "BEATRIZ PONTE",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    },
+    {
+      "file": "AZ26-012 SANTO ONOFRE.xlsx",
+      "certNumber": "AZ26-012",
+      "raftSerial": "",
+      "shipName": "SANTO ONOFRE",
+      "owner": "EDUINO PERINHO,UNIPESSOAL, LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    },
+    {
+      "file": "AZ26-013 LUZ DO MAR.xlsx",
+      "certNumber": "AZ26-013",
+      "raftSerial": "",
+      "shipName": "LUZ DO MAR",
+      "owner": "JOAO MANUEL SOARES CARDOSO",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    },
+    {
+      "file": "AZ26-014 DEUS NOS ACOMPANHE.xlsx",
+      "certNumber": "AZ26-014",
+      "raftSerial": "4245700600004",
+      "shipName": "DEUS NOS ACOMPANHE",
+      "owner": "JOSÉ SEBASTIÃO DA COSTA ANDRADE",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "REDUZIDO",
+      "validities": [
+        {
+          "item": "First Aid Kit",
+          "validade": "01/2027",
+          "row": 13
+        },
+        {
+          "item": "Seasickness Tables",
+          "validade": "06/2027",
+          "row": 15
+        },
+        {
+          "item": "Handflares",
+          "validade": "05/2027",
+          "row": 19
+        },
+        {
+          "item": "Top Light and Battery",
+          "validade": "09/2029",
+          "row": 29
+        },
+        {
+          "item": "REDUZIDO",
+          "validade": "02/2026",
+          "row": 47
+        },
+        {
+          "item": "Paddles",
+          "validade": "02/2026",
+          "row": 49
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "02/21",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "09/2001",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-015 ILHA AMARELA.xlsx",
+      "certNumber": "AZ25-027",
+      "raftSerial": "5017420300111",
+      "shipName": "ILHA AMARELA",
+      "owner": "ANDRE FILIPE MEDEIROS FERRAO",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "SIMP. REDUZ.",
+      "validities": [
+        {
+          "item": "First Aid Kit",
+          "validade": "03/2029",
+          "row": 13
+        },
+        {
+          "item": "Seasickness Tables",
+          "validade": "05/27",
+          "row": 15
+        },
+        {
+          "item": "Parachute Rockets",
+          "validade": "06/29",
+          "row": 17
+        },
+        {
+          "item": "Handflares",
+          "validade": "04/27",
+          "row": 19
+        },
+        {
+          "item": "Lithium Battery",
+          "validade": "09/28",
+          "row": 25
+        },
+        {
+          "item": "Top Light and Battery",
+          "validade": "09/28",
+          "row": 29
+        },
+        {
+          "item": "SIMP. REDUZ.",
+          "validade": "02/26",
+          "row": 47
+        },
+        {
+          "item": "Paddles",
+          "validade": "02/26",
+          "row": 49
+        },
+        {
+          "item": "Water Sachets",
+          "validade": "06/28",
+          "row": 63
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "01/22",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "01/03/2012",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-017 SEA COLORS.xlsx",
+      "certNumber": "AZ26-017",
+      "raftSerial": "79062851",
+      "shipName": "SEA COLORS",
+      "owner": "DOURADO E MOURA, LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "STD",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "01/16",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "03/03/2006",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-018 SEA COLORS.xlsx",
+      "certNumber": "AZ26-018",
+      "raftSerial": "79121829",
+      "shipName": "SEA COLORS",
+      "owner": "DOURADO E MOURA, LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "STD",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "05/12",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "05/05/2012",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-019 GRAÇAS A DEUS.xlsx",
+      "certNumber": "AZ26-019",
+      "raftSerial": "5017330300346",
+      "shipName": "GRAÇAS A DEUS",
+      "owner": "EDUARDO MANUEL TERCEIRA ESTRELA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "R",
+      "validities": [
+        {
+          "item": "Seasickness Tables",
+          "validade": "08/27",
+          "row": 15
+        },
+        {
+          "item": "Handflares",
+          "validade": "02/28",
+          "row": 19
+        },
+        {
+          "item": "Lithium Battery",
+          "validade": "08/27",
+          "row": 25
+        },
+        {
+          "item": "Top Light and Battery",
+          "validade": "08/27",
+          "row": 29
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "05/21",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "07/07/2021",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-020 SANTO MESSIAS.xlsx",
+      "certNumber": "AZ26-020",
+      "raftSerial": "50173303S7234",
+      "shipName": "SANTO MESSIAS",
+      "owner": "MARCO FILIPE PENACHO CABRAL",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "R",
+      "validities": [
+        {
+          "item": "Seasickness Tables",
+          "validade": "08/27",
+          "row": 15
+        },
+        {
+          "item": "Handflares",
+          "validade": "08/27",
+          "row": 19
+        },
+        {
+          "item": "Paddles",
+          "validade": "02/26",
+          "row": 49
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "02/24",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "09/2009",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-021 PEPANO.xlsx",
+      "certNumber": "AZ26-021",
+      "raftSerial": "",
+      "shipName": "PEPANO",
+      "owner": "RODRIGO ROSA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    },
+    {
+      "file": "AZ26-022 NAVI BLUE.xlsx",
+      "certNumber": "AZ26-022",
+      "raftSerial": "11076056",
+      "shipName": "NAVI BLUE",
+      "owner": "ADRENALINE ARCADE",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "MIN",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "05/16",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "01/2015",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-023 FLOR DA HORTA.xlsx",
+      "certNumber": "AZ26-023",
+      "raftSerial": "",
+      "shipName": "FLOR DA HORTA",
+      "owner": "ARRAIA PESCAS, LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    },
+    {
+      "file": "AZ26-024 TERRA.xlsx",
+      "certNumber": "AZ26-024",
+      "raftSerial": "",
+      "shipName": "TERRA",
+      "owner": "RUI TERRA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    },
+    {
+      "file": "AZ26-025 MARE NOSTRUM.xlsx",
+      "certNumber": "AZ26-025",
+      "raftSerial": "",
+      "shipName": "MARE NOSTRUM",
+      "owner": "RUI TERRA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    },
+    {
+      "file": "AZ26-026 AVANTI.xlsx",
+      "certNumber": "AZ26-026",
+      "raftSerial": "",
+      "shipName": "AVANTI",
+      "owner": "SAILAZORES",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "- 24 H",
+      "validities": [
+        {
+          "item": "Seasickness Tables",
+          "validade": "01/24",
+          "row": 15
+        },
+        {
+          "item": "Parachute Rockets",
+          "validade": "11/22",
+          "row": 17
+        },
+        {
+          "item": "Handflares",
+          "validade": "11/22",
+          "row": 19
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "09/15",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "06/2016",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-027 STORIA.xlsx",
+      "certNumber": "AZ26-027",
+      "raftSerial": "57068SN00011435",
+      "shipName": "STORIA",
+      "owner": "SAIL AZORES",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "MIN",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "07/14",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "06/2015",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-028 TERRA AZUL I.xlsx",
+      "certNumber": "AZ26-028",
+      "raftSerial": "17048062",
+      "shipName": "TERRA AZUL I",
+      "owner": "TERRA AZUL,LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "´-24",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "06/16",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "06/2016",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-029 TERRA AZUL.xlsx",
+      "certNumber": "AZ26-029",
+      "raftSerial": "18052050",
+      "shipName": "TERRA AZUL",
+      "owner": "TERRA AZUL, LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "<24H",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "04/2018",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "05/2018",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-030 TERRA AZUL.xlsx",
+      "certNumber": "AZ26-030",
+      "raftSerial": "18051031",
+      "shipName": "TERRA AZUL",
+      "owner": "TERRA AZUL, LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "<24H",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "04/2018",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "05/2018",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-031 TERRA AZUL.xlsx",
+      "certNumber": "AZ26-031",
+      "raftSerial": "18048100",
+      "shipName": "TERRA AZUL",
+      "owner": "TERRA AZUL, LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "<24H",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "04/2018",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "04/2018",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-032 TERRA AZUL I.xlsx",
+      "certNumber": "AZ26-032",
+      "raftSerial": "17048067",
+      "shipName": "TERRA AZUL I",
+      "owner": "TERRA AZUL,LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "´-24",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "06/16",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "06/2016",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-033 TERRA AZUL I.xlsx",
+      "certNumber": "AZ26-033",
+      "raftSerial": "17048067",
+      "shipName": "TERRA AZUL I",
+      "owner": "TERRA AZUL,LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "´-24",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "06/16",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "06/2016",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-034 TERRA AZUL II.xlsx",
+      "certNumber": "AZ26-034",
+      "raftSerial": "HL12-23/86",
+      "shipName": "TERRA AZUL II",
+      "owner": "TERRA AZUL,LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "STD",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "03/23",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "06/2023",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-035 TERRA AZUL II.xlsx",
+      "certNumber": "AZ26-035",
+      "raftSerial": "HL10-23/103",
+      "shipName": "TERRA AZUL II",
+      "owner": "TERRA AZUL,LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "STD",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "04/23",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "06/2023",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-036 TERRA AZUL II.xlsx",
+      "certNumber": "AZ26-036",
+      "raftSerial": "HL12-23/091",
+      "shipName": "TERRA AZUL II",
+      "owner": "TERRA AZUL,LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "STD",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "02/23",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "04/2023",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-037 TERRA AZUL III.xlsx",
+      "certNumber": "AZ26-037",
+      "raftSerial": "PL10-0167",
+      "shipName": "TERRA AZUL III",
+      "owner": "TERRA AZUL,LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "´-24",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "11/15",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "06/2016",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-038 TERRA AZUL III.xlsx",
+      "certNumber": "AZ26-038",
+      "raftSerial": "PL12-0162",
+      "shipName": "TERRA AZUL III",
+      "owner": "TERRA AZUL,LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "´-24",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "06/16",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "06/2016",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-039 TERRA AZUL III.xlsx",
+      "certNumber": "AZ26-039",
+      "raftSerial": "PL-12-17-0207",
+      "shipName": "TERRA AZUL III",
+      "owner": "TERRA AZUL,LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "´-24",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "03/17",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "03/2017",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-040 DAVID CARLOS.xlsx",
+      "certNumber": "AZ26-040",
+      "raftSerial": "5086110209637",
+      "shipName": "DAVID CARLOS",
+      "owner": "JOSE ANTONIO FRANCO NICOLAU",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "SOLAS B",
+      "validities": [
+        {
+          "item": "First Aid Kit",
+          "validade": "01/2028",
+          "row": 13
+        },
+        {
+          "item": "Seasickness Tables",
+          "validade": "09/24",
+          "row": 15
+        },
+        {
+          "item": "Parachute Rockets",
+          "validade": "05/25",
+          "row": 17
+        },
+        {
+          "item": "Handflares",
+          "validade": "12/24",
+          "row": 19
+        },
+        {
+          "item": "Smoke Signals",
+          "validade": "03/24",
+          "row": 21
+        },
+        {
+          "item": "Inside Light and Battery",
+          "validade": "03/24",
+          "row": 23
+        },
+        {
+          "item": "Lithium Battery",
+          "validade": "03/24",
+          "row": 25
+        },
+        {
+          "item": "Top Light and Battery",
+          "validade": "03/24",
+          "row": 29
+        },
+        {
+          "item": "SOLAS B",
+          "validade": "03/23",
+          "row": 47
+        },
+        {
+          "item": "Paddles",
+          "validade": "03/23",
+          "row": 49
+        },
+        {
+          "item": "Bellows",
+          "validade": "03/23",
+          "row": 51
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "02/24",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "08/2013",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-041 MARACA SOS.xlsx",
+      "certNumber": "AZ26-041",
+      "raftSerial": "",
+      "shipName": "MARACA",
+      "owner": "JOAO CORREIA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    },
+    {
+      "file": "AZ26-042 FLYER.xlsx",
+      "certNumber": "AZ26-042",
+      "raftSerial": "LC22012",
+      "shipName": "FLYER",
+      "owner": "VITOR BORGES DA PONTE",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "STD",
+      "validities": [
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "01/21",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "01/2021",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-043 ESPIRITO SANTO A.xlsx",
+      "certNumber": "AZ26-043",
+      "raftSerial": "",
+      "shipName": "ESPIRITO SANTO",
+      "owner": "TRANSPORTES MARITIMOS GRACIOSENSES",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    },
+    {
+      "file": "AZ26-044 ESPIRITO SANTO B.xlsx",
+      "certNumber": "AZ26-044",
+      "raftSerial": "",
+      "shipName": "ESPIRITO SANTO",
+      "owner": "TRANSPORTES MARITIMOS GRACIOSENSES",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    },
+    {
+      "file": "AZ26-045 VITOR VELOSO.xlsx",
+      "certNumber": "AZ26-045",
+      "raftSerial": "50173303S7241",
+      "shipName": "VITOR VELOSO",
+      "owner": "VITOR MANUEL LINHARES COSTA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "R",
+      "validities": [
+        {
+          "item": "Seasickness Tables",
+          "validade": "08/2027",
+          "row": 15
+        },
+        {
+          "item": "Handflares",
+          "validade": "08/2027",
+          "row": 19
+        },
+        {
+          "item": "Paddles",
+          "validade": "03/26",
+          "row": 49
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "03/19",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "11/2009",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-047 MESTRE SOARES.xlsx",
+      "certNumber": "AZ24-195",
+      "raftSerial": "5086010100338",
+      "shipName": "MESTRE SOARES",
+      "owner": "EDUARDO PACHECO SOARES E FILHOS, LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "SOLAS B",
+      "validities": [
+        {
+          "item": "First Aid Kit",
+          "validade": "08/2029",
+          "row": 13
+        },
+        {
+          "item": "Seasickness Tables",
+          "validade": "04/2027",
+          "row": 15
+        },
+        {
+          "item": "Parachute Rockets",
+          "validade": "02/2027",
+          "row": 17
+        },
+        {
+          "item": "Handflares",
+          "validade": "02/2027",
+          "row": 19
+        },
+        {
+          "item": "Smoke Signals",
+          "validade": "02/2028",
+          "row": 21
+        },
+        {
+          "item": "Inside Light and Battery",
+          "validade": "02/2028",
+          "row": 23
+        },
+        {
+          "item": "Lithium Battery",
+          "validade": "02/2028",
+          "row": 25
+        },
+        {
+          "item": "Top Light and Battery",
+          "validade": "02/2028",
+          "row": 29
+        },
+        {
+          "item": "SOLAS B",
+          "validade": "02/26",
+          "row": 47
+        },
+        {
+          "item": "Paddles",
+          "validade": "02/26",
+          "row": 49
+        },
+        {
+          "item": "Bellows",
+          "validade": "03/19",
+          "row": 51
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "03/19",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "03/2009",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-048 CANANO.xlsx",
+      "certNumber": "A26-048",
+      "raftSerial": "5017420300021",
+      "shipName": "CANANO",
+      "owner": "MANUEL FERNADO CABOZ DA COSTA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "SIMP. REDUZ.",
+      "validities": [
+        {
+          "item": "First Aid Kit",
+          "validade": "03/2029",
+          "row": 13
+        },
+        {
+          "item": "Seasickness Tables",
+          "validade": "04/2027",
+          "row": 15
+        },
+        {
+          "item": "Parachute Rockets",
+          "validade": "06/2029",
+          "row": 17
+        },
+        {
+          "item": "Handflares",
+          "validade": "04/2029",
+          "row": 19
+        },
+        {
+          "item": "Top Light and Battery",
+          "validade": "09/28",
+          "row": 29
+        },
+        {
+          "item": "SIMP. REDUZ.",
+          "validade": "02/25",
+          "row": 47
+        },
+        {
+          "item": "Paddles",
+          "validade": "02/25",
+          "row": 49
+        },
+        {
+          "item": "Water Sachets",
+          "validade": "03/28",
+          "row": 63
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "02/17",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "10-10-2007",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-049 BAIA DA MAIA.xlsx",
+      "certNumber": "AZ26-049",
+      "raftSerial": "5086010100346",
+      "shipName": "BAIA DA MAIA",
+      "owner": "PESCAFIXE, UNIPESSOAL, LDA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "SOLAS B",
+      "validities": [
+        {
+          "item": "First Aid Kit",
+          "validade": "06/2027",
+          "row": 13
+        },
+        {
+          "item": "Seasickness Tables",
+          "validade": "05/2027",
+          "row": 15
+        },
+        {
+          "item": "Parachute Rockets",
+          "validade": "04/2027",
+          "row": 17
+        },
+        {
+          "item": "Handflares",
+          "validade": "04/2027",
+          "row": 19
+        },
+        {
+          "item": "Smoke Signals",
+          "validade": "02/2027",
+          "row": 21
+        },
+        {
+          "item": "Lithium Battery",
+          "validade": "06/2027",
+          "row": 25
+        },
+        {
+          "item": "Top Light and Battery",
+          "validade": "06/2027",
+          "row": 29
+        },
+        {
+          "item": "SOLAS B",
+          "validade": "02/2026",
+          "row": 47
+        },
+        {
+          "item": "Paddles",
+          "validade": "02/2026",
+          "row": 49
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "03/19",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "03/2009",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-050 BAIA DO SOL.xlsx",
+      "certNumber": "AZ26-050",
+      "raftSerial": "50172303S7541",
+      "shipName": "BAIA DO SOL",
+      "owner": "JOSÉ EMANUEL DE MEDEIROS",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "MIN",
+      "validities": [
+        {
+          "item": "Seasickness Tables",
+          "validade": "04/27",
+          "row": 15
+        },
+        {
+          "item": "Handflares",
+          "validade": "07/27",
+          "row": 19
+        },
+        {
+          "item": "MIN",
+          "validade": "02/26",
+          "row": 47
+        },
+        {
+          "item": "Paddles",
+          "validade": "02/26",
+          "row": 49
+        },
+        {
+          "item": "Bellows",
+          "validade": "03/19",
+          "row": 51
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "03/19",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "11/2009",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-051 SALTO E VARA.xlsx",
+      "certNumber": "AZ26-051",
+      "raftSerial": "5017330300076",
+      "shipName": "SALTO E VARA",
+      "owner": "PESCA FUNDO ORDENHAR NO FUTURO, UNIPESSOAL LDA.",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "MIN",
+      "validities": [
+        {
+          "item": "Seasickness Tables",
+          "validade": "04/27",
+          "row": 15
+        },
+        {
+          "item": "Handflares",
+          "validade": "05/27",
+          "row": 19
+        },
+        {
+          "item": "MIN",
+          "validade": "02/26",
+          "row": 47
+        },
+        {
+          "item": "Paddles",
+          "validade": "02/26",
+          "row": 49
+        },
+        {
+          "item": "Bellows",
+          "validade": "03/19",
+          "row": 51
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "07/09",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "11/2009",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-052 ALEGRIA DE DEUS.xlsx",
+      "certNumber": "AZ26-052",
+      "raftSerial": "XDC4ES74I809",
+      "shipName": "ALEGRIA DE DEUS",
+      "owner": "JAIME ANDRÉ PEIXOTO BRUM",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "COASTAL",
+      "validities": [
+        {
+          "item": "First Aid Kit",
+          "validade": "03/2027",
+          "row": 13
+        },
+        {
+          "item": "Seasickness Tables",
+          "validade": "08/27",
+          "row": 15
+        },
+        {
+          "item": "Parachute Rockets",
+          "validade": "05/28",
+          "row": 17
+        },
+        {
+          "item": "Handflares",
+          "validade": "05/28",
+          "row": 19
+        },
+        {
+          "item": "COASTAL",
+          "validade": "03/26",
+          "row": 47
+        },
+        {
+          "item": "Paddles",
+          "validade": "03/26",
+          "row": 49
+        },
+        {
+          "item": "Bellows",
+          "validade": "03/20",
+          "row": 51
+        },
+        {
+          "item": "Rações Alimentares 0,5 Kg",
+          "validade": "03/20",
+          "row": 66
+        },
+        {
+          "item": "Rampa",
+          "validade": "09/2008",
+          "row": 79
+        }
+      ],
+      "hasQuadro": true
+    },
+    {
+      "file": "AZ26-053 ILHAS DE BRUMA 5.xlsx",
+      "certNumber": "AZ26-053",
+      "raftSerial": "",
+      "shipName": "\"ILHAS DE BRUMA\"",
+      "owner": "PICOS DE AVENTURA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    },
+    {
+      "file": "AZ26-054 ILHAS DE BRUMA 1.xlsx",
+      "certNumber": "AZ26-054",
+      "raftSerial": "",
+      "shipName": "\"ILHAS DE BRUMA\"",
+      "owner": "PICOS DE AVENTURA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    },
+    {
+      "file": "AZ26-055 ILHAS DE BRUMA 3.xlsx",
+      "certNumber": "AZ26-055",
+      "raftSerial": "",
+      "shipName": "\"ILHAS DE BRUMA\"",
+      "owner": "PICOS DE AVENTURA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    },
+    {
+      "file": "AZ26-056 ILHAS DE BRUMA 3.xlsx",
+      "certNumber": "AZ26-056",
+      "raftSerial": "",
+      "shipName": "\"ILHAS DE BRUMA\"",
+      "owner": "PICOS DE AVENTURA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    },
+    {
+      "file": "AZ26-057 ILHAS DE BRUMA 3.xlsx",
+      "certNumber": "AZ26-057",
+      "raftSerial": "",
+      "shipName": "\"ILHAS DE BRUMA\"",
+      "owner": "PICOS DE AVENTURA",
+      "raftType": "Tipo:",
+      "inspectionDate": "",
+      "nextInspectionDate": "",
+      "emergencyPackType": "",
+      "validities": [],
+      "hasQuadro": false
+    }
+  ]
+}

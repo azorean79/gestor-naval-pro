@@ -1,0 +1,2 @@
+﻿[dotenv@17.3.1] injecting env (0) from .env -- tip: ÔÜÖ´©Å  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (2) from .env.local -- tip: ­ƒñû agentic secret storage: https://dotenvx.com/as2

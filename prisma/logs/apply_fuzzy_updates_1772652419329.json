@@ -1,0 +1,555 @@
+{
+  "generatedAt": "2026-03-04T19:26:59.329Z",
+  "threshold": 0.5,
+  "applied": [
+    {
+      "id": 40,
+      "from": null,
+      "to": "4581600300040",
+      "jangadaId": 179,
+      "score": 0.5
+    },
+    {
+      "id": 39,
+      "from": null,
+      "to": "PL-12-F0294",
+      "jangadaId": 202,
+      "score": 0.5555555555555556
+    },
+    {
+      "id": 42,
+      "from": null,
+      "to": "791900023",
+      "jangadaId": 199,
+      "score": 0.5555555555555556
+    },
+    {
+      "id": 43,
+      "from": null,
+      "to": "14041018",
+      "jangadaId": 177,
+      "score": 0.5
+    },
+    {
+      "id": 49,
+      "from": null,
+      "to": "4581600300040",
+      "jangadaId": 179,
+      "score": 0.5
+    },
+    {
+      "id": 72,
+      "from": null,
+      "to": "791900023",
+      "jangadaId": 199,
+      "score": 0.5555555555555556
+    },
+    {
+      "id": 73,
+      "from": null,
+      "to": "PL-12-F0294",
+      "jangadaId": 202,
+      "score": 0.5555555555555556
+    },
+    {
+      "id": 103,
+      "from": null,
+      "to": "PL-12-F0294",
+      "jangadaId": 202,
+      "score": 0.5
+    },
+    {
+      "id": 115,
+      "from": null,
+      "to": "PL-12-F0294",
+      "jangadaId": 202,
+      "score": 0.5
+    },
+    {
+      "id": 104,
+      "from": null,
+      "to": "79210383",
+      "jangadaId": 201,
+      "score": 0.5
+    },
+    {
+      "id": 110,
+      "from": null,
+      "to": "29133Y0006",
+      "jangadaId": 178,
+      "score": 0.5384615384615384
+    },
+    {
+      "id": 123,
+      "from": null,
+      "to": "XDC4ES74I809",
+      "jangadaId": 204,
+      "score": 0.5833333333333334
+    },
+    {
+      "id": 130,
+      "from": null,
+      "to": "791900024",
+      "jangadaId": 200,
+      "score": 0.5555555555555556
+    },
+    {
+      "id": 132,
+      "from": null,
+      "to": "79210383",
+      "jangadaId": 201,
+      "score": 0.5555555555555556
+    },
+    {
+      "id": 137,
+      "from": null,
+      "to": "4581600300040",
+      "jangadaId": 179,
+      "score": 0.5384615384615384
+    },
+    {
+      "id": 208,
+      "from": null,
+      "to": "4581600300040",
+      "jangadaId": 179,
+      "score": 0.5
+    }
+  ],
+  "skipped": [
+    {
+      "id": 2,
+      "reason": "already-canonical",
+      "raftSerial": "791900023"
+    },
+    {
+      "id": 36,
+      "reason": "low-score",
+      "score": 0.38461538461538464
+    },
+    {
+      "id": 33,
+      "reason": "low-score",
+      "score": 0.35714285714285715
+    },
+    {
+      "id": 34,
+      "reason": "low-score",
+      "score": 0.42857142857142855
+    },
+    {
+      "id": 35,
+      "reason": "low-score",
+      "score": 0.15384615384615385
+    },
+    {
+      "id": 38,
+      "reason": "already-canonical",
+      "raftSerial": "XDC1CY73C0000"
+    },
+    {
+      "id": 44,
+      "reason": "low-score",
+      "score": 0.375
+    },
+    {
+      "id": 45,
+      "reason": "low-score",
+      "score": 0.38461538461538464
+    },
+    {
+      "id": 46,
+      "reason": "low-score",
+      "score": 0.38461538461538464
+    },
+    {
+      "id": 50,
+      "reason": "low-score",
+      "score": 0.46153846153846156
+    },
+    {
+      "id": 56,
+      "reason": "low-score",
+      "score": 0.15384615384615385
+    },
+    {
+      "id": 57,
+      "reason": "low-score",
+      "score": 0.07692307692307693
+    },
+    {
+      "id": 95,
+      "reason": "low-score",
+      "score": 0.23076923076923078
+    },
+    {
+      "id": 60,
+      "reason": "low-score",
+      "score": 0.23076923076923078
+    },
+    {
+      "id": 61,
+      "reason": "low-score",
+      "score": 0.38461538461538464
+    },
+    {
+      "id": 66,
+      "reason": "already-canonical",
+      "raftSerial": "29133Y0006"
+    },
+    {
+      "id": 67,
+      "reason": "low-score",
+      "score": 0.07692307692307693
+    },
+    {
+      "id": 68,
+      "reason": "low-score",
+      "score": 0.23076923076923078
+    },
+    {
+      "id": 70,
+      "reason": "low-score",
+      "score": 0.07692307692307693
+    },
+    {
+      "id": 71,
+      "reason": "already-canonical",
+      "raftSerial": "4581600300040"
+    },
+    {
+      "id": 74,
+      "reason": "low-score",
+      "score": 0.3076923076923077
+    },
+    {
+      "id": 77,
+      "reason": "low-score",
+      "score": 0.4
+    },
+    {
+      "id": 79,
+      "reason": "low-score",
+      "score": 0.3333333333333333
+    },
+    {
+      "id": 80,
+      "reason": "low-score",
+      "score": 0.3333333333333333
+    },
+    {
+      "id": 81,
+      "reason": "low-score",
+      "score": 0.15384615384615385
+    },
+    {
+      "id": 82,
+      "reason": "low-score",
+      "score": 0.3076923076923077
+    },
+    {
+      "id": 84,
+      "reason": "low-score",
+      "score": 0.3076923076923077
+    },
+    {
+      "id": 85,
+      "reason": "low-score",
+      "score": 0.375
+    },
+    {
+      "id": 86,
+      "reason": "low-score",
+      "score": 0.38461538461538464
+    },
+    {
+      "id": 87,
+      "reason": "low-score",
+      "score": 0.38461538461538464
+    },
+    {
+      "id": 88,
+      "reason": "low-score",
+      "score": 0.14285714285714285
+    },
+    {
+      "id": 89,
+      "reason": "low-score",
+      "score": 0.23076923076923078
+    },
+    {
+      "id": 91,
+      "reason": "low-score",
+      "score": 0.4444444444444444
+    },
+    {
+      "id": 92,
+      "reason": "low-score",
+      "score": 0.4444444444444444
+    },
+    {
+      "id": 93,
+      "reason": "low-score",
+      "score": 0.2222222222222222
+    },
+    {
+      "id": 94,
+      "reason": "low-score",
+      "score": 0.3
+    },
+    {
+      "id": 96,
+      "reason": "low-score",
+      "score": 0.4444444444444444
+    },
+    {
+      "id": 97,
+      "reason": "low-score",
+      "score": 0.4444444444444444
+    },
+    {
+      "id": 98,
+      "reason": "low-score",
+      "score": 0.4444444444444444
+    },
+    {
+      "id": 102,
+      "reason": "already-canonical",
+      "raftSerial": "52813"
+    },
+    {
+      "id": 109,
+      "reason": "low-score",
+      "score": 0.23076923076923078
+    },
+    {
+      "id": 111,
+      "reason": "low-score",
+      "score": 0.46153846153846156
+    },
+    {
+      "id": 116,
+      "reason": "low-score",
+      "score": 0.4444444444444444
+    },
+    {
+      "id": 119,
+      "reason": "low-score",
+      "score": 0.3076923076923077
+    },
+    {
+      "id": 178,
+      "reason": "low-score",
+      "score": 0.23076923076923078
+    },
+    {
+      "id": 180,
+      "reason": "low-score",
+      "score": 0.15384615384615385
+    },
+    {
+      "id": 181,
+      "reason": "low-score",
+      "score": 0.15384615384615385
+    },
+    {
+      "id": 189,
+      "reason": "low-score",
+      "score": 0.38461538461538464
+    },
+    {
+      "id": 125,
+      "reason": "already-canonical",
+      "raftSerial": "XDC1CY73C0000"
+    },
+    {
+      "id": 126,
+      "reason": "low-score",
+      "score": 0.15384615384615385
+    },
+    {
+      "id": 131,
+      "reason": "already-canonical",
+      "raftSerial": "79210383"
+    },
+    {
+      "id": 133,
+      "reason": "already-canonical",
+      "raftSerial": "79210383"
+    },
+    {
+      "id": 134,
+      "reason": "already-canonical",
+      "raftSerial": "14041018"
+    },
+    {
+      "id": 136,
+      "reason": "already-canonical",
+      "raftSerial": "XDC5FD34K616"
+    },
+    {
+      "id": 138,
+      "reason": "low-score",
+      "score": 0.15384615384615385
+    },
+    {
+      "id": 139,
+      "reason": "low-score",
+      "score": 0.07692307692307693
+    },
+    {
+      "id": 144,
+      "reason": "already-canonical",
+      "raftSerial": "PL-12-F0294"
+    },
+    {
+      "id": 149,
+      "reason": "low-score",
+      "score": 0.375
+    },
+    {
+      "id": 151,
+      "reason": "low-score",
+      "score": 0.3076923076923077
+    },
+    {
+      "id": 152,
+      "reason": "low-score",
+      "score": 0.3076923076923077
+    },
+    {
+      "id": 153,
+      "reason": "low-score",
+      "score": 0.3076923076923077
+    },
+    {
+      "id": 158,
+      "reason": "low-score",
+      "score": 0.23076923076923078
+    },
+    {
+      "id": 159,
+      "reason": "low-score",
+      "score": 0.15384615384615385
+    },
+    {
+      "id": 164,
+      "reason": "low-score",
+      "score": 0.38461538461538464
+    },
+    {
+      "id": 166,
+      "reason": "low-score",
+      "score": 0.3076923076923077
+    },
+    {
+      "id": 169,
+      "reason": "low-score",
+      "score": 0.07692307692307693
+    },
+    {
+      "id": 172,
+      "reason": "low-score",
+      "score": 0.3076923076923077
+    },
+    {
+      "id": 174,
+      "reason": "low-score",
+      "score": 0.4166666666666667
+    },
+    {
+      "id": 175,
+      "reason": "low-score",
+      "score": 0.23076923076923078
+    },
+    {
+      "id": 176,
+      "reason": "low-score",
+      "score": 0.23076923076923078
+    },
+    {
+      "id": 177,
+      "reason": "already-canonical",
+      "raftSerial": "79210383"
+    },
+    {
+      "id": 194,
+      "reason": "low-score",
+      "score": 0.14285714285714285
+    },
+    {
+      "id": 1,
+      "reason": "already-canonical",
+      "raftSerial": "14041018"
+    },
+    {
+      "id": 195,
+      "reason": "low-score",
+      "score": 0.07692307692307693
+    },
+    {
+      "id": 171,
+      "reason": "low-score",
+      "score": 0.38461538461538464
+    },
+    {
+      "id": 173,
+      "reason": "low-score",
+      "score": 0.38461538461538464
+    },
+    {
+      "id": 196,
+      "reason": "already-canonical",
+      "raftSerial": "5017330300330"
+    },
+    {
+      "id": 59,
+      "reason": "low-score",
+      "score": 0.4166666666666667
+    },
+    {
+      "id": 198,
+      "reason": "low-score",
+      "score": 0.07692307692307693
+    },
+    {
+      "id": 65,
+      "reason": "already-canonical",
+      "raftSerial": "52813"
+    },
+    {
+      "id": 100,
+      "reason": "low-score",
+      "score": 0.23076923076923078
+    },
+    {
+      "id": 199,
+      "reason": "low-score",
+      "score": 0.07692307692307693
+    },
+    {
+      "id": 200,
+      "reason": "low-score",
+      "score": 0.07692307692307693
+    },
+    {
+      "id": 201,
+      "reason": "low-score",
+      "score": 0.07692307692307693
+    },
+    {
+      "id": 207,
+      "reason": "low-score",
+      "score": 0.07692307692307693
+    },
+    {
+      "id": 209,
+      "reason": "already-canonical",
+      "raftSerial": "14041018"
+    },
+    {
+      "id": 210,
+      "reason": "low-score",
+      "score": 0.15384615384615385
+    }
+  ]
+}

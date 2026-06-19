@@ -1,0 +1,142 @@
+{
+  "timestamp": "2026-03-18T11:32:09.709Z",
+  "sourceFile": "scripts\\jangadas_pack_validades_2025.json",
+  "processedRows": 208,
+  "matchedRows": 183,
+  "matchedByExactSerial": 130,
+  "matchedByNormalizedSerial": 0,
+  "matchedByUniqueShip": 53,
+  "unmatchedRows": 25,
+  "updatedJangadas": 55,
+  "artigosUpdated": 41,
+  "artigosCreated": 728,
+  "artigosWithoutDate": 0,
+  "packTypeUpdated": 55,
+  "unmatched": [
+    {
+      "file": "AZ25-064 CONDESSA DOS MARES.xlsx",
+      "serial": "",
+      "shipName": "CONDESSA DOS MARES"
+    },
+    {
+      "file": "AZ25-067 CETUS.xlsx",
+      "serial": "",
+      "shipName": "CETUS"
+    },
+    {
+      "file": "AZ25-068 CETUS.xlsx",
+      "serial": "",
+      "shipName": "CETUS"
+    },
+    {
+      "file": "AZ25-069 CETUS.xlsx",
+      "serial": "",
+      "shipName": "CETUS"
+    },
+    {
+      "file": "AZ25-070 CETUS.xlsx",
+      "serial": "",
+      "shipName": "CETUS"
+    },
+    {
+      "file": "AZ25-090 BAIA SAO PEDRO.xlsx",
+      "serial": "",
+      "shipName": "BAIA SAO PEDRO"
+    },
+    {
+      "file": "AZ25-095 MESTRE FONTES.xlsx",
+      "serial": "",
+      "shipName": "MESTRE FONTES"
+    },
+    {
+      "file": "AZ25-121 CRUZEIRO DO ILHEU2.xlsx",
+      "serial": "",
+      "shipName": "CRUZEIRO DO ILHEU2"
+    },
+    {
+      "file": "AZ25-122 CRUZEIRO DO ILHEU1.xlsx",
+      "serial": "",
+      "shipName": "CRUZEIRO DO ILHEU1"
+    },
+    {
+      "file": "AZ25-129 SCUBATUR.xlsx",
+      "serial": "",
+      "shipName": "SCUBATUR"
+    },
+    {
+      "file": "AZ25-130 SCUBATUR.xlsx",
+      "serial": "",
+      "shipName": "SCUBATUR"
+    },
+    {
+      "file": "AZ25-170 MARIA SANTA 1.xlsx",
+      "serial": "",
+      "shipName": "MARIA SANTA 1"
+    },
+    {
+      "file": "AZ25-176 PLANADOR SOS.xlsx",
+      "serial": "",
+      "shipName": "PLANADOR SOS"
+    },
+    {
+      "file": "AZ25-177 PLANADOR SOS.xlsx",
+      "serial": "",
+      "shipName": "PLANADOR SOS"
+    },
+    {
+      "file": "AZ25-178 PLANADOR SOS.xlsx",
+      "serial": "",
+      "shipName": "PLANADOR SOS"
+    },
+    {
+      "file": "AZ25-179 PLANADOR SOS.xlsx",
+      "serial": "",
+      "shipName": "PLANADOR SOS"
+    },
+    {
+      "file": "AZ25-183 SÃO PEDRO GONÇALVES.xlsx",
+      "serial": "",
+      "shipName": "SÃO PEDRO GONÇALVES"
+    },
+    {
+      "file": "AZ25-203 SANTO CRISTO 1.xlsx",
+      "serial": "",
+      "shipName": "SANTO CRISTO 1"
+    },
+    {
+      "file": "AZ25-208 ILHA DE SAO LUIS.xlsx",
+      "serial": "",
+      "shipName": "ILHA DE SAO LUIS"
+    },
+    {
+      "file": "AZ25-209 ILHA DE SAO LUIS.xlsx",
+      "serial": "",
+      "shipName": "ILHA DE SAO LUIS"
+    },
+    {
+      "file": "AZ25-213 PONTA DA BARCA.xlsx",
+      "serial": "",
+      "shipName": "PONTA DA BARCA"
+    },
+    {
+      "file": "AZ25-217 PAULO DA GAMA.xlsx",
+      "serial": "",
+      "shipName": "PAULO DA GAMA"
+    },
+    {
+      "file": "AZ25-218 PAULO DA GAMA A.xlsx",
+      "serial": "",
+      "shipName": "PAULO DA GAMA A"
+    },
+    {
+      "file": "AZ25-220 AÇOR.xlsx",
+      "serial": "",
+      "shipName": "AÇOR"
+    },
+    {
+      "file": "AZ25-221 AÇOR.xlsx",
+      "serial": "",
+      "shipName": "AÇOR"
+    }
+  ]
+}

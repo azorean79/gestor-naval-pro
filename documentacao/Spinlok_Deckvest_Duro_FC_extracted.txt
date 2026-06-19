@@ -1,0 +1,585 @@
+Lifejacket Quick Service Guide
+www.spinlock.co.uk
+ISSUED: March 2023
+Registered design EC + US Patent No. 7631728
+Issue Number: 1
+UML MODEL
+Deckvest DURO FC   170N & 275N
+
+
+Contents
+Legal Notice           2
+Deckvest Range: Features         3
+Service Station Requirements         4
+Harness and cover           5
+Quick Burst Zip Information          6
+Ocean Signal MOB 1 AIS Device        8
+Inflation test for the UML Mk5 and UML Pro Sensor ®     12
+Bladders            13
+Components for the UML firing heads       14
+Components           16
+Cleaning            16
+Re-attaching components and arming the lifejacket      17
+Pylon Light and Lume - On          18
+Zip slider replacement           21
+Repacking            23
+Personal notes           26
+If you need any assistance with servicing please contact: Deckware@spinlock.co.uk
+1
+
+IMPORTANT LEGAL NOTICE
+REGARDING USE OF DECKVEST SERVICE MANUAL
+1. This Approved Service Manual (“Services Manual”) is for use only by those persons at an
+ Approved Deckvest Service Centre (“Service Centre”) who have completed the appropriate
+ Deckvest service training provided by Spinlock Ltd (“Spinlock”) or one of its appointed training
+ representatives (“Service Trainer”).
+2. Servicing of a Deckvest life-jacket may only be undertaken by Spinlock or a person who has
+ received service training by Spinlock or a Service Trainer.
+3. The procedures set out in this Service Manual must be followed in order to ensure the proper
+ and safe functioning of the Deckvest life-jacket. If the procedures set out in this Service Manual
+ are not properly followed and carried out there is a risk of accident or death.
+4. It is the sole responsibility of the Service Centre to ensure that the service of the Deckvest 
+ lifejacket is carried out fully in compliance with the procedures set out in this Service Manual   
+ and in accordance with the training that they have received.
+5. The signature or stamp of or on behalf of the Service Centre on a Deckvest Service Sheet shall
+ be deemed to be the Service Centre’s acknowledgment and confirmation that the service of the
+ Deckvest life-jacket has been carried out in accordance with this Service Manual and the
+ relevant service training.
+6. Spinlock Limited (and its agents) reserves the right (but without accepting any obligation
+ to audit the procedures being followed by a Service Centre to ensure adequate standards and
+ compliance with this Service Manual.
+7. Save for death or personal injury caused by the negligence of Spinlock or its employees for
+ whom it is liable, the Service Centre indemnifies and keeps indemnified Spinlock Ltd against
+ any claims demand proceedings liabilities damages or costs (including professional costs)
+ incurred by Spinlock directly or indirectly as a result of or in connection with any failure by it or
+ any of its employees or agents to comply with this Service Manual and the relevant service   
+ training.
+8. Save for death or personal injury caused by the negligence of Spinlock or its employees for
+ whom it is liable, Spinlock shall have no liability to any person, company or other organisation
+ whether in contract, tort, negligence breach of statutory duty or otherwise for any loss damage
+ harm costs or expenses of any nature whatsoever incurred or suffered by such person, company
+ or other organisation arising from or in connection with any error in or omission from this
+ Service Manual or the service training provided by it.
+9. The contents of the Service Manual (including this notice) are governed in all respect by the
+ laws of England and the Service Centre or any other user of this Service Manual consent and
+ submit to the jurisdiction of the courts of England in respect of any dispute or matter arising
+ from or in connection with this Service Manual or the service training provided by Spinlock.
+2
+
+DECKVEST DURO FC FEATURES  
+3
+FRONT OPENING
+HEAVY-DUTY
+BUCKLE
+PRO SENSOR ELITE
+OR MK5i FIRING 
+HEAD OPTIONS
+EXTRA DURABLE 
+COVER MATERIALS  
+SHOULDER
+FIT SYSTEM
+SMOOTH
+BODY ADJUSTER
+SYSTEM
+ID / ASSET
+TRACK 
+POCKET
+MANUAL 
+ACTIVATION 
+HANDLE
+SPRAY
+HOOD
+PYLON TM 
+LIFEJACKET
+LIGHT
+LUME-ON
+TM
+LIFEJACKET 
+ILLUMINATION
+LIGHTS FITTED
+ORAL
+INFLATION 
+TUBE &
+WHISTLE
+40MM
+EXTRA WIDE
+CROTCH 
+STRAP
+CHEST PACK
+ATTACHMENT 
+POINTS
+QUICK 
+BURST ZIP &
+INDICATOR
+WINDOW
+AIS
+MOB1
+UNIT
+HIGHLY
+VISIBLE
+RED LIFTING
+STRAP
+COMPATIBLE
+WITH PRO-TECH
+PROTECTIVE COVER
+
+Operations
+Must be an established Lifejacket or Life-raft service station already or be approved by a relevant 
+National body or have the relevant experience.
+Trained and qualified staff must be available to undertake training from a Spinlock representative.
+Commit to give full contact details to Spinlock and ensure that they are registered in the service area of  
+www.spinlock.co.uk/service
+Commit to checking Spinlock site for latest information once every 6 months and be available for 
+auditing at Spinlock’s request.
+Facilities
+Dedicated area and management system in place to manage the Service and record and file relevant 
+details.
+Have the correct and calibrated tools. These can be ordered from Spinlock if required.
+     
+   Torque driver     Digital scales         Adaptor
+      DW-SV1         DW-SV2          DW-SV3      
+  
+Process
+Follow servicing steps as outlined in this document or the latest copy available to down load from 
+www.spinlock.co.uk/service
+Complete the service log on the internal label.
+Complete service certificate with approval stamp.
+ 
+More copies can be downloaded from www.spinlock.co.uk/service
+Service Station Requirements
+*UML and Hammar units
+  are on opposite sides
+ISO 12402-3: 2020 - 150N Lifejacket
+Minimum Buoyancy - 170N
+ISO 12402-2: 2020 - 275N Lifejacket
+Minimum Buoyancy - 275N
+Cento - Minimum Buoyancy - 100N
+4
+
+Check all stitching for signs of wear or damage:
+Locate manufacture date and serial number inside the 
+cover, on the internal label.
+Key stiching is in contrasting colours and located on the 
+front of the harness.
+Obvious damage, contamination or loose theads will make 
+the harness unsafe.
+Webbing: 
+Check for damage especially to the edge of the webbing 
+and ensure the buckles are not bent or damaged.
+ If the buckles are damaged the harness will need to be  
+ replaced (contact Spinlock).
+Servicing steps  
+1: Harness and cover
+Materials:
+Check all materials for obvious damage, general wear should not be a problem.
+If the damage can not be repaired by a simple patch, then the cover will need to be replaced. If you 
+are concerned about the affect of the repair on the functionality of the Deckvest contact Spinlock.
+Crotch strap buckle on the legstrap part can be replaced. DW-BKL38
+Zip:
+Open the jacket fully by the yellow break section on the zip.
+Check internal sewing especially the connection points for the bladder.
+Seperate the zip and run the slider back to the start on the opposite side.
+If there is damage to the teeth of the zip then the cover will need to be replaced (contact Spinlock).
+If the zip puller is damaged or missing, this can be replaced see section 21. 
+Check all webbing has been passed through all 
+buckles correctly.
+5
+Jackets over 10 years old should not be serviced.
+
+
+2: Quick Burst Zip Information
+Stage 1
+In order to open the Deckvest take the yellow part of the zip and pull apart. Then split the zip apart all 
+the way around the Deckvest until you reach the opposite end.
+Once you have reached the opposite side, ensure the slider is fully down to the bottom zip 
+stop. The inside zip chain (RHS on image) can then be pulled out of the slider.
+6
+
+Stage 2
+Once the zip has come apart, take the slider and move it back round to the start of the 
+zip (nearest to yellow section) so the two zip sliders are together.
+Once both sliders are fastened together zip up like a regular jacket, continuing over the yellow 
+quick burst section until you reach the opposite side of the cover. Once this is done pull the Velcro 
+cover over the yellow quick burst zip section to cover this part. 
+NOTE: Deckvest Duro has one zip slider
+7
+
+8
+1
+Thread back up through second hole towards outer edge
+Thread ribbon end through oral tube bracket.
+2
+Thread back through inside hole
+3
+Leave 60mm on tail from end of plastic
+4
+MOB 1 Fitting Instructions    
+5
+MOB 1 Ribbon + Clip + Slider
+
+9
+Pass ribbon up through outside slot hole
+7
+Pass ribbon down through
+inside slot hole
+8
+Slide toggle on to ribbon and pass ribbon through 
+inside slot hole on grey plastic activation slider on 
+right hand side. 
+6
+037652
+Leave roughly 60mm of tail of 
+ribbon tail
+Length of ribbon should roughly 
+be the length from bladder weld to 
+weld
+9
+Slide ribbon tail through
+toggle
+10
+
+
+10
+Attach slider to MOB 1
+11
+Place toggle into gap on right 
+hand side of slider
+Tail of ribbon should lay across slider
+12
+Attach plastic cap to MOB 1 unit
+13
+037652
+Double check the ribbon measures no longer than the length of the weld to weld on the bladder
+14
+
+11
+Attach bracket to oral tube and pass MOB1 unit underneath the bladder and then clip on to bracket.
+15
+Thread the safety laynard from MOB 1 unit through the webbing in the lower right bladder connection 
+toggle and secure with a knot. 
+This ensures the unit does not become detached when the bladder inflates. 
+16
+
+
+12
+Must be conducted in a controlled service area to 
+ensure no damage to the bladder, and kept at stable 
+temperature.
+A.  Remove cylinder and firing cap, inflate through  
+ the oral tube with clean dry air (airline or similar)  
+ until firm and lobes are touching. Approx 2 psi  
+ (14 kPa).
+B.  Leave cap off the oral tube whilst testing.
+C.  Leave standing for 24 hrs in a temperature stable  
+ environment. If more than a slight softening  
+ (approx. 10%) the bladder must be replaced. 
+ Pressure monitoring can be carried out over a
+ 6 hour period to check for leaks.
+D.  Remove air from the bladder using
+ suction - do not squeeze or crush  
+ bladder.
+3: Inflation test for the UML Mk5 and UML Pro Sensor ®
+ Bladders can be replaced if damaged – see page 13 for Bladder identification instructions.
+
+3.1: Bladders
+1 2
+Pass loop through bladder 
+and push all the way 
+through
+Push toggle
+through loop  Pull loop over 
+toggle and check
+ it is secure  
+!
+Note:
+Some harnesses may 
+include a black nylon 
+washer. If this is included 
+place back over toggle
+Bladder Part Numbers     170N - DW-BLD/170UML/3      275N - DW-BLD/DURO275
+Replacement bladders are available for models below - See harness batch number for identification. 
+Batch number example         170N - 220101DDF  275N - 220101DF2
+Replacing the bladder can be done by following the below instructions. 
+Firing Heads if required 
+DW-UMK5 - UML MK5 Firing Unit
+DW-UPS - UML Pro Sensor Elite Firing Unit
+ 
+13
+
+washer. If this is included 
+e   
+Firing Mechanism - All Deckvests are automatic and use UML components either :
+3.2: Components for the UML firing heads
+Each Automatic capsule is stamped with an expiry date 
+(see www.uml.co.uk for full details).
+The automatic capsule has an indicator to show if it is
+still armed, this may be green or black, and is
+released once the head has been fired.
+To remove the automatic cartridge, unscrew in 
+an anti clockwise direction.
+1. Check that there is no damage to the lanyard and handle.
+MK5 used on plastic round manifolds with torx bolt
+Pro Sensor Elite used on Plastic round manifolds with torx bolt
+14
+Used
+Active
+DW-UML5 - MK5i 
+DW-UMLE - Elite firing head
+
+Cylinders
+33g CO2 cylinder 170N 
+60g CO2 cylinder 275N
+Unscrew the cylinder anti-clockwise to remove it
+2. Ensure that the cutting pin and cylinder indicator pin moves    
+ freely in the body.
+3. Ensure that the cylinder sealing gasket or O ring is in place.
+DW SV06
+Replacement Cylinder O Ring for yellow UML Mk5
+Fig. 1
+- Check labelling on side to ensure it is correct gas and   
+   specification 
+33g for 170N 
+60g for 275N
+Check total weight against specification stamped on the bottle.
+Check for corrosion
+If the cylinder has slight corrosion as per fig. 1 it should be 
+replaced to stop further spreading and damage to the 
+bladder.
+Check cylinders seals have not been slightly weakened 
+at the end by unintentionally pulling the manual 
+handle. This could cause the cylinder to release during 
+temperate changes.
+Add a strike mark on the cylinder to show it has been 
+checked
+DV-SV5 - Replacement UML Pro Sensor Cylinder 
+Sealing Gasket 
+15
+
+
+60
+30
+140
+22
+4: Cleaning
+If the product requires cleaning, remove cylinder and automatic components and clean by 
+hand. Wash with mild detergent, Rinse in clean water maximum temperature 30 degrees. Dry in a 
+ventilated area away from direct sunlight or heat. Avoid use of solvents or strong chemicals which 
+could damage the components.
+For 2012 models onwards the bladder can be removed and the cover section washed separately
+60
+30
+140
+22
+60
+30
+140
+22
+3.3: Components
+Oral tube
+Check that the bladder can be inflated through the oral tube
+and that there is no debris in the tube.
+Spare Cap:  DW-SV07
+Sprayhood
+Check attachments are secure and that there is no damage to the window. 
+2014 onwards Sprayhoods can be replaced on Deckvest 5D models
+1 2
+1. Thread webbing through buckle  
+    at the back of neck 
+ 2. Thead webbing back through to  
+secure.
+Spray hood webbing should be left 
+10cm Long
+16
+
+5: Re-attaching components and arming the lifejacket  
+    UML Mk5 and UML Pro Sensor ® automatic firing heads
+1. Check that the firing mechanism is tightend to the manifold  
+ with a force of 3nm using a calibrated tool.
+ To replace the parts you will need: DW-RAK
+2.  Take a new automatic cartridge, (ensure that the   
+ expiry date is a minimum 2 years away) and screw   
+ on to the inflator head in a clockwise direction. 
+ Screw on tight ensuring there is no gap between   
+ the cartridge and the inflator.
+3.  Check that the cylinder sealing gasket or O ring is correctly  
+ fitted and screw in the new cylinder in a clockwise direction. 
+ 
+ Re attach cylinder retainer
+On the Pro Sensor, ensure that both indicators are showing green.
+ On the Mk5 heads replace the green 
+ retaining clip over the firing arm.
+4.  Ensure cap is on the Oral inflation tube, the
+ whistle and light are in place and that the   
+ Sprayhood is securely attached.
+Complete service log on the bladder label with a permenant 
+waterproof pen. Show the date that the service was completed. 
+The Cylinder must be tightened firmly by hand to 
+ensure that it will not work loose 
+17
+
+
+2. Check the light functions
+    Press and hold the test button for 3 seconds untill the light flashes
+    Press and hold the test button for 3 seconds to switch off
+    Pylon will automatically switch off  when button is not pressed
+6: Pylon
+3. Replacement light for all Deckvest Models:   DW- PY/L1 
+    Take the Pylon stalk and place through the strap hole
+    Pull the stalk through and attach the stalk bottom to the strap 
+    Pylon stalk needs to curve inwards  (Spinlock Logo on the outside)
+18
+
+2. Lay the inflatable bladder on a table, as flat as possible. 
+The two lights bond directly onto the underside of the  inflatable part of your lifejacket.  
+The Lume-OnTM can only be attached to lifejackets with a separate inflatable and cover construc-
+tion.
+7. Leave the jacket for 24 hours to let the sticker adhere to the bladder before re-packing.
+1. Make sure your lifejacket is clean and dry before application.
+Open the lifejacket to expose the bladder. Unpack your lifejacket following the    manufac-
+turer’s instructions.
+If attaching to a used lifejacket, wipe the bladder area for attachment with a damp cloth 
+and leave to dry.  Salt and other  contaminates will affect adhesion.
+\\  Fitting the Spinlock Lume-On TM could change the performance and warranty of your lifejacket,   
+     please contact your lifejacket manufacturer for clarification if you are unsure. 
+     All Spinlock lifejackets are approved for use and fitting with the Spinlock Lume-On TM.
+\\  Lume-OnTM lifejacket illumination lights are water activated. 
+\\  LED lights illuminates the lifejacket bladder  to increase visibility. 
+\\  Battery life - 6 hours (minimum 2 hours flashing at full intensity).   
+\\  Lifejacket and bladder must be throughly dry before attaching the Lume-OnTM or the stickers will not bond.
+4. Remove one of the Lume-OnTM stickers from the packaging, remove the backing paper. 
+Stick the Lume-OnTM to the bladder in a position:
+a. Clear of any toggles or straps.
+b. Clear of any bladder folds or creases.
+c. Where it will make contact with the water when inflated.
+Ensure the positioning will not affect the packing of your bladder. Repeat process for the 
+other side.
+5. Stick each Lume-OnTM to the
+bottom of the back of the bladder lobe, in the area pictured. 
+Press firmly.
+ 
+Lume-OnTM
+LIFT
+H
+ERE
+19
+
+20
+3. Turn the bladder over, you do NOT need to remove the bladder from lifejacket.
+Watch the instructional video at www.spinlock.co.uk/Lume-On
+6. Make sure the Lume-on is well stuck on the bladder by applying finger pressure all around 
+the sticker.
+8. Re-pack the lifejacket after 24 hours 
+referring to the manufacturer’s instructions.
+9. Lume-OnTM positioning on other lifejacket brands may vary. 
+For best results inflate the lifejacket using the oral tube and position at the bottom of each 
+chamber where the lobe would be in the water. 
+See the video for more information.
+
+
+21
+Correct Zip position for a double puller zip.
+7: Zip Slider Replacement
+1. To remove or replace a  
+ slider  
+  
+ Select the centre tooth (7th)  
+ On outside of the zip chain  
+ and remove using a pair of  
+ thin nose pliers.
+2. If removing a broken slider  
+ move the slider to the gap,  
+ tilt the front end up and  
+ pull through.
+The Deckvest Duro uses a single zip slider 
+DW- ZPL/8 - Duro Zip Slider
+
+3. Position the carriage onto the zip material and  
+ against the next tooth.
+4. Tilt the teeth in front of the zip to one side.
+5. Pull down and backwards on the zip carriage 
+ keeping the other teeth out of the way.
+ The carriage should slide onto the track 
+ (some force may be required).
+6. Slide the carriage back over a few teeth to  
+ ensure it has engaged properly.
+22
+
+23
+8: Repacking
+1. Check torx bolt is tightened to 3Nm with a torque driver.
+ Check Cylinder and firing cap is secured correctly
+ 
+Pro Sensor: Check to make sure the indicators are green
+MK5: Check green clip is in place
+Join the zip puller together 
+The packing stage of the bladder is completed in 
+three pleat stages, following the three reflective 
+stripes. 
+Make sure toggles are siting on top of bladder
+Pleat 1 starts at the firing unit side
+2. 
+275N bladder will need to be tucked up 
+underneath firing cap due to the size of    
+the bottom lobes. 
+3.
+Start to zip the jacket up and tuck the 
+breakout point cover into the pocket. 
+4. 
+Ensure the Lifting loop is not tangled up and to 
+the side of the cover.
+
+
+24
+7. 
+Once you have reached the top fold the bladder 
+corners in so it sits neatly and continue to zip round
+6.
+If sprayhood is required for the order, attach lanyard 
+to retainer strap via press stud
+5.
+If a Sprayhood os required this needs to be placed on 
+top of the bladder towards the back so it is not behind 
+your neck when bladder inflates
+Make sure sprayhood comes underneath bladder
+Scrunch sprayhood up (not fold) so it opens up easily 
+Pleat 2 
+Concertina top section and make sure the 
+toggle sits on the top of the bladder
+
+
+8. 
+Pleat 3
+Concertina the other side as before
+10.
+Concertina the bladder over the oral tube 
+and whistle to so these sit at the bottom
+to avoid protruding at the top of the cover
+9.
+If a Pylon light is required this should be placed 
+next to the oral tube making sure nothing is 
+caught or wrapped around the stalk. 
+11.
+Zip towards the last section 
+Fold bladder end upwards
+Place Pylon body under the fold
+Zip round to close and tuck zip ends inside cover
+25
+
+26
+Notes......
+
+Spinlock Ltd
+Birmingham Road
+PO31 7BH
+Cowes
+United Kingdom
+The Spinlock Deckvest is extensively protected under
+various National, European and International Patents and
+Design Rights owned by Spinlock Ltd 
+For continuously updated user guidance go to
+www.spinlock.co.uk
+Spinlock supports the Royal National Lifeboat Institution (RNLI)
+‘Sea Safety Lifejacket Campaign’
+Spinlock Limited quality managment
+system is accredited to 
+ISO 9001 : 2015

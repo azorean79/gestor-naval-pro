@@ -1,0 +1,863 @@
+Approved Lifejacket Service Manual
+for Deckvest Vito with Hammar® Inflator
+DECKVEST VITO
+www.spinlock.co.uk
+ISSUED: SEPTEMBER 2024 Issue Number: 4
+ 1W070A_4
+
+Issue 3 
+- Added zip slider replacement for 2022 dated models. P.23
+- Updated MOB1 fitting instructions. P.9
+Issue 4 
+- Added note about recycling components. P.14
+
+Contents
+Important legal notes          2
+Service Station Requirements          3
+Product Introduction           4
+Introduction to the Hammar ® lifejacket inflator       5
+Harness and cover           6
+Quick Burst Zip Information         7
+Ocean Signal MOB 1 AIS Device        9
+Inflation test for the Hammar ® automatic firing head     13
+Components for the Hammar ® automatic firing head     14
+Rearming Hammar ® Deckvests          15
+Deckvest Components          19
+C l e a n i n g            1 9
+Bladders             20
+Sprayhood            22
+Zip slider replacement          23 
+PylonTM  Light and Lume-On TM         26
+Repacking             29
+Harness Release System Fitting Guide       34
+Personal notes           37
+If you need any assistance with servicing please contact: service@spinlock.co.uk
+1
+
+IMPORTANT LEGAL NOTICE
+REGARDING USE OF DECKVEST SERVICE MANUAL
+1. This Approved Service Manual (“Services Manual”) is for use only by those persons at an
+ Approved Deckvest Service Centre (“Service Centre”) who have completed the appropriate
+ Deckvest service training provided by Spinlock Ltd (“Spinlock”) or one of its appointed training
+ representatives (“Service Trainer”).
+2. Servicing of a Deckvest life-jacket may only be undertaken by Spinlock or a person who has
+ received service training by Spinlock or a Service Trainer.
+3. The procedures set out in this Service Manual must be followed in order to ensure the proper
+ and safe functioning of the Deckvest life-jacket. If the procedures set out in this Service Manual
+ are not properly followed and carried out there is a risk of accident or death.
+4. It is the sole responsibility of the Service Centre to ensure that the service of the Deckvest 
+ lifejacket is carried out fully in compliance with the procedures set out in this Service Manual   
+ and in accordance with the training that they have received.
+5. The signature or stamp of or on behalf of the Service Centre on a Deckvest Service Sheet shall
+ be deemed to be the Service Centre’s acknowledgment and confirmation that the service of the
+ Deckvest life-jacket has been carried out in accordance with this Service Manual and the
+ relevant service training.
+6. Spinlock Limited (and its agents) reserves the right (but without accepting any obligation
+ to audit the procedures being followed by a Service Centre to ensure adequate standards and
+ compliance with this Service Manual.
+7. Save for death or personal injury caused by the negligence of Spinlock or its employees for
+ whom it is liable, the Service Centre indemnifies and keeps indemnified Spinlock Ltd against
+ any claims demand proceedings liabilities damages or costs (including professional costs)
+ incurred by Spinlock directly or indirectly as a result of or in connection with any failure by it or
+ any of its employees or agents to comply with this Service Manual and the relevant service   
+ training.
+8. Save for death or personal injury caused by the negligence of Spinlock or its employees for
+ whom it is liable, Spinlock shall have no liability to any person, company or other organisation
+ whether in contract, tort, negligence breach of statutory duty or otherwise for any loss damage
+ harm costs or expenses of any nature whatsoever incurred or suffered by such person, company
+ or other organisation arising from or in connection with any error in or omission from this
+ Service Manual or the service training provided by it.
+9. The contents of the Service Manual (including this notice) are governed in all respect by the
+ laws of England and the Service Centre or any other user of this Service Manual consent and
+ submit to the jurisdiction of the courts of England in respect of any dispute or matter arising
+ from or in connection with this Service Manual or the service training provided by Spinlock.
+2
+
+Operations
+Must be an established Lifejacket or Life-raft service station already or be approved by a   
+relevant National body or have the relevant experience.
+Trained and qualified staff must be available to undertake training from a Spinlock representative.
+Commit to give full contact details to Spinlock and ensure that they are registered in the 
+service area of www.spinlock.co.uk/service
+Commit to checking Spinlock site for latest information once every 6 months and be available for 
+auditing at Spinlock’s request.
+Facilities
+Dedicated area and management system in place to manage the Service and record and file 
+relevant details.
+Have the correct and calibrated tools. These can be ordered from Spinlock if required.
+       Digital scales          Adaptor
+          DW-SV2            DW-SV3 
+ 
+Process
+Follow servicing steps as outlined in this document or the latest copy available to down load from 
+www.spinlock.co.uk/service
+Complete the service log on the jacket either on the bladder or
+on the internal label.
+Complete service certificate with approval stamp. 
+More copies can be downloaded from www.spinlock.co.uk/service
+Through Life Support Programme 
+Spinlock require all life jackets to be registered to benefit from the security of our 
+Through Life Support Programme
+Please ensure customers register their Deckvests online at www.spinlock.co.uk/RegisterYourDeckvest
+Service Station Requirements
+3
+
+Product Introduction
+Inflated:
+Always open the 
+deckvest by the 
+yellow break out 
+section on the zip.
+Lifting Loop 
+Hammar Firing Unit
+Pylon Light  
+Sprayhood 
+Oral Tube
+4
+
+One of the principal problems with automatic inflatable 
+lifejackets is sudden, unexpected inflation when it is not 
+required. This could, in turn, result in being trapped onboard 
+or compromise the ability to handle a boat. Furthermore, it 
+might mean that a lifejacket is not available when it is really 
+needed.
+The Hammar Automatic Lifejacket Inflator has a unique 
+hydrostatic valve that prevents unexpected inflation. It means 
+that no activation will occur in rain, spray, splashing water 
+or humidity. It is easy to use. The green indicator shows that 
+the inflator is ready for use. The inflator cap does not require 
+service. It is just replaced every five years, unless it has been in 
+action to save your life. 
+•  Unique hydrostatic valve – no activation in rain, spray,  
+ splashing water or humidity
+•  Single point indicator (green) shows that the inflator is  
+ ready for use
+•  Cylinder seal indicator (green) ensures that the cylinder  
+ has not been used
+•  Gas cylinder located inside the lifejacket bladder.  
+ Cylinder protected against corrosion
+• Inflator cap does not require service for five years
+An introduction to the Hammar ® Lifejacket inflator
+5
+
+
+Check all stitching for signs of wear or damage:
+Locate manufacture date and serial number inside the 
+cover, on the internal label.
+Key stiching is in contrasting colours
+Obvious damage, contamination or loose theads will make 
+the harness unsafe.
+Webbing: 
+Check for damage especially to the edge of the webbing 
+and ensure the buckles are not bent or damaged.
+If the webbing on the belt is damaged the harness will 
+need to be replaced
+If the buckles are damaged the harness will need to be  
+replaced (contact Spinlock).
+Servicing steps  
+1: Harness and cover
+Materials:
+Check all materials for obvious damage, general wear should not be a problem.
+If the damage can not be repaired by a simple patch, then the cover will need to be replaced. 
+If you are concerned about the affect of a repair on the functionality of a Deckvest contact Spinlock.
+Zip:
+Open the jacket fully by the yellow break section on the zip.
+Check internal sewing especially the connection points for the bladder.
+Seperate the zip and run the slider back to the start on the opposite side.
+If there is damage to the teeth of the zip then the cover will need to be replaced (contact Spinlock).
+If the zip puller is damaged or missing, this can be replaced see page 22.
+6
+Caution: 
+Jackets over 10 years old should not be serviced.
+
+
+2: Quick Burst Zip Information
+Stage 1
+In order to open the Deckvest take the yellow part of the zip and pull apart. Then split the zip apart all 
+the way around the Deckvest until you reach the opposite end. 
+Once you have reached the opposite side, ensure the slider is fully down to the bottom zip 
+stop. The inside zip chain (RHS on image) can then be pulled out of the slider.
+7
+
+Stage 2
+Once the zip has come apart, take the slider and move it back round to the start of the 
+zip (nearest to yellow section) so the two zip sliders are together.
+8
+Once both sliders are fastened together zip up like a regular jacket, continuing over the yellow quick 
+burst section until you reach the opposite side of the cover. Once this is done pull the zip flap cover 
+over the yellow quick burst zip section to cover this part. 
+
+Deckvest Fitted with Ocean Signal MOB 1 AIS Device
+The Ocean Signal AIS MOB1 device, can be fitted to all models of Spinlock inflatable lifejacket.
+If there is an AIS unit fitted, this should be removed before the inflation test to avoid the unit
+activating. 
+Use cord lanyard to attach the unit to the jacket in case it is pulled off the oral tube during
+the inflation. 
+AIS MOB 1 Fitting Instructions   
+    
+1
+Thread back up through second hole towards outer edge
+Thread ribbon end through oral tube bracket.
+2
+Thread back through inside hole
+3
+Leave 60mm on tail from end of plastic
+4
+9
+
+10
+Slide toggle on to ribbon and pass ribbon through
+ inside hole on grey plastic activation slider
+5
+037652
+Wrap round and pass through inside hole again
+6
+Pass ribbon through outer hole
+7
+Leave roughly 60mm of tail
+Length of ribbon should roughly be the length from bladder 
+weld to weld
+8
+Slide tail through toggle
+9
+
+
+037652
+Attach slider to MOB 1
+10
+Place toggle into gap on right 
+hand side of slider
+Tail of ribbon should lay across slider
+11
+Attach plastic cap to MOB 1 unit
+12
+Double check the ribbon measures no longer than the length of the weld to weld on the bladder
+13
+11
+
+
+Pass oral tube bracket underneath bladder and attach to oral tube
+Clip MOB 1 Device to oral tube bracket - MOB 1 device should be fitted to the outerside of the oral tube
+12
+Fitting video available at 
+www.spinlock.co.uk/mob1
+14
+Thread the safety laynard from MOB 1 unit through the webbing in the lower right bladder connection 
+toggle and secure with a knot. 
+This ensures the unit does not become detached when the bladder inflates. 
+15
+
+Must be conducted in a controlled service area to 
+ensure no damage to the bladder, and kept at a stable 
+temperature.
+1. Remove the head - following the rearming  
+ instructions on page 15
+2. Check cylinder weight.
+3. Check head is in date. 
+4. Replace if necessary and refit components. 
+5.  Check there is no debris in the oral tube and  
+ inflate with clean dry air (airline or similar)  
+ until firm and lobes are touching. Approx 2  
+ psi (14 kPa).
+6.  Leave cap off the oral tube whilst testing.
+7.  Leave standing for 24 hrs in a temperature stable  
+ environment. If more than a slight softening 
+ (approx. 10%) the bladder must be replaced. 
+ Pressure monitoring can be carried out over  a 
+ 6 hour period to check for leaks.
+8.  Remove air from the bladder by using 
+ suction - do not squeeze or crush  
+ bladder.
+3: Inflation test for the Hammar ® automatic firing head
+13
+
+
+3.1: Components for the Hammar ® firing head
+1. 
+Ensure the head has not been fired and the  
+indicator is showing green and that the unit is 
+in date. 
+2.  
+Cylinder weight is marked on the sticker,  
+check this is correct with the digital scales.
+3.  
+Ensure indicator on backing plate is showing 
+green.
+Do not turn the dial on backing plate as this 
+could activate but not pierce the cylinder.
+This would then cause the unit to become 
+unusable and a new cylinder and backing 
+plate would be required. 
+If it is red it needs to be replaced
+Re-arming Kit specific for Vito: 
+DW-RAH/V170
+DW-RAH/V275
+This uses a shorter handle cord length
+14
+X
+For any items that have been replaced, Please place any items that are recyclable in to correct 
+waste bin for recycling. This is inline with our Waste and ESG policies
+
+1. Place the lifejacket on a smooth, flat surface and wipe off   
+ any water. Hold the gas cylinder through the fabric, using 
+ one hand. (Figure 1) 
+Locking ring
+Key
+Cap
+Sealing ring
+Red Indicator
+ 2. Insert metal key as shown to the right and turn the key   
+ counter-clockwise between black locking ring and 
+ labelled yellow cap. (Figure 2)
+ The black locking ring will now turn counter-clockwise.
+ (Figure 3)
+Locking ring
+Key
+Cap
+Sealing ring
+Red Indicator
+ 
+3.2: Rearming Hammar ® Deckvests
+Locking ring
+Key
+Cap
+Sealing ring
+Red Indicator
+ 
+Figure 1
+Figure 2
+Figure 3
+15
+For any items that have been replaced, Please place any items that are recyclable in to correct 
+waste bin for recycling. This is inline with our Waste and ESG policies
+
+3.  Now turn black locking ring counter-clockwise (Figure 4)
+ and lift off cap (figure 5) 
+ Dispose of used cap. (cap = yellow inflator operating   
+ head)
+4.  Squeeze sealing ring to elongate and remove the inflator   
+ body through the sealing ring. (Figure 6)
+ Dispose of used inflator body in an environmentally   
+ approved manner.
+Locking ring
+Key
+Cap
+Sealing ring
+Red Indicator
+ 
+Locking ring
+Key
+Cap
+Sealing ring
+Red Indicator
+ 
+Locking ring
+Key
+Cap
+Sealing ring
+Red Indicator
+ 
+Figure 4
+Figure 5
+Figure 6
+16
+
+5. Check that the indicator is green. Insert new inflator body    
+ with gas cylinder pointing upward inside the lifejacket. 
+ Let the sealing ring rest on inflator body around the four lugs.   
+ (Figure 7)
+6. Now check the new manual/automatic cap as follows:   
+ (figure 8) 
+ 1. Single point indicator showing green?
+ 2. Expiry date OK?
+ If YES is the answer to both these questions,   
+ then proceed as follows.
+ If NO get a new cap.
+7a. 
+Hold the gas cylinder through the fabric of the life jacket. 
+(Figure 9)
+PLEASE NOTE: 
+When reattaching the Hammar head, ensure the cylinder is 
+pointing to 1 O’Clock, this will ensure that the Cylinder does not 
+come in contact with the face during inflation.
+The handle is then passed through the button hole in the cover.
+7b. Position the replacement cap with the water inlet valve   
+ pointing to the right and press it FIRMLY onto the inflator 
+ body and sealing ring. (figure 10)
+Green Indicator
+Caution:
+Do not turn
+center shaft
+Single 
+point 
+indicator
+Water
+inlet
+valve
+Black locking ring 
+Single 
+point 
+indicator
+Black locking ring 
+Pull to
+lanyard
+ 
+ 
+   
+    
+  
+          
+  
+ 
+Green Indicator
+Caution:
+Do not turn
+center shaft
+Single 
+point 
+indicator
+Water
+inlet
+valve
+Black locking ring 
+Single 
+point 
+indicator
+Black locking ring 
+Pull to
+lanyard
+ 
+ 
+   
+    
+  
+          
+  
+ 
+Green Indicator
+Caution:
+Do not turn
+center shaft
+Single 
+point 
+indicator
+Water
+inlet
+valve
+Black locking ring 
+Single 
+point 
+indicator
+Black locking ring 
+Pull to
+lanyard
+ 
+ 
+   
+    
+  
+          
+  
+ 
+Green Indicator
+Caution:
+Do not turn
+center shaft
+Single 
+point 
+indicator
+Water
+inlet
+valve
+Black locking ring 
+Single 
+point 
+indicator
+Black locking ring 
+Pull to
+lanyard
+ 
+ 
+   
+    
+  
+          
+  
+ 
+Figure 7
+Figure 8
+Figure 9
+Figure 1017
+
+8.  While pressing FIRMLY onto the inflator body turn the BLACK   
+ locking ring clockwise into the locked position. 
+ Pull on the cap to make sure it has locked onto the inflator body.
+ ( Figure 11)
+CHECK: 
+To see that the indicator on the cap is green; that the pull to inflate 
+lanyard is present and that the locking ring is locked. When the 
+locking ring is locked, it cannot be turned counter-clockwise by 
+hand. (Figure 12)
+If your lifejacket has been used and/or the Hammar Inflator 
+replaced, always inflate the jacket through the oral tube and 
+check that it stays inflated at least overnight. 
+Empty the lifejacket again by pushing in the non-return valve in 
+the top of the oral tube and press out ALL RESIDUAL AIR from the 
+bladder, so that the jacket may be folded properly. 
+Let the lifejacket dry before packing.
+Green Indicator
+Caution:
+Do not turn
+center shaft
+Single 
+point 
+indicator
+Water
+inlet
+valve
+Black locking ring 
+Single 
+point 
+indicator
+Black locking ring 
+Pull to
+lanyard
+ 
+ 
+   
+    
+  
+          
+  
+ 
+Green Indicator
+Caution:
+Do not turn
+center shaft
+Single 
+point 
+indicator
+Water
+inlet
+valve
+Black locking ring 
+Single 
+point 
+indicator
+Black locking ring 
+Pull to
+lanyard
+ 
+ 
+   
+    
+  
+          
+  
+ 
+Figure 11
+Figure 12
+18
+
+60
+30
+140
+22
+60
+30
+140
+22
+60
+30
+140
+22
+4: Cleaning
+If the product requires cleaning, remove cylinder and automatic components and clean by 
+hand. Wash with mild detergent, Rinse in clean water maximum temperature 30 degrees. Dry in a 
+ventilated area away from direct sunlight or heat. Avoid use of solvents or strong chemicals which 
+could damage the components.
+The bladder can be removed and the cover section washed separately
+3.3: Components
+Oral tube
+Check that the bladder can be inflated through the oral tube
+and that there is no debris in the tube.
+Spare Cap:  DW-SV07
+Sprayhood
+Check attachments are secure and that there is no damage to the window. 
+Sprayhoods can be replaced - See page 21
+19
+
+5: Bladders
+A.  
+Check the 5 attachment holes for any signs of 
+wear or tears. 
+If the Bladder is damaged, it is possible 
+to replace it (contact Spinlock).
+B.  Bladders can be removed and replaced by  
+ pushing the toggle through the 5 attachment holes
+C.  When re-attaching a bladder make sure it is 
+ passed through the Pylon and retainer strap  
+ 
+20
+X
+
+
+Deckvest Vito 2020 - Replacement bladders
+The Vito was updated at the beginning of 2020 to use a toggle connection to attach bladders to cover.  
+21
+1 2
+Pass loop through bladder 
+and push all the way 
+through
+Push toggle
+through loop  Pull loop over 
+toggle and check
+ it is secure  
+!
+Note:
+Some harnesses may 
+include a black nylon 
+washer. If this is included 
+place back over toggle   
+Replacement bladders are available
+170N 
+DW-BLD/170HAM/VT  - Pre 2020 
+DW-BLD/170HAM/VT2 - 2020 onwards new torpedo toggles
+275N
+DW-BLD/275HAM/VT - Bladder - Only uses new torpedo toggles  
+
+22
+1.  
+Attach small grey webbing strips to holes at the  
+top of bladder and pass bladder toggle through   
+center hole. 
+2.  Take lanyard attached to retainer strap and pass toggle through hole on front of sprayhood
+6: Sprayhood Replacment
+
+Correct zip assembly for a double puller zip.
+7: Zip Slider Replacement - - Pre 2022 dated products
+Top Yellow slider
+Bottom slider
+Note the orientation of the word VISLON - It is very important to put 
+the correct sliders in position or the zip will not function correctly.
+DW- ZPL - Zip Slider Pack
+1. To remove or replace a  
+ slider  
+  
+ Select the centre tooth (7th)  
+ On outside of the zip / chain  
+ and remove using a pair of  
+ thin nose pliers.
+2. If removing a broken slider  
+ move the slider to the gap,  
+ tilt the front end up and  
+ pull through.
+23
+
+3. Position the carriage onto the zip material and  
+ against the next tooth.
+4. Tilt the teeth in front of the zip to one side.
+5. Pull down and backwards on the zip carriage 
+ keeping the other teeth out of the way.
+ The carriage should slide onto the track 
+ (some force may be required).
+6. Slide the carriage back over a few teeth to  
+ ensure it has engaged properly.
+24
+
+1. Open zip up from the quick burst zip section. 
+Take remaining zip slider and run round to the side 
+opposite the firing head. 
+Check which slider needs replacing. 
+You will need to remove the yellow slider if the 
+black slider needs replacing. 
+There is an angled slot which the zip slider can 
+slide out of on the left section of the zip. 
+Note: If there is not, you will need to follow the 
+instructions for removing a yellow tooth from the 
+QBZ section.
+2. Take the black slider and slide onto the zip end first followed by the yellow slider as per picture. 
+    Check orientation of the sliders are correct. 
+3. The zips sliders can now be run round to the firing head side  
+    and joined together to start the zip. 
+  
+Zip Slider Replacement - 2022 dated products onwards
+25
+
+2. Check the light functions
+    Press and hold the test button for 3 seconds untill the light flashes
+    Pylon will automatically switch off when button is not pressed
+8: Pylon
+3. Replacement light:   DW- PY/L1 
+    Take the Pylon stalk and place through the strap hole
+    Pull the stalk through and attach the stalk bottom to the strap 
+    Pylon stalk needs to curve inwards
+Solid
+(Replace)
+Flash
+More than
+8 hours
+operation
+Less than
+ 
+8 hours full
+operation
+Battery test feature on Pylon light
+Press the test button once
+There will be a solid flash to show the battery has enough 
+power
+A flashing light will show the battery is low and the Pylon 
+should be replaced
+26
+
+1. Make sure your lifejacket is clean and dry before application.
+Open the lifejacket to expose the bladder. Unpack your lifejacket following the    manufac-
+turer’s instructions.
+If attaching to a used lifejacket, wipe the bladder area for attachment with a damp cloth 
+and leave to dry.  Salt and other  contaminates will affect adhesion.
+\\  Fitting the Spinlock Lume-On TM could change the performance and warranty of your lifejacket,   
+     please contact your lifejacket manufacturer for clarification if you are unsure. 
+     All Spinlock lifejackets are approved for use and fitting with the Spinlock Lume-On TM.
+\\  Lume-OnTM lifejacket illumination lights are water activated. 
+\\  LED lights illuminates the lifejacket bladder  to increase visibility. 
+\\  Battery life - 6 hours (minimum 2 hours flashing at full intensity).   
+\\  Lifejacket and bladder must be throughly dry before attaching the Lume-OnTM or the stickers will not bond.
+4. Remove one of the Lume-OnTM stickers from the packaging, remove the backing paper. 
+Stick the Lume-OnTM to the bladder in a position:
+a. Clear of any toggles or straps.
+b. Clear of any bladder folds or creases.
+c. Where it will make contact with the water when inflated.
+Ensure the positioning will not affect the packing of your bladder. Repeat process for the 
+other side.
+5. Stick each Lume-OnTM to the
+bottom of the back of the bladder lobe, in the area pictured. 
+Press firmly.
+ 
+Lume-OnTM
+27
+2. Lay the inflatable bladder on a table, as flat as possible. 
+The two lights bond directly onto the underside of the  inflatable part of your lifejacket.  
+The Lume-OnTM can only be attached to lifejackets with a separate inflatable and cover construc-
+tion.
+3. Turn the bladder over, you do NOT need to remove the bladder from lifejacket.
+
+
+7. Leave the jacket for 24 hours to let the sticker adhere to the bladder before re-packing.
+LIFT
+H
+ERE
+6. Make sure the Lume-on is well stuck on the bladder by applying finger pressure all around 
+the sticker.
+8. Re-pack the lifejacket after 24 hours 
+referring to the manufacturer’s instructions.
+9. Lume-OnTM positioning on other lifejacket brands may vary. 
+For best results inflate the lifejacket using the oral tube and position at the bottom of each 
+chamber where the lobe would be in the water. 
+Watch the instructional video at www.spinlock.co.uk/Lume-On
+28
+
+
+29
+1. To pack the deckvest first join the zips together on the  
+ right side by firing unit
+  
+ 
+9: Repacking VITO Deckvest
+2. Attach lifting loop retainer strap via press studs 
+    Lift here print should face outwards.
+    Important
+    Bladder should not be twisted or folded too tightly. 
+    Ensure there is no fabric covering the auto cap.
+
+
+3.  Concertina the bladder in starting at the Hammar Unit. 
+ Push Hammar unit and bladder down into meshed area. 
+                       Do not push too far down into pocket  
+ otherwise it may get caught when inflating. 
+ 
+ Join the zips together and start to move zip up
+ Ensure manual handle is placed in its pockets
+  and cord is not tangled or caught
+This is important for manual operation 
+4. Start to run the zip up and close the flap 
+    across breakout point
+30
+
+31
+5. Turn jacket over on its back, squeezing sides of hoop and then push into back panel 
+    Top of hoop should be flush with top of back panel
+6. Pleat the back of bladder so reflective strip
+    is on top. 
+7. Push Pylon strap down towards oral tube so     
+ it does not sit on the shoulder when packing.   
+
+10. Check manual handle is in  
+ pocket securely and also quick  
+ release handle is tucked inside 
+9. Zip round to close and tuck zip ends inside cover
+32
+8. Pack Pylon down over bladder and place Pylon battery inside the cover towards oral tube.  
+    Do not pack it low down as it will get caught. Check Pylon is not covered by anything which 
+    can stop it deploying. 
+    Fold bladder end upwards so that it is not stuck inside the bottom when inflating. 
+    Check whistle is attached
+
+
+11. Crotch strap buckle elastic - Threaded through buckle as per below.  
+33
+Crotch strap can be folded and placed 
+in rear pocket
+
+
+1. Open the flap on the back of the belt section 
+    If converting from a non HRS VITO, cut the
+    harness loop out along the flat section. 
+2. Pull cover back on left side and find the black webbing loop next to red lifting loop webbing
+    
+    Pass webbing from HRS unit through the loop.
+3. Pass handle and HRS unit through the webbing loop and then pull tight. 
+34
+10: Harness Release System - Optional Equipment 
+PULL
+
+1. Push HRS loop through the Vito slots on front with  
+    the HRS text being as per picture
+2. Push top loop through bottom loop 
+Warning 
+Make sure the HRS strop passes over main black webbing
+ 
+!
+3. Hook HRS unit on the small loop and use the handle 
+   on its side to turn the dial to the left so that it 
+   clicks into the locked position. 
+4. Check it is in the locked position
+If for some reason you have made a mistake during the fitting 
+process, pull the handle to release the HRS unit.
+Do not turn the lock mechanism backwards as it will not release.
+35
+HRS Re-arming 
+
+36
+5. Place handle onto press stud 
+6. Place HRS unit and cord into the flap at the bottom of the Vito. This stops the unit moving.
+    Close the inspection panel and secure the velcro. 
+
+37
+Notes......
+
+Spinlock Ltd
+Birmingham Road
+PO31 7BH Cowes
+United Kingdom
+The Spinlock Deckvest is extensively protected under
+various National, European and International Patents and
+Design Rights owned by Spinlock Ltd 
+For continuously updated user guidance go to
+www.spinlock.co.uk
+Spinlock Limited quality 
+managment system 
+is accredited to 
+ISO 9001 : 2015
+ISO 9001
+CERTIFIED
+9963

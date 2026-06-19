@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-03-18T11:58:38.086Z",
+  "sourceDir": "CERTIFICADOS 2026",
+  "filesProcessed": 55,
+  "inspections2026Upserted": 55,
+  "jangadasUpdatedDates": 55,
+  "jangadasCreated": 0,
+  "linkedBySerialExact": 55,
+  "linkedBySerialNormalized": 0,
+  "linkedByShipUnique": 0,
+  "linkedByShipRoundRobin": 0,
+  "history2025Ensured": 6,
+  "history2025AlreadyExisted": 49,
+  "createdWithoutCertNo": 0,
+  "createdWithoutSerial": 0,
+  "warnings": []
+}

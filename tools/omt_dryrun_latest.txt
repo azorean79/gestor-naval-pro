@@ -1,0 +1,44 @@
+﻿
+> oreyazores26@0.1.0 backfill:clientes:moradas:omt
+> npx tsx scripts/backfill_clientes_moradas_omt.ts
+
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ÔÜÖ´©Å  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (2) from .env.local -- tip: ­ƒöÉ prevent committing .env to code: https://dotenvx.com/precommit
+
+­ƒº¡ BACKFILL CLIENTES OMT ÔåÆ MORADAS
+
+Modo: DRY-RUN
+
+Entradas OMT lidas: 196
+Atualiza├º├Áes planeadas: 0
+Entradas OMT sem match ├║nico em Cliente: 25
+Resumo por motivo: {}
+
+Amostra de atualiza├º├Áes:
+
+Amostra sem match ├║nico:
+- 2 Fish Boat Works, Lda | licen├ºa 21/2023 | Rua Vasco da Gama, n┬║ 46, 9900-017 Horta
+- Andr├® Filipe da Silva Tavares | licen├ºa 07/2020 | Cal├ºada da Concei├º├úo, n┬║ 23, 9900-082 Horta
+- Azores4Fun - Turismo e Aventura Unipessoal, Lda | licen├ºa 19/2023 | Rua do Pasteleiro, n┬║ 01, 9900-069 Horta
+- Belong Nature, Unip. Lda | licen├ºa 09/2014 | Av 25 de Abril, 5A, 9900-114 Horta
+- Bernardete Lurdes Soares da Rosa | licen├ºa 05/2017 | Travessa da Bica, 3, 9760-708 Vila Nova - Praia da Vit├│ria
+- F├íbio Mendon├ºa Meneses Lameiro, n┬║ 105 | licen├ºa 24/2023 | 9700-686 Terra Ch├ú
+- F├íbio Thomaz Vieira | licen├ºa 15/2025 | Rua das Hort├¬ncias, n┬║ 01 B, 9555-195 Sete Cidades
+- Gon├ºalo Miguel Bettencourt Azevedo | licen├ºa 01/2026 | Rua Nossa Senhora da Estrela, n┬║ 14, 9600-589 Ribeira Grande
+- Jo├úo Paulo Soares Vieira | licen├ºa 11/2020 | Caminho de Baixo, n┬║ 2, 9800-222 Rosais - S. Jorge
+- Jo├úo Pedro Lima Toste de Carvalho | licen├ºa 03/2021 | Estrada 25 de Abril, 129-A, 9760-403 Praia da Vit├│ria
+- Marco Paulo Freitas Cabral | licen├ºa 14/2021 | Travessa da Estrela, n┬║ 13, 9970-306 Santa Cruz das Flores
+- Naturfactor, Lda | licen├ºa 08/2016 | Monte de Cima, 21 - Candel├íria, 9950-154 Madalena
+- Pedro Jorge da Concei├º├úo Piteira | licen├ºa 05/2016 | Rua da Saudade, 19-2┬║ Dt┬║ S├úo Pedro, 9680-132 Vila Franca do Campo
+- Peter Aloysius Galv├úo Healion | licen├ºa 14/2024 | Rua Nova n┬║ 1/3, 9600-231 Ribeira Seca
+- Pico Oudoor & Lodging, Lda | licen├ºa 02/2024 | Lugar do Miradouro - Feteira, 9930-054 Calheta do Nesquim
+- Renato Manuel Gon├ºalves Goulart | licen├ºa 10/2018 | Rua General Ant├│nio Ribeiro n┬║ 55, 9950-361 Madalena do Pico
+- Season Challenge - Desenvolvimento Local e Atividades Mar├¡timo-Tur├¡sticas Lda | licen├ºa 06/2014 | Rua Dr Hugo Moreira n┬║ 36 - 5┬║ D Nascente, 9500-792 Ponta Delgada
+- Serenitymiracle Importa├º├úo e Exporta├º├úo, Repara├º├úo e Turismo Lda | licen├ºa 11/2018 | Rua Dr. Aristides Moreira da Mota, n┬║ 56 - S├úo Sebasti├úo, 9500-054 Ponta Delgada
+- S├®rgio Marcos, Unipessoal Lda | licen├ºa 08/2024 | Rua Gon├ºalo Velho, n┬║ 142, 9600-129 Ribeira Grande
+- Steffi Denecker Unipessoal, Lda | licen├ºa 25/2023 | Rua Cancela da Areia, 9930-302 Lajes do Pico
+... e mais 5 entradas sem match ├║nico
+
+ÔÜá´©Å  DRY-RUN ÔÇö nenhum dado foi alterado.
+   Para aplicar, corre com --apply
+

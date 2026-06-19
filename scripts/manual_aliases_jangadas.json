@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "description": "Regras de equivalência de marca/modelo para mapeamento técnico de jangadas",
+  "rules": [
+    {
+      "id": "arimar-std-to-dsb-lr97",
+      "whenBrandIncludes": ["ARIMAR"],
+      "whenModelEquals": ["STD"],
+      "targetBrand": "ARIMAR",
+      "targetModel": "SEA WORLD L"
+    },
+    {
+      "id": "almar-std-to-dsb-lr97",
+      "whenBrandIncludes": ["ALMAR"],
+      "whenModelEquals": ["STD"],
+      "targetBrand": "DSB",
+      "targetModel": "LR97"
+    },
+    {
+      "id": "almar-coastal-to-zodiac-coastal",
+      "whenBrandIncludes": ["ALMAR"],
+      "whenModelIncludes": ["COASTAL"],
+      "targetBrand": "ZODIAC",
+      "targetModel": "COASTAL"
+    },
+    {
+      "id": "sea-safe-family-to-dsb-lr97",
+      "whenBrandIncludes": ["SEA SAFE", "SEA-SAFE"],
+      "whenModelIncludes": ["SEA SAFE", "SEA-SAFE"],
+      "targetBrand": "DSB",
+      "targetModel": "LR97"
+    },
+    {
+      "id": "arimar-sea-world-b-to-open-sea-b",
+      "whenBrandIncludes": ["ARIMAR"],
+      "whenModelIncludes": ["SEA WORLD B"],
+      "targetBrand": "ARIMAR",
+      "targetModel": "OPEN SEA B"
+    },
+    {
+      "id": "arimar-coastal-light-to-zodiac-coastal",
+      "whenBrandIncludes": ["ARIMAR"],
+      "whenModelIncludes": ["COASTAL LIGHT", "COASTAL LIGHT PR"],
+      "targetBrand": "ARIMAR",
+      "targetModel": "COASTAL LIGHT"
+    },
+    {
+      "id": "zodiac-generic-to-coastal",
+      "whenBrandIncludes": ["ZODIAC"],
+      "whenModelEquals": ["ZODIAC"],
+      "targetBrand": "ZODIAC",
+      "targetModel": "COASTAL"
+    },
+    {
+      "id": "eurovinil-family-to-dsb-lr07",
+      "whenBrandIncludes": ["EUROVINIL", "EV"],
+      "whenModelIncludes": ["EUROVINIL", "COMPACTDRY", "CE TO", "COASTAL DRY", "ISO 9650", "STD", "SOS"],
+      "targetBrand": "DSB",
+      "targetModel": "LR07"
+    },
+    {
+      "id": "rfd-seasava-aliases",
+      "whenBrandIncludes": ["RFD"],
+      "whenModelIncludes": ["SESAVA", "SEASAVA"],
+      "targetBrand": "RFD",
+      "targetModel": "SEASAVA PLUS"
+    },
+    {
+      "id": "rfd-ocean-to-seasava-plus",
+      "whenBrandIncludes": ["RFD"],
+      "whenModelEquals": ["OCEAN"],
+      "targetBrand": "RFD",
+      "targetModel": "SEASAVA PLUS"
+    }
+  ]
+}

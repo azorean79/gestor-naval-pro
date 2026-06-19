@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "shipId": null,
+    "serial": "TEST_01",
+    "marca": null,
+    "modelo": null,
+    "tamanho": null,
+    "estado": "Ativo",
+    "dataFabrico": null,
+    "dataInspecao": null,
+    "dataProxInspecao": null,
+    "observacoes": null,
+    "testePressao": null,
+    "testeInsuflacao": null,
+    "testeVazamento": null,
+    "createdAt": "2026-06-11T22:43:02.430Z",
+    "updatedAt": "2026-06-11T22:43:02.430Z"
+  }
+]

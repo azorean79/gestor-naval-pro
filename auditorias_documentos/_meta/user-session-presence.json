@@ -1,0 +1,15 @@
+{
+  "408c1bba-22b2-48dd-9ef9-f6033ee00f88": {
+    "sessionId": "408c1bba-22b2-48dd-9ef9-f6033ee00f88",
+    "userId": 1,
+    "email": "julio.correia@orey.com",
+    "name": "Júlio Correia",
+    "role": "ADMIN",
+    "createdAt": "2026-06-15T17:07:08.937Z",
+    "lastSeenAt": "2026-06-16T14:19:29.018Z",
+    "expiresAt": "2026-06-16T14:19:29.018Z",
+    "lastPath": "/tecnicos",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36 Edg/149.0.0.0",
+    "revokedAt": "2026-06-16T14:19:29.018Z"
+  }
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "codigo": "ACORES",
+    "nome": "Açores",
+    "empresa": "Orey",
+    "localizacao": "Açores",
+    "territorioTipo": "AZORES",
+    "regiaoOperacional": null,
+    "ativo": true,
+    "observacoes": null,
+    "createdAt": "2026-06-11T17:11:25.412Z",
+    "updatedAt": "2026-06-11T17:11:25.412Z"
+  }
+]

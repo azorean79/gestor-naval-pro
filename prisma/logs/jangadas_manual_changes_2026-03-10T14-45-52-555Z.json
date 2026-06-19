@@ -1,0 +1,469 @@
+{
+  "generatedAt": "2026-03-10T14:45:52.561Z",
+  "mode": "dry-run",
+  "strict": false,
+  "totalPlannedChanges": 37,
+  "divergencias": 0,
+  "sample": [
+    {
+      "serial": "14041018",
+      "id": 177,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "AGP0808140",
+      "id": 240,
+      "match": "DSB/LR97 (exact)",
+      "source": "almar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "14062027",
+      "id": 246,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "14091001",
+      "id": 247,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "AO91206001",
+      "id": 258,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "ZAP0910005",
+      "id": 274,
+      "match": "DSB/LR97 (exact)",
+      "source": "almar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "PL-12-0265",
+      "id": 282,
+      "match": "DSB/LR97 (exact)",
+      "source": "sea-safe-family-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "PL-12-0269",
+      "id": 283,
+      "match": "DSB/LR97 (exact)",
+      "source": "sea-safe-family-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "14042002",
+      "id": 288,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "PL-12-F0237",
+      "id": 296,
+      "match": "DSB/LR97 (exact)",
+      "source": "sea-safe-family-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "PLF-12-F0241",
+      "id": 297,
+      "match": "DSB/LR97 (exact)",
+      "source": "sea-safe-family-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "AO60706112",
+      "id": 304,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "2005008134",
+      "id": 305,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "PLF-10-F0433",
+      "id": 306,
+      "match": "DSB/LR97 (exact)",
+      "source": "sea-safe-family-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "AO40708182",
+      "id": 308,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "5017230300032",
+      "id": 312,
+      "match": "RFD/SEASAVA PLUS (exact)",
+      "source": "rfd-seasava-aliases",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "Thanner"
+        }
+      }
+    },
+    {
+      "serial": "ZAP01710027",
+      "id": 315,
+      "match": "DSB/LR97 (exact)",
+      "source": "almar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "A100508043",
+      "id": 321,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "A130506107",
+      "id": 327,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "A040506012",
+      "id": 332,
+      "match": "DSB/LR97 (exact)",
+      "source": "almar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "AGP0806072",
+      "id": 338,
+      "match": "DSB/LR97 (exact)",
+      "source": "almar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "A130506140",
+      "id": 343,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "A040808107",
+      "id": 348,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "AGP0708190",
+      "id": 350,
+      "match": "DSB/LR97 (exact)",
+      "source": "almar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "AGP0710023",
+      "id": 351,
+      "match": "DSB/LR97 (exact)",
+      "source": "almar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "09122002",
+      "id": 358,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "14041021",
+      "id": 359,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "A010406054",
+      "id": 360,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "62010100",
+      "id": 366,
+      "match": "DSB/LR07 (exact)",
+      "source": "eurovinil-family-to-dsb-lr07",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "Leafield GIST"
+        }
+      }
+    },
+    {
+      "serial": "A051006100",
+      "id": 368,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "79251760",
+      "id": 385,
+      "match": "DSB/LR07 (exact)",
+      "source": "eurovinil-family-to-dsb-lr07",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "Leafield GIST"
+        }
+      }
+    },
+    {
+      "serial": "5017210100026",
+      "id": 391,
+      "match": "RFD/SEASAVA PLUS (exact)",
+      "source": "rfd-seasava-aliases",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "Thanner"
+        }
+      }
+    },
+    {
+      "serial": "79033839",
+      "id": 400,
+      "match": "DSB/LR07 (exact)",
+      "source": "eurovinil-family-to-dsb-lr07",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "Leafield GIST"
+        }
+      }
+    },
+    {
+      "serial": "79182131",
+      "id": 407,
+      "match": "DSB/LR07 (exact)",
+      "source": "eurovinil-family-to-dsb-lr07",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "Leafield GIST"
+        }
+      }
+    },
+    {
+      "serial": "15118016",
+      "id": 412,
+      "match": "DSB/LR97 (exact)",
+      "source": "arimar-std-to-dsb-lr97",
+      "changes": {
+        "cylinderSistema": {
+          "from": "",
+          "to": "THANNER"
+        }
+      }
+    },
+    {
+      "serial": "RAFT-IA-TESTE-002",
+      "id": 414,
+      "match": "RFD/SEASAVA PLUS (fallback-capacity)",
+      "source": "rfd-ocean-to-seasava-plus",
+      "changes": {
+        "cylinderCo2": {
+          "from": "",
+          "to": "3.38"
+        },
+        "cylinderN2": {
+          "from": "",
+          "to": "0.11"
+        },
+        "cylinderSistema": {
+          "from": "",
+          "to": "Thanner"
+        }
+      }
+    },
+    {
+      "serial": "RAFT-IA-TESTE-003",
+      "id": 415,
+      "match": "RFD/SEASAVA PLUS (fallback-capacity)",
+      "source": "rfd-ocean-to-seasava-plus",
+      "changes": {
+        "cylinderCo2": {
+          "from": "",
+          "to": "3.38"
+        },
+        "cylinderN2": {
+          "from": "",
+          "to": "0.11"
+        },
+        "cylinderSistema": {
+          "from": "",
+          "to": "Thanner"
+        }
+      }
+    }
+  ]
+}

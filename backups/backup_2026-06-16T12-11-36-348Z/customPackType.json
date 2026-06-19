@@ -1,0 +1,52 @@
+[
+  {
+    "id": 2,
+    "name": "E",
+    "description": "Override de pack canónico.",
+    "isActive": true,
+    "createdByUserId": 1,
+    "updatedByUserId": 1,
+    "createdAt": "2026-06-12T10:31:17.679Z",
+    "updatedAt": "2026-06-12T10:31:29.730Z"
+  },
+  {
+    "id": 4,
+    "name": "COASTAL",
+    "description": "Override de pack canónico.",
+    "isActive": true,
+    "createdByUserId": 1,
+    "updatedByUserId": 1,
+    "createdAt": "2026-06-12T10:34:16.669Z",
+    "updatedAt": "2026-06-12T10:34:16.669Z"
+  },
+  {
+    "id": 1,
+    "name": "SOLAS A",
+    "description": "Override de pack canónico.",
+    "isActive": true,
+    "createdByUserId": 1,
+    "updatedByUserId": 1,
+    "createdAt": "2026-06-11T18:36:02.187Z",
+    "updatedAt": "2026-06-12T10:34:41.863Z"
+  },
+  {
+    "id": 3,
+    "name": "SOLAS B",
+    "description": "Override de pack canónico.",
+    "isActive": true,
+    "createdByUserId": 1,
+    "updatedByUserId": 1,
+    "createdAt": "2026-06-12T10:33:35.632Z",
+    "updatedAt": "2026-06-12T10:34:59.976Z"
+  },
+  {
+    "id": 5,
+    "name": "STD",
+    "description": "Override de pack canónico.",
+    "isActive": true,
+    "createdByUserId": 1,
+    "updatedByUserId": 1,
+    "createdAt": "2026-06-12T10:35:30.113Z",
+    "updatedAt": "2026-06-12T10:35:32.516Z"
+  }
+]

@@ -1,0 +1,1463 @@
+{
+  "timestamp": "2026-03-18T11:23:14.240Z",
+  "totalRows": 208,
+  "withSerialAndShip": 130,
+  "rows": [
+    {
+      "file": "AZ25-001 NANCI MARIA.xlsx",
+      "raftSerial": "5017330300014",
+      "shipName": "NANCI MARIA",
+      "emergencyPackType": "SIMPL. REDUZ.",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-002 MESTRE MIGUEL.xlsx",
+      "raftSerial": "5017330300330",
+      "shipName": "MESTRE MIGUEL",
+      "emergencyPackType": "R",
+      "validitiesCount": 4
+    },
+    {
+      "file": "AZ25-003 CECILIA A.xlsx",
+      "raftSerial": "5086210101268",
+      "shipName": "CECILIA A",
+      "emergencyPackType": "SOLAS B",
+      "validitiesCount": 11
+    },
+    {
+      "file": "AZ25-004 ANA BEATRIZ.xlsx",
+      "raftSerial": "5017330300334",
+      "shipName": "ANA BEATRIZ",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-005 PÃO DE CRISTO.xlsx",
+      "raftSerial": "5017330300359",
+      "shipName": "PÃO DE CRISTO",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-006 ESPIRITO SANTO.xlsx",
+      "raftSerial": "",
+      "shipName": "ESPIRITO SANTO",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-007 ISAC VENDEIRO.xlsx",
+      "raftSerial": "5017330300324",
+      "shipName": "ISAC VENDEIRO",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-008 CORAL DA HORTA.xlsx",
+      "raftSerial": "5085810204307",
+      "shipName": "CORAL DA HORTA",
+      "emergencyPackType": "SOLAS A",
+      "validitiesCount": 12
+    },
+    {
+      "file": "AZ25-009 ADILIO.xlsx",
+      "raftSerial": "XDC5FD34K616",
+      "shipName": "ADILIO",
+      "emergencyPackType": "COASTAL",
+      "validitiesCount": 8
+    },
+    {
+      "file": "AZ25-010 ESTRELA.xlsx",
+      "raftSerial": "5017330300314",
+      "shipName": "ESTRELA",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-011 MESTRE VIEIRA.xlsx",
+      "raftSerial": "50173303S7530",
+      "shipName": "MESTRE VIEIRA",
+      "emergencyPackType": "R",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-012 GRAÇAS A DEUS.xlsx",
+      "raftSerial": "5017330300346",
+      "shipName": "GRAÇAS A DEUS",
+      "emergencyPackType": "R",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-013 RATINHO.xlsx",
+      "raftSerial": "",
+      "shipName": "RATINHO",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-014 TERRA MAR.xlsx",
+      "raftSerial": "79210383",
+      "shipName": "TERRA MAR",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-016 ZIFIO A.xlsx",
+      "raftSerial": "791900023",
+      "shipName": "ZIFIO",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-017 ZIFIO B.xlsx",
+      "raftSerial": "791900024",
+      "shipName": "ZIFIO",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-018 MARIA PIA.xlsx",
+      "raftSerial": "57068SN00011439",
+      "shipName": "MARIA PIA",
+      "emergencyPackType": "STD",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-019 SANTO MESSIAS.xlsx",
+      "raftSerial": "50173303S7234",
+      "shipName": "SANTO MESSIAS",
+      "emergencyPackType": "R",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-020 GOLFIM.xlsx",
+      "raftSerial": "",
+      "shipName": "GOLFIM",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-021 CHARAMBA.xlsx",
+      "raftSerial": "29133Y0006",
+      "shipName": "O CHARAMBA",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-022 BAIA DA MAIA.xlsx",
+      "raftSerial": "5086010100346",
+      "shipName": "BAIA DA MAIA",
+      "emergencyPackType": "SOLAS B",
+      "validitiesCount": 10
+    },
+    {
+      "file": "AZ25-023 SALTO E VARA.xlsx",
+      "raftSerial": "5017330300076",
+      "shipName": "SALTO E VARA",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-025CANANO.xlsx",
+      "raftSerial": "5017420300021",
+      "shipName": "CANANO",
+      "emergencyPackType": "SIMP. REDUZ.",
+      "validitiesCount": 9
+    },
+    {
+      "file": "AZ25-026 BAIA DO SOL.xlsx",
+      "raftSerial": "50172303S7541",
+      "shipName": "BAIA DO SOL",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-027 ILHA AMARELA.xlsx",
+      "raftSerial": "5017420300111",
+      "shipName": "ILHA AMARELA",
+      "emergencyPackType": "SIMP. REDUZ.",
+      "validitiesCount": 9
+    },
+    {
+      "file": "AZ25-028 ILHA DE SÃO MIGUEL.xlsx",
+      "raftSerial": "5017330300347",
+      "shipName": "ILHA DE SÃO MIGUEL",
+      "emergencyPackType": "R",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-028 PRINCESA ARIEL.xlsx",
+      "raftSerial": "5017330300347",
+      "shipName": "PRINCESA ARIEL",
+      "emergencyPackType": "R",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-029 STRAPPO a.xlsx",
+      "raftSerial": "PL-12-F0294",
+      "shipName": "STRAPPO",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-030 DESINFIADO.xlsx",
+      "raftSerial": "14041018",
+      "shipName": "DESINFIADO",
+      "emergencyPackType": "STD",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-031 ALEGRIA DE DEUS.xlsx",
+      "raftSerial": "XDC4ES74I809",
+      "shipName": "ALEGRIA DE DEUS",
+      "emergencyPackType": "COASTAL",
+      "validitiesCount": 10
+    },
+    {
+      "file": "AZ25-032 BIANCA E FABIANA.xlsx",
+      "raftSerial": "50175200300207",
+      "shipName": "BIANCA E FABIANA",
+      "emergencyPackType": "SIMP. REDUZ.",
+      "validitiesCount": 9
+    },
+    {
+      "file": "AZ25-033 ARQUIPELAGO B.xlsx",
+      "raftSerial": "50866110213343",
+      "shipName": "ARQUIPELAGO",
+      "emergencyPackType": "SOLAS B",
+      "validitiesCount": 11
+    },
+    {
+      "file": "AZ25-050 RAUL FILIPE.xlsx",
+      "raftSerial": "50173103S7237",
+      "shipName": "RAUL FILIPE",
+      "emergencyPackType": "REDUZIDO",
+      "validitiesCount": 12
+    },
+    {
+      "file": "AZ25-052 NETOS JOSE AUGUSTO.xlsx",
+      "raftSerial": "5086310502760",
+      "shipName": "NETOS DE JOSE AUGUSTO",
+      "emergencyPackType": "SOLAS A",
+      "validitiesCount": 12
+    },
+    {
+      "file": "AZ25-053 TABICA SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "TABICA SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-054 RIBEIRA DA SILVA.xlsx",
+      "raftSerial": "XDC1DZ20D505",
+      "shipName": "RIBEIRA DA SILVA",
+      "emergencyPackType": "COASTAL",
+      "validitiesCount": 10
+    },
+    {
+      "file": "AZ25-055 DECEIVER.xlsx",
+      "raftSerial": "21/0297",
+      "shipName": "DECEIVER",
+      "emergencyPackType": "*- 24H",
+      "validitiesCount": 3
+    },
+    {
+      "file": "AZ25-056 ANDRE E TIAGO.xlsx",
+      "raftSerial": "42458000300468",
+      "shipName": "ANDRÉ E TIAGO",
+      "emergencyPackType": "SIMPL. REDUZ.",
+      "validitiesCount": 10
+    },
+    {
+      "file": "AZ25-057 AGUAS VIVAS.xlsx",
+      "raftSerial": "",
+      "shipName": "AGUAS VIVAS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-058 RELAX.xlsx",
+      "raftSerial": "79180211",
+      "shipName": "RELAX",
+      "emergencyPackType": "STD",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-059 CHALLENGE.xlsx",
+      "raftSerial": "14062027",
+      "shipName": "CHALLENGE",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-060 CHALLENGE.xlsx",
+      "raftSerial": "14091001",
+      "shipName": "CHALLENGE",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-061 DAVID CARLOS.xlsx",
+      "raftSerial": "5086110209637",
+      "shipName": "DAVID CARLOS",
+      "emergencyPackType": "SOLAS B",
+      "validitiesCount": 12
+    },
+    {
+      "file": "AZ25-062 BAIA DOS ANJOS.xlsx",
+      "raftSerial": "4582000100405",
+      "shipName": "BAIA DOS ANJOS",
+      "emergencyPackType": "SOLAS B",
+      "validitiesCount": 11
+    },
+    {
+      "file": "AZ25-063 ALVARO DE ORNELAS.xlsx",
+      "raftSerial": "",
+      "shipName": "ALVARO DE ORNELAS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-064 CONDESSA DOS MARES.xlsx",
+      "raftSerial": "",
+      "shipName": "CONDESSA DOS MARES",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-065 BALEIAS EXPRESSO.xlsx",
+      "raftSerial": "41832000200489",
+      "shipName": "BALEIAS EXPRESSO",
+      "emergencyPackType": "E",
+      "validitiesCount": 7
+    },
+    {
+      "file": "AZ25-066 MAE IEMANJA.xlsx",
+      "raftSerial": "4153300400019",
+      "shipName": "MÃE IEMANJA",
+      "emergencyPackType": "SIMP. REDUZ.",
+      "validitiesCount": 10
+    },
+    {
+      "file": "AZ25-067 CETUS.xlsx",
+      "raftSerial": "",
+      "shipName": "CETUS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-068 CETUS.xlsx",
+      "raftSerial": "",
+      "shipName": "CETUS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-069 CETUS.xlsx",
+      "raftSerial": "",
+      "shipName": "CETUS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-070 CETUS.xlsx",
+      "raftSerial": "",
+      "shipName": "CETUS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-071 HUGO SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "HUGO SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-071 VIVA OS AÇORES.xlsx",
+      "raftSerial": "501733300015",
+      "shipName": "VIVA OS AÇORES",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-072 BADEJO.xlsx",
+      "raftSerial": "5017330300017",
+      "shipName": "BADEJO",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 8
+    },
+    {
+      "file": "AZ25-073 ATLANTICO NORDESTE.xlsx",
+      "raftSerial": "",
+      "shipName": "ATLANTICO NORDESTE",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-074 CORAÇÃO DO OCEANO.xlsx",
+      "raftSerial": "XDC5FD23H818",
+      "shipName": "CORAÇÃO DO OCEANO",
+      "emergencyPackType": "COASTAL",
+      "validitiesCount": 9
+    },
+    {
+      "file": "AZ25-075 NOSSA SENHORA DA GRAÇA.xlsx",
+      "raftSerial": "5085810204938",
+      "shipName": "NOSSA SENHORA DA GRAÇA",
+      "emergencyPackType": "SOLAS B",
+      "validitiesCount": 9
+    },
+    {
+      "file": "AZ25-076 ARESTA.xlsx",
+      "raftSerial": "50175203S7193",
+      "shipName": "ARESTA",
+      "emergencyPackType": "SIMP. REDUZ.",
+      "validitiesCount": 9
+    },
+    {
+      "file": "AZ25-077 GORETI PERINHO.xlsx",
+      "raftSerial": "5017310300021",
+      "shipName": "GORETI PERINHO",
+      "emergencyPackType": "SIMPL. E",
+      "validitiesCount": 10
+    },
+    {
+      "file": "AZ25-078 PRAIA BENJAMIM.xlsx",
+      "raftSerial": "",
+      "shipName": "PRAIA BENJAMIM",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-079 LUZ DO MAR.xlsx",
+      "raftSerial": "5017120300040",
+      "shipName": "LUZ DO MAR",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-080 NETOS JOSE AUGUSTO.xlsx",
+      "raftSerial": "57781",
+      "shipName": "NETOS DE JOSE AUGUSTO",
+      "emergencyPackType": "SOLAS B",
+      "validitiesCount": 10
+    },
+    {
+      "file": "AZ25-081 NETOS JOSE AUGUSTO.xlsx",
+      "raftSerial": "63390",
+      "shipName": "NETOS DE JOSE AUGUSTO",
+      "emergencyPackType": "SOLAS B",
+      "validitiesCount": 9
+    },
+    {
+      "file": "AZ25-082 MAR AÇOREANO.xlsx",
+      "raftSerial": "5017330300350",
+      "shipName": "MAR AÇOREANO",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-083 HELENA.xlsx",
+      "raftSerial": "5017210300006",
+      "shipName": "HELENA",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 7
+    },
+    {
+      "file": "AZ25-084 JANAIA.xlsx",
+      "raftSerial": "",
+      "shipName": "JANAIA",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-085 GILBERTO PENTEADO.xlsx",
+      "raftSerial": "5017330300338",
+      "shipName": "GILBERTO PENTEADO",
+      "emergencyPackType": "NIN",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-086 JOANA.xlsx",
+      "raftSerial": "ZAP0910005",
+      "shipName": "JOANA",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-087 JOANA.xlsx",
+      "raftSerial": "79160295",
+      "shipName": "JOANA",
+      "emergencyPackType": "<24H",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-088 WATER AND WIND.xlsx",
+      "raftSerial": "KI-12-F0049",
+      "shipName": "WATER AND WIND",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-089 GUIA ME JESUS.xlsx",
+      "raftSerial": "5017210300042",
+      "shipName": "GUIA ME JESUS",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 8
+    },
+    {
+      "file": "AZ25-090 BAIA SAO PEDRO.xlsx",
+      "raftSerial": "",
+      "shipName": "BAIA SAO PEDRO",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-090 CHED II SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "CHED II SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-091 AIR MAIL.xlsx",
+      "raftSerial": "29132F0020",
+      "shipName": "AIR MAIL",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-092 ATLANTYS II.xlsx",
+      "raftSerial": "",
+      "shipName": "ATLANTYS II",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-092 BETTY.xlsx",
+      "raftSerial": "PL-12-0265",
+      "shipName": "BETTY",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-093 BETTY.xlsx",
+      "raftSerial": "PL-12-0269",
+      "shipName": "BETTY",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-093 VITOR VELOSO.xlsx",
+      "raftSerial": "50173303S7241",
+      "shipName": "VITOR VELOSO",
+      "emergencyPackType": "R",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-094 LAGRIMA DE CRISTO.xlsx",
+      "raftSerial": "5086010206436",
+      "shipName": "LAGRIMA DE CRISTO",
+      "emergencyPackType": "SOLAS A",
+      "validitiesCount": 12
+    },
+    {
+      "file": "AZ25-095 MESTRE FONTES.xlsx",
+      "raftSerial": "",
+      "shipName": "MESTRE FONTES",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-096 DRAGAOCIDENTAL.xlsx",
+      "raftSerial": "4581700301441",
+      "shipName": "DRAGAOCIDENTAL",
+      "emergencyPackType": "R",
+      "validitiesCount": 7
+    },
+    {
+      "file": "AZ25-097 MISS POES.xlsx",
+      "raftSerial": "14042002",
+      "shipName": "MISS POES",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-098 MSE SAO MIGUEL.xlsx",
+      "raftSerial": "5086010205165",
+      "shipName": "MSE",
+      "emergencyPackType": "SOLAS B",
+      "validitiesCount": 9
+    },
+    {
+      "file": "AZ25-099 MSE SAO MIGUEL.xlsx",
+      "raftSerial": "5086010205737",
+      "shipName": "MSE",
+      "emergencyPackType": "SOLAS B",
+      "validitiesCount": 9
+    },
+    {
+      "file": "AZ25-100 MESTRE ROQUEIRA.xlsx",
+      "raftSerial": "5017330300321A",
+      "shipName": "ROQUEIRA",
+      "emergencyPackType": "REDUZ.",
+      "validitiesCount": 7
+    },
+    {
+      "file": "AZ25-101 ENTRE MARES.xlsx",
+      "raftSerial": "5017230300540",
+      "shipName": "ENTRE MARÉS",
+      "emergencyPackType": "SIMPL",
+      "validitiesCount": 4
+    },
+    {
+      "file": "AZ25-102 APHRODITE.xlsx",
+      "raftSerial": "",
+      "shipName": "APHRODITE",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-103 ABISMO.xlsx",
+      "raftSerial": "79190695",
+      "shipName": "ABISMO",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-104 ABISMO.xlsx",
+      "raftSerial": "79190697",
+      "shipName": "ABISMO",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-105 ELIXIR A.xlsx",
+      "raftSerial": "PL-12-F0237",
+      "shipName": "ELIXIR",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-106 ELIXIR B.xlsx",
+      "raftSerial": "PLF-12-F0241",
+      "shipName": "ELIXIR",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-107 CIDADE MAR.xlsx",
+      "raftSerial": "5017230300542",
+      "shipName": "CIDADE MAR",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-108 BEST SPOT A.xlsx",
+      "raftSerial": "79190357",
+      "shipName": "BESTSPOT",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-109 BEST SPOT B.xlsx",
+      "raftSerial": "79190356",
+      "shipName": "BESTSPOT",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-110 BEST SPOT C.xlsx",
+      "raftSerial": "79191253",
+      "shipName": "BESTSPOT",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-112 MEU ANJO DA GUARDA.xlsx",
+      "raftSerial": "",
+      "shipName": "MEU ANJO DA GUARDA",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-113 CIDADE MAR.xlsx",
+      "raftSerial": "5017230300542",
+      "shipName": "CIDADE MAR",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-114 BELA VIDA SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "BELA VIDA SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-116 LUIZA.xlsx",
+      "raftSerial": "2005008134",
+      "shipName": "LUIZA",
+      "emergencyPackType": "STD",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-117 OCEAN CAY.xlsx",
+      "raftSerial": "PLF-10-F0433",
+      "shipName": "OCEAN CAY",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-118 EXOCET TWO.xlsx",
+      "raftSerial": "79250891",
+      "shipName": "EXOCET TWO",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 1
+    },
+    {
+      "file": "AZ25-119 BLUE STAR.xlsx",
+      "raftSerial": "",
+      "shipName": "BLUE STAR",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-120ALFIE4.xlsx",
+      "raftSerial": "",
+      "shipName": "ALFIE4",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-121 CRUZEIRO DO ILHEU2.xlsx",
+      "raftSerial": "",
+      "shipName": "CRUZEIRO DO ILHEU2",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-122 CRUZEIRO DO ILHEU1.xlsx",
+      "raftSerial": "",
+      "shipName": "CRUZEIRO DO ILHEU1",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-125 MSEPDL.xlsx",
+      "raftSerial": "5017230300032",
+      "shipName": "MSE",
+      "emergencyPackType": "SIMP RED",
+      "validitiesCount": 9
+    },
+    {
+      "file": "AZ25-126 VILAÇOR.xlsx",
+      "raftSerial": "4253300400016",
+      "shipName": "VILAÇOR",
+      "emergencyPackType": "SIMPL. E",
+      "validitiesCount": 11
+    },
+    {
+      "file": "AZ25-127 MSE NEUZAMAR.xlsx",
+      "raftSerial": "4153300400018",
+      "shipName": "NEUZAMAR",
+      "emergencyPackType": "SIMP. REDUZ.",
+      "validitiesCount": 10
+    },
+    {
+      "file": "AZ25-128 BRASILIA.xlsx",
+      "raftSerial": "",
+      "shipName": "BRASILIA",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-129 SCUBATUR.xlsx",
+      "raftSerial": "",
+      "shipName": "SCUBATUR",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-130 SCUBATUR.xlsx",
+      "raftSerial": "",
+      "shipName": "SCUBATUR",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-131 MARFISA.xlsx",
+      "raftSerial": "PLF-10-F0433",
+      "shipName": "OCEAN CAY",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-132 TANTOMAR.xlsx",
+      "raftSerial": "7913824",
+      "shipName": "TANTOMAR",
+      "emergencyPackType": "STD",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-133 LUKY STIKE SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "LUKY STIKE SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-134 S. JORGE SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "S. JORGE SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-136 VASQUINHO.xlsx",
+      "raftSerial": "5017230300498",
+      "shipName": "VASQUINHO",
+      "emergencyPackType": "R",
+      "validitiesCount": 4
+    },
+    {
+      "file": "AZ25-137 MORFEU.xlsx",
+      "raftSerial": "",
+      "shipName": "MORFEU",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-138 AITAS.xlsx",
+      "raftSerial": "",
+      "shipName": "AITAS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-139 SANROIZ.xlsx",
+      "raftSerial": "",
+      "shipName": "SANROIZ",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-140 PEROLA DA PRAIA.xlsx",
+      "raftSerial": "XDC8DL59I203",
+      "shipName": "PEROLA DA PRAIA",
+      "emergencyPackType": "COASTAL",
+      "validitiesCount": 9
+    },
+    {
+      "file": "AZ25-141 TEAM MAP X.xlsx",
+      "raftSerial": "",
+      "shipName": "TEAM MAP X",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-142 RABÃO.xlsx",
+      "raftSerial": "XDCAHV36E303",
+      "shipName": "RABÃO",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 7
+    },
+    {
+      "file": "AZ25-143 MESTRE MELO.xlsx",
+      "raftSerial": "5017330300080",
+      "shipName": "MESTRE MELO",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-144  LUANA.xlsx",
+      "raftSerial": "",
+      "shipName": "LUANA",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-145 DOM PACO.xlsx",
+      "raftSerial": "",
+      "shipName": "DOM PACO",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-146 DORA SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "DORA SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-147 GARAJAU DOS A.xlsx",
+      "raftSerial": "791161284",
+      "shipName": "GARAJAU DOS",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-148 GARAJAU DOS B.xlsx",
+      "raftSerial": "79116159",
+      "shipName": "GARAJAU DOS",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-149 GARAJAU DOS C.xlsx",
+      "raftSerial": "791161281",
+      "shipName": "GARAJAU DOS",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-150 GARAJAU DOS D.xlsx",
+      "raftSerial": "79151158",
+      "shipName": "GARAJAU DOS",
+      "emergencyPackType": "< 24H",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-150 NANNY.xlsx",
+      "raftSerial": "1902006126",
+      "shipName": "NANNY",
+      "emergencyPackType": "STD",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-151 CAROLINA I.xlsx",
+      "raftSerial": "",
+      "shipName": "CAROLINA I",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-152 ILHEU AZUL.xlsx",
+      "raftSerial": "XDC7GB83B717",
+      "shipName": "ILHEU AZUL",
+      "emergencyPackType": "SIM",
+      "validitiesCount": 8
+    },
+    {
+      "file": "AZ25-153 DRAGÃO AZUL.xlsx",
+      "raftSerial": "4153000400085",
+      "shipName": "DRAGÃO AZUL",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 9
+    },
+    {
+      "file": "AZ25-154 MESTRE ANTONIO.xlsx",
+      "raftSerial": "5017330300081",
+      "shipName": "MESTRE ANTONIO",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 4
+    },
+    {
+      "file": "AZ25-155 BAIA DA CRÉ.xlsx",
+      "raftSerial": "50172303S7542",
+      "shipName": "BAIA DA CRÉ",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-156 VANY SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "VANY SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-157 PETER A.xlsx",
+      "raftSerial": "",
+      "shipName": "PETER A",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-158 PETER B.xlsx",
+      "raftSerial": "",
+      "shipName": "PETER B",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-159 SEMPRE A FIO.xlsx",
+      "raftSerial": "",
+      "shipName": "SEMPRE A FIO",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-160 MARRACHINHO.xlsx",
+      "raftSerial": "60894",
+      "shipName": "MARRACHINHO",
+      "emergencyPackType": "SOLAS \"B\"",
+      "validitiesCount": 12
+    },
+    {
+      "file": "AZ25-161 MIKUNI SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "MIKUNI SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-162 CAVEIREX SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "CAVEIREX SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-163 MARIA DEL MAR SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "MARIA DEL MAR SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-164 OLEM SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "OLEM SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-165 ZIG ZAGUE.xlsx",
+      "raftSerial": "79211523",
+      "shipName": "ZIG ZAGUE",
+      "emergencyPackType": "<24H",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-166 ODILIA DE FATIMA.xlsx",
+      "raftSerial": "",
+      "shipName": "ODILIA DE FATIMA",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-167 FAMILIA CAMARA.xlsx",
+      "raftSerial": "50172303S6959",
+      "shipName": "FAMILIA CAMARA",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 4
+    },
+    {
+      "file": "AZ25-168 RAINHA DA MONTANHA.xlsx",
+      "raftSerial": "5017230100003",
+      "shipName": "RAINHA DA MONTANHA",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-169 BOM BARQUEIRO.xlsx",
+      "raftSerial": "5017230300505",
+      "shipName": "BOM BARQUEIRO",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-170 MARIA SANTA 1.xlsx",
+      "raftSerial": "",
+      "shipName": "MARIA SANTA 1",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-171 PARADISE.xlsx",
+      "raftSerial": "",
+      "shipName": "PARADISE",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-172 CACHALOTE I.xlsx",
+      "raftSerial": "",
+      "shipName": "CACHALOTE I",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-173 INKA SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "INKA SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-174 RAINHA DA CALHETA.xlsx",
+      "raftSerial": "5017230300206",
+      "shipName": "RAINHA DA CALHETA",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 4
+    },
+    {
+      "file": "AZ25-175 EDUINO JOAO.xlsx",
+      "raftSerial": "5017330300087",
+      "shipName": "EDUINO JOÃO",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-176 PLANADOR SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "PLANADOR SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-177 PLANADOR SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "PLANADOR SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-178 PLANADOR SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "PLANADOR SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-179 PLANADOR SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "PLANADOR SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-180 EUROPA.xlsx",
+      "raftSerial": "5085810100573",
+      "shipName": "EUROPA",
+      "emergencyPackType": "SOLAS B",
+      "validitiesCount": 11
+    },
+    {
+      "file": "AZ25-181 BARRAMAR SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "BARRAMAR SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-182 DRAGAOCIDENTAL A.xlsx",
+      "raftSerial": "4581700301444",
+      "shipName": "DRAGAOCIDENTAL",
+      "emergencyPackType": "SIMPL. E",
+      "validitiesCount": 10
+    },
+    {
+      "file": "AZ25-183 SÃO PEDRO GONÇALVES.xlsx",
+      "raftSerial": "",
+      "shipName": "SÃO PEDRO GONÇALVES",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-184 BELUGA SOS.xlsx",
+      "raftSerial": "",
+      "shipName": "BELUGA SOS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-185 FAMILIA MEDEIROS.xlsx",
+      "raftSerial": "5017330300321",
+      "shipName": "FAMILIA MEDEIROS",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-186 SERGIO FABIO.xlsx",
+      "raftSerial": "",
+      "shipName": "SERGIO FABIO",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-187 SAO JORGE.xlsx",
+      "raftSerial": "5086310502760",
+      "shipName": "SÃO JORGE",
+      "emergencyPackType": "SOLAS A",
+      "validitiesCount": 12
+    },
+    {
+      "file": "AZ25-188 TRES PASTORINHOS.xlsx",
+      "raftSerial": "5017520300206",
+      "shipName": "TRES PASTORINHOS",
+      "emergencyPackType": "E",
+      "validitiesCount": 7
+    },
+    {
+      "file": "AZ25-189 SAO JORGE.xlsx",
+      "raftSerial": "5086310502760",
+      "shipName": "SÃO JORGE",
+      "emergencyPackType": "SOLAS A",
+      "validitiesCount": 12
+    },
+    {
+      "file": "AZ25-190 MESTRE JOSE.xlsx",
+      "raftSerial": "XDC5FD27H818",
+      "shipName": "MESTRE JOSE",
+      "emergencyPackType": "COASTAL",
+      "validitiesCount": 8
+    },
+    {
+      "file": "AZ25-191 RUMAR.xlsx",
+      "raftSerial": "5017230300308",
+      "shipName": "RUMAR",
+      "emergencyPackType": "REDUZ.",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-192 RINQUINHO.xlsx",
+      "raftSerial": "5017230300170",
+      "shipName": "RINQUINHO",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-193 ARPÃO DAS FLORES.xlsx",
+      "raftSerial": "LC22008",
+      "shipName": "ARPÃO DAS FLORES",
+      "emergencyPackType": "STD",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-194 GARANTIA.xlsx",
+      "raftSerial": "5017330300495",
+      "shipName": "GARANTIA",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 4
+    },
+    {
+      "file": "AZ25-195 PAPILLON.xlsx",
+      "raftSerial": "",
+      "shipName": "PAPILLON",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-196 SOL DO ORIENTE.xlsx",
+      "raftSerial": "5017320300116",
+      "shipName": "SOL DO ORIENTE",
+      "emergencyPackType": "E",
+      "validitiesCount": 8
+    },
+    {
+      "file": "AZ25-197 SÃO DOMINGOS.xlsx",
+      "raftSerial": "5017330300365",
+      "shipName": "SÃO DOMINGOS",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-198 OBBI I.xlsx",
+      "raftSerial": "",
+      "shipName": "OBBI I",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-199 SANTA IRIA I.xlsx",
+      "raftSerial": "",
+      "shipName": "SANTA IRIA I",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-200 JOSSE VAN HURTERE.xlsx",
+      "raftSerial": "",
+      "shipName": "JOSSE VAN HURTERE",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-201 DIOGO DE TEIVE.xlsx",
+      "raftSerial": "",
+      "shipName": "DIOGO DE TEIVE",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-202 PORTAS DO MAR.xlsx",
+      "raftSerial": "",
+      "shipName": "PORTAS DO MAR",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-203 GORAZ DA MEDIDA.xlsx",
+      "raftSerial": "",
+      "shipName": "GORAZ DA MEDIDA",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-203 SANTO CRISTO 1.xlsx",
+      "raftSerial": "",
+      "shipName": "SANTO CRISTO 1",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-205 PESCA AÇORES.xlsx",
+      "raftSerial": "4583200300158",
+      "shipName": "PESCA AÇORES",
+      "emergencyPackType": "SIMP.",
+      "validitiesCount": 10
+    },
+    {
+      "file": "AZ25-206 GUERNICA.xlsx",
+      "raftSerial": "",
+      "shipName": "GUERNICA",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-207 TIBERIO BLANC.xlsx",
+      "raftSerial": "",
+      "shipName": "TIBERIO BLANC",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-208 ILHA DE SAO LUIS.xlsx",
+      "raftSerial": "",
+      "shipName": "ILHA DE SAO LUIS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-209 ILHA DE SAO LUIS.xlsx",
+      "raftSerial": "",
+      "shipName": "ILHA DE SAO LUIS",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-210 CONDE DO MAR.xlsx",
+      "raftSerial": "50173330300329",
+      "shipName": "CONDE DO MAR",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 6
+    },
+    {
+      "file": "AZ25-211 ANJO DA NOITE.xlsx",
+      "raftSerial": "5017330300304",
+      "shipName": "ANJO DA NOITE",
+      "emergencyPackType": "R",
+      "validitiesCount": 4
+    },
+    {
+      "file": "AZ25-212 PONTA DA BARCA (2).xlsx",
+      "raftSerial": "13112033",
+      "shipName": "PONTA DA BARCA",
+      "emergencyPackType": "SOLAS B",
+      "validitiesCount": 10
+    },
+    {
+      "file": "AZ25-213 PONTA DA BARCA.xlsx",
+      "raftSerial": "",
+      "shipName": "PONTA DA BARCA",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-214 SAULO.xlsx",
+      "raftSerial": "5017330300074",
+      "shipName": "SAULO",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 4
+    },
+    {
+      "file": "AZ25-215 BEATRIZ REBELO.xlsx",
+      "raftSerial": "5017330300086",
+      "shipName": "BEATRIZ REBELO",
+      "emergencyPackType": "MIN",
+      "validitiesCount": 4
+    },
+    {
+      "file": "AZ25-216 RONDÃO.xlsx",
+      "raftSerial": "5017330300355",
+      "shipName": "RONDÃO",
+      "emergencyPackType": "R",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-217 PÃO SAGRADO.xlsx",
+      "raftSerial": "5017330300356",
+      "shipName": "PÃO SAGRADO",
+      "emergencyPackType": "R",
+      "validitiesCount": 5
+    },
+    {
+      "file": "AZ25-217 PAULO DA GAMA.xlsx",
+      "raftSerial": "",
+      "shipName": "PAULO DA GAMA",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-218 PAULO DA GAMA A.xlsx",
+      "raftSerial": "",
+      "shipName": "PAULO DA GAMA A",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-219 CORSÁRIO.xlsx",
+      "raftSerial": "",
+      "shipName": "CORSÁRIO",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-220 AÇOR.xlsx",
+      "raftSerial": "",
+      "shipName": "AÇOR",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-221 AÇOR.xlsx",
+      "raftSerial": "",
+      "shipName": "AÇOR",
+      "emergencyPackType": "",
+      "validitiesCount": 0
+    },
+    {
+      "file": "AZ25-222 MESTRE GAROUPA.xlsx",
+      "raftSerial": "5017330300348",
+      "shipName": "MESTRE GAROUPA",
+      "emergencyPackType": "R",
+      "validitiesCount": 4
+    },
+    {
+      "file": "AZ25-223 ANDRE E TIAGO.xlsx",
+      "raftSerial": "42458000300468",
+      "shipName": "ANDRÉ E TIAGO",
+      "emergencyPackType": "SIMPL. REDUZ.",
+      "validitiesCount": 9
+    },
+    {
+      "file": "AZ25-223 CAFRE.xlsx",
+      "raftSerial": "15118016",
+      "shipName": "CAFRE",
+      "emergencyPackType": "STD",
+      "validitiesCount": 2
+    },
+    {
+      "file": "AZ25-224 MESTRE PEIXOTO.xlsx",
+      "raftSerial": "5017310300013",
+      "shipName": "MESTRE PEIXOTO",
+      "emergencyPackType": "SIMP. REDUZ.",
+      "validitiesCount": 8
+    }
+  ]
+}

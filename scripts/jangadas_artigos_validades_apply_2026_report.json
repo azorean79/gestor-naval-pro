@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-03-18T15:08:53.993Z",
+  "sourceFile": "scripts\\jangadas_pack_validades_2026.json",
+  "processedRows": 55,
+  "rowsWithQuadro": 39,
+  "matchedRows": 37,
+  "matchedByExactSerial": 37,
+  "matchedByNormalizedSerial": 0,
+  "matchedByUniqueShip": 0,
+  "unmatchedRows": 2,
+  "updatedJangadas": 37,
+  "packTypeUpdated": 19,
+  "ownerUpdated": 16,
+  "inspectionFieldsUpdated": 36,
+  "inspecoesUpserted": 37,
+  "artigosUpdated": 28,
+  "artigosCreated": 73,
+  "artigosWithoutDate": 0,
+  "certValidadesUpserted": 183,
+  "unmatched": [
+    {
+      "file": "AZ26-004 JOHANNA.xlsx",
+      "serial": "",
+      "shipName": "JOAHANNA",
+      "certNumber": "AZ26-004"
+    },
+    {
+      "file": "AZ26-026 AVANTI.xlsx",
+      "serial": "",
+      "shipName": "AVANTI",
+      "certNumber": "AZ26-026"
+    }
+  ]
+}

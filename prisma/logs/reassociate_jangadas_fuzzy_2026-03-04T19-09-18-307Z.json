@@ -1,0 +1,625 @@
+{
+  "generatedAt": "2026-03-04T19:09:18.308Z",
+  "total": 103,
+  "updated": 45,
+  "results": [
+    {
+      "id": 2,
+      "matchedSerial": "791900023",
+      "score": 0.6666666666666666,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 36,
+      "matchedSerial": "5086210101268",
+      "score": 0.38461538461538464,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 33,
+      "matchedSerial": "5017330300347",
+      "score": 0.35714285714285715,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 34,
+      "matchedSerial": "5086010100346",
+      "score": 0.42857142857142855,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 35,
+      "matchedSerial": "50173303S7234",
+      "score": 0.15384615384615385,
+      "kind": "serial"
+    },
+    {
+      "id": 40,
+      "matchedSerial": "4581600300040",
+      "score": 0.5,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 38,
+      "matchedSerial": "XDC1CY73C0000",
+      "score": 0.6153846153846154,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 39,
+      "matchedSerial": "PL-12-F0294",
+      "score": 0.5555555555555556,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 42,
+      "matchedSerial": "791900023",
+      "score": 0.5555555555555556,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 43,
+      "matchedSerial": "14041018",
+      "score": 0.5,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 44,
+      "matchedSerial": "14041018",
+      "score": 0.375,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 45,
+      "matchedSerial": "5085810204307",
+      "score": 0.38461538461538464,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 46,
+      "matchedSerial": "4581600300040",
+      "score": 0.38461538461538464,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 49,
+      "matchedSerial": "4581600300040",
+      "score": 0.5,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 50,
+      "matchedSerial": "5017330300014",
+      "score": 0.46153846153846156,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 56,
+      "matchedSerial": "5017330300014",
+      "score": 0.15384615384615385,
+      "kind": "serial"
+    },
+    {
+      "id": 57,
+      "matchedSerial": "5017330300014",
+      "score": 0.07692307692307693,
+      "kind": "serial"
+    },
+    {
+      "id": 95,
+      "matchedSerial": "5017330300346",
+      "score": 0.23076923076923078,
+      "kind": "serial"
+    },
+    {
+      "id": 60,
+      "matchedSerial": "5085810204307",
+      "score": 0.23076923076923078,
+      "kind": "serial"
+    },
+    {
+      "id": 61,
+      "matchedSerial": "50172303S7541",
+      "score": 0.38461538461538464,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 66,
+      "matchedSerial": "29133Y0006",
+      "score": 0.7,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 67,
+      "matchedSerial": "5017330300330",
+      "score": 0.07692307692307693,
+      "kind": "serial"
+    },
+    {
+      "id": 68,
+      "matchedSerial": "5017330300076",
+      "score": 0.23076923076923078,
+      "kind": "serial"
+    },
+    {
+      "id": 70,
+      "matchedSerial": "5017330300330",
+      "score": 0.07692307692307693,
+      "kind": "serial"
+    },
+    {
+      "id": 71,
+      "matchedSerial": "4581600300040",
+      "score": 0.6923076923076923,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 72,
+      "matchedSerial": "791900023",
+      "score": 0.5555555555555556,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 73,
+      "matchedSerial": "PL-12-F0294",
+      "score": 0.5555555555555556,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 74,
+      "matchedSerial": "5017330300346",
+      "score": 0.3076923076923077,
+      "kind": "serial"
+    },
+    {
+      "id": 77,
+      "matchedSerial": "29133Y0006",
+      "score": 0.4,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 79,
+      "matchedSerial": "PL-12-F0294",
+      "score": 0.3333333333333333,
+      "kind": "serial"
+    },
+    {
+      "id": 80,
+      "matchedSerial": "PL-12-F0294",
+      "score": 0.3333333333333333,
+      "kind": "serial"
+    },
+    {
+      "id": 81,
+      "matchedSerial": "50172303S7541",
+      "score": 0.15384615384615385,
+      "kind": "serial"
+    },
+    {
+      "id": 82,
+      "matchedSerial": "5086010100346",
+      "score": 0.3076923076923077,
+      "kind": "serial"
+    },
+    {
+      "id": 84,
+      "matchedSerial": "4581600300040",
+      "score": 0.3076923076923077,
+      "kind": "serial"
+    },
+    {
+      "id": 85,
+      "matchedSerial": "14041018",
+      "score": 0.375,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 86,
+      "matchedSerial": "5086010100346",
+      "score": 0.38461538461538464,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 87,
+      "matchedSerial": "5085810204307",
+      "score": 0.38461538461538464,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 88,
+      "matchedSerial": "5017330300324",
+      "score": 0.14285714285714285,
+      "kind": "serial"
+    },
+    {
+      "id": 89,
+      "matchedSerial": "5017330300330",
+      "score": 0.23076923076923078,
+      "kind": "serial"
+    },
+    {
+      "id": 91,
+      "matchedSerial": "791900023",
+      "score": 0.4444444444444444,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 92,
+      "matchedSerial": "791900023",
+      "score": 0.4444444444444444,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 93,
+      "matchedSerial": "PL-12-F0294",
+      "score": 0.2222222222222222,
+      "kind": "serial"
+    },
+    {
+      "id": 94,
+      "matchedSerial": "PL-12-F0294",
+      "score": 0.3,
+      "kind": "serial"
+    },
+    {
+      "id": 103,
+      "matchedSerial": "PL-12-F0294",
+      "score": 0.5,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 96,
+      "matchedSerial": "791900023",
+      "score": 0.4444444444444444,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 97,
+      "matchedSerial": "791900023",
+      "score": 0.4444444444444444,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 98,
+      "matchedSerial": "791900023",
+      "score": 0.4444444444444444,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 102,
+      "matchedSerial": "52813",
+      "score": 0.6,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 115,
+      "matchedSerial": "PL-12-F0294",
+      "score": 0.5,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 104,
+      "matchedSerial": "79210383",
+      "score": 0.5,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 109,
+      "matchedSerial": "5017330300324",
+      "score": 0.23076923076923078,
+      "kind": "serial"
+    },
+    {
+      "id": 110,
+      "matchedSerial": "29133Y0006",
+      "score": 0.5384615384615384,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 111,
+      "matchedSerial": "5017330300014",
+      "score": 0.46153846153846156,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 116,
+      "matchedSerial": "791900024",
+      "score": 0.4444444444444444,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 119,
+      "matchedSerial": "5017330300324",
+      "score": 0.3076923076923077,
+      "kind": "serial"
+    },
+    {
+      "id": 123,
+      "matchedSerial": "XDC4ES74I809",
+      "score": 0.5833333333333334,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 178,
+      "matchedSerial": "5017330300324",
+      "score": 0.23076923076923078,
+      "kind": "serial"
+    },
+    {
+      "id": 180,
+      "matchedSerial": "5017420300111",
+      "score": 0.15384615384615385,
+      "kind": "serial"
+    },
+    {
+      "id": 181,
+      "matchedSerial": "5017330300324",
+      "score": 0.15384615384615385,
+      "kind": "serial"
+    },
+    {
+      "id": 189,
+      "matchedSerial": "4581600300040",
+      "score": 0.38461538461538464,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 125,
+      "matchedSerial": "XDC1CY73C0000",
+      "score": 0.6153846153846154,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 126,
+      "matchedSerial": "5017330300330",
+      "score": 0.15384615384615385,
+      "kind": "serial"
+    },
+    {
+      "id": 130,
+      "matchedSerial": "791900024",
+      "score": 0.5555555555555556,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 131,
+      "matchedSerial": "79210383",
+      "score": 0.625,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 132,
+      "matchedSerial": "79210383",
+      "score": 0.5555555555555556,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 133,
+      "matchedSerial": "79210383",
+      "score": 0.625,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 134,
+      "matchedSerial": "14041018",
+      "score": 0.6,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 136,
+      "matchedSerial": "XDC5FD34K616",
+      "score": 0.6666666666666666,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 137,
+      "matchedSerial": "4581600300040",
+      "score": 0.5384615384615384,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 138,
+      "matchedSerial": "5017330300014",
+      "score": 0.15384615384615385,
+      "kind": "serial"
+    },
+    {
+      "id": 139,
+      "matchedSerial": "50172303S7541",
+      "score": 0.07692307692307693,
+      "kind": "serial"
+    },
+    {
+      "id": 144,
+      "matchedSerial": "PL-12-F0294",
+      "score": 0.6666666666666666,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 149,
+      "matchedSerial": "79210383",
+      "score": 0.375,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 151,
+      "matchedSerial": "50172303S7541",
+      "score": 0.3076923076923077,
+      "kind": "serial"
+    },
+    {
+      "id": 152,
+      "matchedSerial": "5017330300014",
+      "score": 0.3076923076923077,
+      "kind": "serial"
+    },
+    {
+      "id": 153,
+      "matchedSerial": "5017330300324",
+      "score": 0.3076923076923077,
+      "kind": "serial"
+    },
+    {
+      "id": 158,
+      "matchedSerial": "5017330300346",
+      "score": 0.23076923076923078,
+      "kind": "serial"
+    },
+    {
+      "id": 159,
+      "matchedSerial": "5017330300347",
+      "score": 0.15384615384615385,
+      "kind": "serial"
+    },
+    {
+      "id": 164,
+      "matchedSerial": "5085810204307",
+      "score": 0.38461538461538464,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 166,
+      "matchedSerial": "4581600300040",
+      "score": 0.3076923076923077,
+      "kind": "serial"
+    },
+    {
+      "id": 169,
+      "matchedSerial": "5017330300324",
+      "score": 0.07692307692307693,
+      "kind": "serial"
+    },
+    {
+      "id": 172,
+      "matchedSerial": "5017330300346",
+      "score": 0.3076923076923077,
+      "kind": "serial"
+    },
+    {
+      "id": 174,
+      "matchedSerial": "XDC5FD34K616",
+      "score": 0.4166666666666667,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 175,
+      "matchedSerial": "5017330300324",
+      "score": 0.23076923076923078,
+      "kind": "serial"
+    },
+    {
+      "id": 176,
+      "matchedSerial": "5017330300330",
+      "score": 0.23076923076923078,
+      "kind": "serial"
+    },
+    {
+      "id": 177,
+      "matchedSerial": "79210383",
+      "score": 0.625,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 194,
+      "matchedSerial": "5017330300324",
+      "score": 0.14285714285714285,
+      "kind": "serial"
+    },
+    {
+      "id": 1,
+      "matchedSerial": "14041018",
+      "score": 0.625,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 195,
+      "matchedSerial": "5017330300324",
+      "score": 0.07692307692307693,
+      "kind": "serial"
+    },
+    {
+      "id": 171,
+      "matchedSerial": "5086210101268",
+      "score": 0.38461538461538464,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 173,
+      "matchedSerial": "5086210101268",
+      "score": 0.38461538461538464,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 196,
+      "matchedSerial": "5017330300330",
+      "score": 0.6153846153846154,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 208,
+      "matchedSerial": "4581600300040",
+      "score": 0.5,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 59,
+      "matchedSerial": "XDC5FD34K616",
+      "score": 0.4166666666666667,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 198,
+      "matchedSerial": "5017330300014",
+      "score": 0.07692307692307693,
+      "kind": "serial"
+    },
+    {
+      "id": 65,
+      "matchedSerial": "52813",
+      "score": 0.6,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 100,
+      "matchedSerial": "5017330300346",
+      "score": 0.23076923076923078,
+      "kind": "serial"
+    },
+    {
+      "id": 199,
+      "matchedSerial": "5017330300076",
+      "score": 0.07692307692307693,
+      "kind": "serial"
+    },
+    {
+      "id": 200,
+      "matchedSerial": "5017330300359",
+      "score": 0.07692307692307693,
+      "kind": "serial"
+    },
+    {
+      "id": 201,
+      "matchedSerial": "5017330300346",
+      "score": 0.07692307692307693,
+      "kind": "serial"
+    },
+    {
+      "id": 207,
+      "matchedSerial": "5017330300346",
+      "score": 0.07692307692307693,
+      "kind": "serial"
+    },
+    {
+      "id": 209,
+      "matchedSerial": "14041018",
+      "score": 0.625,
+      "reason": "no-good-match"
+    },
+    {
+      "id": 210,
+      "matchedSerial": "5017330300014",
+      "score": 0.15384615384615385,
+      "kind": "serial"
+    }
+  ]
+}

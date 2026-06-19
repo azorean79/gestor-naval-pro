@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-03-10T14:46:50.589Z",
+  "total": 204,
+  "semMatch": 3,
+  "topUnmatched": [
+    {
+      "key": "VIKING | VIKING 10DK+ | 10",
+      "qty": 2
+    },
+    {
+      "key": "ALMAR |  COASTAL | 6",
+      "qty": 1
+    }
+  ],
+  "rows": [
+    {
+      "serial": "LC22008",
+      "brand": "ALMAR",
+      "model": " COASTAL",
+      "capacity": 6
+    },
+    {
+      "serial": "R180103",
+      "brand": "VIKING",
+      "model": "VIKING 10DK+",
+      "capacity": 10
+    },
+    {
+      "serial": "U160203",
+      "brand": "VIKING",
+      "model": "VIKING 10DK+",
+      "capacity": 10
+    }
+  ]
+}

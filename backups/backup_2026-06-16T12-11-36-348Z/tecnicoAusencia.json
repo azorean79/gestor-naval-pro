@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "tecnicoKey": "alex-santos",
+    "tipo": "ferias",
+    "dataInicio": "2026-06-11T00:00:00.000Z",
+    "dataFim": "2026-06-12T23:59:59.999Z",
+    "motivo": "ferias",
+    "createdAt": "2026-06-11T23:12:40.512Z",
+    "updatedAt": "2026-06-11T23:12:40.512Z",
+    "tecnicoId": null
+  }
+]

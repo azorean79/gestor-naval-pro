@@ -1,0 +1,76 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+.vercel
+.env*.local
+
+# temporary files
+tmp_*
+tsc-output.txt
+*.log
+
+# build folders
+prisma_build/
+prisma_dist/
+dist/
+generated/
+
+# backup files
+backup_*.json
+backup_*.js
+
+# data dumps
+db_dump.*
+*.csv
+*.xlsx
+
+# processed PDFs
+OMT*.pdf
+*Despacho*.pdf
+*.pdf
+
+# shortcuts
+*.lnk
+
+.vercel
+.env*.local
+SafeStation_1.0/

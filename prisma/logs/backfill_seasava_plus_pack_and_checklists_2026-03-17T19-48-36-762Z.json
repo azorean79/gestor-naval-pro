@@ -1,0 +1,900 @@
+{
+  "generatedAt": "2026-03-17T19:48:36.762Z",
+  "apply": true,
+  "targetIds": [],
+  "scanned": 211,
+  "matchedSeasavaPlus": 74,
+  "packUpdates": 60,
+  "articleUpdates": 73,
+  "checklistUpdates": 74,
+  "report": [
+    {
+      "id": 179,
+      "serial": "4581600300040",
+      "packType": {
+        "from": "R",
+        "to": "R",
+        "changed": false
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": false,
+      "checklistChanged": true
+    },
+    {
+      "id": 180,
+      "serial": "50172303S7541",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 181,
+      "serial": "5017330300014",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 182,
+      "serial": "5017330300076",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 183,
+      "serial": "5017330300314",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 184,
+      "serial": "5017330300324",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 185,
+      "serial": "5017330300330",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 186,
+      "serial": "5017330300334",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 187,
+      "serial": "5017330300346",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 188,
+      "serial": "5017330300347",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 189,
+      "serial": "5017330300359",
+      "packType": {
+        "from": "R",
+        "to": "R",
+        "changed": false
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 190,
+      "serial": "50173303S7234",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 191,
+      "serial": "50173303S7530",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 192,
+      "serial": "5017420300021",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 193,
+      "serial": "5017420300111",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 236,
+      "serial": "50175200300207",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 238,
+      "serial": "50173103S7237",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 243,
+      "serial": "42458000300468",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 253,
+      "serial": "4153300400019",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 259,
+      "serial": "501733300015",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 260,
+      "serial": "5017330300017",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 264,
+      "serial": "50175203S7193",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 265,
+      "serial": "5017310300021",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 266,
+      "serial": "5017210300013",
+      "packType": {
+        "from": "R",
+        "to": "R",
+        "changed": false
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 267,
+      "serial": "5017120300040",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 270,
+      "serial": "5017330300350",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 271,
+      "serial": "5017210300006",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 273,
+      "serial": "5017330300338",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 277,
+      "serial": "5017210300042",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 278,
+      "serial": "45817003000510",
+      "packType": {
+        "from": "R",
+        "to": "R",
+        "changed": false
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 284,
+      "serial": "50173303S7241",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 286,
+      "serial": "5017130100016",
+      "packType": {
+        "from": "R",
+        "to": "R",
+        "changed": false
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 287,
+      "serial": "4581700301441",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 291,
+      "serial": "5017330300321A",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 292,
+      "serial": "5017230300540",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 298,
+      "serial": "5017230300542",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 302,
+      "serial": "5017330300079",
+      "packType": {
+        "from": "R",
+        "to": "R",
+        "changed": false
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 310,
+      "serial": "5017330300026",
+      "packType": {
+        "from": "R",
+        "to": "R",
+        "changed": false
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 313,
+      "serial": "4253300400016",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 314,
+      "serial": "4153300400018",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 322,
+      "serial": "5017230300498",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 329,
+      "serial": "5017330300080",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 330,
+      "serial": "50172203S6697",
+      "packType": {
+        "from": "R",
+        "to": "R",
+        "changed": false
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 340,
+      "serial": "4153000400085",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 341,
+      "serial": "5017330300081",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 342,
+      "serial": "50172303S7542",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 354,
+      "serial": "50172303S6959",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 355,
+      "serial": "5017230100003",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 356,
+      "serial": "5017230300505",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 357,
+      "serial": "5017330300331",
+      "packType": {
+        "from": "R",
+        "to": "R",
+        "changed": false
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 361,
+      "serial": "5017230300206",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 362,
+      "serial": "5017330300087",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 369,
+      "serial": "4581700301444",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 370,
+      "serial": "5017330300138",
+      "packType": {
+        "from": "N/D",
+        "to": "N/D",
+        "changed": false
+      },
+      "mandatoryItems": 15,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 372,
+      "serial": "5017330300321",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 373,
+      "serial": "4153000400084",
+      "packType": {
+        "from": "R",
+        "to": "R",
+        "changed": false
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 375,
+      "serial": "5017520300206",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 378,
+      "serial": "5017230300308",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 379,
+      "serial": "5017230300170",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 381,
+      "serial": "5017330300495",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 383,
+      "serial": "5017320300116",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 384,
+      "serial": "5017330300365",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 391,
+      "serial": "5017210100026",
+      "packType": {
+        "from": "N/D",
+        "to": "N/D",
+        "changed": false
+      },
+      "mandatoryItems": 15,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 392,
+      "serial": "4583200300158",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 393,
+      "serial": "4581700300516",
+      "packType": {
+        "from": "R",
+        "to": "R",
+        "changed": false
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 394,
+      "serial": "50173303000349",
+      "packType": {
+        "from": "R",
+        "to": "R",
+        "changed": false
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 397,
+      "serial": "50173330300329",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 398,
+      "serial": "5017330300304",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 401,
+      "serial": "5017330300074",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 402,
+      "serial": "5017330300086",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 403,
+      "serial": "5017330300355",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 404,
+      "serial": "5017330300356",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 410,
+      "serial": "5017330300348",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    },
+    {
+      "id": 413,
+      "serial": "5017310300013",
+      "packType": {
+        "from": "SIMPLIFICADO MÍNIMO",
+        "to": "R",
+        "changed": true
+      },
+      "mandatoryItems": 19,
+      "articlesChanged": true,
+      "checklistChanged": true
+    }
+  ]
+}

@@ -1,0 +1,770 @@
+[
+  {
+    "part_number": "06727009",
+    "description": "Lamp unit, inner (RL1) - Archtube assembly",
+    "category": "Iluminação",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "06726009",
+    "description": "Lamp unit, position indicating (RL4) - Canopy assembly",
+    "category": "Iluminação",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "06729009",
+    "description": "Power Unit, Marine - Inner Canopy",
+    "category": "Iluminação",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "08279009",
+    "description": "Internal lamp unit (RL5) - Bottom centre line of archtube",
+    "category": "Iluminação",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "08280009",
+    "description": "External lamp unit (RL5) - Top of canopy",
+    "category": "Iluminação",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "45932001",
+    "description": "Line rescue and quoit assembly - Inner lifeline",
+    "category": "Equipamento de Bordo",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "11501009",
+    "description": "Quoit, handle - Line rescue and quoit assembly",
+    "category": "Equipamento de Bordo",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "45932011",
+    "description": "Strap, quoit line and rescue assembly",
+    "category": "Equipamento de Bordo",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "19019002",
+    "description": "Water pocket - Floor assembly",
+    "category": "Casco e Estrutura",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "45894001",
+    "description": "Ramp, Boarding, Marine - Upper/lower buoyancy",
+    "category": "Casco e Estrutura",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "04503009",
+    "description": "Knife, floating, DoT (UK) approved - Upper buoyancy, inside raft",
+    "category": "Equipamento de Bordo",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "05390001",
+    "description": "Plug, rubber, 5/16 in - Rain catchment tube assembly",
+    "category": "Casco e Estrutura",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "45510101",
+    "description": "Drogue (less swivel) - Drogue patch assembly",
+    "category": "Equipamento de Bordo",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "06716009",
+    "description": "Valve, inflation 2.8mm bore MkIII - Upper buoyancy",
+    "category": "Gás e Insuflação",
+    "notes": "All raft sizes - upper buoyancy"
+  },
+  {
+    "part_number": "06715009",
+    "description": "Valve, inflation 2.2mm bore MkIII - Lower buoyancy",
+    "category": "Gás e Insuflação",
+    "notes": "All raft sizes - lower buoyancy"
+  },
+  {
+    "part_number": "20431001",
+    "description": "Valve, A8/1 modified - Upper and lower buoyancy",
+    "category": "Gás e Insuflação",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "08152009",
+    "description": "Valve, pressure relief 2.90 p.s.i. (Thanner) - Upper and lower buoyancy",
+    "category": "Gás e Insuflação",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "08209009",
+    "description": "GIST Inlet check valve 2.2mm (Yellow) - Lower buoyancy (Leafield)",
+    "category": "Gás e Insuflação",
+    "notes": "All raft sizes - Leafield system"
+  },
+  {
+    "part_number": "08210009",
+    "description": "GIST Inlet check valve 2.8mm (Purple) - Upper buoyancy (Leafield)",
+    "category": "Gás e Insuflação",
+    "notes": "All raft sizes - Leafield system"
+  },
+  {
+    "part_number": "08223009",
+    "description": "GIST PRV A10 2.8 Psi - Upper and lower buoyancy (Leafield)",
+    "category": "Gás e Insuflação",
+    "notes": "All raft sizes - Leafield system"
+  },
+  {
+    "part_number": "10772009",
+    "description": "Nylon fabric RFD1015/1 (Black PU one face, min width 1500mm)",
+    "category": "Materiais de Reparação",
+    "notes": "For repair patches"
+  },
+  {
+    "part_number": "10773009",
+    "description": "Nylon fabric RFD1015/2 (Black PU both faces, min width 1500mm)",
+    "category": "Materiais de Reparação",
+    "notes": "For repair patches over bonded components"
+  },
+  {
+    "part_number": "50288001",
+    "description": "Floor retaining tab - Liferaft floor",
+    "category": "Casco e Estrutura",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "50207001",
+    "description": "Label, service record",
+    "category": "Etiquetas e Documentação",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "07909009",
+    "description": "Tape, reflective 50mm",
+    "category": "Etiquetas e Documentação",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "04760009",
+    "description": "Tape, reflective 50mm (alternative P/N)",
+    "category": "Etiquetas e Documentação",
+    "notes": "Alternative to 07909009"
+  },
+  {
+    "part_number": "45766011",
+    "description": "Strap, righting - 4 person Throwover",
+    "category": "Casco e Estrutura",
+    "notes": "4 person TO"
+  },
+  {
+    "part_number": "45766012",
+    "description": "Strap, righting - 6 person Throwover",
+    "category": "Casco e Estrutura",
+    "notes": "6 person TO"
+  },
+  {
+    "part_number": "45766013",
+    "description": "Strap, righting - 8 person Throwover",
+    "category": "Casco e Estrutura",
+    "notes": "8 person TO"
+  },
+  {
+    "part_number": "45766015",
+    "description": "Strap, righting - 10/12 person",
+    "category": "Casco e Estrutura",
+    "notes": "10/12 person TO"
+  },
+  {
+    "part_number": "45766016",
+    "description": "Strap, righting - 16 person",
+    "category": "Casco e Estrutura",
+    "notes": "16 person TO/DL"
+  },
+  {
+    "part_number": "45766017",
+    "description": "Strap, righting - 20 person Throwover",
+    "category": "Casco e Estrutura",
+    "notes": "20 person TO"
+  },
+  {
+    "part_number": "45766018",
+    "description": "Strap, righting - 20 person DL / 25 person TO and DL",
+    "category": "Casco e Estrutura",
+    "notes": "20 DL / 25 TO / 25 DL"
+  },
+  {
+    "part_number": "45894111",
+    "description": "Strap, attachment Boarding Ramp - 4 person",
+    "category": "Casco e Estrutura",
+    "notes": "4 person TO"
+  },
+  {
+    "part_number": "45894112",
+    "description": "Strap, attachment Boarding Ramp - 6 person",
+    "category": "Casco e Estrutura",
+    "notes": "6 person TO"
+  },
+  {
+    "part_number": "45894113",
+    "description": "Strap, attachment Boarding Ramp - 8 person",
+    "category": "Casco e Estrutura",
+    "notes": "8 person TO"
+  },
+  {
+    "part_number": "45894115",
+    "description": "Strap, attachment Boarding Ramp - 10/12 person",
+    "category": "Casco e Estrutura",
+    "notes": "10/12 person"
+  },
+  {
+    "part_number": "45894116",
+    "description": "Strap, attachment Boarding Ramp - 16 person",
+    "category": "Casco e Estrutura",
+    "notes": "16 person"
+  },
+  {
+    "part_number": "45894117",
+    "description": "Strap, attachment Boarding Ramp - 20 person TO",
+    "category": "Casco e Estrutura",
+    "notes": "20 person TO"
+  },
+  {
+    "part_number": "45894118",
+    "description": "Strap, attachment Boarding Ramp - 20 person DL / 25 person",
+    "category": "Casco e Estrutura",
+    "notes": "20 DL / 25 TO / 25 DL"
+  },
+  {
+    "part_number": "50065001",
+    "description": "Stay, strap Boarding Ramp - 4 person",
+    "category": "Casco e Estrutura",
+    "notes": "4 person"
+  },
+  {
+    "part_number": "50065002",
+    "description": "Stay, strap Boarding Ramp - 6 person",
+    "category": "Casco e Estrutura",
+    "notes": "6 person"
+  },
+  {
+    "part_number": "50065003",
+    "description": "Stay, strap Boarding Ramp - 8 person",
+    "category": "Casco e Estrutura",
+    "notes": "8 person"
+  },
+  {
+    "part_number": "50065005",
+    "description": "Stay, strap Boarding Ramp - 10/12 person",
+    "category": "Casco e Estrutura",
+    "notes": "10/12 person"
+  },
+  {
+    "part_number": "50065006",
+    "description": "Stay, strap Boarding Ramp - 16 person",
+    "category": "Casco e Estrutura",
+    "notes": "16 person"
+  },
+  {
+    "part_number": "50065007",
+    "description": "Stay, strap Boarding Ramp - 20 person TO",
+    "category": "Casco e Estrutura",
+    "notes": "20 person TO"
+  },
+  {
+    "part_number": "50065008",
+    "description": "Stay, strap Boarding Ramp - 20 person DL / 25 person",
+    "category": "Casco e Estrutura",
+    "notes": "20 DL / 25 TO / 25 DL"
+  },
+  {
+    "part_number": "45740001",
+    "description": "Strap, cylinder retaining - 4/6/8 person",
+    "category": "Gás e Insuflação",
+    "notes": "4/6/8 person"
+  },
+  {
+    "part_number": "45740002",
+    "description": "Strap, cylinder retaining - 10/12/16/20/25 person",
+    "category": "Gás e Insuflação",
+    "notes": "10-25 person"
+  },
+  {
+    "part_number": "05121009",
+    "description": "Paddle, one piece 815mm long - Mk10/Mk14/Mk20 containers",
+    "category": "Equipamento de Bordo",
+    "notes": "All MK10, MK14 & MK20 types"
+  },
+  {
+    "part_number": "05122009",
+    "description": "Paddle, one piece 500mm long - Mk16/Mk18 Flat-pack containers",
+    "category": "Equipamento de Bordo",
+    "notes": "Mk16 and Mk18 flat-pack types"
+  },
+  {
+    "part_number": "1174009",
+    "description": "Tablet, Anti-seasickness (Pack of 60)",
+    "category": "Sobrevivência",
+    "notes": "Qty varies by raft size: 1-3 packs"
+  },
+  {
+    "part_number": "45772001",
+    "description": "Floor, insulated - 4 person Throwover",
+    "category": "Casco e Estrutura",
+    "notes": "4 person TO"
+  },
+  {
+    "part_number": "45773001",
+    "description": "Floor, insulated - 6 person Throwover",
+    "category": "Casco e Estrutura",
+    "notes": "6 person TO"
+  },
+  {
+    "part_number": "45774001",
+    "description": "Floor, insulated - 8 person Throwover",
+    "category": "Casco e Estrutura",
+    "notes": "8 person TO"
+  },
+  {
+    "part_number": "45776001",
+    "description": "Floor, insulated - 10/12 person Throwover",
+    "category": "Casco e Estrutura",
+    "notes": "10/12 person TO"
+  },
+  {
+    "part_number": "45776002",
+    "description": "Floor, insulated - 12 person Davit Launch",
+    "category": "Casco e Estrutura",
+    "notes": "12 person DL"
+  },
+  {
+    "part_number": "45777001",
+    "description": "Floor, insulated - 16 person Throwover",
+    "category": "Casco e Estrutura",
+    "notes": "16 person TO"
+  },
+  {
+    "part_number": "45777002",
+    "description": "Floor, insulated - 16 person Davit Launch",
+    "category": "Casco e Estrutura",
+    "notes": "16 person DL"
+  },
+  {
+    "part_number": "45778001",
+    "description": "Floor, insulated - 20 person Throwover",
+    "category": "Casco e Estrutura",
+    "notes": "20 person TO"
+  },
+  {
+    "part_number": "45779002",
+    "description": "Floor, insulated - 20 person DL / 25 person DL",
+    "category": "Casco e Estrutura",
+    "notes": "20 DL / 25 DL"
+  },
+  {
+    "part_number": "45779001",
+    "description": "Floor, insulated - 25 person Throwover",
+    "category": "Casco e Estrutura",
+    "notes": "25 person TO"
+  },
+  {
+    "part_number": "20794011",
+    "description": "Bridle, lifting - 12 person Davit Launch",
+    "category": "Casco e Estrutura",
+    "notes": "12 DL only"
+  },
+  {
+    "part_number": "20794021",
+    "description": "Bridle, lifting - 16 person Davit Launch",
+    "category": "Casco e Estrutura",
+    "notes": "16 DL only"
+  },
+  {
+    "part_number": "20871001",
+    "description": "Bridle, lifting - 20/25 person Davit Launch",
+    "category": "Casco e Estrutura",
+    "notes": "20 DL / 25 DL"
+  },
+  {
+    "part_number": "06719009",
+    "description": "Hose, inflation 800mm (Thanner system)",
+    "category": "Gás e Insuflação",
+    "notes": "Thanner inflation system"
+  },
+  {
+    "part_number": "08008009",
+    "description": "Head, operating, Thanner DK99 - Cylinder",
+    "category": "Gás e Insuflação",
+    "notes": "All sizes - Thanner system"
+  },
+  {
+    "part_number": "06760009",
+    "description": "Bolt, banjo, Thanner MkIII inflation valve - Inflation hose",
+    "category": "Gás e Insuflação",
+    "notes": "Thanner system"
+  },
+  {
+    "part_number": "06761009",
+    "description": "Washer, fibre, inner, MkIII inflation valve (Thanner)",
+    "category": "Gás e Insuflação",
+    "notes": "Thanner system"
+  },
+  {
+    "part_number": "06762009",
+    "description": "Washer, fibre, outer, MkIII inflation valve (Thanner)",
+    "category": "Gás e Insuflação",
+    "notes": "Thanner system"
+  },
+  {
+    "part_number": "08255009",
+    "description": "GIST Hose assembly, 800mm Leafield - Inflation system",
+    "category": "Gás e Insuflação",
+    "notes": "Leafield system"
+  },
+  {
+    "part_number": "08211009",
+    "description": "Head, operating, GIST outlet Leafield - Cylinder",
+    "category": "Gás e Insuflação",
+    "notes": "Leafield system"
+  },
+  {
+    "part_number": "08387009",
+    "description": "Adaptor, cylinder DIN477 Thanner - TPED cylinders",
+    "category": "Gás e Insuflação",
+    "notes": "TPED cylinders - Thanner"
+  },
+  {
+    "part_number": "06457009",
+    "description": "Membrane assembly 250 bar, Thanner (A) - TPED cylinder adaptor",
+    "category": "Gás e Insuflação",
+    "notes": "TPED cylinders - Thanner"
+  },
+  {
+    "part_number": "06721009",
+    "description": "Adaptor, operating head DK94 (option) - Thanner system",
+    "category": "Gás e Insuflação",
+    "notes": "Optional DK94 operating head adaptor"
+  },
+  {
+    "part_number": "41682002",
+    "description": "Cylinder charged, Thanner, CO2 1.98kg + N2 0.06kg, 3.5L 250bar - 4 person TO",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Thanner - 4 person TO"
+  },
+  {
+    "part_number": "41683002",
+    "description": "Cylinder charged, Thanner, CO2 2.50kg + N2 0.16kg, 5.0L 250bar - 6 person TO",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Thanner - 6 person TO"
+  },
+  {
+    "part_number": "41684002",
+    "description": "Cylinder charged, Thanner, CO2 3.51kg + N2 0.23kg, 6.7L 250bar - 8 person TO",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Thanner - 8 person TO"
+  },
+  {
+    "part_number": "41686002",
+    "description": "Cylinder charged, Thanner, CO2 5.94kg + N2 0.18kg, 10.2L 250bar - 10/12 person",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Thanner - 10/12 person"
+  },
+  {
+    "part_number": "41687002",
+    "description": "Cylinder charged, Thanner, CO2 8.44kg + N2 0.37kg, 15.5L 250bar - 16/20 person TO",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Thanner - 16/20 person TO"
+  },
+  {
+    "part_number": "41687004",
+    "description": "Cylinder charged, Thanner, CO2 8.44kg, 13.4L 250bar - 16/20 person TO (alt)",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Thanner - alternative for 16/20 person"
+  },
+  {
+    "part_number": "41945002",
+    "description": "Cylinder charged, Thanner, CO2 11.26kg + N2 0.36kg, 16.9L 250bar - 20 DL/25 person",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Thanner - 20 DL / 25 person"
+  },
+  {
+    "part_number": "41712001",
+    "description": "Cylinder, bare, 3.5L 250bar (Thanner) - 4 person",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Thanner bare cylinder"
+  },
+  {
+    "part_number": "41713001",
+    "description": "Cylinder, bare, 5.0L 250bar (Thanner) - 6 person",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Thanner bare cylinder"
+  },
+  {
+    "part_number": "41714001",
+    "description": "Cylinder, bare, 6.7L 250bar (Thanner) - 8 person",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Thanner bare cylinder"
+  },
+  {
+    "part_number": "41716001",
+    "description": "Cylinder, bare, 10.2L 250bar (Thanner) - 10/12 person",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Thanner bare cylinder"
+  },
+  {
+    "part_number": "41717001",
+    "description": "Cylinder, bare, 15.5L 250bar (Thanner) - 16/20 person",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Thanner bare cylinder"
+  },
+  {
+    "part_number": "50511001",
+    "description": "Cylinder, bare, 13.4L 250bar (Thanner) - 16/20 person alt",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Thanner bare cylinder alternative"
+  },
+  {
+    "part_number": "41947001",
+    "description": "Cylinder, bare, 16.9L 250bar (Thanner) - 20 DL/25 person",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Thanner bare cylinder"
+  },
+  {
+    "part_number": "50847001",
+    "description": "Cylinder, bare, 5.0L 250bar (Thanner) - 6 person (alternative)",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Thanner - alternative to 41713001"
+  },
+  {
+    "part_number": "50463003",
+    "description": "Cylinder charged, Leafield, CO2 1.98kg + N2 0.06kg, 3.5L 250bar - 4 person TO",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Leafield - 4 person TO"
+  },
+  {
+    "part_number": "50463004",
+    "description": "Cylinder charged, Leafield, CO2 2.50kg + N2 0.16kg, 5.0L 250bar - 6 person TO",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Leafield - 6 person TO"
+  },
+  {
+    "part_number": "50463005",
+    "description": "Cylinder charged, Leafield, CO2 3.51kg + N2 0.23kg, 6.7L 250bar - 8 person TO",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Leafield - 8 person TO"
+  },
+  {
+    "part_number": "50463007",
+    "description": "Cylinder charged, Leafield, CO2 5.94kg + N2 0.18kg, 10.2L 250bar - 10/12 person",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Leafield - 10/12 person"
+  },
+  {
+    "part_number": "50463008",
+    "description": "Cylinder charged, Leafield, CO2 8.44kg + N2 0.37kg, 15.5L 250bar - 16/20 person",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Leafield - 16/20 person"
+  },
+  {
+    "part_number": "50463010",
+    "description": "Cylinder charged, Leafield, CO2 8.44kg, 13.4L 250bar - 16/20 person alt",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Leafield - alternative 16/20 person"
+  },
+  {
+    "part_number": "50463009",
+    "description": "Cylinder charged, Leafield, CO2 11.26kg + N2 0.36kg, 16.9L 250bar - 20 DL/25 person",
+    "category": "Gás e Insuflação",
+    "notes": "European TPED - Leafield - 20 DL / 25 person"
+  },
+  {
+    "part_number": "08221009",
+    "description": "Adaptor, cylinder TPED Leafield inflation system",
+    "category": "Gás e Insuflação",
+    "notes": "TPED cylinders - Leafield"
+  },
+  {
+    "part_number": "08217009",
+    "description": "Membrane, TPED Leafield inflation system",
+    "category": "Gás e Insuflação",
+    "notes": "TPED cylinders - Leafield"
+  },
+  {
+    "part_number": "41674001",
+    "description": "Label, cylinder - Common all inflation systems",
+    "category": "Etiquetas e Documentação",
+    "notes": "Common to all cylinders"
+  },
+  {
+    "part_number": "50067003",
+    "description": "Pad, protection, operating head (DK99) - inboard",
+    "category": "Contentores e Embalagem",
+    "notes": "Both inflation system types"
+  },
+  {
+    "part_number": "50067001",
+    "description": "Pad, protection, operating head (DK99) - outboard",
+    "category": "Contentores e Embalagem",
+    "notes": "Thanner inflation system"
+  },
+  {
+    "part_number": "50067002",
+    "description": "Pad, protection, inlet check valve",
+    "category": "Contentores e Embalagem",
+    "notes": "Both inflation system types"
+  },
+  {
+    "part_number": "50067006",
+    "description": "Pad, protection, inlet check valve (GIST Leafield)",
+    "category": "Contentores e Embalagem",
+    "notes": "Leafield inflation system"
+  },
+  {
+    "part_number": "04884009",
+    "description": "Polystyrene foam 10mm x 100mm x 1000mm - MK14 upper container",
+    "category": "Contentores e Embalagem",
+    "notes": "Mk14 container - upper"
+  },
+  {
+    "part_number": "45283031",
+    "description": "Chute block foam - Mk20 container",
+    "category": "Contentores e Embalagem",
+    "notes": "Mk20 flatpack container"
+  },
+  {
+    "part_number": "50356004",
+    "description": "Lining foam, end - Mk20 container",
+    "category": "Contentores e Embalagem",
+    "notes": "Mk20 flatpack container"
+  },
+  {
+    "part_number": "50356003",
+    "description": "Lining foam, end - Mk20 container",
+    "category": "Contentores e Embalagem",
+    "notes": "Mk20 flatpack container"
+  },
+  {
+    "part_number": "50356002",
+    "description": "Lining foam, long side - Mk20 container",
+    "category": "Contentores e Embalagem",
+    "notes": "Mk20 flatpack container"
+  },
+  {
+    "part_number": "50356001",
+    "description": "Lining foam, long side - Mk20 container",
+    "category": "Contentores e Embalagem",
+    "notes": "Mk20 flatpack container"
+  },
+  {
+    "part_number": "50152002",
+    "description": "Protection Pad 1, 750x500x25mm - Emergency pack foam (Mk10 container)",
+    "category": "Contentores e Embalagem",
+    "notes": "Mk10 container - raft size 10-25"
+  },
+  {
+    "part_number": "50152003",
+    "description": "Protection Pad 2, 500x250x25mm - Emergency pack foam (Mk10 container)",
+    "category": "Contentores e Embalagem",
+    "notes": "Mk10 container - raft size 4-8"
+  },
+  {
+    "part_number": "50152004",
+    "description": "Protection Pad 3, 175x175x25mm - Emergency pack foam (Mk10 container)",
+    "category": "Contentores e Embalagem",
+    "notes": "Mk10 container - raft size 4-8"
+  },
+  {
+    "part_number": "50152001",
+    "description": "Protection Pad 4, 150x150x25mm - Emergency pack foam (Mk10 container)",
+    "category": "Contentores e Embalagem",
+    "notes": "Mk10 container - all raft sizes"
+  },
+  {
+    "part_number": "07961009",
+    "description": "Screw, M10 x 80 socket head, stainless steel - Archtube/buoyancy",
+    "category": "Ferramenta e Fixações",
+    "notes": "Upper buoyancy/archtube interface"
+  },
+  {
+    "part_number": "07962009",
+    "description": "Screw, M10 x 60 socket head, stainless steel - Archtube/buoyancy",
+    "category": "Ferramenta e Fixações",
+    "notes": "Upper buoyancy/archtube interface"
+  },
+  {
+    "part_number": "07972009",
+    "description": "Nut, M10, Nyloc - Archtube/buoyancy interface",
+    "category": "Ferramenta e Fixações",
+    "notes": "Upper buoyancy/archtube interface"
+  },
+  {
+    "part_number": "07973009",
+    "description": "Washer, Nylon, M10 - Archtube/buoyancy interface",
+    "category": "Ferramenta e Fixações",
+    "notes": "Upper buoyancy/archtube interface"
+  },
+  {
+    "part_number": "07974009",
+    "description": "Screw, grub, M4 x 8 stainless steel - Archtube/buoyancy interface",
+    "category": "Ferramenta e Fixações",
+    "notes": "Upper buoyancy/archtube interface"
+  },
+  {
+    "part_number": "43973001",
+    "description": "Label, Wheelmark '1' - All rafts except 4 person",
+    "category": "Etiquetas e Documentação",
+    "notes": "Not 4 person, not USCG/TC rafts"
+  },
+  {
+    "part_number": "20085011",
+    "description": "Label, '2' - Davit Launch only",
+    "category": "Etiquetas e Documentação",
+    "notes": "Davit Launch only"
+  },
+  {
+    "part_number": "20085021",
+    "description": "Label, '3' - Davit Launch only",
+    "category": "Etiquetas e Documentação",
+    "notes": "Davit Launch only"
+  },
+  {
+    "part_number": "15384001",
+    "description": "Tape, 'DO NOT CUT' - All rafts",
+    "category": "Etiquetas e Documentação",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "50976001",
+    "description": "I.A.L. compact disc - All rafts",
+    "category": "Etiquetas e Documentação",
+    "notes": "All raft sizes"
+  },
+  {
+    "part_number": "20924011",
+    "description": "Label, Launch DL - Davit Launch only",
+    "category": "Etiquetas e Documentação",
+    "notes": "Davit Launch only"
+  },
+  {
+    "part_number": "20924021",
+    "description": "Label, Launch DL (containers) - Davit launch containers only",
+    "category": "Etiquetas e Documentação",
+    "notes": "Davit launch containers only"
+  },
+  {
+    "part_number": "20879001",
+    "description": "Label, Launch Procedure - Davit Launch only",
+    "category": "Etiquetas e Documentação",
+    "notes": "Davit Launch only"
+  },
+  {
+    "part_number": "43409001",
+    "description": "Leaflet, Installation - All rafts",
+    "category": "Etiquetas e Documentação",
+    "notes": "All raft sizes"
+  }
+]

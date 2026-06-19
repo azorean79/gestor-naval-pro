@@ -1,0 +1,48 @@
+.etiqueta {
+  width: 320px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.etiqueta .header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, hsl(210,30%,40%), hsl(210,30%,20%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.etiqueta .content {
+  background: rgba(0,0,0,0.2);
+  padding: 8px;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.etiqueta .nome {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.etiqueta .barcode {
+  margin: 6px 0;
+  max-width: 100%;
+}
+
+.etiqueta .id {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-top: 4px;
+}
