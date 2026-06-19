@@ -204,6 +204,12 @@ export default function InspectionCalendar({
       borderColor = "#7c3aed";
     }
 
+    // Distinguish vacations and absences in Calendar view with rose-500 color
+    if (event.title.startsWith("[FÉRIAS]") || event.title.startsWith("[AUSÊNCIA]")) {
+      backgroundColor = "#f43f5e"; // rose-500
+      borderColor = "#be123c"; // rose-700
+    }
+
     return {
       style: {
         backgroundColor,
@@ -274,6 +280,10 @@ export default function InspectionCalendar({
             alert("Para agendar uma inspeção, arraste uma jangada do painel lateral para o calendário.");
           }}
           onSelectEvent={(event: any) => {
+             if (String(event.id).startsWith("ausencia-")) {
+               alert("Este evento refere-se a férias ou ausência de um técnico. Pode gerir este registo na página de Técnicos.");
+               return;
+             }
              if (window.confirm("Desejas cancelar este agendamento?\n\nClica OK para DESMARCAR o agendamento.\nClica Cancelar para o manter.")) {
                if (onDeleteEvent) onDeleteEvent(event as InspectionEvent);
              }

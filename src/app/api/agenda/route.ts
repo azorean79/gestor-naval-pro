@@ -10,7 +10,7 @@ import {
   type AgendaApiEvent,
   type AgendaApiPayload,
 } from "@/types/agenda";
-import { getTechnicianKeyByName, normalizeTechnicianName } from "@/lib/agenda-technicians";
+import { getTechnicianKeyByName, normalizeTechnicianName, getTechnicianNameByKey } from "@/lib/agenda-technicians";
 
 const AGENDA_MARKER = "__AGENDA_EVENT__";
 const ACTIVE_ROLLOVER_STATUSES = new Set(["scheduled", "confirmed", "in_progress", "testing", "paused"]);
@@ -202,21 +202,57 @@ export async function GET(req: NextRequest) {
     eventos = await prisma.agendaEvento.findMany({ where, orderBy: { date: "desc" } });
   }
 
-  if (eventos.length > 0) {
-    const normalized = eventos.map((ev) => ({
-      id: ev.id,
-      title: ev.title,
-      date: ev.date.toISOString(),
-      raftSerial: ev.raftSerial,
-      responsavel: ev.responsavel || "",
-      status: ev.status || "scheduled",
-      type: ev.type || "Inspeção",
-      inspectionType: normalizeInspectionType(ev.inspectionType),
-      durationMinutes: ev.durationMinutes,
-      bufferBeforeMinutes: ev.bufferBeforeMinutes,
-      bufferAfterMinutes: ev.bufferAfterMinutes,
-    } as AgendaApiEvent));
-    return NextResponse.json(normalized);
+  // Fetch technician absences/vacations and map them to Agenda events
+  let absencesEvents: AgendaApiEvent[] = [];
+  if (!raftSerial) {
+    const ausencias = await prisma.tecnicoAusencia.findMany({
+      orderBy: { dataInicio: "desc" },
+    });
+    absencesEvents = ausencias.map((aus) => {
+      const techName = getTechnicianNameByKey(aus.tecnicoKey) || aus.tecnicoKey;
+      const title = aus.tipo === "ferias"
+        ? `[FÉRIAS] ${techName}`
+        : `[AUSÊNCIA] ${techName}${aus.motivo ? `: ${aus.motivo}` : ""}`;
+      
+      const duration = Math.max(
+        15,
+        Math.round((aus.dataFim.getTime() - aus.dataInicio.getTime()) / (60 * 1000))
+      );
+
+      return {
+        id: `ausencia-${aus.id}`,
+        title,
+        date: aus.dataInicio.toISOString(),
+        raftSerial: "",
+        responsavel: techName,
+        status: "confirmed",
+        type: "ausencia",
+        inspectionType: "outro",
+        durationMinutes: duration,
+        bufferBeforeMinutes: 0,
+        bufferAfterMinutes: 0,
+      } as AgendaApiEvent;
+    });
+  }
+
+  const normalized = eventos.map((ev) => ({
+    id: ev.id,
+    title: ev.title,
+    date: ev.date.toISOString(),
+    raftSerial: ev.raftSerial,
+    responsavel: ev.responsavel || "",
+    status: ev.status || "scheduled",
+    type: ev.type || "Inspeção",
+    inspectionType: normalizeInspectionType(ev.inspectionType),
+    durationMinutes: ev.durationMinutes,
+    bufferBeforeMinutes: ev.bufferBeforeMinutes,
+    bufferAfterMinutes: ev.bufferAfterMinutes,
+  } as AgendaApiEvent));
+
+  const combined = [...normalized, ...absencesEvents];
+
+  if (combined.length > 0) {
+    return NextResponse.json(combined);
   }
 
   // Fallback de compatibilidade: ler registos antigos marcados na tabela Agenda

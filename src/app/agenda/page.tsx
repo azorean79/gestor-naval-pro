@@ -569,7 +569,7 @@ const formatDate = (value?: string | null) => {
 
             return {
               id: normalizedId,
-              title: buildAgendaTitle("Inspeção", raftLabel, shipLabel),
+              title: ev.type === "ausencia" ? ev.title : buildAgendaTitle("Inspeção", raftLabel, shipLabel),
               start: parsedDate,
               end: new Date(parsedDate.getTime() + (Number(ev.durationMinutes || 210) * 60 * 1000)),
               raftSerial,
@@ -837,6 +837,13 @@ const formatDate = (value?: string | null) => {
   function handleEventDropOrResize(payload: CalendarMutationPayload) {
     const moved = payload?.event;
     if (!moved) return;
+
+    if (String(moved.id).startsWith("ausencia-")) {
+      alert("Não é possível alterar a data ou responsável da ausência/férias a partir do calendário. Altere na página de Técnicos.");
+      triggerAgendaReload();
+      return;
+    }
+
     const movedStatus = normalizeEventStatus(moved.status);
     if (!(movedStatus === 'scheduled' || movedStatus === 'confirmed')) return;
 
