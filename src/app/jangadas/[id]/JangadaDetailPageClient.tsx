@@ -967,7 +967,7 @@ export default function JangadaDetailPageClient({ jangadaId, initialData, ships 
         @media print {
           @page {
             size: A4 landscape;
-            margin: 5mm 8mm;
+            margin: 4mm 6mm;
           }
           body {
             background-color: white !important;
@@ -975,7 +975,7 @@ export default function JangadaDetailPageClient({ jangadaId, initialData, ships 
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
           }
-          header, button, nav, .no-print, [role="tablist"] {
+          header, button, nav, footer, .no-print, [role="tablist"], .MuiDrawer-root, .MuiAppBar-root {
             display: none !important;
           }
           .print-dossier-only .screen-container-dossier {
@@ -997,7 +997,7 @@ export default function JangadaDetailPageClient({ jangadaId, initialData, ships 
           }
           .shadow-sm, .shadow-md, .shadow-lg {
             box-shadow: none !important;
-            border: 1px solid #e2e8f0 !important;
+            border: 1px solid #888888 !important;
           }
           .bg-white {
             background-color: white !important;
@@ -1007,41 +1007,93 @@ export default function JangadaDetailPageClient({ jangadaId, initialData, ships 
           .print-dossier-page {
             display: block !important;
             font-family: system-ui, -apple-system, sans-serif !important;
-            font-size: 9px !important;
-            line-height: 1.2 !important;
-            max-height: 198mm !important;
+            font-size: 10.5px !important;
+            line-height: 1.25 !important;
+            max-height: 202mm !important;
             overflow: hidden !important;
             box-sizing: border-box !important;
-            color: #000000 !important;
           }
+          
+          /* Dark colors and border visibility */
+          .print-dossier-page * {
+            color: #000000 !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+          }
+          .print-dossier-page,
+          .print-dossier-page div,
+          .print-dossier-page table,
+          .print-dossier-page tr,
+          .print-dossier-page th,
+          .print-dossier-page td {
+            border-color: #888888 !important;
+          }
+          
+          /* Custom background for section headers */
+          .print-dossier-page .bg-slate-50 {
+            background-color: #e2e8f0 !important;
+            color: #000000 !important;
+            font-size: 9.5px !important;
+            font-weight: 800 !important;
+            padding: 2px 4px !important;
+          }
+          
+          /* Semantic colors preserved but darkened for print */
+          .print-dossier-page .text-emerald-600,
+          .print-dossier-page .text-emerald-800,
+          .print-dossier-page [class*="text-emerald"] {
+            color: #047857 !important;
+          }
+          .print-dossier-page .text-rose-600,
+          .print-dossier-page .text-red-850,
+          .print-dossier-page .text-red-800,
+          .print-dossier-page [class*="text-red"],
+          .print-dossier-page [class*="text-rose"] {
+            color: #b91c1c !important;
+          }
+          .print-dossier-page .text-amber-800,
+          .print-dossier-page [class*="text-amber"] {
+            color: #b45309 !important;
+          }
+
           .print-dossier-page h1 {
-            font-size: 12px !important;
-            font-weight: 850 !important;
+            font-size: 14px !important;
+            font-weight: 900 !important;
             color: #000000 !important;
             margin: 0 !important;
             text-transform: uppercase !important;
             line-height: 1.2 !important;
           }
           .print-dossier-page h2 {
-            font-size: 9px !important;
-            font-weight: 700 !important;
+            font-size: 10.5px !important;
+            font-weight: 800 !important;
             color: #000000 !important;
             margin: 0 !important;
           }
           .print-dossier-page .grid-cols-2 {
             display: grid !important;
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-            gap: 5px !important;
+            gap: 8px !important;
+          }
+          .print-dossier-page .space-y-2 > :not([hidden]) ~ :not([hidden]) {
+            margin-top: 5px !important;
+          }
+          .print-dossier-page .mt-1\.5 {
+            margin-top: 5px !important;
+          }
+          .print-dossier-page .mt-2 {
+            margin-top: 5px !important;
+            padding-top: 5px !important;
           }
           .print-dossier-page .grid-cols-3 {
             display: grid !important;
             grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-            gap: 5px !important;
+            gap: 6px !important;
           }
           .print-dossier-page .grid-cols-4 {
             display: grid !important;
             grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-            gap: 4px !important;
+            gap: 5px !important;
           }
           .print-dossier-page table {
             width: 100% !important;
@@ -1049,8 +1101,8 @@ export default function JangadaDetailPageClient({ jangadaId, initialData, ships 
             table-layout: fixed !important;
           }
           .print-dossier-page th, .print-dossier-page td {
-            padding: 1px 1.5px !important;
-            font-size: 7px !important;
+            padding: 2px 3.5px !important;
+            font-size: 9px !important;
             vertical-align: middle !important;
             word-wrap: break-word !important;
             overflow: hidden !important;
@@ -1058,7 +1110,35 @@ export default function JangadaDetailPageClient({ jangadaId, initialData, ships 
             white-space: nowrap !important;
           }
           .print-dossier-page td span {
-            font-size: 7px !important;
+            font-size: 9px !important;
+          }
+          .print-dossier-page td.font-bold,
+          .print-dossier-page td.font-semibold,
+          .print-dossier-page td strong,
+          .print-dossier-page td span.font-bold,
+          .print-dossier-page td span.font-semibold {
+            font-weight: 800 !important;
+          }
+          .print-dossier-page .grid-cols-3 span {
+            font-size: 9px !important;
+          }
+          .print-dossier-page .grid-cols-3 span.font-mono {
+            font-size: 8.5px !important;
+          }
+          .print-dossier-page .grid-cols-4 span {
+            font-size: 9px !important;
+          }
+          .print-dossier-page .text-\[8px\], 
+          .print-dossier-page .text-\[9px\], 
+          .print-dossier-page .text-\[7\.2px\] {
+            font-size: 9px !important;
+          }
+          .print-dossier-page .text-\[6\.5px\] {
+            font-size: 8.5px !important;
+          }
+          .print-dossier-page .text-\[6\.5px\].text-slate-400 {
+            font-size: 8.5px !important;
+            font-weight: 800 !important;
           }
           .print-dossier-page .flex-row-print {
             display: flex !important;
