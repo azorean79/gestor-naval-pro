@@ -753,6 +753,15 @@ export function findMatchingArticleForPackItem(item: MandatoryPackItem, articles
     if (articleRef && refs.has(articleRef)) return true;
 
     const articleName = normalizeText(article.name);
+    
+    // Evitar associar pilhas/baterias ao requisito de Lanterna física
+    if (item.checklistName === 'lanterna') {
+      const nameLower = articleName.toLowerCase();
+      if (nameLower.includes('pilha') || nameLower.includes('bateria') || nameLower.includes('battery') || nameLower.includes('batteries')) {
+        return false;
+      }
+    }
+
     return tokens.some((token) => articleName.includes(token) || token.includes(articleName));
   }) || null;
 }
