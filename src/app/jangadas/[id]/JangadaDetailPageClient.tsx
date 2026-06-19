@@ -141,6 +141,105 @@ function buildWpDerivedValues(source: {
   };
 }
 
+const translateArticleName = (name: string): string => {
+  if (!name) return name;
+  const normalized = name.trim();
+  const dictionary: Record<string, string> = {
+    "Reflective Tape": "Fita Refletora",
+    "Retro reflective tape": "Fita Retro-refletora",
+    "Retro Reflective Tape": "Fita Retro-refletora",
+    "Grab Handles": "Pegas de Mão",
+    "Grab line and patches": "Cabo de Salvação Exterior e Remendos",
+    "Grabline Internal": "Cabo de Salvação Interior",
+    "Painter Line": "Cabo de Retenida",
+    "Painter Line Bag": "Saco do Cabo de Retenida",
+    "Sponge": "Esponja",
+    "Sponges": "Esponjas",
+    "Bellows": "Fole",
+    "Paddles": "Pagaias",
+    "Bailer": "Batedouro",
+    "Drinking Cup": "Copo Graduado",
+    "Immediate Action Instructions": "Instruções de Ação Imediata",
+    "Rescue Signal Table": "Quadro de Sinais de Salvamento",
+    "Signalling Table": "Quadro de Sinais",
+    "Sea Anchor": "Âncora Flutuante",
+    "Sea Anchor with Line": "Âncora Flutuante com Cabo",
+    "Tin Openers": "Abre-latas",
+    "Tin Opener": "Abre-latas",
+    "Waterproof Torch": "Lanterna Impermeável",
+    "Torch with Spares": "Lanterna com Sobressalentes",
+    "Torch Batteries": "Pilhas para Lanterna",
+    "Leafield operating head (GIST)": "Cabeça de Operação Leafield (GIST)",
+    "Inflate/deflate valve": "Válvula de Insuflação/Desinsuflação",
+    "Inflate/deflate valve cap": "Tampa da Válvula de Insuflação",
+    "GiST inlet check valve 2.2 mm": "Válvula de Admissão GIST 2.2 mm",
+    "GiST inlet check valve 2.8 mm": "Válvula de Admissão GIST 2.8 mm",
+    "GiST PRV B10 2.8 psi": "Válvula de Alívio GIST B10 2.8 psi",
+    "B10 PRV cap": "Tampa da Válvula de Alívio B10",
+    "Internal lamp unit RL5": "Luz Interna RL5",
+    "Rescue line and quoit assembly": "Cabo de Resgate e Anel",
+    "Inlet side banjo union protection pad": "Proteção do Banjo Lateral de Admissão",
+    "Operating head protection pad": "Proteção da Cabeça de Operação",
+    "Painter loading machine": "Carregador de Retenida",
+    "Do Not Cut tape": "Fita Adesiva 'Não Cortar'",
+    "Heat sealing tool 230V": "Ferramenta de Selagem Térmica 230V",
+    "Vacuum valve plug tool": "Ferramenta do Bujão da Válvula de Vácuo",
+    "Repair Kit": "Jogo de Reparação",
+    "Repar Kit": "Jogo de Reparação",
+    "Floating Knife": "Faca Flutuante",
+    "Safety Knifes": "Facas de Segurança",
+    "Top Light and Battery": "Luz Exterior e Bateria",
+    "Inside Light and Battery": "Luz Interior e Bateria",
+    "Lithium Battery": "Bateria de Lítio",
+    "Survival Manual": "Manual de Sobrevivência",
+    "Signalling Mirror": "Heliógrafo",
+    "Seasickness Bags": "Sacos para Enjoo",
+    "Seasickness Tablets": "Comprimidos para Enjoo",
+    "First Aid Kit": "Kit de Primeiros Socorros SOLAS",
+    "Thermal Protective Aids": "Ajudas Térmicas",
+    "Closure for Canopy": "Fecho da Cobertura",
+    "Canopy External": "Cobertura Exterior",
+    "Seam Protective Tapes": "Fita Adesiva Protetora de Costuras",
+    "Seam Protecting Tapes": "Fita Adesiva Protetora de Costuras",
+    "Water Collectors": "Coletores de Água",
+    "Aerial Outlet": "Saída de Antena",
+    "Identificatior card / tube": "Tubo de Identificação",
+    "Tubes and Floor Fabric": "Tecido de Câmara e Fundo",
+    "Fastening for Emergency Pack": "Fecho do Saco de Emergência",
+    "Smoke Signals": "Potes de Fumo",
+    "Righting System": "Sistema de Endireitar",
+    "Stabilizing Pockets": "Bolsas de Estabilização",
+    "Inflation Valves": "Válvulas de Insuflação",
+    "Topping Up Valves": "Válvulas de Atestar",
+    "Aerial Support": "Suporte de Antena",
+    "Arch and Rubber Band": "Arco e Cinta de Remate",
+    "Relief Valves and Stoppers": "Válvulas de Segurança e Tampões",
+    "Bursting Band / Tape": "Cinta de Fecho",
+    "Markings on Container": "Marcas do Invólucro",
+    "High Pressure Hoses": "Tubos de Alta Pressão",
+    "Operating Head": "Cabeça de Disparo",
+    "Operating Wire": "Cabo de Disparo",
+    "Cover for Inflation System": "Capa do Sistema de Insuflação",
+    "Cylinder Pocket": "Bolsa do Cilindro",
+    "Entrance Ladder": "Escada de Entrada",
+    "Radar Reflector": "Refletor de Radar",
+    "Water Sachets": "Sacos de Água",
+    "Food Rations 0,5 Kg": "Rações Alimentares 0,5 Kg",
+    "Pressure Unit": "Unidade de Pressão",
+    "Atm. Temperature": "Temperatura Atmosférica",
+    "Atm. Pressure": "Pressão Atmosférica",
+    "Upper Tube + Arch": "Câmara Superior + Arco",
+    "Lower Tube": "Câmara Inferior",
+    "Floor": "Fundo (Chão)",
+    "Boarding Ramp": "Rampa de Entrada",
+    "Boarding Ramp or Ladder": "Rampa ou Escada",
+    "Service Station": "Estação de Serviço",
+    "Inspection Date": "Data de Inspeção",
+    "Signature": "Assinatura"
+  };
+  return dictionary[normalized] || name;
+};
+
 type Artigo = {
   id: number;
   name: string;
@@ -1121,9 +1220,12 @@ export default function JangadaDetailPageClient({ jangadaId, initialData, ships 
           }
           .print-dossier-page .grid-cols-3 span {
             font-size: 9px !important;
+            color: #000000 !important;
           }
           .print-dossier-page .grid-cols-3 span.font-mono {
             font-size: 8.5px !important;
+            color: #000000 !important;
+            font-weight: bold !important;
           }
           .print-dossier-page .grid-cols-4 span {
             font-size: 9px !important;
@@ -1721,6 +1823,87 @@ export default function JangadaDetailPageClient({ jangadaId, initialData, ships 
                   </div>
                 </div>
 
+                {/* Validador de Peso do Cilindro */}
+                {(() => {
+                  const pBruto = parseDecimalValue(isEditing ? editForm.cylinderPesoBruto : data.cylinderPesoBruto);
+                  const tara = parseDecimalValue(isEditing ? editForm.cylinderTara : data.cylinderTara);
+                  const co2 = parseDecimalValue(isEditing ? editForm.cylinderCo2 : data.cylinderCo2);
+                  const n2 = parseDecimalValue(isEditing ? editForm.cylinderN2 : data.cylinderN2);
+
+                  if (pBruto === null && tara === null && co2 === null) return null;
+
+                  const soma = (tara || 0) + (co2 || 0) + (n2 || 0);
+                  const diff = pBruto !== null ? pBruto - soma : 0;
+                  const diffGrams = Math.round(diff * 1000);
+
+                  const brandNormalized = String(data.brand || '').trim().toLowerCase();
+                  let minTol = -50;
+                  let maxTol = 50;
+                  let toleranceLabel = "± 50 g (Geral)";
+
+                  if (brandNormalized.includes('rfd') || brandNormalized.includes('survitec')) {
+                    minTol = -56;
+                    maxTol = 0;
+                    toleranceLabel = "+0 g a -56 g (RFD/Survitec)";
+                  } else if (brandNormalized.includes('eurovinil')) {
+                    minTol = -55;
+                    maxTol = 55;
+                    toleranceLabel = "± 55 g (Eurovinil)";
+                  } else if (brandNormalized.includes('lalizas')) {
+                    minTol = -50;
+                    maxTol = 50;
+                    toleranceLabel = "± 50 g (Lalizas)";
+                  }
+
+                  const isWithinTolerance = pBruto !== null && diffGrams >= minTol && diffGrams <= maxTol;
+                  const hasAllValues = pBruto !== null && tara !== null && co2 !== null;
+
+                  if (!hasAllValues) {
+                    return (
+                      <div className="text-[11px] text-amber-600 bg-amber-50 border border-amber-250 rounded-xl p-2.5 flex items-start gap-1.5 font-medium">
+                        <AlertCircle size={14} className="mt-0.5 shrink-0" />
+                        <span>Preencha o Peso Bruto, Tara e Gás para validar a tolerância de peso.</span>
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <div className={`text-xs border rounded-2xl p-3.5 space-y-2 transition-all ${
+                      isWithinTolerance 
+                        ? 'bg-emerald-50/50 border-emerald-200 text-emerald-800' 
+                        : 'bg-rose-50/50 border-rose-200 text-rose-800'
+                    }`}>
+                      <div className="flex justify-between items-center">
+                        <span className="font-bold uppercase tracking-wider text-[10px] opacity-75">Cálculo de Peso</span>
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border uppercase ${
+                          isWithinTolerance 
+                            ? 'bg-emerald-100 border-emerald-300 text-emerald-800' 
+                            : 'bg-rose-100 border-rose-300 text-rose-800'
+                        }`}>
+                          {isWithinTolerance ? 'Dentro da Tolerância' : 'Fora da Tolerância'}
+                        </span>
+                      </div>
+
+                      <div className="space-y-1 text-slate-700">
+                        <div className="flex justify-between">
+                          <span>Soma Esperada (Tara + Gás):</span>
+                          <span className="font-semibold">{soma.toFixed(3)} kg</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Diferença Apurada:</span>
+                          <span className={`font-bold ${diffGrams !== 0 && (isWithinTolerance ? 'text-emerald-700' : 'text-rose-700')}`}>
+                            {diffGrams > 0 ? `+${diffGrams}` : diffGrams} g
+                          </span>
+                        </div>
+                        <div className="flex justify-between text-[11px] text-slate-500 pt-1 border-t border-slate-100">
+                          <span>Tolerância Manual:</span>
+                          <span className="font-semibold">{toleranceLabel}</span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
+
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Último Teste Hid.</span>
@@ -2069,7 +2252,7 @@ export default function JangadaDetailPageClient({ jangadaId, initialData, ships 
                   <tbody className="divide-y divide-slate-100 text-sm">
                     {artigos.map((artigo) => (
                       <tr key={artigo.id} className="hover:bg-slate-50/55 transition-colors">
-                        <td className="px-6 py-4 font-bold text-slate-800">{artigo.name}</td>
+                        <td className="px-6 py-4 font-bold text-slate-800">{translateArticleName(artigo.name)}</td>
                         <td className="px-6 py-4 font-mono text-xs text-slate-500">{artigo.referencia || '—'}</td>
                         <td className="px-6 py-4 text-slate-600">{artigo.codigoFabricante || '—'}</td>
                         <td className="px-6 py-4 text-center font-bold text-slate-700">{artigo.quantidade}</td>
@@ -2898,7 +3081,39 @@ export default function JangadaDetailPageClient({ jangadaId, initialData, ships 
                         <tr className="border-b border-slate-100"><td className="px-2 py-0.5 font-semibold text-slate-450">Gás CO2 / N2</td><td className="px-2 py-0.5 text-slate-700">{data.cylinderCo2 ? `${data.cylinderCo2} kg` : '—'} / {data.cylinderN2 ? `${data.cylinderN2} kg` : '—'}</td></tr>
                         <tr className="border-b border-slate-100"><td className="px-2 py-0.5 font-semibold text-slate-450">Último Teste Hid.</td><td className="px-2 py-0.5 text-slate-700">{data.cylinderDataTeste || '—'}</td></tr>
                         <tr className="border-b border-slate-100"><td className="px-2 py-0.5 font-semibold text-slate-450">HRU Ref. / Val.</td><td className="px-2 py-0.5 text-slate-700 truncate max-w-[120px]">{data.hruReferencia || '—'} / <span className="font-bold text-slate-850">{formatMonthYear(data.hruValidade)}</span></td></tr>
-                        <tr><td className="px-2 py-0.5 font-semibold text-slate-450">Refletor Radar</td><td className="px-2 py-0.5 text-slate-700 truncate max-w-[120px]">{data.radarReflector || '—'}</td></tr>
+                        <tr className="border-b border-slate-100"><td className="px-2 py-0.5 font-semibold text-slate-450">Refletor Radar</td><td className="px-2 py-0.5 text-slate-700 truncate max-w-[120px]">{data.radarReflector || '—'}</td></tr>
+                        {(() => {
+                          const pBruto = parseDecimalValue(data.cylinderPesoBruto);
+                          const tara = parseDecimalValue(data.cylinderTara);
+                          const co2 = parseDecimalValue(data.cylinderCo2);
+                          const n2 = parseDecimalValue(data.cylinderN2);
+                          if (pBruto === null && tara === null && co2 === null) return null;
+
+                          const soma = (tara || 0) + (co2 || 0) + (n2 || 0);
+                          const diffGrams = pBruto !== null ? Math.round((pBruto - soma) * 1000) : 0;
+                          const brandNormalized = String(data.brand || '').trim().toLowerCase();
+                          let minTol = -50;
+                          let maxTol = 50;
+                          if (brandNormalized.includes('rfd') || brandNormalized.includes('survitec')) {
+                            minTol = -56;
+                            maxTol = 0;
+                          } else if (brandNormalized.includes('eurovinil')) {
+                            minTol = -55;
+                            maxTol = 55;
+                          }
+                          const isWithinTolerance = pBruto !== null && diffGrams >= minTol && diffGrams <= maxTol;
+
+                          return (
+                            <tr>
+                              <td className="px-2 py-0.5 font-semibold text-slate-450">Cálculo Peso</td>
+                              <td className="px-2 py-0.5 font-bold">
+                                <span className={isWithinTolerance ? "text-emerald-700 font-extrabold" : "text-rose-700 font-extrabold"}>
+                                  {isWithinTolerance ? 'CONFORME' : 'DIVERGENTE'} ({diffGrams > 0 ? `+${diffGrams}` : diffGrams}g)
+                                </span>
+                              </td>
+                            </tr>
+                          );
+                        })()}
                       </tbody>
                     </table>
                   </div>
@@ -3025,11 +3240,11 @@ export default function JangadaDetailPageClient({ jangadaId, initialData, ships 
                   <div className="bg-slate-50 px-2 py-1 border-b border-slate-200 font-bold text-slate-700 uppercase tracking-wider text-[8px]">
                     5. Inventário de Artigos e Consumíveis (Validades)
                   </div>
-                  <div className="p-1 grid grid-cols-3 gap-x-3 gap-y-0.5 bg-white text-[7px] leading-tight">
+                  <div className="p-1 grid grid-cols-4 gap-x-3 gap-y-0.5 bg-white text-[7px] leading-tight">
                     {artigos.map((artigo, index) => (
                       <div key={index} className="flex justify-between items-center py-0.5 border-b border-slate-50">
-                        <span className="font-semibold truncate max-w-[140px] text-slate-700">{artigo.name}</span>
-                        <span className="font-mono text-[6.5px] text-slate-500">
+                        <span className="font-semibold truncate max-w-[140px] text-slate-700">{translateArticleName(artigo.name)}</span>
+                        <span className="font-mono text-[6.5px] text-slate-900 font-semibold">
                           {artigo.quantidade}x · Val: {formatMonthYear(artigo.validade)}
                         </span>
                       </div>
@@ -3048,7 +3263,7 @@ export default function JangadaDetailPageClient({ jangadaId, initialData, ships 
                   <div className="p-1.5 grid grid-cols-4 gap-1 bg-white">
                     {lastInspecao.artigos.map((art: any, index: number) => (
                       <div key={index} className="flex justify-between items-center bg-slate-50 border border-slate-100 rounded-lg p-1 text-[7px]">
-                        <span className="font-bold truncate max-w-[120px]" title={art.name}>{art.name}</span>
+                        <span className="font-bold truncate max-w-[120px]" title={translateArticleName(art.name)}>{translateArticleName(art.name)}</span>
                         <span className="font-semibold text-slate-500 bg-slate-150 px-1 rounded">Qtd: {art.quantidade}</span>
                       </div>
                     ))}
