@@ -126,3 +126,4 @@ run_sync_stock.cjs
 add_missing_stock.cjs
 fix_duplicate_references.cjs
 _tmp_*.cjs
+test-script.ps1
