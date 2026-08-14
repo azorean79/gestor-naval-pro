@@ -1,0 +1,41 @@
+{
+  "ok": false,
+  "ordemId": null,
+  "numeroOrdem": null,
+  "steps": [
+    {
+      "name": "login",
+      "detail": "Auth API NextAuth",
+      "at": "2026-08-01T18:03:54.309Z"
+    },
+    {
+      "name": "login",
+      "detail": "Sessão: julio.correia@orey.com (via julio.correia@orey.com)",
+      "at": "2026-08-01T18:03:54.515Z"
+    },
+    {
+      "name": "login",
+      "detail": "cookies: next-auth.csrf-token, next-auth.callback-url, next-auth.session-token",
+      "at": "2026-08-01T18:03:54.519Z"
+    },
+    {
+      "name": "home",
+      "detail": "http://127.0.0.1:3000/",
+      "at": "2026-08-01T18:03:57.699Z"
+    },
+    {
+      "name": "jangada",
+      "detail": "id=1 serial=160706730",
+      "at": "2026-08-01T18:04:09.755Z"
+    },
+    {
+      "name": "error",
+      "detail": "page.waitForURL: Timeout 60000ms exceeded.\n=========================== logs ===========================\nwaiting for navigation until \"load\"\n============================================================",
+      "at": "2026-08-01T18:05:12.733Z"
+    }
+  ],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+  ],
+  "error": "page.waitForURL: Timeout 60000ms exceeded.\n=========================== logs ===========================\nwaiting for navigation until \"load\"\n============================================================"
+}

@@ -1,0 +1,12 @@
+{
+  "referencia": "REF-00001",
+  "descricao": "Test Item 1",
+  "categoria": "TEST",
+  "quantidade": 10,
+  "precoVenda": 100.0,
+  "precoCompra": 80.0,
+  "codigoFabricante": "CODE-001",
+  "localizacao": "LOC-001",
+  "associavelJangada": false,
+  "estadoArtigo": "NOVO"
+}

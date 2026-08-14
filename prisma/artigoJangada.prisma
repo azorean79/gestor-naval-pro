@@ -1,0 +1,13 @@
+// Prisma model para artigos dos quadros das jangadas (relacionado ao stock)
+model ArtigoJangada {
+  id               Int      @id @default(autoincrement())
+  name             String
+  quantidade       Int
+  validade         DateTime?
+  referencia       String?
+  codigoFabricante String?
+  jangadaId        Int
+  Jangada          Jangada  @relation(fields: [jangadaId], references: [id])
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}

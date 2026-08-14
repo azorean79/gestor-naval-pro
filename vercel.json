@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/alertas-expiracao",
+      "schedule": "0 8 * * *"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Ocean Safety placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <g fill="none" stroke="#60a5fa" stroke-width="3" opacity="0.35">
+    <path d="M0 450 C120 410 220 490 340 450 C460 410 560 490 680 450 C740 430 770 430 800 440"/>
+    <path d="M0 500 C120 460 220 540 340 500 C460 460 560 540 680 500 C740 480 770 480 800 490"/>
+  </g>
+  <g fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">
+    <text x="400" y="245" font-size="44" font-weight="700">OCEAN SAFETY</text>
+    <text x="400" y="290" font-size="26" opacity="0.95">Imagem temporária do artigo</text>
+    <text x="400" y="330" font-size="20" opacity="0.85">(foto original não disponível no catálogo)</text>
+  </g>
+</svg>

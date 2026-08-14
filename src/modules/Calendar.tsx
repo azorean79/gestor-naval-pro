@@ -1,0 +1,319 @@
+"use client";
+
+import { useState, useMemo, type ComponentType } from "react";
+import { Calendar, dateFnsLocalizer } from "react-big-calendar";
+import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
+import { format, parse, startOfWeek, getDay } from "date-fns";
+import { pt } from "date-fns/locale/pt";
+import { EVENT_STATUS_LABELS, EVENT_STATUS_COLORS, type InspectionType } from "@/types/agenda";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { AZORES_TECHNICIANS } from "@/lib/agenda-technicians";
+
+const locales = { pt: pt };
+const localizer = dateFnsLocalizer({
+  format,
+  parse,
+  startOfWeek,
+  getDay,
+  locales,
+});
+
+export type InspectionEvent = {
+  id: string | number;
+  title: string;
+  start: Date;
+  end: Date;
+  raftSerial: string;
+  status: string;
+  color?: string;
+  responsavel?: string;
+  inspectionType?: InspectionType;
+};
+
+type CalendarMutationPayload = {
+  event?: InspectionEvent;
+  start?: Date | string;
+  end?: Date | string;
+  resourceId?: string;
+};
+
+type InspectionCalendarProps = {
+  events: InspectionEvent[];
+  onSchedule: (event: InspectionEvent) => void;
+  onEventResize?: (data: CalendarMutationPayload) => void;
+  onEventDrop?: (data: CalendarMutationPayload) => void;
+  externalDragEvent?: InspectionEvent | null;
+  onExternalEventConsumed?: () => void;
+  onDeleteEvent?: (event: InspectionEvent) => void;
+  expiringByDay?: Record<string, any[]>;
+};
+
+const DnDCalendar = withDragAndDrop(Calendar) as any;
+
+const CustomEvent = ({ event }: any) => {
+  const parts = event.title.split(' • ');
+  const ship = parts[0]?.replace('Navio:', '').trim() || '';
+  const raft = parts[1]?.replace('Jangada:', '').trim() || event.raftSerial;
+  
+  return (
+    <div className="flex flex-col h-full overflow-hidden text-xs leading-tight">
+      <span className="font-bold block truncate">{ship}</span>
+      <span className="opacity-90 block truncate">{raft}</span>
+    </div>
+  );
+};
+
+const CustomMonthEvent = ({ event }: any) => {
+  const parts = event.title.split(' • ');
+  const ship = parts[0]?.replace('Navio:', '').trim() || '';
+  return (
+    <div className="text-[10px] leading-tight font-bold truncate px-1" title={event.title}>
+      {ship}
+    </div>
+  );
+};
+
+const CustomToolbar = (toolbar: any) => {
+  const goToBack = () => toolbar.onNavigate('PREV');
+  const goToNext = () => toolbar.onNavigate('NEXT');
+  const goToCurrent = () => toolbar.onNavigate('TODAY');
+
+  return (
+    <div className="flex flex-wrap items-center justify-between mb-4 gap-4 bg-slate-50 p-2 rounded-2xl border border-slate-200">
+      <div className="flex items-center gap-1">
+        <button onClick={goToBack} className="p-2 hover:bg-white rounded-lg transition-colors border border-transparent hover:border-slate-300 hover:shadow-sm text-slate-600">
+          <ChevronLeft size={18} />
+        </button>
+        <button onClick={goToCurrent} className="px-4 py-2 font-semibold text-sm hover:bg-white rounded-lg transition-colors border border-transparent hover:border-slate-300 hover:shadow-sm text-slate-700">
+          Hoje
+        </button>
+        <button onClick={goToNext} className="p-2 hover:bg-white rounded-lg transition-colors border border-transparent hover:border-slate-300 hover:shadow-sm text-slate-600">
+          <ChevronRight size={18} />
+        </button>
+        <span className="ml-4 font-bold text-slate-800 text-lg capitalize">{toolbar.label}</span>
+      </div>
+
+      <div className="flex bg-slate-200/50 p-1 rounded-xl">
+        {['month', 'week', 'day'].map(v => (
+          <button
+            key={v}
+            onClick={() => toolbar.onView(v)}
+            className={`px-4 py-1.5 text-sm font-semibold rounded-lg transition-all ${toolbar.view === v ? 'bg-white text-indigo-700 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
+          >
+            {v === 'month' ? 'Mês' : v === 'week' ? 'Semana' : 'Dia'}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default function InspectionCalendar({
+  events,
+  onSchedule,
+  onEventResize,
+  onEventDrop,
+  externalDragEvent,
+  onExternalEventConsumed,
+  onDeleteEvent,
+}: InspectionCalendarProps) {
+  const [view, setView] = useState<"month" | "week" | "day">("week");
+  const [date, setDate] = useState(new Date());
+
+  const resourceMap = useMemo(() => {
+    return [
+      ...AZORES_TECHNICIANS.map(t => ({ resourceId: t.name, resourceTitle: t.name })),
+      { resourceId: 'Sem Responsável', resourceTitle: 'Sem Responsável' }
+    ];
+  }, []);
+
+  const mappedEvents = useMemo(() => {
+    return events.map(e => ({
+      ...e,
+      resourceId: e.responsavel || 'Sem Responsável'
+    }));
+  }, [events]);
+
+  const formats = useMemo(
+    () => ({
+      timeGutterFormat: (d: Date, culture: string, loc: any) => loc.format(d, "HH:mm", culture),
+      eventTimeRangeFormat: ({ start, end }: any, culture: string, loc: any) =>
+        `${loc.format(start, "HH:mm", culture)} - ${loc.format(end, "HH:mm", culture)}`,
+      agendaTimeRangeFormat: ({ start, end }: any, culture: string, loc: any) =>
+        `${loc.format(start, "HH:mm", culture)} - ${loc.format(end, "HH:mm", culture)}`,
+      dayFormat: (d: Date, culture: string, loc: any) => loc.format(d, "EEEE, d MMM", culture),
+    }),
+    []
+  );
+
+  const isHoliday = (date: Date) => {
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    // Typical fixed Portuguese holidays
+    const holidays = ["1-1", "25-4", "1-5", "10-6", "15-8", "5-10", "1-11", "1-12", "8-12", "25-12"];
+    return holidays.includes(`${day}-${month}`);
+  };
+
+  const isWeekend = (date: Date) => {
+    const day = date.getDay();
+    return day === 0 || day === 6;
+  };
+
+  const dayPropGetter = (date: Date) => {
+    if (isWeekend(date) || isHoliday(date)) {
+      return {
+        className: 'bg-slate-200',
+        style: {
+          pointerEvents: 'none' as const,
+          cursor: 'not-allowed',
+        },
+      };
+    }
+    return {};
+  };
+
+  const slotPropGetter = (date: Date) => {
+    if (isWeekend(date) || isHoliday(date)) {
+      return {
+        className: 'bg-slate-200/60',
+        style: {
+          pointerEvents: 'none' as const,
+          cursor: 'not-allowed',
+        },
+      };
+    }
+    return {};
+  };
+
+  const eventStyleGetter = (event: any) => {
+    let backgroundColor = "#cbd5e1"; // slate-300 default
+    let borderColor = "#94a3b8";
+    
+    if (event.status) {
+      const statusKey = event.status as keyof typeof EVENT_STATUS_COLORS;
+      const colors = EVENT_STATUS_COLORS[statusKey] as any;
+      if (colors) {
+        backgroundColor = colors.bg || backgroundColor;
+        borderColor = colors.border || borderColor;
+      }
+    }
+
+    if (event.responsavel?.toLowerCase().includes("julio")) {
+      backgroundColor = "#38bdf8"; // sky-400 for Julio
+      borderColor = "#0284c7";
+    } else if (event.responsavel?.toLowerCase().includes("alex")) {
+      backgroundColor = "#a78bfa"; // violet-400 for Alex
+      borderColor = "#7c3aed";
+    }
+
+    // Distinguish vacations and absences in Calendar view with rose-500 color
+    if (event.title.startsWith("[FÉRIAS]") || event.title.startsWith("[AUSÊNCIA]")) {
+      backgroundColor = "#f43f5e"; // rose-500
+      borderColor = "#be123c"; // rose-700
+    }
+
+    return {
+      style: {
+        backgroundColor,
+        borderColor,
+        color: "#ffffff",
+        borderRadius: "8px",
+        display: "block",
+        border: `1px solid ${borderColor}`,
+        boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+        padding: "2px 4px",
+      },
+    };
+  };
+
+  const onDropFromOutside = ({ start }: { start: string | Date }) => {
+    if (!externalDragEvent) return;
+    const startDate = new Date(start);
+    const endDate = new Date(startDate.getTime() + 60 * 60 * 1000); // default 1 hour
+    onSchedule({ ...externalDragEvent, start: startDate, end: endDate });
+    if (onExternalEventConsumed) onExternalEventConsumed();
+  };
+
+  return (
+    <div className="flex h-full min-h-[700px] flex-col gap-4 rounded-3xl bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-2xl font-bold tracking-tight text-slate-800">Planeamento de Inspeções</h2>
+          <p className="text-sm text-slate-500 mt-1">Gere a agenda da equipa dos Açores (Julio & Alex)</p>
+        </div>
+        <div className="flex gap-2 text-sm font-medium">
+          <div className="flex items-center gap-2 rounded-full bg-sky-50 px-3 py-1 text-sky-700 border border-sky-100">
+            <span className="h-2 w-2 rounded-full bg-sky-400"></span> Julio Correia
+          </div>
+          <div className="flex items-center gap-2 rounded-full bg-violet-50 px-3 py-1 text-violet-700 border border-violet-100">
+            <span className="h-2 w-2 rounded-full bg-violet-400"></span> Alex Santos
+          </div>
+        </div>
+      </div>
+
+      <div className="flex-1 overflow-hidden h-[700px]">
+        {/* @ts-ignore - react-big-calendar typings can be tricky with addons */}
+        <DnDCalendar
+          key={view === 'day' ? 'with-resources' : 'no-resources'}
+          localizer={localizer}
+          events={mappedEvents}
+          resources={view === "day" ? resourceMap : undefined}
+          resourceIdAccessor="resourceId"
+          resourceTitleAccessor="resourceTitle"
+          date={date}
+          view={view}
+          onNavigate={(newDate: Date) => setDate(newDate)}
+          onView={(newView: "month" | "week" | "day") => setView(newView)}
+          onEventDrop={(args: any) => onEventDrop?.(args)}
+          onEventResize={(args: any) => onEventResize?.(args)}
+          resizable
+          selectable
+          draggableAccessor={() => true}
+          formats={formats}
+          eventPropGetter={eventStyleGetter}
+          dayPropGetter={dayPropGetter}
+          slotPropGetter={slotPropGetter}
+          step={30}
+          timeslots={2}
+          min={new Date(1970, 0, 1, 8, 0, 0)} // Start at 8 AM
+          max={new Date(1970, 0, 1, 19, 0, 0)} // End at 7 PM
+          culture="pt"
+          onSelectSlot={(slotInfo: any) => {
+            alert("Para agendar uma inspeção, arraste uma jangada do painel lateral para o calendário.");
+          }}
+          onSelectEvent={(event: any) => {
+             if (String(event.id).startsWith("ausencia-")) {
+               alert("Este evento refere-se a férias ou ausência de um técnico. Pode gerir este registo na página de Técnicos.");
+               return;
+             }
+             if (window.confirm("Desejas cancelar este agendamento?\n\nClica OK para DESMARCAR o agendamento.\nClica Cancelar para o manter.")) {
+               if (onDeleteEvent) onDeleteEvent(event as InspectionEvent);
+             }
+          }}
+          dragFromOutsideItem={externalDragEvent ? () => externalDragEvent : undefined}
+          onDropFromOutside={onDropFromOutside}
+          className="font-sans"
+          style={{ height: '100%', minHeight: '600px' }}
+          components={{
+            event: CustomEvent,
+            month: { event: CustomMonthEvent },
+            toolbar: CustomToolbar,
+          }}
+          messages={{
+            next: "Próximo",
+            previous: "Anterior",
+            today: "Hoje",
+            month: "Mês",
+            week: "Semana",
+            day: "Dia",
+            agenda: "Lista",
+            noEventsInRange: "Sem marcações neste período.",
+            showMore: (total: number) => `+${total} mais`,
+          }}
+        />
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,8 @@
+servistation 1.0/
+*.zip
+.venv/
+.next/
+node_modules/
+tmp_isp_pdf/
+tmp_colete_docx_inspect/
+Maritime_Vessel_Tracking-main/
