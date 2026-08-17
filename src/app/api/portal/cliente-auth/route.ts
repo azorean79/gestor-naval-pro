@@ -54,6 +54,24 @@ export async function GET(req: NextRequest) {
             jangada: { select: JANGADA_SELECT },
           },
         },
+        faturas: {
+          orderBy: { dataEmissao: "desc" },
+          include: {
+            ordemServicos: {
+              include: {
+                ordemServico: {
+                  select: {
+                    id: true,
+                    numeroOrdem: true,
+                    jangada: { select: { id: true, serial: true, brand: true, model: true } },
+                  },
+                },
+              },
+            },
+            recibos: { select: { numeroRecibo: true, valorPago: true, dataEmissao: true } },
+            notaCredito: true,
+          },
+        },
       },
     });
 
@@ -115,6 +133,33 @@ export async function GET(req: NextRequest) {
       };
     });
 
+    const faturas = (cliente.faturas || []).map((f) => {
+      const pago = (f.recibos || []).reduce((acc, r) => acc + Number(r.valorPago || 0), 0);
+      return {
+        id: f.id,
+        numeroFatura: f.numeroFatura,
+        valorTotal: Number(f.valorTotal || 0),
+        valorPago: pago,
+        pagamentoStatus: f.cancelada ? "Cancelado" : f.pagamentoStatus,
+        dataEmissao: f.dataEmissao,
+        cancelada: f.cancelada,
+        motivoCancelamento: f.motivoCancelamento,
+        numeroNotaCredito: f.notaCredito?.numeroNotaCredito ?? null,
+        numeroRecibo: f.recibos[0]?.numeroRecibo ?? null,
+        ordemServicos: (f.ordemServicos || []).map((l) => ({
+          id: l.ordemServico.id,
+          numeroOrdem: l.ordemServico.numeroOrdem,
+          jangada: l.ordemServico.jangada
+            ? { id: l.ordemServico.jangada.id, serial: l.ordemServico.jangada.serial, brand: l.ordemServico.jangada.brand, model: l.ordemServico.jangada.model }
+            : null,
+        })),
+      };
+    });
+
+    const faturasValidas = faturas.filter((f) => !f.cancelada);
+    const totalFaturado = faturasValidas.reduce((acc, f) => acc + f.valorTotal, 0);
+    const totalRecebido = faturasValidas.reduce((acc, f) => acc + f.valorPago, 0);
+
     return NextResponse.json({
       cliente: {
         id: cliente.id,
@@ -126,6 +171,13 @@ export async function GET(req: NextRequest) {
       },
       jangadas: jangadasComEstado,
       ordensServico: cliente.ordensServico,
+      faturas,
+      resumoFaturas: {
+        totalFaturas: faturasValidas.length,
+        totalFaturado,
+        totalRecebido,
+        totalEmDivida: Math.max(0, totalFaturado - totalRecebido),
+      },
     });
   } catch (error) {
     console.error("[GET /api/portal/cliente-auth]", error);

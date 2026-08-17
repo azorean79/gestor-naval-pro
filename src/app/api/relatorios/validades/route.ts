@@ -68,6 +68,32 @@ export async function GET(req: NextRequest) {
       },
     });
 
+    const nowIso = today.toISOString().slice(0, 10);
+    const limitIso = dateLimit ? dateLimit.toISOString().slice(0, 10) : null;
+    const inWindow = { gte: nowIso, ...(limitIso ? { lte: limitIso } : {}) };
+
+    const extintoresExpiring = await prisma.extintor.findMany({
+      where: { OR: [{ dataProxRecarga: inWindow }, { dataProxTesteHidraulico: inWindow }] },
+      select: { id: true, serial: true, marca: true, modelo: true, tipoAgente: true, dataProxRecarga: true, dataProxTesteHidraulico: true, shipId: true },
+      orderBy: [{ dataProxRecarga: "asc" }, { dataProxTesteHidraulico: "asc" }],
+    });
+
+    const epirbsExpiring = await prisma.epirb.findMany({
+      where: { estado: "Ativo", OR: [{ dataProxInspecao: inWindow }, { dataValidadeBateria: inWindow }] },
+      select: { id: true, serial: true, marca: true, modelo: true, dataProxInspecao: true, dataValidadeBateria: true, shipId: true },
+      orderBy: [{ dataProxInspecao: "asc" }, { dataValidadeBateria: "asc" }],
+    });
+
+    const fatosExpiring = await prisma.fatoImersao.findMany({
+      where: { dataProxInspecao: inWindow },
+      select: { id: true, serial: true, marca: true, modelo: true, dataProxInspecao: true, shipId: true },
+      orderBy: { dataProxInspecao: "asc" },
+    });
+
+    const extraShipIds = Array.from(new Set([...extintoresExpiring, ...epirbsExpiring, ...fatosExpiring].map((r) => r.shipId).filter((id): id is number => id !== null && id !== undefined)));
+    const extraNavios = extraShipIds.length ? await prisma.navio.findMany({ where: { id: { in: extraShipIds } }, select: { id: true, nome: true } }) : [];
+    const navioNome = new Map(extraNavios.map((n) => [n.id, n.nome]));
+
     // Se o formato pedido for JSON, retornar os dados diretamente
     const formatParam = searchParams.get("format");
     if (formatParam === "json") {
@@ -164,6 +190,76 @@ export async function GET(req: NextRequest) {
         };
       });
     });
+
+    const writeSimpleSheet = (name: string, columns: Array<{ header: string; key: string; width: number }>, rows: Array<Record<string, unknown>>) => {
+      const ws = workbook.addWorksheet(name);
+      ws.columns = columns;
+      ws.getRow(1).font = { bold: true, color: { argb: "FFFFFF" } };
+      ws.getRow(1).fill = { type: "pattern", pattern: "solid", fgColor: { argb: "4F46E5" } };
+      rows.forEach((r) => ws.addRow(r));
+      ws.eachRow((row, rowNumber) => {
+        if (rowNumber > 1 && rowNumber % 2 === 0) row.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "F9FAFB" } };
+        row.eachCell((cell) => {
+          cell.border = {
+            top: { style: "thin", color: { argb: "E5E7EB" } },
+            left: { style: "thin", color: { argb: "E5E7EB" } },
+            bottom: { style: "thin", color: { argb: "E5E7EB" } },
+            right: { style: "thin", color: { argb: "E5E7EB" } },
+          };
+        });
+      });
+    };
+
+    const fmt = (d: string | null | undefined) =>
+      d ? `${d.slice(8, 10)}/${d.slice(5, 7)}/${d.slice(0, 4)}` : "—";
+    const diasRestantes = (d: string) => {
+      const diff = Math.ceil((new Date(d).getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+      return diff >= 0 ? diff : "Expirado";
+    };
+
+    const extintorRows = extintoresExpiring.flatMap((e) => {
+      const rows: Array<Record<string, unknown>> = [];
+      const navio = e.shipId && navioNome.has(e.shipId) ? navioNome.get(e.shipId) : "—";
+      if (e.dataProxRecarga && e.dataProxRecarga >= nowIso && (!limitIso || e.dataProxRecarga <= limitIso)) {
+        rows.push({ nome: `${e.marca || "Extintor"} ${e.modelo || ""}`.trim(), serie: e.serial || `#${e.id}`, agente: e.tipoAgente || "—", navio, tipo: "Recarga", validade: fmt(e.dataProxRecarga), dias: diasRestantes(e.dataProxRecarga) });
+      }
+      if (e.dataProxTesteHidraulico && e.dataProxTesteHidraulico >= nowIso && (!limitIso || e.dataProxTesteHidraulico <= limitIso)) {
+        rows.push({ nome: `${e.marca || "Extintor"} ${e.modelo || ""}`.trim(), serie: e.serial || `#${e.id}`, agente: e.tipoAgente || "—", navio, tipo: "Teste hidráulico", validade: fmt(e.dataProxTesteHidraulico), dias: diasRestantes(e.dataProxTesteHidraulico) });
+      }
+      return rows;
+    });
+
+    const epirbRows = epirbsExpiring.flatMap((e) => {
+      const rows: Array<Record<string, unknown>> = [];
+      const navio = e.shipId && navioNome.has(e.shipId) ? navioNome.get(e.shipId) : "—";
+      if (e.dataProxInspecao && e.dataProxInspecao >= nowIso && (!limitIso || e.dataProxInspecao <= limitIso)) {
+        rows.push({ nome: `${e.marca || "EPIRB"} ${e.modelo || ""}`.trim(), serie: e.serial || `#${e.id}`, navio, tipo: "Inspeção", validade: fmt(e.dataProxInspecao), dias: diasRestantes(e.dataProxInspecao) });
+      }
+      if (e.dataValidadeBateria && e.dataValidadeBateria >= nowIso && (!limitIso || e.dataValidadeBateria <= limitIso)) {
+        rows.push({ nome: `${e.marca || "EPIRB"} ${e.modelo || ""}`.trim(), serie: e.serial || `#${e.id}`, navio, tipo: "Bateria", validade: fmt(e.dataValidadeBateria), dias: diasRestantes(e.dataValidadeBateria) });
+      }
+      return rows;
+    });
+
+    const fatoRows = fatosExpiring.flatMap((f) => {
+      const navio = f.shipId && navioNome.has(f.shipId) ? navioNome.get(f.shipId) : "—";
+      if (!(f.dataProxInspecao && f.dataProxInspecao >= nowIso && (!limitIso || f.dataProxInspecao <= limitIso))) return [];
+      return [{ nome: `${f.marca || "Fato de imersão"} ${f.modelo || ""}`.trim(), serie: f.serial || `#${f.id}`, navio, tipo: "Inspeção", validade: fmt(f.dataProxInspecao), dias: diasRestantes(f.dataProxInspecao) }];
+    });
+
+    const simpleColumns = [
+      { header: "Equipamento", key: "nome", width: 30 },
+      { header: "Nº Série", key: "serie", width: 20 },
+      { header: "Agente", key: "agente", width: 12 },
+      { header: "Embarcação", key: "navio", width: 25 },
+      { header: "Tipo", key: "tipo", width: 16 },
+      { header: "Validade", key: "validade", width: 15 },
+      { header: "Dias Restantes", key: "dias", width: 15 },
+    ];
+
+    if (extintorRows.length) writeSimpleSheet("Extintores", simpleColumns, extintorRows);
+    if (epirbRows.length) writeSimpleSheet("EPIRBs", simpleColumns, epirbRows);
+    if (fatoRows.length) writeSimpleSheet("Fatos de Imersão", simpleColumns, fatoRows);
 
     // Gerar buffer e retornar
     const buffer = await workbook.xlsx.writeBuffer();

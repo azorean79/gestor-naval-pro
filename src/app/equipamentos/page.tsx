@@ -690,13 +690,13 @@ export default function ColetesPage() {
                     <option key={navio.id} value={navio.id}>{navio.nome}{navio.matricula ? ` (${navio.matricula})` : ""}</option>
                   ))}
                 </select>
-                <input name="serial" value={form.serial} onChange={handleChange} placeholder="NÂº SÃ©rie (obrigatÃ³rio)" className="border rounded-lg px-3 py-2 w-full" required />
+                <input name="serial" value={form.serial} onChange={handleChange} placeholder="Nº Série (obrigatório)" className="border rounded-lg px-3 py-2 w-full" required />
                 <select name="marca" value={form.marca} onChange={handleChange} className="border rounded-lg px-3 py-2 w-full">
                   <option value="">Selecionar marca...</option>
                   {formBrandOptions.map((marca) => {
                     const country = catalogBrandCountryMap.get(normalizeCatalogKey(marca));
                     const manufacturer = catalogBrandManufacturerMap.get(normalizeCatalogKey(marca));
-                    const meta = [manufacturer && manufacturer !== marca ? `Fab: ${manufacturer}` : "", country ? `PaÃ­s: ${country}` : ""].filter(Boolean).join(" Â· ");
+                    const meta = [manufacturer && manufacturer !== marca ? `Fab: ${manufacturer}` : "", country ? `País: ${country}` : ""].filter(Boolean).join(" · ");
                     const label = meta ? `${marca} (${meta})` : marca;
                     return (
                       <option key={marca} value={marca}>{label}</option>
@@ -716,14 +716,14 @@ export default function ColetesPage() {
                 <input
                   value={resolveManufacturingCountry(form.marca, form.modelo)}
                   readOnly
-                  placeholder="PaÃ­s de fabrico"
+                  placeholder="País de fabrico"
                   className="border rounded-lg px-3 py-2 w-full bg-gray-50 text-gray-700"
-                  title="PaÃ­s de fabrico (calculado automaticamente pelo catÃ¡logo tÃ©cnico)"
+                  title="País de fabrico (calculado automaticamente pelo catálogo técnico)"
                 />
                 <input name="tamanho" value={form.tamanho} onChange={handleChange} placeholder="Tamanho" className="border rounded-lg px-3 py-2 w-full" />
                 <select name="estado" value={form.estado} onChange={handleChange} className="border rounded-lg px-3 py-2 w-full">
                   <option value="Ativo">Ativo</option>
-                  <option value="Em manutenÃ§Ã£o">Em manutenÃ§Ã£o</option>
+                  <option value="Em manutenção">Em manutenção</option>
                   <option value="Inativo">Inativo</option>
                 </select>
                 <div className="flex gap-2">
@@ -732,15 +732,15 @@ export default function ColetesPage() {
                     <input name="dataFabrico" type="month" value={form.dataFabrico} onChange={handleChange} className="border rounded-lg px-3 py-2 w-full text-sm" />
                   </div>
                   <div className="w-1/3">
-                    <label className="text-xs text-gray-500 mb-1 block">Data InspeÃ§Ã£o</label>
+                    <label className="text-xs text-gray-500 mb-1 block">Data Inspeção</label>
                     <input name="dataInspecao" type="date" value={form.dataInspecao} onChange={handleChange} className="border rounded-lg px-3 py-2 w-full text-sm" />
                   </div>
                   <div className="w-1/3">
-                    <label className="text-xs text-gray-500 mb-1 block">PrÃ³x. InspeÃ§Ã£o</label>
+                    <label className="text-xs text-gray-500 mb-1 block">Próx. Inspeção</label>
                     <input name="dataProxInspecao" type="date" value={form.dataProxInspecao} onChange={handleChange} className="border rounded-lg px-3 py-2 w-full text-sm" />
                   </div>
                 </div>
-                <textarea name="observacoes" value={form.observacoes} onChange={handleChange} placeholder="ObservaÃ§Ãµes" className="border rounded-lg px-3 py-2 w-full" rows={3} />
+                <textarea name="observacoes" value={form.observacoes} onChange={handleChange} placeholder="Observações" className="border rounded-lg px-3 py-2 w-full" rows={3} />
                 <div className="flex gap-2 justify-end">
                   <button type="button" className="px-4 py-2 bg-gray-200 rounded-lg" onClick={() => { setShowWizard(false); setEditId(null); }}>
                     Cancelar
@@ -757,12 +757,12 @@ export default function ColetesPage() {
             <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-md border border-gray-200">
               <h3 className="text-lg font-bold mb-4">Ficha do Colete</h3>
               {(() => {
-                const manualData = getManualData(viewItem);
+                 const manualData = getManualData(viewItem);
                 return manualData.manuals.length > 0 ? (
                   <div className="mb-4 rounded-lg border border-cyan-200 bg-cyan-50 p-3 text-sm text-cyan-900">
-                    <p className="font-semibold">Manual tÃ©cnico disponÃ­vel</p>
+                    <p className="font-semibold">Manual técnico disponível</p>
                     <p className="mt-1 text-xs text-cyan-700">
-                      {manualData.matchedModel ? `CorrespondÃªncia automÃ¡tica: ${manualData.displayLabel}` : "CorrespondÃªncia automÃ¡tica por marca."}
+                      {manualData.matchedModel ? `Correspondência automática: ${manualData.displayLabel}` : "Correspondência automática por marca."}
                     </p>
                     <div className="mt-2 flex flex-wrap gap-2">
                       {manualData.manuals.map((manual) => (

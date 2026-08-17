@@ -1,9 +1,13 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getAccessContext } from "@/lib/access-control";
 import { getTechnicianKeyByName } from "@/lib/agenda-technicians";
 import { canonicalizeAzoresIsland } from "@/lib/azores-islands";
 
 export async function GET() {
+  const access = await getAccessContext();
+  if (!access) return NextResponse.json({ error: "Sessão obrigatória." }, { status: 401 });
+
   const eventos = await prisma.agendaEvento.findMany({
     where: { status: { in: ["scheduled", "confirmed"] } },
     orderBy: { date: "asc" },

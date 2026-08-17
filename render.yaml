@@ -9,7 +9,7 @@ services:
     plan: standard
     branch: main
     buildCommand: "chmod +x scripts/render-build.sh && ./scripts/render-build.sh"
-    startCommand: "node server.js"
+    startCommand: "node .next/standalone/server.js"
     healthCheckPath: /api/health
     autoDeploy: true
     envVars:

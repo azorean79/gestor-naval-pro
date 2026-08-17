@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Mail, MessageSquare, MessageSquareText, X, Loader2 } from "lucide-react";
+import { Mail, MessageSquare, MessageSquareText, X, Loader2, Flame, Waves } from "lucide-react";
 import { formatDateAuto } from "@/lib/date-utils";
 
 type Alerta = {
-  tipo: "inspecao" | "certificado" | "assistencia" | "epirb";
+  tipo: "inspecao" | "certificado" | "assistencia" | "epirb" | "extintor" | "fato";
   id: number;
   referencia: string;
   data?: string | null;
@@ -15,6 +15,7 @@ type Alerta = {
   sourceYear?: number | null;
   ordemId?: number | null;
   epirbId?: number | null;
+  extintorId?: number | null;
 };
 
 type AlertsPayload = {
@@ -23,6 +24,8 @@ type AlertsPayload = {
   certificados: number;
   pedidosAssistencia: number;
   epirbs: number;
+  extintores: number;
+  fatos: number;
   alertas: Alerta[];
 };
 
@@ -41,6 +44,8 @@ export default function AlertasPage() {
     certificados: 0,
     pedidosAssistencia: 0,
     epirbs: 0,
+    extintores: 0,
+    fatos: 0,
     alertas: []
   });
 
@@ -141,6 +146,8 @@ export default function AlertasPage() {
         certificados: Number(data?.certificados || 0),
         pedidosAssistencia: Number(data?.pedidosAssistencia || 0),
         epirbs: Number(data?.epirbs || 0),
+        extintores: Number(data?.extintores || 0),
+        fatos: Number(data?.fatos || 0),
         alertas: Array.isArray(data?.alertas) ? data.alertas : [],
       });
     } catch (e) {
@@ -184,7 +191,7 @@ export default function AlertasPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-7 gap-3 mb-4">
           <div className="bg-white border rounded-xl p-4">
             <p className="text-xs text-gray-500 font-medium">Total de Alertas</p>
             <p className="text-2xl font-black text-red-600">{payload.total}</p>
@@ -204,6 +211,14 @@ export default function AlertasPage() {
           <div className="bg-white border rounded-xl p-4">
             <p className="text-xs text-gray-500 font-medium">EPIRBs a Expirar</p>
             <p className="text-2xl font-black text-amber-800">{payload.epirbs}</p>
+          </div>
+          <div className="bg-white border rounded-xl p-4">
+            <p className="text-xs text-gray-500 font-medium">Extintores a Expirar</p>
+            <p className="text-2xl font-black text-orange-600">{payload.extintores}</p>
+          </div>
+          <div className="bg-white border rounded-xl p-4">
+            <p className="text-xs text-gray-500 font-medium">Fatos de Imersão a Expirar</p>
+            <p className="text-2xl font-black text-sky-600">{payload.fatos}</p>
           </div>
         </div>
 
@@ -235,13 +250,29 @@ export default function AlertasPage() {
                           <span className="inline-flex items-center rounded-full bg-amber-50 border border-amber-200 text-amber-800 px-2 py-0.5 text-xs font-bold">
                             📡 EPIRB ({a.status})
                           </span>
+                        ) : a.tipo === "extintor" ? (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-orange-50 border border-orange-200 text-orange-700 px-2 py-0.5 text-xs font-bold">
+                            <Flame size={12} /> Extintor
+                          </span>
+                        ) : a.tipo === "fato" ? (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-sky-50 border border-sky-200 text-sky-700 px-2 py-0.5 text-xs font-bold">
+                            <Waves size={12} /> Fato de Imersão
+                          </span>
                         ) : (
                           <span className="capitalize px-2 py-0.5 text-xs font-semibold bg-gray-100 border border-gray-200 rounded-full text-gray-700">
                             {a.tipo}
                           </span>
                         )}
                       </td>
-                      <td className="p-2.5 font-medium text-gray-800">{a.referencia}</td>
+                      <td className="p-2.5 font-medium text-gray-800">
+                        {a.referencia}
+                        {a.tipo === "extintor" && a.status && (
+                          <span className="block text-xs text-orange-700 font-normal mt-0.5">{a.status}</span>
+                        )}
+                        {a.tipo === "fato" && a.status && (
+                          <span className="block text-xs text-sky-700 font-normal mt-0.5">{a.status}</span>
+                        )}
+                      </td>
                       <td className="p-2.5 font-medium text-gray-700">{formatDateAuto(a.data)}</td>
                       <td className="p-2.5">
                         {a.tipo === "assistencia" && a.ordemId ? (
@@ -262,6 +293,14 @@ export default function AlertasPage() {
                         ) : a.tipo === "epirb" && a.id ? (
                           <a className="text-blue-700 hover:underline" href={`/epirbs/${a.id}`}>
                             Abrir EPIRB
+                          </a>
+                        ) : a.tipo === "extintor" && a.extintorId ? (
+                          <a className="text-orange-700 hover:underline font-semibold" href="/extintores">
+                            Abrir Extintores
+                          </a>
+                        ) : a.tipo === "fato" && a.id ? (
+                          <a className="text-sky-700 hover:underline font-semibold" href="/fatos-imersao">
+                            Abrir Fatos de Imersão
                           </a>
                         ) : a.jangadaId ? (
                           <div className="flex items-center gap-3">

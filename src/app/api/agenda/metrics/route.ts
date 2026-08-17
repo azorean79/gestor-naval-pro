@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getAccessContext } from "@/lib/access-control";
 import { normalizeInspectionType, normalizeEventStatus } from "@/types/agenda";
 
 export async function GET() {
+  const access = await getAccessContext();
+  if (!access) return NextResponse.json({ error: "Sessão obrigatória." }, { status: 401 });
+
   const eventos = await prisma.agendaEvento.findMany({ orderBy: { date: "asc" } });
 
   const now = new Date();

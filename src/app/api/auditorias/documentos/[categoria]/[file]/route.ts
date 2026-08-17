@@ -51,7 +51,7 @@ export async function GET(
   } catch (error) {
     console.error("Erro ao abrir documento de auditoria:", error);
     return NextResponse.json(
-      { error: "Erro ao abrir documento", details: (error as Error).message },
+      { error: "Erro ao abrir documento" },
       { status: 500 }
     );
   }
@@ -76,7 +76,7 @@ export async function DELETE(
   } catch (error) {
     console.error("Erro ao eliminar documento de auditoria:", error);
     return NextResponse.json(
-      { error: "Erro ao eliminar documento", details: (error as Error).message },
+      { error: "Erro ao eliminar documento" },
       { status: 500 }
     );
   }

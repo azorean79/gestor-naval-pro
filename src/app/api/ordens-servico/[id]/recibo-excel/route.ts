@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import ExcelJS from "exceljs";
 import { getAccessContext } from "@/lib/access-control";
-import { getIvaRate } from "@/lib/iva";
+import { carregarFaturaPorOrdemServico, resumoFatura } from "@/lib/faturamento";
 
 const ISSUER_NAME = "Orey Técnica - Serviços Navais";
 
@@ -56,24 +56,35 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       );
     }
 
+    const link = await carregarFaturaPorOrdemServico(id);
+    const fatura = link?.fatura ?? null;
+    const resumo = resumoFatura(link ?? null);
+    const ordens = (fatura ? resumo.ordens : [order]) as Array<typeof order>;
+
     const pecas = Number(order.valorPecas || 0);
     const maoObra = Number(order.valorMaoObra || 0);
     const desconto = Number(order.valorDesconto || 0);
-    const isentoIva = Boolean(order.isIsentoIva);
-    const subtotal = pecas + maoObra - desconto;
-    const iva = isentoIva ? 0 : subtotal * getIvaRate();
-    const total = subtotal + iva;
+    const total = fatura ? resumo.total : pecas + maoObra - desconto;
 
-    const jangada = order.jangada || null;
-    const cliente = order.cliente || null;
-    const clienteNome = cliente?.nome || jangada?.owner || "Cliente particular";
-    const navio = jangada?.shipNameManual || "—";
-    const issuer = order.serviceStation?.nome || ISSUER_NAME;
-    const emissao = new Date();
-
-    const orderMeta = typeof order.metadados === "object" && order.metadados ? order.metadados as Record<string, unknown> : {};
-    const pagamentoStatus = String(orderMeta.pagamentoStatus || "Pendente");
+    const clienteNome = resumo.clienteNome;
+    const nif = resumo.cliente?.nif || null;
+    const morada = resumo.cliente?.morada || null;
+    const localidade = resumo.cliente?.localidade || null;
+    const ilha = resumo.cliente?.ilha || null;
+    const navio = resumo.navio;
+    const jangadaLabel = resumo.jangadaLabel;
+    const serial = resumo.jangada?.serial || null;
+    const issuer = resumo.issuer;
+    const numeroFatura = resumo.numeroFatura;
+    const dataTrabalho = resumo.dataTrabalho || order.dataConclusao || order.dataAbertura || order.createdAt || null;
+    const tecnicoNome = resumo.tecnico || order.tecnico?.nome || null;
+    const pagamentoStatus = resumo.pagamentoStatus;
     const foiPago = pagamentoStatus === "Pago" || pagamentoStatus === "Pago Parcialmente";
+
+    const reciboRegistado = fatura?.recibos?.[0] ?? null;
+    const numeroRecibo = reciboRegistado?.numeroRecibo || `REC-PROVISORIO-${numeroFatura}`;
+    const valorRecibo = reciboRegistado ? Number(reciboRegistado.valorPago) : total;
+    const dataRecibo = reciboRegistado?.dataEmissao || new Date();
 
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet("Recibo");
@@ -85,7 +96,6 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       { header: "", key: "d", width: 16 },
     ];
 
-    // Título
     worksheet.mergeCells("A1:D1");
     worksheet.getCell("A1").value = "RECIBO";
     worksheet.getCell("A1").font = { bold: true, size: 18, color: { argb: "FFFFFF" } };
@@ -98,17 +108,17 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       ["Fornecedor", issuer],
       ["Cliente", clienteNome],
     ];
-    if (cliente?.nif) issuerRows.push(["NIF Cliente", cliente.nif]);
-    if (cliente?.morada) issuerRows.push(["Morada", cliente.morada]);
-    if (cliente?.localidade || cliente?.ilha) issuerRows.push(["Localidade / Ilha", `${cliente.localidade || ""} ${cliente.ilha || ""}`.trim()]);
-    issuerRows.push(["Recibo Nº", `REC-${order.numeroOrdem || order.id}`]);
-    issuerRows.push(["Data de emissão", formatDate(emissao)]);
-    issuerRows.push(["Fatura / Ordem", order.numeroOrdem || `FAT-${order.id}`]);
-    issuerRows.push(["Data de trabalho", formatDate(order.dataConclusao || order.dataAbertura || order.createdAt)]);
+    if (nif) issuerRows.push(["NIF Cliente", nif]);
+    if (morada) issuerRows.push(["Morada", morada]);
+    if (localidade || ilha) issuerRows.push(["Localidade / Ilha", `${localidade || ""} ${ilha || ""}`.trim()]);
+    issuerRows.push(["Recibo Nº", numeroRecibo]);
+    issuerRows.push(["Data de emissão", formatDate(dataRecibo)]);
+    issuerRows.push(["Fatura / Ordem", numeroFatura]);
+    issuerRows.push(["Data de trabalho", formatDate(dataTrabalho)]);
     issuerRows.push(["Embarcação", navio]);
-    issuerRows.push(["Jangada", `${jangada?.brand || ""} ${jangada?.model || ""}`.trim() || "—"]);
-    if (jangada?.serial) issuerRows.push(["Nº Série Jangada", jangada.serial]);
-    if (order.tecnico?.nome) issuerRows.push(["Técnico responsável", order.tecnico.nome]);
+    issuerRows.push(["Jangada", jangadaLabel]);
+    if (serial) issuerRows.push(["Nº Série Jangada", serial]);
+    if (tecnicoNome) issuerRows.push(["Técnico responsável", tecnicoNome]);
     issuerRows.push(["Estado de Pagamento", pagamentoStatus]);
 
     issuerRows.forEach(([label, value]) => {
@@ -118,12 +128,15 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       rowIndex += 1;
     });
 
-    // Corpo do recibo
     rowIndex += 1;
+    const descricaoServicos = ordens
+      .map((ot) => `${ot.numeroOrdem || `#${ot.id}`} — ${ot.jangada ? `${ot.jangada.brand || ""} ${ot.jangada.model || ""}`.trim() || "jangada" : "serviço"} (MDO ${formatEuro(Number(ot.valorMaoObra || 0))}; MAT ${formatEuro(Number(ot.valorPecas || 0))})`)
+      .join(" | ") || "Serviços prestados";
+
     const reciboRows: Array<[string, string]> = [
-      ["Montante recebido (em numerário, cheque ou transferência)", formatEuro(total)],
-      ["Respeitante à fatura", `Fatura Nº ${order.numeroOrdem || order.id} de ${formatDate(order.dataConclusao || order.dataAbertura || order.createdAt)}`],
-      ["Descrição dos serviços", `${maoObra > 0 ? "Mão-de-obra (trabalhos executados)" : ""}${maoObra > 0 && pecas > 0 ? "; " : ""}${pecas > 0 ? "Peças / materiais aplicados" : ""}`.trim() || "Serviços prestados"],
+      ["Montante recebido (em numerário, cheque ou transferência)", formatEuro(valorRecibo)],
+      ["Respeitante à fatura", `Fatura Nº ${numeroFatura} de ${formatDate(dataRecibo)}`],
+      ["Descrição dos serviços", descricaoServicos],
     ];
     reciboRows.forEach(([label, value]) => {
       worksheet.getCell(`A${rowIndex}`).value = label;
@@ -132,12 +145,11 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       rowIndex += 1;
     });
 
-    // Linha do montante em destaque
     rowIndex += 1;
     worksheet.mergeCells(`A${rowIndex}:C${rowIndex}`);
     worksheet.getCell(`A${rowIndex}`).value = "TOTAL RECEBIDO";
     worksheet.getCell(`A${rowIndex}`).font = { bold: true, size: 13 };
-    worksheet.getCell(`D${rowIndex}`).value = formatEuro(total);
+    worksheet.getCell(`D${rowIndex}`).value = formatEuro(valorRecibo);
     worksheet.getCell(`D${rowIndex}`).font = { bold: true, size: 13 };
     worksheet.getCell(`A${rowIndex}`).fill = { type: "pattern", pattern: "solid", fgColor: { argb: "CCFBF1" } };
     worksheet.getCell(`D${rowIndex}`).fill = { type: "pattern", pattern: "solid", fgColor: { argb: "CCFBF1" } };
@@ -146,11 +158,10 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     if (!foiPago) {
       rowIndex += 1;
       worksheet.mergeCells(`A${rowIndex}:D${rowIndex}`);
-      worksheet.getCell(`A${rowIndex}`).value = `NOTA: Este recibo documenta o montante da fatura ${order.numeroOrdem || order.id}. O pagamento encontra-se "${pagamentoStatus}". O recibo definitivo será emitido após liquidação.`;
+      worksheet.getCell(`A${rowIndex}`).value = `NOTA: Este recibo documenta o montante da fatura ${numeroFatura}. O pagamento encontra-se "${pagamentoStatus}". O recibo definitivo será emitido após liquidação.`;
       worksheet.getCell(`A${rowIndex}`).font = { italic: true, color: { argb: "B45309" } };
     }
 
-    // Assinaturas
     rowIndex += 2;
     worksheet.mergeCells(`A${rowIndex}:B${rowIndex}`);
     worksheet.getCell(`A${rowIndex}`).value = "O Recibos (Orey Técnica)";
@@ -178,7 +189,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     return new NextResponse(buffer, {
       status: 200,
       headers: {
-        "Content-Disposition": `attachment; filename=recibo-${order.numeroOrdem}.xlsx`,
+        "Content-Disposition": `attachment; filename=recibo-${numeroRecibo}.xlsx`,
         "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       },
     });

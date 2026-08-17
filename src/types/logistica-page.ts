@@ -8,6 +8,7 @@ export type JangadaLogistica = {
   shipName: string | null;
   owner: string;
   island: string | null;
+  portoRegisto: string | null;
   dataInspecao: string | null;
   dataProxInspecao: string | null;
   status: string | null;

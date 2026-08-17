@@ -14,6 +14,7 @@ import {
   parseOrdemServicoMeta,
   replaceOrdemServicoJangadas,
   resolveWorkflowStatus,
+  syncPedidoAssistenciaFromOrdem,
   toOrdemServicoMetaJson,
   generateNumeroOrdem,
   type OrdemServicoMeta,
@@ -170,6 +171,39 @@ function parseIdFromRequest(req: NextRequest) {
   const rawId = segments[segments.length - 1];
   const id = Number(rawId);
   return Number.isFinite(id) && id > 0 ? id : null;
+}
+
+async function findFaturaAtiva(ordemServicoId: number) {
+  const link = await prisma.faturaOrdemServico.findFirst({
+    where: { ordemServicoId, fatura: { cancelada: false } },
+    select: { fatura: { select: { id: true, numeroFatura: true } } },
+  });
+  return link?.fatura ?? null;
+}
+
+function detectInvoiceFieldsChange(
+  body: Record<string, unknown>,
+  before: { metadados: string | null; valorPecas: number; valorMaoObra: number; valorDesconto: number; isIsentoIva: boolean }
+) {
+  const previousMeta = parseOrdemServicoMeta(before.metadados);
+  const nextMeta = body.metadados && typeof body.metadados === "object"
+    ? { ...previousMeta, ...(body.metadados as Record<string, unknown>) }
+    : previousMeta;
+
+  const scalarChanged = [
+    { field: "valorPecas", current: before.valorPecas },
+    { field: "valorMaoObra", current: before.valorMaoObra },
+    { field: "valorDesconto", current: before.valorDesconto },
+    { field: "isIsentoIva", current: before.isIsentoIva },
+  ].some(({ field, current }) => Object.prototype.hasOwnProperty.call(body, field) && Number(body[field]) !== Number(current));
+  if (scalarChanged) return true;
+
+  const materialsChanged =
+    JSON.stringify(nextMeta.materials ?? null) !== JSON.stringify(previousMeta.materials ?? null);
+  const linhasChanged =
+    JSON.stringify(nextMeta.linhas ?? null) !== JSON.stringify(previousMeta.linhas ?? null);
+
+  return materialsChanged || linhasChanged;
 }
 
 function parseOptionalDate(value: unknown) {
@@ -561,6 +595,14 @@ export async function PUT(req: NextRequest) {
 
     const body = (await req.json()) as Record<string, unknown>;
 
+    const faturaAtiva = await findFaturaAtiva(id);
+    if (faturaAtiva && detectInvoiceFieldsChange(body, before)) {
+      return NextResponse.json(
+        { error: `A OT já foi faturada (${faturaAtiva.numeroFatura}). Não é permitido alterar valores, materiais, linhas ou isenção de IVA após a faturação.` },
+        { status: 400 }
+      );
+    }
+
     // Bloquear edição de valores/materiais se o orçamento foi Emitido pela inspeção, exceto para Aprovado/Rejeitado
     const newOrcamentoStatus = Object.prototype.hasOwnProperty.call(body, "orcamentoStatus") ? String(body.orcamentoStatus) : undefined;
     if (before.orcamentoStatus === "Emitido" && newOrcamentoStatus !== "Aprovado" && newOrcamentoStatus !== "Rejeitado") {
@@ -658,6 +700,12 @@ export async function PUT(req: NextRequest) {
     const orcamentoStatus = Object.prototype.hasOwnProperty.call(body, "orcamentoStatus") ? String(body.orcamentoStatus) : undefined;
     const isPesca = Object.prototype.hasOwnProperty.call(body, "isPesca") ? Boolean(body.isPesca) : before.isPesca;
     const isIsentoIva = Object.prototype.hasOwnProperty.call(body, "isIsentoIva") ? Boolean(body.isIsentoIva) : before.isIsentoIva;
+    const codigoIsencaoIva =
+      Object.prototype.hasOwnProperty.call(body, "codigoIsencaoIva")
+        ? body.codigoIsencaoIva
+          ? String(body.codigoIsencaoIva).trim() || null
+          : null
+        : before.codigoIsencaoIva ?? null;
     const valorPecas = Object.prototype.hasOwnProperty.call(body, "valorPecas") ? Number(body.valorPecas) : before.valorPecas;
     const valorMaoObra = Object.prototype.hasOwnProperty.call(body, "valorMaoObra") ? Number(body.valorMaoObra) : before.valorMaoObra;
     const valorDesconto = Object.prototype.hasOwnProperty.call(body, "valorDesconto") ? Number(body.valorDesconto) : before.valorDesconto;
@@ -727,6 +775,7 @@ export async function PUT(req: NextRequest) {
           orcamentoStatus: orcamentoStatus,
           isPesca: isPesca,
           isIsentoIva: isIsentoIva,
+          codigoIsencaoIva: isIsentoIva ? codigoIsencaoIva : null,
           valorPecas: valorPecas,
           valorMaoObra: valorMaoObra,
           valorDesconto: valorDesconto,
@@ -792,6 +841,8 @@ export async function PUT(req: NextRequest) {
       }
     }
 
+    await syncPedidoAssistenciaFromOrdem(id);
+
     await logAuditoria({
       tabela: "OrdemServico",
       tipoOperacao: "UPDATE",
@@ -852,8 +903,32 @@ export async function PATCH(req: NextRequest) {
 
     const body = (await req.json()) as Record<string, unknown>;
 
+    const faturaAtiva = await findFaturaAtiva(id);
+    if (faturaAtiva && detectInvoiceFieldsChange(body, before)) {
+      return NextResponse.json(
+        { error: `A OT já foi faturada (${faturaAtiva.numeroFatura}). Não é permitido alterar valores, materiais, linhas ou isenção de IVA após a faturação.` },
+        { status: 400 }
+      );
+    }
+
+    // Locking concorrente: se o cliente enviar updatedAt, verificar que não foi alterado por outro utilizador
+    if (body.updatedAt) {
+      const clientUpdatedAt = new Date(String(body.updatedAt));
+      if (Number.isFinite(clientUpdatedAt.getTime()) && before.updatedAt.getTime() !== clientUpdatedAt.getTime()) {
+        return NextResponse.json(
+          { error: "Esta OT foi alterada por outro utilizador. Recarregue a página e tente novamente.", serverUpdatedAt: before.updatedAt.toISOString() },
+          { status: 409 }
+        );
+      }
+    }
+
     const isPesca = Object.prototype.hasOwnProperty.call(body, "isPesca") ? Boolean(body.isPesca) : before.isPesca;
     const isIsentoIva = Object.prototype.hasOwnProperty.call(body, "isIsentoIva") ? Boolean(body.isIsentoIva) : before.isIsentoIva;
+    const codigoIsencaoIva = Object.prototype.hasOwnProperty.call(body, "codigoIsencaoIva")
+      ? body.codigoIsencaoIva
+        ? String(body.codigoIsencaoIva).trim() || null
+        : null
+      : before.codigoIsencaoIva ?? null;
 
     const hasLinhas = Object.prototype.hasOwnProperty.call(body, "linhas");
     const rawLinhas = Array.isArray(body.linhas)
@@ -901,6 +976,7 @@ export async function PATCH(req: NextRequest) {
         orcamentoStatus: Object.prototype.hasOwnProperty.call(body, "orcamentoStatus") ? String(body.orcamentoStatus) : undefined,
         isPesca,
         isIsentoIva,
+        codigoIsencaoIva: isIsentoIva ? codigoIsencaoIva : null,
         valorPecas,
         valorMaoObra,
         valorDesconto,

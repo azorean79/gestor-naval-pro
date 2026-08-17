@@ -6,7 +6,144 @@ export function formatNumber(value: number) {
   return value.toLocaleString("pt-PT", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-export async function handleExportBudgetPdf() {}
+export async function handleExportBudgetPdf(params: ExportBudgetExcelParams) {
+  const { materiais, maoObra, config } = params;
+  const subtotal = materiais.reduce((acc, m) => acc + m.total, 0) + maoObra.reduce((acc, m) => acc + m.total, 0);
+  const descVal = config.descontoTipo === "percentual" ? subtotal * (config.desconto / 100) : config.desconto;
+  const subtotalComDesc = Math.max(0, subtotal - descVal);
+  const ivaVal = config.isentoIva ? 0 : subtotalComDesc * (config.ivaRate / 100);
+  const total = subtotalComDesc + ivaVal;
+
+  const euro = (v: number) => formatCurrency(v);
+  const esc = (v: string) => v ? v.replace(/</g, "&lt;") : "";
+
+  const infoRows = [
+    ["OS", params.ordemNumero],
+    ["Data", new Date().toLocaleDateString("pt-PT")],
+    ["Cliente", params.clienteNome],
+    ["NIF", params.clienteNif || "-"],
+    ["Morada", params.clienteMorada || "-"],
+    ["Jangada", params.jangadaInfo],
+    ["Serial", params.jangadaSerial || "-"],
+    ["Navio / Armador", params.navio || "-"],
+    ["Técnico", params.tecnico || "-"],
+    ["Validade", `${config.validadeDias} dias`],
+  ];
+
+  const materialRows = materiais.map((m) => `
+    <tr>
+      <td>${esc(m.referencia || "-")}</td>
+      <td>${esc(m.descricao)}</td>
+      <td class="c">${m.quantidade}</td>
+      <td class="r">${euro(m.precoUnitario)}</td>
+      <td class="c">${m.desconto ? (m.descontoTipo === "percentual" ? `${m.desconto}%` : euro(m.desconto)) : "-"}</td>
+      <td class="r">${euro(m.total)}</td>
+    </tr>`).join("");
+
+  const maoObraRows = maoObra.map((m) => `
+    <tr>
+      <td colspan="2">${esc(m.descricao)}</td>
+      <td class="c">${m.horas}</td>
+      <td class="r">${euro(m.precoHora)}</td>
+      <td></td>
+      <td class="r">${euro(m.total)}</td>
+    </tr>`).join("");
+
+  const totalMateriais = materiais.reduce((acc, m) => acc + m.total, 0);
+  const totalMaoObra = maoObra.reduce((acc, m) => acc + m.total, 0);
+
+  const totalRows = [
+    ["Subtotal Materiais", euro(totalMateriais), false],
+    ["Subtotal Mão de Obra", euro(totalMaoObra), false],
+  ];
+  if (descVal > 0) {
+    totalRows.push([`Desconto (${config.descontoTipo === "percentual" ? `${config.desconto}%` : euro(config.desconto)})`, `- ${euro(descVal)}`, false]);
+  }
+  totalRows.push(["Subtotal c/ Desconto", euro(subtotalComDesc), false]);
+  totalRows.push([`IVA (${config.isentoIva ? "Isento" : `${config.ivaRate}%`})`, config.isentoIva ? "Isento" : euro(ivaVal), false]);
+  totalRows.push(["TOTAL", euro(total), true]);
+
+  const totalsHtml = totalRows.map(([label, val, bold]) => `
+    <tr class="${bold ? "total" : ""}">
+      <td colspan="4" class="r">${label}</td>
+      <td></td>
+      <td class="r">${val}</td>
+    </tr>`).join("");
+
+  const win = window.open("", "_blank", "width=900,height=1200");
+  if (!win) return;
+
+  win.document.write(`<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8" />
+<title>Orçamento ${esc(params.ordemNumero || "")}</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: Calibri, Arial, sans-serif; color: #1e293b; margin: 0; padding: 32px; font-size: 13px; }
+  .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #1a3c6e; padding-bottom: 12px; margin-bottom: 18px; }
+  .title { font-size: 20px; font-weight: bold; color: #1a3c6e; }
+  .brand { font-size: 11px; color: #64748b; text-align: right; }
+  table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+  th { background: #1a3c6e; color: #fff; padding: 7px 8px; text-align: left; font-size: 12px; }
+  td { padding: 6px 8px; border-bottom: 1px solid #d0d5dd; }
+  .c { text-align: center; } .r { text-align: right; }
+  tr.total td { font-weight: bold; border-top: 2px solid #1a3c6e; background: #fef2f2; }
+  .section { font-weight: bold; color: #2e7d32; margin-top: 18px; font-size: 13px; }
+  .info td { border-bottom: 1px dotted #d0d5dd; }
+  .info td:first-child { font-weight: bold; color: #1a3c6e; width: 140px; }
+  .obs { margin-top: 20px; font-size: 11px; color: #64748b; }
+  .footer { margin-top: 28px; font-size: 9px; color: #64748b; text-align: center; border-top: 1px solid #d0d5dd; padding-top: 8px; }
+  @media print { body { padding: 16px; } }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <div class="title">ORÇAMENTO / PRO-FORMA</div>
+      <div class="brand" style="text-align:left;margin-top:4px">Orey Técnica Açores, Lda. · NIF: 512345678 · Ponta Delgada</div>
+    </div>
+    <div class="brand">Orey Técnica - Serviços Navais, Lda.<br />Rua dos Caniços, nº 36, 2625-253 Vialonga<br />www.oreytecnica.com</div>
+  </div>
+
+  <table class="info">
+    ${infoRows.map(([l, v]) => `<tr><td>${l}</td><td>${esc(String(v))}</td></tr>`).join("")}
+  </table>
+
+  <div class="section">MATERIAIS</div>
+  <table>
+    <thead><tr><th>Ref.</th><th>Descrição</th><th class="c">Qtd</th><th class="r">Preço Unit.</th><th class="c">Desconto</th><th class="r">Total</th></tr></thead>
+    <tbody>${materialRows || '<tr><td colspan="6" class="c" style="color:#64748b">Nenhum material adicionado</td></tr>'}</tbody>
+  </table>
+
+  <div class="section">MÃO DE OBRA</div>
+  <table>
+    <thead><tr><th colspan="2">Serviço</th><th class="c">Horas</th><th class="r">Preço/Hora</th><th></th><th class="r">Total</th></tr></thead>
+    <tbody>${maoObraRows || '<tr><td colspan="6" class="c" style="color:#64748b">Nenhum serviço adicionado</td></tr>'}</tbody>
+  </table>
+
+  <table>${totalsHtml}</table>
+
+  <div class="obs">
+    <div><b>Condições de Pagamento:</b> ${esc(config.condicoesPagamento || "—")}</div>
+    ${config.observacoes ? `<div style="margin-top:6px"><b>Observações:</b> ${esc(config.observacoes)}</div>` : ""}
+    <div style="margin-top:6px">Documento gerado automaticamente pelo Sistema de Gestão Orey.</div>
+  </div>
+
+  <div class="footer">
+    Orey Técnica - Serviços Navais, Lda.<br />
+    Sede: Rua dos Caniços, nº 36, 2625-253 Vialonga | Tel: +351 213 610 890 | E-mail: orey-tecnica@orey.com<br />
+    Delegação Açores: Zona Industrial dos Portões Vermelhos, Armazém 19, 9560-350 Cabouco | Tel: +351 296 929 314 | E-mail: azores.tecnica@orey.com<br />
+    Delegação Norte: Rua do Outeiro, 315-F, 4485-010 Aveleda | Tel: +351 229 363 490 | E-mail: leixoes.tecnica@orey.com<br />
+    Delegação Sul: Zona Industrial e Comercial do Rogel, Lt. 3 fração G, 8365-204 Alcantarilha | Tel: +351 282 322 795 | E-mail: algarve.tecnica@orey.com<br />
+    Site: www.oreytecnica.com | Capital Social: 350.000 euros | NIF: 501 117 334
+  </div>
+
+  <script>window.onload = function () { window.print(); };</script>
+</body>
+</html>`);
+  win.document.close();
+}
 
 type ExportBudgetExcelParams = {
   materiais: Array<{

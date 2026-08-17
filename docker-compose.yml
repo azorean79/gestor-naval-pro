@@ -1,0 +1,41 @@
+services:
+  app:
+    build: .
+    container_name: acores-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.docker
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=file:/app/data/local.db
+      - NEXT_PUBLIC_APP_REGION_PRESET=ACORES
+      - NEXT_PUBLIC_APP_SLUG=oreyazores26
+      - NEXT_PUBLIC_APP_NAME=Orey Técnica Açores
+      - NEXT_PUBLIC_APP_ISSUER_NAME=Sistema Orey Açores
+      - NEXT_PUBLIC_APP_THEME=azores
+      - NEXT_PUBLIC_DEFAULT_SERVICE_STATION_CODE=ACORES
+      - NEXT_PUBLIC_DEFAULT_REGION_LABEL=Açores
+      - NEXT_PUBLIC_ICS_UID_DOMAIN=oreyazores
+      - NEXT_PUBLIC_APP_GEO_CENTER_LAT=38.55
+      - NEXT_PUBLIC_APP_GEO_CENTER_LNG=-28.2
+      - NEXT_PUBLIC_APP_GEO_LABEL=Açores
+      - NEXT_PUBLIC_APP_IVA_RATE=0.16
+      - APP_STORAGE_NAMESPACE=oreyazores26
+      - EQUASIS_BASE_URL=https://www.equasis.org/EquasisWeb/
+    volumes:
+      - acores-data:/app/data
+      - acores-uploads:/app/public/uploads
+      - acores-certificados:/app/public/certificados-externos
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+volumes:
+  acores-data:
+  acores-uploads:
+  acores-certificados:

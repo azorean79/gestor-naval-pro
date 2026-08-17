@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import { parseFlexibleDate } from "./agenda-sync";
 import { resolveMandatoryPackItemsForRaftAsync } from "@/lib/custom-pack-types";
+import { isRationArticle } from "@/config/packTemplates";
 import type { Prisma } from "@prisma/client";
 import type { MandatoryPackItem } from "@/modules/rafts/mandatoryPack";
 
@@ -21,6 +22,59 @@ function normalizeText(value?: string | null): string {
     .toUpperCase()
     .replace(/[^A-Z0-9]+/g, " ")
     .trim();
+}
+
+/**
+ * Artigos de sobrevivência que não pertencem a packs costeiros/reduzidos
+ * (rações alimentares, estojo de pesca/fishing kit e ajudas térmicas/TPA).
+ * Quando o pack atual não os espera, os artigos persistidos que correspondem
+ * a estes são removidos da lista física da jangada.
+ */
+export function isForbiddenPackArticleName(value?: string | null): boolean {
+  const norm = normalizeText(value);
+  if (!norm) return false;
+  if (isRationArticle(norm)) return true;
+  if (
+    norm.includes("ESTOJO DE PESCA") ||
+    norm.includes("FISHING KIT") ||
+    norm.includes("FISH KIT")
+  ) {
+    return true;
+  }
+  if (
+    norm.includes("AJUDAS TERMICAS") ||
+    norm.includes("AJUDA TERMICA") ||
+    norm.includes("MANTAS TERMICAS") ||
+    norm.includes("MANTA TERMICA") ||
+    norm.includes("THERMAL PROTECTIVE") ||
+    norm.includes("THERMAL BLANKET") ||
+    norm.includes("SURVIVAL BLANKET") ||
+    norm === "TPA" ||
+    norm === "TPAS"
+  ) {
+    return true;
+  }
+  return false;
+}
+
+function isForbiddenPackArticleRef(value?: string | null): boolean {
+  const ref = normalizeRef(value);
+  if (!ref) return false;
+  return (
+    ref.includes("FISH-KIT") ||
+    ref.includes("FISHKIT") ||
+    ref.includes("FOOD-RATION") ||
+    ref.includes("FOODRATION") ||
+    ref.includes("THER-BLANKET") ||
+    ref.includes("THERM-BLANKET")
+  );
+}
+
+function isForbiddenPackArticle(article: {
+  name?: string | null;
+  referencia?: string | null;
+}): boolean {
+  return isForbiddenPackArticleName(article?.name) || isForbiddenPackArticleRef(article?.referencia);
 }
 
 async function findBestStockMatch(
@@ -111,7 +165,7 @@ export async function syncRaftArticlesWithPackType(
     return {
       success: true,
       warning: "Nenhum artigo de pack definido para este tipo de pack.",
-      summary: { added: 0, updated: 0, stockLinked: 0, total: 0 },
+      summary: { added: 0, updated: 0, stockLinked: 0, removed: 0, total: 0 },
       packSource: resolvedPack.source,
     };
   }
@@ -125,6 +179,7 @@ export async function syncRaftArticlesWithPackType(
     added: 0,
     updated: 0,
     stockLinked: 0,
+    removed: 0,
     total: expectedItems.length,
   };
 
@@ -233,6 +288,19 @@ export async function syncRaftArticlesWithPackType(
         summary.added++;
       }
     }
+  }
+
+  const forbiddenToRemove = raft.artigos.filter((a) => {
+    if (matchedIds.has(a.id)) return false;
+    if (a.inspecaoId != null) return false;
+    return isForbiddenPackArticle(a);
+  });
+
+  if (forbiddenToRemove.length > 0) {
+    await prisma.artigoJangada.deleteMany({
+      where: { id: { in: forbiddenToRemove.map((a) => a.id) } },
+    });
+    summary.removed = forbiddenToRemove.length;
   }
 
   return { success: true, summary, packSource: resolvedPack.source };

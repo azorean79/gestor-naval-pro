@@ -30,9 +30,10 @@ export async function GET(req: NextRequest) {
     });
 
     if (!jangada) {
-      const matches = await prisma.jangada.findMany({ select: { ...PUBLIC_SELECT } });
-      jangada =
-        matches.find((j) => j.serial && j.serial.toLowerCase() === serial.toLowerCase()) || null;
+      jangada = await prisma.jangada.findFirst({
+        where: { serial: { equals: serial, mode: "insensitive" } },
+        select: { ...PUBLIC_SELECT },
+      });
     }
 
     if (!jangada) {

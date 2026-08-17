@@ -19,9 +19,15 @@ const NAVIO_LEGACY_SAFE_SELECT = {
   tipoPesca: true,
   tipoNavio: true,
   comprimentoMetros: true,
+  anoConstrucao: true,
+  potenciaMotorKw: true,
+  lotacao: true,
+  estadoNavio: true,
+  dataEstado: true,
   zonaNavegacao: true,
   proprietario: true,
   portoRegisto: true,
+  cfr: true,
   bandeira: true,
   mmsi: true,
   imo: true,
@@ -52,6 +58,12 @@ const NAVIO_FALLBACK_SELECT = {
   tipoNavio: true,
   proprietario: true,
   portoRegisto: true,
+  cfr: true,
+  anoConstrucao: true,
+  potenciaMotorKw: true,
+  lotacao: true,
+  estadoNavio: true,
+  dataEstado: true,
   bandeira: true,
   mmsi: true,
   imo: true,
@@ -83,6 +95,11 @@ function withLegacyFallbackFields<T extends Record<string, unknown>>(navio: T | 
   return {
     ...navio,
     comprimentoMetros: Object.prototype.hasOwnProperty.call(navio, 'comprimentoMetros') ? navio.comprimentoMetros : null,
+    anoConstrucao: Object.prototype.hasOwnProperty.call(navio, 'anoConstrucao') ? navio.anoConstrucao : null,
+    potenciaMotorKw: Object.prototype.hasOwnProperty.call(navio, 'potenciaMotorKw') ? navio.potenciaMotorKw : null,
+    lotacao: Object.prototype.hasOwnProperty.call(navio, 'lotacao') ? navio.lotacao : null,
+    estadoNavio: Object.prototype.hasOwnProperty.call(navio, 'estadoNavio') ? navio.estadoNavio : null,
+    dataEstado: Object.prototype.hasOwnProperty.call(navio, 'dataEstado') ? navio.dataEstado : null,
     zonaNavegacao: Object.prototype.hasOwnProperty.call(navio, 'zonaNavegacao') ? navio.zonaNavegacao : null,
     pirotecnicosBordoJson: Object.prototype.hasOwnProperty.call(navio, 'pirotecnicosBordoJson') ? navio.pirotecnicosBordoJson : '',
     serviceStation: Object.prototype.hasOwnProperty.call(navio, 'serviceStation') ? navio.serviceStation : null,
@@ -132,11 +149,43 @@ function resolveOptionalPositiveFloat(body: Record<string, unknown>, key: string
   return parsed;
 }
 
+function resolveOptionalPositiveInt(body: Record<string, unknown>, key: string) {
+  if (!Object.prototype.hasOwnProperty.call(body || {}, key)) return undefined;
+
+  const rawValue = body?.[key];
+  if (rawValue === null || rawValue === '') return null;
+
+  const normalized = String(rawValue).trim().replace(',', '.');
+  if (!normalized) return null;
+
+  const parsed = Number(normalized);
+  if (!Number.isFinite(parsed) || parsed <= 0) return null;
+  return Math.round(parsed);
+}
+
+const NAVIO_ESTADOS = ['ativo', 'inativo', 'abatido', 'naufragado'] as const;
+
+function resolveEstadoNavio(body: Record<string, unknown>) {
+  if (!Object.prototype.hasOwnProperty.call(body || {}, 'estadoNavio')) return undefined;
+  const rawValue = body?.estadoNavio;
+  if (rawValue === null || rawValue === '') return null;
+  const normalized = String(rawValue).trim().toLowerCase();
+  return (NAVIO_ESTADOS as readonly string[]).includes(normalized) ? normalized : undefined;
+}
+
 function sanitizeNavioPayload(body: Record<string, unknown>) {
   const bandeiraValue = typeof body?.bandeira === 'string' ? body.bandeira.trim() : '';
   const lat = Object.prototype.hasOwnProperty.call(body || {}, 'lat') ? parseCoordinate(body?.lat, 'lat') : undefined;
   const lng = Object.prototype.hasOwnProperty.call(body || {}, 'lng') ? parseCoordinate(body?.lng, 'lng') : undefined;
   const comprimentoMetros = resolveOptionalPositiveFloat(body, 'comprimentoMetros');
+  const anoConstrucao = resolveOptionalPositiveInt(body, 'anoConstrucao');
+  const potenciaMotorKw = resolveOptionalPositiveFloat(body, 'potenciaMotorKw');
+  const lotacao = resolveOptionalPositiveInt(body, 'lotacao');
+  const estadoNavio = resolveEstadoNavio(body);
+  const dataEstadoRaw = Object.prototype.hasOwnProperty.call(body || {}, 'dataEstado') ? body?.dataEstado : undefined;
+  const dataEstado = dataEstadoRaw === undefined
+    ? undefined
+    : (estadoNavio !== undefined && estadoNavio !== 'naufragado' ? null : (dataEstadoRaw === null || dataEstadoRaw === '' ? null : toIso(dataEstadoRaw)));
   const payload: Record<string, unknown> = {
     nome: typeof body?.nome === 'string' ? normalizeNavioDisplayName(body.nome) : undefined,
     matricula: typeof body?.matricula === 'string' ? body.matricula.trim() : undefined,
@@ -144,10 +193,16 @@ function sanitizeNavioPayload(body: Record<string, unknown>) {
     tipoPesca: typeof body?.tipoPesca === 'string' ? body.tipoPesca.trim() : undefined,
     tipoNavio: typeof body?.tipoNavio === 'string' ? body.tipoNavio.trim() : undefined,
     comprimentoMetros,
+    anoConstrucao,
+    potenciaMotorKw,
+    lotacao,
+    estadoNavio,
+    dataEstado,
     zonaNavegacao: typeof body?.zonaNavegacao === 'string' ? (body.zonaNavegacao.trim() || null) : undefined,
     pirotecnicosBordoJson: typeof body?.pirotecnicosBordoJson === 'string' ? body.pirotecnicosBordoJson.trim() : undefined,
     proprietario: typeof body?.proprietario === 'string' ? body.proprietario.trim() : undefined,
     portoRegisto: typeof body?.portoRegisto === 'string' ? body.portoRegisto.trim() : undefined,
+    cfr: typeof body?.cfr === 'string' ? body.cfr.trim() : undefined,
     bandeira: bandeiraValue || 'Portugal',
     mmsi: typeof body?.mmsi === 'string' ? body.mmsi.trim() : undefined,
     imo: typeof body?.imo === 'string' ? body.imo.trim() : undefined,
@@ -297,7 +352,8 @@ async function applyResolvedIslandToNavioPayload(
     }
 
     payload.clienteId = effectiveClienteId;
-    payload.ilha = island ?? normalizeManualNavioIsland(payload.ilha) ?? options?.fallbackIlha ?? payload.ilha ?? '';
+    const manualIsland = normalizeManualNavioIsland(payload.ilha);
+    payload.ilha = manualIsland ?? island ?? options?.fallbackIlha ?? payload.ilha ?? '';
     return payload;
   }
 
@@ -401,6 +457,22 @@ export async function GET(req: NextRequest, context: { params: Promise<{ id: str
     } catch (error) {
       const message = String(error || '').toLowerCase();
       if (!message.includes('fato') && !message.includes('imersao')) {
+        throw error;
+      }
+    }
+
+    let extintores: Prisma.ExtintorGetPayload<Record<string, never>>[] = [];
+    try {
+      const extintorDelegate = prisma.extintor;
+      if (extintorDelegate?.findMany) {
+        extintores = await extintorDelegate.findMany({
+          where: { shipId: id },
+          orderBy: { updatedAt: 'desc' },
+        });
+      }
+    } catch (error) {
+      const message = String(error || '').toLowerCase();
+      if (!message.includes('extintor')) {
         throw error;
       }
     }
@@ -925,6 +997,7 @@ export async function GET(req: NextRequest, context: { params: Promise<{ id: str
       coletes,
       epirbs,
       fatosImersao,
+      extintores,
       inspecoes,
       ordensServico,
       dossier,
@@ -954,6 +1027,15 @@ export async function PUT(req: NextRequest, context: { params: Promise<{ id: str
     if (!isValidImo(imoValue)) {
       return NextResponse.json({ error: 'IMO inválido. Deve ter 7 dígitos.' }, { status: 400 });
     }
+
+    if (data.anoConstrucao !== undefined && data.anoConstrucao !== null) {
+      const ano = Number(data.anoConstrucao);
+      if (!Number.isInteger(ano) || ano < 1900 || ano > 2100) {
+        return NextResponse.json({ error: 'Ano de construção inválido. Deve ser entre 1900 e 2100.' }, { status: 400 });
+      }
+    }
+
+
 
     if (!data.nome && Object.keys(data).length === 0) {
       return NextResponse.json({ error: 'Sem dados para atualizar.' }, { status: 400 });
@@ -1040,6 +1122,8 @@ export async function PUT(req: NextRequest, context: { params: Promise<{ id: str
         delete fallbackData.pirotecnicosBordoJson;
       }
       delete fallbackData.comprimentoMetros;
+      delete fallbackData.estadoNavio;
+      delete fallbackData.dataEstado;
 
       updated = await prisma.navio.update({
         where: { id },

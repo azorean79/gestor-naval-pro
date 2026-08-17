@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import ExcelJS from "exceljs";
 import { getAccessContext } from "@/lib/access-control";
-import { getIvaRate } from "@/lib/iva";
+import { carregarFaturaPorOrdemServico, resumoFatura } from "@/lib/faturamento";
+import { formatIsencaoIva } from "@/lib/iva-isencao-codes";
 
 const ISSUER_NAME = "Orey Técnica - Serviços Navais";
 
@@ -35,30 +36,13 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       where: { id },
       include: {
         jangada: {
-          select: {
-            serial: true,
-            brand: true,
-            model: true,
-            owner: true,
-            shipNameManual: true,
-          },
+          select: { serial: true, brand: true, model: true, owner: true, shipNameManual: true },
         },
         cliente: {
-          select: {
-            nome: true,
-            numeroCliente: true,
-            nif: true,
-            morada: true,
-            localidade: true,
-            ilha: true,
-          },
+          select: { nome: true, numeroCliente: true, nif: true, morada: true, localidade: true, ilha: true },
         },
-        serviceStation: {
-          select: { codigo: true, nome: true },
-        },
-        tecnico: {
-          select: { nome: true },
-        },
+        serviceStation: { select: { codigo: true, nome: true } },
+        tecnico: { select: { nome: true } },
       },
     });
 
@@ -73,22 +57,35 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       );
     }
 
+    const link = await carregarFaturaPorOrdemServico(id);
+    const fatura = link?.fatura ?? null;
+    const resumo = resumoFatura(link ?? null);
+    const ordens = (fatura ? resumo.ordens : [order]) as Array<typeof order>;
+
     const pecas = Number(order.valorPecas || 0);
     const maoObra = Number(order.valorMaoObra || 0);
     const desconto = Number(order.valorDesconto || 0);
-    const isentoIva = Boolean(order.isIsentoIva);
-    const subtotal = pecas + maoObra - desconto;
-    const iva = isentoIva ? 0 : subtotal * getIvaRate();
-    const total = subtotal + iva;
+    const subtotal = fatura ? resumo.subtotal : pecas + maoObra - desconto;
+    const iva = fatura ? resumo.iva : resumo.isentoIva ? 0 : subtotal * 0.16;
+    const total = fatura ? resumo.total : subtotal + iva;
 
-    const jangada = order.jangada || null;
-    const cliente = order.cliente || null;
-    const clienteNome = cliente?.nome || jangada?.owner || "Cliente particular";
-    const navio = jangada?.shipNameManual || "—";
-    const issuer = order.serviceStation?.nome || ISSUER_NAME;
-    const emissao = new Date();
-    const numeroFatura = order.numeroOrdem || `FAT-${order.id}`;
-    const numeroNotaCredito = `NC-${numeroFatura}`;
+    const clienteNome = resumo.clienteNome;
+    const nif = resumo.cliente?.nif || null;
+    const morada = resumo.cliente?.morada || null;
+    const localidade = resumo.cliente?.localidade || null;
+    const ilha = resumo.cliente?.ilha || null;
+    const navio = resumo.navio;
+    const jangadaLabel = resumo.jangadaLabel;
+    const serial = resumo.jangada?.serial || null;
+    const issuer = resumo.issuer;
+    const numeroFatura = resumo.numeroFatura;
+    const dataTrabalho = resumo.dataTrabalho || order.dataConclusao || order.dataAbertura || order.createdAt || null;
+    const tecnicoNome = resumo.tecnico || order.tecnico?.nome || null;
+
+    const notaCreditoRegistada = fatura?.notaCredito ?? null;
+    const numeroNotaCredito = notaCreditoRegistada?.numeroNotaCredito || `NC-${numeroFatura}`;
+    const dataEmissaoNC = notaCreditoRegistada?.dataEmissao || new Date();
+    const motivo = notaCreditoRegistada?.motivo || "Anulação / correção da fatura de referência";
 
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet("Nota de Crédito");
@@ -100,7 +97,6 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       { header: "", key: "d", width: 16 },
     ];
 
-    // Título
     worksheet.mergeCells("A1:D1");
     worksheet.getCell("A1").value = "NOTA DE CRÉDITO";
     worksheet.getCell("A1").font = { bold: true, size: 18, color: { argb: "FFFFFF" } };
@@ -112,24 +108,23 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     worksheet.getRow(1).height = 30;
     worksheet.getCell("A1").alignment = { vertical: "middle", horizontal: "left" };
 
-    // Cabeçalho emissor + dados do documento
     let rowIndex = 2;
     const issuerRows: Array<[string, string]> = [
       ["Fornecedor", issuer],
       ["Cliente", clienteNome],
     ];
-    if (cliente?.nif) issuerRows.push(["NIF Cliente", cliente.nif]);
-    if (cliente?.morada) issuerRows.push(["Morada", cliente.morada]);
-    if (cliente?.localidade || cliente?.ilha) issuerRows.push(["Localidade / Ilha", `${cliente.localidade || ""} ${cliente.ilha || ""}`.trim()]);
+    if (nif) issuerRows.push(["NIF Cliente", nif]);
+    if (morada) issuerRows.push(["Morada", morada]);
+    if (localidade || ilha) issuerRows.push(["Localidade / Ilha", `${localidade || ""} ${ilha || ""}`.trim()]);
     issuerRows.push(["Nota de Crédito Nº", numeroNotaCredito]);
     issuerRows.push(["Fatura de Referência Nº", numeroFatura]);
-    issuerRows.push(["Data de emissão", formatDate(emissao)]);
-    issuerRows.push(["Data de trabalho", formatDate(order.dataConclusao || order.dataAbertura || order.createdAt)]);
+    issuerRows.push(["Data de emissão", formatDate(dataEmissaoNC)]);
+    issuerRows.push(["Data de trabalho", formatDate(dataTrabalho)]);
     issuerRows.push(["Embarcação", navio]);
-    issuerRows.push(["Jangada", `${jangada?.brand || ""} ${jangada?.model || ""}`.trim() || "—"]);
-    if (jangada?.serial) issuerRows.push(["Nº Série Jangada", jangada.serial]);
-    if (order.tecnico?.nome) issuerRows.push(["Técnico responsável", order.tecnico.nome]);
-    issuerRows.push(["Motivo", "Anulação / correção da fatura de referência"]);
+    issuerRows.push(["Jangada", jangadaLabel]);
+    if (serial) issuerRows.push(["Nº Série Jangada", serial]);
+    if (tecnicoNome) issuerRows.push(["Técnico responsável", tecnicoNome]);
+    issuerRows.push(["Motivo", motivo]);
 
     issuerRows.forEach(([label, value]) => {
       worksheet.getCell(`A${rowIndex}`).value = label;
@@ -138,7 +133,6 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       rowIndex += 1;
     });
 
-    // Tabela de linhas (valores a crédito do cliente)
     rowIndex += 1;
     worksheet.getCell(`A${rowIndex}`).value = "Referência";
     worksheet.getCell(`B${rowIndex}`).value = "Descrição";
@@ -153,12 +147,20 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     const headerRow = rowIndex;
     rowIndex += 1;
 
-    const lineRows: Array<string[]> = [
-      ["MDO", "Mão-de-obra (trabalhos executados)", "1", `-${formatEuro(maoObra)}`],
-      ["MAT", "Peças / materiais", "1", `-${formatEuro(pecas)}`],
-    ];
-    if (desconto > 0) {
-      lineRows.push(["DESC", "Desconto (reposto)", "1", formatEuro(desconto)]);
+    const lineRows: Array<string[]> = [];
+    for (const ot of ordens) {
+      const otPecas = Number(ot.valorPecas || 0);
+      const otMaoObra = Number(ot.valorMaoObra || 0);
+      const otDesconto = Number(ot.valorDesconto || 0);
+      const referencia = ot.numeroOrdem || `#${ot.id}`;
+      lineRows.push([referencia, "Mão-de-obra (trabalhos executados)", "1", `-${formatEuro(otMaoObra)}`]);
+      lineRows.push([referencia, "Peças / materiais", "1", `-${formatEuro(otPecas)}`]);
+      if (otDesconto > 0) {
+        lineRows.push([referencia, "Desconto (reposto)", "1", formatEuro(otDesconto)]);
+      }
+    }
+    if (lineRows.length === 0) {
+      lineRows.push([order.numeroOrdem || `#${order.id}`, "Serviços prestados", "1", `-${formatEuro(total)}`]);
     }
 
     lineRows.forEach((row) => {
@@ -168,11 +170,13 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       rowIndex += 1;
     });
 
-    // Totais (valores negativos — crédito a favor do cliente)
     const totalRows: Array<{ label: string; value: string; bold?: boolean }> = [
       { label: "Subtotal", value: `-${formatEuro(subtotal)}` },
-      { label: "IVA", value: isentoIva ? "Isento" : `-${formatEuro(iva)}` },
+      { label: "IVA", value: resumo.isentoIva ? formatIsencaoIva(true, resumo.codigoIsencaoIva) : `-${formatEuro(iva)}` },
       { label: "TOTAL (crédito)", value: `-${formatEuro(total)}`, bold: true },
+      ...(resumo.isentoIva
+        ? [{ label: "Motivo isenção IVA", value: formatIsencaoIva(true, resumo.codigoIsencaoIva), bold: false }]
+        : []),
     ];
     totalRows.forEach((entry) => {
       worksheet.getCell(`A${rowIndex}`).value = "";

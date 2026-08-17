@@ -123,6 +123,8 @@ export default function DashboardPage() {
     inspecoes: 0,
     certificados: 0,
     pedidosAssistencia: 0,
+    epirbs: 0,
+    extintores: 0,
     alertas: [],
   });
   const [technicians, setTechnicians] = useState<{ id: number; nome: string }[]>([]);
@@ -362,6 +364,8 @@ export default function DashboardPage() {
           inspecoes: Number(alertsData?.inspecoes || 0),
           certificados: Number(alertsData?.certificados || 0),
           pedidosAssistencia: Number(alertsData?.pedidosAssistencia || 0),
+          epirbs: Number(alertsData?.epirbs || 0),
+          extintores: Number(alertsData?.extintores || 0),
           alertas: Array.isArray(alertsData?.alertas)
             ? alertsData.alertas
             : [],
@@ -699,7 +703,7 @@ export default function DashboardPage() {
       ? {
           title: "Alertas 30 dias",
           value: `${alertsPayload.total}`,
-          helper: `${alertsPayload.inspecoes} inspeções · ${alertsPayload.certificados} certificados`,
+          helper: `${alertsPayload.inspecoes} inspeções · ${alertsPayload.certificados} certificados${alertsPayload.extintores ? ` · ${alertsPayload.extintores} extintores` : ""}${alertsPayload.fatos ? ` · ${alertsPayload.fatos} fatos` : ""}`,
         }
       : null,
   ].filter(Boolean) as Array<{ title: string; value: string; helper: string }>;
@@ -734,7 +738,7 @@ export default function DashboardPage() {
     {
       title: "Alertas 30 dias",
       value: `${alertsPayload.total}`,
-      helper: `${alertsPayload.inspecoes} inspeções · ${alertsPayload.certificados} certificados`,
+      helper: `${alertsPayload.inspecoes} inspeções · ${alertsPayload.certificados} certificados${alertsPayload.extintores ? ` · ${alertsPayload.extintores} extintores` : ""}${alertsPayload.fatos ? ` · ${alertsPayload.fatos} fatos` : ""}`,
       href: "/alertas",
       cta: "Abrir alertas",
       tone:

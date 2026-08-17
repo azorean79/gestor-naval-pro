@@ -23,6 +23,5 @@ export async function POST() {
 
   const result = { generatedAt: new Date().toISOString(), total, missingSerial, missingBrand, missingModel, missingCapacity, missingPackType, allMissing }
 
-  await prisma.$disconnect()
   return NextResponse.json({ ok: true, persisted: false, result })
 }

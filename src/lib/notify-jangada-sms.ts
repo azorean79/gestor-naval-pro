@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import { sendTextBeeSms } from "@/lib/textbee-sms";
+import { sendSms } from "@/lib/sms-provider";
 import {
   buildSmsMessage,
   buildDefaultSmsConfig,
@@ -163,7 +163,7 @@ export async function confirmPendingSms(
   const pending = await hasPendingSms(jangadaId, type);
   if (!pending) return { sent: false, reason: "Sem SMS pendente para confirmar." };
 
-  const result = await sendTextBeeSms(pending.phone, pending.message || "");
+  const result = await sendSms(pending.phone, pending.message || "");
   await recordSmsLog(jangadaId, {
     type,
     ativo: new Date().toISOString(),
@@ -226,7 +226,7 @@ async function notifyJangada(
       return { sent: false, pending: true, phone: contact.phone, message, reason: "Aguardando confirmação." };
     }
 
-    const result = await sendTextBeeSms(contact.phone, message);
+    const result = await sendSms(contact.phone, message);
     await recordSmsLog(jangadaId, {
       type,
       ativo: new Date().toISOString(),

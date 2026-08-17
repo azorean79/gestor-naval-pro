@@ -44,9 +44,13 @@ export async function POST(req: NextRequest, context: { params: Promise<{ id: st
 
   const artigo = await artigoJangadaDelegate.create({
     data: { 
-      ...data, 
+      name: String(data.name || "").trim() || "Artigo",
+      referencia: String(data.referencia || "").trim() || null,
       quantidade: Number(data.quantidade || 1),
       validade: parsedValidade,
+      lote: String(data.lote || "").trim() || null,
+      estado: String(data.estado || "ATIVO").trim() || "ATIVO",
+      observacoes: String(data.observacoes || "").trim() || null,
       jangadaId 
     }
   });

@@ -26,10 +26,17 @@ function isMissingDatabaseColumnError(error: unknown) {
   );
 }
 
-async function findNaviosWithResilientSelect(where: Prisma.NavioWhereInput) {
+async function findNaviosWithResilientSelect(
+  where: Prisma.NavioWhereInput,
+  options?: { orderBy?: Prisma.NavioOrderByWithRelationInput | Prisma.NavioOrderByWithRelationInput[]; skip?: number; take?: number }
+) {
+  const { orderBy, skip, take } = options || {};
   try {
     return await prisma.navio.findMany({
       where,
+      orderBy,
+      skip,
+      take,
       select: {
         id: true,
         serviceStationId: true,
@@ -48,6 +55,9 @@ async function findNaviosWithResilientSelect(where: Prisma.NavioWhereInput) {
         callSignal: true,
         lat: true,
         lng: true,
+        territorioGrupo: true,
+        estadoNavio: true,
+        dataEstado: true,
         clienteId: true,
         cliente: {
           select: {
@@ -76,6 +86,9 @@ async function findNaviosWithResilientSelect(where: Prisma.NavioWhereInput) {
 
     const navios = await prisma.navio.findMany({
       where,
+      orderBy,
+      skip,
+      take,
       select: {
         id: true,
         serviceStationId: true,
@@ -92,6 +105,9 @@ async function findNaviosWithResilientSelect(where: Prisma.NavioWhereInput) {
         callSignal: true,
         lat: true,
         lng: true,
+        territorioGrupo: true,
+        estadoNavio: true,
+        dataEstado: true,
         clienteId: true,
         cliente: {
           select: {
@@ -174,11 +190,26 @@ function resolveOptionalPositiveFloat(body: Record<string, unknown>, key: string
   return parsed;
 }
 
+function resolveOptionalPositiveInt(body: Record<string, unknown>, key: string) {
+  if (!Object.prototype.hasOwnProperty.call(body || {}, key)) return undefined;
+
+  const rawValue = body?.[key];
+  if (rawValue === null || rawValue === "") return null;
+
+  const normalized = String(rawValue).trim();
+  if (!normalized) return null;
+
+  const parsed = Number(normalized);
+  if (!Number.isInteger(parsed) || parsed <= 0) return null;
+  return parsed;
+}
+
 function sanitizeNavioPayload(body: Record<string, unknown>) {
   const bandeiraValue = typeof body?.bandeira === "string" ? body.bandeira.trim() : "";
   const lat = Object.prototype.hasOwnProperty.call(body || {}, "lat") ? parseCoordinate(body?.lat, "lat") : undefined;
   const lng = Object.prototype.hasOwnProperty.call(body || {}, "lng") ? parseCoordinate(body?.lng, "lng") : undefined;
   const comprimentoMetros = resolveOptionalPositiveFloat(body, "comprimentoMetros");
+  const lotacao = resolveOptionalPositiveInt(body, "lotacao");
   const payload: Record<string, unknown> = {
     nome: typeof body?.nome === "string" ? normalizeNavioDisplayName(body.nome) : undefined,
     matricula: typeof body?.matricula === "string" ? body.matricula.trim() : undefined,
@@ -186,6 +217,7 @@ function sanitizeNavioPayload(body: Record<string, unknown>) {
     tipoPesca: typeof body?.tipoPesca === "string" ? body.tipoPesca.trim() : undefined,
     tipoNavio: typeof body?.tipoNavio === "string" ? body.tipoNavio.trim() : undefined,
     comprimentoMetros,
+    lotacao,
     zonaNavegacao: typeof body?.zonaNavegacao === "string" ? (body.zonaNavegacao.trim() || null) : undefined,
     proprietario: typeof body?.proprietario === "string" ? body.proprietario.trim() : undefined,
     portoRegisto: typeof body?.portoRegisto === "string" ? body.portoRegisto.trim() : undefined,
@@ -235,6 +267,83 @@ async function applyResolvedIslandToNavioPayload(
   }
 
   return payload;
+}
+
+const andWithNavioWhere = (base: Prisma.NavioWhereInput, extra: Prisma.NavioWhereInput): Prisma.NavioWhereInput => ({
+  AND: [{ ...base }, extra],
+});
+
+function categorizeTipoPesca(raw: string | null): "local" | "costeira" | "maritimo" | "outras" {
+  const v = String(raw || "").trim().toLowerCase();
+  if (v.includes("pesca local") || v === "local") return "local";
+  if (v.includes("pesca costeira") || v.includes("costeira")) return "costeira";
+  if (v.includes("marítimo") || v.includes("maritimo") || v.includes("turística") || v.includes("turistica")) return "maritimo";
+  return "outras";
+}
+
+async function computeNavioStats(where: Prisma.NavioWhereInput) {
+  const [total, comCliente, semCliente, semMatricula, comPortoRegisto, byIlha, byTipo] = await Promise.all([
+    prisma.navio.count({ where }),
+    prisma.navio.count({ where: andWithNavioWhere(where, { clienteId: { not: null } }) }),
+    prisma.navio.count({ where: andWithNavioWhere(where, { clienteId: null }) }),
+    prisma.navio.count({ where: andWithNavioWhere(where, { matricula: "" }) }),
+    prisma.navio.count({ where: andWithNavioWhere(where, { portoRegisto: { not: "" } }) }),
+    prisma.navio.groupBy({ by: ["ilha"], where, _count: { _all: true } }),
+    prisma.navio.groupBy({ by: ["tipoPesca"], where, _count: { _all: true } }),
+  ]);
+
+  const ilhaCounts = new Map<string, number>();
+  let semIlha = 0;
+  for (const group of byIlha) {
+    const ilha = String(group.ilha || "").trim();
+    const count = group._count._all;
+    if (!ilha) {
+      semIlha += count;
+    } else {
+      ilhaCounts.set(ilha, (ilhaCounts.get(ilha) || 0) + count);
+    }
+  }
+  const ilhasAtivas = ilhaCounts.size;
+  const topIlhaEntry = Array.from(ilhaCounts.entries()).sort((a, b) => {
+    if (b[1] !== a[1]) return b[1] - a[1];
+    return a[0].localeCompare(b[0], "pt", { sensitivity: "base" });
+  })[0];
+
+  const tipoCounts: Record<"local" | "costeira" | "maritimo" | "outras", number> = {
+    local: 0,
+    costeira: 0,
+    maritimo: 0,
+    outras: 0,
+  };
+  for (const group of byTipo) {
+    const cat = categorizeTipoPesca(group.tipoPesca);
+    tipoCounts[cat] += group._count._all;
+  }
+
+  return {
+    total,
+    comCliente,
+    semCliente,
+    semMatricula,
+    comPortoRegisto,
+    semIlha,
+    ilhasAtivas,
+    topIlha: topIlhaEntry ? { nome: topIlhaEntry[0], total: topIlhaEntry[1] } : null,
+    pescaLocal: tipoCounts.local,
+    pescaCosteira: tipoCounts.costeira,
+    maritimoTuristica: tipoCounts.maritimo,
+    outrasTipologias: tipoCounts.outras,
+  };
+}
+
+function serializeNavio(n: Record<string, unknown>) {
+  return {
+    ...n,
+    bandeira: (n.bandeira as string | null | undefined) || "Portugal",
+    portoRegisto: (n.portoRegisto as string | null | undefined)
+      || extrairPortoDeMatricula((n.matricula as string | null | undefined) || "")
+      || null,
+  };
 }
 
 // DELETE em lote: recebe { ids: number[] }
@@ -325,6 +434,7 @@ export async function GET(req: NextRequest) {
         ? [{ serviceStationId: { in: scopedStationIds } }, { serviceStationId: null }]
         : [{ serviceStationId: { in: scopedStationIds } }];
     }
+    const scopeWhere: Prisma.NavioWhereInput = { ...where };
     const nomeParam = searchParams.get("nome"); if (nomeParam) where.nome = { contains: nomeParam, mode: "insensitive" };
     const matriculaParam = searchParams.get("matricula"); if (matriculaParam) where.matricula = { contains: matriculaParam, mode: "insensitive" };
     const ilhaParam = searchParams.get("ilha"); if (ilhaParam) where.ilha = { contains: ilhaParam, mode: "insensitive" };
@@ -351,15 +461,67 @@ export async function GET(req: NextRequest) {
         where.clienteId = parsed;
       }
     }
+    const qParam = searchParams.get("q");
+    if (qParam) {
+      where.AND = [{
+        OR: [
+          { nome: { contains: qParam, mode: "insensitive" } },
+          { matricula: { contains: qParam, mode: "insensitive" } },
+          { cfr: { contains: qParam, mode: "insensitive" } },
+          { mmsi: { contains: qParam, mode: "insensitive" } },
+          { imo: { contains: qParam, mode: "insensitive" } },
+          { callSignal: { contains: qParam, mode: "insensitive" } },
+          { portoRegisto: { contains: qParam, mode: "insensitive" } },
+        ],
+      }];
+    }
+    const territorioParam = searchParams.get("territorio");
+    if (territorioParam) where.territorioGrupo = { equals: territorioParam, mode: "insensitive" };
+    const portoParam = searchParams.get("porto");
+    if (portoParam) where.portoRegisto = { equals: portoParam, mode: "insensitive" };
+    const clienteParam = searchParams.get("cliente");
+    if (clienteParam) where.cliente = { is: { nome: { equals: clienteParam, mode: "insensitive" } } };
+    const estadoParam = searchParams.get("estado");
+    if (estadoParam) where.estadoNavio = { equals: estadoParam, mode: "insensitive" };
+
+    const limiteParam = searchParams.get("limite");
+    const paginaParam = searchParams.get("pagina");
+    if (limiteParam !== null || paginaParam !== null) {
+      const porPagina = Math.min(Math.max(Number(limiteParam) || 100, 1), 500);
+      const pagina = Math.max(Number(paginaParam) || 1, 1);
+      const [total, items, stats, portosGroups, clientesRows] = await Promise.all([
+        prisma.navio.count({ where }),
+        findNaviosWithResilientSelect(where, {
+          orderBy: [{ nome: "asc" }],
+          skip: (pagina - 1) * porPagina,
+          take: porPagina,
+        }),
+        computeNavioStats(scopeWhere),
+        prisma.navio.groupBy({ by: ["portoRegisto"], where: scopeWhere, _count: { _all: true } }),
+        prisma.cliente.findMany({ where: { navios: { some: scopeWhere } }, select: { nome: true }, orderBy: { nome: "asc" } }),
+      ]);
+      const portos = Array.from(new Set(
+        portosGroups.map((g) => g.portoRegisto).filter((p): p is string => Boolean(p))
+      )).sort((a, b) => a.localeCompare(b, "pt", { sensitivity: "base" }));
+      const clientes = Array.from(new Set(
+        clientesRows.map((c) => c.nome).filter((n): n is string => Boolean(n))
+      )).sort((a, b) => a.localeCompare(b, "pt", { sensitivity: "base" }));
+      return NextResponse.json({
+        items: items.map((n) => serializeNavio(n as unknown as Record<string, unknown>)),
+        total,
+        pagina,
+        totalPaginas: Math.max(1, Math.ceil(total / porPagina)),
+        porPagina,
+        stats,
+        portos,
+        clientes,
+      });
+    }
 
     const navios = await findNaviosWithResilientSelect(where);
 
     return NextResponse.json(
-      navios.map((n) => ({
-        ...n,
-        bandeira: n.bandeira || "Portugal",
-        portoRegisto: n.portoRegisto || extrairPortoDeMatricula(n.matricula || "") || null,
-      }))
+      navios.map((n) => serializeNavio(n as unknown as Record<string, unknown>))
     );
   } catch (error) {
     console.error('Error loading navios:', error);
@@ -477,6 +639,7 @@ export async function POST(req: NextRequest) {
           tipoPesca: true,
           tipoNavio: true,
           comprimentoMetros: true,
+          lotacao: true,
           proprietario: true,
           bandeira: true,
           mmsi: true,
@@ -513,8 +676,7 @@ export async function POST(req: NextRequest) {
         },
       });
 
-      created = { ...created, comprimentoMetros: null };
-    }
+      created = { ...created, comprimentoMetros: null };    }
 
     await logAuditoria({
       tabela: "Navio",

@@ -30,6 +30,7 @@ export type InspectionEvent = {
   color?: string;
   responsavel?: string;
   inspectionType?: InspectionType;
+  type?: string;
 };
 
 type CalendarMutationPayload = {
@@ -190,7 +191,23 @@ export default function InspectionCalendar({
   const eventStyleGetter = (event: any) => {
     let backgroundColor = "#cbd5e1"; // slate-300 default
     let borderColor = "#94a3b8";
-    
+
+    // Distinguish expirations in Calendar view with orange color and dashed border
+    if (event.type === "expiracao" || String(event.title).startsWith("⚠")) {
+      return {
+        style: {
+          backgroundColor: "#f97316", // orange-500
+          borderColor: "#c2410c", // orange-700
+          color: "#ffffff",
+          borderRadius: "8px",
+          display: "block",
+          border: "1px dashed #c2410c",
+          boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+          padding: "2px 4px",
+        },
+      };
+    }
+
     if (event.status) {
       const statusKey = event.status as keyof typeof EVENT_STATUS_COLORS;
       const colors = EVENT_STATUS_COLORS[statusKey] as any;
@@ -270,7 +287,7 @@ export default function InspectionCalendar({
           onEventResize={(args: any) => onEventResize?.(args)}
           resizable
           selectable
-          draggableAccessor={() => true}
+          draggableAccessor={(ev: any) => String(ev?.id || "").startsWith("expiracao-") ? false : true}
           formats={formats}
           eventPropGetter={eventStyleGetter}
           dayPropGetter={dayPropGetter}
@@ -284,6 +301,10 @@ export default function InspectionCalendar({
             alert("Para agendar uma inspeção, arraste uma jangada do painel lateral para o calendário.");
           }}
           onSelectEvent={(event: any) => {
+             if (String(event.id).startsWith("expiracao-")) {
+               alert("Este registo indica a caducidade da inspeção de uma jangada. Arraste a jangada do painel lateral para o calendário para agendar a inspeção.");
+               return;
+             }
              if (String(event.id).startsWith("ausencia-")) {
                alert("Este evento refere-se a férias ou ausência de um técnico. Pode gerir este registo na página de Técnicos.");
                return;

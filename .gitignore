@@ -78,6 +78,8 @@ OMT*.pdf
 prisma/local.db
 prisma/local.db-journal
 prisma/local.db*
+prisma/dev.db
+prisma/dev.db-journal
 
 # logs de migração de dados (nao commitar)
 prisma/logs/
@@ -90,8 +92,8 @@ backups/
 launch.log
 launch.err
 
-# schema backup
-prisma/schema.postgresql.prisma
+# schema backup (needed for Render/GCP Cloud Run builds)
+# prisma/schema.postgresql.prisma
 
 SafeStation_1.0/
 .vercel

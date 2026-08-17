@@ -31,8 +31,8 @@ export async function POST(req: NextRequest) {
         } else {
           results.push({ item, status: "synced_generic" });
         }
-      } catch (err: any) {
-        results.push({ item, status: "error", error: err?.message || String(err) });
+      } catch (err: unknown) {
+        results.push({ item, status: "error", error: err instanceof Error ? err.message : String(err) });
       }
     }
 

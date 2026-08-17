@@ -24,7 +24,7 @@ export default function ClientesPage() {
   const [savingAssociation, setSavingAssociation] = useState(false);
   const [creatingNavioByCliente, setCreatingNavioByCliente] = useState<Record<number, boolean>>({});
   const [editingClienteId, setEditingClienteId] = useState<number | null>(null);
-  const [isFormExpanded, setIsFormExpanded] = useState(false);
+  const [showClienteModal, setShowClienteModal] = useState(false);
   const [savingProfile, setSavingProfile] = useState(false);
   const [creatingCliente, setCreatingCliente] = useState(false);
   const [newCliente, setNewCliente] = useState({
@@ -259,7 +259,7 @@ export default function ClientesPage() {
       });
 
       await loadData();
-      setIsFormExpanded(false);
+      setShowClienteModal(false);
       alert("Cliente criado com sucesso.");
     } catch (error) {
       console.error(error);
@@ -589,12 +589,7 @@ export default function ClientesPage() {
   }, [allClientes, allIlhas]);
 
   const openCreateClienteForm = () => {
-    setIsFormExpanded(true);
-    if (typeof window !== "undefined") {
-      window.setTimeout(() => {
-        document.getElementById("novo-cliente-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 0);
-    }
+    setShowClienteModal(true);
   };
 
   if (loadError) {
@@ -633,16 +628,10 @@ export default function ClientesPage() {
             <div className="flex flex-wrap gap-2">
               <button
                 type="button"
-                onClick={() => {
-                  if (isFormExpanded) {
-                    setIsFormExpanded(false);
-                    return;
-                  }
-                  openCreateClienteForm();
-                }}
+                onClick={openCreateClienteForm}
                 className="rounded-lg bg-white/15 px-4 py-2 text-base font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/20"
               >
-                {isFormExpanded ? "Recolher formulário" : "+ Novo cliente"}
+                + Novo cliente
               </button>
               <Link
                 href="/navios"
@@ -674,135 +663,7 @@ export default function ClientesPage() {
           </div>
         </div>
 
-        <div className="grid gap-6 xl:grid-cols-[1.15fr_1.85fr]">
-          <section id="novo-cliente-form" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="mb-4 flex items-center justify-between gap-3">
-              <div>
-                <h2 className="text-xl font-semibold text-slate-900">Novo cliente</h2>
-                <p className="text-base text-slate-600">Registo manual para abrir ficha comercial e começar a associar navios.</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">Manual</span>
-                <button
-                  type="button"
-                  onClick={() => setIsFormExpanded((prev) => !prev)}
-                  className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-50"
-                >
-                  {isFormExpanded ? "Recolher formulário" : "Expandir formulário"}
-                </button>
-              </div>
-            </div>
-
-            {isFormExpanded ? (
-            <form onSubmit={handleCreateCliente} className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <input
-              type="text"
-              value={newCliente.nome}
-              onChange={e => setNewCliente(prev => ({ ...prev, nome: e.target.value }))}
-              placeholder="Nome do cliente *"
-              className="sm:col-span-2 rounded-lg border border-slate-300 px-3 py-2 text-sm"
-              required
-            />
-            <input
-              type="text"
-              value={newCliente.numeroCliente}
-              onChange={e => setNewCliente(prev => ({ ...prev, numeroCliente: e.target.value }))}
-              placeholder="Nº Cliente"
-              className="rounded-lg border border-slate-300 px-3 py-2 text-sm"
-            />
-            <input
-              type="text"
-              value={newCliente.modoPagamento}
-              onChange={e => setNewCliente(prev => ({ ...prev, modoPagamento: e.target.value }))}
-              placeholder="Modo de Pagamento"
-              className="rounded-lg border border-slate-300 px-3 py-2 text-sm"
-              list="cliente-payment-mode-options"
-            />
-            <input
-              type="text"
-              value={newCliente.ilha}
-              onChange={e => setNewCliente(prev => ({ ...prev, ilha: e.target.value }))}
-              placeholder="Ilha"
-              className="rounded-lg border border-slate-300 px-3 py-2 text-sm"
-            />
-            <input
-              type="text"
-              value={newCliente.morada}
-              onChange={e => setNewCliente(prev => ({ ...prev, morada: e.target.value }))}
-              placeholder="Morada"
-              className="sm:col-span-2 rounded-lg border border-slate-300 px-3 py-2 text-sm"
-            />
-            <input
-              type="text"
-              value={newCliente.moradaNumero}
-              onChange={e => setNewCliente(prev => ({ ...prev, moradaNumero: e.target.value }))}
-              placeholder="Nº Porta"
-              className="rounded-lg border border-slate-300 px-3 py-2 text-sm"
-            />
-            <input
-              type="text"
-              value={newCliente.codigoPostal}
-              onChange={e => setNewCliente(prev => ({ ...prev, codigoPostal: e.target.value }))}
-              placeholder="Código Postal"
-              className="rounded-lg border border-slate-300 px-3 py-2 text-sm"
-            />
-            <input
-              type="text"
-              value={newCliente.localidade}
-              onChange={e => setNewCliente(prev => ({ ...prev, localidade: e.target.value }))}
-              placeholder="Localidade"
-              className="sm:col-span-2 rounded-lg border border-slate-300 px-3 py-2 text-sm"
-            />
-            <input
-              type="text"
-              value={newCliente.nif}
-              onChange={e => setNewCliente(prev => ({ ...prev, nif: e.target.value }))}
-              placeholder="NIF"
-              className="rounded-lg border border-slate-300 px-3 py-2 text-sm"
-            />
-            <input
-              type="email"
-              value={newCliente.email}
-              onChange={e => setNewCliente(prev => ({ ...prev, email: e.target.value }))}
-              placeholder="Email"
-              className="rounded-lg border border-slate-300 px-3 py-2 text-sm"
-            />
-            <input
-              type="text"
-              value={newCliente.telefone}
-              onChange={e => setNewCliente(prev => ({ ...prev, telefone: e.target.value }))}
-              placeholder="Telefone"
-              className="rounded-lg border border-slate-300 px-3 py-2 text-sm"
-            />
-            <input
-              type="text"
-              value={newCliente.telmovel}
-              onChange={e => setNewCliente(prev => ({ ...prev, telmovel: e.target.value }))}
-              placeholder="Telemóvel"
-              className="rounded-lg border border-slate-300 px-3 py-2 text-sm"
-            />
-            <div className="sm:col-span-2 flex justify-end">
-              <button
-                type="submit"
-                disabled={creatingCliente}
-                className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:opacity-50"
-              >
-                {creatingCliente ? "A guardar novo cliente..." : "Guardar novo cliente"}
-              </button>
-            </div>
-            <datalist id="cliente-payment-mode-options">
-              {CLIENTE_PAYMENT_MODE_OPTIONS.map((option) => (
-                <option key={option} value={option} />
-              ))}
-            </datalist>
-          </form>
-            ) : (
-              <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-5 text-sm text-slate-600">
-                O formulário está recolhido para libertar espaço ao diretório. Abra-o quando precisar de criar ou editar um cliente.
-              </div>
-            )}
-          </section>
-
+        <div className="w-full">
           <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="mb-4 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
               <div>
@@ -1518,6 +1379,164 @@ export default function ClientesPage() {
           </section>
         </div>
       </div>
+
+      {showClienteModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+          <div className="w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl">
+            <div className="mb-5 flex items-center justify-between">
+              <h2 className="text-xl font-bold text-slate-800">+ Novo cliente</h2>
+              <button
+                type="button"
+                onClick={() => setShowClienteModal(false)}
+                className="rounded-lg px-3 py-1 text-2xl font-bold text-slate-400 hover:bg-slate-100 hover:text-slate-600"
+                aria-label="Fechar"
+              >
+                ×
+              </button>
+            </div>
+            <form onSubmit={handleCreateCliente} className="space-y-4">
+              <div>
+                <label className="mb-1 block text-sm font-medium text-slate-700">
+                  Nome <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={newCliente.nome}
+                  onChange={(e) => setNewCliente((prev) => ({ ...prev, nome: e.target.value }))}
+                  placeholder="Ex: Gil Manuel Cabral Vieira"
+                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="mb-1 block text-sm font-medium text-slate-700">Nº Cliente</label>
+                <input
+                  type="text"
+                  value={newCliente.numeroCliente}
+                  onChange={(e) => setNewCliente((prev) => ({ ...prev, numeroCliente: e.target.value }))}
+                  placeholder="Ex: CLI-00021"
+                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="mb-1 block text-sm font-medium text-slate-700">Ilha</label>
+                <input
+                  type="text"
+                  list="ilhas-opcoes"
+                  value={newCliente.ilha}
+                  onChange={(e) => setNewCliente((prev) => ({ ...prev, ilha: e.target.value }))}
+                  placeholder="Ex: São Miguel"
+                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                />
+                <datalist id="ilhas-opcoes">
+                  {["São Miguel", "Santa Maria", "Terceira", "Graciosa", "São Jorge", "Pico", "Faial", "Flores", "Corvo"].map((ilha) => (
+                    <option key={ilha} value={ilha} />
+                  ))}
+                </datalist>
+              </div>
+              <div>
+                <label className="mb-1 block text-sm font-medium text-slate-700">Morada</label>
+                <input
+                  type="text"
+                  value={newCliente.morada}
+                  onChange={(e) => setNewCliente((prev) => ({ ...prev, morada: e.target.value }))}
+                  placeholder="Rua, zona..."
+                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="mb-1 block text-sm font-medium text-slate-700">Nº / Lote</label>
+                  <input
+                    type="text"
+                    value={newCliente.moradaNumero}
+                    onChange={(e) => setNewCliente((prev) => ({ ...prev, moradaNumero: e.target.value }))}
+                    className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="mb-1 block text-sm font-medium text-slate-700">Código Postal</label>
+                  <input
+                    type="text"
+                    value={newCliente.codigoPostal}
+                    onChange={(e) => setNewCliente((prev) => ({ ...prev, codigoPostal: e.target.value }))}
+                    placeholder="Ex: 9560-350"
+                    className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="mb-1 block text-sm font-medium text-slate-700">Localidade</label>
+                <input
+                  type="text"
+                  value={newCliente.localidade}
+                  onChange={(e) => setNewCliente((prev) => ({ ...prev, localidade: e.target.value }))}
+                  placeholder="Ex: Cabouco"
+                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="mb-1 block text-sm font-medium text-slate-700">NIF</label>
+                <input
+                  type="text"
+                  value={newCliente.nif}
+                  onChange={(e) => setNewCliente((prev) => ({ ...prev, nif: e.target.value }))}
+                  placeholder="Ex: 501117334"
+                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="mb-1 block text-sm font-medium text-slate-700">Email</label>
+                <input
+                  type="email"
+                  value={newCliente.email}
+                  onChange={(e) => setNewCliente((prev) => ({ ...prev, email: e.target.value }))}
+                  placeholder="exemplo@mail.com"
+                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="mb-1 block text-sm font-medium text-slate-700">Telefone</label>
+                  <input
+                    type="text"
+                    value={newCliente.telefone}
+                    onChange={(e) => setNewCliente((prev) => ({ ...prev, telefone: e.target.value }))}
+                    placeholder="Ex: 296 000 000"
+                    className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="mb-1 block text-sm font-medium text-slate-700">Telemóvel</label>
+                  <input
+                    type="text"
+                    value={newCliente.telmovel}
+                    onChange={(e) => setNewCliente((prev) => ({ ...prev, telmovel: e.target.value }))}
+                    placeholder="Ex: 96 000 0000"
+                    className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                  />
+                </div>
+              </div>
+              <div className="mt-6 flex justify-end gap-3">
+                <button
+                  type="button"
+                  onClick={() => setShowClienteModal(false)}
+                  className="rounded-xl bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-200"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  disabled={creatingCliente}
+                  className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
+                >
+                  {creatingCliente ? "A criar..." : "Criar cliente"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

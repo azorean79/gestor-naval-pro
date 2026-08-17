@@ -171,37 +171,6 @@ export async function GET(req: NextRequest) {
 
     const activeStationId = resolveActiveServiceStationId(req, access);
 
-    // Sincronizar automaticamente Artigos (modelo_stock) para o Stock geral se não existirem
-    try {
-      const artigosModelo = await prisma.artigo.findMany();
-      for (const artigo of artigosModelo) {
-        const ref = String(artigo.referencia || `ARTIGO-${artigo.id}`).trim();
-        const existingStock = await prisma.stock.findFirst({
-          where: {
-            OR: [
-              { referencia: ref },
-              { descricao: artigo.name }
-            ]
-          }
-        });
-        if (!existingStock) {
-          await prisma.stock.create({
-            data: {
-              referencia: ref,
-              descricao: artigo.name,
-              categoria: "DIVERSOS",
-              quantidade: Number(artigo.stock ?? 0),
-              quantidadeMinima: Number(artigo.minStock ?? 1),
-              precoVenda: 0.0,
-              estadoArtigo: "ATIVO",
-            }
-          });
-        }
-      }
-    } catch (syncErr) {
-      console.error("[API /stock] Erro ao sincronizar artigos do modelo_stock:", syncErr);
-    }
-
     const where: Prisma.StockWhereInput = {};
 
     if (activeStationId) {
@@ -325,7 +294,7 @@ export async function GET(req: NextRequest) {
       foto: string | null;
       [key: string]: unknown;
     };
-    const mapRow = (item: StockListRow) => ({
+    const mapRow = (item: StockListRow): StockListRow => ({
       ...item,
       nome: item.descricao,
       categoria: normalizeStockCategory(item.categoria, item.descricao),
@@ -366,7 +335,25 @@ export async function GET(req: NextRequest) {
       take: (idsRaw || refsRaw) ? 100 : take,
       select,
     });
-    return respond(stock.map(mapRow), undefined, { count: stock.length });
+
+    const map = new Map<string, any>();
+    for (const rawItem of stock) {
+      const item = mapRow(rawItem);
+      const key = String(item.referencia || item.descricao || item.id).trim().toLowerCase();
+      if (!key) {
+        map.set(`id-${item.id}`, item);
+        continue;
+      }
+      if (map.has(key)) {
+        const existing = map.get(key)!;
+        existing.quantidade = Number(existing.quantidade || 0) + Number(item.quantidade || 0);
+      } else {
+        map.set(key, { ...item });
+      }
+    }
+    const dedupedStock = Array.from(map.values());
+
+    return respond(dedupedStock, undefined, { count: dedupedStock.length });
   } catch (error) {
     console.error("[API /stock] Erro ao buscar stock:", error);
     captureApiError(context, error);

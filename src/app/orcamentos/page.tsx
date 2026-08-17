@@ -59,6 +59,8 @@ export default function OrcamentosPage() {
   const [statusFilter, setStatusFilter] = useState<string>("");
   const [q, setQ] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [selectedIds, setSelectedIds] = useState<Set<number>>(new Set());
+  const [deleting, setDeleting] = useState(false);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -84,8 +86,46 @@ export default function OrcamentosPage() {
   }, [statusFilter, q]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- setLoading(true) no início do fetch assíncrono controla o estado de carregamento.
     load();
   }, [load]);
+
+  const toggleSelect = (id: number) => {
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const handleBulkDelete = async () => {
+    if (selectedIds.size === 0) return;
+    const ids = [...selectedIds];
+    const confirmText = window.confirm(
+      `Eliminar definitivamente ${ids.length} orçamento(s)/OT(s)?\n\nEsta ação não pode ser anulada.`,
+    );
+    if (!confirmText) return;
+    setDeleting(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/ordens-servico/bulk-delete", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ids }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error || "Erro ao eliminar ordens.");
+      setSelectedIds(new Set());
+      await load();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Erro ao eliminar ordens.");
+    } finally {
+      setDeleting(false);
+    }
+  };
+
+  const clearSelection = () => setSelectedIds(new Set());
 
   return (
     <div className="min-h-screen bg-slate-100 p-6">
@@ -129,6 +169,29 @@ export default function OrcamentosPage() {
           </div>
         </div>
 
+        {selectedIds.size > 0 && (
+          <div className="mb-4 flex flex-wrap items-center gap-3 rounded-xl border border-rose-200 bg-rose-50 px-4 py-2.5">
+            <span className="text-sm font-semibold text-rose-700">
+              {selectedIds.size} selecionada(s)
+            </span>
+            <div className="ml-auto flex items-center gap-2">
+              <button
+                onClick={clearSelection}
+                className="rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-50"
+              >
+                Limpar seleção
+              </button>
+              <button
+                onClick={handleBulkDelete}
+                disabled={deleting}
+                className="rounded-lg bg-rose-600 px-3 py-1.5 text-sm font-bold text-white hover:bg-rose-700 disabled:opacity-50"
+              >
+                {deleting ? "A eliminar…" : "Eliminar selecionadas"}
+              </button>
+            </div>
+          </div>
+        )}
+
         {error && <div className="mb-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-sm text-rose-700">{error}</div>}
 
         {loading ? (
@@ -152,9 +215,21 @@ export default function OrcamentosPage() {
                   className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow-md"
                 >
                   <div className="mb-2 flex items-start justify-between gap-2">
-                    <span className="text-xs font-semibold text-slate-400">
-                      #{row.numeroOrdem || row.id}
-                    </span>
+                    <label
+                      onClick={(e) => e.preventDefault()}
+                      className="flex items-center gap-2"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedIds.has(row.id)}
+                        onChange={() => toggleSelect(row.id)}
+                        onClick={(e) => e.stopPropagation()}
+                        className="h-4 w-4 rounded border-slate-300"
+                      />
+                      <span className="text-xs font-semibold text-slate-400">
+                        #{row.numeroOrdem || row.id}
+                      </span>
+                    </label>
                     <span className={`rounded-full border px-2 py-0.5 text-xs font-medium ${badge}`}>
                       {label}
                     </span>

@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getAccessContext } from "@/lib/access-control";
 import { normalizeEventStatus, normalizeInspectionType } from "@/types/agenda";
 
 export async function GET(req: Request) {
+  const access = await getAccessContext();
+  if (!access) return NextResponse.json({ error: "Sessão obrigatória." }, { status: 401 });
+
   const { searchParams } = new URL(req.url);
   const limit = Math.min(200, Math.max(20, Number(searchParams.get("limit") || 50)));
 

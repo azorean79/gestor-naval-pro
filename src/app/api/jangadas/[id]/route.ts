@@ -11,6 +11,8 @@ import { getAccessContext } from "@/lib/access-control";
 import { canEditPath } from "@/lib/user-permissions";
 import { syncRaftArticlesWithPackType } from "@/lib/checklist-sync";
 import { clearActiveAgendaForRaft, syncNextInspectionAgenda } from "@/lib/agenda-sync";
+import { clearEntregaAgendaEvent, syncEntregaAgendaEvent } from "@/lib/agenda-entrega";
+import { syncAgendaToGoogleCalendar } from "@/lib/google-calendar";
 import { isKnownPackTypeName, resolveMandatoryPackItemsForRaftAsync } from "@/lib/custom-pack-types";
 import { deleteJangadaById } from "@/lib/jangada-delete";
 import { canonicalizeDateFields } from "@/lib/date-display";
@@ -1523,7 +1525,7 @@ export async function PUT(req: NextRequest, context: { params: Promise<{ id: str
       const latestQueue = await prisma.serviceStationQueue.findFirst({
         where: { jangadaId: id },
         orderBy: [{ updatedAt: 'desc' }, { id: 'desc' }],
-        select: { id: true, observacoes: true, status: true },
+        select: { id: true, observacoes: true, status: true, ordemServicoId: true },
       });
 
       const nextDeliveredAt = deliveredAt !== undefined
@@ -1569,6 +1571,13 @@ export async function PUT(req: NextRequest, context: { params: Promise<{ id: str
           },
           select: { id: true },
         });
+
+        if (expectedDeliveryDate !== undefined && latestQueue.ordemServicoId) {
+          await prisma.ordemServico.update({
+            where: { id: latestQueue.ordemServicoId },
+            data: { dataPrevista: expectedDeliveryDate },
+          });
+        }
       } else if (expectedDeliveryDate || nextDeliveredAt || serviceStationStatus !== undefined || readyForDelivery !== undefined || deliveryMethod !== undefined) {
         await prisma.serviceStationQueue.create({
           data: {
@@ -1596,6 +1605,12 @@ export async function PUT(req: NextRequest, context: { params: Promise<{ id: str
 
     if (nextDeliveredAtValue) {
       await clearActiveAgendaForRaft({ jangadaId: id });
+      await clearEntregaAgendaEvent({ jangadaId: id });
+      syncAgendaToGoogleCalendar().catch((error) => {
+        console.error('[jangadas] Falha ao sincronizar Google Calendar após entrega:', error);
+      });
+    } else if (expectedDeliveryDate !== undefined) {
+      await syncEntregaAgendaEvent({ jangadaId: id, dataPrevistaEntrega: expectedDeliveryDate });
     }
 
     if (nextDeliveredAtValue) {

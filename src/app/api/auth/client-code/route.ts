@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { checkRateLimit } from "@/lib/rate-limit";
+import { randomInt } from "crypto";
 
 function cleanPhone(phone: string | null | undefined): string {
   if (!phone) return "";
-  return phone.replace(/\D/g, ""); // Keep only digits
+  return phone.replace(/\D/g, "");
 }
 
 export async function POST(req: NextRequest) {
@@ -24,7 +26,15 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Número de telemóvel inválido." }, { status: 400 });
     }
 
-    // Find client with matching phone
+    const rateKey = `client-code:${cleanedTarget}`;
+    const { allowed, retryAfterMs } = checkRateLimit(rateKey, 3, 10 * 60 * 1000);
+    if (!allowed) {
+      return NextResponse.json(
+        { error: `Demasiadas tentativas. Tente novamente em ${Math.ceil(retryAfterMs / 60000)} minuto(s).` },
+        { status: 429 },
+      );
+    }
+
     const clientes = await prisma.cliente.findMany({
       select: {
         id: true,
@@ -48,7 +58,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Cliente não encontrado com este telemóvel." }, { status: 404 });
     }
 
-    // Verify if client owns a ship with that name (case-insensitive)
     const ship = await prisma.navio.findFirst({
       where: {
         clienteId: cliente.id,
@@ -63,19 +72,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Navio não associado a este cliente." }, { status: 404 });
     }
 
-    // Generate a 6-digit verification code
-    const code = Math.floor(100000 + Math.random() * 900000).toString();
+    const code = randomInt(100000, 999999).toString();
 
-    // Store in client model
     await prisma.cliente.update({
       where: { id: cliente.id },
       data: {
         verificationCode: code,
-        verificationCodeExpires: new Date(Date.now() + 10 * 60 * 1000) // 10 minutes expiry
+        verificationCodeExpires: new Date(Date.now() + 10 * 60 * 1000)
       }
     });
 
-    // Mock SMS sending
     if (process.env.NODE_ENV === "development") {
       console.log(`[DEV SMS] Código para ${cliente.nome} (${ship.nome}): ${code}`);
     }
@@ -83,7 +89,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       success: true,
       message: "Código enviado com sucesso.",
-      code: process.env.NODE_ENV !== "production" ? code : undefined
     });
   } catch (error) {
     console.error("Error in client-code route:", error);

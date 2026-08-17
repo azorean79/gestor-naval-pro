@@ -4,6 +4,7 @@ import { getAccessContext } from "@/lib/access-control";
 import { resolveActiveServiceStationId } from "@/lib/station-selection";
 import { logAuditoria } from "@/lib/auditoria";
 import { syncNextInspectionAgenda } from "@/lib/agenda-sync";
+import { clearEntregaAgendaEvent, syncEntregaAgendaEvent } from "@/lib/agenda-entrega";
 import { APP_CONFIG } from "@/lib/app-config";
 import { notifyJangadaRececionada, notifyJangadaProntaEntrega, tryNotifySms } from "@/lib/notify-jangada-sms";
 import {
@@ -19,6 +20,7 @@ import {
   type OrdemWorkflowStatus,
   generateNumeroOrdem,
   appendOrdemServicoLog,
+  syncPedidoAssistenciaFromOrdem,
   type OrdemServicoMeta,
 } from "@/lib/ordens-servico";
 
@@ -465,6 +467,12 @@ export async function POST(req: NextRequest) {
       }
     }
 
+    if (status === "finalizada") {
+      await clearEntregaAgendaEvent({ jangadaId });
+    } else if (expectedDeliveryDate) {
+      await syncEntregaAgendaEvent({ jangadaId, dataPrevistaEntrega: expectedDeliveryDate });
+    }
+
     await logAuditoria({
       tabela: "ServiceStationQueue",
       tipoOperacao: "CREATE",
@@ -680,6 +688,8 @@ export async function PUT(req: NextRequest) {
             },
           });
         }
+
+        await syncPedidoAssistenciaFromOrdem(linkedOrderId);
       }
     } else {
       const ensuredOrder = await ensureOrderForServiceStation({
@@ -711,6 +721,15 @@ export async function PUT(req: NextRequest) {
       await prisma.jangada.update({
         where: { id: before.jangadaId },
         data: { serviceStationId: enforcedServiceStationId },
+      });
+    }
+
+    if (status === "finalizada") {
+      await clearEntregaAgendaEvent({ jangadaId: before.jangadaId });
+    } else if (expectedDeliveryDate) {
+      await syncEntregaAgendaEvent({
+        jangadaId: before.jangadaId,
+        dataPrevistaEntrega: expectedDeliveryDate,
       });
     }
 
@@ -778,6 +797,8 @@ export async function DELETE(req: NextRequest) {
     const targetId = before.id;
 
     await prisma.serviceStationQueue.delete({ where: { id: targetId } });
+
+    await clearEntregaAgendaEvent({ jangadaId: before.jangadaId });
 
     await logAuditoria({
       tabela: "ServiceStationQueue",

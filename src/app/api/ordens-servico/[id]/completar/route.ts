@@ -3,6 +3,7 @@ import prisma from "@/lib/prisma";
 import { getAccessContext } from "@/lib/access-control";
 import {
   parseOrdemServicoMeta,
+  syncPedidoAssistenciaFromOrdem,
   toOrdemServicoMetaJson,
   type OrdemServicoMeta,
 } from "@/lib/ordens-servico";
@@ -184,6 +185,8 @@ export async function POST(_req: NextRequest, { params }: { params: Promise<{ id
 
     invalidateApiCache("stock:");
     invalidateApiCache("necessidades:");
+
+    await syncPedidoAssistenciaFromOrdem(numericId);
 
     return NextResponse.json({
       success: true,

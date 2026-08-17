@@ -1352,7 +1352,7 @@ export default function JangadaDetailPageClient({ jangadaId, initialData, ships 
     if (wpHasData) {
       const anyFailed = wpCheck.upper.passes === false || wpCheck.lower.passes === false
         || wpCheck.temperatureWithinManual === false
-        || otherTestKeysV.some((k) => editForm[k] === 'NO');
+        || otherTestKeysV.some((k) => editForm[k] === 'REPROVOU');
       if (wpCheck.temperatureWithinManual === false) {
         if (!confirm('A variação térmica (ΔT) excede 3.5°C do manual. O resultado será considerado REPROVADO. Pretende gravar mesmo assim?')) return;
       } else if (anyFailed) {
@@ -4521,7 +4521,7 @@ export default function JangadaDetailPageClient({ jangadaId, initialData, ships 
 
           const otherTestKeys = ['testeNAP', 'testeFS', 'testeGI', 'testeDL'] as const;
 
-          const anyFailedOther = otherTestKeys.some((k) => wpSource[k] === 'NO');
+          const anyFailedOther = otherTestKeys.some((k) => wpSource[k] === 'REPROVOU');
 
           const requiredIncomplete = otherTestKeys.some((k) => {
             const status = manualStatusFor(k);
@@ -4535,7 +4535,7 @@ export default function JangadaDetailPageClient({ jangadaId, initialData, ships 
           if (wpDerived.lower.passes === false) failingReasons.push('queda de pressão na câmara inferior > 5%');
           if (wpDerived.temperatureWithinManual === false) failingReasons.push('variação térmica ΔT > 3.5°C');
           otherTestKeys.forEach((k) => {
-            if (wpSource[k] === 'NO') failingReasons.push('teste ' + k.replace('teste', '') + ' reprovado');
+            if (wpSource[k] === 'REPROVOU') failingReasons.push('teste ' + k.replace('teste', '') + ' reprovado');
           });
           otherTestKeys.forEach((k) => {
             const status = manualStatusFor(k);

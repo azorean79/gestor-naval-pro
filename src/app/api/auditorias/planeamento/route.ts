@@ -47,9 +47,9 @@ export async function GET() {
       proximaAuditoria: addOneYearIso(current.ultimaAuditoria),
       updatedAt: current.updatedAt,
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
-      { error: "Erro ao obter planeamento da auditoria", details: (error as Error)?.message },
+      { error: "Erro ao obter planeamento da auditoria" },
       { status: 500 }
     );
   }
@@ -84,9 +84,9 @@ export async function PUT(request: NextRequest) {
       updatedAt: nextValue.updatedAt,
       message: "Data da última auditoria atualizada com sucesso.",
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
-      { error: "Erro ao atualizar planeamento da auditoria", details: (error as Error)?.message },
+      { error: "Erro ao atualizar planeamento da auditoria" },
       { status: 500 }
     );
   }

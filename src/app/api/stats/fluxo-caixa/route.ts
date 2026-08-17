@@ -10,10 +10,17 @@ export async function GET(req: NextRequest) {
     const hoje = new Date();
     const daqui = (dias: number) => new Date(hoje.getTime() + dias * 24 * 60 * 60 * 1000);
 
-    // 1. Contas a receber (ordens concluídas, não pagas)
-    const concluidas = await prisma.ordemServico.findMany({
-      where: { status: "concluida" },
-      select: { valorTotal: true, dataConclusao: true, metadados: true },
+    // 1. Contas a receber (faturas emitidas, não canceladas)
+    const faturas = await prisma.fatura.findMany({
+      where: { cancelada: false },
+      select: {
+        id: true,
+        numeroFatura: true,
+        valorTotal: true,
+        pagamentoStatus: true,
+        dataEmissao: true,
+        recibos: { select: { valorPago: true } },
+      },
     });
 
     // 2. Orçamentos aprovados (receita futura, ainda não faturada)
@@ -30,12 +37,6 @@ export async function GET(req: NextRequest) {
       },
     });
 
-    function pagamentoStatus(meta: unknown): string {
-      if (!meta || typeof meta !== "object") return "Pendente";
-      const m = meta as Record<string, unknown>;
-      return String(m.pagamentoStatus || "Pendente");
-    }
-
     let totalVencido = 0;
     let totalPorReceber = 0;
     let totalRecebido30 = 0;
@@ -43,24 +44,23 @@ export async function GET(req: NextRequest) {
     let totalRecebido90 = 0;
 
     const hojeMs = hoje.getTime();
-    concluidas.forEach((o) => {
-      const valor = Number(o.valorTotal || 0);
-      const status = pagamentoStatus(o.metadados);
+    faturas.forEach((f) => {
+      const valor = Number(f.valorTotal || 0);
+      const status = f.pagamentoStatus;
       if (status === "Pago") return;
-      if (status === "Pago Parcialmente") {
-        totalPorReceber += valor * 0.5;
-        return;
-      }
-      // Vencido se passaram 30 dias desde a conclusão
-      const concMs = o.dataConclusao ? new Date(o.dataConclusao).getTime() : hojeMs;
-      const diasPassados = Math.floor((hojeMs - concMs) / 86400000);
-      if (diasPassados > 30) totalVencido += valor;
+      const pago = (f.recibos || []).reduce((acc, r) => acc + Number(r.valorPago || 0), 0);
+      const emDivida = Math.max(0, valor - pago);
+      if (emDivida <= 0) return;
+      // Vencido se passaram 30 dias desde a emissão
+      const emissaoMs = f.dataEmissao ? new Date(f.dataEmissao).getTime() : hojeMs;
+      const diasPassados = Math.floor((hojeMs - emissaoMs) / 86400000);
+      if (diasPassados > 30) totalVencido += emDivida;
 
       // Janelas de recebimento projetadas
-      if (diasPassados <= 0) totalRecebido30 += valor;
-      else if (diasPassados <= 30) totalRecebido60 += valor;
-      else totalRecebido90 += valor;
-      totalPorReceber += valor;
+      if (diasPassados <= 0) totalRecebido30 += emDivida;
+      else if (diasPassados <= 30) totalRecebido60 += emDivida;
+      else totalRecebido90 += emDivida;
+      totalPorReceber += emDivida;
     });
 
     const totalAprovadosNaoFaturados = aprovados.reduce((acc, o) => acc + Number(o.valorTotal || 0), 0);

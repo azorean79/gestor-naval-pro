@@ -5,12 +5,31 @@ import { extrairPortoDeMatricula } from '@/utils/portosRegisto';
 import { NAVIO_TIPO_NAVIO_OPTIONS, NAVIO_TIPO_PESCA_OPTIONS, normalizeNavioTipoCategoria } from "@/lib/navio-legal-types";
 import { sortNaviosAlphabetically } from "@/lib/navios-sort";
 import type { Navio, JangadaItem, ColeteItem, EpirbItem, ClienteItem, ViewMode, NavioListColumnKey } from "@/types/navios-page";
-import { IS_AZORES_APP, LOCATION_COLUMN_KEY, LOCATION_COLUMN_LABEL, NAVIO_LIST_COLUMNS_KEY, NAVIO_LIST_COLUMNS, BANDEIRAS_OPCOES, AZORES_LOCATION_OPTIONS, INITIAL_NAVIO_FORM } from "@/types/navios-page";
-import { buildDefaultNavioColumns, getNavioLocationLabel, getNavioLocationValue } from "@/lib/navios-page-helpers";
+import { IS_AZORES_APP, LOCATION_COLUMN_KEY, LOCATION_COLUMN_LABEL, NAVIO_LIST_COLUMNS_KEY, NAVIO_LIST_COLUMNS, BANDEIRAS_OPCOES, INITIAL_NAVIO_FORM, navioEstadoBadge, NAVIO_ESTADO_LABELS } from "@/types/navios-page";
+import { buildDefaultNavioColumns, getNavioLocationLabel } from "@/lib/navios-page-helpers";
+import { getLocationOptionsForTerritorio, type TerritorioGrupo } from "@/lib/portos-regioes";
 
 export default function NaviosWizard() {
   const [mounted, setMounted] = useState(false);
   const [navios, setNavios] = useState<Navio[]>([]);
+  const [totalNavios, setTotalNavios] = useState(0);
+  const [portoOptions, setPortoOptions] = useState<string[]>([]);
+  const [clienteOptions, setClienteOptions] = useState<string[]>([]);
+  const naviosFetchSeq = useRef(0);
+  const [fleetStats, setFleetStats] = useState<{
+    total: number;
+    comCliente: number;
+    semCliente: number;
+    semMatricula: number;
+    comPortoRegisto: number;
+    semIlha: number;
+    ilhasAtivas: number;
+    topIlha: { nome: string; total: number } | null;
+    pescaLocal: number;
+    pescaCosteira: number;
+    maritimoTuristica: number;
+    outrasTipologias: number;
+  } | null>(null);
   // Seleção em lote
   const [selectedNavios, setSelectedNavios] = useState<number[]>([]);
   const [deletingBatch, setDeletingBatch] = useState(false);
@@ -23,7 +42,7 @@ export default function NaviosWizard() {
     }
     function handleSelectAllNavios(checked: boolean) {
       if (checked) {
-        setSelectedNavios(filteredNavios.map(n => n.id));
+        setSelectedNavios(pagedNavios.map(n => n.id));
       } else {
         setSelectedNavios([]);
       }
@@ -53,9 +72,14 @@ export default function NaviosWizard() {
     }
   const [tipoFilter, setTipoFilter] = useState<string>("");
   const [nomeFilter, setNomeFilter] = useState<string>("");
+  const [cfrFilter, setCfrFilter] = useState<string>("");
   const [ilhaFilter, setIlhaFilter] = useState<string>("");
   const [clienteFilter, setClienteFilter] = useState<string>("");
   const [portoFilter, setPortoFilter] = useState<string>("");
+  const [estadoFilter, setEstadoFilter] = useState<string>("");
+  const [territorioFilter, setTerritorioFilter] = useState<string>("AÇORES");
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(100);
   const filterUrlSynced = useRef(false);
   const firstRender = useRef(true);
   const [form, setForm] = useState<Navio>(INITIAL_NAVIO_FORM);
@@ -87,9 +111,12 @@ export default function NaviosWizard() {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- restauro dos filtros a partir da URL no arranque.
       const t = params.get("tipo"); if (t) setTipoFilter(t);
       const n = params.get("nome"); if (n) setNomeFilter(n);
+      const cf = params.get("cfr"); if (cf) setCfrFilter(cf);
       const i = params.get("ilha"); if (i) setIlhaFilter(i);
       const c = params.get("cliente"); if (c) setClienteFilter(c);
       const p = params.get("porto"); if (p) setPortoFilter(p);
+      const e = params.get("estado"); if (e) setEstadoFilter(e);
+      const te = params.get("territorio"); if (te) setTerritorioFilter(te);
     } catch {}
   }, []);
 
@@ -101,13 +128,16 @@ export default function NaviosWizard() {
       const params = new URLSearchParams();
       if (tipoFilter) params.set("tipo", tipoFilter);
       if (nomeFilter) params.set("nome", nomeFilter);
+      if (cfrFilter) params.set("cfr", cfrFilter);
       if (ilhaFilter) params.set("ilha", ilhaFilter);
       if (clienteFilter) params.set("cliente", clienteFilter);
       if (portoFilter) params.set("porto", portoFilter);
+      if (estadoFilter) params.set("estado", estadoFilter);
+      if (territorioFilter) params.set("territorio", territorioFilter);
       const qs = params.toString();
       window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
     } catch {}
-  }, [tipoFilter, nomeFilter, ilhaFilter, clienteFilter, portoFilter]);
+  }, [tipoFilter, nomeFilter, cfrFilter, ilhaFilter, clienteFilter, portoFilter, estadoFilter, territorioFilter]);
 
   useEffect(() => {
     let active = true;
@@ -175,7 +205,8 @@ export default function NaviosWizard() {
 
   useEffect(() => {
     fetchNavios();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- recarga server-side quando filtros/paginação mudam.
+  }, [tipoFilter, nomeFilter, cfrFilter, ilhaFilter, clienteFilter, portoFilter, estadoFilter, territorioFilter, page, pageSize]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -227,74 +258,72 @@ export default function NaviosWizard() {
   };
 
   async function fetchNavios() {
+    const seq = ++naviosFetchSeq.current;
     setLoading(true);
     try {
-      const res = await fetch("/api/navios?scope=all");
+      const params = new URLSearchParams({ scope: "all" });
+      if (tipoFilter) params.set("tipoPesca", tipoFilter);
+      if (nomeFilter) params.set("nome", nomeFilter);
+      if (cfrFilter) params.set("matricula", cfrFilter);
+      if (ilhaFilter) params.set("ilha", ilhaFilter);
+      if (clienteFilter) params.set("cliente", clienteFilter);
+      if (portoFilter) params.set("porto", portoFilter);
+      if (estadoFilter) params.set("estado", estadoFilter);
+      if (territorioFilter) params.set("territorio", territorioFilter);
+      params.set("pagina", String(page));
+      params.set("limite", String(pageSize));
+      const res = await fetch(`/api/navios?${params.toString()}`);
       const response = await res.json();
-      
-      // Handle response format
       const data = response.data ?? response;
-      const naviosList = Array.isArray(data) ? data : [];
-      
-      setNavios(sortNaviosAlphabetically(naviosList));
-      console.log(`Loaded ${naviosList.length} navios`);
+      if (seq !== naviosFetchSeq.current) return;
+
+      if (Array.isArray(data)) {
+        setNavios(sortNaviosAlphabetically(data));
+        setTotalNavios(data.length);
+      } else if (data?.items) {
+        setNavios(data.items);
+        setTotalNavios(Number(data.total) || 0);
+        if (data.stats) setFleetStats(data.stats);
+        if (Array.isArray(data.portos)) setPortoOptions(data.portos);
+        if (Array.isArray(data.clientes)) setClienteOptions(data.clientes);
+      } else {
+        setNavios([]);
+        setTotalNavios(0);
+      }
     } catch (err) {
       console.error("Error fetching navios:", err);
+      if (seq !== naviosFetchSeq.current) return;
       setNavios([]);
+      setTotalNavios(0);
     } finally {
-      setLoading(false);
+      if (seq === naviosFetchSeq.current) setLoading(false);
     }
   }
 
-  const uniqueLocations = Array.isArray(navios) ? Array.from(new Set(navios.map(getNavioLocationLabel).filter(Boolean))).sort() : [];
-  const uniqueIlhas = IS_AZORES_APP
-    ? AZORES_LOCATION_OPTIONS.filter((option) => {
-        if (option === "Norte" || option === "Centro" || option === "Sul" || option === "Madeira") return true;
-        return navios.some((navio) => getNavioLocationValue(navio) === option);
-      })
-    : [];
-  const uniqueClientes = Array.isArray(navios)
-    ? Array.from(
-        new Set(
-          navios
-            .map((navio) => String(navio.cliente?.nome || "").trim())
-            .filter(Boolean)
-        )
-      ).sort((a, b) => a.localeCompare(b, "pt", { sensitivity: "base" }))
-    : [];
-  const uniquePortos = Array.isArray(navios)
-    ? Array.from(
-        new Set(
-          navios
-            .map((navio) => String(navio.portoRegisto || "").trim())
-            .filter(Boolean)
-        )
-      ).sort((a, b) => a.localeCompare(b, "pt", { sensitivity: "base" }))
-    : [];
+  const ilhaOptions = useMemo(
+    () => getLocationOptionsForTerritorio(territorioFilter as TerritorioGrupo | ""),
+    [territorioFilter]
+  );
+  const uniqueClientes = clienteOptions;
+  const uniquePortos = portoOptions;
   const uniqueTipos = NAVIO_TIPO_PESCA_OPTIONS;
 
-  const filteredNavios = Array.isArray(navios)
-    ? navios
-        .filter(n => {
-          const tipoVal = normalizeNavioTipoCategoria(n.tipoPesca, n.matricula, n.tipoNavio);
-          if (tipoFilter && tipoVal !== tipoFilter) return false;
-          if (IS_AZORES_APP && ilhaFilter) {
-            const island = getNavioLocationValue(n);
-            if (island !== ilhaFilter) return false;
-          }
-          if (nomeFilter && n.nome && !n.nome.toLowerCase().includes(nomeFilter.toLowerCase())) return false;
-          if (clienteFilter) {
-            const clienteNome = String(n.cliente?.nome || "").trim();
-            if (clienteNome !== clienteFilter) return false;
-          }
-          if (portoFilter) {
-            const porto = String(n.portoRegisto || "").trim();
-            if (porto !== portoFilter) return false;
-          }
-          return true;
-        })
-        .sort((a, b) => (a.nome || "").localeCompare(b.nome || "", "pt", { sensitivity: "base" }))
-    : [];
+  const filteredNavios = navios;
+  const totalPages = Math.max(1, Math.ceil(totalNavios / pageSize));
+  const pagedNavios = navios;
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset da paginação quando os filtros mudam.
+    setPage(1);
+  }, [tipoFilter, nomeFilter, cfrFilter, ilhaFilter, clienteFilter, portoFilter, estadoFilter, territorioFilter, pageSize]);
+
+  function handleTerritorioChange(value: string) {
+    setTerritorioFilter(value);
+    const options = getLocationOptionsForTerritorio(value as TerritorioGrupo | "");
+    if (ilhaFilter && !options.includes(ilhaFilter)) {
+      setIlhaFilter("");
+    }
+  }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
@@ -322,12 +351,14 @@ export default function NaviosWizard() {
       tipoPesca: form.tipoPesca || "",
       tipoNavio: form.tipoNavio || "",
       comprimentoMetros: String(form.comprimentoMetros ?? "").trim(),
+      lotacao: String(form.lotacao ?? "").trim(),
       proprietario: form.proprietario || "",
       bandeira: form.bandeira || "Portugal",
       mmsi: form.mmsi || "",
       imo: form.imo || "",
       callSignal: form.callSignal || "",
       portoRegisto: form.portoRegisto || "",
+      cfr: form.cfr || "",
       clienteId: selectedClienteId ? Number(selectedClienteId) : null,
     };
 
@@ -483,50 +514,23 @@ export default function NaviosWizard() {
     }
   }
 
-  const stats = useMemo(() => {
-    const total = navios.length;
-    const comCliente = navios.filter((navio) => navio.cliente?.id).length;
-    const semCliente = navios.filter((navio) => !navio.cliente?.id).length;
-    const pescaLocal = navios.filter((navio) => normalizeNavioTipoCategoria(navio.tipoPesca, navio.matricula, navio.tipoNavio) === "Pesca Local").length;
-    const pescaCosteira = navios.filter((navio) => normalizeNavioTipoCategoria(navio.tipoPesca, navio.matricula, navio.tipoNavio) === "Pesca Costeira").length;
-    const trafegoLocal = navios.filter((navio) => normalizeNavioTipoCategoria(navio.tipoPesca, navio.matricula, navio.tipoNavio) === "Tráfego Local").length;
-    const auxiliarLocal = navios.filter((navio) => normalizeNavioTipoCategoria(navio.tipoPesca, navio.matricula, navio.tipoNavio) === "Auxiliar Local").length;
-    const maritimoTuristica = navios.filter((navio) => normalizeNavioTipoCategoria(navio.tipoPesca, navio.matricula, navio.tipoNavio) === "Marítimo Turística").length;
-    const nauticaRecreio = navios.filter((navio) => normalizeNavioTipoCategoria(navio.tipoPesca, navio.matricula, navio.tipoNavio) === "Náutica de Recreio").length;
-    const semMatricula = navios.filter((navio) => !String(navio.matricula || "").trim()).length;
-    const comPortoRegisto = navios.filter((navio) => String(navio.portoRegisto || "").trim()).length;
-    const semIlha = navios.filter((navio) => !getNavioLocationValue(navio)).length;
-    const ilhasCounts = navios.reduce<Record<string, number>>((acc, navio) => {
-      const ilha = getNavioLocationValue(navio);
-      if (!ilha) return acc;
-      acc[ilha] = (acc[ilha] || 0) + 1;
-      return acc;
-    }, {});
-    const ilhasAtivas = Object.keys(ilhasCounts).length;
-    const topIlhaEntry = Object.entries(ilhasCounts).sort((a, b) => {
-      if (b[1] !== a[1]) return b[1] - a[1];
-      return a[0].localeCompare(b[0], "pt", { sensitivity: "base" });
-    })[0];
-    return {
-      total,
-      comCliente,
-      semCliente,
-      pescaLocal,
-      pescaCosteira,
-      trafegoLocal,
-      auxiliarLocal,
-      maritimoTuristica,
-      nauticaRecreio,
-      semMatricula,
-      comPortoRegisto,
-      semIlha,
-      ilhasAtivas,
-      topIlha: topIlhaEntry ? { nome: topIlhaEntry[0], total: topIlhaEntry[1] } : null,
-    };
-  }, [navios]);
+  const stats = fleetStats || {
+    total: totalNavios,
+    comCliente: 0,
+    semCliente: 0,
+    semMatricula: 0,
+    comPortoRegisto: 0,
+    semIlha: 0,
+    ilhasAtivas: 0,
+    topIlha: null,
+    pescaLocal: 0,
+    pescaCosteira: 0,
+    maritimoTuristica: 0,
+    outrasTipologias: 0,
+  };
 
   const dashboardCards = [
-    { label: "Total em vista", value: filteredNavios.length },
+    { label: "Total em vista", value: totalNavios },
     { label: "Navios totais", value: stats.total },
     { label: "Com cliente", value: stats.comCliente },
     { label: "Sem cliente", value: stats.semCliente },
@@ -615,7 +619,7 @@ export default function NaviosWizard() {
               { label: "Pesca local", value: stats.pescaLocal },
               { label: "Pesca costeira", value: stats.pescaCosteira },
               { label: "Marítimo turística", value: stats.maritimoTuristica },
-              { label: "Outras tipologias", value: stats.trafegoLocal + stats.auxiliarLocal + stats.nauticaRecreio },
+              { label: "Outras tipologias", value: stats.outrasTipologias },
             ].map((item) => (
               <div key={item.label} className="app-hero-card-soft rounded-xl p-3">
                 <p className="text-xs uppercase tracking-[0.2em] text-sky-100">{item.label}</p>
@@ -625,298 +629,7 @@ export default function NaviosWizard() {
           </div>
         </div>
 
-        <div className="grid gap-6 xl:grid-cols-[1.15fr_1.85fr]">
-          <section id="navio-form" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="mb-4 flex items-center justify-between gap-3">
-              <div>
-                <h2 className="text-lg font-semibold text-slate-900">{editId ? "Editar navio" : "Novo navio"}</h2>
-                <p className="text-sm text-slate-500">
-                  {isFormExpanded
-                    ? "Ficha rápida para criar ou corrigir a embarcação e respetivas associações."
-                    : "Formulário recolhido para dar mais espaço ao diretório."}
-                </p>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
-                  {editId ? "Edição" : isFormExpanded ? "Manual" : "Recolhido"}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setIsFormExpanded((prev) => !prev)}
-                  className="inline-flex items-center rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium text-slate-700 transition hover:bg-slate-50"
-                >
-                  {isFormExpanded ? "Recolher formulário" : "Expandir formulário"}
-                </button>
-              </div>
-            </div>
-
-            {isFormExpanded ? (
-            <form onSubmit={handleSubmit} className="space-y-3">
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">Nome do navio</label>
-                  <input
-                    name="nome"
-                    value={form.nome}
-                    onChange={handleChange}
-                    placeholder="Nome do navio (obrigatório)"
-                    className="border rounded-lg px-3 py-2 w-full"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">Matrícula</label>
-                  <input
-                    name="matricula"
-                    value={form.matricula || ""}
-                    onChange={handleChange}
-                    placeholder="Ex: PTHOR-1234567"
-                    className="border rounded-lg px-3 py-2 w-full"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">Porto de Registo</label>
-                  <input
-                    name="portoRegisto"
-                    value={form.portoRegisto || ""}
-                    onChange={handleChange}
-                    placeholder="Preenchido automaticamente pela matrícula"
-                    className="border rounded-lg px-3 py-2 w-full bg-gray-50"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">Ilha</label>
-                  <input
-                    name="ilha"
-                    value={form.ilha || ""}
-                    onChange={handleChange}
-                    placeholder="Ilha / região"
-                    className="border rounded-lg px-3 py-2 w-full"
-                    list="navio-ilhas-opcoes"
-                  />
-                  <datalist id="navio-ilhas-opcoes">
-                    {AZORES_LOCATION_OPTIONS.map((ilha) => (
-                      <option key={ilha} value={ilha} />
-                    ))}
-                  </datalist>
-                </div>
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">Enquadramento legal</label>
-                  <input
-                    name="tipoPesca"
-                    value={form.tipoPesca || ""}
-                    onChange={handleChange}
-                    placeholder="Ex.: Pesca Local"
-                    className="border rounded-lg px-3 py-2 w-full"
-                    list="navio-tipo-pesca-opcoes"
-                  />
-                  <datalist id="navio-tipo-pesca-opcoes">
-                    {NAVIO_TIPO_PESCA_OPTIONS.map((tipo) => (
-                      <option key={tipo} value={tipo} />
-                    ))}
-                  </datalist>
-                </div>
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">Tipo de embarcação</label>
-                  <input
-                    name="tipoNavio"
-                    value={form.tipoNavio || ""}
-                    onChange={handleChange}
-                    placeholder="Ex.: Marítimo-Turística"
-                    className="border rounded-lg px-3 py-2 w-full"
-                    list="navio-tipo-navio-opcoes"
-                  />
-                  <datalist id="navio-tipo-navio-opcoes">
-                    {NAVIO_TIPO_NAVIO_OPTIONS.map((tipo) => (
-                      <option key={tipo} value={tipo} />
-                    ))}
-                  </datalist>
-                </div>
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">Comprimento (m)</label>
-                  <input
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    name="comprimentoMetros"
-                    value={String(form.comprimentoMetros ?? "")}
-                    onChange={handleChange}
-                    placeholder="Opcional · útil para pesca costeira"
-                    className="border rounded-lg px-3 py-2 w-full"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">Proprietário</label>
-                  <input
-                    name="proprietario"
-                    value={form.proprietario || ""}
-                    onChange={handleChange}
-                    placeholder="Proprietário"
-                    className="border rounded-lg px-3 py-2 w-full"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">Bandeira</label>
-                  <input
-                    name="bandeira"
-                    value={form.bandeira || ""}
-                    onChange={handleChange}
-                    placeholder="Bandeira"
-                    className="border rounded-lg px-3 py-2 w-full"
-                    list="bandeiras-opcoes"
-                  />
-                  <datalist id="bandeiras-opcoes">
-                    {BANDEIRAS_OPCOES.map((flag) => (
-                      <option key={flag} value={flag} />
-                    ))}
-                  </datalist>
-                </div>
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">MMSI</label>
-                  <input
-                    name="mmsi"
-                    value={form.mmsi || ""}
-                    onChange={handleChange}
-                    placeholder="MMSI"
-                    className="border rounded-lg px-3 py-2 w-full"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">IMO</label>
-                  <input
-                    name="imo"
-                    value={form.imo || ""}
-                    onChange={handleChange}
-                    placeholder="IMO"
-                    className="border rounded-lg px-3 py-2 w-full"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">CALL SIGNAL</label>
-                  <input
-                    name="callSignal"
-                    value={form.callSignal || ""}
-                    onChange={handleChange}
-                    placeholder="CALL SIGNAL"
-                    className="border rounded-lg px-3 py-2 w-full"
-                  />
-                </div>
-                <div className="rounded-lg border border-blue-100 bg-blue-50 px-3 py-2 text-xs text-blue-900">
-                  HRU e refletor de radar são registados na ficha da jangada.
-                </div>
-
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">Cliente / Armador</label>
-                  <select
-                    value={selectedClienteId}
-                    onChange={(e) => setSelectedClienteId(e.target.value)}
-                    className="border rounded-lg px-3 py-2 w-full"
-                  >
-                    <option value="">Sem cliente associado</option>
-                    {clientesDisponiveis
-                      .slice()
-                      .sort((a, b) => (a.nome || "").localeCompare(b.nome || "", "pt", { sensitivity: "base" }))
-                      .map((cliente) => (
-                        <option key={cliente.id} value={cliente.id}>
-                          {cliente.nome} {cliente.ilha ? `(${cliente.ilha})` : ""} {cliente.numeroCliente ? `[${cliente.numeroCliente}]` : ""}
-                        </option>
-                      ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">Associar jangadas</label>
-                  <select
-                    multiple
-                    value={selectedJangadaIds.map(String)}
-                    onChange={(e) => {
-                      const selected = Array.from(e.target.selectedOptions)
-                        .map((opt) => Number(opt.value))
-                        .filter((id) => Number.isFinite(id));
-                      setSelectedJangadaIds(selected);
-                    }}
-                    className="border rounded-lg px-3 py-2 w-full"
-                    size={Math.min(6, Math.max(3, jangadasDisponiveis.length || 3))}
-                  >
-                    {jangadasDisponiveis
-                      .slice()
-                      .sort((a, b) => (a.serial || "").localeCompare(b.serial || ""))
-                      .map((jangada) => (
-                        <option key={jangada.id} value={jangada.id}>
-                          {jangada.serial} {jangada.brand || jangada.model ? `- ${[jangada.brand, jangada.model].filter(Boolean).join(" ")}` : ""}
-                        </option>
-                      ))}
-                  </select>
-                  <p className="text-[11px] text-gray-500 mt-1">Dica: mantenha Ctrl pressionado para selecionar várias jangadas.</p>
-                </div>
-
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">Associar coletes</label>
-                  <select
-                    multiple
-                    value={selectedColeteIds.map(String)}
-                    onChange={(e) => {
-                      const selected = Array.from(e.target.selectedOptions)
-                        .map((opt) => Number(opt.value))
-                        .filter((id) => Number.isFinite(id));
-                      setSelectedColeteIds(selected);
-                    }}
-                    className="border rounded-lg px-3 py-2 w-full"
-                    size={Math.min(6, Math.max(3, coletesDisponiveis.length || 3))}
-                  >
-                    {coletesDisponiveis
-                      .slice()
-                      .sort((a, b) => (a.serial || "").localeCompare(b.serial || ""))
-                      .map((colete) => (
-                        <option key={colete.id} value={colete.id}>
-                          {colete.serial} {colete.marca || colete.modelo ? `- ${[colete.marca, colete.modelo].filter(Boolean).join(" ")}` : ""}
-                          {colete.estado ? ` (${colete.estado})` : ""}
-                        </option>
-                      ))}
-                  </select>
-                  <p className="text-[11px] text-gray-500 mt-1">Dica: mantenha Ctrl pressionado para selecionar vários coletes.</p>
-                </div>
-
-                <div>
-                  <label className="block text-xs mb-1 text-gray-600">Associar EPIRBs</label>
-                  <select
-                    multiple
-                    value={selectedEpirbIds.map(String)}
-                    onChange={(e) => {
-                      const selected = Array.from(e.target.selectedOptions)
-                        .map((opt) => Number(opt.value))
-                        .filter((id) => Number.isFinite(id));
-                      setSelectedEpirbIds(selected);
-                    }}
-                    className="border rounded-lg px-3 py-2 w-full"
-                    size={Math.min(6, Math.max(3, epirbsDisponiveis.length || 3))}
-                  >
-                    {epirbsDisponiveis
-                      .slice()
-                      .sort((a, b) => (a.serial || "").localeCompare(b.serial || ""))
-                      .map((epirb) => (
-                        <option key={epirb.id} value={epirb.id}>
-                          {epirb.serial} {epirb.marca || epirb.modelo ? `- ${[epirb.marca, epirb.modelo].filter(Boolean).join(" ")}` : ""}
-                          {epirb.estado ? ` (${epirb.estado})` : ""}
-                        </option>
-                      ))}
-                  </select>
-                  <p className="text-[11px] text-gray-500 mt-1">Dica: mantenha Ctrl pressionado para selecionar vários EPIRBs.</p>
-                </div>
-                <div className="flex gap-2 justify-end">
-                  <button type="button" className="px-4 py-2 bg-gray-200 rounded-lg" onClick={() => { setEditId(null); setForm(INITIAL_NAVIO_FORM); setSelectedClienteId(""); setSelectedColeteIds([]); setSelectedJangadaIds([]); setSelectedEpirbIds([]); setIsFormExpanded(false); }}>Cancelar</button>
-                  <button type="submit" className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700">Salvar</button>
-                </div>
-              </form>
-            ) : (
-              <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-5 text-sm text-slate-600">
-                O formulário está recolhido para libertar espaço ao diretório. Abra-o quando precisar de criar ou editar um navio.
-              </div>
-            )}
-            <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs text-amber-900">
-              Navios sem matrícula: <b>{stats.semMatricula}</b>. O porto de registo continua a ser sugerido automaticamente a partir da matrícula.
-            </div>
-          </section>
-
+        <div className="w-full">
           <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="mb-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
               <div>
@@ -924,7 +637,7 @@ export default function NaviosWizard() {
                 <p className="text-sm text-slate-500">Pesquisa, filtros e vistas da frota com ações rápidas para abrir ficha, editar ou excluir.</p>
               </div>
                   <div className="rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
-                    {uniqueLocations.length} {IS_AZORES_APP ? "ilha(s)" : "localização(ões)"}
+                    {stats.ilhasAtivas} {IS_AZORES_APP ? "ilha(s)" : "localização(ões)"}
               </div>
             </div>
 
@@ -945,19 +658,23 @@ export default function NaviosWizard() {
             ))}
           </div>
           <div className="mb-4 rounded-xl border border-slate-200 bg-slate-50 p-3">
-            <div className={`grid grid-cols-1 gap-2 ${IS_AZORES_APP ? "md:grid-cols-6" : "md:grid-cols-5"}`}>
+            <div className={`grid grid-cols-1 gap-2 ${IS_AZORES_APP ? "md:grid-cols-8" : "md:grid-cols-7"}`}>
             <div className={IS_AZORES_APP ? "md:col-span-2" : "md:col-span-2"}>
               <label className="block text-xs mb-1 text-gray-600">Nome do Navio</label>
               <input value={nomeFilter} onChange={e => setNomeFilter(e.target.value)} placeholder="Procurar por nome do navio" className="border rounded-lg bg-white px-3 py-2 w-full" />
             </div>
+            <div>
+              <label className="block text-xs mb-1 text-gray-600">CFR / Matrícula</label>
+              <input value={cfrFilter} onChange={e => setCfrFilter(e.target.value)} placeholder="Ex: FN-715-L" className="border rounded-lg bg-white px-3 py-2 w-full" />
+            </div>
             {IS_AZORES_APP && (
-              <div>
-                <label className="block text-xs mb-1 text-gray-600">Ilha</label>
-                <select value={ilhaFilter} onChange={e => setIlhaFilter(e.target.value)} className="border rounded-lg bg-white px-3 py-2 w-full">
-                  <option value="">Todas</option>
-                  {uniqueIlhas.map((ilha) => <option key={ilha} value={ilha}>{ilha}</option>)}
-                </select>
-              </div>
+            <div>
+              <label className="block text-xs mb-1 text-gray-600">Ilha / Região</label>
+              <select value={ilhaFilter} onChange={e => setIlhaFilter(e.target.value)} className="border rounded-lg bg-white px-3 py-2 w-full">
+                <option value="">Todas</option>
+                {ilhaOptions.map((ilha) => <option key={ilha} value={ilha}>{ilha}</option>)}
+              </select>
+            </div>
             )}
             <div>
               <label className="block text-xs mb-1 text-gray-600">Tipo</label>
@@ -980,11 +697,27 @@ export default function NaviosWizard() {
                 {uniquePortos.map((porto) => <option key={porto} value={porto}>{porto}</option>)}
               </select>
             </div>
+            <div>
+              <label className="block text-xs mb-1 text-gray-600">Estado</label>
+              <select value={estadoFilter} onChange={e => setEstadoFilter(e.target.value)} className="border rounded-lg bg-white px-3 py-2 w-full">
+                <option value="">Todos</option>
+                {Object.entries(NAVIO_ESTADO_LABELS).map(([key, { label }]) => <option key={key} value={key}>{label}</option>)}
+              </select>
+            </div>
+            <div>
+              <label className="block text-xs mb-1 text-gray-600">Território</label>
+              <select value={territorioFilter} onChange={e => handleTerritorioChange(e.target.value)} className="border rounded-lg bg-white px-3 py-2 w-full">
+                <option value="">Todos</option>
+                <option value="AÇORES">Açores</option>
+                <option value="MADEIRA">Madeira</option>
+                <option value="CONTINENTE">Continente</option>
+              </select>
+            </div>
             <div className={`${IS_AZORES_APP ? "md:col-span-6" : "md:col-span-5"} flex flex-col gap-2 pt-1 sm:flex-row sm:items-center sm:justify-between`}>
               <div className="text-xs text-slate-500">
-                {filteredNavios.length} navio(s) encontrados com os filtros atuais.
+                {totalNavios} navio(s) encontrados com os filtros atuais.
               </div>
-              <button className="self-start rounded-lg bg-gray-200 px-3 py-2 text-xs font-medium text-slate-700 sm:self-auto" onClick={() => { setTipoFilter(''); setNomeFilter(''); setIlhaFilter(''); setClienteFilter(''); setPortoFilter(''); }}>Limpar filtros</button>
+              <button className="self-start rounded-lg bg-gray-200 px-3 py-2 text-xs font-medium text-slate-700 sm:self-auto" onClick={() => { setTipoFilter(''); setNomeFilter(''); setIlhaFilter(''); setClienteFilter(''); setPortoFilter(''); setEstadoFilter(''); setPage(1); }}>Limpar filtros</button>
             </div>
           </div>
           </div>
@@ -1034,18 +767,19 @@ export default function NaviosWizard() {
               <table className="min-w-full text-xs sm:text-sm">
                 <thead>
                   <tr className="bg-blue-100">
-                    <th className="p-2"><input type="checkbox" onChange={e => handleSelectAllNavios(e.target.checked)} checked={selectedNavios.length > 0 && selectedNavios.length === filteredNavios.length} /></th>
+                    <th className="p-2"><input type="checkbox" onChange={e => handleSelectAllNavios(e.target.checked)} checked={selectedNavios.length > 0 && selectedNavios.length === pagedNavios.length} /></th>
                     {isColumnVisible("nome") && <th className="p-2">Nome</th>}
                     {isColumnVisible("matricula") && <th className="p-2">Matrícula</th>}
                     {isColumnVisible("cliente") && <th className="p-2">Cliente</th>}
                     {isColumnVisible("portoRegisto") && <th className="p-2">Porto de Registo</th>}
                     {isColumnVisible("tipo") && <th className="p-2">Tipo de Navio</th>}
+                    {isColumnVisible("estado") && <th className="p-2">Estado</th>}
                     {isColumnVisible(LOCATION_COLUMN_KEY) && <th className="p-2">{LOCATION_COLUMN_LABEL}</th>}
                     <th className="p-2">Ações</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredNavios.map(n => (
+                  {pagedNavios.map(n => (
                     <tr key={n.id} className="border-t align-top">
                       <td className="p-2"><input type="checkbox" checked={selectedNavios.includes(n.id)} onChange={e => handleSelectNavio(n.id, e.target.checked)} /></td>
                       {isColumnVisible("nome") && <td className="p-2">
@@ -1055,6 +789,7 @@ export default function NaviosWizard() {
                       {isColumnVisible("cliente") && <td className="p-2">{n.cliente?.nome ?? '—'}</td>}
                       {isColumnVisible("portoRegisto") && <td className="p-2">{n.portoRegisto || '-'}</td>}
                       {isColumnVisible("tipo") && <td className="p-2">{normalizeNavioTipoCategoria(n.tipoPesca, n.matricula, n.tipoNavio)}</td>}
+                      {isColumnVisible("estado") && <td className="p-2"><span className={`inline-block rounded-md border px-2 py-0.5 text-xs ${navioEstadoBadge(n.estadoNavio).cls}`}>{navioEstadoBadge(n.estadoNavio).label}</span></td>}
                       {isColumnVisible(LOCATION_COLUMN_KEY) && <td className="p-2">{getNavioLocationLabel(n)}</td>}
                       <td className="p-2 flex gap-2">
                         <a href={`/navios/${n.id}`} className="bg-blue-500 px-2 py-1 rounded text-xs text-white">Ver ficha</a>
@@ -1084,7 +819,7 @@ export default function NaviosWizard() {
             </div>
           ) : viewMode === "quadros" ? (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-              {filteredNavios.map((n) => (
+              {pagedNavios.map((n) => (
                 <div key={n.id} className="border border-gray-200 rounded-lg bg-gray-50 p-4">
                   <Link href={`/navios/${n.id}`} className="font-semibold text-gray-900 hover:text-blue-700 hover:underline">
                     {n.nome}
@@ -1114,7 +849,7 @@ export default function NaviosWizard() {
             </div>
           ) : (
             <div className="space-y-3">
-              {filteredNavios.map((n) => (
+              {pagedNavios.map((n) => (
                 <div key={n.id} className="border border-gray-200 rounded-lg bg-white p-4">
                   <div className="flex items-center justify-between gap-2">
                     <Link href={`/navios/${n.id}`} className="font-semibold text-gray-900 hover:text-blue-700 hover:underline">
@@ -1149,8 +884,24 @@ export default function NaviosWizard() {
             </div>
           )}
 
+          {totalPages > 1 && (
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-gray-200 pt-4">
+              <div className="text-xs text-gray-600">
+                Página {page} de {totalPages} — {totalNavios} navio(s) encontrados.
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <label className="text-xs text-gray-600">Por página</label>
+                <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))} className="border rounded-lg bg-white px-2 py-1 text-xs">
+                  {[50, 100, 250, 500].map((n) => <option key={n} value={n}>{n}</option>)}
+                </select>
+                <button className="rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium disabled:opacity-40" disabled={page <= 1} onClick={() => setPage(page - 1)}>Anterior</button>
+                <button className="rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium disabled:opacity-40" disabled={page >= totalPages} onClick={() => setPage(page + 1)}>Próxima</button>
+              </div>
+            </div>
+          )}
+
           <div className="mt-4">
-            <p className="text-xs text-gray-500">Navios carregados: {navios.length}</p>
+            <p className="text-xs text-gray-500">Navios carregados: {totalNavios}</p>
           </div>
           </section>
         </div>

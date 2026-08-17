@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
+import type { Prisma } from '@prisma/client';
 
 type StockWhereInput = {
   descricao?: { contains: string };
@@ -248,6 +249,56 @@ export async function POST(request: NextRequest) {
             }
           });
         }
+      }
+
+      // 3c. Atualizar orçamento da inspeção com a linha do artigo substituído
+      if (lastInspecao && novoStock.precoVenda) {
+        const orcamento = lastInspecao.orcamento && typeof lastInspecao.orcamento === "object"
+          ? lastInspecao.orcamento as Record<string, unknown>
+          : null;
+        const linhas = Array.isArray(orcamento?.linhas) ? [...(orcamento.linhas as Array<Record<string, unknown>>)] : [];
+        const unitPrice = Number(novoStock.precoVenda) || 0;
+        const total = Math.round(unitPrice * requestedQuantity * 100) / 100;
+
+        const existenteIdx = linhas.findIndex(
+          (l) => String(l.referencia) === novaReferencia || String(l.stockId) === String(novoStock.id),
+        );
+
+        if (existenteIdx >= 0) {
+          linhas[existenteIdx] = {
+            ...linhas[existenteIdx],
+            quantidade: requestedQuantity,
+            unitPrice,
+            total,
+            descricao: novoStock.descricao || String(linhas[existenteIdx].descricao || ""),
+            stockId: novoStock.id,
+          };
+        } else {
+          linhas.push({
+            id: `sub-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+            stockId: novoStock.id,
+            referencia: novaReferencia,
+            descricao: novoStock.descricao || "",
+            quantidade: requestedQuantity,
+            unitPrice,
+            total,
+            source: "stock",
+          });
+        }
+
+        const orcamentoAtualizado = {
+          ...(orcamento || {}),
+          linhas,
+          valorMaoObra: Number(orcamento?.valorMaoObra) || 0,
+          valorDesconto: Number(orcamento?.valorDesconto) || 0,
+          isIsentoIva: Boolean(orcamento?.isIsentoIva),
+          usarOrcamento: true,
+        };
+
+        await tx.inspecao.update({
+          where: { id: lastInspecao.id },
+          data: { orcamento: orcamentoAtualizado as Prisma.InputJsonValue },
+        });
       }
 
       // 4. Registar a mudança na auditoria (se o client gerado expuser o model)

@@ -671,7 +671,7 @@ function parseQuantity(rawQuantity: string | undefined, capacity: number, itemNa
     if (capacity <= 0) return fallback;
     if (numericValue === null || !Number.isFinite(numericValue)) return capacity;
     if (normalized.includes('water') || normalized.includes('agua') || normalized.includes('água')) {
-      return Math.max(capacity, Math.ceil(capacity * numericValue));
+      return Math.max(1, Math.ceil(capacity * numericValue));
     }
     return Math.max(1, Math.ceil(capacity * numericValue));
   }

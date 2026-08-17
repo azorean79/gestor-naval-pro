@@ -120,7 +120,7 @@ export default function OficinaPage() {
     }
   }
 
-  const calibracaoTypes = ["barometro", "manometro", "balanca", "calibracao"];
+  const calibracaoTypes = ["barometro", "manometro", "balanca", "chave_dinamometrica", "calibracao"];
   const calibracoesList = items.filter(i => calibracaoTypes.includes(i.tipo));
   const compressor = items.filter(i => i.tipo.startsWith("compressor"));
 
@@ -149,7 +149,7 @@ export default function OficinaPage() {
               <span className="bg-sky-400/20 text-sky-200 border border-sky-400/30 px-3 py-1 rounded-full text-xs font-semibold tracking-wide">OFICINA & CONTROLO</span>
               <h1 className="text-3xl font-black mt-2">Gestão de Oficina</h1>
               <p className="text-slate-300 text-sm mt-1 max-w-2xl">
-                Controle o calendário de calibração das suas ferramentas críticas (Barómetros de Pressão Atmosférica, Manómetros e Balanças) e a manutenção programada do Compressor.
+                Controle o calendário de calibração das suas ferramentas críticas (Barómetros de Pressão Atmosférica, Manómetros, Balanças e Chaves Dinamométricas) e a manutenção programada do Compressor.
               </p>
             </div>
             <button
@@ -310,6 +310,7 @@ export default function OficinaPage() {
                       <option value="barometro">Barómetro (Pressão Atmosférica)</option>
                       <option value="manometro">Manómetro (Pressão)</option>
                       <option value="balanca">Balança de Precisão</option>
+                      <option value="chave_dinamometrica">Chave Dinamométrica (Torque)</option>
                     </optgroup>
                     <optgroup label="Compressor Bauer">
                       <option value="compressor_filtro">Substituição do Filtro</option>

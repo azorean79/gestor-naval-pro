@@ -1,5 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 import { resolveRuntimeDatabaseUrl } from "@/lib/resolve-database-url";
+import {
+  syncClienteNumeroFromExterno,
+  extractNumeroClienteExterno,
+} from "@/lib/sync-cliente-numero";
 
 if (process.env.NODE_ENV === "production" && !process.env.PRISMA_DISABLE_WARNINGS) {
   process.env.PRISMA_DISABLE_WARNINGS = "1";
@@ -68,8 +72,53 @@ function wrapWithSQLiteProxy(rawClient: PrismaClient): PrismaClient {
   }) as unknown as PrismaClient;
 }
 
+function attachClienteNumeroSync(rawClient: PrismaClient): PrismaClient {
+  async function afterWrite(row: any, dataClienteId?: any): Promise<any> {
+    try {
+      if (row && typeof row === "object") {
+        const externo = extractNumeroClienteExterno(row["metadados"]);
+        const clienteId = row["clienteId"] ?? dataClienteId;
+        if (externo && clienteId) {
+          await syncClienteNumeroFromExterno(rawClient, clienteId, externo);
+        }
+      }
+    } catch {
+      // não deve interromper a escrita principal
+    }
+    return row;
+  }
+
+  const extended = rawClient.$extends({
+    query: {
+      ordemServico: {
+        async create({ args, query }: any) {
+          return afterWrite(await query(args), args?.data?.clienteId);
+        },
+        async update({ args, query }: any) {
+          return afterWrite(await query(args), args?.data?.clienteId);
+        },
+        async upsert({ args, query }: any) {
+          return afterWrite(await query(args), args?.data?.clienteId);
+        },
+      },
+      fatura: {
+        async create({ args, query }: any) {
+          return afterWrite(await query(args), args?.data?.clienteId);
+        },
+        async update({ args, query }: any) {
+          return afterWrite(await query(args), args?.data?.clienteId);
+        },
+        async upsert({ args, query }: any) {
+          return afterWrite(await query(args), args?.data?.clienteId);
+        },
+      },
+    },
+  });
+  return extended as unknown as PrismaClient;
+}
+
 function createPrismaClient(): PrismaClient {
-  return new PrismaClient({
+  const client = new PrismaClient({
     log: process.env.NODE_ENV === "production" ? [] : ["error"],
     datasources: {
       db: {
@@ -77,6 +126,7 @@ function createPrismaClient(): PrismaClient {
       },
     },
   }) as unknown as PrismaClient;
+  return attachClienteNumeroSync(client);
 }
 
 function getPrismaSingleton(): PrismaClient {
@@ -87,29 +137,6 @@ function getPrismaSingleton(): PrismaClient {
   const rawClient = createPrismaClient();
   const client = isSQLite ? wrapWithSQLiteProxy(rawClient) : rawClient;
   globalForPrisma.prisma = client;
-
-  // Ligação eager em background. Em caso de falha, limpa o singleton para
-  // permitir nova tentativa na proxima importacao.
-  globalForPrisma.prismaConnectPromise = rawClient
-    .$connect()
-    .then(async () => {
-      if (isSQLite) {
-        try {
-          await rawClient.$queryRawUnsafe("PRAGMA journal_mode = WAL;");
-          await rawClient.$queryRawUnsafe("PRAGMA synchronous = NORMAL;");
-        } catch {}
-      }
-      if (process.env.NODE_ENV !== "production") {
-        console.log("[Prisma] Ligacao estabelecida (WAL Mode active).");
-      }
-    })
-    .catch((err) => {
-      console.error("[Prisma] Falha ao ligar:", err);
-      globalForPrisma.prisma = undefined;
-      globalForPrisma.prismaConnectPromise = undefined;
-      throw err;
-    });
-
   return client;
 }
 

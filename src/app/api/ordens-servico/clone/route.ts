@@ -102,6 +102,7 @@ export async function POST(req: NextRequest) {
           orcamentoStatus: "Rascunho",
           isPesca: source.isPesca,
           isIsentoIva: source.isIsentoIva,
+          codigoIsencaoIva: source.codigoIsencaoIva ?? null,
           valorPecas: 0,
           valorMaoObra: 0,
           valorDesconto: 0,

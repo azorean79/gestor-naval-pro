@@ -228,6 +228,31 @@ model FatoImersao {
   @@index([dataProxInspecao])
 }
 
+model Extintor {
+  id                      Int      @id @default(autoincrement())
+  shipId                  Int?
+  serial                  String?
+  marca                   String?
+  modelo                  String?
+  capacidadeKg            Int?
+  tipoAgente              String?
+  estado                  String   @default("Ativo")
+  localizacao             String?
+  dataFabrico             String?
+  dataUltimaRecarga       String?
+  dataProxRecarga         String?
+  dataTesteHidraulico     String?
+  dataProxTesteHidraulico String?
+  observacoes             String?
+
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+
+  @@index([shipId])
+  @@index([estado])
+  @@index([dataProxRecarga])
+}
+
 model FatoImersaoComponentHistory {
   id            Int      @id @default(autoincrement())
   fatoImersaoId Int
@@ -346,6 +371,7 @@ model Cliente {
   agendas       Agenda[]       @relation("ClienteAgenda")
   navios        Navio[]        @relation("ClienteNavios")
   ordensServico OrdemServico[]
+  faturas       Fatura[]
   serviceStation ServiceStation? @relation(fields: [serviceStationId], references: [id])
   users            User[]
   verificationCode String?
@@ -420,7 +446,12 @@ model Navio {
   tipoPesca              String
   tipoNavio              String? // "pesca", "turistico", etc
   comprimentoMetros      Float?
+  anoConstrucao          Int?
+  potenciaMotorKw        Float?
+  lotacao                Int?
   zonaNavegacao          String?
+  estadoNavio            String? // "ativo", "inativo", "abatido", "naufragado"
+  dataEstado             DateTime?
   proprietario           String?
   bandeira               String?
   mmsi                   String?
@@ -434,6 +465,7 @@ model Navio {
   radarReflector         String?
   radarReflectorValidade String?
   portoRegisto           String?
+  cfr                    String?
   territorioGrupo        String?
   ativo                  Boolean  @default(true)
   clienteId              Int?
@@ -492,6 +524,29 @@ model AgendaEvento {
   @@index([status])
   @@index([responsavel, date])
   @@index([serviceStationId, date])
+}
+
+model PedidoAssistencia {
+  id               Int      @id @default(autoincrement())
+  serviceStationId Int?
+  nome             String?
+  email            String?
+  telefone         String?
+  navio            String?
+  jangadaSerial    String?
+  tipoAssistencia  String?
+  descricao        String
+  dataPreferida    String?
+  origem           String   @default("zapier")
+  estado           String   @default("novo")
+  metadados        String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  ordensServico    OrdemServico[]
+
+  @@index([jangadaSerial])
+  @@index([estado])
+  @@index([serviceStationId])
 }
 
 enum UserRole {
@@ -921,6 +976,7 @@ model Inspecao {
   clienteId            Int?
   tecnicoId            Int?
   inspecaoId           Int?
+  pedidoAssistenciaId  Int?
   tipo                 String                      @default("inspecao")
   prioridade           String                      @default("normal")
   status               String                      @default("pendente")
@@ -939,6 +995,7 @@ model Inspecao {
   orcamentoStatus      String                      @default("Rascunho")
   isPesca              Boolean                     @default(false)
   isIsentoIva          Boolean                     @default(false)
+  codigoIsencaoIva     String?
   valorPecas           Float                       @default(0)
   valorMaoObra         Float                       @default(0)
   valorDesconto        Float                       @default(0)
@@ -950,9 +1007,11 @@ model Inspecao {
   jangada              Jangada?                    @relation("PrimaryOrdemServicoJangada", fields: [jangadaId], references: [id])
   ordemJangadas        OrdemServicoJangada[]
   cliente              Cliente?                    @relation(fields: [clienteId], references: [id])
+  faturaOrdemServicos  FaturaOrdemServico[]
   tecnico              Tecnico?                    @relation(fields: [tecnicoId], references: [id])
   inspecao             Inspecao?                   @relation(fields: [inspecaoId], references: [id])
   serviceStation       ServiceStation?             @relation(fields: [serviceStationId], references: [id])
+  pedidoAssistencia    PedidoAssistencia?          @relation(fields: [pedidoAssistenciaId], references: [id])
   serviceStationQueues ServiceStationQueue[]
   checklistItems       OrdemServicoChecklistItem[]
   logs                 OrdemServicoLog[]
@@ -965,6 +1024,7 @@ model Inspecao {
   @@index([clienteId])
   @@index([tecnicoId])
   @@index([inspecaoId])
+  @@index([pedidoAssistenciaId])
   @@index([status])
   @@index([tipo])
   @@index([prioridade])
@@ -973,6 +1033,7 @@ model Inspecao {
   @@index([dataPlaneadaFim])
   @@index([dataPrevista])
   @@index([serviceStationId, status])
+  @@index([orcamentoStatus])
 }
 
 model OrdemServicoJangada {
@@ -1093,6 +1154,84 @@ model OrdemServicoLog {
   @@index([at])
   @@index([type])
   @@index([tecnicoId])
+}
+
+model Fatura {
+  id                Int        @id @default(autoincrement())
+  numeroFatura      String     @unique
+  clienteId         Int?
+  shipId            Int?
+  valorSubtotal     Float      @default(0)
+  valorIva          Float      @default(0)
+  valorTotal        Float      @default(0)
+  isIsentoIva       Boolean    @default(false)
+  codigoIsencaoIva  String?
+  pagamentoStatus   String     @default("Pendente")
+  dataEmissao       DateTime   @default(now())
+  emitidaPor        String?
+  metadados         String?
+  cancelada         Boolean    @default(false)
+  dataCancelamento  DateTime?
+  motivoCancelamento String?
+
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+
+  ordemServicos     FaturaOrdemServico[]
+  notaCredito       NotaCredito?
+  recibos           Recibo[]
+  cliente           Cliente?     @relation(fields: [clienteId], references: [id])
+
+  @@index([clienteId])
+  @@index([dataEmissao])
+  @@index([pagamentoStatus])
+  @@index([cancelada])
+}
+
+model FaturaOrdemServico {
+  id             Int          @id @default(autoincrement())
+  faturaId       Int
+  ordemServicoId Int          @unique
+  createdAt      DateTime     @default(now())
+
+  fatura        Fatura        @relation(fields: [faturaId], references: [id], onDelete: Cascade)
+  ordemServico  OrdemServico  @relation(fields: [ordemServicoId], references: [id], onDelete: Cascade)
+
+  @@unique([faturaId, ordemServicoId])
+  @@index([faturaId])
+}
+
+model NotaCredito {
+  id                Int        @id @default(autoincrement())
+  numeroNotaCredito String     @unique
+  faturaId          Int        @unique
+  valorTotal        Float      @default(0)
+  dataEmissao       DateTime   @default(now())
+  emitidaPor        String?
+  motivo            String?
+
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+
+  fatura            Fatura     @relation(fields: [faturaId], references: [id], onDelete: Cascade)
+}
+
+model Recibo {
+  id             Int        @id @default(autoincrement())
+  numeroRecibo   String     @unique
+  faturaId       Int
+  valorPago      Float      @default(0)
+  pagamentoStatus String    @default("Pago")
+  dataEmissao    DateTime   @default(now())
+  emitidaPor     String?
+  metadados      String?
+
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  fatura         Fatura     @relation(fields: [faturaId], references: [id], onDelete: Cascade)
+
+  @@index([faturaId])
 }
 
 model Equipamento {

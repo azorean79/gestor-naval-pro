@@ -7,6 +7,10 @@ export type Navio = {
   tipoPesca?: string;
   tipoNavio?: string;
   comprimentoMetros?: number | string;
+  anoConstrucao?: number | string;
+  potenciaMotorKw?: number | string;
+  estadoNavio?: string;
+  dataEstado?: string;
   ilha?: string;
   proprietario?: string;
   bandeira?: string;
@@ -14,6 +18,9 @@ export type Navio = {
   imo?: string;
   callSignal?: string;
   portoRegisto?: string;
+  cfr?: string;
+  lotacao?: number | string;
+  territorioGrupo?: string;
   cliente?: { id: number; nome: string; ilha?: string } | null;
 };
 
@@ -52,7 +59,21 @@ export type ClienteItem = {
 
 export type ViewMode = "quadros" | "lista" | "detalhes";
 export type NavioLocationColumnKey = "ilha" | "localizacao";
-export type NavioListColumnKey = "nome" | "matricula" | "cliente" | "portoRegisto" | "tipo" | NavioLocationColumnKey;
+export type NavioListColumnKey = "nome" | "matricula" | "cliente" | "portoRegisto" | "tipo" | "estado" | NavioLocationColumnKey;
+
+export const NAVIO_ESTADO_LABELS: Record<string, { label: string; cls: string }> = {
+  ativo: { label: "Ativo", cls: "bg-emerald-100 text-emerald-800 border-emerald-300" },
+  inativo: { label: "Inativo", cls: "bg-slate-100 text-slate-700 border-slate-300" },
+  abatido: { label: "Abatido", cls: "bg-orange-100 text-orange-800 border-orange-300" },
+  naufragado: { label: "Naufragado", cls: "bg-red-100 text-red-800 border-red-300" },
+};
+
+export function navioEstadoBadge(estado?: string | null): { label: string; cls: string } {
+  return NAVIO_ESTADO_LABELS[String(estado || "").toLowerCase()] || {
+    label: "Ativo",
+    cls: "bg-emerald-100 text-emerald-800 border-emerald-300",
+  };
+}
 
 export const IS_AZORES_APP = APP_CONFIG.presetKey === "ACORES";
 export const LOCATION_COLUMN_KEY: NavioLocationColumnKey = IS_AZORES_APP ? "ilha" : "localizacao";
@@ -65,6 +86,7 @@ export const NAVIO_LIST_COLUMNS: Array<{ key: NavioListColumnKey; label: string 
   { key: "cliente", label: "Cliente" },
   { key: "portoRegisto", label: "Porto de Registo" },
   { key: "tipo", label: "Tipo de Navio" },
+  { key: "estado", label: "Estado" },
   { key: LOCATION_COLUMN_KEY, label: LOCATION_COLUMN_LABEL },
 ];
 
@@ -131,10 +153,16 @@ export const INITIAL_NAVIO_FORM: Navio = {
   tipoPesca: "",
   tipoNavio: "",
   comprimentoMetros: "",
+  lotacao: "",
+  anoConstrucao: "",
+  potenciaMotorKw: "",
+  estadoNavio: "",
+  dataEstado: "",
   proprietario: "",
   bandeira: "Portugal",
   mmsi: "",
   imo: "",
   callSignal: "",
   portoRegisto: "",
+  cfr: "",
 };

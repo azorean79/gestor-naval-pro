@@ -8,7 +8,10 @@ export async function GET(req: NextRequest) {
     if (!access) return NextResponse.json({ error: "Sessão obrigatória." }, { status: 401 });
 
     const orders = await prisma.ordemServico.findMany({
-      where: { status: "concluida" },
+      where: {
+        status: "concluida",
+        faturaOrdemServicos: { some: { fatura: { is: { cancelada: false } } } },
+      },
       include: {
         tecnico: { select: { id: true, nome: true } },
         serviceStation: { select: { id: true, nome: true, codigo: true } },

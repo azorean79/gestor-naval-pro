@@ -137,6 +137,9 @@ export type AlertsPayload = {
   inspecoes: number;
   certificados: number;
   pedidosAssistencia?: number;
+  epirbs?: number;
+  extintores?: number;
+  fatos?: number;
   alertas: AlertItem[];
 };
 

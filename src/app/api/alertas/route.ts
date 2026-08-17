@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getAccessContext } from "@/lib/access-control";
 
 function parseDateFlexible(value: string | null | undefined) {
   const raw = String(value || "").trim();
@@ -72,8 +73,11 @@ function isWithinDays(dateText: string | null | undefined, days: number) {
 }
 
 export async function GET() {
+  const access = await getAccessContext();
+  if (!access) return NextResponse.json({ error: "Sessão obrigatória." }, { status: 401 });
+
   try {
-    const [jangadas, certificados, pendingOrders, epirbs] = await Promise.all([
+    const [jangadas, certificados, pendingOrders, epirbs, extintores, fatos] = await Promise.all([
       prisma.jangada.findMany({
         select: {
           id: true,
@@ -131,10 +135,42 @@ export async function GET() {
         take: 5000,
         orderBy: { id: "desc" },
       }),
+      prisma.extintor.findMany({
+        where: {
+          estado: "Ativo",
+        },
+        select: {
+          id: true,
+          serial: true,
+          marca: true,
+          modelo: true,
+          tipoAgente: true,
+          dataProxRecarga: true,
+          dataProxTesteHidraulico: true,
+          shipId: true,
+        },
+        take: 5000,
+        orderBy: { id: "desc" },
+      }),
+      prisma.fatoImersao.findMany({
+        where: {
+          estado: "Ativo",
+        },
+        select: {
+          id: true,
+          serial: true,
+          marca: true,
+          modelo: true,
+          dataProxInspecao: true,
+          shipId: true,
+        },
+        take: 5000,
+        orderBy: { id: "desc" },
+      }),
     ]);
 
-    // Resolve ship names for pending orders
-    const shipIds = Array.from(new Set(pendingOrders.map((o) => o.shipId).filter((id): id is number => id !== null)));
+    // Resolve ship names for pending orders, extintores and fatos
+    const shipIds = Array.from(new Set([...pendingOrders.map((o) => o.shipId), ...extintores.map((e) => e.shipId), ...fatos.map((f) => f.shipId)].filter((id): id is number => id !== null)));
     const ships = shipIds.length > 0
       ? await prisma.navio.findMany({
           where: { id: { in: shipIds } },
@@ -199,7 +235,43 @@ export async function GET() {
         };
       });
 
-    const sortedExpirations = [...alertasInspecao, ...alertasCertificado, ...alertasEpirb].sort((a, b) => {
+    const alertasExtintor = extintores
+      .filter((x) => isWithinDays(x.dataProxRecarga, 30) || isWithinDays(x.dataProxTesteHidraulico, 30))
+      .map((x) => {
+        const recarga = isWithinDays(x.dataProxRecarga, 30);
+        const teste = isWithinDays(x.dataProxTesteHidraulico, 30);
+        const recargaDate = parseDateFlexible(x.dataProxRecarga)?.getTime() ?? Number.MAX_SAFE_INTEGER;
+        const testeDate = parseDateFlexible(x.dataProxTesteHidraulico)?.getTime() ?? Number.MAX_SAFE_INTEGER;
+        const isRecarga = recarga && (!teste || recargaDate <= testeDate);
+        const shipName = x.shipId ? shipNameMap.get(x.shipId) : null;
+        const label = isRecarga ? "Recarga" : "Teste hidráulico";
+        return {
+          tipo: "extintor" as const,
+          id: x.id,
+          referencia: `Extintor ${[x.marca, x.modelo].filter(Boolean).join(" ")} (${x.serial || `#${x.id}`})`,
+          data: isRecarga ? x.dataProxRecarga : x.dataProxTesteHidraulico,
+          extintorId: x.id,
+          jangadaSerial: x.serial || null,
+          status: shipName ? `${shipName} · ${label}` : `${label} · sem navio`,
+          tipoAgente: x.tipoAgente || null,
+        };
+      });
+
+    const alertasFato = fatos
+      .filter((f) => isWithinDays(f.dataProxInspecao, 30))
+      .map((f) => {
+        const shipName = f.shipId ? shipNameMap.get(f.shipId) : null;
+        return {
+          tipo: "fato" as const,
+          id: f.id,
+          referencia: `Fato de imersão ${[f.marca, f.modelo].filter(Boolean).join(" ")} (${f.serial || `#${f.id}`})`,
+          data: f.dataProxInspecao,
+          jangadaSerial: f.serial || null,
+          status: shipName ? `${shipName} · Inspeção a expirar` : "Inspeção a expirar · sem navio",
+        };
+      });
+
+    const sortedExpirations = [...alertasInspecao, ...alertasCertificado, ...alertasEpirb, ...alertasExtintor, ...alertasFato].sort((a, b) => {
       const da = parseDateFlexible(a.data)?.getTime() ?? Number.MAX_SAFE_INTEGER;
       const db = parseDateFlexible(b.data)?.getTime() ?? Number.MAX_SAFE_INTEGER;
       return da - db;
@@ -213,6 +285,8 @@ export async function GET() {
       certificados: alertasCertificado.length,
       pedidosAssistencia: alertasAssistencia.length,
       epirbs: alertasEpirb.length,
+      extintores: alertasExtintor.length,
+      fatos: alertasFato.length,
       alertas,
     });
   } catch (error) {

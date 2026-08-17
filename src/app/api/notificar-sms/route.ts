@@ -1,11 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sendTextBeeSms } from "@/lib/textbee-sms";
+import { sendSms } from "@/lib/sms-provider";
 import prisma from "@/lib/prisma";
+import { getAccessContext } from "@/lib/access-control";
 
 export const runtime = "nodejs";
 
 export async function POST(req: NextRequest) {
   try {
+    const access = await getAccessContext();
+    if (!access) {
+      return NextResponse.json({ error: "Sessão obrigatória." }, { status: 401 });
+    }
+
     const body = await req.json().catch(() => null);
     const phoneRaw = String(body?.phone ?? "").trim();
     const message = String(body?.message ?? "").trim();
@@ -42,7 +48,7 @@ export async function POST(req: NextRequest) {
       if (fichaTel) phone = fichaTel;
     }
 
-    const result = await sendTextBeeSms(phone, message);
+    const result = await sendSms(phone, message);
     if (!result.ok) {
       return NextResponse.json(
         { error: result.error || "Falha ao enviar SMS." },

@@ -32,7 +32,7 @@ export async function GET(
   } catch (error) {
     console.error('Erro ao servir ficheiro:', error);
     return NextResponse.json(
-      { error: 'Erro ao servir ficheiro', details: (error as Error).message },
+      { error: 'Erro ao servir ficheiro' },
       { status: 500 }
     );
   }
@@ -58,7 +58,7 @@ export async function DELETE(
   } catch (error) {
     console.error('Erro ao eliminar ficheiro:', error);
     return NextResponse.json(
-      { error: 'Erro ao eliminar ficheiro', details: (error as Error).message },
+      { error: 'Erro ao eliminar ficheiro' },
       { status: 500 }
     );
   }

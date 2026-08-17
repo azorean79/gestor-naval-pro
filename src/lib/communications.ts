@@ -1,4 +1,5 @@
-import { sendTextBeeSms, normalizeE164 } from "./textbee-sms";
+import { sendSms } from "./sms-provider";
+import { normalizeE164 } from "./textbee-sms";
 import prisma from "./prisma";
 
 export type ComunicacaoTipo = "SMS" | "WHATSAPP" | "EMAIL";
@@ -145,7 +146,7 @@ export async function enviarComunicacao(input: EnvioComunicacaoInput): Promise<{
   let whatsappUrl: string | undefined;
 
   if (input.tipo === "SMS") {
-    const result = await sendTextBeeSms(destinatario, mensagem);
+    const result = await sendSms(destinatario, mensagem);
     if (!result.ok) {
       status = "falhou";
       erro = result.error;

@@ -1006,7 +1006,7 @@ export function obterArtigosObrigatorios(packType: string, capacidade: number): 
 
   const templateFiltrado = template.filter((artigo) => {
     if (tipo === 'SOLAS B' && isSolasBProvision(artigo)) return false;
-    if ((tipo === 'R' || tipo === 'E' || tipo === 'SOLAS B') && isRationArticle(artigo.nome)) return false;
+    if ((tipo === 'R' || tipo === 'E' || tipo === 'SOLAS B' || tipo === 'COASTAL' || tipo === 'ISO-RAFT') && isRationArticle(artigo.nome)) return false;
     return true;
   });
 

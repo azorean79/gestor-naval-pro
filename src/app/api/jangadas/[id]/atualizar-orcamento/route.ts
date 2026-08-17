@@ -37,7 +37,7 @@ export async function PUT(req: NextRequest, context: { params: Promise<{ id: str
 
     const orderMeta = parseOrdemServicoMeta(ordem.metadados);
 
-    const nextMaterials = linhas.map((linha: any, index: number) => {
+    const nextMaterials = linhas.map((linha: Record<string, unknown>, index: number) => {
       const stockIdNum = linha.stockId != null && linha.stockId !== "" ? Number(linha.stockId) : null;
       const qty = Number(linha.quantidade ?? linha.quantidadeUsada ?? 1) || 0;
       const preco = Number(linha.precoUnitario ?? linha.unitPrice ?? 0) || 0;
@@ -57,7 +57,7 @@ export async function PUT(req: NextRequest, context: { params: Promise<{ id: str
     });
 
     const valorPecas = nextMaterials.reduce(
-      (acc: number, item: any) => acc + Math.max(0, Number(item.quantidadeUsada || 0)) * Math.max(0, Number(item.precoUnitario || 0)),
+      (acc: number, item: Record<string, unknown>) => acc + Math.max(0, Number(item.quantidadeUsada || 0)) * Math.max(0, Number(item.precoUnitario || 0)),
       0
     );
 

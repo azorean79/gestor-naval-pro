@@ -12,6 +12,8 @@ import { getPescaCosteiraMandatoryEquipmentProfile } from '@/config/pescaCosteir
 import { getRecreioMandatoryProfile, RECREIO_ZONA_OPTIONS } from '@/config/recreioMandatoryEquipment';
 import { normalizeManualNavioIsland } from '@/lib/navio-island-resolution';
 
+const ShipMap = dynamic(() => import('@/app/components/ShipMap'), { ssr: false });
+
 const IS_AZORES_APP = APP_CONFIG.presetKey === 'ACORES';
 const LOCATION_LABEL = IS_AZORES_APP ? 'Ilha' : 'Localização';
 const EDITABLE_LOCATION_LABEL = LOCATION_LABEL;
@@ -57,6 +59,8 @@ const PIROTECNIA_OPCOES = [
   'Sinal fumígeno de mão',
   'Foguete luminoso simples',
   'Facho de mão (vermelho)',
+  'Lançacabos (Line thrower)',
+  'Sinal de homem ao mar / Man overboard (MOB)',
   'Kit de pirotecnia',
   'Caixa de pirotecnia',
   'Outro artigo pirotécnico',
@@ -78,9 +82,19 @@ function getPirotecniaSugestoes(
   const categoria = normalizeNavioTipoCategoria(tipoPesca || '', null, tipoNavio || '');
   const len = parseComprimentoNavio(comprimento);
 
+  const base: PirotecniaSugestao[] = [];
+
+  if (len !== null && len >= 12) {
+    base.push({ item: 'Lançacabos (Line thrower)', quantity: '4' });
+    base.push({ item: 'Sinal de homem ao mar / Man overboard (MOB)', quantity: '2' });
+  } else {
+    base.push({ item: 'Sinal de homem ao mar / Man overboard (MOB)', quantity: '1' });
+  }
+
   if (categoria === 'Pesca Costeira' && len !== null) {
     if (len <= 14) {
       return [
+        ...base,
         { item: 'Facho de mão', quantity: '3' },
         { item: 'Foguete com paraquedas', quantity: '4' },
         { item: 'Sinal fumígeno flutuante', quantity: '2' },
@@ -88,12 +102,14 @@ function getPirotecniaSugestoes(
     }
     if (len <= 24) {
       return [
+        ...base,
         { item: 'Facho de mão', quantity: '6' },
         { item: 'Foguete com paraquedas', quantity: '4' },
         { item: 'Sinal fumígeno flutuante', quantity: '2' },
       ];
     }
     return [
+      ...base,
       { item: 'Facho de mão', quantity: '6' },
       { item: 'Foguete com paraquedas', quantity: '12' },
       { item: 'Sinal fumígeno flutuante', quantity: '4' },
@@ -102,23 +118,17 @@ function getPirotecniaSugestoes(
 
   if (categoria === 'Pesca do Largo') {
     return [
+      ...base,
       { item: 'Facho de mão', quantity: '6' },
       { item: 'Foguete com paraquedas', quantity: '12' },
       { item: 'Sinal fumígeno flutuante', quantity: '4' },
     ];
   }
 
-  if (categoria === 'Pesca Local') {
-    return [
-      { item: 'Facho de mão', quantity: '3' },
-      { item: 'Foguete com paraquedas', quantity: '4' },
-      { item: 'Sinal fumígeno flutuante', quantity: '2' },
-    ];
-  }
-
   return [
-    { item: 'Facho de mão', quantity: '2' },
-    { item: 'Foguete com paraquedas', quantity: '2' },
+    ...base,
+    { item: 'Facho de mão', quantity: '3' },
+    { item: 'Foguete com paraquedas', quantity: '4' },
     { item: 'Sinal fumígeno flutuante', quantity: '2' },
   ];
 }
@@ -433,21 +443,28 @@ export default function NavioPage() {
   const [allColetes, setAllColetes] = useState<any[]>([]);
   const [allEpirbs, setAllEpirbs] = useState<any[]>([]);
   const [allFatosImersao, setAllFatosImersao] = useState<any[]>([]);
+  const [allExtintores, setAllExtintores] = useState<any[]>([]);
   const [pirotecnicos, setPirotecnicos] = useState<PirotecnicoBordoItem[]>([]);
   const [selectedJangadaId, setSelectedJangadaId] = useState<string>("");
   const [selectedColeteId, setSelectedColeteId] = useState<string>("");
   const [selectedEpirbId, setSelectedEpirbId] = useState<string>("");
   const [selectedFatoImersaoId, setSelectedFatoImersaoId] = useState<string>("");
+  const [selectedExtintorId, setSelectedExtintorId] = useState<string>("");
   const [associating, setAssociating] = useState(false);
 const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' });
   const [jangadaSearch, setJangadaSearch] = useState("");
   const [coleteSearch, setColeteSearch] = useState("");
   const [epirbSearch, setEpirbSearch] = useState("");
   const [fatoImersaoSearch, setFatoImersaoSearch] = useState("");
+  const [extintorSearch, setExtintorSearch] = useState("");
   const [generatingColeteCertificate, setGeneratingColeteCertificate] = useState(false);
   const [generatingColeteVerificationSheet, setGeneratingColeteVerificationSheet] = useState(false);
   const [legalTab, setLegalTab] = useState<'legal' | 'mandatory'>('legal');
-  const [activeTab, setActiveTab] = useState<'dossier' | 'equipment' | 'technical' | 'inspections'>('dossier');
+  const [activeTab, setActiveTab] = useState<'dossier' | 'equipment' | 'technical' | 'inspections' | 'mapa'>('dossier');
+  const [aisPosition, setAisPosition] = useState<any>(null);
+  const [aisLoading, setAisLoading] = useState(false);
+  const [aisError, setAisError] = useState<string | null>(null);
+  const [aisLastRefreshAt, setAisLastRefreshAt] = useState<Date | null>(null);
   const [rememberedSmartFocus, setRememberedSmartFocus] = useState<StoredSmartFocus | null>(null);
   const smartFocusAutoAppliedRef = React.useRef(false);
 
@@ -483,6 +500,36 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
     setLoading(false);
   };
 
+  const loadAisPosition = async (silent?: boolean) => {
+    if (!id) return;
+    if (!silent) setAisLoading(true);
+    setAisError(null);
+    try {
+      const res = await fetch(`/api/navios/${encodeURIComponent(id)}/ais`);
+      if (!res.ok) {
+        setAisError('Não foi possível obter a posição AIS.');
+        return;
+      }
+      const payload = await res.json();
+      setAisPosition(payload?.position || null);
+      setAisLastRefreshAt(new Date());
+    } catch {
+      setAisError('Erro de rede ao obter a posição AIS.');
+    } finally {
+      if (!silent) setAisLoading(false);
+    }
+  };
+
+  // Atualização automática da posição AIS enquanto o mapa está ativo (60s)
+  useEffect(() => {
+    if (activeTab !== 'mapa') return;
+    const timer = window.setInterval(() => {
+      loadAisPosition(true);
+    }, 60_000);
+    return () => window.clearInterval(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTab, id]);
+
   const loadJangadas = async () => {
     try {
       const res = await fetch('/api/jangadas?scope=all');
@@ -515,6 +562,13 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
     setAllFatosImersao(Array.isArray(items) ? items : []);
   };
 
+  const loadExtintores = async () => {
+    const items = await fetch('/api/extintores')
+      .then(res => res.ok ? res.json() : [])
+      .catch(() => []);
+    setAllExtintores(Array.isArray(items) ? items : []);
+  };
+
   useEffect(() => {
     if (!id) return;
     loadNavio();
@@ -522,7 +576,15 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
     loadColetes();
     loadEpirbs();
     loadFatosImersao();
+    loadExtintores();
   }, [id]);
+
+  useEffect(() => {
+    if (activeTab === 'mapa') {
+      loadAisPosition();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTab]);
 
   const handleChange = (field: string, value: string) => {
     setForm((prev: any) => {
@@ -533,6 +595,10 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
         if (inferido && (!String(prev?.portoRegisto || '').trim() || prev?.portoRegisto === 'N/a')) {
           updates.portoRegisto = inferido;
         }
+      }
+
+      if (field === 'estadoNavio' && value !== 'naufragado') {
+        updates.dataEstado = '';
       }
 
       return updates;
@@ -551,6 +617,11 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
       tipoPesca: String(form.tipoPesca || "").trim(),
       tipoNavio: String(form.tipoNavio || "").trim(),
       comprimentoMetros: String(form.comprimentoMetros ?? '').trim(),
+      anoConstrucao: String(form.anoConstrucao ?? '').trim(),
+      potenciaMotorKw: String(form.potenciaMotorKw ?? '').trim(),
+      lotacao: String(form.lotacao ?? '').trim(),
+      estadoNavio: String(form.estadoNavio ?? '').trim(),
+      dataEstado: String(form.estadoNavio ?? '').trim() === 'naufragado' ? String(form.dataEstado ?? '').trim() : '',
       zonaNavegacao: String(form.zonaNavegacao ?? '').trim() || null,
       pirotecnicosBordoJson: serializePirotecnicos(pirotecnicos),
       proprietario: String(form.proprietario || "").trim(),
@@ -558,6 +629,7 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
       mmsi: String(form.mmsi || "").trim(),
       imo: String(form.imo || "").trim(),
       callSignal: String(form.callSignal || "").trim(),
+      cfr: String(form.cfr || "").trim(),
       lat: String(form.lat || "").trim(),
       lng: String(form.lng || "").trim(),
     };
@@ -781,6 +853,50 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
     }
 
     await Promise.all([loadNavio(), loadJangadas(), loadColetes(), loadEpirbs(), loadFatosImersao()]);
+    setAssociating(false);  };
+
+  const handleAssociarExtintor = async () => {
+    if (!selectedExtintorId || !data?.id) return;
+
+    const selected = allExtintores.find((e: any) => String(e.id) === String(selectedExtintorId));
+    if (selected?.shipId && selected.shipId !== data.id) {
+      const confirmed = window.confirm(`O extintor ${selected.serial || selected.id} está associado ao navio #${selected.shipId}. Pretende reassociar para este navio?`);
+      if (!confirmed) return;
+    }
+
+    setAssociating(true);
+    const response = await fetch(`/api/extintores/${selectedExtintorId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ shipId: data.id }),
+    });
+
+    if (!response.ok) {
+      alert('Não foi possível associar o extintor.');
+      setAssociating(false);
+      return;
+    }
+
+    setSelectedExtintorId('');
+    await Promise.all([loadNavio(), loadJangadas(), loadColetes(), loadEpirbs(), loadFatosImersao(), loadExtintores()]);
+    setAssociating(false);
+  };
+
+  const handleDesassociarExtintor = async (extintorId: number) => {
+    setAssociating(true);
+    const response = await fetch(`/api/extintores/${extintorId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ shipId: null }),
+    });
+
+    if (!response.ok) {
+      alert('Não foi possível desassociar o extintor.');
+      setAssociating(false);
+      return;
+    }
+
+    await Promise.all([loadNavio(), loadJangadas(), loadColetes(), loadEpirbs(), loadFatosImersao(), loadExtintores()]);
     setAssociating(false);
   };
 
@@ -1105,6 +1221,25 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
     navigateToSmartFocusTarget(smartFocusPreferredTarget.target);
   }, [data, isClient, loading, smartFocusPreferredTarget]);
 
+  const handleDownloadSafetyPack = async () => {
+    if (!id) return;
+    try {
+      const res = await fetch(`/api/navios/${id}/safety-pack`);
+      if (!res.ok) throw new Error("Erro ao gerar pack de segurança");
+      const blob = await res.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `Safety_Pack_${data?.nome || id}.zip`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (err: any) {
+      alert(err?.message || "Erro ao descarregar pack de segurança.");
+    }
+  };
+
   if (!isClient || loading) return <div className="p-8">A carregar...</div>;
   if (loadError) return <div className="p-8 text-red-600">{loadError}</div>;
   if (!data) return <div className="p-8 text-red-600">Navio não encontrado.</div>;
@@ -1135,6 +1270,13 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
   const fatosImersaoFiltrados = fatosImersaoListaGeral.filter((f: any) => {
     const text = `${f?.serial || ''} ${f?.marca || ''} ${f?.modelo || ''} ${f?.tipo || ''}`.toLowerCase();
     return text.includes(fatoImersaoSearch.toLowerCase());
+  });
+
+  const extintoresListaGeral = allExtintores
+    .sort((a: any, b: any) => String(a?.serial || '').localeCompare(String(b?.serial || ''), 'pt-PT'));
+  const extintoresFiltrados = extintoresListaGeral.filter((e: any) => {
+    const text = `${e?.serial || ''} ${e?.marca || ''} ${e?.modelo || ''} ${e?.tipoAgente || ''}`.toLowerCase();
+    return text.includes(extintorSearch.toLowerCase());
   });
 
   const locationValue = getNavioLocationLabel(data);
@@ -1395,6 +1537,17 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
             <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
             Auditoria de Cais
           </a>
+          <button
+            onClick={handleDownloadSafetyPack}
+            className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-medium shadow-sm transition-colors flex items-center gap-2 text-sm"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            Pack de Segurança (ZIP)
+          </button>
+          <a href="/agenda" className="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-lg font-medium shadow-sm transition-colors flex items-center gap-2 text-sm">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            Agenda e Vistorias
+          </a>
           <a href='/navios' className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">Voltar para a Lista</a>
         </div>
       </div>
@@ -1458,6 +1611,19 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
           <span className="inline-flex items-center justify-center px-2 py-0.5 ml-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-700">
             {data.inspecoes?.length || 0}
           </span>
+        </button>
+        <button
+          onClick={() => setActiveTab('mapa')}
+          className={`flex items-center gap-2 px-5 py-3 rounded-t-xl font-semibold text-sm transition-all duration-200 -mb-px border-b-2 ${
+            activeTab === 'mapa'
+              ? 'bg-blue-50/50 text-blue-600 border-blue-600'
+              : 'border-transparent text-slate-500 hover:text-slate-900 hover:bg-slate-50'
+          }`}
+        >
+          <svg className="w-5 h-5 text-sky-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+          </svg>
+          Mapa AIS
         </button>
       </div>
 
@@ -1922,6 +2088,49 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
               ) : (data.matricula || '-')}
             </div>
             <div>
+              <span className="font-semibold">Estado do navio:</span>{" "}
+              {edit ? (
+                <span className="inline-flex gap-2 ml-2">
+                  <select
+                    className="border rounded px-2 py-1 text-sm"
+                    value={form.estadoNavio || ''}
+                    onChange={(e) => handleChange('estadoNavio', e.target.value)}
+                  >
+                    <option value="">— Seleccionar —</option>
+                    <option value="ativo">Ativo</option>
+                    <option value="inativo">Inativo</option>
+                    <option value="abatido">Abatido</option>
+                    <option value="naufragado">Naufragado</option>
+                  </select>
+                  {form.estadoNavio === 'naufragado' && (
+                    <input
+                      type="date"
+                      className="border rounded px-2 py-1 text-sm"
+                      value={form.dataEstado ? String(form.dataEstado).slice(0, 10) : ''}
+                      onChange={(e) => handleChange('dataEstado', e.target.value)}
+                      placeholder="Data"
+                    />
+                  )}
+                </span>
+              ) : (data.estadoNavio ? (() => {
+                const estadoLabels: Record<string, { label: string; cls: string }> = {
+                  ativo: { label: 'Ativo', cls: 'bg-emerald-100 text-emerald-800 border-emerald-300' },
+                  inativo: { label: 'Inativo', cls: 'bg-slate-100 text-slate-700 border-slate-300' },
+                  abatido: { label: 'Abatido', cls: 'bg-orange-100 text-orange-800 border-orange-300' },
+                  naufragado: { label: 'Naufragado', cls: 'bg-red-100 text-red-800 border-red-300' },
+                };
+                const estadoInfo = estadoLabels[String(data.estadoNavio).toLowerCase()] || { label: data.estadoNavio, cls: 'bg-gray-100 text-gray-800 border-gray-300' };
+                return (
+                  <span className={`ml-2 inline-flex items-center gap-2 rounded-full border px-2.5 py-1 text-xs font-semibold ${estadoInfo.cls}`}>
+                    {estadoInfo.label}
+                    {data.dataEstado ? <span className="font-normal">· {formatDateLabel(data.dataEstado)}</span> : null}
+                  </span>
+                );
+              })() : (
+                <span className="ml-2 text-sm text-slate-500">Ativo</span>
+              ))}
+            </div>
+            <div>
               <span className="font-semibold">{EDITABLE_LOCATION_LABEL}:</span>{" "}
               {edit ? (
                 <input className="ml-2 border rounded px-2 py-1 text-sm" value={form.ilha || ""} onChange={(e) => handleChange("ilha", e.target.value)} />
@@ -1965,6 +2174,49 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
                   placeholder="Opcional"
                 />
               ) : (data.comprimentoMetros ? `${data.comprimentoMetros} m` : '-')}
+            </div>
+            <div>
+              <span className="font-semibold">Ano de construção:</span>{" "}
+              {edit ? (
+                <input
+                  type="number"
+                  min="1800"
+                  max="2100"
+                  step="1"
+                  className="ml-2 border rounded px-2 py-1 text-sm"
+                  value={String(form.anoConstrucao ?? '')}
+                  onChange={(e) => handleChange('anoConstrucao', e.target.value)}
+                  placeholder="Opcional"
+                />
+              ) : (data.anoConstrucao || '-')}
+            </div>
+            <div>
+              <span className="font-semibold">Potência motor principal (kW):</span>{" "}
+              {edit ? (
+                <input
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  className="ml-2 border rounded px-2 py-1 text-sm"
+                  value={String(form.potenciaMotorKw ?? '')}
+                  onChange={(e) => handleChange('potenciaMotorKw', e.target.value)}
+                  placeholder="Opcional"
+                />
+              ) : (data.potenciaMotorKw ? `${data.potenciaMotorKw} kW` : '-')}
+            </div>
+            <div>
+              <span className="font-semibold">Lotação (pessoas):</span>{" "}
+              {edit ? (
+                <input
+                  type="number"
+                  min="0"
+                  step="1"
+                  className="ml-2 border rounded px-2 py-1 text-sm"
+                  value={String(form.lotacao ?? '')}
+                  onChange={(e) => handleChange('lotacao', e.target.value)}
+                  placeholder="Opcional"
+                />
+              ) : (data.lotacao ? `${data.lotacao} pessoas` : '-')}
             </div>
             <div>
               <span className="font-semibold">Zona de navegação:</span>{" "}
@@ -2019,6 +2271,12 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
               {edit ? (
                 <input className="ml-2 border rounded px-2 py-1 text-sm" value={form.callSignal || ""} onChange={(e) => handleChange("callSignal", e.target.value)} />
               ) : (data.callSignal || '-')}
+            </div>
+            <div>
+              <span className="font-semibold">CFR (Community Fleet Register):</span>{" "}
+              {edit ? (
+                <input className="ml-2 border rounded px-2 py-1 text-sm" value={form.cfr || ""} onChange={(e) => handleChange("cfr", e.target.value)} placeholder="Ex: POR0000123456" />
+              ) : (data.cfr || '-')}
             </div>
             {!edit ? (
               <div>
@@ -2801,6 +3059,97 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
         )}
       </div>
 
+      {/* Extintores associados */}
+      <div id="section-extintores" className="bg-gradient-to-br from-orange-50 to-white rounded-2xl shadow-lg p-8 border border-orange-100 mt-8">
+        <div className="flex flex-wrap justify-between items-center gap-3 mb-4">
+          <h2 className="text-2xl font-bold text-orange-900 flex items-center gap-2">
+            <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3l8 4v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V7l8-4z" /></svg>
+            Extintores Associados
+          </h2>
+          <div className="flex items-center gap-2">
+            <input
+              type="text"
+              className="border rounded px-2 py-1 text-sm bg-white w-52"
+              placeholder="Pesquisar extintor..."
+              value={extintorSearch}
+              onChange={(e) => setExtintorSearch(e.target.value)}
+              disabled={associating}
+            />
+            <select
+              className="border rounded px-2 py-1 text-sm bg-white"
+              value={selectedExtintorId}
+              onChange={(e) => setSelectedExtintorId(e.target.value)}
+              disabled={associating}
+            >
+              <option value="">Selecionar da lista geral...</option>
+              {extintoresFiltrados.map((e: any) => (
+                <option key={e.id} value={e.id}>
+                  {e.serial || `#${e.id}`} {e.marca || e.modelo ? `- ${[e.marca, e.modelo].filter(Boolean).join(' ')}` : ''}
+                  {e.shipId ? (e.shipId === data?.id ? ' • (já neste navio)' : ` • (navio #${e.shipId})`) : ' • (livre)'}
+                </option>
+              ))}
+            </select>
+            <button
+              type="button"
+              className="bg-orange-600 hover:bg-orange-700 text-white px-3 py-1.5 rounded text-sm"
+              onClick={handleAssociarExtintor}
+              disabled={!selectedExtintorId || associating}
+            >
+              {associating ? 'A associar...' : 'Associar extintor'}
+            </button>
+            <a href="/extintores" className="text-xs text-orange-700 underline">Abrir lista geral</a>
+          </div>
+        </div>
+
+        {data.extintores && data.extintores.length > 0 ? (
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse rounded-lg overflow-hidden shadow">
+              <thead>
+                <tr className="bg-orange-100 border-b">
+                  <th className="p-3 font-semibold">Série</th>
+                  <th className="p-3 font-semibold">Marca</th>
+                  <th className="p-3 font-semibold">Modelo</th>
+                  <th className="p-3 font-semibold">Capacidade</th>
+                  <th className="p-3 font-semibold">Agente</th>
+                  <th className="p-3 font-semibold">Localização</th>
+                  <th className="p-3 font-semibold">Estado</th>
+                  <th className="p-3 font-semibold">Próx. recarga</th>
+                  <th className="p-3 font-semibold">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.extintores.map((e: any) => (
+                  <tr key={e.id} className="border-b last:border-0 hover:bg-orange-100 transition">
+                    <td className="p-3 font-mono font-semibold text-slate-800">{e.serial || '—'}</td>
+                    <td className="p-3">{e.marca || '—'}</td>
+                    <td className="p-3">{e.modelo || '—'}</td>
+                    <td className="p-3">{e.capacidadeKg ? `${e.capacidadeKg} kg` : '—'}</td>
+                    <td className="p-3">{e.tipoAgente || '—'}</td>
+                    <td className="p-3">{e.localizacao || '—'}</td>
+                    <td className="p-3">
+                      <span className="inline-flex px-2 py-0.5 rounded-full text-xs bg-slate-100 text-slate-700">{e.estado || '—'}</span>
+                    </td>
+                    <td className="p-3">{formatDateLabel(e.dataProxRecarga) || '—'}</td>
+                    <td className="p-3">
+                      <button
+                        type="button"
+                        className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded text-xs"
+                        onClick={() => handleDesassociarExtintor(e.id)}
+                        disabled={associating}
+                      >
+                        Desassociar
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p className="text-gray-500 italic">Nenhum extintor associado a este navio.</p>
+        )}
+      </div>
+
       <div id="section-epirbs" className="bg-gradient-to-br from-violet-50 to-white rounded-2xl shadow-lg p-8 border border-violet-100 mt-8">
         <div className="flex flex-wrap justify-between items-center gap-3 mb-4">
           <h2 className="text-2xl font-bold text-violet-900 flex items-center gap-2">
@@ -2929,6 +3278,102 @@ const [newJangada, setNewJangada] = useState({ serial: '', brand: '', model: '' 
         ) : (
           <p className="text-gray-500 italic">Nenhuma inspecção registada para este navio (ou para as suas jangadas).</p>
         )}
+      </div>
+      )}
+
+      {activeTab === 'mapa' && (
+      <div id="section-ais-map" className="space-y-6 mt-8">
+        <div className="bg-gradient-to-br from-sky-50 to-white rounded-2xl shadow-lg p-8 border border-sky-100">
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div>
+              <h2 className="text-2xl font-bold text-sky-900 flex items-center gap-2">
+                <svg className="w-6 h-6 text-sky-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
+                Localização AIS em tempo real
+              </h2>
+              <p className="mt-1 text-sm text-sky-700">
+                Posição obtida através do AIS usando o {data.mmsi ? `MMSI ${data.mmsi}` : 'MMSI'} / {data.callSignal ? `indicativo ${data.callSignal}` : 'indicativo de chamada'} do navio.
+              </p>
+            </div>
+            <button
+              onClick={() => loadAisPosition()}
+              disabled={aisLoading}
+              className="inline-flex items-center gap-2 rounded-lg bg-sky-600 hover:bg-sky-700 disabled:opacity-50 text-white px-4 py-2 text-sm font-semibold shadow-sm transition-colors"
+            >
+              {aisLoading ? (
+                <>
+                  <svg className="w-4 h-4 animate-spin" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+                  A pesquisar...
+                </>
+              ) : (
+                'Atualizar posição'
+              )}
+            </button>
+          </div>
+
+          {aisLoading ? (
+            <div className="h-[320px] rounded-xl border border-sky-100 bg-white flex items-center justify-center animate-pulse">
+              <p className="text-sm text-sky-600 font-semibold">A pesquisar posição AIS por MMSI...</p>
+            </div>
+          ) : aisError ? (
+            <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-6 text-center text-sm text-red-700">
+              {aisError}
+            </div>
+          ) : (
+            <>
+              <div className="rounded-xl overflow-hidden border border-sky-100 shadow-sm">
+                <ShipMap navio={data} position={aisPosition} />
+              </div>
+
+              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="rounded-xl border border-sky-100 bg-white px-4 py-3">
+                  <div className="text-xs uppercase tracking-wide text-sky-500">Estado da posição</div>
+                  <div className="mt-1 font-semibold text-sky-900 flex items-center gap-2">
+                    {aisPosition?.live ? (
+                      <span className="inline-flex items-center gap-1.5">
+                        <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                        Ao vivo (AIS)
+                      </span>
+                    ) : aisPosition?.source === 'saved' ? (
+                      <span className="inline-flex items-center gap-1.5">
+                        <span className="h-2 w-2 rounded-full bg-blue-500" />
+                        Guardada (BD)
+                      </span>
+                    ) : (
+                      <span className="text-slate-500">Sem posição</span>
+                    )}
+                  </div>
+                </div>
+                <div className="rounded-xl border border-sky-100 bg-white px-4 py-3">
+                  <div className="text-xs uppercase tracking-wide text-sky-500">Velocidade</div>
+                  <div className="mt-1 font-semibold text-sky-900">
+                    {aisPosition && Number(aisPosition.speed) >= 0 ? `${Number(aisPosition.speed).toFixed(1)} kn` : '—'}
+                  </div>
+                </div>
+                <div className="rounded-xl border border-sky-100 bg-white px-4 py-3">
+                  <div className="text-xs uppercase tracking-wide text-sky-500">Rumo</div>
+                  <div className="mt-1 font-semibold text-sky-900">
+                    {aisPosition && Number(aisPosition.course) >= 0 ? `${Number(aisPosition.course).toFixed(0)}°` : '—'}
+                  </div>
+                </div>
+                <div className="rounded-xl border border-sky-100 bg-white px-4 py-3">
+                  <div className="text-xs uppercase tracking-wide text-sky-500">Última atualização</div>
+                  <div className="mt-1 font-semibold text-sky-900">
+                    {aisPosition?.updatedAt ? formatDateLabel(aisPosition.updatedAt, { includeTime: true }) : '—'}
+                  </div>
+                  <div className="mt-0.5 text-xs text-slate-400">
+                    {aisLastRefreshAt ? `Atualização automática a cada 60s (${formatDateLabel(aisLastRefreshAt.toISOString(), { includeTime: true })})` : 'Sem atualização automática ainda'}
+                  </div>
+                </div>
+              </div>
+
+              {!data.mmsi && !data.callSignal ? (
+                <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+                  Este navio ainda não tem MMSI nem indicativo de chamada registado. Preencha estes campos na <button onClick={() => setActiveTab('technical')} className="font-semibold underline underline-offset-2">Ficha Técnica</button> para pesquisa AIS por MMSI.
+                </div>
+              ) : null}
+            </>
+          )}
+        </div>
       </div>
       )}
     </div>

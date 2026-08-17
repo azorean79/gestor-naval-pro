@@ -31,11 +31,17 @@ export async function GET(req: NextRequest, context: { params: Promise<{ id: str
       orderBy: { dataProxInspecao: "asc" }
     });
 
+    const extintores = await prisma.extintor.findMany({
+      where: { shipId: id },
+      orderBy: { dataProxRecarga: "asc" }
+    });
+
     return NextResponse.json({
       ...navio,
       jangadas,
       coletes,
-      epirbs
+      epirbs,
+      extintores
     });
   } catch (error) {
     console.error("Erro a carregar dossier de navio:", error);

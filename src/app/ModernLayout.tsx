@@ -41,6 +41,8 @@ import { useAppThemeController } from "./providers";
 
 const drawerWidth = 244;
 const tabletDrawerWidth = 216;
+const collapsedDrawerWidth = 72;
+const SIDEBAR_COLLAPSED_KEY = "sidebar-collapsed";
 
 type NavItem = {
   label: string;
@@ -68,52 +70,74 @@ const navSections: NavSection[] = [
   {
     label: "Operação",
     items: [
-
       { label: "Agenda", href: "/agenda", icon: "🗓️", roles: ["ADMIN"] },
-
       { label: "Estação de Serviço", href: "/estacao-servico", icon: "🏭", roles: APP_CONFIG.theme === 'deluxe' ? ["ADMIN", "USER"] : ["ADMIN"] },
       { label: "Oficina & Calibração", href: "/oficina", icon: "🛠️", roles: ["ADMIN", "USER"] },
       { label: "Logística", href: "/logistica", icon: "🚚", roles: ["ADMIN"] },
-      { label: "Ordens de Serviço", href: "/ordens-servico", icon: "📋", roles: ["ADMIN", "USER"] },
+      { label: "Check-In/Out Cais", href: "/cais", icon: "⚓", roles: ["ADMIN", "USER"] },
       { label: "Alertas", href: "/alertas", icon: "🚨", roles: ["ADMIN", "USER"] },
-      { label: "Relatório de Validades", href: "/relatorio-validades", icon: "📅", roles: ["ADMIN", "USER"] },
+      { label: "Pedidos de Assistência", href: "/pedidos-assistencia", icon: "📩", roles: ["ADMIN", "USER"] },
       { label: "Backups", href: "/backups", icon: "💾", roles: ["ADMIN"] },
+    ],
+  },
+  {
+    label: "Ordens de Serviço",
+    items: [
+      { label: "Criar OT", href: "/criar-ot", icon: "📝", roles: ["ADMIN", "USER"] },
+      { label: "Ordens de Serviço", href: "/ordens-servico", icon: "📋", roles: ["ADMIN", "USER"] },
+      { label: "Portal (vista cliente)", href: "/portal/ordens-servico", icon: "👁️", roles: ["ADMIN", "USER"] },
+      { label: "Orçamentos", href: "/orcamentos", icon: "🧮", roles: ["ADMIN", "USER"] },
     ],
   },
   {
     label: "Comercial & Faturação",
     items: [
-      { label: "Criar Ordem de Serviço", href: "/criar-ot", icon: "📝", roles: ["ADMIN", "USER"] },
-      { label: "Ordens de Serviço", href: "/ordens-servico", icon: "💳", roles: ["ADMIN", "USER"] },
-      { label: "Orçamentos", href: "/orcamentos", icon: "🧮", roles: ["ADMIN", "USER"] },
-      { label: "Clientes", href: "/clientes", icon: "💼", roles: ["ADMIN"] },
+      { label: "Faturação", href: "/faturacao", icon: "💳", roles: ["ADMIN", "USER"] },
+      { label: "Cobranças", href: "/cobrancas", icon: "💰", roles: ["ADMIN", "USER"] },
+      { label: "Contas a Receber", href: "/contas-receber", icon: "📊", roles: ["ADMIN"] },
+      { label: "Relatório de Validades", href: "/relatorio-validades", icon: "📅", roles: ["ADMIN", "USER"] },
     ],
   },
   {
-    label: "Frota e Clientes",
+    label: "Frota e Equipamento",
     items: [
-      { label: "Jangadas (início)", href: "/", icon: "🛟", roles: ["ADMIN", "USER"] },
       { label: "Jangadas", href: "/jangadas", icon: "🛶", roles: ["ADMIN", "USER"] },
-      { label: "Inspeções", href: "/inspecoes", icon: "📋", roles: ["ADMIN", "USER"] },
+      { label: "Estado Jangada", href: "/estado-jangada", icon: "🛟", roles: ["ADMIN", "USER"] },
+      { label: "Inspeções", href: "/inspecoes", icon: "🔍", roles: ["ADMIN", "USER"] },
       { label: "Packs", href: "/packs", icon: "🎒", roles: ["ADMIN", "USER"] },
       { label: "Navios", href: "/navios", icon: "🚢", roles: ["ADMIN"] },
       { label: "EPIRBs", href: "/epirbs", icon: "📡", roles: ["ADMIN"] },
-      { label: "Clientes", href: "/clientes", icon: "👥", roles: ["ADMIN"] },
-      { label: "Técnicos", href: "/tecnicos", icon: "🧑‍🔧", roles: ["ADMIN"] },
       { label: "Coletes", href: "/equipamentos", icon: "🦺", roles: ["ADMIN"] },
       { label: "Fatos de Imersão", href: "/fatos-imersao", icon: "🧥", roles: ["ADMIN"] },
-      { label: "Stock", href: "/stock", icon: "📦", roles: ["ADMIN"] },
-      { label: "Reposições Stock", href: "/stock/reposicoes", icon: "🔁", roles: ["ADMIN"] },
       { label: "Cilindros", href: "/cilindros", icon: "🫙", roles: ["ADMIN"] },
+      { label: "Extintores", href: "/extintores", icon: "🧯", roles: ["ADMIN"] },
     ],
   },
   {
-    label: "Suporte e Documentação",
+    label: "Stock",
     items: [
+      { label: "Stock", href: "/stock", icon: "📦", roles: ["ADMIN"] },
+      { label: "Reposições", href: "/stock/reposicoes", icon: "🔁", roles: ["ADMIN"] },
+    ],
+  },
+  {
+    label: "Clientes",
+    items: [
+      { label: "Clientes", href: "/clientes", icon: "👥", roles: ["ADMIN"] },
+      { label: "Técnicos", href: "/tecnicos", icon: "🧑‍🔧", roles: ["ADMIN"] },
+      { label: "Comunicações", href: "/comunicacoes", icon: "📨", roles: ["ADMIN"] },
+    ],
+  },
+  {
+    label: "Documentação & Qualidade",
+    items: [
+      { label: "Qualidade de Dados", href: "/qualidade-dados", icon: "✅", roles: ["ADMIN"] },
+      { label: "Conformidade DGRM", href: "/dgrm", icon: "📄", roles: ["ADMIN"] },
+      { label: "Auditorias", href: "/auditorias", icon: "🔎", roles: ["ADMIN"] },
       { label: "Departamento Técnico", href: "/departamento-tecnico", icon: "🧠", roles: ["ADMIN"] },
       { label: "Legislação", href: "/legislacao", icon: "⚖️", roles: ["ADMIN"] },
-      { label: "Auditorias", href: "/auditorias", icon: "🔍", roles: ["ADMIN"] },
-      { label: "Certificados Externos (PDF)", href: "/fotos", icon: "📄", roles: ["ADMIN"] },
+      { label: "Certificados Externos", href: "/fotos", icon: "📑", roles: ["ADMIN"] },
+      { label: "Relatórios", href: "/relatorios", icon: "📈", roles: ["ADMIN"] },
       { label: "Contactos Internos", href: "/contactos-internos", icon: "☎️", roles: ["ADMIN"] },
     ],
   },
@@ -172,8 +196,13 @@ function subscribeNothing() {
 
 export default function ModernLayout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = React.useState(() => {
+    if (typeof window === "undefined") return false;
+    try { return localStorage.getItem(SIDEBAR_COLLAPSED_KEY) === "true"; } catch { return false; }
+  });
   const [accountAnchorEl, setAccountAnchorEl] = React.useState<null | HTMLElement>(null);
   const [activeStationCode, setActiveStationCode] = React.useState<string | null>(null);
+  const [assistenciaPendentes, setAssistenciaPendentes] = React.useState(0);
   const [loginAlertsQueue, setLoginAlertsQueue] = React.useState<LoginAlertEvent[]>([]);
   const [appToastQueue, setAppToastQueue] = React.useState<AppToastPayload[]>([]);
   const mounted = React.useSyncExternalStore(subscribeNothing, () => true, () => false);
@@ -209,6 +238,7 @@ export default function ModernLayout({ children }: { children: React.ReactNode }
     "/oficina": "oficina",
     "/logistica": "logistica",
     "/alertas": "alertas",
+    "/pedidos-assistencia": "pedidos-assistencia",
     "/inspecoes": "jangadas",
 
     "/relatorios": "relatorios",
@@ -224,6 +254,7 @@ export default function ModernLayout({ children }: { children: React.ReactNode }
     "/stock/reposicoes": "stock",
     "/stock/previsao": "stock",
     "/cilindros": "cilindros",
+    "/extintores": "equipamentos",
     [OT_CREATION_ROUTE]: "obras",
     [LEGACY_OT_CREATION_ROUTE]: "obras",
     "/departamento-tecnico": "departamento-tecnico",
@@ -279,6 +310,37 @@ export default function ModernLayout({ children }: { children: React.ReactNode }
       active = false;
     };
   }, [mounted, user]);
+
+  React.useEffect(() => {
+    if (!mounted || !userIsAdmin) return;
+    let active = true;
+
+    const loadPendentes = () => {
+      fetch("/api/pedidos-assistencia?estado=novo&limite=1", { cache: "no-store" })
+        .then(async (response) => {
+          if (!response.ok) return { count: 0 };
+          return response.json();
+        })
+        .then((payload) => {
+          if (!active) return;
+          setAssistenciaPendentes(typeof payload?.count === "number" ? payload.count : 0);
+        })
+        .catch(() => {
+          if (active) setAssistenciaPendentes(0);
+        });
+    };
+
+    loadPendentes();
+    const interval = window.setInterval(loadPendentes, 60_000);
+    const onFocus = () => loadPendentes();
+    window.addEventListener("focus", onFocus);
+
+    return () => {
+      active = false;
+      window.clearInterval(interval);
+      window.removeEventListener("focus", onFocus);
+    };
+  }, [mounted, userIsAdmin]);
 
   React.useEffect(() => {
     if (!mounted || !user || !hasElevatedUserAccess) return;
@@ -386,6 +448,19 @@ export default function ModernLayout({ children }: { children: React.ReactNode }
     setMobileOpen(!mobileOpen);
   };
 
+  const toggleSidebarCollapsed = () => {
+    setSidebarCollapsed((prev) => {
+      const next = !prev;
+      try { localStorage.setItem(SIDEBAR_COLLAPSED_KEY, String(next)); } catch { /* ignore */ }
+      return next;
+    });
+  };
+
+  const effectiveDrawerWidth = sidebarCollapsed ? collapsedDrawerWidth : { md: tabletDrawerWidth, lg: drawerWidth };
+  const mainWidth = isStandalonePage ? "100%" : sidebarCollapsed
+    ? `calc(100% - ${collapsedDrawerWidth}px)`
+    : { md: `calc(100% - ${tabletDrawerWidth}px)`, lg: `calc(100% - ${drawerWidth}px)` };
+
 
 
   const handleAccountMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -408,61 +483,88 @@ export default function ModernLayout({ children }: { children: React.ReactNode }
   };
 
   const drawer = (
-    <div>
-      <Toolbar>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <Avatar sx={{ width: 30, height: 30, bgcolor: "primary.main", fontSize: 16 }}>⚓</Avatar>
-          <Typography variant="h6" noWrap component="div" sx={{ fontWeight: 800, letterSpacing: "-0.02em" }}>
-            {APP_CONFIG.name}
-          </Typography>
-        </Box>
+    <div style={{ transition: "width 0.25s cubic-bezier(0.4, 0, 0.2, 1)" }}>
+      <Toolbar sx={{ minHeight: { xs: 64 } }}>
+        {sidebarCollapsed ? (
+          <Box sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
+            <Avatar sx={{ width: 32, height: 32, bgcolor: "primary.main", fontSize: 16 }}>⚓</Avatar>
+          </Box>
+        ) : (
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1, flex: 1 }}>
+            <Avatar sx={{ width: 30, height: 30, bgcolor: "primary.main", fontSize: 16 }}>⚓</Avatar>
+            <Typography variant="h6" noWrap component="div" sx={{ fontWeight: 800, letterSpacing: "-0.02em" }}>
+              {APP_CONFIG.name}
+            </Typography>
+          </Box>
+        )}
+        <IconButton
+          onClick={toggleSidebarCollapsed}
+          size="small"
+          sx={{
+            display: { xs: "none", md: "flex" },
+            color: "text.secondary",
+            bgcolor: "action.hover",
+            "&:hover": { bgcolor: "action.selected" },
+            width: 28,
+            height: 28,
+          }}
+          title={sidebarCollapsed ? "Expandir sidebar" : "Recolher sidebar"}
+        >
+          <Typography sx={{ fontSize: 14, transition: "transform 0.25s", transform: sidebarCollapsed ? "rotate(180deg)" : "none" }}>◀</Typography>
+        </IconButton>
       </Toolbar>
       <Divider />
-      <Box sx={{ px: 1.25, py: 1.5 }}>
+      <Box sx={{ px: sidebarCollapsed ? 0.5 : 1.25, py: 1.5, overflowY: "auto", overflowX: "hidden" }}>
         {visibleNavSections.map((section, sectionIndex) => (
           <Box
             key={section.label}
             sx={{
               mb: sectionIndex === visibleNavSections.length - 1 ? 0 : 1.5,
-              border: "1px solid",
+              border: sidebarCollapsed ? "none" : "1px solid",
               borderColor: "divider",
-              bgcolor: "rgba(248,250,252,0.8)",
+              bgcolor: sidebarCollapsed ? "transparent" : "rgba(248,250,252,0.8)",
               borderRadius: 2,
-              px: 0.75,
+              px: sidebarCollapsed ? 0 : 0.75,
               py: 0.75,
             }}
           >
-            <Typography
-              variant="caption"
-              sx={{
-                px: 1.5,
-                pb: 0.75,
-                display: "block",
-                fontWeight: 700,
-                letterSpacing: 0.6,
-                textTransform: "uppercase",
-                color: "text.secondary",
-              }}
-            >
-              {section.label}
-            </Typography>
+            {!sidebarCollapsed && (
+              <Typography
+                variant="caption"
+                sx={{
+                  px: 1.5,
+                  pb: 0.75,
+                  display: "block",
+                  fontWeight: 700,
+                  letterSpacing: 0.6,
+                  textTransform: "uppercase",
+                  color: "text.secondary",
+                }}
+              >
+                {section.label}
+              </Typography>
+            )}
             <List disablePadding>
               {section.items.map((item) => {
                 const active = isNavItemActive(pathname, item.href);
 
                 return (
-                  <ListItem key={item.label} disablePadding sx={{ mb: 0.5 }}>
+                  <ListItem key={item.label} disablePadding sx={{ mb: sidebarCollapsed ? 0.25 : 0.5 }}>
                     <ListItemButton
                       onClick={() => {
                         router.push(item.href);
                         setMobileOpen(false);
                       }}
                       selected={active}
+                      title={sidebarCollapsed ? item.label : undefined}
                       sx={{
                         borderRadius: 2,
-                        px: 1.75,
-                        py: 1,
+                        px: sidebarCollapsed ? 0 : 1.75,
+                        py: sidebarCollapsed ? 1 : 1,
+                        justifyContent: sidebarCollapsed ? "center" : "flex-start",
+                        minWidth: sidebarCollapsed ? 44 : undefined,
                         border: "1px solid transparent",
+                        transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
                         '&.Mui-selected': {
                             bgcolor: 'rgba(59, 130, 246, 0.16)',
                             color: 'primary.main',
@@ -473,17 +575,59 @@ export default function ModernLayout({ children }: { children: React.ReactNode }
                         },
                       }}
                     >
-                      <ListItemIcon sx={{ minWidth: 34, color: active ? 'primary.main' : 'text.secondary' }}>
-                        <Typography component="span" sx={{ fontSize: 15.5, lineHeight: 1 }}>{item.icon || "•"}</Typography>
+                      <ListItemIcon sx={{ minWidth: sidebarCollapsed ? 0 : 34, color: active ? 'primary.main' : 'text.secondary', justifyContent: "center" }}>
+                        <Typography component="span" sx={{ fontSize: sidebarCollapsed ? 18 : 15.5, lineHeight: 1 }}>{item.icon || "•"}</Typography>
                       </ListItemIcon>
-                      <ListItemText
-                        primary={item.label}
-                        primaryTypographyProps={{
-                          fontSize: 14.5,
-                          fontWeight: active ? 700 : 500,
-                          color: 'text.primary',
-                        }}
-                      />
+                      {!sidebarCollapsed && (
+                        <ListItemText
+                          primary={item.label}
+                          primaryTypographyProps={{
+                            fontSize: 14.5,
+                            fontWeight: active ? 700 : 500,
+                            color: 'text.primary',
+                          }}
+                        />
+                      )}
+                      {!sidebarCollapsed && item.href === "/pedidos-assistencia" && assistenciaPendentes > 0 && (
+                        <Box
+                          component="span"
+                          sx={{
+                            bgcolor: "error.main",
+                            color: "#fff",
+                            borderRadius: 999,
+                            px: 1,
+                            py: 0.25,
+                            fontSize: 11,
+                            fontWeight: 700,
+                            lineHeight: 1.4,
+                            ml: 1,
+                          }}
+                        >
+                          {assistenciaPendentes > 99 ? "99+" : assistenciaPendentes}
+                        </Box>
+                      )}
+                      {sidebarCollapsed && item.href === "/pedidos-assistencia" && assistenciaPendentes > 0 && (
+                        <Box
+                          component="span"
+                          sx={{
+                            position: "absolute",
+                            top: 4,
+                            right: 4,
+                            bgcolor: "error.main",
+                            color: "#fff",
+                            borderRadius: "50%",
+                            width: 16,
+                            height: 16,
+                            fontSize: 9,
+                            fontWeight: 700,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          {assistenciaPendentes > 99 ? "99" : assistenciaPendentes}
+                        </Box>
+                      )}
                     </ListItemButton>
                   </ListItem>
                 );
@@ -492,29 +636,31 @@ export default function ModernLayout({ children }: { children: React.ReactNode }
           </Box>
         ))}
       </Box>
-      <Box sx={{ px: 2, py: 1.5, mt: 1 }}>
-        <Button
-          component={Link}
-          href="/ordens-servico?openRequest=true"
-          variant="contained"
-          fullWidth
-          sx={{
-            borderRadius: 3,
-            py: 1.25,
-            fontWeight: 800,
-            fontSize: "13px",
-            textTransform: "none",
-            boxShadow: "0 4px 12px rgba(37, 99, 235, 0.2)",
-            bgcolor: "#2563eb",
-            color: "white",
-            "&:hover": {
-              bgcolor: "#1d4ed8",
-            },
-          }}
-        >
-          Pedir Assistência / Inspeção
-        </Button>
-      </Box>
+      {!sidebarCollapsed && (
+        <Box sx={{ px: 2, py: 1.5, mt: 1 }}>
+          <Button
+            component={Link}
+            href="/ordens-servico?openRequest=true"
+            variant="contained"
+            fullWidth
+            sx={{
+              borderRadius: 3,
+              py: 1.25,
+              fontWeight: 800,
+              fontSize: "13px",
+              textTransform: "none",
+              boxShadow: "0 4px 12px rgba(37, 99, 235, 0.2)",
+              bgcolor: "#2563eb",
+              color: "white",
+              "&:hover": {
+                bgcolor: "#1d4ed8",
+              },
+            }}
+          >
+            Pedir Assistência / Inspeção
+          </Button>
+        </Box>
+      )}
     </div>
   );
 
@@ -643,7 +789,7 @@ export default function ModernLayout({ children }: { children: React.ReactNode }
           sx={{
             position: "fixed",
             top: 64,
-            left: isStandalonePage ? 0 : { md: `${tabletDrawerWidth}px`, lg: `${drawerWidth}px` },
+            left: isStandalonePage ? 0 : sidebarCollapsed ? `${collapsedDrawerWidth}px` : { md: `${tabletDrawerWidth}px`, lg: `${drawerWidth}px` },
             right: 0,
             zIndex: (theme) => theme.zIndex.drawer + 2,
             bgcolor: "#f59e0b",
@@ -663,7 +809,7 @@ export default function ModernLayout({ children }: { children: React.ReactNode }
           Modo Offline — os dados serão sincronizados quando voltar a estar online
         </Box>
       )}
-      {!isStandalonePage && <Box component="nav" sx={{ width: { md: tabletDrawerWidth, lg: drawerWidth }, flexShrink: { md: 0 } }} aria-label="menu principal">
+      {!isStandalonePage && <Box component="nav" sx={{ width: effectiveDrawerWidth, flexShrink: { md: 0 }, transition: "width 0.25s cubic-bezier(0.4, 0, 0.2, 1)" }} aria-label="menu principal">
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -679,7 +825,9 @@ export default function ModernLayout({ children }: { children: React.ReactNode }
             display: { xs: "none", md: "block" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
-              width: { md: tabletDrawerWidth, lg: drawerWidth },
+              width: effectiveDrawerWidth,
+              transition: "width 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+              overflowX: "hidden",
             },
           }}
           open
@@ -687,7 +835,7 @@ export default function ModernLayout({ children }: { children: React.ReactNode }
           {drawer}
         </Drawer>
       </Box>}
-      <Box component="main" sx={{ display: "flex", flexDirection: "column", flexGrow: 1, minWidth: 0, px: { xs: 1.5, sm: 2, md: 2.5, lg: 3.5 }, py: { xs: 2, sm: 3 }, pb: { xs: 10, sm: 10 }, width: isStandalonePage ? "100%" : { md: `calc(100% - ${tabletDrawerWidth}px)`, lg: `calc(100% - ${drawerWidth}px)` } }}>
+      <Box component="main" sx={{ display: "flex", flexDirection: "column", flexGrow: 1, minWidth: 0, px: { xs: 1.5, sm: 2, md: 2.5, lg: 3.5 }, py: { xs: 2, sm: 3 }, pb: { xs: 10, sm: 10 }, width: mainWidth, transition: "width 0.25s cubic-bezier(0.4, 0, 0.2, 1)" }}>
         <Toolbar />
         <Box sx={{ flexGrow: 1, minHeight: 0 }}>
           {children}
@@ -697,7 +845,7 @@ export default function ModernLayout({ children }: { children: React.ReactNode }
         component="footer"
         sx={{
           position: "fixed",
-          left: isStandalonePage ? 0 : { md: `${tabletDrawerWidth}px`, lg: `${drawerWidth}px` },
+          left: isStandalonePage ? 0 : sidebarCollapsed ? `${collapsedDrawerWidth}px` : { md: `${tabletDrawerWidth}px`, lg: `${drawerWidth}px` },
           right: 0,
           bottom: 0,
           zIndex: (theme) => theme.zIndex.appBar - 1,
@@ -708,6 +856,7 @@ export default function ModernLayout({ children }: { children: React.ReactNode }
           py: 1.25,
           textAlign: "center",
           color: "primary.main",
+          transition: "left 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
         <Typography variant="body2">

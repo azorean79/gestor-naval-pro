@@ -11,6 +11,8 @@ import {
   type AgendaApiPayload,
 } from "@/types/agenda";
 import { getTechnicianKeyByName, normalizeTechnicianName, getTechnicianNameByKey } from "@/lib/agenda-technicians";
+import { getRaftsAExpiar, buildExpirationApiEvents } from "@/lib/agenda-expiracao";
+import { getGoogleCalendarConfig } from "@/lib/google-calendar-config";
 
 const AGENDA_MARKER = "__AGENDA_EVENT__";
 const ACTIVE_ROLLOVER_STATUSES = new Set(["scheduled", "confirmed", "in_progress", "testing", "paused"]);
@@ -249,7 +251,17 @@ export async function GET(req: NextRequest) {
     bufferAfterMinutes: ev.bufferAfterMinutes,
   } as AgendaApiEvent));
 
-  const combined = [...normalized, ...absencesEvents];
+  let combined = [...normalized, ...absencesEvents];
+
+  // Eventos sintéticos de caducidade (jangadas a expirar / caducadas) visíveis no calendário
+  if (!raftSerial) {
+    const config = getGoogleCalendarConfig();
+    const expiracao = await getRaftsAExpiar({
+      janelaDias: config.janelaDiasApp,
+      serials: allowedRaftSerials ?? undefined,
+    });
+    combined = [...combined, ...buildExpirationApiEvents(expiracao)];
+  }
 
   if (combined.length > 0) {
     return NextResponse.json(combined);

@@ -53,6 +53,5 @@ export async function POST(req: Request) {
     }
   }
 
-  await prisma.$disconnect()
   return NextResponse.json({ ok: true, persisted: false, count: changes.length, generatedAt: new Date().toISOString(), changes })
 }

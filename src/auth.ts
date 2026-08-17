@@ -53,7 +53,13 @@ export const authOptions: NextAuthOptions = {
             if (!cleanedTarget) return null;
 
             // Find client with matching phone number
+            // Only load clients that have an active verification code (most clients won't)
+            const now = new Date();
             const clientes = await prisma.cliente.findMany({
+              where: {
+                verificationCode: { not: null },
+                verificationCodeExpires: { gt: now },
+              },
               select: {
                 id: true,
                 nome: true,

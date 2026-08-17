@@ -82,11 +82,11 @@ model Colete {
 model ColeteComponentHistory {
   id           Int      @id @default(autoincrement())
   coleteId     Int
-  fieldName    String
+  fieldName    String   // e.g., "cilindroRef", "pastilhaValidade", "mecanismoInflacao"
   oldValue     String?
   newValue     String?
-  changedById  Int?
-  changedByName String?
+  changedById  Int?     // User ID who made the change
+  changedByName String? // User name for display
   createdAt    DateTime @default(now())
 
   @@index([coleteId])
@@ -121,6 +121,7 @@ model Epirb {
   @@index([estado])
   @@index([tipo])
   @@index([dataProxInspecao])
+  @@index([marca, modelo])
 }
 
 model VerificacaoColete {
@@ -190,6 +191,7 @@ model FatoImersao {
   intervaloServicoMeses Int?
   observacoes      String?
 
+  // Componentes / acessórios atuais
   luzRef           String?
   luzLote          String?
   luzValidade      String?
@@ -206,6 +208,7 @@ model FatoImersao {
   liftingStropEstado String?
   buoyancyEstado   String?
 
+  // Testes recentes
   testeImpermeabilidade String?
   testeFlutuabilidade   String?
   testeFecho            String?
@@ -223,6 +226,31 @@ model FatoImersao {
   @@index([shipId])
   @@index([estado])
   @@index([dataProxInspecao])
+}
+
+model Extintor {
+  id                      Int      @id @default(autoincrement())
+  shipId                  Int?
+  serial                  String?
+  marca                   String?
+  modelo                  String?
+  capacidadeKg            Int?
+  tipoAgente              String?
+  estado                  String   @default("Ativo")
+  localizacao             String?
+  dataFabrico             String?
+  dataUltimaRecarga       String?
+  dataProxRecarga         String?
+  dataTesteHidraulico     String?
+  dataProxTesteHidraulico String?
+  observacoes             String?
+
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+
+  @@index([shipId])
+  @@index([estado])
+  @@index([dataProxRecarga])
 }
 
 model FatoImersaoComponentHistory {
@@ -256,6 +284,7 @@ model VerificacaoFatoImersao {
   apito                 String?
   impermeabilidade      String?
 
+  // Checklist completa (JSON) + leak test MSC/Circ.1114
   checklistJson         String?
   leakMetodo            String?
   leakPressaoInicial    String?
@@ -342,6 +371,7 @@ model Cliente {
   agendas       Agenda[]       @relation("ClienteAgenda")
   navios        Navio[]        @relation("ClienteNavios")
   ordensServico OrdemServico[]
+  faturas       Fatura[]
   serviceStation ServiceStation? @relation(fields: [serviceStationId], references: [id])
   users            User[]
   verificationCode String?
@@ -416,7 +446,12 @@ model Navio {
   tipoPesca              String
   tipoNavio              String? // "pesca", "turistico", etc
   comprimentoMetros      Float?
+  anoConstrucao          Int?
+  potenciaMotorKw        Float?
+  lotacao                Int?
   zonaNavegacao          String?
+  estadoNavio            String? // "ativo", "inativo", "abatido", "naufragado"
+  dataEstado             DateTime?
   proprietario           String?
   bandeira               String?
   mmsi                   String?
@@ -430,6 +465,7 @@ model Navio {
   radarReflector         String?
   radarReflectorValidade String?
   portoRegisto           String?
+  cfr                    String?
   territorioGrupo        String?
   ativo                  Boolean  @default(true)
   clienteId              Int?
@@ -487,6 +523,30 @@ model AgendaEvento {
   @@index([serviceStationId])
   @@index([status])
   @@index([responsavel, date])
+  @@index([serviceStationId, date])
+}
+
+model PedidoAssistencia {
+  id               Int      @id @default(autoincrement())
+  serviceStationId Int?
+  nome             String?
+  email            String?
+  telefone         String?
+  navio            String?
+  jangadaSerial    String?
+  tipoAssistencia  String?
+  descricao        String
+  dataPreferida    String?
+  origem           String   @default("zapier")
+  estado           String   @default("novo")
+  metadados        String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  ordensServico    OrdemServico[]
+
+  @@index([jangadaSerial])
+  @@index([estado])
+  @@index([serviceStationId])
 }
 
 enum UserRole {
@@ -562,6 +622,8 @@ model Jangada {
   dataFabrico                          String
   packType                             String
   containerModel                       String?
+  containerSize                        String?
+  closureStrapsJson                    String?
   capacity                             Int
   owner                                String
   shipId                               Int?
@@ -569,6 +631,9 @@ model Jangada {
   dataInspecao                         String?
   dataProxInspecao                     String?
   ultimoCertificadoNumero              String?
+  certificadoExternoNumero             String?
+  certificadoExternoUrl                String?
+  certificadoNumeroOriginal             String?
   cylinderSerial                       String?
   cylinderTara                         String?
   cylinderPesoBruto                    String?
@@ -639,6 +704,7 @@ model Jangada {
   @@index([owner])
   @@index([packType])
   @@index([dataProxInspecao])
+  syncSnapshot                        String?
   @@index([serviceStationId, dataProxInspecao])
 }
 
@@ -707,6 +773,7 @@ model Stock {
   precoVenda             Float
   quantidade             Int                 @default(0)
   quantidadeMinima       Int?
+  quantidadeReservada    Int                 @default(0)
   foto                   String?
   localizacao            String?
   observacoes            String?
@@ -716,6 +783,8 @@ model Stock {
   movimentacoes          MovimentacaoStock[]
   customPackItems        CustomPackTypeItem[]
   jangadaArtigos         ArtigoJangada[]
+  pedidoReposicaoLinhas PedidoReposicaoLinha[]
+  ordensCompraLinha      OrdemCompraLinha[]
 
   @@unique([referencia, serviceStationId])
   @@index([categoria])
@@ -726,6 +795,7 @@ model Stock {
   @@index([serviceStationId])
   @@index([estadoArtigo])
   @@index([validade])
+  @@index([quantidade])
 }
 
 model CustomPackType {
@@ -764,20 +834,74 @@ model CustomPackTypeItem {
 }
 
 model MovimentacaoStock {
-  id               Int      @id @default(autoincrement())
+  id               Int           @id @default(autoincrement())
   stockId          Int
-  stock            Stock    @relation(fields: [stockId], references: [id], onDelete: Cascade)
-  tipo             String // "entrada" ou "saida"
+  stock            Stock         @relation(fields: [stockId], references: [id], onDelete: Cascade)
+  tipo             String // "entrada" | "saida" | "reserva" | "libertar_reserva"
   quantidade       Int
   quantidadeAntes  Int
   quantidadeDepois Int
   motivo           String?
   usuario          String?
-  createdAt        DateTime @default(now())
+  ordemServicoId   Int?
+  inspecaoId       Int?
+  pedidoReposicaoId Int?
+  createdAt        DateTime      @default(now())
+  ordemServico     OrdemServico? @relation(fields: [ordemServicoId], references: [id], onDelete: SetNull)
+  inspecao         Inspecao?     @relation(fields: [inspecaoId], references: [id], onDelete: SetNull)
+  pedidoReposicao PedidoReposicao? @relation(fields: [pedidoReposicaoId], references: [id], onDelete: SetNull)
 
   @@index([stockId])
   @@index([createdAt])
   @@index([tipo])
+  @@index([tipo, createdAt])
+  @@index([ordemServicoId])
+  @@index([inspecaoId])
+  @@index([pedidoReposicaoId])
+}
+
+model PedidoReposicao {
+  id               Int                    @id @default(autoincrement())
+  numero           String                 @unique
+  status           String                 @default("rascunho") // rascunho | encomendado | parcial | recebido | cancelado
+  fornecedor       String?
+  notas            String?
+  criadoPor        String?
+  serviceStationId Int?
+  totalEstimado    Float                  @default(0)
+  encomendadoEm    DateTime?
+  recebidoEm       DateTime?
+  createdAt        DateTime               @default(now())
+  updatedAt        DateTime               @updatedAt
+  linhas           PedidoReposicaoLinha[]
+  movimentacoes    MovimentacaoStock[]
+
+  @@index([status])
+  @@index([fornecedor])
+  @@index([createdAt])
+  @@index([serviceStationId])
+}
+
+model PedidoReposicaoLinha {
+  id                 Int              @id @default(autoincrement())
+  pedidoId           Int
+  stockId            Int?
+  referencia         String?
+  descricao          String
+  fornecedor         String?
+  quantidadePedida   Int
+  quantidadeRecebida Int              @default(0)
+  precoUnitario      Float            @default(0)
+  status             String           @default("pendente") // pendente | parcial | recebido | cancelado
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+  pedido             PedidoReposicao @relation(fields: [pedidoId], references: [id], onDelete: Cascade)
+  stock              Stock?           @relation(fields: [stockId], references: [id], onDelete: SetNull)
+
+  @@index([pedidoId])
+  @@index([stockId])
+  @@index([status])
+  @@index([referencia])
 }
 
 model Inspecao {
@@ -794,10 +918,14 @@ model Inspecao {
   status            String          @default("Concluída")
   sourceFile        String?
   signatureBase64   String?
+  clienteAssinaturaBase64 String?
+  clienteNomeAssinatura String?
+  guiaTransporteUrl     String?
   createdAt         DateTime        @default(now())
   updatedAt         DateTime        @updatedAt
   artigos           ArtigoJangada[]
   ordensServico     OrdemServico[]
+  movimentacoesStock MovimentacaoStock[]
   numeroObra                           String?
   testeWP                              String?
   testeNAP                             String?
@@ -820,6 +948,11 @@ model Inspecao {
   testeWPCamaraInferiorQueda           String?
   oficinaTemperatura                   String?
   oficinaHumidade                      String?
+  orcamento                           Json?
+
+  integrityHash                        String?
+  integrityTimestamp                   DateTime?
+  integrityVersion                     Int?
 
   @@index([numeroObra])
 
@@ -829,19 +962,21 @@ model Inspecao {
   @@index([jangadaSerial])
   @@index([coleteId])
   @@index([coleteSerial])
-  @@index([dataInspecao])
-  @@index([status])
-}
-
-model OrdemServico {
+    @@index([dataInspecao])
+    @@index([status])
+    @@index([dataInspecao, status])
+  }
+  
+  model OrdemServico {
   id                   Int                         @id @default(autoincrement())
   numeroOrdem          String                      @unique
   serviceStationId     Int?
-  jangadaId            Int
+  jangadaId            Int?
   shipId               Int?
   clienteId            Int?
   tecnicoId            Int?
   inspecaoId           Int?
+  pedidoAssistenciaId  Int?
   tipo                 String                      @default("inspecao")
   prioridade           String                      @default("normal")
   status               String                      @default("pendente")
@@ -860,6 +995,7 @@ model OrdemServico {
   orcamentoStatus      String                      @default("Rascunho")
   isPesca              Boolean                     @default(false)
   isIsentoIva          Boolean                     @default(false)
+  codigoIsencaoIva     String?
   valorPecas           Float                       @default(0)
   valorMaoObra         Float                       @default(0)
   valorDesconto        Float                       @default(0)
@@ -868,16 +1004,19 @@ model OrdemServico {
   metadados            String?
   createdAt            DateTime                    @default(now())
   updatedAt            DateTime                    @updatedAt
-  jangada              Jangada                     @relation("PrimaryOrdemServicoJangada", fields: [jangadaId], references: [id])
+  jangada              Jangada?                    @relation("PrimaryOrdemServicoJangada", fields: [jangadaId], references: [id])
   ordemJangadas        OrdemServicoJangada[]
   cliente              Cliente?                    @relation(fields: [clienteId], references: [id])
+  faturaOrdemServicos  FaturaOrdemServico[]
   tecnico              Tecnico?                    @relation(fields: [tecnicoId], references: [id])
   inspecao             Inspecao?                   @relation(fields: [inspecaoId], references: [id])
   serviceStation       ServiceStation?             @relation(fields: [serviceStationId], references: [id])
+  pedidoAssistencia    PedidoAssistencia?          @relation(fields: [pedidoAssistenciaId], references: [id])
   serviceStationQueues ServiceStationQueue[]
   checklistItems       OrdemServicoChecklistItem[]
   logs                 OrdemServicoLog[]
   ordemServicoTempos   OrdemServicoTempo[]
+  movimentacoesStock   MovimentacaoStock[]
 
   @@index([serviceStationId])
   @@index([jangadaId])
@@ -885,6 +1024,7 @@ model OrdemServico {
   @@index([clienteId])
   @@index([tecnicoId])
   @@index([inspecaoId])
+  @@index([pedidoAssistenciaId])
   @@index([status])
   @@index([tipo])
   @@index([prioridade])
@@ -893,6 +1033,7 @@ model OrdemServico {
   @@index([dataPlaneadaFim])
   @@index([dataPrevista])
   @@index([serviceStationId, status])
+  @@index([orcamentoStatus])
 }
 
 model OrdemServicoJangada {
@@ -1015,6 +1156,84 @@ model OrdemServicoLog {
   @@index([tecnicoId])
 }
 
+model Fatura {
+  id                Int        @id @default(autoincrement())
+  numeroFatura      String     @unique
+  clienteId         Int?
+  shipId            Int?
+  valorSubtotal     Float      @default(0)
+  valorIva          Float      @default(0)
+  valorTotal        Float      @default(0)
+  isIsentoIva       Boolean    @default(false)
+  codigoIsencaoIva  String?
+  pagamentoStatus   String     @default("Pendente")
+  dataEmissao       DateTime   @default(now())
+  emitidaPor        String?
+  metadados         String?
+  cancelada         Boolean    @default(false)
+  dataCancelamento  DateTime?
+  motivoCancelamento String?
+
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+
+  ordemServicos     FaturaOrdemServico[]
+  notaCredito       NotaCredito?
+  recibos           Recibo[]
+  cliente           Cliente?     @relation(fields: [clienteId], references: [id])
+
+  @@index([clienteId])
+  @@index([dataEmissao])
+  @@index([pagamentoStatus])
+  @@index([cancelada])
+}
+
+model FaturaOrdemServico {
+  id             Int          @id @default(autoincrement())
+  faturaId       Int
+  ordemServicoId Int          @unique
+  createdAt      DateTime     @default(now())
+
+  fatura        Fatura        @relation(fields: [faturaId], references: [id], onDelete: Cascade)
+  ordemServico  OrdemServico  @relation(fields: [ordemServicoId], references: [id], onDelete: Cascade)
+
+  @@unique([faturaId, ordemServicoId])
+  @@index([faturaId])
+}
+
+model NotaCredito {
+  id                Int        @id @default(autoincrement())
+  numeroNotaCredito String     @unique
+  faturaId          Int        @unique
+  valorTotal        Float      @default(0)
+  dataEmissao       DateTime   @default(now())
+  emitidaPor        String?
+  motivo            String?
+
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+
+  fatura            Fatura     @relation(fields: [faturaId], references: [id], onDelete: Cascade)
+}
+
+model Recibo {
+  id             Int        @id @default(autoincrement())
+  numeroRecibo   String     @unique
+  faturaId       Int
+  valorPago      Float      @default(0)
+  pagamentoStatus String    @default("Pago")
+  dataEmissao    DateTime   @default(now())
+  emitidaPor     String?
+  metadados      String?
+
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  fatura         Fatura     @relation(fields: [faturaId], references: [id], onDelete: Cascade)
+
+  @@index([faturaId])
+}
+
 model Equipamento {
   id          Int      @id @default(autoincrement())
   nome        String
@@ -1046,12 +1265,13 @@ model ServiceStationQueue {
   ordemServico        OrdemServico? @relation(fields: [ordemServicoId], references: [id])
   serviceStation      ServiceStation? @relation(fields: [serviceStationId], references: [id])
 
-  @@index([serviceStationId])
-  @@index([jangadaId])
-  @@index([ordemServicoId])
-  @@index([status])
-}
-model Auditoria {
+    @@index([serviceStationId])
+    @@index([jangadaId])
+    @@index([ordemServicoId])
+    @@index([status])
+    @@index([serviceStationId, status])
+  }
+  model Auditoria {
   id           Int      @id @default(autoincrement())
   tabela       String // Nome da tabela modificada
   tipoOperacao String // CREATE, UPDATE, DELETE
@@ -1148,4 +1368,81 @@ model Custo {
   @@index([tipo])
   @@index([data])
   @@index([serviceStationId])
+}
+
+model Fornecedor {
+  id               Int           @id @default(autoincrement())
+  nome             String
+  codigo           String?       @unique
+  contacto         String?
+  email            String?
+  morada           String?
+  pais             String?       @default("Portugal")
+  observacoes      String?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+  ordensCompra     OrdemCompra[]
+}
+
+model OrdemCompra {
+  id               Int                @id @default(autoincrement())
+  numero           String             @unique
+  fornecedorId     Int
+  fornecedor       Fornecedor         @relation(fields: [fornecedorId], references: [id], onDelete: Cascade)
+  status           String             @default("Rascunho") // Rascunho, Enviado, Recebido, Cancelado
+  dataEncomenda    DateTime           @default(now())
+  dataPrevista     DateTime?
+  dataRecebimento  DateTime?
+  valorTotal       Float              @default(0)
+  observacoes      String?
+  serviceStationId Int?
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  linhas           OrdemCompraLinha[]
+
+  @@index([fornecedorId])
+  @@index([status])
+}
+
+model OrdemCompraLinha {
+  id                   Int         @id @default(autoincrement())
+  ordemCompraId        Int
+  ordemCompra          OrdemCompra @relation(fields: [ordemCompraId], references: [id], onDelete: Cascade)
+  stockId              Int?
+  stock                Stock?      @relation(fields: [stockId], references: [id], onDelete: SetNull)
+  referencia           String?
+  descricao            String
+  quantidadeEncomendada Int
+  quantidadeRecebida   Int         @default(0)
+  precoUnitario        Float       @default(0)
+  total                Float       @default(0)
+
+  @@index([ordemCompraId])
+  @@index([stockId])
+}
+
+model Comunicacao {
+  id              Int       @id @default(autoincrement())
+  tipo            String // SMS | WHATSAPP | EMAIL
+  canal           String? // textbee | wa.me | email
+  destinatario    String? // telemóvel, número WhatsApp ou email
+  assunto         String?
+  mensagem        String
+  status          String   @default("enviado") // enviado | falhou | rascunho
+  erro            String?
+  refTipo         String? // Jangada | Cliente | OrdemServico | OrdemCompra | Generic
+  refId           Int?
+  clienteId       Int?
+  jangadaId       Int?
+  ordemServicoId  Int?
+  enviadoPor      String?
+  enviadoEm       DateTime @default(now())
+  createdAt       DateTime @default(now())
+
+  @@index([clienteId])
+  @@index([jangadaId])
+  @@index([ordemServicoId])
+  @@index([tipo])
+  @@index([status])
+  @@index([enviadoEm])
 }

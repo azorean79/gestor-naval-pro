@@ -1,0 +1,79 @@
+[
+ {
+  "id": 782,
+  "nome": "PRAIA BENJAMIM",
+  "ilhaBD": "São Miguel",
+  "hit": {
+   "ilha": "Graciosa",
+   "cfr": "PRT000024561",
+   "matricula": "PTSCG-118330-C",
+   "nome": "Praia do Benjamim"
+  }
+ },
+ {
+  "id": 840,
+  "nome": "MARIA DEL MAR",
+  "ilhaBD": "São Miguel",
+  "hit": {
+   "ilha": "Faial",
+   "cfr": "PRT000019283",
+   "matricula": "PTHOR-117960-L",
+   "nome": "Mar e Mar"
+  }
+ },
+ {
+  "id": 865,
+  "nome": "ARPÃO DAS FLORES",
+  "ilhaBD": "São Miguel",
+  "hit": {
+   "ilha": "Corvo",
+   "cfr": "PRT000023003",
+   "matricula": "PTSCF-118544-L",
+   "nome": "Baía das Flores"
+  }
+ },
+ {
+  "id": 874,
+  "nome": "PORTAS DO MAR",
+  "ilhaBD": "São Miguel",
+  "hit": {
+   "ilha": "Faial",
+   "cfr": "PRT000019283",
+   "matricula": "PTHOR-117960-L",
+   "nome": "Mar e Mar"
+  }
+ },
+ {
+  "id": 876,
+  "nome": "SANTO CRISTO 1",
+  "ilhaBD": "São Miguel",
+  "hit": {
+   "ilha": "São Miguel",
+   "cfr": "PRT000017427",
+   "matricula": "PTPDL-118566-C",
+   "nome": "Santo Cristo I"
+  }
+ },
+ {
+  "id": 880,
+  "nome": "ILHA DE SÃO LUIS",
+  "ilhaBD": "São Miguel",
+  "hit": {
+   "ilha": "São Miguel",
+   "cfr": "PRT000024221",
+   "matricula": "PTPDL-118619-C",
+   "nome": "Ilha de São Miguel"
+  }
+ },
+ {
+  "id": 917,
+  "nome": "Ilha São Jorge",
+  "ilhaBD": "São Miguel",
+  "hit": {
+   "ilha": "São Miguel",
+   "cfr": "PRT000024221",
+   "matricula": "PTPDL-118619-C",
+   "nome": "Ilha de São Miguel"
+  }
+ }
+]

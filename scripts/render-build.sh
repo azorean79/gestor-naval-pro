@@ -13,4 +13,8 @@ npx prisma migrate deploy --schema prisma/schema.postgresql.prisma
 echo "==> Render build: building Next.js"
 npm run build
 
+echo "==> Render build: copying static assets for standalone"
+cp -r .next/static .next/standalone/.next/static
+cp -r public .next/standalone/public
+
 echo "==> Render build: done"

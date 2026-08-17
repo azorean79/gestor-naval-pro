@@ -97,6 +97,11 @@ export type OrdemServicoMeta = {
     zonasFuga?: string[];
   };
   fatoImersaoBER?: { codigo?: string; motivo?: string };
+  faturaId?: number;
+  faturaNumero?: string;
+  faturaEmitidaEm?: string;
+  faturaEmitidaPor?: string;
+  pagamentoStatus?: string;
 };
 
 type WorkflowTransitionMeta = {
@@ -419,6 +424,95 @@ export async function generateOSNumeroOrdem(referenceDate?: Date | string | null
   return `${prefix}${String(maxSequence + 1).padStart(4, "0")}`;
 }
 
+function buildDocumentoPrefix(tipo: string, referenceDate?: Date | string | null) {
+  const fallbackYear = new Date().getFullYear();
+  const parsed = referenceDate instanceof Date
+    ? referenceDate
+    : (referenceDate ? new Date(referenceDate) : new Date());
+  const resolvedYear = Number.isNaN(parsed.getTime()) ? fallbackYear : parsed.getFullYear();
+  return `${tipo}-${resolvedYear}-`;
+}
+
+export function buildNumeroFaturaPrefix(referenceDate?: Date | string | null) {
+  return buildDocumentoPrefix("FAT", referenceDate);
+}
+
+export function buildNumeroNotaCreditoPrefix(referenceDate?: Date | string | null) {
+  return buildDocumentoPrefix("NC", referenceDate);
+}
+
+export function buildNumeroReciboPrefix(referenceDate?: Date | string | null) {
+  return buildDocumentoPrefix("REC", referenceDate);
+}
+
+async function proximoNumeroSequencial(prefix: string, obterExistentes: () => Promise<string[]>) {
+  const existing = await obterExistentes();
+
+  const maxSequence = existing.reduce((max, numero) => {
+    const normalized = String(numero || "").trim().toUpperCase();
+    if (!normalized.startsWith(prefix)) return max;
+    const suffix = normalized.slice(prefix.length);
+    if (!/^\d{5}$/.test(suffix)) return max;
+    return Math.max(max, Number(suffix));
+  }, 0);
+
+  return `${prefix}${String(maxSequence + 1).padStart(5, "0")}`;
+}
+
+export async function generateNumeroFatura(referenceDate?: Date | string | null) {
+  const prefix = buildNumeroFaturaPrefix(referenceDate);
+  return proximoNumeroSequencial(prefix, async () => {
+    const existing = await prisma.fatura.findMany({
+      where: { numeroFatura: { startsWith: prefix } },
+      select: { numeroFatura: true },
+    });
+    return existing.map((row) => row.numeroFatura);
+  });
+}
+
+export async function generateNumeroNotaCredito(referenceDate?: Date | string | null) {
+  const prefix = buildNumeroNotaCreditoPrefix(referenceDate);
+  return proximoNumeroSequencial(prefix, async () => {
+    const existing = await prisma.notaCredito.findMany({
+      where: { numeroNotaCredito: { startsWith: prefix } },
+      select: { numeroNotaCredito: true },
+    });
+    return existing.map((row) => row.numeroNotaCredito);
+  });
+}
+
+export async function generateNumeroRecibo(referenceDate?: Date | string | null) {
+  const prefix = buildNumeroReciboPrefix(referenceDate);
+  return proximoNumeroSequencial(prefix, async () => {
+    const existing = await prisma.recibo.findMany({
+      where: { numeroRecibo: { startsWith: prefix } },
+      select: { numeroRecibo: true },
+    });
+    return existing.map((row) => row.numeroRecibo);
+  });
+}
+
+export async function ensureClienteNumero(clienteId: number) {
+  if (!clienteId || !Number.isFinite(Number(clienteId))) return null;
+
+  const cliente = await prisma.cliente.findUnique({
+    where: { id: Number(clienteId) },
+    select: { id: true, numeroCliente: true },
+  });
+  if (!cliente) return null;
+
+  if (cliente.numeroCliente && String(cliente.numeroCliente).trim()) {
+    return cliente.numeroCliente.trim();
+  }
+
+  const generated = `CLI-${String(cliente.id).padStart(5, "0")}`;
+  await prisma.cliente.update({
+    where: { id: cliente.id },
+    data: { numeroCliente: generated },
+  });
+  return generated;
+}
+
 export async function resolveClienteIdForJangada(jangadaId: number) {
   const raft = await prisma.jangada.findUnique({
     where: { id: jangadaId },
@@ -672,6 +766,7 @@ export async function ensureOrderForServiceStation(params: {
         },
       });
     });
+    await syncPedidoAssistenciaFromOrdem(updated.id);
     return updated;
   }
 
@@ -718,8 +813,27 @@ export async function ensureOrderForServiceStation(params: {
       },
     });
 
+    await syncPedidoAssistenciaFromOrdem(created.id);
     return created;
   });
+}
+
+export async function syncPedidoAssistenciaFromOrdem(ordemId: number) {
+  try {
+    const ordem = await prisma.ordemServico.findUnique({
+      where: { id: ordemId },
+      select: { id: true, pedidoAssistenciaId: true, status: true },
+    });
+    if (!ordem?.pedidoAssistenciaId) return;
+    const finalStatus = String(ordem.status || "");
+    if (finalStatus !== "concluida" && finalStatus !== "cancelada") return;
+    await prisma.pedidoAssistencia.update({
+      where: { id: ordem.pedidoAssistenciaId },
+      data: { estado: finalStatus === "cancelada" ? "arquivado" : "concluido" },
+    });
+  } catch (error) {
+    console.error("[syncPedidoAssistenciaFromOrdem]", error);
+  }
 }
 
 export async function autoGenerateDraftMaterialsForJangadas(

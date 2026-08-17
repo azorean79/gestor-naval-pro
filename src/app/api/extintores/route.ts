@@ -1,0 +1,135 @@
+import { NextRequest, NextResponse } from "next/server";
+import prisma from "@/lib/prisma";
+import type { Prisma } from "@prisma/client";
+import { canonicalizeDateFields } from "@/lib/date-display";
+
+function normalizeIds(values: unknown): number[] {
+  if (!Array.isArray(values)) return [];
+  return values
+    .map((value) => Number(value))
+    .filter((value) => Number.isFinite(value) && value > 0);
+}
+
+export async function GET(req: NextRequest) {
+  try {
+    const { searchParams } = new URL(req.url);
+    const where: Prisma.ExtintorWhereInput = {};
+    const serial = searchParams.get("serial");
+    if (serial) where.serial = { contains: serial, mode: "insensitive" };
+    const marca = searchParams.get("marca");
+    if (marca) where.marca = { contains: marca, mode: "insensitive" };
+    const modelo = searchParams.get("modelo");
+    if (modelo) where.modelo = { contains: modelo, mode: "insensitive" };
+    const tipoAgente = searchParams.get("tipoAgente");
+    if (tipoAgente) where.tipoAgente = { contains: tipoAgente, mode: "insensitive" };
+    const estado = searchParams.get("estado");
+    if (estado) where.estado = { contains: estado, mode: "insensitive" };
+    if (searchParams.get("shipId")) where.shipId = Number(searchParams.get("shipId"));
+
+    const items = await prisma.extintor.findMany({
+      where,
+      orderBy: { updatedAt: "desc" },
+    });
+
+    return NextResponse.json(items);
+  } catch (err) {
+    console.error("[API /extintores] Erro ao listar:", err);
+    return NextResponse.json({ error: (err as Error).message || "Erro ao listar extintores" }, { status: 500 });
+  }
+}
+
+export async function POST(req: NextRequest) {
+  try {
+    const data = canonicalizeDateFields(await req.json(), [
+      "dataFabrico",
+      "dataUltimaRecarga",
+      "dataProxRecarga",
+      "dataTesteHidraulico",
+      "dataProxTesteHidraulico",
+    ]);
+
+    const item = await prisma.extintor.create({
+      data: {
+        shipId: data.shipId ? Number(data.shipId) : null,
+        serial: data.serial || null,
+        marca: data.marca || null,
+        modelo: data.modelo || null,
+        capacidadeKg:
+          data.capacidadeKg === null || data.capacidadeKg === "" || data.capacidadeKg === undefined
+            ? null
+            : Number(data.capacidadeKg),
+        tipoAgente: data.tipoAgente || null,
+        estado: data.estado || "Ativo",
+        localizacao: data.localizacao || null,
+        dataFabrico: data.dataFabrico || null,
+        dataUltimaRecarga: data.dataUltimaRecarga || null,
+        dataProxRecarga: data.dataProxRecarga || null,
+        dataTesteHidraulico: data.dataTesteHidraulico || null,
+        dataProxTesteHidraulico: data.dataProxTesteHidraulico || null,
+        observacoes: data.observacoes || null,
+      },
+    });
+    return NextResponse.json(item, { status: 201 });
+  } catch (err) {
+    return NextResponse.json({ error: (err as Error).message || "Erro ao criar extintor" }, { status: 400 });
+  }
+}
+
+export async function DELETE(req: NextRequest) {
+  try {
+    const { ids } = await req.json();
+    const normalizedIds = normalizeIds(ids);
+    if (normalizedIds.length === 0) {
+      return NextResponse.json({ error: "Envie um array de IDs para exclusão em lote." }, { status: 400 });
+    }
+
+    await prisma.extintor.deleteMany({
+      where: { id: { in: normalizedIds } },
+    });
+
+    return NextResponse.json({ success: true });
+  } catch (err) {
+    return NextResponse.json({ error: (err as Error).message || "Erro ao eliminar extintores" }, { status: 400 });
+  }
+}
+
+export async function PATCH(req: NextRequest) {
+  try {
+    const body = await req.json();
+    const ids = normalizeIds(body?.ids);
+    const action = String(body?.action || "").trim();
+
+    if (ids.length === 0) {
+      return NextResponse.json({ error: "Selecione pelo menos um extintor." }, { status: 400 });
+    }
+
+    let data: Record<string, unknown>;
+
+    if (action === "assign-ship") {
+      const shipId = Number(body?.shipId);
+      if (!Number.isFinite(shipId) || shipId <= 0) {
+        return NextResponse.json({ error: "Navio inválido para associação em lote." }, { status: 400 });
+      }
+      data = { shipId };
+    } else if (action === "clear-ship") {
+      data = { shipId: null };
+    } else if (action === "set-status") {
+      const estado = String(body?.estado || "").trim();
+      if (!estado) {
+        return NextResponse.json({ error: "Estado inválido para atualização em lote." }, { status: 400 });
+      }
+      data = { estado };
+    } else {
+      return NextResponse.json({ error: "Ação em lote não suportada." }, { status: 400 });
+    }
+
+    const result = await prisma.extintor.updateMany({
+      where: { id: { in: ids } },
+      data,
+    });
+
+    return NextResponse.json({ success: true, count: result.count });
+  } catch (err) {
+    return NextResponse.json({ error: (err as Error).message || "Erro ao aplicar ação em lote" }, { status: 400 });
+  }
+}

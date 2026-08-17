@@ -7,13 +7,19 @@ type AgendaHeaderProps = {
   handleExportExcel: () => void;
   handleExportPDF: () => void;
   handleDesmarcarTodos: () => void;
+  handleSyncGoogleCalendar: () => void;
+  syncingGoogleCalendar: boolean;
+  lastGoogleSync?: string;
 };
 
 export default function AgendaHeader({
   handleExportCSV,
   handleExportExcel,
   handleExportPDF,
-  handleDesmarcarTodos
+  handleDesmarcarTodos,
+  handleSyncGoogleCalendar,
+  syncingGoogleCalendar,
+  lastGoogleSync,
 }: AgendaHeaderProps) {
   const { viewMode, setViewMode, exportingFormat, showAdvancedPanels, setShowAdvancedPanels } = useAgendaStore();
 
@@ -36,6 +42,12 @@ export default function AgendaHeader({
             className={`px-3 py-1.5 border-l border-gray-200 transition-colors ${viewMode === 'board' ? 'bg-indigo-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'}`}
           >Quadro</button>
         </div>
+        <button
+          onClick={handleSyncGoogleCalendar}
+          disabled={syncingGoogleCalendar}
+          title={lastGoogleSync || undefined}
+          className="text-sm px-3 py-1.5 rounded-lg border border-sky-200 bg-sky-50 text-sky-700 hover:bg-sky-100 font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        >{syncingGoogleCalendar ? 'A sincronizar...' : '⇄ Sync Google Calendar'}</button>
         <button
           onClick={handleExportCSV}
           disabled={exportingFormat !== null}

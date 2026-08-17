@@ -1,9 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getAccessContext } from "@/lib/access-control";
 import type { Prisma } from "@prisma/client";
 
 export async function GET(req: NextRequest) {
   try {
+    const access = await getAccessContext();
+    if (!access) return NextResponse.json({ error: "Sessão obrigatória." }, { status: 401 });
+
     const { searchParams } = new URL(req.url);
     const limit = Math.min(500, Math.max(1, Number(searchParams.get("limit") || 100)));
     const query = String(searchParams.get("q") || "").trim();
@@ -57,6 +61,6 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(rows);
   } catch (error) {
-    return NextResponse.json({ error: "Erro ao carregar auditorias", details: error }, { status: 500 });
+    return NextResponse.json({ error: "Erro ao carregar auditorias" }, { status: 500 });
   }
 }

@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getAccessContext } from "@/lib/access-control";
 
 export async function GET() {
+  const access = await getAccessContext();
+  if (!access) return NextResponse.json({ error: "Sessão obrigatória." }, { status: 401 });
+
   try {
     // Buscar todas as jangadas com data de próxima inspeção definida
     const jangadas = await prisma.jangada.findMany({
@@ -109,7 +113,7 @@ export async function GET() {
   } catch (error) {
     console.error("Erro ao gerar iCal:", error);
     return NextResponse.json(
-      { error: "Erro ao gerar ficheiro de calendário iCal.", details: (error as Error).message },
+      { error: "Erro ao gerar ficheiro de calendário iCal." },
       { status: 500 }
     );
   }

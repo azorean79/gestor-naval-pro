@@ -479,6 +479,8 @@ export async function GET(req: NextRequest) {
               select: {
                 id: true,
                 nome: true,
+                ilha: true,
+                portoRegisto: true,
                 cliente: {
                   select: {
                     id: true,
@@ -590,6 +592,9 @@ export async function GET(req: NextRequest) {
         queueDataPrevistaEntrega: latestQueue?.dataPrevistaEntrega?.toISOString().slice(0, 10) || null,
         queueObservacoes: latestQueue?.observacoes || null,
         serviceStationName: jangada.serviceStation?.nome || null,
+        shipName: linkedShip?.nome || jangada.shipNameManual || null,
+        island: linkedShip?.ilha || linkedShip?.cliente?.ilha || null,
+        portoRegisto: linkedShip?.portoRegisto || null,
         ilha: linkedShip?.cliente?.ilha || null,
         receivedAt: latestQueue?.dataChegada?.toISOString() || null,
         expectedDeliveryDate: latestQueue?.dataPrevistaEntrega?.toISOString().slice(0, 10) || null,

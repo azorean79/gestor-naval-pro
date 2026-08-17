@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { AlertCircle, Loader2, Printer, Ship, LifeBuoy, ShieldAlert, Navigation } from 'lucide-react';
+import { AlertCircle, Loader2, Printer, Ship, LifeBuoy, ShieldAlert, Navigation, Flame } from 'lucide-react';
 import Link from 'next/link';
 
 type DossierJangada = {
@@ -36,6 +36,19 @@ type DossierEpirb = {
   validadeHydro: string | null;
 };
 
+type DossierExtintor = {
+  id: number;
+  marca: string | null;
+  modelo: string | null;
+  serial: string | null;
+  capacidadeKg: number | null;
+  tipoAgente: string | null;
+  localizacao: string | null;
+  estado: string | null;
+  dataProxRecarga: string | null;
+  dataProxTesteHidraulico: string | null;
+};
+
 type DossierNavio = {
   nome: string;
   matricula: string | null;
@@ -45,6 +58,7 @@ type DossierNavio = {
   bandeira: string | null;
   portoRegisto: string | null;
   comprimentoMetros: number | null;
+  lotacao: number | null;
   proprietario: string | null;
   cliente: {
     nome: string | null;
@@ -56,6 +70,7 @@ type DossierNavio = {
   jangadas: DossierJangada[];
   coletes: DossierColete[];
   epirbs: DossierEpirb[];
+  extintores: DossierExtintor[];
 };
 
 export default function NavioPremiumDossierClient({ navioId }: { navioId: number | string }) {
@@ -105,7 +120,7 @@ export default function NavioPremiumDossierClient({ navioId }: { navioId: number
     );
   }
 
-  const { jangadas = [], coletes = [], epirbs = [], cliente } = data;
+  const { jangadas = [], coletes = [], epirbs = [], extintores = [], cliente } = data;
 
   const formatDate = (dateStr: string | null) => {
     if (!dateStr) return "-";
@@ -172,6 +187,7 @@ export default function NavioPremiumDossierClient({ navioId }: { navioId: number
               <p><span className="font-semibold text-slate-500 w-32 inline-block">Bandeira:</span> {data.bandeira || '-'}</p>
               <p><span className="font-semibold text-slate-500 w-32 inline-block">Porto Registo:</span> {data.portoRegisto || '-'}</p>
               <p><span className="font-semibold text-slate-500 w-32 inline-block">Comprimento:</span> {data.comprimentoMetros ? `${data.comprimentoMetros} m` : '-'}</p>
+              <p><span className="font-semibold text-slate-500 w-32 inline-block">Lotação:</span> {data.lotacao ? `${data.lotacao} pessoas` : '-'}</p>
             </div>
           </div>
           <div>
@@ -306,6 +322,54 @@ export default function NavioPremiumDossierClient({ navioId }: { navioId: number
             </div>
           ) : (
             <p className="text-sm text-slate-500 italic">Nenhuma rádio baliza associada a este navio.</p>
+          )}
+        </div>
+
+        {/* EXTINTORES */}
+        <div>
+          <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2 bg-slate-50 p-3 rounded-lg border border-slate-100 print:bg-transparent print:border-none print:p-0 print:border-b-2 print:border-slate-800">
+            <Flame className="w-5 h-5 text-orange-600" />
+            Extintores a Bordo ({extintores.length})
+          </h3>
+          {extintores.length > 0 ? (
+            <div className="overflow-x-auto rounded-xl border border-slate-200">
+              <table className="w-full text-sm text-left">
+                <thead className="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200 print:bg-gray-100">
+                  <tr>
+                    <th className="p-3">Marca / Modelo</th>
+                    <th className="p-3">Número de Série</th>
+                    <th className="p-3">Capacidade</th>
+                    <th className="p-3">Agente</th>
+                    <th className="p-3">Localização</th>
+                    <th className="p-3">Próx. Recarga</th>
+                    <th className="p-3">Próx. Teste Hidráulico</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {extintores.map((x) => (
+                    <tr key={x.id} className="hover:bg-slate-50/50">
+                      <td className="p-3 font-medium text-slate-800">{[x.marca, x.modelo].filter(Boolean).join(" / ") || '-'}</td>
+                      <td className="p-3">{x.serial || '-'}</td>
+                      <td className="p-3">{x.capacidadeKg ? `${x.capacidadeKg} kg` : '-'}</td>
+                      <td className="p-3">{x.tipoAgente || '-'}</td>
+                      <td className="p-3">{x.localizacao || '-'}</td>
+                      <td className="p-3">
+                        <span className={`px-2 py-1 rounded-md text-xs font-semibold ${getUrgencyClasses(x.dataProxRecarga)}`}>
+                          {formatDate(x.dataProxRecarga)}
+                        </span>
+                      </td>
+                      <td className="p-3">
+                        <span className={`px-2 py-1 rounded-md text-xs font-semibold ${getUrgencyClasses(x.dataProxTesteHidraulico)}`}>
+                          {formatDate(x.dataProxTesteHidraulico)}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p className="text-sm text-slate-500 italic">Nenhum extintor associado a este navio.</p>
           )}
         </div>
 

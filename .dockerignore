@@ -1,0 +1,29 @@
+node_modules
+.next
+.git
+.env
+.env.local
+.env.production
+*.md
+.vscode
+.idea
+Dockerfile
+Dockerfile.cloudrun
+docker-compose.yml
+.dockerignore
+deploy-oracle.sh
+deploy-google-cloudrun.sh
+# scripts/ needed for build
+legislacao/
+documentacao/
+boletins/
+auditorias_documentos/
+CERTIFICADOS 2025/
+coverage/
+test-results/
+playwright-report/
+*.log
+.DS_Store
+Thumbs.db
+_tmp_*
+opencode.json

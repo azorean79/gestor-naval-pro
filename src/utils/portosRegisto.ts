@@ -25,6 +25,23 @@ export const PORTOS_REGISTO: Record<string, string> = {
   'GRA': 'Santa Cruz da Graciosa',
   'SCG': 'Santa Cruz da Graciosa',
   'PRV': 'Praia da Vitória',
+  'AVE': 'Aveiro',
+  'VDC': 'Viana do Castelo',
+  'LEI': 'Leixões',
+  'VRE': 'Vila Real de Santo António',
+  'VIC': 'Vila do Conde',
+  'PEN': 'Peniche',
+  'ANC': 'Angra do Heroísmo',
+  'SSB': 'Sesimbra',
+  'PDV': 'Póvoa de Varzim',
+  'SAG': 'Sagres',
+  'PRM': 'Portimão',
+  'SIE': 'Sines',
+  'CAM': 'Caminha',
+  'LOS': 'Lagos',
+  'OLH': 'Olhão',
+  'FNC': 'Funchal',
+  'TBZ': 'Tavira',
 };
 
 /**

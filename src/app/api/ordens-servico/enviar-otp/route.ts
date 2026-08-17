@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAccessContext } from "@/lib/access-control";
 import prisma from "@/lib/prisma";
-import { sendTextBeeSms } from "@/lib/textbee-sms";
+import { sendSms } from "@/lib/sms-provider";
 
 // Armazenamento em memória volátil para validação de OTP (em produção usaria Redis ou BD)
 const otpStore = new Map<string, { code: string; expiresAt: number; orderId: number }>();
@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
       `Orey Açores: Código de confirmação ${otpCode} para a sua Ordem de Serviço #${ordemNum}. ` +
       `Válido por 10 minutos. Não partilhe este código com ninguém.`;
 
-    const result = await sendTextBeeSms(phone, message);
+    const result = await sendSms(phone, message);
 
     if (!result.ok) {
       otpStore.delete(String(orderId));

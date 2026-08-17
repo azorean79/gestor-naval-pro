@@ -68,7 +68,7 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error("Erro ao listar documentos de auditoria:", error);
     return NextResponse.json(
-      { error: "Erro ao listar documentos", details: (error as Error).message },
+      { error: "Erro ao listar documentos" },
       { status: 500 }
     );
   }
@@ -178,7 +178,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Erro no upload de documentos de auditoria:", error);
     return NextResponse.json(
-      { error: "Erro ao carregar documento", details: (error as Error).message },
+      { error: "Erro ao carregar documento" },
       { status: 500 }
     );
   }

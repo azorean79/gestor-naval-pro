@@ -46,7 +46,23 @@ export async function PUT(
     return NextResponse.json({ error: "ID inválido" }, { status: 400 });
   }
 
-  const data = await req.json();
+  const raw = await req.json();
+  const data: Record<string, unknown> = {};
+  if (raw.name !== undefined) data.name = String(raw.name).trim() || "Artigo";
+  if (raw.referencia !== undefined) data.referencia = String(raw.referencia || "").trim() || null;
+  if (raw.quantidade !== undefined) data.quantidade = Number(raw.quantidade) || 0;
+  if (raw.validade !== undefined) {
+    const d = raw.validade ? new Date(raw.validade) : null;
+    data.validade = d && !isNaN(d.getTime()) ? d : null;
+  }
+  if (raw.lote !== undefined) data.lote = String(raw.lote || "").trim() || null;
+  if (raw.estado !== undefined) data.estado = String(raw.estado || "ATIVO").trim();
+  if (raw.observacoes !== undefined) data.observacoes = String(raw.observacoes || "").trim() || null;
+
+  if (Object.keys(data).length === 0) {
+    return NextResponse.json({ error: "Nenhum campo válido para atualizar." }, { status: 400 });
+  }
+
   const existing = await artigoJangadaDelegate.findUnique({ where: { id: artigoId } });
 
   if (!existing || existing.jangadaId !== jangadaId) {

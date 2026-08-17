@@ -3,6 +3,7 @@ import prisma from "@/lib/prisma";
 import ExcelJS from "exceljs";
 import { getAccessContext } from "@/lib/access-control";
 import { getIvaRate } from "@/lib/iva";
+import { formatIsencaoIva } from "@/lib/iva-isencao-codes";
 import { parseOrdemServicoMeta } from "@/lib/ordens-servico";
 
 function formatEuro(value: number) {
@@ -158,7 +159,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       { label: "Peças / Materiais", note: "", value: pecas },
       { label: "Desconto", note: "", value: -desconto },
       { label: "Subtotal", note: "", value: subtotal },
-      { label: "IVA (16%)", note: isentoIva ? "Isento" : "16%", value: iva },
+      { label: "IVA (16%)", note: isentoIva ? formatIsencaoIva(true, order.codigoIsencaoIva) : "16%", value: iva },
       { label: "TOTAL", note: "", value: total, bold: true },
     ];
 

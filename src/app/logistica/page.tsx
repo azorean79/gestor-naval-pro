@@ -316,15 +316,19 @@ export default function LogisticaPage() {
     const { jangadas, tipo, data, responsavel, observacoes } = printData;
     const itemRows = jangadas.map((j, i) => `
       <tr style="border-bottom: 1px solid #000;">
-        <td style="padding: 6px 8px; text-align: center; border: 1px solid #000;">${i + 1}</td>
-        <td style="padding: 6px 8px; border: 1px solid #000; font-weight: bold;">${j.brand || ""} ${j.model || ""} (S/N: ${j.serial || "—"})</td>
-        <td style="padding: 6px 8px; border: 1px solid #000; text-align: center;">1</td>
+        <td style="padding: 6px 8px; border: 1px solid #000; font-weight: bold;">${j.brand || ""} ${j.model || "Jangada"}</td>
+        <td style="padding: 6px 8px; text-align: center; border: 1px solid #000;">1</td>
+        <td style="padding: 6px 8px; text-align: center; border: 1px solid #000; font-family: monospace;">${j.serial || "—"}</td>
       </tr>
     `).join("");
 
-    const stationName = jangadas[0]?.serviceStationName || "—";
-    const destino = tipo === "rececao" ? stationName : (jangadas[0]?.owner || "Armador");
-    const origem = tipo === "rececao" ? (jangadas[0]?.owner || "Armador") : stationName;
+    const clientName = jangadas[0]?.owner || "Cliente / Armador";
+    const shipName = jangadas[0]?.shipName || "Embarcação";
+    const island = jangadas[0]?.portoRegisto || jangadas[0]?.island || "";
+    const oreyDestino = "Orey Técnica Serviços Navais, Lda, NIF 501117334 (Zona Industrial dos Portões Vermelhos, Armazém 19, 9560-350 Cabouco)";
+
+    const origem = shipName;
+    const destino = oreyDestino;
 
     const html = `
       <html>
@@ -338,17 +342,16 @@ export default function LogisticaPage() {
             .title-block h2 { font-size: 15px; font-weight: bold; text-transform: uppercase; margin: 0 0 8px 0; letter-spacing: 0.5px; }
             .title-block .legal-ref { font-size: 11px; color: #333; margin-top: 8px; }
             .declaration { text-align: justify; margin: 20px 0; line-height: 2; }
-            .declaration .blank-line { display: inline-block; min-width: 200px; border-bottom: 1px solid #000; margin: 0 2px; }
-            .declaration .blank-short { display: inline-block; min-width: 120px; border-bottom: 1px solid #000; margin: 0 2px; }
+            .declaration .blank-line { display: inline-block; min-width: 200px; border-bottom: 1px solid #000; margin: 0 2px; font-weight: bold; }
+            .declaration .blank-short { display: inline-block; min-width: 120px; border-bottom: 1px solid #000; margin: 0 2px; font-weight: bold; }
             .items-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
             .items-table th, .items-table td { border: 1px solid #000; padding: 8px 10px; font-size: 12px; }
             .items-table th { font-weight: bold; text-align: center; background: none; }
             .destination { text-align: justify; margin: 20px 0; line-height: 2; }
-            .destination .blank-line { display: inline-block; min-width: 250px; border-bottom: 1px solid #000; margin: 0 2px; }
+            .destination .blank-line { display: inline-block; min-width: 250px; border-bottom: 1px solid #000; margin: 0 2px; font-weight: bold; }
             .signatures { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 60px; padding-top: 0; }
             .sig-block { text-align: center; }
             .sig-line { border-top: 1px solid #000; padding-top: 6px; margin-top: 50px; font-size: 12px; }
-            .date-line { text-align: right; margin-top: 30px; font-size: 12px; }
             .footnote { font-size: 10px; color: #555; margin-top: 30px; text-align: justify; line-height: 1.4; }
           </style>
         </head>
@@ -360,11 +363,11 @@ export default function LogisticaPage() {
           </div>
 
           <div class="declaration">
-            <span class="blank-line">OREY TECNICA ACORES, LDA.</span> (nome
-            ou designação), contribuinte n.º <span class="blank-short">501117334</span>, declaro que os bens
+            <span class="blank-line">${clientName}</span> (nome
+            ou designação), contribuinte n.º <span class="blank-short">Consulte Ficha</span>, declaro que os bens
             transportados, que constam do meu ativo imobilizado<sup>2</sup>, provenientes de
-            <span class="blank-line">${origem}</span>
-            <span class="blank-line" style="min-width: 100px;">Açores</span> (local) a seguir discriminados:
+            <span class="blank-line">${shipName}</span>
+            <span class="blank-line" style="min-width: 100px;">${island}</span> (local) a seguir discriminados:
           </div>
 
           <table class="items-table">
@@ -484,7 +487,7 @@ export default function LogisticaPage() {
             ou designação), contribuinte n.º <span class="blank-short">501117334</span>, declaro que os bens
             transportados, que constam do meu ativo imobilizado<sup>2</sup>, provenientes de
             <span class="blank-line">${origem}</span>
-            <span class="blank-line" style="min-width: 100px;">Açores</span> (local) a seguir discriminados:
+            <span class="blank-line" style="min-width: 100px;">${sel[0]?.portoRegisto || sel[0]?.island || ""}</span> (local) a seguir discriminados:
           </div>
 
           <table class="items-table">

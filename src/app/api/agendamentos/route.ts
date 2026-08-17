@@ -29,8 +29,8 @@ export async function POST(req: NextRequest) {
       const created = await agendamentoDelegate.create({ data: body });
       return NextResponse.json(created);
     }
-  } catch (error) {
-    return NextResponse.json({ error: 'Erro ao criar agendamento', details: error }, { status: 500 });
+  } catch {
+    return NextResponse.json({ error: 'Erro ao criar agendamento' }, { status: 500 });
   }
 }
 
@@ -41,7 +41,7 @@ export async function GET() {
   try {
     const agendamentos = await agendamentoDelegate.findMany();
     return NextResponse.json(agendamentos);
-  } catch (error) {
-    return NextResponse.json({ error: 'Erro ao buscar agendamentos', details: error }, { status: 500 });
+  } catch {
+    return NextResponse.json({ error: 'Erro ao buscar agendamentos' }, { status: 500 });
   }
 }

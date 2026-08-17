@@ -76,6 +76,8 @@ function AgendaPage() {
   const [conflicts, setConflicts] = useState<any[]>([]);
   const [showTimeline, setShowTimeline] = useState(false);
   const [timelineStartDate, setTimelineStartDate] = useState<Date>(new Date());
+  const [syncingGoogleCalendar, setSyncingGoogleCalendar] = useState(false);
+  const [lastGoogleSync, setLastGoogleSync] = useState<string>("");
   const { 
     viewMode, setViewMode, 
     showAdvancedPanels, setShowAdvancedPanels, 
@@ -170,6 +172,25 @@ function AgendaPage() {
   const triggerAgendaReload = () => {
     void reloadAgendaDataRef.current?.();
     refreshOperationalPanels();
+  };
+
+  const handleSyncGoogleCalendar = async () => {
+    if (syncingGoogleCalendar) return;
+    setSyncingGoogleCalendar(true);
+    try {
+      const res = await fetch("/api/google-calendar/sync", { method: "POST" });
+      const data = await res.json().catch(() => null);
+      if (!res.ok) {
+        alert(data?.error || "Falha na sincronização com o Google Calendar.");
+        return;
+      }
+      setLastGoogleSync(data?.summary || "Sincronizado.");
+      alert(data?.summary || "Sincronizado com o Google Calendar.");
+    } catch {
+      alert("Falha na sincronização com o Google Calendar.");
+    } finally {
+      setSyncingGoogleCalendar(false);
+    }
   };
 
   // ...existing code...
@@ -380,13 +401,16 @@ const formatDate = (value?: string | null) => {
 
             return {
               id: normalizedId,
-              title: ev.type === "ausencia" ? ev.title : buildAgendaTitle("Inspeção", raftLabel, shipLabel),
+              title: ev.type === "ausencia" || ev.type === "expiracao"
+                ? ev.title
+                : buildAgendaTitle(ev.type === "Entrega" ? "Entrega" : "Inspeção", raftLabel, shipLabel),
               start: parsedDate,
               end: endDate,
               raftSerial,
               status: normalizeEventStatus(ev.status),
               responsavel: ev.responsavel || "",
               inspectionType: normalizeInspectionType(ev.inspectionType),
+              type: ev.type || "",
               durationMinutes: dur,
               bufferBeforeMinutes: Number(ev.bufferBeforeMinutes || 15),
               bufferAfterMinutes: Number(ev.bufferAfterMinutes || 15),
@@ -679,6 +703,11 @@ const formatDate = (value?: string | null) => {
   function handleEventDropOrResize(payload: CalendarMutationPayload) {
     const moved = payload?.event;
     if (!moved) return;
+
+    if (String(moved.id).startsWith("expiracao-")) {
+      triggerAgendaReload();
+      return;
+    }
 
     if (String(moved.id).startsWith("ausencia-")) {
       alert("Não é possível alterar a data ou responsável da ausência/férias a partir do calendário. Altere na página de Técnicos.");
@@ -1124,6 +1153,9 @@ const formatDate = (value?: string | null) => {
         handleExportExcel={handleExportExcel}
         handleExportPDF={handleExportPDF}
         handleDesmarcarTodos={handleDesmarcarTodos}
+        handleSyncGoogleCalendar={handleSyncGoogleCalendar}
+        syncingGoogleCalendar={syncingGoogleCalendar}
+        lastGoogleSync={lastGoogleSync}
       />
 
       {/* Alert: rafts expiring in 30 days without a schedule */}

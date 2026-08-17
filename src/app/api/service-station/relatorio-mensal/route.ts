@@ -42,7 +42,7 @@ export async function GET(req: NextRequest) {
         ? { serviceStationId: { in: access.allowedStationIds.length ? access.allowedStationIds : [-1] } }
         : {};
 
-    const [queueRows, ordemRows] = await Promise.all([
+    const [queueRows, ordemRows, faturaRows] = await Promise.all([
       prisma.serviceStationQueue.findMany({
         where: {
           ...stationWhere,
@@ -99,6 +99,25 @@ export async function GET(req: NextRequest) {
         },
         orderBy: { dataAbertura: "asc" },
       }),
+      prisma.fatura.findMany({
+        where: {
+          cancelada: false,
+          dataEmissao: { gte: start, lt: end },
+          ordemServicos: { some: { ordemServico: { ...stationWhere } } },
+        },
+        select: {
+          id: true,
+          numeroFatura: true,
+          valorTotal: true,
+          dataEmissao: true,
+          ordemServicos: {
+            include: {
+              ordemServico: { select: { serviceStationId: true } },
+            },
+          },
+        },
+        orderBy: { dataEmissao: "asc" },
+      }),
     ]);
 
     const parseMeta = (raw?: string | null) => {
@@ -121,8 +140,7 @@ export async function GET(req: NextRequest) {
 
     const approved = ordemRows.filter((order) => String(order.orcamentoStatus || "") === "Aprovado");
     const approvedTotal = approved.reduce((sum, order) => sum + Number(order.valorTotal || 0), 0);
-    const faturadas = ordemRows.filter((order) => order.status === "faturado" || order.status === "concluida");
-    const faturadoTotal = faturadas.reduce((sum, order) => sum + Number(order.valorTotal || 0), 0);
+    const faturadoTotal = faturaRows.reduce((sum, fatura) => sum + Number(fatura.valorTotal || 0), 0);
 
     const byStation = new Map<number, { nome: string; recebidas: number; entregues: number; faturado: number }>();
     const addStation = (id: number, nome: string) => {
@@ -136,9 +154,10 @@ export async function GET(req: NextRequest) {
       st.recebidas += 1;
       if (meta.deliveredAt) st.entregues += 1;
     });
-    faturadas.forEach((order) => {
-      const st = addStation(order.serviceStationId || 0, "—");
-      st.faturado += Number(order.valorTotal || 0);
+    faturaRows.forEach((fatura) => {
+      const firstStationId = fatura.ordemServicos[0]?.ordemServico.serviceStationId ?? null;
+      const st = addStation(firstStationId || 0, "—");
+      st.faturado += Number(fatura.valorTotal || 0);
     });
 
     const workbook = new ExcelJS.Workbook();
@@ -174,7 +193,7 @@ export async function GET(req: NextRequest) {
     addRow("Ordens concluídas", completed);
     addRow("Orçamentos aprovados", approved.length);
     addRow("Valor orçamentado aprovado", formatEuro(approvedTotal), true);
-    addRow("Ordens faturadas", faturadas.length);
+    addRow("Faturas emitidas", faturaRows.length);
     addRow("Valor faturado", formatEuro(faturadoTotal), true);
 
     rowIndex += 1;

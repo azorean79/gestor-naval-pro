@@ -57,10 +57,30 @@ type OrdemServicoResumo = {
   jangada: { id: number; serial: string; brand: string; model: string } | null;
 };
 
+type FaturaResumo = {
+  id: number;
+  numeroFatura: string;
+  valorTotal: number;
+  valorPago: number;
+  pagamentoStatus: string;
+  dataEmissao: string;
+  cancelada: boolean;
+  motivoCancelamento: string | null;
+  numeroNotaCredito: string | null;
+  numeroRecibo: string | null;
+  ordemServicos: Array<{
+    id: number;
+    numeroOrdem: string;
+    jangada: { id: number; serial: string; brand: string; model: string } | null;
+  }>;
+};
+
 type RespostaClienteAuth = {
   cliente: { id: number; nome: string; nif: string | null; numeroCliente: string | null; morada: string | null; ilha: string | null };
   jangadas: JangadaEstado[];
   ordensServico: OrdemServicoResumo[];
+  faturas: FaturaResumo[];
+  resumoFaturas: { totalFaturas: number; totalFaturado: number; totalRecebido: number; totalEmDivida: number };
 };
 
 const statusLabelExtra: Record<InspectionStatusColor, string> = {
@@ -336,6 +356,53 @@ export default function AreaClientePage() {
                         <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100">
                           {o.status}
                         </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+            {resultado.faturas.length > 0 && (
+              <section className="bg-white rounded-3xl border border-slate-200/60 shadow-sm p-6 sm:p-8 space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <h3 className="text-sm font-extrabold text-slate-700 uppercase tracking-wider flex items-center gap-2">
+                    <FileText size={16} className="text-slate-400" /> Faturas
+                  </h3>
+                  <div className="flex flex-wrap gap-2 text-xs">
+                    <span className="font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">
+                      Faturado: <b className="text-slate-800">{resultado.resumoFaturas.totalFaturado.toFixed(2)} €</b>
+                    </span>
+                    <span className="font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">
+                      Pago: <b className="text-emerald-700">{resultado.resumoFaturas.totalRecebido.toFixed(2)} €</b>
+                    </span>
+                    <span className={`font-semibold px-2.5 py-1 rounded-full ${resultado.resumoFaturas.totalEmDivida > 0 ? "bg-amber-50 text-amber-700 border border-amber-200" : "bg-emerald-50 text-emerald-700 border border-emerald-200"}`}>
+                      Em dívida: <b>{resultado.resumoFaturas.totalEmDivida.toFixed(2)} €</b>
+                    </span>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  {resultado.faturas.map((f) => (
+                    <div key={f.id} className="rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3">
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="min-w-0">
+                          <p className="text-sm font-bold text-slate-700">{f.numeroFatura}</p>
+                          <p className="text-xs text-slate-500 mt-0.5">
+                            {f.dataEmissao ? formatDate(f.dataEmissao) : ""}
+                            {f.ordemServicos[0]?.numeroOrdem ? ` · OS ${f.ordemServicos[0].numeroOrdem}` : ""}
+                            {f.ordemServicos[0]?.jangada ? ` · ${f.ordemServicos[0].jangada.brand || ""} ${f.ordemServicos[0].jangada.model || ""} (${f.ordemServicos[0].jangada.serial})` : ""}
+                          </p>
+                          {f.numeroNotaCredito && (
+                            <p className="text-xs text-rose-600 mt-0.5 font-semibold">
+                              Nota de crédito: {f.numeroNotaCredito}
+                            </p>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-2 shrink-0">
+                          <span className="text-sm font-bold text-slate-700">{Number(f.valorTotal).toFixed(2)} €</span>
+                          <span className={`text-xs font-bold px-2.5 py-1 rounded-full border ${f.cancelada ? "bg-slate-100 text-slate-500 border-slate-200" : f.pagamentoStatus === "Pago" ? "bg-emerald-50 text-emerald-700 border-emerald-200" : f.pagamentoStatus === "Pago Parcialmente" ? "bg-blue-50 text-blue-700 border-blue-200" : f.pagamentoStatus === "Vencido" ? "bg-rose-50 text-rose-700 border-rose-200" : "bg-amber-50 text-amber-700 border-amber-200"}`}>
+                            {f.cancelada ? "Anulada" : f.pagamentoStatus}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   ))}

@@ -2,11 +2,18 @@ import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import prisma from "@/lib/prisma";
 import { normalizeEmail, resolveUserRole } from "@/lib/auth";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);
   if (!body) {
     return NextResponse.json({ error: "Pedido inválido." }, { status: 400 });
+  }
+
+  const rateKey = `register:${req.headers.get("x-forwarded-for") || "unknown"}`;
+  const { allowed } = checkRateLimit(rateKey, 5, 15 * 60 * 1000);
+  if (!allowed) {
+    return NextResponse.json({ error: "Demasiadas tentativas. Tente novamente mais tarde." }, { status: 429 });
   }
 
   const { name, email: rawEmail, password } = body as Record<string, string>;

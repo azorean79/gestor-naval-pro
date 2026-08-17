@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { getAccessContext } from "@/lib/access-control";
 import type { Prisma } from "@prisma/client";
 
 export async function GET(req: NextRequest) {
+  const access = await getAccessContext();
+  if (!access) return NextResponse.json({ error: "Sessão obrigatória." }, { status: 401 });
+
   const { searchParams } = new URL(req.url);
   const where: Prisma.CertificadoExtraidoWhereInput = {};
   const fileName = searchParams.get("fileName"); if (fileName) where.fileName = { contains: fileName, mode: "insensitive" };

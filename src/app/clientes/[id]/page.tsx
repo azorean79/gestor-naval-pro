@@ -12,6 +12,7 @@ type Navio = { id: number; nome: string; matricula: string; portoRegisto?: strin
 type Cliente = { id: number; nome: string; numeroCliente?: string | null; modoPagamento?: string | null; nif?: string | null; email?: string | null; telefone?: string | null; telmovel?: string | null; morada?: string | null; moradaNumero?: string | null; codigoPostal?: string | null; localidade?: string | null; ilha?: string | null; navios: Navio[] };
 type TabKey = "ficha" | "navios" | "ordens" | "assistencia" | "financeiro" | "iva" | "acoes";
 type ServiceOrder = { id: number; numeroOrdem: string; tipo: string; status: string; orcamentoStatus?: string | null; valorTotal?: number; prioridade: string; tecnicoResponsavel?: string | null; dataPlaneadaInicio?: string | null; dataConclusao?: string | null; createdAt: string; jangada?: { serial?: string | null; brand?: string | null; model?: string | null } | null };
+type FaturaItem = { id: number; numeroFatura: string; ordemServicoId: number | null; numeroOrdem: string | null; ordemServicoStatus: string | null; valorSubtotal: number; valorIva: number; valorTotal: number; isIsentoIva: boolean; pagamentoStatus: string; dataEmissao: string; emitidaPor: string | null; jangada: string | null; cancelada?: boolean; dataCancelamento?: string | null; motivoCancelamento?: string | null; numeroRecibo?: string | null; notaCredito?: { numeroNotaCredito: string; dataEmissao: string } | null; ordemServicos?: Array<{ id: number; numeroOrdem: string; status: string; valorTotal: number; jangada: string | null }> };
 
 function normalizeNaviosResponse(payload: unknown): Navio[] {
   if (!payload) return [];
@@ -31,6 +32,10 @@ export default function ClienteDetalhePage() {
   const [allNavios, setAllNavios] = useState<Navio[]>([]);
   const [ordens, setOrdens] = useState<ServiceOrder[]>([]);
   const [loadingOrdens, setLoadingOrdens] = useState(false);
+  const [faturas, setFaturas] = useState<FaturaItem[]>([]);
+  const [loadingFaturas, setLoadingFaturas] = useState(false);
+  const [pagamentoBusyId, setPagamentoBusyId] = useState<number | null>(null);
+  const [cancelandoFaturaId, setCancelandoFaturaId] = useState<number | null>(null);
   const [saving, setSaving] = useState(false);
   const [busyNavio, setBusyNavio] = useState(false);
   const [deleting, setDeleting] = useState(false);
@@ -70,8 +75,64 @@ export default function ClienteDetalhePage() {
     finally { setLoadingOrdens(false); }
   };
 
+  const loadFaturas = async () => {
+    setLoadingFaturas(true);
+    try {
+      const res = await fetch(`/api/clientes/${clienteId}/faturas`);
+      if (res.ok) { const data = await res.json(); setFaturas(Array.isArray(data.faturas) ? data.faturas : []); }
+    } catch { /* */ }
+    finally { setLoadingFaturas(false); }
+  };
+
+  const updatePagamentoFatura = async (faturaId: number, pagamentoStatus: string) => {
+    setPagamentoBusyId(faturaId);
+    try {
+      const res = await fetch(`/api/faturas/${faturaId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pagamentoStatus }),
+      });
+      if (!res.ok) throw new Error((await res.json().catch(() => ({})))?.error || "Erro ao atualizar pagamento.");
+      setFaturas((prev) => prev.map((f) => (f.id === faturaId ? { ...f, pagamentoStatus } : f)));
+    } catch (e) {
+      alert(e instanceof Error ? e.message : "Erro ao atualizar pagamento.");
+    } finally {
+      setPagamentoBusyId(null);
+    }
+  };
+
+  const anularFaturaCliente = async (fatura: FaturaItem) => {
+    const motivo = window.prompt("Motivo da anulação da fatura (opcional):", "") || "";
+    if (motivo === null) return;
+    setCancelandoFaturaId(fatura.id);
+    try {
+      const res = await fetch(`/api/faturas/${fatura.id}/cancelar`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ motivo: motivo.trim() }),
+      });
+      if (!res.ok) throw new Error((await res.json().catch(() => ({})))?.error || "Erro ao anular fatura.");
+      const body = await res.json();
+      const numeroNC = body?.notaCredito?.numeroNotaCredito || "";
+      setFaturas((prev) => prev.map((f) => (f.id === fatura.id ? { ...f, cancelada: true, pagamentoStatus: "Cancelado", notaCredito: body?.notaCredito ? { numeroNotaCredito: numeroNC, dataEmissao: body?.notaCredito?.dataEmissao } : undefined } : f)));
+      if (numeroNC) {
+        const otId = fatura.ordemServicoId;
+        if (otId) window.open(`/api/ordens-servico/${otId}/nota-credito-excel`, "_blank");
+      }
+    } catch (e) {
+      alert(e instanceof Error ? e.message : "Erro ao anular fatura.");
+    } finally {
+      setCancelandoFaturaId(null);
+    }
+  };
+
   useEffect(() => { loadCliente(); }, [clienteId]);
-  useEffect(() => { if (cliente && (tab === "ordens" || tab === "financeiro")) loadOrdens(); }, [tab, cliente?.id]);
+  useEffect(() => {
+    if (cliente && (tab === "ordens" || tab === "financeiro")) {
+      loadOrdens();
+      if (tab === "financeiro") loadFaturas();
+    }
+  }, [tab, cliente?.id]);
 
   const updateProfileField = (field: string, value: string) => {
     setProfileDraft((prev) => ({ ...prev, [field]: value }));
@@ -481,6 +542,85 @@ export default function ClienteDetalhePage() {
                 <p className="mt-2 text-lg font-bold text-slate-800">{cliente.modoPagamento || "Não definido"}</p>
                 <p className="mt-1 text-xs text-slate-500">Condições contratuais</p>
               </div>
+            </div>
+
+            <div className="rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden">
+              <div className="px-6 py-4 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between gap-4">
+                <h3 className="font-bold text-slate-800 flex items-center gap-2"><Receipt size={16} className="text-emerald-500" />Faturas Emitidas ({faturas.length})</h3>
+                <span className="text-xs font-semibold text-slate-500">Total: <b className="text-emerald-600">{faturas.reduce((acc, f) => acc + Number(f.valorTotal || 0), 0).toFixed(2)} €</b></span>
+              </div>
+              {loadingFaturas ? (
+                <div className="flex items-center justify-center py-12 text-slate-400"><Loader2 size={20} className="animate-spin mr-2" />A carregar faturas...</div>
+              ) : faturas.length === 0 ? (
+                <div className="py-12 text-center text-slate-400 text-sm">Nenhuma fatura oficial registada para este cliente. Emita faturas a partir da consola de faturação.</div>
+              ) : (
+                <div className="divide-y divide-slate-100">
+                  {faturas.map((f) => (
+                    <div key={f.id} className={`px-6 py-4 flex items-center justify-between gap-4 transition ${f.cancelada ? "bg-rose-50/40" : "hover:bg-slate-50"}`}>
+                      <div>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className={`text-sm font-bold ${f.cancelada ? "text-rose-500 line-through" : "text-slate-950"}`}>{f.numeroFatura}</span>
+                          {f.numeroOrdem && <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-600">OT {f.numeroOrdem}</span>}
+                          {f.cancelada && <span className="rounded-full bg-rose-100 px-2 py-0.5 text-[10px] font-bold text-rose-600">ANULADA</span>}
+                          {f.notaCredito && (
+                            <span className="rounded-full bg-rose-50 px-2 py-0.5 text-[10px] font-semibold text-rose-600 border border-rose-200">NC {f.notaCredito.numeroNotaCredito}</span>
+                          )}
+                        </div>
+                        <p className="text-xs text-slate-500 mt-0.5">
+                          Emitida em {new Date(f.dataEmissao).toLocaleDateString("pt-PT")} · {f.jangada || "—"}
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold ${
+                          f.cancelada ? "bg-rose-50 text-rose-700" :
+                          f.pagamentoStatus === "Pago" ? "bg-emerald-50 text-emerald-700" :
+                          f.pagamentoStatus === "Pago Parcialmente" ? "bg-blue-50 text-blue-700" :
+                          f.pagamentoStatus === "Vencido" ? "bg-rose-50 text-rose-700" :
+                          "bg-amber-50 text-amber-700"
+                        }`}>{f.cancelada ? "Cancelado" : f.pagamentoStatus}</span>
+                        <span className={`text-sm font-black ${f.cancelada ? "text-slate-400 line-through" : "text-slate-900"}`}>{Number(f.valorTotal || 0).toFixed(2)} €</span>
+                        <div className="flex items-center gap-1.5">
+                          {!f.cancelada && (
+                            <select
+                              value={f.pagamentoStatus}
+                              disabled={pagamentoBusyId === f.id}
+                              onChange={(e) => updatePagamentoFatura(f.id, e.target.value)}
+                              className="rounded-lg border border-slate-200 bg-white px-2 py-1.5 text-xs font-medium text-slate-700 disabled:opacity-50"
+                              title="Atualizar estado de pagamento"
+                            >
+                              {["Pendente", "Pago Parcialmente", "Pago", "Vencido"].map((s) => (
+                                <option key={s} value={s}>{s}</option>
+                              ))}
+                            </select>
+                          )}
+                          {f.ordemServicoId && (
+                            <>
+                              <a href={`/api/ordens-servico/${f.ordemServicoId}/fatura-excel`} target="_blank" rel="noopener noreferrer" className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-emerald-600 hover:bg-emerald-50 transition">Fatura Excel</a>
+                              <a href={`/api/ordens-servico/${f.ordemServicoId}/fatura-pdf`} target="_blank" rel="noopener noreferrer" className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-rose-600 hover:bg-rose-50 transition">Fatura PDF</a>
+                            </>
+                          )}
+                          {f.ordemServicoId && (f.pagamentoStatus === "Pago" || f.pagamentoStatus === "Pago Parcialmente") && (
+                            <a href={`/api/ordens-servico/${f.ordemServicoId}/recibo-excel`} target="_blank" rel="noopener noreferrer" className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-sky-600 hover:bg-sky-50 transition">Recibo</a>
+                          )}
+                          {f.ordemServicoId && f.cancelada && (
+                            <a href={`/api/ordens-servico/${f.ordemServicoId}/nota-credito-excel`} target="_blank" rel="noopener noreferrer" className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-rose-600 hover:bg-rose-50 transition">Nota Crédito</a>
+                          )}
+                          {!f.cancelada && (
+                            <button
+                              onClick={() => anularFaturaCliente(f)}
+                              disabled={cancelandoFaturaId === f.id}
+                              className="rounded-lg border border-rose-200 bg-rose-50 px-2.5 py-1.5 text-xs font-semibold text-rose-600 hover:bg-rose-100 transition disabled:opacity-50"
+                              title="Anular fatura (emite nota de crédito)"
+                            >
+                              Anular
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden">

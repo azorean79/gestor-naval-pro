@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { 
-  Loader2, Search, CreditCard, AlertTriangle, CheckCircle2, Wallet, 
+import {
+  Loader2, Search, CreditCard, AlertTriangle, CheckCircle2, Wallet,
   Building2, MapPin, MessageSquare, RefreshCcw, Download, FileText, TrendingUp
 } from "lucide-react";
 import { formatDateTimeShort } from "@/lib/date-utils";
@@ -14,52 +14,50 @@ const PAGAMENTO_BADGE_CLASSES: Record<string, string> = {
   "Pago Parcialmente": "bg-blue-500/20 text-blue-300 border-blue-500/30",
   Pago: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
   Vencido: "bg-rose-500/20 text-rose-300 border-rose-500/30",
+  Cancelado: "bg-slate-600/30 text-slate-400 border-slate-600/40",
 };
 
 const PAYMENT_TERMS_DAYS = 30;
 
-type OrdemMetadados = Record<string, unknown> & { pagamentoStatus?: string };
-
-type OrdemItem = {
+type FaturaItem = {
   id: number;
-  numeroOrdem?: string | null;
-  status?: string | null;
-  orcamentoStatus?: string | null;
-  valorTotal?: number | null;
-  dataAbertura?: string | null;
-  dataConclusao?: string | null;
-  createdAt?: string | null;
-  metadados?: OrdemMetadados | null;
-  jangada?: { owner?: string | null; shipNameManual?: string | null; serial?: string | null } | null;
-  cliente?: { nome?: string | null; ilha?: string | null; numeroCliente?: string | null } | null;
-  serviceStation?: { nome?: string | null; codigo?: string | null } | null;
+  numeroFatura: string;
+  cliente: { id: number; nome: string; numeroCliente: string | null; ilha?: string | null } | null;
+  valorTotal: number;
+  pagamentoStatus: string;
+  dataEmissao: string;
+  cancelada: boolean;
+  notaCredito: { numeroNotaCredito: string; dataEmissao: string } | null;
+  numeroRecibo: string | null;
+  ordemServicos: Array<{
+    id: number;
+    numeroOrdem: string;
+    dataConclusao: string | null;
+    serviceStation: string | null;
+    jangada: { label: string; owner: string | null; shipNameManual: string | null } | null;
+  }>;
 };
 
-function getPagamentoStatus(ordem: OrdemItem) {
-  const meta = ordem.metadados || {};
-  return meta.pagamentoStatus || "Pendente";
-}
-
-function getDueDate(ordem: OrdemItem) {
-  const base = ordem.dataConclusao || ordem.createdAt;
-  if (!base) return null;
-  const d = new Date(base);
+function getDueDate(fatura: FaturaItem) {
+  if (!fatura.dataEmissao) return null;
+  const d = new Date(fatura.dataEmissao);
   if (Number.isNaN(d.getTime())) return null;
   d.setDate(d.getDate() + PAYMENT_TERMS_DAYS);
   return d;
 }
 
-function getDiasVencido(ordem: OrdemItem) {
-  const due = getDueDate(ordem);
+function getDiasVencido(fatura: FaturaItem) {
+  const due = getDueDate(fatura);
   if (!due) return 0;
   const diff = Math.floor((Date.now() - due.getTime()) / 86400000);
   return Math.max(0, diff);
 }
 
-function getEffectiveStatus(ordem: OrdemItem) {
-  const manual = getPagamentoStatus(ordem);
+function getEffectiveStatus(fatura: FaturaItem) {
+  if (fatura.cancelada) return "Cancelado";
+  const manual = fatura.pagamentoStatus;
   if (manual === "Pago") return "Pago";
-  if (getDiasVencido(ordem) > 0) return "Vencido";
+  if (getDiasVencido(fatura) > 0 && manual !== "Pago Parcialmente") return "Vencido";
   return manual;
 }
 
@@ -72,7 +70,7 @@ function formatEuro(value: number) {
 
 export default function ContasReceberPage() {
   const [loading, setLoading] = useState(true);
-  const [rows, setRows] = useState<OrdemItem[]>([]);
+  const [rows, setRows] = useState<FaturaItem[]>([]);
   const [q, setQ] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
   const [stationFilter, setStationFilter] = useState("");
@@ -85,11 +83,10 @@ export default function ContasReceberPage() {
     setLoading(true);
     setError(null);
     try {
-      const params = new URLSearchParams({ includeClosed: "1" });
-      const res = await fetch(`/api/ordens-servico?${params.toString()}`, { cache: "no-store" });
-      if (!res.ok) throw new Error("Falha ao carregar ordens de serviço.");
+      const res = await fetch(`/api/faturas`, { cache: "no-store" });
+      if (!res.ok) throw new Error("Falha ao carregar faturas.");
       const data = await res.json();
-      setRows(Array.isArray(data) ? data : []);
+      setRows(Array.isArray(data.faturas) ? data.faturas : []);
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : "Erro ao carregar dados.");
     } finally {
@@ -102,32 +99,34 @@ export default function ContasReceberPage() {
     load();
   }, [load]);
 
-  const invoices = useMemo(() => rows.filter((o) => o.status === "concluida"), [rows]);
+  const invoices = useMemo(() => rows.filter((f) => !f.cancelada), [rows]);
 
   const stations = useMemo(() => {
     const set = new Set<string>();
-    invoices.forEach((o) => {
-      if (o.serviceStation?.nome) set.add(o.serviceStation.nome);
+    invoices.forEach((f) => {
+      f.ordemServicos.forEach((os) => {
+        if (os.serviceStation) set.add(os.serviceStation);
+      });
     });
     return Array.from(set).sort();
   }, [invoices]);
 
   const islands = useMemo(() => {
     const set = new Set<string>();
-    invoices.forEach((o) => {
-      if (o.cliente?.ilha) set.add(o.cliente.ilha);
+    invoices.forEach((f) => {
+      if (f.cliente?.ilha) set.add(f.cliente.ilha);
     });
     return Array.from(set).sort();
   }, [invoices]);
 
   const filtered = useMemo(() => {
-    return invoices.filter((o) => {
-      const eff = getEffectiveStatus(o);
+    return invoices.filter((f) => {
+      const eff = getEffectiveStatus(f);
       if (statusFilter && eff !== statusFilter) return false;
-      if (stationFilter && (o.serviceStation?.nome || "") !== stationFilter) return false;
-      if (islandFilter && (o.cliente?.ilha || "") !== islandFilter) return false;
+      if (stationFilter && !f.ordemServicos.some((os) => os.serviceStation === stationFilter)) return false;
+      if (islandFilter && (f.cliente?.ilha || "") !== islandFilter) return false;
       if (q.trim()) {
-        const hay = `${o.numeroOrdem || ""} ${o.cliente?.nome || ""} ${o.jangada?.owner || ""} ${o.jangada?.shipNameManual || ""}`.toLowerCase();
+        const hay = `${f.numeroFatura} ${f.cliente?.nome || ""} ${f.ordemServicos.map((os) => os.numeroOrdem).join(" ")} ${f.ordemServicos.map((os) => os.jangada?.owner || "").join(" ")} ${f.ordemServicos.map((os) => os.jangada?.shipNameManual || "").join(" ")}`.toLowerCase();
         if (!hay.includes(q.trim().toLowerCase())) return false;
       }
       return true;
@@ -136,33 +135,33 @@ export default function ContasReceberPage() {
 
   const summary = useMemo(() => {
     let vencido = 0, pago = 0, parcial = 0;
-    filtered.forEach((o) => {
-      const eff = getEffectiveStatus(o);
-      const v = Number(o.valorTotal || 0);
+    filtered.forEach((f) => {
+      const eff = getEffectiveStatus(f);
+      const v = Number(f.valorTotal || 0);
       if (eff === "Pago") pago += v;
       else if (eff === "Vencido") vencido += v;
       else if (eff === "Pago Parcialmente") parcial += v;
     });
-    const emDivida = filtered.filter((o) => getEffectiveStatus(o) !== "Pago").reduce((a, o) => a + Number(o.valorTotal || 0), 0);
-    const countEmDivida = filtered.filter((o) => getEffectiveStatus(o) !== "Pago").length;
+    const emDivida = filtered.filter((f) => getEffectiveStatus(f) !== "Pago").reduce((a, f) => a + Number(f.valorTotal || 0), 0);
+    const countEmDivida = filtered.filter((f) => getEffectiveStatus(f) !== "Pago").length;
     return { emDivida, vencido, pago, parcial, countEmDivida };
   }, [filtered]);
 
-  const setPaymentStatus = async (orderId: number, status: string) => {
-    setSavingId(orderId);
+  const setPaymentStatus = async (faturaId: number, status: string) => {
+    setSavingId(faturaId);
     setError(null);
     setSuccess(null);
     try {
-      const res = await fetch(`/api/ordens-servico/${orderId}`, {
-        method: "PUT",
+      const res = await fetch(`/api/faturas/${faturaId}`, {
+        method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ metadados: { pagamentoStatus: status } }),
+        body: JSON.stringify({ pagamentoStatus: status }),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => null);
         throw new Error(body?.error || "Falha ao atualizar estado de pagamento.");
       }
-      setRows((prev) => prev.map((o) => (o.id === orderId ? { ...o, metadados: { ...(o.metadados || {}), pagamentoStatus: status } } : o)));
+      setRows((prev) => prev.map((f) => (f.id === faturaId ? { ...f, pagamentoStatus: status } : f)));
       setSuccess(`Estado de pagamento atualizado para "${status}".`);
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : "Erro ao atualizar estado.");
@@ -171,11 +170,10 @@ export default function ContasReceberPage() {
     }
   };
 
-  const sendWhatsAppReminder = (o: OrdemItem) => {
-    const clientName = o.cliente?.nome || o.jangada?.owner || "Cliente";
-    const orderNum = o.numeroOrdem || o.id;
+  const sendWhatsAppReminder = (f: FaturaItem) => {
+    const clientName = f.cliente?.nome || f.ordemServicos[0]?.jangada?.owner || "Cliente";
     const text = encodeURIComponent(
-      `Olá ${clientName}, lembramos que a fatura #${orderNum} no valor de ${formatEuro(Number(o.valorTotal || 0))} continua em aberto. Agradecemos o pagamento. Obrigado!`
+      `Olá ${clientName}, lembramos que a fatura ${f.numeroFatura} no valor de ${formatEuro(Number(f.valorTotal || 0))} continua em aberto. Agradecemos o pagamento. Obrigado!`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank");
   };
@@ -190,7 +188,7 @@ export default function ContasReceberPage() {
           </div>
           <div>
             <h1 className="text-xl font-bold tracking-tight text-white">Contas a Receber</h1>
-            <p className="text-xs text-slate-400">Faturas emitidas e controlo de pagamentos por cliente e estação</p>
+            <p className="text-xs text-slate-400">Faturas registadas e controlo de pagamentos por cliente e estação</p>
           </div>
         </div>
         <button
@@ -249,7 +247,7 @@ export default function ContasReceberPage() {
               <input
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
-                placeholder="Pesquisar nº fatura, cliente, embarcação..."
+                placeholder="Pesquisar nº fatura, cliente, OT, embarcação..."
                 className="w-full rounded-xl border border-slate-700 bg-slate-950 py-2 pl-9 pr-3 text-sm text-slate-200 placeholder-slate-500 focus:border-teal-500 focus:outline-none"
               />
             </div>
@@ -308,7 +306,7 @@ export default function ContasReceberPage() {
             ) : filtered.length === 0 ? (
               <div className="p-10 text-center text-slate-500 text-sm">
                 {invoices.length === 0
-                  ? "Ainda não existem faturas emitidas (ordens de serviço concluídas)."
+                  ? "Ainda não existem faturas registadas (emita faturas a partir da consola de faturação)."
                   : "Nenhuma fatura corresponde aos filtros selecionados."}
               </div>
             ) : (
@@ -326,25 +324,29 @@ export default function ContasReceberPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-800">
-                    {filtered.map((o) => {
-                      const eff = getEffectiveStatus(o);
-                      const dias = getDiasVencido(o);
-                      const clientName = o.cliente?.nome || o.jangada?.owner || "Cliente Particular";
+                    {filtered.map((f) => {
+                      const eff = getEffectiveStatus(f);
+                      const dias = getDiasVencido(f);
+                      const clientName = f.cliente?.nome || f.ordemServicos[0]?.jangada?.owner || "Cliente Particular";
+                      const otId = f.ordemServicos[0]?.id ?? null;
                       return (
-                        <tr key={o.id} className="hover:bg-slate-800/30">
+                        <tr key={f.id} className="hover:bg-slate-800/30">
                           <td className="p-3">
-                            <div className="font-mono font-bold text-teal-300">#{o.numeroOrdem || o.id}</div>
+                            <div className="font-mono font-bold text-teal-300">{f.numeroFatura}</div>
                             <div className="text-xs font-semibold text-slate-200">{clientName}</div>
-                            <div className="text-xs text-slate-500">{o.jangada?.shipNameManual || "—"}</div>
+                            <div className="text-xs text-slate-500">
+                              {f.ordemServicos.length > 1 ? `${f.ordemServicos.length} OTs` : f.ordemServicos[0]?.numeroOrdem || "—"}
+                              {" · "}{f.ordemServicos[0]?.jangada?.shipNameManual || "—"}
+                            </div>
                           </td>
                           <td className="p-3 text-xs text-slate-400">
-                            <div className="flex items-center gap-1.5"><Building2 size={12} /> {o.serviceStation?.nome || "—"}</div>
-                            <div className="flex items-center gap-1.5 mt-1"><MapPin size={12} /> {o.cliente?.ilha || "—"}</div>
+                            <div className="flex items-center gap-1.5"><Building2 size={12} /> {f.ordemServicos[0]?.serviceStation || "—"}</div>
+                            <div className="flex items-center gap-1.5 mt-1"><MapPin size={12} /> {f.cliente?.ilha || "—"}</div>
                           </td>
                           <td className="p-3 text-xs text-slate-400">
-                            {o.dataConclusao ? formatDateTimeShort(o.dataConclusao) : "—"}
+                            {f.dataEmissao ? formatDateTimeShort(f.dataEmissao) : "—"}
                           </td>
-                          <td className="p-3 text-right font-mono font-bold text-slate-100">{formatEuro(Number(o.valorTotal || 0))}</td>
+                          <td className="p-3 text-right font-mono font-bold text-slate-100">{formatEuro(Number(f.valorTotal || 0))}</td>
                           <td className="p-3 text-center">
                             {eff === "Pago" ? (
                               <span className="text-emerald-400">—</span>
@@ -355,10 +357,10 @@ export default function ContasReceberPage() {
                           <td className="p-3">
                             <div className="flex flex-col gap-1.5">
                               <select
-                                value={getPagamentoStatus(o)}
-                                disabled={savingId === o.id}
-                                onChange={(e) => setPaymentStatus(o.id, e.target.value)}
-                                className={`rounded-lg border px-2 py-1 text-xs font-semibold bg-slate-950 focus:outline-none ${PAGAMENTO_BADGE_CLASSES[getPagamentoStatus(o)] || PAGAMENTO_BADGE_CLASSES.Pendente}`}
+                                value={f.pagamentoStatus}
+                                disabled={savingId === f.id}
+                                onChange={(e) => setPaymentStatus(f.id, e.target.value)}
+                                className={`rounded-lg border px-2 py-1 text-xs font-semibold bg-slate-950 focus:outline-none ${PAGAMENTO_BADGE_CLASSES[f.pagamentoStatus] || PAGAMENTO_BADGE_CLASSES.Pendente}`}
                               >
                                 {PAGAMENTO_STATUS_LIST.map((s) => (
                                   <option key={s} value={s}>{s}</option>
@@ -373,35 +375,39 @@ export default function ContasReceberPage() {
                           </td>
                           <td className="p-3">
                             <div className="flex items-center justify-end gap-1.5">
-                              <a
-                                href={`/api/ordens-servico/${o.id}/fatura-excel`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                title="Descarregar fatura Excel"
-                                className="rounded-lg border border-slate-700 bg-slate-800 p-1.5 text-slate-300 hover:bg-slate-700 hover:text-teal-300 transition"
-                              >
-                                <Download size={14} />
-                              </a>
-                              <a
-                                href={`/api/ordens-servico/${o.id}/orcamento-excel`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                title="Descarregar orçamento Excel"
-                                className="rounded-lg border border-slate-700 bg-slate-800 p-1.5 text-slate-300 hover:bg-slate-700 hover:text-indigo-300 transition"
-                              >
-                                <FileText size={14} />
-                              </a>
-                              <a
-                                href={`/api/ordens-servico/${o.id}/recibo-excel`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                title="Descarregar recibo Excel"
-                                className="rounded-lg border border-slate-700 bg-slate-800 p-1.5 text-slate-300 hover:bg-slate-700 hover:text-sky-300 transition"
-                              >
-                                <FileText size={14} />
-                              </a>
+                              {otId && (
+                                <>
+                                  <a
+                                    href={`/api/ordens-servico/${otId}/fatura-excel`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title="Descarregar fatura Excel"
+                                    className="rounded-lg border border-slate-700 bg-slate-800 p-1.5 text-slate-300 hover:bg-slate-700 hover:text-teal-300 transition"
+                                  >
+                                    <Download size={14} />
+                                  </a>
+                                  <a
+                                    href={`/api/ordens-servico/${otId}/fatura-pdf`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title="Descarregar fatura PDF"
+                                    className="rounded-lg border border-slate-700 bg-slate-800 p-1.5 text-slate-300 hover:bg-slate-700 hover:text-rose-300 transition"
+                                  >
+                                    <FileText size={14} />
+                                  </a>
+                                  <a
+                                    href={`/api/ordens-servico/${otId}/recibo-excel`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title="Descarregar recibo Excel"
+                                    className="rounded-lg border border-slate-700 bg-slate-800 p-1.5 text-slate-300 hover:bg-slate-700 hover:text-sky-300 transition"
+                                  >
+                                    <FileText size={14} />
+                                  </a>
+                                </>
+                              )}
                               <button
-                                onClick={() => sendWhatsAppReminder(o)}
+                                onClick={() => sendWhatsAppReminder(f)}
                                 title="Enviar lembrete por WhatsApp"
                                 className="rounded-lg border border-emerald-700 bg-emerald-900/40 p-1.5 text-emerald-300 hover:bg-emerald-900/70 transition"
                               >
@@ -409,12 +415,12 @@ export default function ContasReceberPage() {
                               </button>
                               {eff !== "Pago" && (
                                 <button
-                                  onClick={() => setPaymentStatus(o.id, "Pago")}
-                                  disabled={savingId === o.id}
+                                  onClick={() => setPaymentStatus(f.id, "Pago")}
+                                  disabled={savingId === f.id}
                                   title="Marcar como pago"
                                   className="rounded-lg bg-emerald-600 px-2.5 py-1.5 text-xs font-bold text-white hover:bg-emerald-500 transition disabled:opacity-50"
                                 >
-                                  {savingId === o.id ? <Loader2 size={12} className="animate-spin" /> : "Pagar"}
+                                  {savingId === f.id ? <Loader2 size={12} className="animate-spin" /> : "Pagar"}
                                 </button>
                               )}
                             </div>

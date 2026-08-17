@@ -24,6 +24,26 @@ export async function GET(req: NextRequest, context: { params: Promise<{ id: str
             jangada: { select: { id: true, serial: true, brand: true, model: true, shipNameManual: true } },
           },
         },
+        faturas: {
+          orderBy: { dataEmissao: "desc" },
+          include: {
+            ordemServicos: {
+              include: {
+                ordemServico: {
+                  select: {
+                    id: true,
+                    numeroOrdem: true,
+                    valorTotal: true,
+                    status: true,
+                    jangada: { select: { serial: true, brand: true, model: true, shipNameManual: true } },
+                  },
+                },
+              },
+            },
+            recibos: { orderBy: { dataEmissao: "asc" } },
+            notaCredito: true,
+          },
+        },
         navios: { select: { id: true, nome: true, matricula: true, ilha: true } },
       },
     });
@@ -33,9 +53,17 @@ export async function GET(req: NextRequest, context: { params: Promise<{ id: str
     }
 
     const ordens = cliente.ordensServico || [];
-    const totalFaturado = ordens.reduce((sum, o) => sum + (o.valorTotal || 0), 0);
-    const totalConcluido = ordens.filter((o) => o.status === "concluida").reduce((sum, o) => sum + (o.valorTotal || 0), 0);
-    const totalPendente = ordens.filter((o) => o.status !== "concluida" && o.status !== "cancelada").reduce((sum, o) => sum + (o.valorTotal || 0), 0);
+    const faturas = cliente.faturas || [];
+    const faturasValidas = faturas.filter((f) => !f.cancelada);
+    const totalFaturado = faturasValidas.reduce((sum, f) => sum + (f.valorTotal || 0), 0);
+    const totalRecebido = faturasValidas.reduce(
+      (sum, f) => sum + f.recibos.reduce((acc, r) => acc + (r.valorPago || 0), 0),
+      0
+    );
+    const totalEmDivida = Math.max(0, totalFaturado - totalRecebido);
+    const totalOtsPendentes = ordens
+      .filter((o) => o.status !== "concluida" && o.status !== "cancelada")
+      .reduce((sum, o) => sum + (o.valorTotal || 0), 0);
 
     const extrato = {
       cliente: {
@@ -49,10 +77,24 @@ export async function GET(req: NextRequest, context: { params: Promise<{ id: str
       },
       resumo: {
         totalObras: ordens.length,
+        totalFaturas: faturasValidas.length,
         totalFaturado,
-        totalConcluido,
-        totalPendente,
+        totalRecebido,
+        totalEmDivida,
+        totalOtsPendentes,
       },
+      faturas: faturas.map((f) => ({
+        id: f.id,
+        numeroFatura: f.numeroFatura,
+        pagamentoStatus: f.pagamentoStatus,
+        dataEmissao: f.dataEmissao,
+        valorTotal: f.valorTotal,
+        cancelada: f.cancelada,
+        motivoCancelamento: f.motivoCancelamento,
+        numeroRecibo: f.recibos[0]?.numeroRecibo || null,
+        notaCredito: f.notaCredito ? { numeroNotaCredito: f.notaCredito.numeroNotaCredito, dataEmissao: f.notaCredito.dataEmissao } : null,
+        numeroOrdem: f.ordemServicos.map((l) => l.ordemServico.numeroOrdem).filter(Boolean).join(" · ") || null,
+      })),
       movimentos: ordens.map((o) => ({
         id: o.id,
         numeroOrdem: o.numeroOrdem,

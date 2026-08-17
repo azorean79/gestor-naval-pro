@@ -27,7 +27,28 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     const cliente = await prisma.cliente.findUnique({
       where: { id: clienteId },
       include: {
+        faturas: {
+          orderBy: { dataEmissao: "desc" },
+          include: {
+            ordemServicos: {
+              include: {
+                ordemServico: {
+                  select: {
+                    id: true,
+                    numeroOrdem: true,
+                    valorTotal: true,
+                    status: true,
+                    jangada: { select: { serial: true, brand: true, model: true, shipNameManual: true } },
+                  },
+                },
+              },
+            },
+            recibos: { orderBy: { dataEmissao: "asc" } },
+            notaCredito: true,
+          },
+        },
         ordensServico: {
+          where: { status: { notIn: ["concluida"] } },
           orderBy: { createdAt: "desc" },
           include: {
             jangada: { select: { serial: true, brand: true, model: true, shipNameManual: true } },
@@ -45,9 +66,9 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
 
     worksheet.columns = [
       { header: "", key: "a", width: 16 },
-      { header: "", key: "b", width: 20 },
-      { header: "", key: "c", width: 35 },
-      { header: "", key: "d", width: 16 },
+      { header: "", key: "b", width: 22 },
+      { header: "", key: "c", width: 40 },
+      { header: "", key: "d", width: 18 },
       { header: "", key: "e", width: 16 },
     ];
 
@@ -69,32 +90,78 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       cell.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "334155" } };
     });
 
-    let totalGeral = 0;
-    let totalPendente = 0;
+    let totalFaturado = 0;
+    let totalEmDivida = 0;
 
-    cliente.ordensServico.forEach((os) => {
-      const val = Number(os.valorTotal || 0);
-      const isConcluida = os.status === "concluida";
-      if (isConcluida) {
-        totalGeral += val;
-        const statusPagamento = (os.metadados as any)?.pagamentoStatus || (os.orcamentoStatus === "Aprovado" ? "Pendente" : "Rascunho");
-        if (statusPagamento !== "Pago") {
-          totalPendente += val;
-        }
-      }
+    cliente.faturas.forEach((fatura) => {
+      const valor = Number(fatura.valorTotal || 0);
+      const descricao =
+        fatura.ordemServicos.length > 0
+          ? fatura.ordemServicos
+              .map((l) => {
+                const os = l.ordemServico;
+                const navio = os.jangada?.shipNameManual || "Sem navio";
+                return `${os.numeroOrdem || os.id} · ${navio}`;
+              })
+              .join(" | ")
+          : "Fatura";
 
       worksheet.addRow([
-        formatDate(os.dataConclusao || os.createdAt),
-        `Fatura #${os.numeroOrdem || os.id}`,
-        `${os.jangada?.brand || ""} ${os.jangada?.model || ""} (${os.jangada?.shipNameManual || "Sem navio"})`,
-        os.status,
-        formatEuro(val),
+        formatDate(fatura.dataEmissao),
+        fatura.numeroFatura,
+        descricao,
+        fatura.cancelada ? "Anulada" : fatura.pagamentoStatus,
+        formatEuro(valor),
       ]);
+
+      if (!fatura.cancelada) {
+        totalFaturado += valor;
+        const pago = (fatura.recibos || []).reduce((acc, r) => acc + Number(r.valorPago || 0), 0);
+        totalEmDivida += Math.max(0, valor - pago);
+      }
+
+      fatura.recibos.forEach((recibo) => {
+        worksheet.addRow([
+          formatDate(recibo.dataEmissao),
+          recibo.numeroRecibo,
+          `Recebimento da fatura ${fatura.numeroFatura}`,
+          "Pago",
+          formatEuro(Number(recibo.valorPago || 0)),
+        ]);
+      });
+
+      if (fatura.notaCredito) {
+        worksheet.addRow([
+          formatDate(fatura.notaCredito.dataEmissao),
+          fatura.notaCredito.numeroNotaCredito,
+          `Anulação da fatura ${fatura.numeroFatura}${fatura.notaCredito.motivo ? ` · ${fatura.notaCredito.motivo}` : ""}`,
+          "Anulada",
+          formatEuro(-Number(fatura.notaCredito.valorTotal || 0)),
+        ]);
+      }
     });
 
+    if (cliente.ordensServico.length > 0) {
+      worksheet.addRow([]);
+      const notaRow = worksheet.addRow(["Ordens de serviço ainda não faturadas"]);
+      notaRow.font = { bold: true };
+      notaRow.eachCell((cell) => {
+        cell.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FEF3C7" } };
+      });
+      cliente.ordensServico.forEach((os) => {
+        worksheet.addRow([
+          formatDate(os.dataAbertura || os.createdAt),
+          `OT #${os.numeroOrdem || os.id}`,
+          `${os.jangada?.brand || ""} ${os.jangada?.model || ""} (${os.jangada?.shipNameManual || "Sem navio"})`,
+          os.status,
+          formatEuro(Number(os.valorTotal || 0)),
+        ]);
+      });
+    }
+
     worksheet.addRow([]);
-    worksheet.addRow(["", "", "", "Total Faturado:", formatEuro(totalGeral)]);
-    worksheet.addRow(["", "", "", "Total em Dívida:", formatEuro(totalPendente)]);
+    worksheet.addRow(["", "", "", "Total Faturado:", formatEuro(totalFaturado)]);
+    worksheet.addRow(["", "", "", "Total em Dívida:", formatEuro(totalEmDivida)]);
 
     const buffer = await workbook.xlsx.writeBuffer();
     const filename = `Extrato_Cliente_${cliente.numeroCliente || clienteId}.xlsx`;

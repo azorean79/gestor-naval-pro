@@ -43,6 +43,7 @@ export default function AgendaBoard({ events, onStatusChange }: AgendaBoardProps
     <div className="flex h-full min-h-[700px] gap-4 overflow-x-auto pb-4">
       {BOARD_COLUMNS.map(col => {
         const colEvents = events.filter(e => {
+          if (String(e.id).startsWith("expiracao-")) return false;
           const st = String(e.status || 'scheduled').toLowerCase();
           return st === col.id || (col.id === 'scheduled' && st === 'confirmed');
         });

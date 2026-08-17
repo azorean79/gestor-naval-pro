@@ -62,10 +62,12 @@ export default async function proxy(req: NextRequest) {
   // Proteger rotas API — exigir autenticação JWT (apenas em produção)
   if (pathname.startsWith("/api")) {
     // Rotas públicas da API que não requerem autenticação
+    const isPedidosAssistenciaWebhook = pathname === "/api/pedidos-assistencia" && req.method === "POST";
     const isPublicApi = pathname.startsWith("/api/auth")
       || pathname === "/api/health"
       || pathname === "/api/portal/cliente-auth"
-      || pathname === "/api/publico/jangada";
+      || pathname === "/api/publico/jangada"
+      || isPedidosAssistenciaWebhook;
     
     // Rotas cron protegidas por CRON_SECRET
     const isCronRoute = pathname.startsWith("/api/cron");
