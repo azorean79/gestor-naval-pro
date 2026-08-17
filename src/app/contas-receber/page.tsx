@@ -10,11 +10,11 @@ import { formatDateTimeShort } from "@/lib/date-utils";
 const PAGAMENTO_STATUS_LIST = ["Pendente", "Pago Parcialmente", "Pago", "Vencido"];
 
 const PAGAMENTO_BADGE_CLASSES: Record<string, string> = {
-  Pendente: "bg-amber-500/20 text-amber-300 border-amber-500/30",
-  "Pago Parcialmente": "bg-blue-500/20 text-blue-300 border-blue-500/30",
-  Pago: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-  Vencido: "bg-rose-500/20 text-rose-300 border-rose-500/30",
-  Cancelado: "bg-slate-600/30 text-slate-400 border-slate-600/40",
+  Pendente: "bg-amber-100 text-amber-700 border-amber-200",
+  "Pago Parcialmente": "bg-blue-100 text-blue-700 border-blue-200",
+  Pago: "bg-emerald-100 text-emerald-700 border-emerald-200",
+  Vencido: "bg-rose-100 text-rose-700 border-rose-200",
+  Cancelado: "bg-slate-100 text-slate-500 border-slate-200",
 };
 
 const PAYMENT_TERMS_DAYS = 30;
@@ -179,21 +179,21 @@ export default function ContasReceberPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col">
       {/* Header */}
-      <header className="border-b border-slate-800 bg-slate-900 px-6 py-4 flex items-center justify-between">
+      <header className="border-b border-slate-200 bg-white px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="rounded-xl bg-teal-500/10 border border-teal-500/20 p-2.5 text-teal-400">
+          <div className="rounded-xl bg-teal-50 border border-teal-200 p-2.5 text-teal-600">
             <CreditCard size={24} />
           </div>
           <div>
-            <h1 className="text-xl font-bold tracking-tight text-white">Contas a Receber</h1>
-            <p className="text-xs text-slate-400">Faturas registadas e controlo de pagamentos por cliente e estação</p>
+            <h1 className="text-xl font-bold tracking-tight text-slate-900">Contas a Receber</h1>
+            <p className="text-xs text-slate-500">Faturas registadas e controlo de pagamentos por cliente e estação</p>
           </div>
         </div>
         <button
           onClick={load}
-          className="flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800 px-3 py-2 text-xs font-semibold text-slate-200 hover:bg-slate-700 transition"
+          className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition"
         >
           <RefreshCcw size={14} /> Atualizar
         </button>
@@ -203,59 +203,59 @@ export default function ContasReceberPage() {
         <div className="max-w-7xl mx-auto space-y-6">
           {/* Summary cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-5 space-y-2">
+            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold uppercase tracking-wider text-amber-300">Em Dívida (Filtro)</span>
-                <Wallet size={18} className="text-amber-400" />
+                <span className="text-xs font-semibold uppercase tracking-wider text-amber-700">Em Dívida (Filtro)</span>
+                <Wallet size={18} className="text-amber-500" />
               </div>
-              <div className="text-2xl font-black font-mono text-white">{formatEuro(summary.emDivida)}</div>
-              <div className="text-xs text-amber-300/80">{summary.countEmDivida} faturas em aberto</div>
+              <div className="text-2xl font-black font-mono text-slate-900">{formatEuro(summary.emDivida)}</div>
+              <div className="text-xs text-amber-600">{summary.countEmDivida} faturas em aberto</div>
             </div>
 
-            <div className="rounded-2xl border border-rose-500/30 bg-rose-500/10 p-5 space-y-2">
+            <div className="rounded-2xl border border-rose-200 bg-rose-50 p-5 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold uppercase tracking-wider text-rose-300">Vencido</span>
-                <AlertTriangle size={18} className="text-rose-400" />
+                <span className="text-xs font-semibold uppercase tracking-wider text-rose-700">Vencido</span>
+                <AlertTriangle size={18} className="text-rose-500" />
               </div>
-              <div className="text-2xl font-black font-mono text-white">{formatEuro(summary.vencido)}</div>
-              <div className="text-xs text-rose-300/80">Além dos {PAYMENT_TERMS_DAYS} dias de prazo</div>
+              <div className="text-2xl font-black font-mono text-slate-900">{formatEuro(summary.vencido)}</div>
+              <div className="text-xs text-rose-600">Além dos {PAYMENT_TERMS_DAYS} dias de prazo</div>
             </div>
 
-            <div className="rounded-2xl border border-blue-500/30 bg-blue-500/10 p-5 space-y-2">
+            <div className="rounded-2xl border border-blue-200 bg-blue-50 p-5 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold uppercase tracking-wider text-blue-300">Pago Parcialmente</span>
-                <TrendingUp size={18} className="text-blue-400" />
+                <span className="text-xs font-semibold uppercase tracking-wider text-blue-700">Pago Parcialmente</span>
+                <TrendingUp size={18} className="text-blue-500" />
               </div>
-              <div className="text-2xl font-black font-mono text-white">{formatEuro(summary.parcial)}</div>
-              <div className="text-xs text-blue-300/80">Faturas com pagamento parcial</div>
+              <div className="text-2xl font-black font-mono text-slate-900">{formatEuro(summary.parcial)}</div>
+              <div className="text-xs text-blue-600">Faturas com pagamento parcial</div>
             </div>
 
-            <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-5 space-y-2">
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold uppercase tracking-wider text-emerald-300">Pago</span>
-                <CheckCircle2 size={18} className="text-emerald-400" />
+                <span className="text-xs font-semibold uppercase tracking-wider text-emerald-700">Pago</span>
+                <CheckCircle2 size={18} className="text-emerald-500" />
               </div>
-              <div className="text-2xl font-black font-mono text-white">{formatEuro(summary.pago)}</div>
-              <div className="text-xs text-emerald-300/80">Faturas liquidadas</div>
+              <div className="text-2xl font-black font-mono text-slate-900">{formatEuro(summary.pago)}</div>
+              <div className="text-xs text-emerald-600">Faturas liquidadas</div>
             </div>
           </div>
 
           {/* Filters */}
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-4 flex flex-wrap items-center gap-3">
+          <div className="rounded-2xl border border-slate-200 bg-white p-4 flex flex-wrap items-center gap-3">
             <div className="relative flex-1 min-w-[220px]">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" size={15} />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={15} />
               <input
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="Pesquisar nº fatura, cliente, OT, embarcação..."
-                className="w-full rounded-xl border border-slate-700 bg-slate-950 py-2 pl-9 pr-3 text-sm text-slate-200 placeholder-slate-500 focus:border-teal-500 focus:outline-none"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2 pl-9 pr-3 text-sm text-slate-800 placeholder-slate-400 focus:border-teal-500 focus:outline-none"
               />
             </div>
 
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-teal-500 focus:outline-none"
+              className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700 focus:border-teal-500 focus:outline-none"
             >
               <option value="">Estado: Todos</option>
               {PAGAMENTO_STATUS_LIST.map((s) => (
@@ -266,7 +266,7 @@ export default function ContasReceberPage() {
             <select
               value={stationFilter}
               onChange={(e) => setStationFilter(e.target.value)}
-              className="rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-teal-500 focus:outline-none"
+              className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700 focus:border-teal-500 focus:outline-none"
             >
               <option value="">Estação: Todas</option>
               {stations.map((s) => (
@@ -277,7 +277,7 @@ export default function ContasReceberPage() {
             <select
               value={islandFilter}
               onChange={(e) => setIslandFilter(e.target.value)}
-              className="rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 focus:border-teal-500 focus:outline-none"
+              className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700 focus:border-teal-500 focus:outline-none"
             >
               <option value="">Ilha: Todas</option>
               {islands.map((i) => (
@@ -287,18 +287,18 @@ export default function ContasReceberPage() {
           </div>
 
           {error && (
-            <div className="rounded-xl border border-rose-500/30 bg-rose-500/10 p-4 text-sm text-rose-300 flex items-center gap-2">
+            <div className="rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-700 flex items-center gap-2">
               <AlertTriangle size={16} /> {error}
             </div>
           )}
           {success && (
-            <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4 text-sm text-emerald-300 flex items-center gap-2">
+            <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-700 flex items-center gap-2">
               <CheckCircle2 size={16} /> {success}
             </div>
           )}
 
           {/* Table */}
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 overflow-hidden">
+          <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden">
             {loading ? (
               <div className="flex items-center justify-center gap-2 py-16 text-slate-500">
                 <Loader2 className="animate-spin" size={18} /> A carregar faturas...
@@ -313,7 +313,7 @@ export default function ContasReceberPage() {
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
                   <thead>
-                    <tr className="bg-slate-800/80 text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                    <tr className="bg-slate-50 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200">
                       <th className="p-3">Fatura / Cliente</th>
                       <th className="p-3">Estação · Ilha</th>
                       <th className="p-3">Data Emissão</th>
@@ -323,35 +323,35 @@ export default function ContasReceberPage() {
                       <th className="p-3 text-right">Ações</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800">
+                  <tbody className="divide-y divide-slate-100">
                     {filtered.map((f) => {
                       const eff = getEffectiveStatus(f);
                       const dias = getDiasVencido(f);
                       const clientName = f.cliente?.nome || f.ordemServicos[0]?.jangada?.owner || "Cliente Particular";
                       const otId = f.ordemServicos[0]?.id ?? null;
                       return (
-                        <tr key={f.id} className="hover:bg-slate-800/30">
+                        <tr key={f.id} className="hover:bg-slate-50">
                           <td className="p-3">
-                            <div className="font-mono font-bold text-teal-300">{f.numeroFatura}</div>
-                            <div className="text-xs font-semibold text-slate-200">{clientName}</div>
+                            <div className="font-mono font-bold text-teal-600">{f.numeroFatura}</div>
+                            <div className="text-xs font-semibold text-slate-700">{clientName}</div>
                             <div className="text-xs text-slate-500">
                               {f.ordemServicos.length > 1 ? `${f.ordemServicos.length} OTs` : f.ordemServicos[0]?.numeroOrdem || "—"}
                               {" · "}{f.ordemServicos[0]?.jangada?.shipNameManual || "—"}
                             </div>
                           </td>
-                          <td className="p-3 text-xs text-slate-400">
+                          <td className="p-3 text-xs text-slate-500">
                             <div className="flex items-center gap-1.5"><Building2 size={12} /> {f.ordemServicos[0]?.serviceStation || "—"}</div>
                             <div className="flex items-center gap-1.5 mt-1"><MapPin size={12} /> {f.cliente?.ilha || "—"}</div>
                           </td>
-                          <td className="p-3 text-xs text-slate-400">
+                          <td className="p-3 text-xs text-slate-500">
                             {f.dataEmissao ? formatDateTimeShort(f.dataEmissao) : "—"}
                           </td>
-                          <td className="p-3 text-right font-mono font-bold text-slate-100">{formatEuro(Number(f.valorTotal || 0))}</td>
+                          <td className="p-3 text-right font-mono font-bold text-slate-800">{formatEuro(Number(f.valorTotal || 0))}</td>
                           <td className="p-3 text-center">
                             {eff === "Pago" ? (
-                              <span className="text-emerald-400">—</span>
+                              <span className="text-emerald-600">—</span>
                             ) : (
-                              <span className={`font-mono font-bold ${dias > 0 ? "text-rose-300" : "text-slate-400"}`}>{dias}</span>
+                              <span className={`font-mono font-bold ${dias > 0 ? "text-rose-600" : "text-slate-500"}`}>{dias}</span>
                             )}
                           </td>
                           <td className="p-3">
@@ -360,14 +360,14 @@ export default function ContasReceberPage() {
                                 value={f.pagamentoStatus}
                                 disabled={savingId === f.id}
                                 onChange={(e) => setPaymentStatus(f.id, e.target.value)}
-                                className={`rounded-lg border px-2 py-1 text-xs font-semibold bg-slate-950 focus:outline-none ${PAGAMENTO_BADGE_CLASSES[f.pagamentoStatus] || PAGAMENTO_BADGE_CLASSES.Pendente}`}
+                                className={`rounded-lg border px-2 py-1 text-xs font-semibold bg-white focus:outline-none ${PAGAMENTO_BADGE_CLASSES[f.pagamentoStatus] || PAGAMENTO_BADGE_CLASSES.Pendente}`}
                               >
                                 {PAGAMENTO_STATUS_LIST.map((s) => (
                                   <option key={s} value={s}>{s}</option>
                                 ))}
                               </select>
                               {eff === "Vencido" && (
-                                <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-rose-400">
+                                <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-rose-600">
                                   <AlertTriangle size={10} /> Vencido
                                 </span>
                               )}
@@ -382,7 +382,7 @@ export default function ContasReceberPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     title="Descarregar fatura Excel"
-                                    className="rounded-lg border border-slate-700 bg-slate-800 p-1.5 text-slate-300 hover:bg-slate-700 hover:text-teal-300 transition"
+                                    className="rounded-lg border border-slate-200 bg-white p-1.5 text-slate-600 hover:bg-slate-50 hover:text-teal-600 transition"
                                   >
                                     <Download size={14} />
                                   </a>
@@ -391,7 +391,7 @@ export default function ContasReceberPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     title="Descarregar fatura PDF"
-                                    className="rounded-lg border border-slate-700 bg-slate-800 p-1.5 text-slate-300 hover:bg-slate-700 hover:text-rose-300 transition"
+                                    className="rounded-lg border border-slate-200 bg-white p-1.5 text-slate-600 hover:bg-slate-50 hover:text-rose-600 transition"
                                   >
                                     <FileText size={14} />
                                   </a>
@@ -400,7 +400,7 @@ export default function ContasReceberPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     title="Descarregar recibo Excel"
-                                    className="rounded-lg border border-slate-700 bg-slate-800 p-1.5 text-slate-300 hover:bg-slate-700 hover:text-sky-300 transition"
+                                    className="rounded-lg border border-slate-200 bg-white p-1.5 text-slate-600 hover:bg-slate-50 hover:text-sky-600 transition"
                                   >
                                     <FileText size={14} />
                                   </a>
@@ -409,7 +409,7 @@ export default function ContasReceberPage() {
                               <button
                                 onClick={() => sendWhatsAppReminder(f)}
                                 title="Enviar lembrete por WhatsApp"
-                                className="rounded-lg border border-emerald-700 bg-emerald-900/40 p-1.5 text-emerald-300 hover:bg-emerald-900/70 transition"
+                                className="rounded-lg border border-emerald-200 bg-emerald-50 p-1.5 text-emerald-600 hover:bg-emerald-100 transition"
                               >
                                 <MessageSquare size={14} />
                               </button>
