@@ -101,9 +101,9 @@ export async function handleExportBudgetPdf(params: ExportBudgetExcelParams) {
   <div class="header">
     <div>
       <div class="title">ORÇAMENTO / PRO-FORMA</div>
-      <div class="brand" style="text-align:left;margin-top:4px">Orey Técnica Açores, Lda. · NIF: 512345678 · Ponta Delgada</div>
+       <div class="brand" style="text-align:left;margin-top:4px">Orey Técnica Serviços Navais, Lda. · NIF: 501117334 · Cabouco</div>
     </div>
-    <div class="brand">Orey Técnica - Serviços Navais, Lda.<br />Rua dos Caniços, nº 36, 2625-253 Vialonga<br />www.oreytecnica.com</div>
+    <div class="brand">Orey Técnica Serviços Navais, Lda.<br />Sede: Rua dos Caniços, nº 36, 2625-253 Vialonga<br />Delegação Açores: Zona Industrial dos Portões Vermelhos, Armazém 19, 9560-350 Cabouco</div>
   </div>
 
   <table class="info">
@@ -185,7 +185,7 @@ type ExportBudgetExcelParams = {
 export async function handleExportBudgetExcel(params: ExportBudgetExcelParams) {
   const ExcelJS = await import("exceljs");
   const wb = new ExcelJS.Workbook();
-  wb.creator = "Orey Técnica Açores";
+  wb.creator = "Orey Técnica Serviços Navais";
   wb.created = new Date();
 
   const ws = wb.addWorksheet("Pro-Forma");
@@ -240,7 +240,7 @@ export async function handleExportBudgetExcel(params: ExportBudgetExcelParams) {
 
   ws.mergeCells(4, 1, 4, 6);
   const subCell = ws.getCell("A4");
-  subCell.value = "Orey Técnica Açores, Lda. · NIF: 512345678 · Rua X, nº Y · 9500-000 Ponta Delgada";
+  subCell.value = "Orey Técnica Serviços Navais, Lda. · NIF: 501117334 · Zona Industrial dos Portões Vermelhos, Armazém 19 · 9560-350 Cabouco";
   subCell.font = { name: "Calibri", size: 9, color: { argb: TEXT_MUTED } };
   subCell.alignment = { horizontal: "center" };
 
