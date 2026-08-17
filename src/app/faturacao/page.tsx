@@ -151,7 +151,20 @@ export default function FaturacaoConsolePage() {
     setSuccessMsg(null);
     setCopiedLink(false);
     const metaLinhas = ordem.metadados?.linhas;
-    setLinhas(Array.isArray(metaLinhas) ? (metaLinhas as unknown as OrcamentoLinha[]) : []);
+    if (Array.isArray(metaLinhas)) {
+      const seen = new Set<string>();
+      const normalized: OrcamentoLinha[] = (metaLinhas as unknown as OrcamentoLinha[]).map((l) => {
+        let id = l.id || `unknown-${Math.random().toString(36).slice(2, 8)}`;
+        if (seen.has(id)) {
+          id = `${id}-${Math.random().toString(36).slice(2, 8)}`;
+        }
+        seen.add(id);
+        return { ...l, id };
+      });
+      setLinhas(normalized);
+    } else {
+      setLinhas([]);
+    }
     setAddingLinha(false);
   };
 
