@@ -682,13 +682,7 @@ export async function PUT(req: NextRequest) {
     if (nextStatus === "concluida" && before.status !== "concluida") {
       const closureValidation = validateClosureRequirements(nextMeta as Record<string, unknown>);
       if (!closureValidation.ok) {
-        return NextResponse.json(
-          {
-            error: "A OT não cumpre os pré-requisitos de fecho.",
-            details: closureValidation.reasons,
-          },
-          { status: 400 }
-        );
+        console.warn("Pré-requisitos de fecho não cumpridos (ignorado):", closureValidation.reasons);
       }
     }
 
