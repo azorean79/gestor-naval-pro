@@ -12,6 +12,7 @@ import { PACK_TEMPLATES, normalizarPackType } from "@/config/packTemplates";
 import type { Inspection, Raft, Navio, StockItem, ServiceOrder, ObraFormState, PricingState, InspectionReportRow, ObraPreviewLine } from "@/types/relatorios-page";
 import { SERVICE_STOCK_ITEMS, FIXED_ARTICLE_PRICES, RAFT_RELATED_STOCK_KEYWORDS } from "@/types/relatorios-page";
 import { normalizeList, safeReadJson, formatDate, normalizeText, splitApplicability, getApplicabilityBadge, getRaftKeywordScore, getShipDisplayName, getShipOptionLabel, buildSuggestedObraNumber, toNumber, formatCurrency, isOrderClosed, isOrderLate, getPriorityWeight, resolveArticleUnitPrice, formatDateLongPt } from "@/lib/relatorios-page-helpers";
+import { IVA_ISENCAO_CODES } from "@/lib/iva-isencao-codes";
 
 export default function RelatoriosPage() {
   return (
@@ -39,6 +40,7 @@ function RelatoriosContent() {
   const [lineOverrides, setLineOverrides] = useState<Record<string, { quantidade: number; unitPrice: number }>>({});
   const [isIvaExempt, setIsIvaExempt] = useState(false);
   const [hasIvaDeclaration, setHasIvaDeclaration] = useState(false);
+  const [declarationIvaCode, setDeclarationIvaCode] = useState<string>("M05");
   const [selectedInspectionId, setSelectedInspectionId] = useState<number | null>(null);
   const [ordersStatusFilter, setOrdersStatusFilter] = useState("all");
   const [ordersPriorityFilter, setOrdersPriorityFilter] = useState("all");
@@ -721,6 +723,10 @@ function RelatoriosContent() {
     ].filter(Boolean);
     const clienteMorada = addressParts.length > 0 ? addressParts.join(', ') : "[Morada não registada]";
 
+    const ivaCodeInfo = IVA_ISENCAO_CODES.find(c => c.code === declarationIvaCode);
+    const ivaCodeDisplay = ivaCodeInfo ? `${ivaCodeInfo.code} — ${ivaCodeInfo.mencao}` : "M05 — Isento artigo 14.º do CIVA";
+    const ivaCodeNorma = ivaCodeInfo?.norma || "Artigo 14.º do CIVA";
+
     const htmlString = `
       <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
       <head>
@@ -757,7 +763,7 @@ function RelatoriosContent() {
 
         <h2>Fundamento Legal</h2>
         <p>
-          Pelo exposto, solicito a aplicação da isenção de IVA, nos termos da alínea f) do n.º 1 do Artigo 14.º do Código do IVA, por se tratar de operações isentas relativas a embarcações de pesca.
+          Pelo exposto, solicito a aplicação da isenção de IVA, nos termos da \${ivaCodeDisplay} (\${ivaCodeNorma}), por se tratar de operações isentas relativas a embarcações de pesca.
         </p>
 
         <h2>Declaração de Responsabilidade</h2>
@@ -1307,13 +1313,25 @@ function RelatoriosContent() {
               Entregou declaração assinada
             </label>
             {isIvaExempt && (
-              <button
-                type="button"
-                onClick={handleGenerateIvaDeclaration}
-                className="rounded border border-emerald-300 bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-700 hover:bg-emerald-100 transition"
-              >
-                Gerar Declaração de Isenção de IVA (Word)
-              </button>
+              <div className="flex items-center gap-2">
+                <label className="text-xs font-semibold text-slate-600 whitespace-nowrap">Código AT:</label>
+                <select
+                  value={declarationIvaCode}
+                  onChange={(e) => setDeclarationIvaCode(e.target.value)}
+                  className="rounded border border-slate-200 px-2 py-1.5 text-xs bg-white"
+                >
+                  {IVA_ISENCAO_CODES.map((c) => (
+                    <option key={c.code} value={c.code}>{c.code} — {c.mencao}</option>
+                  ))}
+                </select>
+                <button
+                  type="button"
+                  onClick={handleGenerateIvaDeclaration}
+                  className="rounded border border-emerald-300 bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-700 hover:bg-emerald-100 transition"
+                >
+                  Gerar Declaração de Isenção de IVA (Word)
+                </button>
+              </div>
             )}
             <button
               type="button"

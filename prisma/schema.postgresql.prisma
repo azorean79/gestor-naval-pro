@@ -844,6 +844,7 @@ model OrdemServico {
   orcamentoStatus      String                      @default("Rascunho")
   isPesca              Boolean                     @default(false)
   isIsentoIva          Boolean                     @default(false)
+  codigoIsencaoIva     String?
   valorPecas           Float                       @default(0)
   valorMaoObra         Float                       @default(0)
   valorDesconto        Float                       @default(0)
@@ -1008,8 +1009,9 @@ model Fatura {
   valorSubtotal     Float      @default(0)
   valorIva          Float      @default(0)
   valorTotal        Float      @default(0)
-  isIsentoIva       Boolean    @default(false)
-  pagamentoStatus   String     @default("Pendente")
+   isIsentoIva       Boolean    @default(false)
+   codigoIsencaoIva  String?
+   pagamentoStatus   String     @default("Pendente")
   dataEmissao       DateTime   @default(now())
   emitidaPor        String?
   metadados         String?

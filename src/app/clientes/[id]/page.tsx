@@ -7,6 +7,7 @@ import { sortNaviosAlphabetically } from "@/lib/navios-sort";
 import { formatDateDisplay } from "@/lib/date-display";
 import { formatDateLongPt } from "@/lib/relatorios-page-helpers";
 import { User, Ship, FileText, ClipboardList, Settings, Mail, Phone, MapPin, Save, Search, Plus, Trash2, ExternalLink, AlertTriangle, Loader2, Building2, Receipt, History, MessageSquare, CreditCard, DollarSign } from "lucide-react";
+import { IVA_ISENCAO_CODES } from "@/lib/iva-isencao-codes";
 
 type Navio = { id: number; nome: string; matricula: string; portoRegisto?: string | null; ilha: string | null; tipoPesca: string; clienteId?: number | null; cliente?: { id: number; nome: string } | null };
 type Cliente = { id: number; nome: string; numeroCliente?: string | null; modoPagamento?: string | null; nif?: string | null; email?: string | null; telefone?: string | null; telmovel?: string | null; morada?: string | null; moradaNumero?: string | null; codigoPostal?: string | null; localidade?: string | null; ilha?: string | null; navios: Navio[] };
@@ -41,6 +42,7 @@ export default function ClienteDetalhePage() {
   const [deleting, setDeleting] = useState(false);
   const [exportingThirdPartySheet, setExportingThirdPartySheet] = useState(false);
   const [declarationNavioId, setDeclarationNavioId] = useState<number | string>("");
+  const [declarationIvaCode, setDeclarationIvaCode] = useState<string>("M05");
 
   // New Contact / Note state
   const [contactosLog, setContactosLog] = useState<Array<{ id: number; data: string; tipo: string; descricao: string; autor?: string }>>([]);
@@ -220,6 +222,10 @@ export default function ClienteDetalhePage() {
     const navioMatricula = String(navio?.matricula || "").trim() || "[Matrícula]";
     const navioPortoRegisto = String(navio?.portoRegisto || "").trim() || "[Porto de Registo]";
 
+    const ivaCodeInfo = IVA_ISENCAO_CODES.find(c => c.code === declarationIvaCode);
+    const ivaCodeDisplay = ivaCodeInfo ? `${ivaCodeInfo.code} — ${ivaCodeInfo.mencao}` : "M05 — Isento artigo 14.º do CIVA";
+    const ivaCodeNorma = ivaCodeInfo?.norma || "Artigo 14.º do CIVA";
+
     const htmlString = `
       <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
       <head>
@@ -256,7 +262,7 @@ export default function ClienteDetalhePage() {
 
         <h2>Fundamento Legal</h2>
         <p>
-          Pelo exposto, solicito a aplicação da isenção de IVA, nos termos da alínea f) do n.º 1 do Artigo 14.º do Código do IVA, por se tratar de operações isentas relativas a embarcações de pesca.
+          Pelo exposto, solicito a aplicação da isenção de IVA, nos termos da ${ivaCodeDisplay} (${ivaCodeNorma}), por se tratar de operações isentas relativas a embarcações de pesca.
         </p>
 
         <h2>Declaração de Responsabilidade</h2>
@@ -674,9 +680,9 @@ export default function ClienteDetalhePage() {
         {tab === "iva" && (
           <div className="rounded-2xl bg-white border border-slate-200 shadow-sm p-6">
             <h3 className="font-bold text-slate-800 mb-1 flex items-center gap-2"><Receipt size={16} className="text-indigo-500" />Declaração de Isenção de IVA</h3>
-            <p className="text-xs text-slate-500 mb-4">Gera o documento Word da declaração de isenção de IVA para o navio selecionado, nos termos da alínea f) do n.º 1 do Artigo 14.º do Código do IVA.</p>
+            <p className="text-xs text-slate-500 mb-4">Gera o documento Word da declaração de isenção de IVA para o navio selecionado, com o código de isenção da Autoridade Tributária.</p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
               <div>
                 <label className="block text-xs font-semibold text-slate-600 mb-1">Embarcação</label>
                 <select
@@ -698,6 +704,19 @@ export default function ClienteDetalhePage() {
                   <span className="block text-xs text-slate-500">{cliente.nif || "NIF não registado"}</span>
                   <span className="block text-xs text-slate-500">{[cliente.morada, cliente.moradaNumero, cliente.codigoPostal, cliente.localidade].filter(Boolean).join(", ") || "Morada não registada"}</span>
                 </div>
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-slate-600 mb-1">Código de Isenção (AT)</label>
+                <select
+                  value={declarationIvaCode}
+                  onChange={(e) => setDeclarationIvaCode(e.target.value)}
+                  className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm bg-white"
+                >
+                  {IVA_ISENCAO_CODES.map((c) => (
+                    <option key={c.code} value={c.code}>{c.code} — {c.mencao}</option>
+                  ))}
+                </select>
+                <p className="text-xs text-slate-400 mt-1">Código da Autoridade Tributária a constar na declaração.</p>
               </div>
             </div>
 
