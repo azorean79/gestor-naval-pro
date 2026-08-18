@@ -297,8 +297,8 @@ export function buildAuthOptions(isSecure?: boolean): NextAuthOptions {
 
       return session;
     },
-  },
-};
+  };
+}
 
 export const authOptions: NextAuthOptions = buildAuthOptions();
 
